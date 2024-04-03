@@ -1,0 +1,25 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{graphicx}
+\usepackage{layout}
+\usepackage{shortcuts}
+
+\usepackage{blindtext}
+\usepackage{subfiles} % Best loaded last in the preamble
+
+\usepackage{biblatex}
+
+\title{TODO}
+\author{Max von Consbruch}
+\date{\today}
+
+\bibliography{library} % Entries are in the refs.bib file
+
+\begin{document}
+
+\maketitle
+
+\subfile{LocalCFT/LocalCFT.tex}
+
+\printbibliography
+
+\end{document}

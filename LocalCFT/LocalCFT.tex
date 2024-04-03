@@ -1,0 +1,260 @@
+%! TeX root: ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Local Class Field Theory following Lubin-Tate}
+
+This section will serve as an introduction to formal groups and 
+formal modules. Formal groups (or rather, formal group laws) were first
+introduced by \textsc{Salomon Bochner} in 1946 as a natural means of studying Lie
+Groups over fields of characteristic $0$, cf. \cite{Bochner1946FGrps}. 
+The study of formal groups later became interesting for its own right, 
+with pioneering works of Lazard \cite{Lazard1955FGrps}
+
+\subsection{Formal Modules} % (fold)
+\label{sub:Formal Modules}
+As promised in the introduction, we begin by defining {formal group
+laws}.
+
+\begin{defi}[Formal Group Law]
+    Let $R$ be a ring. A (commututative, one-\allowbreak
+    dimen\-sional) formal group law over $R$ is a power series $F(X,Y) \in
+    R\llbr X, Y \rrbr$ such that $F(X,Y) \equiv X + Y$ modulo terms
+    of degree $2$ and
+    the following properties are satisfied:
+    \begin{itemize}
+        \item $F(F(X,Y),Z) = F(X,F(Y,Z))$,
+        \item $F(X,Y) = F(Y,X)$,
+        \item $F(X,0) = X$.
+    \end{itemize}
+\end{defi}
+Given two formal group laws $F, G \in R\llbr X,Y\rrbr$, a morphism
+$f: F\to G$ is a 
+power series $f \in R\llbr T \rrbr$ such that $f(F(X,Y)) = G(f(X),f(Y))$.
+Such a series is an isomorphism if there is an {inverse}, that
+is, a power series $g \in R\llbr T \rrbr$ with $(f \circ g)(T) = T$.
+This yields the category of formal group laws over $R$, which we notate by
+$\FGLover R$.
+
+The following statements about morphisms of formal group laws are 
+useful and easily verified.
+\begin{lem}\label{lem:FGLeasyfacts}
+  Let $R$ be a ring and let $F,G \in R\llbr X,Y\rrbr$ be two formal
+  group laws over $R$. 
+  \begin{enumerate}
+    \item Given two morphisms $f,g : F \to G$, the power series $G(f(T), g(T))
+      \in R\llbr T \rrbr$ is a morphism of formal group laws 
+      $F \to G$. In particular, $\Hom_\FGLover R(F,G)$ is an abelian
+      group for any two formal group laws $F,G$.
+    \item The abelian group $\End_\FGLover R(F)$ has a natural ring structure
+      with multiplication given by concatenation.
+    \item A morphism $f = c_1 T + c_2 T^2 + \dots \in R\llbr T \rrbr$ between
+      $F$ and $G$ is an isomorphism if and only if $c_1 \in R^\times$.
+  \end{enumerate}
+\end{lem}
+
+\begin{xpl} Let us introduce the following two formal group laws.
+  \begin{itemize}
+    \item \textit{The additive formal group law}. Write 
+      $\GG_a$ for the formal group law with addition given by 
+      $\GG_a(X,Y) = X + Y$. 
+    \item We write $\GG_m$ for the formal group law associated with the 
+      with $\GG_m(X,Y) = X + Y + XY$. 
+  \end{itemize}
+\end{xpl}
+
+Next up is the definition of formal $A$-module laws. Naively, we'd like to say
+that an $A$-module law is the same as that of a formal group law $F$
+plus $A$-module structure, i.e. a morphism of rings $[\cdot]_F: A \to
+\End_\FGLover R(F)$. But there is a subtlety going on here: Let 
+\begin{equation*}
+  \Lie: \FGLover R \to \Ab 
+\end{equation*}
+be the (constant) functor that sends $F \in \FGLover R$ to $(R,+)$, and morphisms
+$f: G \to H$ given by a formal power series
+$f = c_1 T + c_2 T^2 + \dots \in R\llbr T \rrbr$ to the endomorphism
+of $R$ given by multiplication with $c_1$. The condition that 
+$F(X,Y) \equiv X+Y$ modulo degree $2$ enforces that the induced map
+$\End(F) \to \End(R)$ is a morphism of rings. Now, the $A$-module structure on $F$ 
+yields an $A$-module structure on $R$, given by the concatenation\begin{equation*}
+  A \xto{[\cdot]_F} \End(F) \xto{\Lie} \End(R), \quad a \mapsto \Lie([a]_F)
+\end{equation*}
+
+This is a morphism of rings, and we obtain that $R$ is an $A$-algebra. We'd
+like the $A$-algebra structure on $R$ to be uniform. This
+motivates the following definition.
+\begin{defi}[Formal $A$-module law]
+  Let $A$ be a ring and $R$ be an $A$-algebra with structure
+  morphism $p: A \to R$. A (one-dimensional) $A$-module law over an $R$ is a
+  pair $(F, ([a]_F)_{a \in A})$, where $F \in R\llbr X,Y \rrbr$ is 
+  a formal group law and $[a]_F = p(a)X + c_2X^2 + \dots 
+  \in R\llbr X \rrbr$ yield endomorphisms $F \to F$ such that the induced map
+  \begin{equation*}
+    A \to \End(F), \quad a \mapsto [a]_F 
+  \end{equation*}
+  is a morphism of rings.
+\end{defi}
+Similarly to above, we obtain a category of formal $A$-module laws over $R$,
+which we denote by $\FMLOver A R$. Note that $\FGLover R \cong \FMLOver \Z R$.
+Slightly abusing notation, we usually do not explicitely mention the $A$-structure
+when referring to formal module laws, simply writing $F \in \FMLOver AR$, for
+example. 
+
+The following lemma explains a the functoriality of the assignment
+$R \mapsto \FMLOver A R$.
+
+\begin{lem}\label{lem:FMLFunc}
+  The assignment $R \mapsto \FMLOver A R$ is functorial in the following sense.
+  If $p: R \to R'$ is a morphism of $A$-algebras, we obtain a functor
+  \begin{equation*}
+    \FMLOver A R \to \FMLOver A {R'}, \quad F \mapsto p_*F,
+  \end{equation*}
+  where $p_*F$ is the formal $A$-module law obtained by applying $p$ to the
+  coefficients of the formal power series representing addition
+  and scalar multiplication of $F$. We sometimes write
+  (with abuse of notation) $p_* F = F \otimes_R R'$. 
+\end{lem}
+
+Note that every formal module law $F \in \FMLOver A R$ yields a functor
+\begin{equation*}
+  \Alg R \to \Mod A, \quad S \mapsto \Nil(S),
+\end{equation*}
+where $\Nil(S)$, the set of nilpotent elements of $S$, is equipped with
+addition and scalars given by 
+\begin{equation*}
+  s_1 + s_2 = F(s_1, s_2) \in \Nil(S), \quad a s = [a]_F(s) \in \Nil(S).
+\end{equation*}
+This construction yields a functor (with slight abuse of notation)
+\begin{equation*}
+  \Formal: \FMLOver A R \to \Fun(\Alg R, \Mod A),
+\end{equation*}
+
+where $\Fun$ denotes the functor category. We will mostly think of formal 
+module laws in terms of this functor. Following this line of thought leads 
+naturally to the definition of formal modules. 
+
+\begin{defi}[Formal Group and Formal Module.]
+  A formal $A$-module $\cF$ over an $A$-scheme $X$ is given by an equivalence class
+  of systems $(U_i, F_i)_{i \in I}$, where $(U_i)_{i \in I}$ is an affine
+  Zariski cover of $X$ with $U_i = \spec(R_i)$ and $F_i \in \FMLOver A {R_i}$
+  are compatible $A$-module laws. Here, compatible means that there are
+  isomorphisms
+  \begin{equation*}
+    F_i \otimes_{R_i} (R_i \otimes_{\cO_X(U_i \cup U_j)} R_j)  \cong F_j
+    \otimes_{R_j} (R_i \otimes_{\cO_X(U_i \cup U_j)} R_j).
+  \end{equation*}
+  Two systems $(U_i, F_i)$ and 
+  $(V_j, G_j)$ are isomorphic if the corresponding group laws
+  $F_i$ and $G_j$ are isomorphic after refining the respective covers. 
+  We denote the resulting categories by $\FMOver R X$ and $\FGover X$.
+  A representing sysstem $(U_i, F_i)_{i \in I}$ will be referred to as 
+  a coordinate of $\cF$.
+  
+\end{defi}
+In short, a formal $A$-module over an $A$-scheme $X$ is an
+object in the stackification of the prestack $R \mapsto \FMLOver A R$ on 
+the Zariski-site of schemes over $\spec A$. 
+
+Of course there is a functor 
+\begin{equation*}
+  \FMLOver AR \to \FMOver AR,
+\end{equation*}
+essentially forgetting the choice of module law. The observation of Lemma 
+\ref{lem:FMLFunc} translates to formal modules, a morphism $p : R \to R'$ 
+yields a functor 
+\begin{equation*}
+  p_*: \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
+\end{equation*}
+\textit{A priori}, a formal $A$-module $\cF$ over $R$ does not give rise to a
+functor constantly valued in $\Nil(R)$. However, it does so locally, 
+and it turns out that there exists a line bundle $\cL/\cO_X$ (dependent on $\cF$)
+such that $\cF$ is equivalent to a functor
+\begin{equation*}
+  \cF: \Alg {\cO_X} \to \Mod A, \quad \cA \mapsto \Hom_{\cO_X}(\cL,
+  \Nil(\cA)).
+\end{equation*}
+Here $\Alg {\cO_X}$ denotes the category of quasi-coherent $\cO_X$-algebras,
+and $\Nil(\cO_X)$ is the quasi-coherent $\cO_X$-module given on 
+opens subsets by $U \mapsto \Nil(\cO_X(U))$. The $A$-module structure 
+of the right-hand side can be described locally on $X$ after choosing 
+a system of coordinates.
+
+\subsubsection{Formal Modules over Finite Fields}
+
+\subsubsection{Formal DVR-Modules}
+Let $K$ be a local field with residue field $k$, put $q = \# k$, and 
+denote by $\nu_K: K \to \Z \cup \{\infty\}$ the valuation of $K$, normalized
+such that $\nu_K(\pi) = 1$ for a uniformizer $\pi$ of $K$.
+The aim of this subsection is to describe the maximal abelian extension of
+a local field $K$.
+Local fields naturally carry the topology induced from the $\pi$-adic 
+topology on its rings of integers $\cO_K$. To deal with the topological 
+rings showing up, the notion of admissible rings will be convenient (taken from
+\cite[Tag 07E8]{stacks-project}).
+
+\begin{defi}
+  Let $A$ be a topological ring. We say that $A$ is admissible if
+  \begin{itemize}
+    \item The element $0 \in A$ has a fundamental system of neighbourhoods
+      consisting of ideals.
+    \item There exists an ideal of definition, that is, an ideal $I \subset A$ such
+      that every open neighbourhood of $0$ contains $I^n$ for some $n$.
+    \item It is complete, that is, the natural map
+      \begin{equation*}
+        A \to \lim_{J \subset A \text{ open ideal}} A/J
+      \end{equation*}
+      is an isomorphism.
+  \end{itemize}
+  We say that $A$ is adic if it admits an open ideal of definition.
+  Given a topological ring $A$, we denote the category of admissible 
+  and adic $A$-algebras (algebras $S$ with continuous morphism $A \to S$) by
+  $\Adm A$ and $\Adic A$, respectively.
+\end{defi}
+
+Suppose that $R$ is a local, adic $\cO_K$-algebra. Then any $\cF \in \FMOver
+{\cO_K} R$ yields a functor 
+\begin{equation*}
+  \Adm R \to \Mod {\cO_K}, \quad S \mapsto S^\cici \coloneqq \{s \in S \mid
+  \lim_{n \to \infty} s^n = 0\},
+\end{equation*}
+with $A$-module structure on $S^\cici$ given explicitly after choosing a
+coordinate of $\cF$. Indeed, infinite sums over null sequences converge 
+by completeness of admissible algebras.
+
+
+
+\subsection{The Local Kronecker-Weber Theorem} % (fold)
+\label{ssub:Formal Modules over algebraically closed fields}
+
+Let $K^\ab$ denote the maximal abelian extension of $K$, which can explicitely
+be described as $\bar K^{[G_K, G_K]}$. Write $K_\infty$ for it's completion,
+then $K_\infty = C^{[G_K, G_K]}$. 
+
+Recall the definition of $\breve K$, the completion of the maximal closure of
+$K$. First we choose an algebraic closure $\bar K$ of $K$. The valuation 
+$\nu_K$ extends uniquely to $\bar K$, yielding a $\pi$-adic norm on
+$\bar K$. Let $C$ denote the completion with respect to this norm. 
+An application of Krasner's Lemma implies that $\Gal(C/K) \cong \Gal(\bar K/K)
+\eqqcolon G_K$
+\todo{Ref}. One readily checks that any $\sigma \in G_K$ yields a 
+continuous automorphism $\cO_C \to \cO_C$, and we obtain a short exact sequence 
+\begin{equation*}
+  0 \to I_K \to G_K \to \Gal(\bar k /k) \to 0.
+\end{equation*}
+The subgroup $I_K \subset G_K$ is called the inertia subgroup of $K$,
+and $\breve K$ is the subfield of $C$ fixed by $I_K$. In particular we have 
+$\Gal(\breve K /K) \cong \Gal(\bar k /k)$. One readily confirms that 
+$\breve K$ is complete with respect to the norm induced by $K$. 
+
+As the Galois group of any finite extension
+of $k$ is cyclic, we find that $\Gal(\breve K/K)$ is abelian. In fact,
+it is isomorphic to $\hat \Z = \lim_n (\Z/n\Z)$. Hence
+$K_\infty$ decomposes as $\breve K \cdot K_\pi$ for some abelian extension 
+$K_\pi/K$ such that $K_\pi \cap \breve K = K$. Now necessarily 
+$$\Gal(K_\infty/K) \cong \Gal(K_\pi/K) \times \Gal(\breve K/K)
+\cong \Gal(K_\pi/K) \times \hat \Z.$$
+We will give an explicit construction of $K_\pi$ using formal modules.
+
+% subsection The local Kronecker-Weber Theorem (end)
+\end{document}

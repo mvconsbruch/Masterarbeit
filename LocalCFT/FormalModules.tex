@@ -1,0 +1,583 @@
+%! TeX root: ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Formal Modules} % (fold)
+\label{sub:Formal Modules}
+
+\subsubsection{Formal schemes} % (fold)
+\label{ssub:Formal schemes}
+
+\begin{defi}[Admissable and Adic Rings]\cite[Tag 07E8]{stacks-project}
+    Let $A$ be a topological ring.
+    \begin{enumerate}
+        \item $A$ is called \emph{linearly topologized} if $0 \in R$ has a basis of 
+            neighbourhoods, which are ideals.
+        \item If $A$ is \emph{linearly topologized}, then an ideal $I \subset R$ is 
+            called an \emph{ideal of definition}, if $I \subset R$ is open and
+            every neighbourhood of $0$ contains $I^n$ for some $n \geq 0$.
+        \item $A$ is called \emph{admissible} if $A$ is linearly topologized,
+            contains an ideal of definition and $A$ is complete. That is, there
+            is an isomorphism of topological rings $A \cong \underset{J}\lim
+            A/J$, where $J$ is running through a fundamental systems of
+            neighbourhoods of $0$ which are ideals and the right hand side is
+            equipped with the limit topology. For an admissible ring $A$, 
+            an admissible $A$-algebra is an admissible ring $R$ with a continuous
+            homomorphism $A \to R$. These objects form a category, which we 
+            denote by $\Adm_A$.
+        \item $A$ is called \emph{adic} if $A$ is complete and it is $I$-adic
+            for some ideal $I \subset A$. That is, if it is admissable with some
+            ideal of definition $I$ such that $I^n$ is open for all $n \in \N$.
+            For an adic ring $A$, an adic $A$-algebra is an adic ring $R$ with 
+            a continuous homomorphism $A \to R$. These objects form a category,
+            which we denote by $\Adic_A$. 
+    \end{enumerate}
+\end{defi}
+
+We follow \cite{EGA} for the formalism of formal schemes (also, see
+\cite[tag 0AHY]{stacks-project})
+\begin{defi}[formal scheme]
+    A formal scheme is a locally topologically ringed space $\fX$ locally
+    isomorphic to $\Spf(B)$ for an admissible ring $B$. 
+\end{defi}
+
+\begin{defi}[Formally smooth morphism of formal schemes]
+    Let $R$ be an admissible ring. A formal $R$-scheme $\fX \to \spf(R)$ is called
+    formally smooth if for every discrete $R$-algebra $S$ and any
+    nilpotent ideal $I$, the map $\fX(S) \to \fX(S/I)$ is surjective.
+\end{defi}
+
+\begin{defi}[Tangent space]
+    Let $R$ be an admissible ring and let $\fX \to \spf(R)$ be a formally smooth
+    formal scheme over $\spf(R)$. Suppose there is a section
+    $s: \spf(R) \to \fX$ of the structure morphism with image contained in
+    some affine open $\spf(B) \subset \fX$. Now $s$ corresponds
+    to a continuous surjective homomorphism $B \to R$ with kernel $I$.
+    Then we define the tangent space of $\fX$ at $s$ via 
+    \begin{equation*}
+        \cT_s \fX \coloneqq \Hom_{\Mod_R}(I/I^2, R).
+    \end{equation*}
+\end{defi}
+
+\begin{defi}[Lie algebra]
+    Let $R$ be an admissible ring and let $\cG$ be a formally smooth group
+    object in the category of formal schemes over $\spf(R)$, with identity 
+    $0_{\cG}: \spf(R) \to \cG$. Then the Lie algebra of $\cG$ is defined as
+    \begin{equation*}
+        \Lie(\cG) = \cT_{0_{\cG}} \cG,
+    \end{equation*}
+    i.e., it is the tangent space at the identity.
+\end{defi}
+% subsubsection Formal schemes (end)
+
+\subsubsection{Formal Groups} % (fold)
+\label{ssub:Formal Groups}
+
+\begin{defi}[Formal Group Law]
+    Let $R$ be a ring. A (commututative, one-\allowbreak
+    dimen\-sional) formal group law over $R$ is a power series $F(X,Y) \in
+    R\llbr X, Y \rrbr$ such that $F(X,Y) = X + Y + \textit{higher terms}$ and
+    the following properties are satisfied:
+    \begin{itemize}
+        \item $F(F(X,Y),Z) = F(X,F(Y,Z))$,
+        \item $F(X,Y) = F(Y,X)$,
+        \item $F(X,0) = X$.
+    \end{itemize}
+    A formal group law can equivalently be described as a group structure
+    on $\spf R\llbr T \rrbr$ in the category of formal schemes such that
+    the identity is given by the morphism corresponding to the ring homomorphism
+    $[0]: R\llbr T \rrbr \to R, T \mapsto 0$, such that the
+    induced group structure on $\cT_{\spf([0])}\spf(R\llbr T \rrbr)$ coincides with
+    the natural group structure (as $R$-module). We sometimes write 
+    $X +_F Y$ instead of $F(X,Y)$.
+\end{defi}
+
+\begin{defi}[Morphisms of formal grup laws.]
+    Let $F, G \in R\llbr X, Y \rrbr$ be formal group laws over
+    a ring $R$. A \textit{morphism} of formal groups
+    $F \to G$ is a power series $f(T) \in T R\llbr T \rrbr$ such that
+    $f(F(X,Y)) = G(f(X), f(Y))$. This yields the
+    \emph{category of formal groups over $R$}, which we denote $\FGL(R)$. 
+    Equivalently, it is a morphism of formal groups
+    \begin{equation*}
+        (\spf(R\llbr T \rrbr), +_F) \to (\spf(R\llbr T \rrbr), +_G).
+    \end{equation*}
+\end{defi}
+
+We now introduce formal $A$-module laws, which were first discussed in the context 
+of local class field theory by Lubin and Tate in \cite{LubinTateFormalMult}.
+
+\begin{defi}[Formal $A$-module law]
+    Let $A$ be a ring and $R$ be an $A$-algebra with structure
+    morphism $p: A \to R$. A (one-dimensional) $A$-module law over an $R$ is a
+    pair $(F, ([a])_{a \in A})$, where $F \in R\llbr X,Y \rrbr$, is 
+    a formal group law, and $[a]_F = p(a)X + \textit{higher terms}
+    \in R\llbr X \rrbr$ are power
+    series such that the following identities are satisfied:
+    \begin{itemize}
+        \item \textit{$a \mapsto [a]_F$ is a morphism of monoids:} $[ab]_F(X) = 
+            [a]_F \circ [b]_F(X)$.
+        \item \textit{distributivity:} $F([a]_F(X), [a]_F(Y)) = [a]_F(F(X,Y))$
+    \end{itemize}
+    Equvalently, a formal $A$-module law is an $A$-module structure on 
+    $\spf(R\llbr T \rrbr)$, such that the addition yields a formal group law
+    and the induced $A$-module structure on 
+    $\Lie(\spf(R \llbr T \rrbr)) \cong R$ is identical to the natural structure 
+    as an $A$-module.
+\end{defi}
+
+\begin{defi}[Category of $A$-module laws]
+    Let $A$ be a ring and let $F = (F, ([a]_F)_{a\in A})$, $G = (G, ([a]_G)_{a
+    \in A})$ be formal $A$-module laws over an $A$-algebra $R$. A
+    \textit{morphism of formal module laws} between $F$ and $G$ is a power
+    series $f(X) \in R\llbr X \rrbr$ such that
+    $f(F(X,Y)) = G(f(X),f(Y))$. This gives rise to the category of formal
+    $A$-module laws over $R$, denoted $\FGL_A(R)$. 
+\end{defi}
+
+\textbf{Remark.} The theory of $A$-module laws can easily be extended to higher 
+dimensions: An $n$-dimensio\-nal formal group law over $R$ corresponds to a
+tuple of power series $F_1, \dots, F_n \in \R\llbr X_1, \dots, X_n,\allowbreak
+Y_1, \dots, Y_n \rrbr$, such that the evident relations are satisfied.
+Similarly, the multiplication-by-$a$ maps become a tuple of power series in $n$
+variables.
+
+\begin{defi}[Base change]
+    For a morphism of adic rings $p: R \to R'$ and a formal module $G$ over $R$,
+    there is a formal module law $G \otimes_R R'$ over $R'$, which 
+    is given by applying $p$ to the coefficients of the corresponding power
+    series. This gives rise to a functor $- \otimes_R R': \FGL_A(R) \to \FGL_A(R')$, 
+    which we call \emph{base change}. 
+\end{defi}
+
+\begin{lem}
+    The assignment $\spf(R) \mapsto \FGL_A(R)$ together with the base change 
+    functors yields a prestack on the category of affine formal schemes over $\spf(A)$.
+\begin{proof}
+    There is not much to check. \red{TODO}
+\end{proof}
+\end{lem}
+
+\begin{defi}[Category of formal $A$-modules]
+    Let $A$ be a ring.
+    Let $\FG_A$ be the stackification of $\FGL_A$ on the big Zariski site in the 
+    category of affine formal schemes over $\spec(A)$. For an $A$-algebra
+    $R$, a \emph{formal $A$-module over $R$} is an object of $\FG_A(R)$.
+    Concretely, a formal $A$-module $\cG \in \FG_A(R)$ is an
+    affine formal group scheme such that there is a (finite) cover
+    $\bigsqcup_i U_i \to \spec(R)$, where $U_i$ is the distinguished open associated 
+    to some $f_i \in R$ and $\cG \times_{\spec(R)} U_i$ is isomorphic (as 
+    formal group scheme) to $\spf(R[\tfrac1{f_i}] \llbr T \rrbr)$, equipped with
+    a formal $A$-module law. A morphism of two formal groups is simply
+    a morphism of $A$-module objects in the category of formal schemes over $A$.
+\end{defi}
+\textbf{Remark.} Here we defined \textit{one-dimensional} formal group laws. This 
+definition can be extended to arbitrary dimensions in the evident way. The remark 
+above explains how to obtain formal group laws of arbitrary dimension, and we obtain
+formal groups of arbitrary dimension after stackification.
+
+\vspace{6pt}
+What follows is some study on the essential image of the (fully faithful)
+functor $\FGL_A(R) \to
+\FG_A(R)$.
+
+\begin{defi}[]
+    Let $R$ be a ring, and let $M$ be a $R$-module. Define
+    $R\llbr M \rrbr$ as the completion of $\Sym^\bullet M$ with respect to 
+    the $M$-adic topology. Then $R\llbr M \rrbr$ represents the functor 
+    \begin{equation*}
+        S \in \Adm_R \mapsto \Hom_{\Mod_R}(M, S^\cici).
+    \end{equation*}
+\end{defi}
+
+\begin{lem}
+    Let $A$ be an admissible ring and let $R$ be an admissible $A$-algebra. 
+    Let $\cG \in \FG_A(R)$. Then the formal scheme $\cG$ is isomorphic to
+    $\spf(R \llbr M \rrbr)$ for some finite projective $R$-module $M$.
+\end{lem}
+\begin{proof}
+    \red{TODO!}
+\end{proof}
+
+\begin{lem}\label{lem:inversegrouphom}
+    Let $F,G$ be one-dimensional formal $A$-module laws over $R \in \Alg_A$.
+    Then any non-zero homomorphism $f\in \Hom_{\FGL_A(R)}(F,G)$ 
+    given by a power series of the form $f(X) = c_1X + \textnormal{higher
+    terms}$ with $c_1 \in R^\times$ is an isomorphism.
+\begin{proof}
+    Without loss of generality we can assume that $c_1 = 1$. Let us recursively
+    contruct a left inverse $e: G \to F$ of $f$, that is, a power series
+    $e \in R\llbracket X \rrbracket$ such that $e(f(X)) = X$. Set
+    $e_1(X) = X$. Now let $n$ be arbitrary and suppose we have a power series 
+    $e_n$ such that $e_n(f(X)) = X + cX^{n+1} + \textit{higher terms}$. Then we 
+    set $e_{n+1}(X) = e_n(X) - cX^{n+1}$, and we verify that 
+    $e_{n+1}(f(X)) = X + c'X^{n+2} + \textit{higher terms}$, as desired. Now set
+    $e(X) \coloneqq \lim_{n \to \infty} e_{n}(X)$. By construction we have
+    $e(f(X)) = X$. Using the same technique one can construct the (unique) right inverse 
+    $e' \in R\llbr X \rrbr$ of $f$, i.e., a power series with $f(e'(X)) = X$. 
+    One readily checks that $e = e'$, and that $e$ is a map of $A$-module laws.
+\end{proof}
+\end{lem}
+
+% subsubsection Formal groups(end)
+
+\subsubsection{Formal modules over rings of integers} % (fold)
+\label{ssub:Formal modules over rings of integers}
+For our applications, or more generally in the setting of local class field theory,
+formal $A$-modules arise for $A$ the ring of integers of a
+non-Archimedean local field $K$. So let us now fix such a field, denote by
+$\cO_K$ its ring of integers, in which we fix a uniformizer $\varpi \in \cO_K$. 
+Let $\breve K$ denote the completion of the maximal unramified extension of $K$.
+We will furthermore be mostly interested in formal $\cO_K$-modules over noetherian local
+$\cO_{\breve K}$-algebras with residue field $\bar \FF_q$, which are complete
+and Hausdorff (although this is automatic for our notion of completeness) with
+respect to the $\varpi$-adic topology. Let us denote the category of such rings
+with $\cC$. For sake of clarity, the succeeding results and definitions on
+formal groups will be stated in this setting. Most of the results readily
+generalize to more general situations.
+
+
+\begin{defi}[Isogenies]
+    Let $\cF, \cG \in \FG_{\cO_K}(R)$ be two formal $\cO_K$-modules over $R$, and 
+    let $f: \cF \to \cG$ be a morphism between $\cF$ and $\cG$. Write
+    $\ker f = \cF \times_{\cG, 0_G} \spec(R)$ for the kernel of $f$. We call
+    $f$ a \emph{isogeny} if $\ker f$ is finite and locally free over $\spec(R)$.
+\end{defi}
+
+\begin{defi}[The height function]
+    Assume that $\pi = 0$ in $R$. 
+    Let $\cG \in \FG_{\cO_K}(R)$, and pick some coordinate $\cG \cong
+    \spf(k\llbr T \llbr)$ giving rise to some formal $A$-module structure $(G,
+    [-]_G)$. The \emph{height} of $\cG$ is defined as the largest integer $n$
+    such that $[\pi]_G(X) = a_1X^{q^n} + a_2 X^{q^{2n}} + \dots.$ If
+    $[\varpi]_G = 0$, we say that $G$ has infinite height. 
+    \vspace{6pt}
+    More generally, if $R \in \Alg_A$ define the function
+    \begin{equation*}
+        \height_\cG: \spec(R) \to \Z_{\geq 0} \cup \{\infty\}, 
+        x \mapsto \height(\cG \times_{\spec(R)} \spec(k(x)))
+    \end{equation*}
+\end{defi}
+
+\begin{defi}[]
+    Let $R \in \Adic_A$ and let $\cG$ be a formal $A$-module over $R$. Then 
+    we call $G$ a $\pi$-divisible formal $A$-module if $[\pi]_{\cG}: \cG \to \cG$ 
+    is a isogeny. 
+\end{defi}
+
+
+% subsubsection The height(end)
+
+
+\subsubsection{The universal cover} % (fold)
+We keep the conventions on $A$ and $R$ from the last section. 
+
+\label{sub:The universal cover}
+\begin{defi}[universal cover of $G$]
+    Let $R \in \Adic_{\cO_{A}}$ and let $G$ be a $\varpi$-divisible
+    formal $\cO_K$-module over $R$. We define a functor
+    \begin{equation*}
+        \tilde G: \Adic_R \to \Vec_K, \quad S \mapsto \lim_{x \mapsto
+        [\varpi]_G(x)} G(S) = \{(x_0, x_1, \dots ) \mid [\varpi]_G(x_i) =
+        x_{i-1}\}.
+    \end{equation*}
+    We call $\tilde G$ the \emph{universal cover} of $G$. 
+\end{defi}
+
+\begin{defi}[Tate module]
+    For $A$ and $G$ as above, denote by
+    $T_\varpi G$ The \textit{Tate module} associated to $G$. This is the functor
+    sending $R \in \Adm_S$ to the
+    $\cO_K$-module
+    \begin{equation*}
+        \{(x_1, x_2, \dots ) \in \tilde G(R) \mid [\varpi]_G(x_1) = 0\},
+    \end{equation*}
+    which is naturally a subfunctor of $\tilde G$. The rational Tate module $V_\varpi G$,
+    given by the functor $R \mapsto (T_\varpi G)(R) \otimes_{\cO_K} K$ also embedds
+    into $\tilde G$.
+\end{defi}
+
+\begin{defi}[Tilting]
+    Let $R \in \Adic_A$. We write
+    \begin{equation*}
+        R^\flat = \lim_{x \mapsto x^q} R/(\pi) = \left\{(x_1, x_2 ,\dots) \in
+        \prod_\N (R/(\pi)) \mid x_{i+1}^q = x_i\right\}
+    \end{equation*}
+    for the \emph{tilt} of $A$. We write 
+    \begin{equation*}
+        \Nilp^\flat(R) \coloneqq \{(x_1, x_2, \dots) \in R^\flat \mid 
+        x_1 \in \Nilp(R/(\pi))\}.
+    \end{equation*}
+\end{defi}
+\blue{$A^\flat$ is a perfect $A/(\pi)$-algebra.}
+
+\begin{prop}\label{prop:Teichmuellerlift}
+    Let $R \in \Adic_A$ with ideal of definition $I$ containing the image of $\pi$. Then
+    the natural map
+    \begin{equation*}
+        \Pi: \lim_{x \mapsto x^q} R \to (R/I)^\flat 
+    \end{equation*}
+    is bijective. In particular, this equips the left hand side with the natural
+    structure of an $A$-algebra. Similarly, we have
+    \begin{equation*}
+        \lim_{x \mapsto x^q} \Nilp(R) \xto \sim \Nilp^\flat(R).
+    \end{equation*}
+\begin{proof}
+    We construct an inverse $\Psi$ of $\Pi$. Let $x = (x_1, x_2, \dots) \in (R/I)^\flat$ 
+    and let $(\tilde x_1, \tilde x_2, \dots) \in \prod_\N R$ be a arbitrary
+    lift. One can check that the sequence $(x_i^{q^i})_{i \in \N}$ is a
+    Cauchy-sequence in $R$, and we obtain an element $x^\sharp = \lim_{i \to
+    \infty} x_i^{q^i} \in R$. Similarly, we obtain elements $(x^\sharp)^{1/q} =
+    \lim_{i \to \infty} x_i^{q^{i-1}}$, $(x^\sharp)^{1/q^2} = \lim_{i \to
+    \infty} x_i^{q^{i-2}}$, \dots, yielding a lift $(x^\sharp,
+    (x^\sharp)^{1/q}, (x^\sharp)^{1/q^2}, \dots)$. It turns out that the choice of the 
+    elements $\tilde x_i$ does not change the element $x^\sharp$ and it's distinguished
+    $q$-power roots, so the map 
+    $$\Psi: (A/I)^\flat \to \lim_{x \mapsto x^q} A , \quad x \mapsto x^\sharp$$
+    is well-defined. 
+    It is immediate that $\Pi \circ \Phi = \id$, and using the uniqueness of the
+    lifts it is readily confirmed that $\Phi \circ \Pi = \id$. 
+
+    The second part of the proposition follows by identifying the image of 
+    $\lim_{x\mapsto x^q} \Nilp(R) \subset \lim_{x \mapsto x^q} R$ under 
+    $\Pi$. 
+\end{proof}
+\end{prop}
+
+
+\begin{prop}\label{prop:UnivCovRepFq}
+    Assume that $R \in \Adic_{A}$ is a $\bar \FF_q$-algebra (i.e., $\pi$
+    vanishes in $A$) and let $G \in \FG_{\cO_K}(R)$ be a $\pi$-divisible
+    formal group of height $n$ in the essential image of 
+    $\FGL_A(R) \to \FG_A(R)$. The choice of a coordinate $G \cong \spf(R\llbr
+    T \rrbr)$ yields an isomorphism $\tilde G \cong \spf(R\llbr
+    T^{1/q^\infty}\rrbr)$. In particular, there is a isomorphism of functors
+    \begin{equation*}
+        \tilde G \cong \Nilp^\flat.
+    \end{equation*}
+\begin{proof}
+    We can write $[\varpi]_G(X) = g(X^{q^n}) \in \bar \FF_q\llbr X \rrbr$ for some 
+    $g(X) = c_1X + c_2X^2 + \dots$ with $c_1 \neq 0$. For each coefficient $c_i$, let
+    $d_i \in \bar \FF_q$ be the unique element such that $d_i^{q^n} = c_i$. Let
+    $h \in \bar \FF_q\llbr X \rrbr$ be the power series given by $d_1 X + d_2
+    X^2 + \dots$. Now $(h(X))^{q^n}=[\varpi]_G(X)$, and we find that 
+    \begin{equation*}
+        \tilde G(S) \to \lim_{x \mapsto x^{q^n}} S^\cici: \quad
+        (x_1, x_2, x_3, \dots) \mapsto (x_1, h(x_2), h(h(x_3)), \dots)
+    \end{equation*}
+    is a well-defined function, and (trivially) functorial in $S$. For the
+    inverse, let $h^{-1}(X) \in \bar \FF_q\llbr X \rrbr$ be the inverse power
+    series of $h$ as in lemma \ref{lem:inversegrouphom}, which is the unique power
+    series with $h^{-1}(h(X))= h(h^{-1}(X)) = X$. The map
+    \begin{equation*}
+        \lim_{x \mapsto x^{q^n}} S^\cici \to \tilde G(S), \quad 
+        (x_1, x_2, \dots ) \mapsto (x_1, h^{-1}(x_2), h^{-1}(h^{-1}(x_3)), \dots)
+    \end{equation*}
+    is well-defined as
+    \begin{equation*}
+        [\varpi]_G(h^{-1}(X)) = g((h^{-1}(X))^{q^n}) = (h(h^{-1}(X)))^{q^n} =
+        X^{q^n}
+    \end{equation*}
+    and it is readily seen to be inverse to the map constructed above.
+\end{proof}
+\end{prop}
+
+Now let $\breve K$ denote the completion of the maximal unramified extension of 
+$K$, and write $\cO_{\breve K}$ for its ring of integers. 
+
+\begin{prop}\label{prop:UnivCovRep}
+    Now let $R$ be an adic $\cO_{\breve K}$-algebra with
+    ideal of definition $I$. Let $G \in \FG_{\cO_K}(\cO_{\breve K})$ be a 
+    $\varpi$-divisible formal group in the essential image of 
+    $\FGL_{\cO_K}(R) \to \FG_{\cO_K}(R)$. Fix an isomorphism $G \cong
+    \spf(A\llbr T \rrbr)$, and write $G_0$ for $G \otimes (R/I)$. 
+    \begin{enumerate}
+        \item For $R \in \Adic_A$ with ideal of definition $I$, the reduction
+            map $\tilde G(R) \to \tilde G_0(R/I)$ is an isomorphism of 
+            $K$-vector spaces.
+        \item If $R/I$ is a perfect field, there is an isomorphism $\tilde G(R)
+            \cong \Nilp^\flat(R)$.
+    \end{enumerate}
+\begin{proof}
+    \red{This is \cite[Proposition 2.7]{weinstein2016semistable}}.
+    To see injectivity of the map, write $I_R$ for the kernel of $R \to R \otimes
+    (A/I)$. Let $(x_1, x_2, \dots) \in \tilde G(R)$ lie in the kernel of $G(R)
+    \to G_0(R/I)$. Now $x_i \in I_R$ for all $i$. As $\varpi \in I_R$, we find 
+    $$x_{i} = [\varpi]_G(x_{i+1}) = \underbrace{\varpi x_{i+1}}_{\in I_R^2} +
+    \underbrace{c_2 x_{i+1}^2 + \dots}_{\in I_R^2},$$
+    showing that $x_i \in \cap_{m\geq 1} I_R^m = \{0\}$ for all $I$.
+    Surjectivity is a corollary of proposition \ref{prop:Teichmuellerlift}. 
+    Suppose $(x_1, x_2, \dots) \in \tilde G_0(R/I)$. Let
+    $\tilde x_1, \tilde x_2, \dots) \in \tilde G(R)$ be any lift. The same idea
+    as in the proof of proposition \ref{prop:Teichmuellerlift} shows that the
+    sequence $([\varpi]_G^{m} x_{i+m})_{m\geq 0}$ converges in $\tilde G(R)$, yielding 
+    an element $z_i \in \tilde G(R)$. Now by construction, $(z_1, z_2, \dots) \in 
+    G(R)$ maps to $(x_1, x_2, \dots)\in G_0(R/I)$. 
+    Part two is a direct consequence of part 1 and Proposition
+    \ref{prop:Teichmuellerlift}.
+\end{proof}
+\end{prop}
+
+\color{darkgray}
+\begin{itemize}
+    \item I should probably assume that $R \in \Alg_A$ and later impose that $R$ is 
+        $\pi$-complete, rather than imposing $R \in \Adic_A$ from the start. But 
+        that's just a thought.
+\end{itemize}
+
+\color{black}
+
+\subsubsection{The vertical map} % (fold)
+\label{sub:The vertical map}
+Let $G: \cC \to \Mod_{\cO_K}$ be a (one-dimensional) $\varpi$-divisible formal group over
+$\cO_{\breve K}$ and denote $G_0 = G \otimes_{\cO_{\breve K}} \bar \FF_q$,
+which we assume to be of height $n$. In this subsection we construct a is a
+natural map $\cM^{(0)}_{G_0, \infty} \to \tilde G^n$. The construction of the
+map $\cM_{G_0, \infty}^{(0)} \to \tilde G^n$ is canonical (except for the
+choices of representing objects $\cM_{G_0,m}^{(0)} \cong A_m$).
+
+Note that for any $m \geq 0$, there is the universal triple $U_m = (G^{(m)},
+\iota^{(m)}, \phi^{(m)}) \in \cM^{(0)}_{G_0, m}(A_m)$. We get an infinite
+commutative diagram
+\[\begin{tikzcd}[ampersand replacement=\&]
+	\&\&\& \iddots \\
+	\&\& {\cM_{G_0,{m+2}}^{(0)}(A_{m+2})} \& \dots \\
+	\& {\cM_{G_0,{m+1}}^{(0)}(A_{m+1})} \& {\cM_{G_0,{m+1}}^{(0)}(A_{m+2})} \& \dots \\
+	{\cM_{G_0,m}^{(0)}(A_m)} \& {\cM_{G_0,m}^{(0)}(A_{m+1})} \& {\cM_{G_0,{m}}^{(0)}(A_{m+2})} \& \dots
+	\arrow[from=4-1, to=4-2]
+	\arrow[from=4-2, to=4-3]
+	\arrow[from=3-2, to=3-3]
+	\arrow[from=3-2, to=4-2]
+	\arrow[from=3-3, to=4-3]
+	\arrow[from=2-3, to=3-3]
+	\arrow[from=4-3, to=4-4]
+	\arrow[from=3-3, to=3-4]
+	\arrow[from=2-3, to=2-4]
+\end{tikzcd}\]
+This behaves well under representing objects. Indeed, if we denote for $n > m$ the image
+of $U_m$ under the (push forward along the) transition map $\tau_{m,n}:A_m \to A_n$ as
+$U_{m,n}$, we find the following mappings
+\[\begin{tikzcd}[ampersand replacement=\&]
+	\&\&\& \iddots \\
+	\&\& {U_{m+2,m+2}} \& \dots \\
+	\& {U_{m,m+1}} \& {U_{m+1,m+2}} \& \dots \\
+	{U_{m,m}} \& {U_{m,m+1}} \& {U_{m,m+2}} \& \dots
+	\arrow[maps to, from=4-1, to=4-2]
+	\arrow[from=3-2, to=3-3]
+	\arrow[maps to, from=3-2, to=4-2]
+	\arrow[maps to, from=3-3, to=4-3]
+	\arrow[maps to, from=2-3, to=3-3]
+	\arrow[maps to, from=4-3, to=4-4]
+	\arrow[maps to, from=3-3, to=3-4]
+	\arrow[maps to, from=2-3, to=2-4]
+	\arrow[maps to, from=4-2, to=4-3]
+\end{tikzcd}\]
+In these diagrams, the horizontal maps correspond to base change, while the 
+vertical maps are given by shrinking the level structure. 
+As the transition morphisms $\tau_{m,m+1}: A_m \to A_{m+1}$ are injective, the
+horizontal morphisms injective as well. Moreover, the base change morphisms leave the 
+deformations invariant: If $(H,\iota_H, \phi_H)\in \cM_{G_0,m}^{(0)}(A_n)$, we have 
+$H\otimes_{A_n}A_{n+1} = H$ as functors $\cC \to \Set$, and $\iota
+\otimes_{A_n} A_{n+1} = \iota$ as isomorphisms (of functors) $H \otimes_{\cO_{\breve K}}
+({\cO_{\breve K}}/\fm_{K}) \to G_0$. 
+Now the universal object $U_m \in \cM_{G_0,m}^{(0)}(A_m)$ gives rise to a 
+Drinfeld basis $$(X_1^{(m)}, \dots, X_n^{(m)}) \in G^{(m)}(A_m)[\pi^m] =
+G^{(0)}(A_m)[\pi^m] \subset G^{(0)}(A_m).$$ 
+Note that $[\varpi]_{G^{(0)}}(X_i^{(k+1)}) = X_i^{(k)} \in G^{(0)}(A_m)$ for any 
+$0 \leq k < m$. Also,
+$A_m$ injects into $A_\infty$, so in the limit, we obtain elements
+\begin{equation*}
+    (X^{(m)})_{m \geq 1} \in \lim_{x \mapsto [\varpi]_{G^{(0)}}(x)} \left( \colim\limits_mG^{(0)}(A_m) \right) 
+\end{equation*}
+Now the injective morphism 
+\begin{equation*}
+    \lim_{x \mapsto [\varpi]_{G^{(0)}}(x)} \left( \colim\limits_mG^{(0)}(A_m)
+    \right) \inj \widetilde{G^{(0)}}(A_\infty)
+\end{equation*}
+yields elements $Y_1, \dots, Y_n \in \widetilde{G^{(0)}}(A_\infty)$. \red{Here
+    we evaluated $\widetilde{G^{(0)}}$ at $A_\infty$, an element that does not
+lie in $\cC$.} Finally, we use the canonical isomorphisms 
+\begin{equation}\label{eq:isos}
+    \widetilde {G^{(0)}}(A_\infty) \cong \widetilde {G^{(0)}}(A_\infty/\fm_{A_\infty})
+    = \widetilde{G_0}(A_\infty/\fm_{A_\infty}) \cong \widetilde G(A_\infty/\fm_\infty)
+    \cong \tilde G(A_\infty).
+\end{equation}
+The images of $Y_1, \dots, Y_n$ under these yield identifications yield the
+desired morphisms $\cM_{G_0,\infty}^{(0)} \to \tilde G$.
+
+Remember that by proposition \ref{prop:UnivCovRep}, $\tilde G \cong \cO_{\breve
+K}\llbr X^{1/q^\infty} \rrbr$, which yields $\tilde G^n \cong \cO_{\breve
+K}\llbr X_1^{1/q^{\infty}}, \dots, X_{n}^{1/q^\infty} \rrbr$. Under such an identification,
+the morphism constructed above corresponds to $n$ elements $Z_1, \dots, Z_n \in 
+A_\infty$ with distinguished $p$-power roots.
+% subsection subsection name (end)
+\color{darkgray}
+
+\begin{itemize}
+    \item Are the isomorphisms in equation \ref{eq:isos} natural?
+\end{itemize}
+\color{black}
+
+% subsection The universal cover
+
+\subsection{Dieudonn\'e modules and Zink's displays} % (fold)
+\label{sub:The Dieudonne-module}
+
+% subsection subsection name (end)
+
+\subsection{Determinants} % (fold)
+\label{sub:Determinants}
+In this subsection, $G$ will only be a formal $\cO_K$-algebra over some
+$R \in \cC$, and $G_0 = G \otimes_R \bar \FF_q$ is the reduction of $G$
+to the residue field of $R$, which is assumed to be a formal $\cO_K$-module
+of height $n$.
+
+The following is \cite[Theorem 4.34]{hedayatzadeh2015det}.
+\begin{prop}
+    Let $\cO_K$ be the ring of integers of a non-Archimedean local field $K$ of
+    characteristic zero. Fix a uniformizer $\varpi$ of $\cO_K$ and let $S$ be a
+    locally Noetherian scheme over $\spec \cO_K$ and $G$ be a
+    $\varpi$-divisible $\cO_K$-module over $S$. Then there exists a
+    $\varpi$-divisible module $\bigwedge_{\cO_K}^r G$ over $S$ of height $\binom
+    hr$ and an alternating morphism $\lambda: G^r \to \bigwedge^r_\cO G$
+    that is universal in the following way. For every morphism $f: S' \to S$
+    and every $\varpi$-divisible module $H$ over $S'$, the
+    homomorphism 
+    \begin{equation*}
+        \Hom_{S'}(f^* \bigwedge^r_{\cO_K} G, H) \to
+        \Alt_{S'}((f^*G)^r, H)
+    \end{equation*}
+    induced by $f^*\lambda$ is an isomorphism.
+\end{prop}
+The proof relies on Zink's theory of displays. 
+Taking torsion, we obtain the following corollary.
+
+\begin{cor}\label{cor:findetmaps}
+    Let $G$ be a $\varpi$-divisible formal $\cO_K$-module over some Noetherian 
+    base ring $A$.
+    Then there are universal multilinear and alternating maps 
+    \begin{equation*}
+        \lambda_m: G[\varpi^m]^n \to \wedge^n G[\varpi^m].
+    \end{equation*}
+\end{cor}
+
+\begin{prop}
+    Let $G$ be as above, and suppose that $(X_1, \dots, X_n) \in G[\varpi^m]^n$
+    is a Drinfeld basis. Then $\lambda_m(X_1, \dots, X_n) \in \wedge^nG[\varpi^m]$ 
+    is a Drinfeld basis.
+\begin{proof}
+
+\end{proof}
+\end{prop}
+
+
+% subsection subsection name (end)
+
+\color{darkgray}
+\section*{Open Questions}
+
+\color{black}
+
+% subsection subsection name (end)
+
+\end{document}
