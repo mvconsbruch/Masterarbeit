@@ -1,9 +1,11 @@
 %! TeX root: ../main.tex
 \documentclass[../main.tex]{subfiles}
+\usepackage{layout}
 
 \begin{document}
 
 \section{Local Class Field Theory following Lubin-Tate}
+
 
 This section will serve as an introduction to formal groups and 
 formal modules. Formal groups (or rather, formal group laws) were first
@@ -127,7 +129,7 @@ addition and scalars given by
 \end{equation*}
 This construction yields a functor (with slight abuse of notation)
 \begin{equation*}
-  \Formal: \FMLOver A R \to \Fun(\Alg R, \Mod A),
+  \Formal^F: \FMLOver A R \to \Fun(\Alg R, \Mod A),
 \end{equation*}
 
 where $\Fun$ denotes the functor category. We will mostly think of formal 
@@ -148,7 +150,7 @@ naturally to the definition of formal modules.
   $(V_j, G_j)$ are isomorphic if the corresponding group laws
   $F_i$ and $G_j$ are isomorphic after refining the respective covers. 
   We denote the resulting categories by $\FMOver R X$ and $\FGover X$.
-  A representing sysstem $(U_i, F_i)_{i \in I}$ will be referred to as 
+  A representing system $(U_i, F_i)_{i \in I}$ will be referred to as 
   a coordinate of $\cF$.
   
 \end{defi}
@@ -168,7 +170,7 @@ yields a functor
 \end{equation*}
 \textit{A priori}, a formal $A$-module $\cF$ over $R$ does not give rise to a
 functor constantly valued in $\Nil(R)$. However, it does so locally, 
-and it turns out that there exists a line bundle $\cL/\cO_X$ (dependent on $\cF$)
+the local descriptions give rise to a line bundle $\cL/\cO_X$ (dependent on $\cF$)
 such that $\cF$ is equivalent to a functor
 \begin{equation*}
   \cF: \Alg {\cO_X} \to \Mod A, \quad \cA \mapsto \Hom_{\cO_X}(\cL,
@@ -180,7 +182,8 @@ opens subsets by $U \mapsto \Nil(\cO_X(U))$. The $A$-module structure
 of the right-hand side can be described locally on $X$ after choosing 
 a system of coordinates.
 
-\subsubsection{Formal Modules over Finite Fields}
+\subsubsection{Formal Groups over Finite Fields}
+
 
 \subsubsection{Formal DVR-Modules}
 Let $K$ be a local field with residue field $k$, put $q = \# k$, and 
@@ -224,37 +227,57 @@ by completeness of admissible algebras.
 
 
 
-\subsection{The Local Kronecker-Weber Theorem} % (fold)
+\subsection{Application: The Local Kronecker-Weber Theorem} % (fold)
 \label{ssub:Formal Modules over algebraically closed fields}
+Let $K$, $k$, $\nu_K$ be as above. The Local Kronecker-Weber theorem gives an explicit
+description of the abelianization of the absolute Galois group of $K$ only in 
+terms of $K$:
 
-Let $K^\ab$ denote the maximal abelian extension of $K$, which can explicitely
-be described as $\bar K^{[G_K, G_K]}$. Write $K_\infty$ for it's completion,
-then $K_\infty = C^{[G_K, G_K]}$. 
+\begin{thm}[Local Kronecker-Weber]\label{thm:localKW}
+  There is an isomorphism (canonical up to choice of a uniformizer 
+  $\pi \in K$)
+  \begin{equation*}
+    \Gal(\bar K/K)^\ab \cong \Gal(K^\ab/K) \cong \cO_K^\times
+    \times \hat \Z.
+  \end{equation*}
+\end{thm}
+Here, $K^\ab$ denote the maximal abelian extension of $K$, which can (after choosing
+an algebraic closure of $K$) be described as $\bar K^{[G_K, G_K]}$. 
 
-Recall the definition of $\breve K$, the completion of the maximal closure of
-$K$. First we choose an algebraic closure $\bar K$ of $K$. The valuation 
-$\nu_K$ extends uniquely to $\bar K$, yielding a $\pi$-adic norm on
-$\bar K$. Let $C$ denote the completion with respect to this norm. 
-An application of Krasner's Lemma implies that $\Gal(C/K) \cong \Gal(\bar K/K)
-\eqqcolon G_K$
+The extension $K^\ab$ consists of two parts, we have 
+$K^\ab = K^\ram \cdot K^\nr$. The field $K^\nr$, the maximal unramified extension
+of $K$, has relatively simple structure. 
+Describing the field $K^\ram$ (or rather, it's completion) is the hard part and
+it is here where we apply the theory of formal modules.
+
+The valuation $\nu_K$ extends uniquely to $\bar K$, yielding a
+$\pi$-adic norm on $\bar K$. Let $C$ denote the completion with respect to this
+norm. An application of Krasner's Lemma implies that $\Gal(C/K) \cong \Gal(\bar
+K/K) \eqqcolon G_K$
 \todo{Ref}. One readily checks that any $\sigma \in G_K$ yields a 
 continuous automorphism $\cO_C \to \cO_C$, and we obtain a short exact sequence 
 \begin{equation*}
   0 \to I_K \to G_K \to \Gal(\bar k /k) \to 0.
 \end{equation*}
 The subgroup $I_K \subset G_K$ is called the inertia subgroup of $K$,
-and $\breve K$ is the subfield of $C$ fixed by $I_K$. In particular we have 
-$\Gal(\breve K /K) \cong \Gal(\bar k /k)$. One readily confirms that 
+and we write $\breve K$ for the subfield of $C$ fixed by $I_K$. In particular
+we have $\Gal(\breve K /K) \cong \Gal(\bar k /k)$. One readily confirms that 
 $\breve K$ is complete with respect to the norm induced by $K$. 
 
 As the Galois group of any finite extension
 of $k$ is cyclic, we find that $\Gal(\breve K/K)$ is abelian. In fact,
 it is isomorphic to $\hat \Z = \lim_n (\Z/n\Z)$. Hence
-$K_\infty$ decomposes as $\breve K \cdot K_\pi$ for some abelian extension 
-$K_\pi/K$ such that $K_\pi \cap \breve K = K$. Now necessarily 
-$$\Gal(K_\infty/K) \cong \Gal(K_\pi/K) \times \Gal(\breve K/K)
-\cong \Gal(K_\pi/K) \times \hat \Z.$$
-We will give an explicit construction of $K_\pi$ using formal modules.
+$K_\infty$ decomposes as $\breve K \cdot K_\pi$ for some abelian, complete
+extension $K_\pi/K$ such that $K_\pi \cap \breve K = K$. Now $K_\pi$ is the 
+completion of $K^\ram$. Observe that
+\begin{equation*}
+  \Gal(K_\infty/K) \cong \Gal(K_\pi/K) \times \Gal(\breve K/K) \cong
+  \Gal(K_\pi/K) \times \hat \Z,
+\end{equation*}
+so Theorem \ref{thm:localKW}, the local Kronecker-Weber Theorem, is 
+equivalent to showing that the Galois group of $K_\pi$ over $K$ is 
+isomorphic to $\cO_K^\times$.
+
 
 % subsection The local Kronecker-Weber Theorem (end)
 \end{document}

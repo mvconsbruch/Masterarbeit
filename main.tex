@@ -2,11 +2,10 @@
 \usepackage{graphicx}
 \usepackage{layout}
 \usepackage{shortcuts}
-
-\usepackage{blindtext}
+%\usepackage{blindtext}
 \usepackage{subfiles} % Best loaded last in the preamble
-
 \usepackage{biblatex}
+
 
 \title{TODO}
 \author{Max von Consbruch}
@@ -18,7 +17,15 @@
 
 \maketitle
 
+\tableofcontents
+
+\subfile{Introduction/Introduction.tex}
 \subfile{LocalCFT/LocalCFT.tex}
+\subfile{NonAbLTT/NonAbLTT.tex}
+\subfile{MiedaThm/MiedaThm.tex}
+\subfile{Depth0SuCu/Depth0SuCu.tex}
+
+% subsection jku (end)
 
 \printbibliography
 
