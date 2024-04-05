@@ -1,18 +1,16 @@
 %! TeX root: ../main.tex
 \documentclass[../main.tex]{subfiles}
-\usepackage{layout}
 
 \begin{document}
 
 \section{Local Class Field Theory following Lubin-Tate}
-
 
 This section will serve as an introduction to formal groups and 
 formal modules. Formal groups (or rather, formal group laws) were first
 introduced by \textsc{Salomon Bochner} in 1946 as a natural means of studying Lie
 Groups over fields of characteristic $0$, cf. \cite{Bochner1946FGrps}. 
 The study of formal groups later became interesting for its own right, 
-with pioneering works of Lazard \cite{Lazard1955FGrps}
+with pioneering works of Lazard \cite{Lazard1955FGrps}.
 
 \subsection{Formal Modules} % (fold)
 \label{sub:Formal Modules}
@@ -33,7 +31,8 @@ laws}.
 \end{defi}
 Given two formal group laws $F, G \in R\llbr X,Y\rrbr$, a morphism
 $f: F\to G$ is a 
-power series $f \in R\llbr T \rrbr$ such that $f(F(X,Y)) = G(f(X),f(Y))$.
+power series $f \in R\llbr T \rrbr$ such that $f(0) = 0$ and $f(F(X,Y)) =
+G(f(X),f(Y))$.
 Such a series is an isomorphism if there is an {inverse}, that
 is, a power series $g \in R\llbr T \rrbr$ with $(f \circ g)(T) = T$.
 This yields the category of formal group laws over $R$, which we notate by
@@ -83,7 +82,7 @@ yields an $A$-module structure on $R$, given by the concatenation\begin{equation
   A \xto{[\cdot]_F} \End(F) \xto{\Lie} \End(R), \quad a \mapsto \Lie([a]_F)
 \end{equation*}
 
-This is a morphism of rings, and we obtain that $R$ is an $A$-algebra. We'd
+This is a morphism of rings, and we obtain an $A$-algebra structure on $R$. We'd
 like the $A$-algebra structure on $R$ to be uniform. This
 motivates the following definition.
 \begin{defi}[Formal $A$-module law]
@@ -119,44 +118,44 @@ $R \mapsto \FMLOver A R$.
 \end{lem}
 
 Note that every formal module law $F \in \FMLOver A R$ yields a functor
-\begin{equation*}
+\begin{equation}\label{eq:fmnilpfunc}
   \Alg R \to \Mod A, \quad S \mapsto \Nil(S),
-\end{equation*}
+\end{equation}
 where $\Nil(S)$, the set of nilpotent elements of $S$, is equipped with
 addition and scalars given by 
 \begin{equation*}
   s_1 + s_2 = F(s_1, s_2) \in \Nil(S), \quad a s = [a]_F(s) \in \Nil(S).
 \end{equation*}
 This construction yields a functor (with slight abuse of notation)
-\begin{equation*}
-  \Formal^F: \FMLOver A R \to \Fun(\Alg R, \Mod A),
-\end{equation*}
+\begin{equation}\label{eq:formfunc}
+  \FMLOver A R \to \Fun(\Alg R, \Mod A),
+\end{equation}
+where $\Fun$ denotes the functor category.
 
-where $\Fun$ denotes the functor category. We will mostly think of formal 
-module laws in terms of this functor. Following this line of thought leads 
-naturally to the definition of formal modules. 
+Passing from discrete $R$-algebras to admissible $R$-algebras, this construction extends
+naturally to a functor 
+\begin{equation*}
+  \Spf^F: \FMLOver AR \to \Fun (\Adm R, \Mod A), \quad F \mapsto \Spf R\llbr T \rrbr,
+\end{equation*}
+where we equip $\Spf R \llbr T \rrbr$ with the structure of an $A$-module object
+using the endomorphisms coming from $F$. 
+Following this line of thought leads naturally to the definition of
+formal modules. 
 
 \begin{defi}[Formal Group and Formal Module.]
-  A formal $A$-module $\cF$ over an $A$-scheme $X$ is given by an equivalence class
-  of systems $(U_i, F_i)_{i \in I}$, where $(U_i)_{i \in I}$ is an affine
-  Zariski cover of $X$ with $U_i = \spec(R_i)$ and $F_i \in \FMLOver A {R_i}$
-  are compatible $A$-module laws. Here, compatible means that there are
-  isomorphisms
-  \begin{equation*}
-    F_i \otimes_{R_i} (R_i \otimes_{\cO_X(U_i \cup U_j)} R_j)  \cong F_j
-    \otimes_{R_j} (R_i \otimes_{\cO_X(U_i \cup U_j)} R_j).
-  \end{equation*}
-  Two systems $(U_i, F_i)$ and 
-  $(V_j, G_j)$ are isomorphic if the corresponding group laws
-  $F_i$ and $G_j$ are isomorphic after refining the respective covers. 
-  We denote the resulting categories by $\FMOver R X$ and $\FGover X$.
-  A representing system $(U_i, F_i)_{i \in I}$ will be referred to as 
-  a coordinate of $\cF$.
-  
+  Let $X$ be an $A$-scheme, and let 
+  let $\cF$ be an $A$-module object in $\FSchOver X$, the category of formal
+  schemes over $X$. Suppose that there is a Zariski-covering
+  $(\spec(R_i))_{i \in I}$ of $X$ with $\cF \times_{X} U_i \cong
+  \spf(R_i\llbr T \rrbr).$ If for every $i\in I$ the induced $A$-module
+  structure on $\spf(R_i\llbr T \rrbr)$ comes from a formal $A$-module law
+  $F_i$ over $R_i$, we say that $\cF$ is a formal $A$-module. 
 \end{defi}
-In short, a formal $A$-module over an $A$-scheme $X$ is an
-object in the stackification of the prestack $R \mapsto \FMLOver A R$ on 
-the Zariski-site of schemes over $\spec A$. 
+\begin{defi}[Coordinate]
+  Let $\cF$ be a formal $A$-module over $X$. The choice of a cover $\sqcup_{i
+  \in I} \spec(R_i) \to X$ together with isomorphisms $\cF \times_X \spec(R_i)
+  \cong \Spf(R_i\llbr T \rrbr)$ will be referred to as a coordinate of $\cF$. 
+\end{defi}
 
 Of course there is a functor 
 \begin{equation*}
@@ -168,70 +167,60 @@ yields a functor
 \begin{equation*}
   p_*: \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
 \end{equation*}
-\textit{A priori}, a formal $A$-module $\cF$ over $R$ does not give rise to a
-functor constantly valued in $\Nil(R)$. However, it does so locally, 
-the local descriptions give rise to a line bundle $\cL/\cO_X$ (dependent on $\cF$)
-such that $\cF$ is equivalent to a functor
-\begin{equation*}
-  \cF: \Alg {\cO_X} \to \Mod A, \quad \cA \mapsto \Hom_{\cO_X}(\cL,
-  \Nil(\cA)).
-\end{equation*}
-Here $\Alg {\cO_X}$ denotes the category of quasi-coherent $\cO_X$-algebras,
-and $\Nil(\cO_X)$ is the quasi-coherent $\cO_X$-module given on 
-opens subsets by $U \mapsto \Nil(\cO_X(U))$. The $A$-module structure 
-of the right-hand side can be described locally on $X$ after choosing 
-a system of coordinates.
 
-\subsubsection{Formal Groups over Finite Fields}
+\begin{xpl}
+  The additive group law $\GG_a$ extends to a formal $A$-module over an affine base
+  $\spec R$ by setting 
+  \begin{equation*}
+    [a]_{\GG_a}(T) = aT
+  \end{equation*}
+  for $a \in A$. More generally, we obtain a formal $A$-module over an arbitrary base
+  scheme.
+
+  The multiplicative formal group $\GG_m$ does not have an obvious 
+  generalization to a formal $A$-module law for general $A$. In the case where $A$
+  is the ring of integers of a local field, Lubin and Tate \cite{LubinTateFormalMult} 
+  construct such generalizations. This construction, and the application to local
+  class fild theory, will be discussed in section \ref{sub:Application: The
+  Local Class Field Theory}.
+\end{xpl}
+
+\subsubsection{Formal DVR-Modules over Fields of Characteristic 0} % (fold)
+\label{ssub:Formal DVR-Modules over Fields of Characteristic 0}
+As above, let $A$ be a discrete valuation ring with uniformizer $\pi$ and finite 
+residue field $k$. Let $K$ denote the field of fractions of $A$.
+% subsubsection Formal DVR-Modules over Fields of Characteristic 0 (end)
+
+\subsubsection{Formal DVR-Modules over Residue Fields}
+Let $\FF_q$ denote the finite field with $q = p^n$ elements.
+\begin{defi}[Frobenius]
+  Given a formal group $F$ over $\FF_q$, let $\phi$ denote the Frobenius
+  endomorphism. This is the endomorphism given by $f(T) = T^q$ after choosing
+  a coordinate on $F$.
+\end{defi}
+
+Let $F$ and $G$ be formal group laws over $\FF_q$, and let $f: F \to G$
+be a non-zero morphism between $F$ and $G$ given by a formal power series $f(T) = c_1 T
++ c_2 T + \dots$.
+
+\begin{defi}[Height]
+  In the above situation, the height of $f$, denoted $\height(f)$, is the
+  greatest integer $h$ such that $f$ factors through $\phi^h: F \to F$. 
+  In case that $f = 0$, we write $\height(f) = \infty$. 
+\end{defi}
 
 
-\subsubsection{Formal DVR-Modules}
+\subsection{Application: The Local Class Field Theory} % (fold)
+\label{sub:Application: The Local Class Field Theory}
+
 Let $K$ be a local field with residue field $k$, put $q = \# k$, and 
 denote by $\nu_K: K \to \Z \cup \{\infty\}$ the valuation of $K$, normalized
 such that $\nu_K(\pi) = 1$ for a uniformizer $\pi$ of $K$.
 The aim of this subsection is to describe the maximal abelian extension of
 a local field $K$.
-Local fields naturally carry the topology induced from the $\pi$-adic 
-topology on its rings of integers $\cO_K$. To deal with the topological 
-rings showing up, the notion of admissible rings will be convenient (taken from
-\cite[Tag 07E8]{stacks-project}).
 
-\begin{defi}
-  Let $A$ be a topological ring. We say that $A$ is admissible if
-  \begin{itemize}
-    \item The element $0 \in A$ has a fundamental system of neighbourhoods
-      consisting of ideals.
-    \item There exists an ideal of definition, that is, an ideal $I \subset A$ such
-      that every open neighbourhood of $0$ contains $I^n$ for some $n$.
-    \item It is complete, that is, the natural map
-      \begin{equation*}
-        A \to \lim_{J \subset A \text{ open ideal}} A/J
-      \end{equation*}
-      is an isomorphism.
-  \end{itemize}
-  We say that $A$ is adic if it admits an open ideal of definition.
-  Given a topological ring $A$, we denote the category of admissible 
-  and adic $A$-algebras (algebras $S$ with continuous morphism $A \to S$) by
-  $\Adm A$ and $\Adic A$, respectively.
-\end{defi}
-
-Suppose that $R$ is a local, adic $\cO_K$-algebra. Then any $\cF \in \FMOver
-{\cO_K} R$ yields a functor 
-\begin{equation*}
-  \Adm R \to \Mod {\cO_K}, \quad S \mapsto S^\cici \coloneqq \{s \in S \mid
-  \lim_{n \to \infty} s^n = 0\},
-\end{equation*}
-with $A$-module structure on $S^\cici$ given explicitly after choosing a
-coordinate of $\cF$. Indeed, infinite sums over null sequences converge 
-by completeness of admissible algebras.
-
-
-
-\subsection{Application: The Local Kronecker-Weber Theorem} % (fold)
-\label{ssub:Formal Modules over algebraically closed fields}
-Let $K$, $k$, $\nu_K$ be as above. The Local Kronecker-Weber theorem gives an explicit
-description of the abelianization of the absolute Galois group of $K$ only in 
-terms of $K$:
+The Local Kronecker-Weber theorem gives an explicit description of the
+abelianization of the absolute Galois group of $K$ only in terms of $K$:
 
 \begin{thm}[Local Kronecker-Weber]\label{thm:localKW}
   There is an isomorphism (canonical up to choice of a uniformizer 
@@ -279,5 +268,5 @@ equivalent to showing that the Galois group of $K_\pi$ over $K$ is
 isomorphic to $\cO_K^\times$.
 
 
-% subsection The local Kronecker-Weber Theorem (end)
+% subsection Application: The Local Class Field Theory (end)
 \end{document}

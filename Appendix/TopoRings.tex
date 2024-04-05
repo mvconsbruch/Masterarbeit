@@ -1,0 +1,28 @@
+%! TeX root: ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Topological Rings}
+To deal with the topological rings showing up, the notion of admissible rings
+will be convenient (taken from \cite[Tag 07E8]{stacks-project}).
+\begin{defi}\label{def:admring}
+  Let $A$ be a topological ring. We say that $A$ is admissible if
+  \begin{itemize}
+    \item The element $0 \in A$ has a fundamental system of neighbourhoods
+      consisting of ideals.
+    \item There exists an ideal of definition, that is, an ideal $I \subset A$ such
+      that every open neighbourhood of $0$ contains $I^n$ for some $n$.
+    \item It is complete, that is, the natural map
+      \begin{equation*}
+        A \to \lim_{J \subset A \text{ open ideal}} A/J
+      \end{equation*}
+      is an isomorphism.
+  \end{itemize}
+  We say that $A$ is adic if it admits an open ideal of definition.
+  Given a topological ring $A$, we denote the category of admissible 
+  and adic $A$-algebras (algebras $S$ with continuous morphism $A \to S$) by
+  $\Adm A$ and $\Adic A$, respectively.
+\end{defi}
+
+\end{document}
+

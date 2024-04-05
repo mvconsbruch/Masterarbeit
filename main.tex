@@ -1,17 +1,15 @@
 \documentclass[a4paper, 12pt]{article}
-\usepackage{graphicx}
+\input{layout.tex}
+\input{shortcuts}
+
+\usepackage{subfiles}
 \usepackage{layout}
-\usepackage{shortcuts}
-%\usepackage{blindtext}
-\usepackage{subfiles} % Best loaded last in the preamble
 \usepackage{biblatex}
+\bibliography{~/Uni/masterarbeit/Masterarbeit/library}
 
-
-\title{TODO}
+\title{todo}
 \author{Max von Consbruch}
 \date{\today}
-
-\bibliography{library} % Entries are in the refs.bib file
 
 \begin{document}
 
@@ -24,9 +22,10 @@
 \subfile{NonAbLTT/NonAbLTT.tex}
 \subfile{MiedaThm/MiedaThm.tex}
 \subfile{Depth0SuCu/Depth0SuCu.tex}
+\appendix
+\subfile{Appendix/TopoRings.tex}
 
-% subsection jku (end)
 
-\printbibliography
+%\printbibliography
 
 \end{document}
