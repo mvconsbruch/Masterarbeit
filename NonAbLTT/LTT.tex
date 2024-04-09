@@ -21,21 +21,39 @@ More precisely, we define it as the functor
 \end{equation*}
 
 \begin{thm}[Representability of $\cM_0$]
-  
-\begin{proof}
-\end{proof}
+  The functor $\cM_0$ is (non-canonically) representable, by the noetherian
+  local ring
+  \begin{equation*}
+    A_0 \cong \cO_\br K\llbr u_1, \dots, u_{n-1} \rrbr.
+  \end{equation*}
 \end{thm}
-
-
-
-\begin{itemize}
-  \item Deformations
-  \item Representability of $\cM_0$.
-\end{itemize}
+In particular, there is a universal deformation
+$(F^\univ, \iota^\univ)$, with $F^\univ \in \FMOver {\cO_\br K} {A_0}$.
 % subsection Deformations of Formal Modules (end)
 
-\subsubsection{Deformations of Formal Modules with Drinfeld Level Structure} % (fold)
+\subsubsection{Deformations of Formal Modules with Drinfeld Level Structure} 
+
 \label{subsub:Deformations of Formal Modules with Drinfeld Level Structure}
+\begin{defi}[Drinfeld level $\fp^m$-structure]
+  Let $R \in \cC$ and $H \in \FMOver {\cO_K}{R}$. A Drinfeld level 
+  $\fp^m$-structure on $H$ is a morphism of $R$-group schemes 
+  \begin{equation*}
+    (\fp^{-m}/\cO_K)^{\oplus n} \to H(R)[\pi^m]
+  \end{equation*}
+  such that after choosing a coordinate $H \cong \spf R\llbr T \rrbr$, the 
+  power series $[\pi]_H(T) \in R\llbr T \rrbr$ satisfies the divisibility constraint
+  \begin{equation*}
+    \prod_{x \in (\fp^{-1}/\cO_K)}(T - \phi(x)) \mid  [\pi]_H(T).
+  \end{equation*}
+\end{defi}
+The following examples might shed some light on this definition.
+\begin{xpl}
+  \begin{itemize}
+    \item $\GG_m$
+    \item Things over $\FF_q$.
+  \end{itemize}
+\end{xpl}
+
 \begin{itemize}
   \item Drinfeld Level
   \item Moduli Problem + Representability

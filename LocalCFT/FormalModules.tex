@@ -202,4 +202,37 @@ be a non-zero morphism between $F$ and $G$ given by a formal power series $f(T) 
   In case that $f = 0$, we write $\height(f) = \infty$. 
 \end{defi}
 
+\subsubsection{Tate Modules and the Universal Cover} % (fold)
+\label{sub:Tate Modules and the Universal Cover}
+Let $A$ be a ring and $R$ be an $A$-algebra. Given $H \in \FMOver AR$ and $a \in A$,
+we define the functor 
+\begin{equation*}
+  \Tilde H_a : \Adm R \to \Mod {A[\tfrac 1a]}, \quad
+  S \mapsto \left\{(x_1, x_2, \dots) \in \prod_{\N} H(S) \mid [a]_H(x_{i+1}) =
+  x_i \right\}.
+\end{equation*}
+
+\begin{defi}[The Universal Cover and Tate Module]
+  In case where $A$ is a discrete valuation ring with uniformizer $\pi \in A$ and
+  field of fractions $K$, we omit
+  $\pi$ from notation and write $\tilde H = \tilde H_\pi$. This functor takes values in
+  the category of $K$-vector spaces.
+  Up to isomorphism, $\Tilde H$ is uniquely determined. We call this functor
+  the universal cover of $H$. 
+
+  The Tate-Module $T_\pi H$ is the subfunctor of $\Tilde H$ cut out out
+  by the condition that $[\pi]_H(x_1) = 0$. Note that $T_\pi H$ does no longer 
+  carry the structure of a $K$-vector space, it is an $A$-module. The Rational
+  Tate Module $V_\pi H$ is the subfunctor of $\Tilde H$ cut out by the
+  condition that $x_1$ has 
+  $[\pi]_H$-torsion. Equivalently, we have 
+  \begin{equation*}
+    V_\pi H (S) = T_\pi H(S) \otimes_A K.
+  \end{equation*}
+\end{defi}
+
+
+
+% subsection Tate Modules and the Universal Cover (end)
+
 
