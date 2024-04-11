@@ -24,5 +24,17 @@ will be convenient (taken from \cite[Tag 07E8]{stacks-project}).
   $\Adm A$ and $\Adic A$, respectively.
 \end{defi}
 
+\begin{lem}\label{lem:infiniteseriesandproducts}
+  Let $S$ be an admissible ring, and let $(s_1, s_2, \dots)$ be a sequence with
+  elements in $S$. Then $\sum_{i = 1}^\infty s_i$ converges if and only if 
+  $\prod_{i=1}^\infty (1 + s_i)$ converges if and only if $\lim_{i \to \infty} s_i
+  = 0$. 
+\begin{proof}
+  If sum and product converge, $(s_i)_{i \in \N}$ has to converge to zero. The
+  reverse implication follows after writing $S \cong \lim_{J} S/J$ for a system
+  of open ideals $J \subset S$.
+\end{proof}
+\end{lem}
+
 \end{document}
 
