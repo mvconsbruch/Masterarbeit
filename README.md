@@ -1,7 +1,7 @@
 # Master's thesis
 
 ## Version from 11. of April: 
-[./04_11_version.pdf](04_11_version.pdf) 
+[04_11_version.pdf](./04_11_version.pdf) 
 The basics caused me more trouble than I like. I was/am a bit confused about 
 what the correct base category for formal $A$-modules is. In Lubin-Tate formal modules,
 we really need the algebras $S$ we plug in to have $p \in S^{\circ \circ}$. 
