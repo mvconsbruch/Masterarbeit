@@ -289,8 +289,8 @@ We define the height over field extensions of the residue field.
   formal groups laws over $R$, given by a formal series $f(T) \in R\llbr T \rrbr$. 
   If $f = 0$, we say that $f$ has infinite height. 
   If $f \neq 0$, the height of $f$ is defined as the largest integer $h$ such that 
-  $f = g(T^{q^h})$ for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in R\llbr T \rrbr$
-  with $c_1 \neq 0$. 
+  $f = g(T^{q^h})$ for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in
+  R\llbr T \rrbr$ with $c_1 \neq 0$. 
 \end{defi}
 One readily checks that if $f: \cF \to \cG$ is a morphism of formal groups over
 a field extension $R$ of $k$, the height of $f$ does not depend on the choices
@@ -311,6 +311,19 @@ It is not hard to see that the height function is additive, that is, we have
   \height(f \circ g) = \height(f) + \height(g).
 \end{equation*}
 
+Let $R$ be a local $A$-algebra and let $k'$ be a separable closure of $R/\fm_R$.
+Let $F$ be a formal $A$-module law over $R$ of height $h$. Then we have the
+following result on the endomorphisms of $F \otimes_R k'$.
+\begin{lem}
+  The $A$-module $\End_{\FMOver A{k'}}(F \otimes_R k')$ is isomorphic to the ring
+  of integers of a central division algebra $D$ over $K$ of invariant $\frac 1h$.
+\begin{proof}
+  \cite[Proposition 1.7]{drinfel1974elliptic} \red{The proof uses techniques from
+    deformations of formal modules. Hence perhaps it would make sense to have this
+  in the next chapter.}
+\end{proof}
+\end{lem}
+
 \begin{defi}[Isogeny]
   A morphism $f: \cF \to \cG$ of formal groups over a field $k$ is called an isogeny if
   $\ker(f)$ is a represented by a finite free $k$-scheme. More generally, a
@@ -326,9 +339,19 @@ Isogenies can be described using the height function.
 \end{lem}
 
 \begin{defi}[$\pi$-divisible $A$-module]
-  We say that a formal $A$-module $H$ over $k$ is $\pi$-divisible if 
-  $[\pi]_H$ is an isogeny. 
+  We say that a formal $A$-module $H$ over $X$ is $\pi$-divisible if 
+  $[\pi]_H$ is an isogeny. If $X$ is connected, the height of $H$ is the
+  (constant) height of the endomorphism $[\pi]_H: A \to A$. 
 \end{defi}
+
+\begin{lem}
+  Over sepearbly closed fields, the formal group laws are classified by their 
+  heights.
+\begin{proof}
+  \cite[Theorem 19.4.1]{hazewinkel1978formal}, this is originally due to Drinfeld.
+  Note that this is only interesting in positive characteristic.
+\end{proof}
+\end{lem}
 
 The following lemma allows us to invert quasi-isogenies.
 
@@ -392,8 +415,58 @@ $\pi$, finite residue field $k$ and field of fractions $K$.
   \end{equation*}
 \end{defi}
 
-Let $R$ be an adic $A$-algebra such that $A/I$ is a perfect field. Suppose that
-$H$ is a formal $A$-module over $R$. Write $H_0$ for the reduction of $H$ mod $I$. 
+Let $R$ be an adic $A$-algebra with finitely generated ideal of definition $I$ such
+$k_R = R/I$ is a separably closed field of characteristic $p$ (in particular, $p \in I$). 
+We write $\Nilp^\flat_R$ for the functor sending on admissible $R$-algebras sending
+$S$ to the set $\lim_{s \mapsto s^q} S^\cici$. 
+
+\begin{lem}[Crystalline nature of $\Nilp^\flat$.]
+  Suppose that $S$ is an admissible $R$-algebra admitting an ideal of definition 
+  $J$ such that $S/J$ is a perfect field. Then there is a bijection
+  \begin{equation*}
+    \Nilp^\flat(S) \cong \Nilp^\flat(S/J).
+  \end{equation*}
+  This bijection equips $S$ with the structure of an (additive) abelian group. 
+  \begin{proof}[Proof]
+    Let $(x_1, x_2, \dots)$ be an element of the right hand side. Let
+    $(y_1, y_2, \dots)$ is a sequence of arbitrary lifts. Then, as the map 
+    $q$-th power map $s \mapsto s^q$ is continuous on $S$, one obtains that 
+    $(z_1, z_2, \dots)$ with 
+    \begin{equation*}
+      z_i = \lim_{r \to \infty} y_{i+r}^{q^r}
+    \end{equation*}
+    defines an element of $\Nil^\flat(S)$ and is readily seen to be a lift of 
+    $(x_1, x_2, \dots)$. This lift is unique. Indeed, suppose that 
+    $(z'_1, z'_2, \dots) \in \Nil^\flat(S)$ is another lift. Now 
+    \begin{equation*}
+      z'_i \in \bigcap_{r \in R}(y_{i+r} + J)^{q^r} = z_i + q^n J + \dots +
+      J^{q^n} =  \{z_i\}.
+    \end{equation*}
+    This is what we wanted to show.
+  \end{proof}
+\end{lem}
+
+\begin{lem}
+  Let $H$ be a $\pi$-divisible formal $A$-module and write $H_0 = H \otimes_R k_R$. 
+  Now there is an isomorphism 
+  \begin{equation*}
+    \tilde H_0 \cong \Nilp^\flat_{k_R}.
+  \end{equation*}
+\begin{proof}
+  We may choose a coordinate of $H$ such that $[\pi]_{H_0}(T) \cong T^{q^n}$, where
+  $n$ is the height of $H$. The claim follows.
+\end{proof}
+\end{lem}
+
+We keep the assumptions on $H$.
+\begin{lem}
+  Suppose that $S$ is an admissible $R$-algebra admitting an ideal of definition
+  $J$ with $\pi \in J$. Then the natural reduction map
+  \begin{equation*}
+    \tilde H(S) \to \tilde H(S/J)
+  \end{equation*}
+  is an isomorphism.
+\end{lem}
 
 \begin{itemize}
   \item Results from \cite{BoyarchenkoWeinstein2011MaxVar}, section 2.5
