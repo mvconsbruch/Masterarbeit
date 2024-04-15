@@ -418,29 +418,72 @@ $\pi$, finite residue field $k$ and field of fractions $K$.
 Let $R$ be an adic $A$-algebra with finitely generated ideal of definition $I$ such
 $k_R = R/I$ is a separably closed field of characteristic $p$ (in particular, $p \in I$). 
 We write $\Nilp^\flat_R$ for the functor sending on admissible $R$-algebras sending
-$S$ to the set $\lim_{s \mapsto s^q} S^\cici$. 
+$S$ to the set $\lim_{s \mapsto s^q} S^\cici$. This functor is representable by
+$\Spf R\llbr T^{\frac 1{q^\infty}} \rrbr$ (with the $T$-adic topology).
 
-\begin{lem}[Crystalline nature of $\Nilp^\flat$.]
-  Suppose that $S$ is an admissible $R$-algebra admitting an ideal of definition 
-  $J$ such that $S/J$ is a perfect field. Then there is a bijection
+The following calculation is helpful.
+\begin{lem}\label{lem:cryscalc}
+  Let $S$ be a ring, let $J$ be an ideal of $S$ containing $p$, and let $q$ be
+  a power of $p$. 
+  Then for any two elements $s_1, s_2 \in S$ with $s_1 \equiv s_2$ mod $J$, we have 
+  $s_1^{q^k} \equiv s_2^{q^k}$ mod $J^{k+1}$. 
+\begin{proof}
+  It suffices to check that if $s_1 \equiv s_2$ mod $J^k$, then $s_1^q \equiv s_2^q$
+  mod $J^{k+1}$. Write $s_1 + r = s_2$ for some $r \in J^k$. Then 
+  \begin{equation*}
+    s_2^q = (s_1 + r)^q = s_1^q + \underbrace{qs_1^{q-1} r + \binom q2
+    s_1^{q-2}r^2 + \dots + r^q }_{\in J^{k+1}} \in s_1^q + J^{k+1}.
+  \end{equation*}
+  Here we used that $p \mid \binom qm$ for all integral $1 < m < q$.
+\end{proof}
+\end{lem}
+\begin{cor}\label{cor:crystildecalc}
+  Let $S$ and $J$ be as above and let $f \in S \llbr T \rrbr$ be a power series such
+  that 
+  \begin{equation*}
+    f(T) \equiv g(T^{q}) \pmod J
+  \end{equation*}
+  for some $g \in S\llbr T \rrbr$ with $g(0) = 0$. Then, if $s_1, s_2 \in S$
+  are elements for which $f(s_1)$ and $f(s_2)$ exist (for example if $f$ is a
+  polynomial or if $S$ is an admissible ring with $s_1, s_2 \in S^\cici$) and
+  $s_1 \equiv s_2$ mod $I$, we have
+  \begin{equation*}
+    f^k(s_1) \equiv f^k(s_2) \pmod {J^{k+1}}.
+  \end{equation*}
+  Here $f^k$ is $k$-fold concatenation of $f$. 
+\end{cor}
+
+
+\begin{lem}[Crystalline nature of $\Nilp^\flat$.] \label{lem:crysnilp}
+  Suppose that $S$ is an admissible $R$-algebra admitting an ideal of
+  definition $J$ containing $p$. Then there is a bijection
   \begin{equation*}
     \Nilp^\flat(S) \cong \Nilp^\flat(S/J).
   \end{equation*}
   This bijection equips $S$ with the structure of an (additive) abelian group. 
   \begin{proof}[Proof]
     Let $(x_1, x_2, \dots)$ be an element of the right hand side. Let
-    $(y_1, y_2, \dots)$ is a sequence of arbitrary lifts. Then, as the map 
-    $q$-th power map $s \mapsto s^q$ is continuous on $S$, one obtains that 
-    $(z_1, z_2, \dots)$ with 
+    $(y_1, y_2, \dots)$ is a sequence of arbitrary lifts. From this choice of lifts
+    we obtain a sequence
+    $(z_1, z_2, \dots) \in \Nilp^\flat(S)$ by setting
     \begin{equation*}
-      z_i = \lim_{r \to \infty} y_{i+r}^{q^r}
+      z_i = \lim_{r \to \infty} y_{i+r}^{q^r}.
     \end{equation*}
-    defines an element of $\Nil^\flat(S)$ and is readily seen to be a lift of 
-    $(x_1, x_2, \dots)$. This lift is unique. Indeed, suppose that 
+    The limit exists, because if $s \geq r$ are two non-negative integers, we calculate
+    \begin{equation*}
+      y_{i + s}^{q^{s-r}} \equiv x_{i+s}^{q^{s-r}} \equiv x_{i+r} \equiv y_{i+r} \pmod I,
+    \end{equation*}
+    implying by \ref{lem:cryscalc} that 
+    \begin{equation*}
+      y_{i+s}^{q^s} \equiv y_{i+r}^{q^r} \pmod {I^r}.
+    \end{equation*}
+    Now the limit exists by completeness of $S$.
+    The sequence $(z_1, z_2, \dots)$  is readily seen to be a lift of 
+    $(x_1, x_2, \dots)$. We show that this lift is unique. Suppose that 
     $(z'_1, z'_2, \dots) \in \Nil^\flat(S)$ is another lift. Now 
     \begin{equation*}
-      z'_i \in \bigcap_{r \in R}(y_{i+r} + J)^{q^r} = z_i + q^n J + \dots +
-      J^{q^n} =  \{z_i\}.
+      z'_i \in \bigcap_{r \in \N}(z_{i+r} + J)^{q^r} = \bigcap_{r \in \N}(z_{i} +
+      q^r z_{i+1} J + \dots + J^{q^r})=  \{z_i\}.
     \end{equation*}
     This is what we wanted to show.
   \end{proof}
@@ -454,18 +497,35 @@ $S$ to the set $\lim_{s \mapsto s^q} S^\cici$.
   \end{equation*}
 \begin{proof}
   We may choose a coordinate of $H$ such that $[\pi]_{H_0}(T) \cong T^{q^n}$, where
-  $n$ is the height of $H$. The claim follows.
+  $n$ is the height of $H$. The claim follows. \red{We can also explicitely describe
+  the isomorphism for general $A$-module laws.}
 \end{proof}
 \end{lem}
 
 We keep the assumptions on $H$.
 \begin{lem}
   Suppose that $S$ is an admissible $R$-algebra admitting an ideal of definition
-  $J$ with $\pi \in J$. Then the natural reduction map
+  $J$ such that $\pi \in J$. Then the natural reduction map
   \begin{equation*}
     \tilde H(S) \to \tilde H(S/J)
   \end{equation*}
   is an isomorphism.
+  \begin{proof}[Proof]
+    Given a coordinate $H \cong \spf R\llbr T \rrbr$, a sequence $(x_0, x_1,
+    \dots) \in H(S/J)$, and an arbitrary lift to a sequence $(y_0, y_1, \dots)
+    \in \prod_{\N} H(S)$, we may, akin to
+    the calculations in Lemma \ref{lem:crysnilp} and with allusion to Corollary
+    \ref{cor:crystildecalc}, define a sequence $(z_0, z_1, \dots)$ in
+    $H(S)$ by setting 
+    \begin{equation*}
+      z_i = \lim_{r \to \infty} [\pi^r]_{H}(y_{i+r}).
+    \end{equation*}
+    This shows surjectivity of the reduction map. For injectivity,
+    as $H(S) \to H(S/J)$ is a morphism of groups, it suffices to show that the kernel
+    is trivial. But if $(z_0, z_1, \dots)$ lies in the kernel, every element 
+    $z_i$ lies in $J$ and we find that $z_i \in \bigcap_{r \in \N} J^r = \{0\}$.
+    This is what we had to show.
+  \end{proof}
 \end{lem}
 
 \begin{itemize}
