@@ -187,15 +187,59 @@ yields a functor
   \end{equation*}
   make sense by lemma \ref{lem:infiniteseriesandproducts}. This gives
   $\GG_{m,\Z_p}$ the structure of a formal $\Z_p$-module. 
-  In section \ref{sub:Application: The Local Class Field Theory}, we will see that this
-  is the simplest example of a whole family of formal modules constructed by 
-  Lubin and Tate, and discuss their applications to local class field theory.
+  In the upcoming subsection, we discuss how this is the simplest example of a
+  whole family of formal modules constructed by 
+  Lubin and Tate. In section \ref{sub:Application: The Local Class Field
+  Theory} we explain applications of these formal modules to local class field
+  theory.
 \end{xpl}
+
+\subsubsection{Lubin-Tate Formal Module Laws} % (fold)
+\label{ssub:Lubin-Tate Formal Module Laws}
+Suppose that $K$ is a local field with ring of integers $\cO_K$, with uniformizer
+$\pi$ and residue field $\FF_q$. 
+
+Let $H_0$ be the formal $\cO_K$-module law defined over $\FF_q$ by setting
+\begin{equation*}
+  H_0(X,Y) = X + Y, \quad [\pi]_{H_0}(X) = X^q, \quad [u]_{H_0}= \bar u X.
+\end{equation*}
+Here, $u$ is any unit of $\cO_K$ and $\bar u \in \FF_q$ is such that 
+$u \equiv \bar u$ mod $\pi$. This uniquely determines $[a]_{H_0}$ 
+for $a \in \cO_K$ as $a$ may be written as $a = \pi^{\nu} u$ for a unit $u$ and
+$[\pi]_{H_0}$ and $[u]_{H_0}$ commute. 
+
+Lubin-Tate formal module laws are module laws over $H$ such that 
+$H \otimes_{\cO_K} \FF_q = H_0$. 
+
+The construction of the Lubin-Tate formal module laws now rests on the following 
+lemma, which is Lemma 1 in \cite{LubinTateFormalMult}.
+\begin{lem}\label{lem:LTLemma1}
+  Let $f(T)$ and $g(T)$ be elements of $\cF_\pi$ and let 
+  $L(X_1, \dots, X_n) = \sum_{i=1}^n a_i X_i$ be a linear form with coefficients in 
+  $\cO_K$. Then there exists a unique series $F(X_1, \dots, X_n)$ with coefficients 
+  in $\cO_K$ such that 
+  \begin{gather*}
+    F(X_1, \dots, X_n) \equiv L(X_1, \dots, X_n) \pmod {T^2}, \\ \text{and} \\
+    f(F(X_1, \dots, X_n)) = F(g(X_1), \dots, g(X_n)).
+  \end{gather*}
+\end{lem}
+Although stated in a quite narrow context, the proof only uses that $\cO_K$ is 
+$\pi$-complete and flat.
+Write $\cF_\pi$ for the set of power series that may arise as $[\pi]_H$, that is,
+\begin{equation*}
+  \cF_\pi \coloneqq \{f \in \cO_K \llbr T \rrbr \mid f \equiv \pi T \pmod {T^2}
+    \text{ and } f \equiv X^q \pmod \pi\}. 
+\end{equation*}
+Then Lemma \ref{lem:LTLemma1} implies that there is a unique power series 
+$F_f(X,Y) \in \cO_K\llbr T \rrbr$ 
+
+% subsubsection Lubin-Tate Formal Module Laws (end)
 
 \subsubsection{Logarithms} % (fold)
 \label{ssub:Logarithms}
-Suppose that $A$ is a discrete valuation ring with uniformizer $\pi$ and that $K$ is a 
-field. We review results from \cite{hopkins1994equivariant}. 
+We return to the more general framework where $A$ is an integral domain with 
+field of fractions $K$. We review results from chapter
+2 and 3 of \cite{hopkins1994equivariant}. 
 Suppose that $F$ is a formal $A$-module law over an $A$-algebra $R$. 
 
 \begin{defi}[Invariant Differentials for module laws.]
@@ -211,7 +255,8 @@ Suppose that $F$ is a formal $A$-module law over an $A$-algebra $R$.
   for all $a \in A$. 
 \end{defi}
 
-It is possible to explicitely construct invariant differentials. Let $f(X,Y)$ denote
+Given a formal group law $F$, it is possible to explcitely calculate the
+$R$-module $\omega(F)$, which we now explain. Let $f(X,Y)$ denote
 $(\partial_x F)(X,Y)$, the derivative of $F(X,Y)$ with respect to $X$. Denote
 $g(Y) = f(0,Y)$. Then $g$ is a unit in $R\llbr Y \rrbr$; and we construct
 $\omega_F(X) \coloneqq \frac 1{g(X)} \dc X$. Checking that $\omega_F$ is indeed
@@ -253,19 +298,68 @@ One may check that $\End(\GG_{a,R}) \supseteq R$, turning $\dc$ in a map of $R$-
   and behaves well with respect to the $A$-module structure on $F$. }
 \end{proof}
 \end{prop}
+
 In particular, if $R$ is a $K$-algebra, the invariant differential 
 $\omega_F(X)$ constructed above comes from a homomorphism $f(X) = X + c_2 X^2 + \dots$,
 which is an isomorphism by lemma \ref{lem:FGLeasyfacts}. 
 This allows us to define the logarithm attached to $F$.
-\begin{defi}[Logarithm]
+\begin{defi}[Logarithm and Exponential]
   If $R$ is a flat $A$-algebra, there is a unique power series
   \begin{equation*}
     \log_F(X) = X + c_2 X^2 + \dots \in (R \otimes_A K)\llbr X \rrbr 
   \end{equation*}
   inducing an isomorphism $F \otimes (R \otimes K) \to \GG_{a,R\otimes K}$.
   This power series is called the logarithm attached to $F$. 
+  The inverse of $\log_H$ is called the exponential of $F$ and will be denoted by
+  $\exp_H$.
 \end{defi}
 % subsubsection Logarithms (end)
+
+\subsubsection{Deformations of Formal Modules and the Standard Formal Module} % (fold)
+\label{ssub:Deformations of Formal Modules and the Standard Formal Module}
+If, with notation as above, $R$ is a flat $A$-module, the structure of a formal
+$A$-module $F$ over $R$ is uniquely determined by its logarithm $\log_H
+\in R \otimes_A K \llbr T \rrbr$. Indeed, we find
+\begin{equation*}
+  F(X,Y) = \exp_H(X+Y), \quad [a]_F(X) = \exp_H(a X).
+\end{equation*}
+It is therefore natural to wonder about conditions on power series $f \in
+R\llbr T \rrbr$ that ensure that $f$ is the logarithm of some formal group law. 
+Hazewinkel found such a condition in his functional equation lemma.
+
+\begin{prop}[Hazewinkel's Functional Equation Lemma] 
+  Let $p$ be a prime and $q = p^e$. Given an inclusion of rings $B \subseteq
+  L$, an ideal $\fa \subseteq B$ containing $p$, an endomorphism of rings
+  $\sigma: L \to L$ and elements $s_1, s_2, \dots \in L$ subject to the conditions
+  that 
+  \begin{equation*}
+    \sigma(b) \equiv b^q \pmod \fa \text{ for all } b \in B \quad \text{and} \quad 
+    \sigma^r(s_i) \fa \subset B \text{ for all } r,s \geq 1.
+  \end{equation*}
+  Suppose now that $f \in L\llbr T \rrbr$ satisfies the functional equation condition
+  \begin{equation*}
+    f(X) - \sum_{i=1}^\infty s_i (\sigma_* f)(X^{q^i}) \in B\llbr X \rrbr.
+  \end{equation*}
+  Then we have 
+  \begin{equation*}
+    F(X,Y) = f^{-1}(f(X) + f(Y)) \in B \llbr X,Y \rrbr.
+  \end{equation*}
+\begin{proof}
+  \cite[Sections 2 and 10]{hazewinkel1978formal}
+\end{proof}
+\end{prop}
+In the case where $B = R$, $L = R \otimes_A K$, $\sigma = \id_L$ this 
+
+
+\begin{itemize}
+  \item Introduction to Hazewinkel's theory of $A$-typical formal modules
+  \item The standard $\cO_K$-module of height $n$: The unique formal $\cO_K$-module law $H$ over
+    $\cO_K$ with logaritm 
+    \begin{equation*}
+      \log_H(X) = \sum_{i = 0}^\infty \frac{T^{q^{in}}}{\pi^i}.
+    \end{equation*}
+\end{itemize}
+% subsubsection Deformations of Formal Modules and the Standard Formal Module (end)
 
 \subsubsection{Formal DVR-Modules over Fields} % (fold)
 \label{ssub:Formal DVR-Modules over Fields}
@@ -365,17 +459,6 @@ The following lemma allows us to invert quasi-isogenies.
 \end{lem}
 % subsubsection Formal DVR-Modules over Fields of Characteristic 0 (end)
 
-\subsubsection{Deformations of Formal Modules and the Standard Formal Module} % (fold)
-\label{ssub:Deformations of Formal Modules and the Standard Formal Module}
-\begin{itemize}
-  \item Introduction to Hazewinkel's theory of $A$-typical formal modules
-  \item The standard $\cO_K$-module of height $n$: The unique formal $\cO_K$-module law $H$ over
-    $\cO_K$ with logaritm 
-    \begin{equation*}
-      \log_H(X) = \sum_{i = 0}^\infty \frac{T^{q^{in}}}{\pi^i}.
-    \end{equation*}
-\end{itemize}
-% subsubsection Deformations of Formal Modules and the Standard Formal Module (end)
 
 
 \subsubsection{The Dieudonn\'e functor} % (fold)
@@ -453,7 +536,6 @@ The following calculation is helpful.
   Here $f^k$ is $k$-fold concatenation of $f$. 
 \end{cor}
 
-
 \begin{lem}[Crystalline nature of $\Nilp^\flat$.] \label{lem:crysnilp}
   Suppose that $S$ is an admissible $R$-algebra admitting an ideal of
   definition $J$ containing $p$. Then there is a bijection
@@ -490,15 +572,38 @@ The following calculation is helpful.
 \end{lem}
 
 \begin{lem}
-  Let $H$ be a $\pi$-divisible formal $A$-module and write $H_0 = H \otimes_R k_R$. 
-  Now there is an isomorphism 
+  Let $H$ be a $\pi$-divisible formal $A$-module over $R$ and write $H_0 = H
+  \otimes_R k_R$. Now the choice of a coordinate on $H_0$ gives rise to an
+  isomorphism
   \begin{equation*}
     \tilde H_0 \cong \Nilp^\flat_{k_R}.
   \end{equation*}
 \begin{proof}
-  We may choose a coordinate of $H$ such that $[\pi]_{H_0}(T) \cong T^{q^n}$, where
-  $n$ is the height of $H$. The claim follows. \red{We can also explicitely describe
-  the isomorphism for general $A$-module laws.}
+  We can write $[\varpi]_{H_0}(X) = g(X^{q^n}) \in k_R\llbr X \rrbr$ for some 
+  $g(X) = c_1X + c_2X^2 + \dots$ with $c_1 \neq 0$. For each coefficient $c_i$, let
+  $d_i \in k_R$ be the unique element such that $d_i^{q^n} = c_i$. Let
+  $h \in k_R\llbr X \rrbr$ be the power series given by $d_1 X + d_2
+  X^2 + \dots$. Now $(h(X))^{q^n}=[\varpi]_G(X)$, and we find that 
+  \begin{equation*}
+      \tilde G(S) \to \lim_{x \mapsto x^{q^n}} S^\cici: \quad
+      (x_1, x_2, x_3, \dots) \mapsto (x_1, h(x_2), h(h(x_3)), \dots)
+  \end{equation*}
+  is a well-defined function, and (trivially) functorial in $S$. For the
+  inverse, let $h^{-1}(X) \in k_R\llbr X \rrbr$ be the the unique power
+  series with $h^{-1}(h(X))= h(h^{-1}(X)) = X$, see Lemma
+  \ref{lem:FGLeasyfacts}. The map
+  \begin{equation*}
+      \lim_{x \mapsto x^{q^n}} S^\cici \to \tilde G(S), \quad 
+      (x_1, x_2, \dots ) \mapsto (x_1, h^{-1}(x_2), h^{-1}(h^{-1}(x_3)), \dots)
+  \end{equation*}
+  is well-defined as
+  \begin{equation*}
+      [\varpi]_G(h^{-1}(X)) = g((h^{-1}(X))^{q^n}) = (h(h^{-1}(X)))^{q^n} =
+      X^{q^n}
+  \end{equation*}
+  and it is readily seen to be inverse to the map constructed above.
+  Note that the functors $\Nilp^\flat$ and $\lim_{x \mapsto x^{q^n}} S^\cici$
+  are isomorphic.
 \end{proof}
 \end{lem}
 
@@ -527,6 +632,23 @@ We keep the assumptions on $H$.
     This is what we had to show.
   \end{proof}
 \end{lem}
+
+We collect the results. 
+\begin{prop}
+  Let $A$ be a local ring with finite residue field, and let $R$ be a local, admissible 
+  $A$-algebra with perfect residue field. Let $I \subset R$ be an ideal of
+  definition containing $\pi$ and $p$. Let $H$ be a $\pi$-divisible formal
+  $A$-module over $R$ and fix a coordinate $H_0 = H\otimes_R(R/I) \cong
+  (R/I) \llbr T \rrbr$. 
+  Let $S$ be an admissible $R$-algebra with ideal of definition $J$ such that 
+  $\phi(I) \subseteq J$. Then there are isomorphisms (functorial in $S$)
+      \begin{equation*}
+        \tilde H(S) \cong \tilde H(S/J) = \tilde H_0(S/J) \cong \Nilp^\flat(S/J) \cong
+        \Nilp^\flat(S).
+      \end{equation*}
+  In particular, $\tilde H(S)$ is, as a functor to $\Set$, representable by
+  $\spf(R \llbr T^{q^{-\infty}} \rrbr)$.
+\end{prop}
 
 \begin{itemize}
   \item Results from \cite{BoyarchenkoWeinstein2011MaxVar}, section 2.5
