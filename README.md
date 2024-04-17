@@ -1,5 +1,12 @@
 # Master's thesis
 
+## Version from 17. of April:
+[04_17_version.pdf](./04_17_version.pdf) 
+Still trying to get done with chapter 2... 
+Added discussion about Lubin-Tate Formal Module Laws, Logarithms and the Universal Cover.
+Trying to get done with 2.6, 2.8 and 2.9 soon-ish...
+
+
 ## Version from 11. of April: 
 [04_11_version.pdf](./04_11_version.pdf) 
 The basics caused me more trouble than I like. I was/am a bit confused about 
