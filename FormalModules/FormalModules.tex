@@ -1,12 +1,18 @@
+%! TeX root: ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Formal Modules}
 This section will serve as an introduction to formal groups and 
 formal modules. Formal groups (or rather, formal group laws) were first
 introduced by \textsc{Salomon Bochner} in 1946 as a natural means of studying Lie
 Groups over fields of characteristic $0$, cf. \cite{Bochner1946FGrps}. 
 The study of formal groups later became interesting for its own right, 
-with pioneering works of Lazard \cite{Lazard1955FGrps}.
+with pioneering works of Lazard \cite{Lazard1955FGrps}. \todo{blabla}
 
-\subsection{Formal Modules} % (fold)
-\label{sub:Formal Modules}
+\subsection{Basic Notions} % (fold)
+\label{sub:Basic Notions}
 As promised in the introduction, we begin by defining {formal group
 laws}.
 
@@ -189,13 +195,11 @@ yields a functor
   $\GG_{m,\Z_p}$ the structure of a formal $\Z_p$-module. 
   In the upcoming subsection, we discuss how this is the simplest example of a
   whole family of formal modules constructed by 
-  Lubin and Tate. In section \ref{sub:Application: The Local Class Field
-  Theory} we explain applications of these formal modules to local class field
-  theory.
+  Lubin and Tate. In section \ref{sec:Local Class Field Theory} we explain applications of these formal modules to local class field theory.
 \end{xpl}
 
-\subsubsection{Lubin-Tate Formal Module Laws} % (fold)
-\label{ssub:Lubin-Tate Formal Module Laws}
+\subsection{Lubin-Tate Formal Module Laws} % (fold)
+\label{sub:Lubin-Tate Formal Module Laws}
 Suppose that $K$ is a local field with ring of integers $\cO_K$, with uniformizer
 $\pi$ and residue field $\FF_q$. 
 
@@ -203,17 +207,19 @@ Let $H_0$ be the formal $\cO_K$-module law defined over $\FF_q$ by setting
 \begin{equation*}
   H_0(X,Y) = X + Y, \quad [\pi]_{H_0}(X) = X^q, \quad [u]_{H_0}= \bar u X.
 \end{equation*}
-Here, $u$ is any unit of $\cO_K$ and $\bar u \in \FF_q$ is such that 
+Here, $u$ runs over the units of $\cO_K$ and $\bar u \in \FF_q$ is such that 
 $u \equiv \bar u$ mod $\pi$. This uniquely determines $[a]_{H_0}$ 
 for $a \in \cO_K$ as $a$ may be written as $a = \pi^{\nu} u$ for a unit $u$ and
 $[\pi]_{H_0}$ and $[u]_{H_0}$ commute. 
 
-Lubin-Tate formal module laws are module laws over $H$ such that 
+Lubin-Tate formal module laws are $\cO_K$-module laws $H$ over $\cO_K$ such that 
 $H \otimes_{\cO_K} \FF_q = H_0$. 
 
-The construction of the Lubin-Tate formal module laws now rests on the following 
+The construction of the Lubin-Tate formal module laws rests on the following 
 lemma, which is Lemma 1 in \cite{LubinTateFormalMult}.
 \begin{lem}\label{lem:LTLemma1}
+  \todo{Restate in more general terms, for arbitrary powers of $q$, and perhaps
+  for general discrete valuation rings with finite residue field.}
   Let $f(T)$ and $g(T)$ be elements of $\cF_\pi$ and let 
   $L(X_1, \dots, X_n) = \sum_{i=1}^n a_i X_i$ be a linear form with coefficients in 
   $\cO_K$. Then there exists a unique series $F(X_1, \dots, X_n)$ with coefficients 
@@ -223,22 +229,71 @@ lemma, which is Lemma 1 in \cite{LubinTateFormalMult}.
     f(F(X_1, \dots, X_n)) = F(g(X_1), \dots, g(X_n)).
   \end{gather*}
 \end{lem}
-Although stated in a quite narrow context, the proof only uses that $\cO_K$ is 
-$\pi$-complete and flat.
+Although stated only for the rings of integers of a local field, the proof only
+uses that $\cO_K$ is complete with respect to the $\pi$-adic topology, $\pi$ is
+not a zero divisor and the map $x \mapsto x^q$ restricts to the identity mod $\pi$.
+In particular, the statement remains true if working over the integers of the
+completion of a maximal unramified extension $\br K$ of $K$.
+
 Write $\cF_\pi$ for the set of power series that may arise as $[\pi]_H$, that is,
 \begin{equation*}
   \cF_\pi \coloneqq \{f \in \cO_K \llbr T \rrbr \mid f \equiv \pi T \pmod {T^2}
-    \text{ and } f \equiv X^q \pmod \pi\}. 
+    \text{ and } f \equiv T^q \pmod \pi\}. 
 \end{equation*}
-Then Lemma \ref{lem:LTLemma1} implies that there is a unique power series 
-$F_f(X,Y) \in \cO_K\llbr T \rrbr$ 
+Using Lemma \ref{lem:LTLemma1}, we can construct formal $\cO_K$-modules over 
+$\cO_K$ as follows. Attached to $f \in \cF_\pi$, we find a unique power series
+$F_f(X,Y) \in \cO_K\llbr X,Y\rrbr$ satisfying
+\begin{equation}\label{eq:LTMoLaAddCond}
+  F_f(X,Y) \equiv X+Y \pmod{(X,Y)^2} \quad \text{and} \quad
+  F_f(f(X),f(Y)) = f(F_f(X,Y)).
+\end{equation}
+Furthermore, attached to each $a \in \cO_K$ and $f,g \in \cF_\pi$, we find
+unique $[a]_{f,g}(T) \in \cO_K\llbr T \rrbr$ satisfying
+\begin{equation}\label{eq:LTMoLaScaCond}
+  [a]_{f,g}(T) \equiv aT \pmod {(T)^2} \quad \text{and} \quad
+  f([a]_{f,g}(T)) = [a]_{f,g}(g(T)).
+\end{equation}
+We now have
+\begin{thm}[Lubin-Tate Formal $\cO_K$-Module Laws]
+  For $f \in \cF_\pi$, the family of power series $(F_f, ([a]_{f,f})_{a \in \cO_K})$
+  gives rise to a formal $\cO_K$-module law over $\cO_K$. For 
+  $f,g \in \cF_\pi$, the formal $\cO_K$-module laws $F_f$ and $F_g$ are isomorphic,
+  via the morphism induced by $[1]_{f,g} \in \cO_K\llbr T \rrbr$. 
+
+\begin{proof}
+  See Theorem 1 of \cite{LubinTateFormalMult} and the succeeding discussion.
+\end{proof}
+\end{thm}
+In particular, up to isomorphism, the construction of a Lubin-Tate formal
+$\cO_K$-module law only depends on the choice of the uniformizer $\pi \in
+\cO_K$, not on the choice of $f \in \cF_\pi$. 
+
+\begin{xpl}
+  If $K = \Q_p$, this reconstructs the multiplicative formal 
+  $\Z_p$ module $\GG_m$ constructed above. Indeed, we have 
+  \begin{equation*}
+    \cF_p = \{f \in \Z_p\llbr T \rrbr \mid f(T) \equiv T^p \text{ mod } p
+    \text{ and } f(T) \equiv pT \text{ mod } (T)^2 \},
+  \end{equation*}
+  implying that $f(T) = (1+T)^p-1$ lies in $\cF_p$.  
+  One quickly checks that 
+  \begin{equation*}
+    F_f(X,Y) = (1+X)(1+Y) - 1 = X + Y + XY \in \Z_p \llbr X,Y \rrbr
+  \end{equation*}
+  satisfies the conditions of \eqref{eq:LTMoLaAddCond}, and that 
+  for $a \in \Z_p$, the power series
+  \begin{equation*}
+    [a]_{f,f} = (1+T)^{a} - 1 \in \Z_p \llbr T \rrbr
+  \end{equation*}
+  satisfies the condition of \eqref{eq:LTMoLaScaCond}. 
+\end{xpl}
 
 % subsubsection Lubin-Tate Formal Module Laws (end)
 
-\subsubsection{Logarithms} % (fold)
-\label{ssub:Logarithms}
+\subsection{Logarithms} % (fold)
+\label{sub:Logarithms}
 We return to the more general framework where $A$ is an integral domain with 
-field of fractions $K$. We review results from chapter
+field of fractions $K$. We review results from section
 2 and 3 of \cite{hopkins1994equivariant}. 
 Suppose that $F$ is a formal $A$-module law over an $A$-algebra $R$. 
 
@@ -315,17 +370,18 @@ This allows us to define the logarithm attached to $F$.
 \end{defi}
 % subsubsection Logarithms (end)
 
-\subsubsection{Deformations of Formal Modules and the Standard Formal Module} % (fold)
-\label{ssub:Deformations of Formal Modules and the Standard Formal Module}
-If, with notation as above, $R$ is a flat $A$-module, the structure of a formal
+\subsection{Deformations of Formal Modules and the Standard Formal Module} % (fold)
+\label{sub:Deformations of Formal Modules and the Standard Formal Module}
+If, $A$ is an integral domain and $R$ is a flat $A$-module, the structure of a formal
 $A$-module $F$ over $R$ is uniquely determined by its logarithm $\log_H
 \in R \otimes_A K \llbr T \rrbr$. Indeed, we find
 \begin{equation*}
   F(X,Y) = \exp_H(X+Y), \quad [a]_F(X) = \exp_H(a X).
 \end{equation*}
 It is therefore natural to wonder about conditions on power series $f \in
-R\llbr T \rrbr$ that ensure that $f$ is the logarithm of some formal group law. 
-Hazewinkel found such a condition in his functional equation lemma.
+(R\otimes_A K) \llbr T \rrbr$ ensuring that $f$ is the logarithm of some
+formal group law. Hazewinkel found such a condition in his functional equation
+lemma.
 
 \begin{prop}[Hazewinkel's Functional Equation Lemma] 
   Let $p$ be a prime and $q = p^e$. Given an inclusion of rings $B \subseteq
@@ -336,33 +392,69 @@ Hazewinkel found such a condition in his functional equation lemma.
     \sigma(b) \equiv b^q \pmod \fa \text{ for all } b \in B \quad \text{and} \quad 
     \sigma^r(s_i) \fa \subset B \text{ for all } r,s \geq 1.
   \end{equation*}
-  Suppose now that $f \in L\llbr T \rrbr$ satisfies the functional equation condition
+  Suppose now that $f \in L\llbr T \rrbr$ has $f'(0) \in L^\times$ and
+  satisfies the functional equation condition
   \begin{equation*}
-    f(X) - \sum_{i=1}^\infty s_i (\sigma_* f)(X^{q^i}) \in B\llbr X \rrbr.
+    f(X) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(X^{q^i}) \in B\llbr X \rrbr.
   \end{equation*}
   Then we have 
   \begin{equation*}
-    F(X,Y) = f^{-1}(f(X) + f(Y)) \in B \llbr X,Y \rrbr.
+    F(X,Y) = f^{-1}(f(X) + f(Y)) \in B \llbr X,Y \rrbr,
   \end{equation*}
-\begin{proof}
-  \cite[Sections 2 and 10]{hazewinkel1978formal}
-\end{proof}
+  where $f^{-1}$ is the inverse power series as in Lemma \ref{lem:FGLeasyfacts}.
+  Also, if $g(Z) \in L\llbr Z \rrbr$ is another power series satisfying the 
+  same condition
+  \begin{equation*}
+    g(Z) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(Z^{q^i}) \in B\llbr Z \rrbr,
+  \end{equation*}
+  then $f^{-1}(g(Z)) \in B\llbr Z \rrbr$. 
+  Furthermore, if $\alpha(T) \in B\llbr T \rrbr$ and $\beta(T) \in B \llbr T \rrbr$, then
+  \begin{equation} \label{eq:funceqlemcongruence}
+    \alpha(T) \equiv \beta(T) \pmod {\fa^r} \iff f(\alpha(T)) \equiv f(\beta(T))
+    \pmod {\fa^r}
+  \end{equation}
+
+  \begin{proof}
+    A more general statement can be found in \cite[Section
+    2]{hazewinkel1979funceqexp}. Proofs can be found in \cite[Sections 2 and
+    10]{hazewinkel1978formal}.
+  \end{proof}
 \end{prop}
-In the case where $B = R$, $L = R \otimes_A K$, $\sigma = \id_L$ this 
+Note that by construction, $F(X,Y)$ as defined above yields a (commutative)
+formal group law over $B$. 
+Let $B^\sigma$ denote the subring of elements in $B$ fixed by $\sigma$. Then 
+the second part of the Functional Equation Lemma implies that we even obtain
+formal $B^\sigma$-modules with $[b]_F(T) = f^{-1}(b f(T))$, as $bf(T)$
+satisfies the same functional equation if $b \in B^\sigma$. 
+
+We use the Functional Equation Lemma to construct Lubin-Tate Formal Group Laws. 
+Hence we now enter the situation where $K$ is a local field with ring of integers
+$\cO_K$ and uniformizer $\pi$. Look at the formal power series
+\begin{equation*}
+  f(T) = \sum_{i=1}^\infty \frac{T^{q^{in}}}{\pi^i} \in K\llbr T \rrbr.
+\end{equation*}
+It satisfies the functional equation
+\begin{equation*}
+  f(T) = T + \frac 1\pi f(T^{q^n}),
+\end{equation*}
+which is a functional equation of the form above, with 
+$B = \cO_K$, $L = K$, $s_1 = \pi^{-1}$, $s_2 = s_3 = \dots = 0$, $\sigma = \id_L$. 
+Hence $f$ arises as the logarithm of a formal $\cO_K$-module law $H$ over $\cO_K$.
+The fact that $f^{-1}(X) = X - \frac 1\pi X^{q^n} + \dots$ reveals
+$[\pi]_H(T) \equiv \pi T$ mod $(T^2)$. Additionally, note that 
+\begin{equation*}
+  f([\pi]_H(T)) = \pi f(T) = \pi T + f(T^{q^n}) \equiv f(T^{q^n}) \pmod \pi.
+\end{equation*}
+Hence, the equivalence in \eqref{eq:funceqlemcongruence} implies that 
+$[\pi]_H(T) \equiv T^{q^n}$ mod $\pi$. So $H$ is a Lubin-Tate formal $\cO_K$-module
+law of height $n$, we'll call it the standard Lubin-Tate formal module law of
+height $n$. 
 
 
-\begin{itemize}
-  \item Introduction to Hazewinkel's theory of $A$-typical formal modules
-  \item The standard $\cO_K$-module of height $n$: The unique formal $\cO_K$-module law $H$ over
-    $\cO_K$ with logaritm 
-    \begin{equation*}
-      \log_H(X) = \sum_{i = 0}^\infty \frac{T^{q^{in}}}{\pi^i}.
-    \end{equation*}
-\end{itemize}
 % subsubsection Deformations of Formal Modules and the Standard Formal Module (end)
 
-\subsubsection{Formal DVR-Modules over Fields} % (fold)
-\label{ssub:Formal DVR-Modules over Fields}
+\subsection{Formal DVR-Modules over Fields} % (fold)
+\label{sub:Formal DVR-Modules over Fields}
 As above, let $A$ be a discrete valuation ring with uniformizer $\pi$ and finite 
 residue field $k$; write $q$ for the cardinality of $k$. Let $K$ denote the
 field of fractions of $A$.
@@ -459,25 +551,57 @@ The following lemma allows us to invert quasi-isogenies.
 \end{lem}
 % subsubsection Formal DVR-Modules over Fields of Characteristic 0 (end)
 
+\subsection{The Dieudonn\'e functor} % (fold)
+\label{sub:The Dieudonne functor}
+We explain construct a functor $\M^\vee: \FMOver AR \to \Mod R$, satisfying the 
+following condition.
+\begin{enumerate}
+  \item bla
+\end{enumerate}
 
+\begin{defi}[Quasi-Logarithm]
+  Let $F$ be a formal $A$-module law over $R$. Given a power series $f \in
+  (R \otimes_A K)\llbr T \rrbr$ with $f(0) = 0$, we write 
+  \begin{equation*}
+    \Delta_F(f) = f(F(X,Y)) - f(X) - f(Y) \quad \text{and} \quad
+    \delta_a (f) = f([a]_F(T)) - af(T)
+  \end{equation*}
+  for $a \in A$.
+  A Quasi-Logarithm for $F$ is a power series $f \in (R \otimes_A K)\llbr T \rrbr$
+  with $f(0) = 0$ such that $\Delta_F(f)$ and $\delta_a(f)$ have coefficients
+  in $A$. We define the $R$-module
+  \begin{equation*}
+    \QLog(F) = \frac{\{\text{Quasi-Logarithms for $F$}\}}{\{f \in A\llbr T
+    \rrbr \mid f(0) = 0\}}.
+  \end{equation*}
+\end{defi}
 
-\subsubsection{The Dieudonn\'e functor} % (fold)
-\label{ssub:The Dieudonne functor}
+\begin{prop}
+  The $R$-module $\QLog(F)$ satisfies the properties listed above. 
+\begin{proof}
+\end{proof}
+\end{prop}
+
 \begin{itemize}
   \item Definition using quasi-logarithms
   \item Definition with rigidified extensions as in \cite{hopkins1994equivariant} (?)
 \end{itemize}
 % subsubsection The Dieudonn`e functor (end)
 
-\subsubsection{Tate Modules and the Universal Cover} % (fold)
+\subsection{Tate Modules and the Universal Cover} % (fold)
 \label{sub:Tate Modules and the Universal Cover}
-Let $A$ be a ring and $R$ be an $A$-algebra. Given $H \in \FMOver AR$ and $a \in A$,
+Let $A$ be an integral domain and $R$ be an $A$-algebra. Given $H \in \FMOver
+AR$ and $a \in A$,
 we define the functor 
 \begin{equation*}
-  \Tilde H_a : \Adm R \to \Mod {A[\tfrac 1a]}, \quad
+  \Tilde H_a : \Adm R \to \Mod {A}, \quad
   S \mapsto \left\{(x_1, x_2, \dots) \in \prod_{\N} H(S) \mid [a]_H(x_{i+1}) =
   x_i \right\}.
 \end{equation*}
+Here, the $A$-module structure is given by $b.(x_1, x_2,\dots) = ([b]_H(x_1), [b]_(x_2),
+\dots)$. Note that if $a \in A$ is not a zero-divisor, 
+multiplication by $a$ on $\tilde H_a(S)$ is an automorphism, so that 
+$\tilde H_a(S)$ is naturally an $A[\frac1a]$-module.
 
 From now on assume that $A$ is a discrete valuation ring with uniformizer
 $\pi$, finite residue field $k$ and field of fractions $K$. 
@@ -515,9 +639,9 @@ The following calculation is helpful.
   mod $J^{k+1}$. Write $s_1 + r = s_2$ for some $r \in J^k$. Then 
   \begin{equation*}
     s_2^q = (s_1 + r)^q = s_1^q + \underbrace{qs_1^{q-1} r + \binom q2
-    s_1^{q-2}r^2 + \dots + r^q }_{\in J^{k+1}} \in s_1^q + J^{k+1}.
+    s_1^{q-2}r^2 + \dots + r^q }_{\in J^{k+1}} \in s_1^q + J^{k+1},
   \end{equation*}
-  Here we used that $p \mid \binom qm$ for all integral $1 < m < q$.
+  and done.
 \end{proof}
 \end{lem}
 \begin{cor}\label{cor:crystildecalc}
@@ -553,11 +677,11 @@ The following calculation is helpful.
     \end{equation*}
     The limit exists, because if $s \geq r$ are two non-negative integers, we calculate
     \begin{equation*}
-      y_{i + s}^{q^{s-r}} \equiv x_{i+s}^{q^{s-r}} \equiv x_{i+r} \equiv y_{i+r} \pmod I,
+      y_{i + s}^{q^{s-r}} \equiv x_{i+s}^{q^{s-r}} = x_{i+r} \equiv y_{i+r} \pmod J,
     \end{equation*}
     implying by \ref{lem:cryscalc} that 
     \begin{equation*}
-      y_{i+s}^{q^s} \equiv y_{i+r}^{q^r} \pmod {I^r}.
+      y_{i+s}^{q^s} \equiv y_{i+r}^{q^r} \pmod {J^r}.
     \end{equation*}
     Now the limit exists by completeness of $S$.
     The sequence $(z_1, z_2, \dots)$  is readily seen to be a lift of 
@@ -567,17 +691,19 @@ The following calculation is helpful.
       z'_i \in \bigcap_{r \in \N}(z_{i+r} + J)^{q^r} = \bigcap_{r \in \N}(z_{i} +
       q^r z_{i+1} J + \dots + J^{q^r})=  \{z_i\}.
     \end{equation*}
-    This is what we wanted to show.
+  Here we used that for $s \in \N$, $\liminf_{r \to \infty, 1<m<s} \nu_p\left( \binom
+    {q^r}{m} \right) = \infty$. This is what we wanted to show.
   \end{proof}
 \end{lem}
 
 \begin{lem}
   Let $H$ be a $\pi$-divisible formal $A$-module over $R$ and write $H_0 = H
-  \otimes_R k_R$. Now the choice of a coordinate on $H_0$ gives rise to an
-  isomorphism
+  \otimes_R k_R$. Now the choice of a coordinate on $H_0$ gives rise to a
+  an isomorphism 
   \begin{equation*}
-    \tilde H_0 \cong \Nilp^\flat_{k_R}.
+    \tilde H_0 \cong \Nilp^\flat_{k_R}
   \end{equation*}
+  of functors $\Adm {k_R} \to \Set$
 \begin{proof}
   We can write $[\varpi]_{H_0}(X) = g(X^{q^n}) \in k_R\llbr X \rrbr$ for some 
   $g(X) = c_1X + c_2X^2 + \dots$ with $c_1 \neq 0$. For each coefficient $c_i$, let
@@ -635,13 +761,17 @@ We keep the assumptions on $H$.
 
 We collect the results. 
 \begin{prop}
-  Let $A$ be a local ring with finite residue field, and let $R$ be a local, admissible 
-  $A$-algebra with perfect residue field. Let $I \subset R$ be an ideal of
-  definition containing $\pi$ and $p$. Let $H$ be a $\pi$-divisible formal
-  $A$-module over $R$ and fix a coordinate $H_0 = H\otimes_R(R/I) \cong
-  (R/I) \llbr T \rrbr$. 
+  Let $A$ be a local ring with finite residue field and uniformizer $\pi$, and
+  let $R$ be a noetherian local
+  $A$-algebra with maximal ideal $I$ containing $\pi$ and $p$ \todo{this might
+  be redundant}, such that 
+  $R$ is complete with respect to the $I$-adic topology and $k_R = R/I$ is a 
+  separably closed field.
+  Let $H$ be a $\pi$-divisible formal
+  $A$-module over $R$ and fix a coordinate $H_0 = H \otimes_R k_R \cong
+  k_R \llbr T \rrbr$. 
   Let $S$ be an admissible $R$-algebra with ideal of definition $J$ such that 
-  $\phi(I) \subseteq J$. Then there are isomorphisms (functorial in $S$)
+  $\phi(I) \subseteq J$. Then there are canonical isomorphisms (of sets)
       \begin{equation*}
         \tilde H(S) \cong \tilde H(S/J) = \tilde H_0(S/J) \cong \Nilp^\flat(S/J) \cong
         \Nilp^\flat(S).
@@ -650,22 +780,18 @@ We collect the results.
   $\spf(R \llbr T^{q^{-\infty}} \rrbr)$.
 \end{prop}
 
-\begin{itemize}
-  \item Results from \cite{BoyarchenkoWeinstein2011MaxVar}, section 2.5
-\end{itemize}
-
-
 % subsection Tate Modules and the Universal Cover (end)
 
-\subsubsection{The Quasilogarithm Map} % (fold)
-\label{ssub:The Quasilogarithm map}
+\subsection{The Quasilogarithm Map} % (fold)
+\label{sub:The Quasilogarithm map}
+There is a 
 \begin{itemize}
   \item See \cite{BoyarchenkoWeinstein2011MaxVar}, section 2.6.
 \end{itemize}
 % subsubsection The Quasilogarithm map (end)
 
-\subsubsection{Determinants of Formal Modules} % (fold)
-\label{ssub:Determinants of Formal Modules}
+\subsection{Determinants of Formal Modules} % (fold)
+\label{sub:Determinants of Formal Modules}
 \begin{itemize}
   \item "Functorial" description of the determinant. Either as in
     \cite{BoyarchenkoWeinstein2011MaxVar}, or as in \cite{weinstein2016semistable}.
@@ -674,3 +800,5 @@ We collect the results.
 \end{itemize}
 
 % subsubsection Determinants of Formal Modules (end)
+% subsection Application: The Local Class Field Theory (end)
+\end{document}
