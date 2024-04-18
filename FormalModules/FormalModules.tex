@@ -20,7 +20,7 @@ laws}.
     Let $R$ be a ring. A (commututative, one-\allowbreak
     dimen\-sional) formal group law over $R$ is a power series $F(X,Y) \in
     R\llbr X, Y \rrbr$ such that $F(X,Y) \equiv X + Y$ modulo terms
-    of degree $2$ and
+    of degree $\geq 2$ and
     the following properties are satisfied:
     \begin{itemize}
         \item $F(F(X,Y),Z) = F(X,F(Y,Z))$,
@@ -65,10 +65,10 @@ useful and easily verified.
   \end{itemize}
 \end{xpl}
 
-Next up is the definition of formal $A$-module laws. Naively, we'd like to say
+Next up is the definition of formal $A$-module laws. Naively, we would like to say
 that an $A$-module law is the same as that of a formal group law $F$
 plus $A$-module structure, i.e. a morphism of rings $[\cdot]_F: A \to
-\End_\FGLover R(F)$. But there is a subtlety here: Let 
+\End_\FGLover R(F)$. But there is a subtlety here: let 
 \begin{equation*}
   \Lie: \FGLover R \to \Ab 
 \end{equation*}
@@ -82,12 +82,12 @@ yields an $A$-module structure on $R$, given by the concatenation\begin{equation
   A \xto{[\cdot]_F} \End(F) \xto{\Lie} \End(R), \quad a \mapsto \Lie([a]_F)
 \end{equation*}
 
-This is a morphism of rings, and we obtain an $A$-algebra structure on $R$. We'd
+This is a morphism of rings, and we obtain an $A$-algebra structure on $R$. We would
 like the $A$-algebra structure on $R$ to be uniform. This
 motivates the following definition.
 \begin{defi}[Formal $A$-module law]
   Let $A$ be a ring and $R$ be an $A$-algebra with structure
-  morphism $p: A \to R$. A (one-dimensional) $A$-module law over an $R$ is a
+  morphism $p: A \to R$. A (one-dimensional) $A$-module law over $R$ is a
   pair $(F, ([a]_F)_{a \in A})$, where $F \in R\llbr X,Y \rrbr$ is 
   a formal group law and $[a]_F = p(a)X + c_2X^2 + \dots 
   \in R\llbr X \rrbr$ yield endomorphisms $F \to F$ such that the induced map
@@ -151,6 +151,16 @@ formal modules.
   structure on $\spf(R_i\llbr T \rrbr)$ comes from a formal $A$-module law
   $F_i$ over $R_i$, we say that $\cF$ is a formal $A$-module. 
 \end{defi}
+
+\begin{rmk} 
+  Formal schemes (over a base an $A$-scheme $X$, say) locally isomorphic to 
+  $\spf \cO_X(U)\llbr T \rrbr$ are sometimes called (one-dimensional) Formal
+  Lie Varieties \todo{reference}. Equivalently to the definition above, we could
+  have defined formal $A$-modules as $A$-module objects (of relative dimension one
+  over $X$) in the category of Formal Lie Varieties, such that the $A$-module structure
+  on the tangent space at the identity agrees with the usual one.
+\end{rmk}
+
 \begin{defi}[Coordinate]
   Let $\cF$ be a formal $A$-module over $X$. The choice of a cover $\sqcup_{i
   \in I} \spec(R_i) \to X$ together with isomorphisms $\cF \times_X \spec(R_i)
@@ -164,7 +174,8 @@ Of course there is a functor
 essentially forgetting the choice of module law. The observation of Lemma 
 \ref{lem:FMLFunc} translates to formal modules, a morphism $p : R \to R'$ 
 yields a functor 
-\begin{equation*} p_*: \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
+\begin{equation*} 
+  p_*: \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
 \end{equation*}
 
 \begin{xpl}
@@ -198,8 +209,8 @@ yields a functor
   Lubin and Tate. In section \ref{sec:Local Class Field Theory} we explain applications of these formal modules to local class field theory.
 \end{xpl}
 
-\subsection{Lubin-Tate Formal Module Laws} % (fold)
-\label{sub:Lubin-Tate Formal Module Laws}
+\subsection{Lubin--Tate Formal Module Laws} % (fold)
+\label{sub:Lubin--Tate Formal Module Laws}
 Suppose that $K$ is a local field with ring of integers $\cO_K$, with uniformizer
 $\pi$ and residue field $\FF_q$. 
 
@@ -212,10 +223,10 @@ $u \equiv \bar u$ mod $\pi$. This uniquely determines $[a]_{H_0}$
 for $a \in \cO_K$ as $a$ may be written as $a = \pi^{\nu} u$ for a unit $u$ and
 $[\pi]_{H_0}$ and $[u]_{H_0}$ commute. 
 
-Lubin-Tate formal module laws are $\cO_K$-module laws $H$ over $\cO_K$ such that 
+Lubin--Tate formal module laws are $\cO_K$-module laws $H$ over $\cO_K$ such that 
 $H \otimes_{\cO_K} \FF_q = H_0$. 
 
-The construction of the Lubin-Tate formal module laws rests on the following 
+The construction of the Lubin--Tate formal module laws rests on the following 
 lemma, which is Lemma 1 in \cite{LubinTateFormalMult}.
 \begin{lem}\label{lem:LTLemma1}
   \todo{Restate in more general terms, for arbitrary powers of $q$, and perhaps
@@ -254,7 +265,7 @@ unique $[a]_{f,g}(T) \in \cO_K\llbr T \rrbr$ satisfying
   f([a]_{f,g}(T)) = [a]_{f,g}(g(T)).
 \end{equation}
 We now have
-\begin{thm}[Lubin-Tate Formal $\cO_K$-Module Laws]
+\begin{thm}[Lubin--Tate Formal $\cO_K$-Module Laws]
   For $f \in \cF_\pi$, the family of power series $(F_f, ([a]_{f,f})_{a \in \cO_K})$
   gives rise to a formal $\cO_K$-module law over $\cO_K$. For 
   $f,g \in \cF_\pi$, the formal $\cO_K$-module laws $F_f$ and $F_g$ are isomorphic,
@@ -264,7 +275,7 @@ We now have
   See Theorem 1 of \cite{LubinTateFormalMult} and the succeeding discussion.
 \end{proof}
 \end{thm}
-In particular, up to isomorphism, the construction of a Lubin-Tate formal
+In particular, up to isomorphism, the construction of a Lubin--Tate formal
 $\cO_K$-module law only depends on the choice of the uniformizer $\pi \in
 \cO_K$, not on the choice of $f \in \cF_\pi$. 
 
@@ -288,7 +299,7 @@ $\cO_K$-module law only depends on the choice of the uniformizer $\pi \in
   satisfies the condition of \eqref{eq:LTMoLaScaCond}. 
 \end{xpl}
 
-% subsubsection Lubin-Tate Formal Module Laws (end)
+% subsubsection Lubin--Tate Formal Module Laws (end)
 
 \subsection{Logarithms} % (fold)
 \label{sub:Logarithms}
@@ -427,7 +438,7 @@ the second part of the Functional Equation Lemma implies that we even obtain
 formal $B^\sigma$-modules with $[b]_F(T) = f^{-1}(b f(T))$, as $bf(T)$
 satisfies the same functional equation if $b \in B^\sigma$. 
 
-We use the Functional Equation Lemma to construct Lubin-Tate Formal Group Laws. 
+We use the Functional Equation Lemma to construct Lubin--Tate Formal Group Laws. 
 Hence we now enter the situation where $K$ is a local field with ring of integers
 $\cO_K$ and uniformizer $\pi$. Look at the formal power series
 \begin{equation*}
@@ -446,8 +457,8 @@ $[\pi]_H(T) \equiv \pi T$ mod $(T^2)$. Additionally, note that
   f([\pi]_H(T)) = \pi f(T) = \pi T + f(T^{q^n}) \equiv f(T^{q^n}) \pmod \pi.
 \end{equation*}
 Hence, the equivalence in \eqref{eq:funceqlemcongruence} implies that 
-$[\pi]_H(T) \equiv T^{q^n}$ mod $\pi$. So $H$ is a Lubin-Tate formal $\cO_K$-module
-law of height $n$, we'll call it the standard Lubin-Tate formal module law of
+$[\pi]_H(T) \equiv T^{q^n}$ mod $\pi$. So $H$ is a Lubin--Tate formal $\cO_K$-module
+law of height $n$, we'll call it the standard Lubin--Tate formal module law of
 height $n$. 
 
 
@@ -599,13 +610,13 @@ we define the functor
   x_i \right\}.
 \end{equation*}
 Here, the $A$-module structure is given by $b.(x_1, x_2,\dots) = ([b]_H(x_1), [b]_(x_2),
-\dots)$. Note that if $a \in A$ is not a zero-divisor, 
-multiplication by $a$ on $\tilde H_a(S)$ is an automorphism, so that 
-$\tilde H_a(S)$ is naturally an $A[\frac1a]$-module.
+\dots)$. Note that multiplication by $a$ on $\tilde H_a(S)$ is an automorphism
+(it sends $(x_1, x_2, \dots)$ to $([a]_H x_1, x_1, x_2, \dots)$, which has inverse given
+by shifting to the left)  so that $\tilde H_a(S)$ is naturally an
+$A[\frac1a]$-module.
 
 From now on assume that $A$ is a discrete valuation ring with uniformizer
 $\pi$, finite residue field $k$ and field of fractions $K$. 
-
 \begin{defi}[The Universal Cover and Tate Module]
   We omit $\pi$ from notation and write $\tilde H = \tilde H_\pi$. This functor
   takes values in the category of $K$-vector spaces.
@@ -622,17 +633,39 @@ $\pi$, finite residue field $k$ and field of fractions $K$.
   \end{equation*}
 \end{defi}
 
-Let $R$ be an adic $A$-algebra with finitely generated ideal of definition $I$ such
-$k_R = R/I$ is a separably closed field of characteristic $p$ (in particular, $p \in I$). 
-We write $\Nilp^\flat_R$ for the functor sending on admissible $R$-algebras sending
-$S$ to the set $\lim_{s \mapsto s^q} S^\cici$. This functor is representable by
-$\Spf R\llbr T^{\frac 1{q^\infty}} \rrbr$ (with the $T$-adic topology).
+In order to understand the universal cover, the following calculations will
+be convenient. 
 
-The following calculation is helpful.
+\subsubsection{Useful Calculations} % (fold)
+\label{ssub:Useful Calculations}
+Let $p$ be a prime and $q$ be a power of $p$.
+Let $R$ be a Noetherian local ring with maximal ideal $I$ such that 
+$p \in I$, $R$ is complete with respect to the $I$-adic topology and $k_R
+\coloneqq R/I$ is an
+algebraically closed field. 
+Write $\cF_R$ for the set of power series $f \in R\llbr T \rrbr$ satisfying 
+\begin{equation} \label{eq:condonpowerseries}
+  f(T) \equiv g(T^q) \pmod I
+\end{equation}
+for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in k_R\llbr T \rrbr$ with 
+$c_1 \in k_R^\times$. 
+For $f \in \cF_R$, we define the functor
+\begin{equation*}
+  U_f: \Adm R \to \Set, \quad S \mapsto \left\{(x_0,x_1, \dots) \in \prod_\N S^\cici 
+                                          \mid f(x_{i+1}) = x_i\right\}.
+\end{equation*}
+We write $U_{f,0}$ for the base change of $U_f$ to $k_R$, that is
+\begin{equation*}
+  U_{f,0}: \Adm k_R \to \Set, \quad S \mapsto \left\{(x_0,x_1, \dots) \in
+                              \prod_\N S^\cici \mid f(x_{i+1}) = x_i\right\}.
+\end{equation*}
+
+In the sequel, we write denote $R$-algebras by $S$ and write $J$ for an ideal
+of definition containing the image of $I$ (provided, for example, by \ref{lem:iodimage}). 
+
+All of the results in this section rest ultimately on the following simple observation.
 \begin{lem}\label{lem:cryscalc}
-  Let $S$ be a ring, let $J$ be an ideal of $S$ containing $p$, and let $q$ be
-  a power of $p$. 
-  Then for any two elements $s_1, s_2 \in S$ with $s_1 \equiv s_2$ mod $J$, we have 
+  For any two elements $s_1, s_2 \in S$ with $s_1 \equiv s_2$ mod $J$, we have 
   $s_1^{q^k} \equiv s_2^{q^k}$ mod $J^{k+1}$. 
 \begin{proof}
   It suffices to check that if $s_1 \equiv s_2$ mod $J^k$, then $s_1^q \equiv s_2^q$
@@ -641,9 +674,48 @@ The following calculation is helpful.
     s_2^q = (s_1 + r)^q = s_1^q + \underbrace{qs_1^{q-1} r + \binom q2
     s_1^{q-2}r^2 + \dots + r^q }_{\in J^{k+1}} \in s_1^q + J^{k+1},
   \end{equation*}
-  and done.
+  and done. 
 \end{proof}
 \end{lem}
+As an immediate corollary, we obtain
+\begin{cor}
+  Let $f$ be any power series in $\cF_R$. For any two elements $s_1,s_2 \in S$ 
+  with $s_1 \equiv s_2 \mod J$
+  such that $f(s_1)$ and $f(s_2)$ exist (for example if $f$ is a polynomial
+  or $s_1, s_2 \in S^\cici$), we have 
+  \begin{equation*}
+    f^k(s_1) \equiv f^k(s_2) \pmod {J^{k+1}}.
+  \end{equation*}
+\begin{proof}
+  The proof follows the same strategy as above. Given $s_1 - s_2 \in J^k$, we find
+  \begin{equation*}
+    f(s_1) - f(s_2) \in g(s_1^{q})-g(s_2^{q}) + J( h(s_1) - h(s_2) )
+  \end{equation*}
+  for certain $g,h \in R\llbr T \rrbr$. The claim follows, as $h(s_1) - h(s_2) \in J^k$ 
+  and 
+\end{proof}
+\end{cor}
+
+
+
+\begin{lem}
+  There is an isomorphism 
+\begin{proof}
+\end{proof}
+\end{lem}
+
+% subsubsection Useful Calculations (end)
+\subsubsection{The Universal Cover} % (fold)
+\label{ssub:The Universal Cover}
+
+
+Let $R$ be an adic $A$-algebra with finitely generated ideal of definition $I$ such
+$k_R = R/I$ is a separably closed field of characteristic $p$ (in particular, $p \in I$). 
+We write $\Nilp^\flat_R$ for the functor sending on admissible $R$-algebras sending
+$S$ to the set $\lim_{s \mapsto s^q} S^\cici$. This functor is representable by
+$\Spf R\llbr T^{\frac 1{q^\infty}} \rrbr$ (with the $T$-adic topology).
+
+The following calculation is helpful.
 \begin{cor}\label{cor:crystildecalc}
   Let $S$ and $J$ be as above and let $f \in S \llbr T \rrbr$ be a power series such
   that 
@@ -779,6 +851,9 @@ We collect the results.
   In particular, $\tilde H(S)$ is, as a functor to $\Set$, representable by
   $\spf(R \llbr T^{q^{-\infty}} \rrbr)$.
 \end{prop}
+
+
+% subsubsection The Universal Cover (end)
 
 % subsection Tate Modules and the Universal Cover (end)
 
