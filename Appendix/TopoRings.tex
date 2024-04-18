@@ -10,8 +10,9 @@ will be convenient (taken from \cite[Tag 07E8]{stacks-project}).
   \begin{itemize}
     \item The element $0 \in A$ has a fundamental system of neighbourhoods
       consisting of ideals.
-    \item There exists an ideal of definition, that is, an ideal $I \subset A$ such
-      that every open neighbourhood of $0$ contains $I^n$ for some $n$.
+    \item There exists an ideal of definition, that is, an open ideal $I
+      \subset A$ such that every open neighbourhood of $0$ contains $I^n$ for
+      some $n$.
     \item It is complete, that is, the natural map
       \begin{equation*}
         A \to \lim_{J \subset A \text{ open ideal}} A/J
@@ -44,12 +45,12 @@ draft}
 \begin{lem}\label{lem:infiniteseriesandproducts}
   Let $S$ be an admissible ring, and let $(s_1, s_2, \dots)$ be a sequence with
   elements in $S$. Then $\sum_{i = 1}^\infty s_i$ converges if and only if 
-  $\prod_{i=1}^\infty (1 + s_i)$ converges if and only if $\lim_{i \to \infty} s_i
-  = 0$. 
+   $\lim_{i \to \infty} s_i = 0$. In this case, the product $\prod_{i=1}^\infty (1 + s_i)$
+   exists in $S$.
 \begin{proof}
-  If sum and product converge, $(s_i)_{i \in \N}$ has to converge to zero. The
-  reverse implication follows after writing $S \cong \lim_{J} S/J$ for a system
-  of open ideals $J \subset S$.
+  If the sum converges, $(s_i)_{i \in \N}$ has to be a null-sequence. The
+  reverse implication and the convergence of the product follows after writing
+  $S \cong \lim_{J} S/J$ for a system of open ideals $J \subset S$. 
 \end{proof}
 
 \end{lem}

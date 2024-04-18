@@ -647,63 +647,143 @@ Write $\cF_R$ for the set of power series $f \in R\llbr T \rrbr$ satisfying
 \begin{equation} \label{eq:condonpowerseries}
   f(T) \equiv g(T^q) \pmod I
 \end{equation}
-for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in k_R\llbr T \rrbr$ with 
-$c_1 \in k_R^\times$. 
+for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in R\llbr T \rrbr$ with 
+$c_1 \in R^\times$. 
 For $f \in \cF_R$, we define the functor
 \begin{equation*}
   U_f: \Adm R \to \Set, \quad S \mapsto \left\{(x_0,x_1, \dots) \in \prod_\N S^\cici 
                                           \mid f(x_{i+1}) = x_i\right\}.
 \end{equation*}
-We write $U_{f,0}$ for the base change of $U_f$ to $k_R$, that is
+We write $U_{0,f}$ for the base change of $U_f$ to $k_R$, that is
 \begin{equation*}
-  U_{f,0}: \Adm k_R \to \Set, \quad S \mapsto \left\{(x_0,x_1, \dots) \in
-                              \prod_\N S^\cici \mid f(x_{i+1}) = x_i\right\}.
+  U_{0,f}: \Adm k_R \to \Set, \quad S \mapsto \left\{(x_0,x_1, \dots) \in
+                              \prod_\N S^\cici \mid \bar f(x_{i+1}) = x_i\right\}.
 \end{equation*}
+Here, $\bar f$ is the image of $f$ under the reduction map $R\llbr T \rrbr \to
+k_R\llbr T \rrbr$. 
 
 In the sequel, we write denote $R$-algebras by $S$ and write $J$ for an ideal
 of definition containing the image of $I$ (provided, for example, by \ref{lem:iodimage}). 
 
-All of the results in this section rest ultimately on the following simple observation.
+All of the results in this section rest ultimately on the following observation.
 \begin{lem}\label{lem:cryscalc}
-  For any two elements $s_1, s_2 \in S$ with $s_1 \equiv s_2$ mod $J$, we have 
-  $s_1^{q^k} \equiv s_2^{q^k}$ mod $J^{k+1}$. 
-\begin{proof}
-  It suffices to check that if $s_1 \equiv s_2$ mod $J^k$, then $s_1^q \equiv s_2^q$
-  mod $J^{k+1}$. Write $s_1 + r = s_2$ for some $r \in J^k$. Then 
-  \begin{equation*}
-    s_2^q = (s_1 + r)^q = s_1^q + \underbrace{qs_1^{q-1} r + \binom q2
-    s_1^{q-2}r^2 + \dots + r^q }_{\in J^{k+1}} \in s_1^q + J^{k+1},
-  \end{equation*}
-  and done. 
-\end{proof}
-\end{lem}
-As an immediate corollary, we obtain
-\begin{cor}
   Let $f$ be any power series in $\cF_R$. For any two elements $s_1,s_2 \in S$ 
-  with $s_1 \equiv s_2 \mod J$
-  such that $f(s_1)$ and $f(s_2)$ exist (for example if $f$ is a polynomial
-  or $s_1, s_2 \in S^\cici$), we have 
+  with $s_1 \equiv s_2 \mod J$ such that $f(s_1)$ and $f(s_2)$ exist (for
+  example if $f$ is a polynomial or $s_1, s_2 \in S^\cici$), we have 
   \begin{equation*}
     f^k(s_1) \equiv f^k(s_2) \pmod {J^{k+1}}.
   \end{equation*}
+  Here, $f^k$ denotes $k$-fold composition of $f$.
 \begin{proof}
-  The proof follows the same strategy as above. Given $s_1 - s_2 \in J^k$, we find
+  We will show that if $s_1 \equiv s_2$ mod $J^k$, then $f(s_1) \equiv f(s_2)$ mod 
+  $J^{k+1}$, which suffices to prove the claim. 
+  We may write $s_2 = s_1 + r$ for some $r\in J^k$. By the assumptions on $f$
+  there exist power series 
+  $g(T) \in R\llbr T \rrbr$ and $h(T) \in IR\llbr T \rrbr$ such that 
+  $f(T) = g(T^q) + h(T)$. Hence
   \begin{equation*}
     f(s_1) - f(s_2) \in g(s_1^{q})-g(s_2^{q}) + J( h(s_1) - h(s_2) )
   \end{equation*}
-  for certain $g,h \in R\llbr T \rrbr$. The claim follows, as $h(s_1) - h(s_2) \in J^k$ 
-  and 
-\end{proof}
-\end{cor}
-
-
-
-\begin{lem}
-  There is an isomorphism 
-\begin{proof}
+  for certain $g,h \in R\llbr T \rrbr$. As $r$ divides $\left(h(s_1) -
+  h(s_2)\right)$, we find
+  $J(h(s_1) - h(s_2)) \subseteq J^{k+1}$. Also note that 
+  for any $s\in S$, $$(s+r)^{nq} = s + nqs^{nq-1}r + \dots + r^{nq},$$
+  so after cancellation, all monomials of $g(s_1^q) - g(s_2^q)$ lie in
+  $(qr)$ or $(r^2)$. This implies
+  \begin{equation*}
+    g(s_1) - g(s_1+r) \in (qr) + (r^2) \subseteq J^{k+1},
+  \end{equation*}
+  and we are done.
 \end{proof}
 \end{lem}
 
+\begin{lem}
+  The natural reduction map 
+  \begin{equation*}
+    U_f(S) \to U_{f}(S/J) = U_{0,f}(S/J)
+  \end{equation*}
+  is bijective.
+\begin{proof}
+  We first show surjectivity. Given a sequence $(x_0, x_1, \dots) \in U_{f}(S/J)$, 
+  we can choose a sequence of arbitrary lifts $(y_0, y_1, \dots ) \in \prod_\N
+  S^\cici$ and set 
+  \begin{equation*}
+    z_i = \lim_{r \to \infty} f^r(y_{i+r}).
+  \end{equation*}
+  The limit exists, because if $s\geq r$ are two non-negative integers, we calculate
+  \begin{equation*}
+    f^{s-r}(y_{i+s}) \equiv \bar f^{s-r}(x_{i+s}) = x_{i+r} \equiv y_{i+r}
+    \pmod J,
+  \end{equation*}
+  implying by \ref{lem:cryscalc} that 
+  \begin{equation*}
+    f^{s}(y_{i+s}) \equiv f^r(y_{i+r}) \pmod{J^r}.
+  \end{equation*}
+  This shows that $(f^{r}(y_{i+r}))_{r \in \N}$ is a Cauchy-sequence for the 
+  $J$-adic topology on $S$, thereby convergent. The sequence 
+  $(z_0, z_1, \dots)$ now lies in $U_f(S)$ and lifts $(x_0, x_1, \dots)$. 
+  It remains to show that the lift is unique. Suppose that 
+  $(z'_0, z'_1, \dots)$ is another lift. Then, for any $i,k \in\N$
+  we have $z_{i+k} \equiv z'_{i+k}$ mod $J$, implying by 
+  Lemma \ref{lem:cryscalc} that 
+  \begin{equation*}
+    z_i = f^k(z_{i+k}) \equiv f^k(z'_{i+k}) = z'_i \pmod {J^k}.
+  \end{equation*}
+  Thereby $(z_i - z'_i) \in \bigcap_{k \in \N} J^k = \{0\}$. This shows that
+  the lift is unique.
+\end{proof}
+\end{lem}
+
+We write $\Nilp^\flat$ for the functor $U_{T^q}$. That is, 
+$\Nilp^\flat(S) = \lim_{x \mapsto x^q}S^\cici$ is 
+the set of $q$-power compatible sequences with values in $S^\cici$. 
+\begin{lem}
+  For any power series $f \in \cF_R$, there is a canonical
+  bijection $U_{0,f}(S/J) \to \Nilp^\flat(S/J)$. This bijection is functorial in 
+  $S$.
+\begin{proof}
+  By assumption on $f$ we have $f(T) = g(T^{q}) \in k_R\llbr T \rrbr$ for some 
+  $g(T) = c_1T + c_2T^2 + \dots$ with $c_1 \neq 0$. For each coefficient $c_i$, let
+  $d_i \in k_R$ be the unique element such that $d_i^{q} = c_i$. Let
+  $h(T) \in k_R\llbr T \rrbr$ be the power series given by $d_1 T + d_2
+  T^2 + \dots$. Now $(h(T))^{q}=f(T)$, and we find that 
+  \begin{equation*}
+      U_f(S/J) \to \Nilp^\flat(S/J): \quad
+      (x_1, x_2, x_3, \dots) \mapsto (x_1, h(x_2), h(h(x_3)), \dots)
+  \end{equation*}
+  is a well-defined function, and (trivially) functorial in $S$. For the
+  inverse, let $h^{-1}(T) \in k_R\llbr T \rrbr$ be the the unique power
+  series with $h^{-1}(h(T))= h(h^{-1}(T)) = T$, see Lemma
+  \ref{lem:FGLeasyfacts}. The map
+  \begin{equation*}
+      \Nilp^\flat(S/J) \to U_f(S/J), \quad 
+      (x_1, x_2, \dots ) \mapsto (x_1, h^{-1}(x_2), h^{-1}(h^{-1}(x_3)), \dots)
+  \end{equation*}
+  is well-defined as
+  \begin{equation*}
+      f(h^{-1}(T)) = g((h^{-1}(T))^{q}) = (h(h^{-1}(T)))^{q} =
+      T^{q}
+  \end{equation*}
+  and it is readily seen to be inverse to the map constructed above.
+\end{proof}
+\end{lem}
+
+We collect results.
+\begin{prop}\label{prop:pHTcalc}
+  Given $f,g \in \cF_R$, we have bijections, functorial in $S$,
+  \begin{equation} 
+    U_f(S) \to U_f(S/J) \to \Nilp^\flat(S/J) \to U_g(S/J) \to U_g(S).
+  \end{equation}
+  Explicitely, the bijection $U_f(S) \to U_g(S)$ is given by
+  \begin{equation*}
+    (x_0, x_1, \dots) \mapsto (y_0, y_1, \dots), \quad \text{where} \quad y_i =
+    \lim_{r \to \infty} g^r(x_{i+r}).
+  \end{equation*}
+\begin{proof}
+  The first part is repeated application of the previous two Lemmas. The 
+  second part is a straight-forward, albeit tedious, calculation. \todo{Figure this out}
+\end{proof}
+\end{prop}
 % subsubsection Useful Calculations (end)
 \subsubsection{The Universal Cover} % (fold)
 \label{ssub:The Universal Cover}
@@ -777,32 +857,7 @@ The following calculation is helpful.
   \end{equation*}
   of functors $\Adm {k_R} \to \Set$
 \begin{proof}
-  We can write $[\varpi]_{H_0}(X) = g(X^{q^n}) \in k_R\llbr X \rrbr$ for some 
-  $g(X) = c_1X + c_2X^2 + \dots$ with $c_1 \neq 0$. For each coefficient $c_i$, let
-  $d_i \in k_R$ be the unique element such that $d_i^{q^n} = c_i$. Let
-  $h \in k_R\llbr X \rrbr$ be the power series given by $d_1 X + d_2
-  X^2 + \dots$. Now $(h(X))^{q^n}=[\varpi]_G(X)$, and we find that 
-  \begin{equation*}
-      \tilde G(S) \to \lim_{x \mapsto x^{q^n}} S^\cici: \quad
-      (x_1, x_2, x_3, \dots) \mapsto (x_1, h(x_2), h(h(x_3)), \dots)
-  \end{equation*}
-  is a well-defined function, and (trivially) functorial in $S$. For the
-  inverse, let $h^{-1}(X) \in k_R\llbr X \rrbr$ be the the unique power
-  series with $h^{-1}(h(X))= h(h^{-1}(X)) = X$, see Lemma
-  \ref{lem:FGLeasyfacts}. The map
-  \begin{equation*}
-      \lim_{x \mapsto x^{q^n}} S^\cici \to \tilde G(S), \quad 
-      (x_1, x_2, \dots ) \mapsto (x_1, h^{-1}(x_2), h^{-1}(h^{-1}(x_3)), \dots)
-  \end{equation*}
-  is well-defined as
-  \begin{equation*}
-      [\varpi]_G(h^{-1}(X)) = g((h^{-1}(X))^{q^n}) = (h(h^{-1}(X)))^{q^n} =
-      X^{q^n}
-  \end{equation*}
-  and it is readily seen to be inverse to the map constructed above.
-  Note that the functors $\Nilp^\flat$ and $\lim_{x \mapsto x^{q^n}} S^\cici$
-  are isomorphic.
-\end{proof}
+  \end{proof}
 \end{lem}
 
 We keep the assumptions on $H$.
