@@ -53,6 +53,21 @@ draft}
   $S \cong \lim_{J} S/J$ for a system of open ideals $J \subset S$. 
 \end{proof}
 
+The topology on an admissible ring $R$ with ideal of definition $I$ is coarser
+than the $I$-adic topology on $R$
+\begin{lem}\label{lem:AdmAdicComp}
+  Let $R$ be an admissible ring with ideal of definition $I$. Let $R'$ be the same 
+  ring, but equipped with the $I$-adic topology. Then the identity map $R' \to R$
+  is continuous. In particular, if a sequence converges with respect to the
+  $I$-adic topology, it also converges in $R'$.
+\begin{proof}
+  It suffices to check that open ideals of $R$ are open in $R'$. 
+  Let $J \subset R$ an open ideal. By assumption, there is some $n$ with $I^n
+  \subset J$. But now, for any $x \in J$, we have $x + I^n \subset J$. Hence,
+  $J$ is open in $R'$.
+\end{proof}
+\end{lem}
+
 \end{lem}
 
 \end{document}
