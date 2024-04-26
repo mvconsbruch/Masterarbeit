@@ -1,0 +1,82 @@
+If, $A$ is an integral domain and $R$ is a flat $A$-module, the structure of a formal
+$A$-module $F$ over $R$ is uniquely determined by its logarithm $\log_H
+\in R \otimes_A K \llbr T \rrbr$. Indeed, we find
+\begin{equation*}
+  F(X,Y) = \exp_H(X+Y), \quad [a]_F(X) = \exp_H(a X).
+\end{equation*}
+It is therefore natural to wonder about conditions on power series $f \in
+(R\otimes_A K) \llbr T \rrbr$ ensuring that $f$ is the logarithm of some
+formal group law. Hazewinkel found such a condition in his functional equation
+lemma.
+
+\begin{prop}[Hazewinkel's Functional Equation Lemma] 
+  Let $p$ be a prime and $q = p^e$. Given an inclusion of rings $B \subseteq
+  L$, an ideal $\fa \subseteq B$ containing $p$, an endomorphism of rings
+  $\sigma: L \to L$ and elements $s_1, s_2, \dots \in L$ subject to the conditions
+  that 
+  \begin{equation*}
+    \sigma(b) \equiv b^q \pmod \fa \text{ for all } b \in B \quad \text{and} \quad 
+    \sigma^r(s_i) \fa \subset B \text{ for all } r,s \geq 1.
+  \end{equation*}
+  Suppose now that $f \in L\llbr T \rrbr$ has $f'(0) \in L^\times$ and
+  satisfies the functional equation condition
+  \begin{equation*}
+    f(X) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(X^{q^i}) \in B\llbr X \rrbr.
+  \end{equation*}
+  Then we have 
+  \begin{equation*}
+    F(X,Y) = f^{-1}(f(X) + f(Y)) \in B \llbr X,Y \rrbr,
+  \end{equation*}
+  where $f^{-1}$ is the inverse power series as in Lemma \ref{lem:FGLeasyfacts}.
+  Also, if $g(Z) \in L\llbr Z \rrbr$ is another power series satisfying the 
+  same condition
+  \begin{equation*}
+    g(Z) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(Z^{q^i}) \in B\llbr Z \rrbr,
+  \end{equation*}
+  then $f^{-1}(g(Z)) \in B\llbr Z \rrbr$. 
+  Furthermore, if $\alpha(T) \in B\llbr T \rrbr$ and $\beta(T) \in B \llbr T \rrbr$, then
+  \begin{equation} \label{eq:funceqlemcongruence}
+    \alpha(T) \equiv \beta(T) \pmod {\fa^r} \iff f(\alpha(T)) \equiv f(\beta(T))
+    \pmod {\fa^r}
+  \end{equation}
+
+  \begin{proof}
+    A more general statement can be found in \cite[Section
+    2]{hazewinkel1979funceqexp}. Proofs can be found in \cite[Sections 2 and
+    10]{hazewinkel1978formal}.
+  \end{proof}
+\end{prop}
+Note that by construction, $F(X,Y)$ as defined above yields a (commutative)
+formal group law over $B$. 
+Let $B^\sigma$ denote the subring of elements in $B$ fixed by $\sigma$. Then 
+the second part of the Functional Equation Lemma implies that we even obtain
+formal $B^\sigma$-modules with $[b]_F(T) = f^{-1}(b f(T))$, as $bf(T)$
+satisfies the same functional equation if $b \in B^\sigma$. 
+
+We use the Functional Equation Lemma to construct Lubin--Tate Formal Group Laws. 
+Hence we now enter the situation where $K$ is a local field with ring of integers
+$\cO_K$ and uniformizer $\pi$. Look at the formal power series
+\begin{equation*}
+  f(T) = \sum_{i=1}^\infty \frac{T^{q^{in}}}{\pi^i} \in K\llbr T \rrbr.
+\end{equation*}
+It satisfies the functional equation
+\begin{equation*}
+  f(T) = T + \frac 1\pi f(T^{q^n}),
+\end{equation*}
+which is a functional equation of the form above, with 
+$B = \cO_K$, $L = K$, $s_1 = \pi^{-1}$, $s_2 = s_3 = \dots = 0$, $\sigma = \id_L$. 
+Hence $f$ arises as the logarithm of a formal $\cO_K$-module law $H$ over $\cO_K$.
+The fact that $f^{-1}(X) = X - \frac 1\pi X^{q^n} + \dots$ reveals
+$[\pi]_H(T) \equiv \pi T$ mod $(T^2)$. Additionally, note that 
+\begin{equation*}
+  f([\pi]_H(T)) = \pi f(T) = \pi T + f(T^{q^n}) \equiv f(T^{q^n}) \pmod \pi.
+\end{equation*}
+Hence, the equivalence in \eqref{eq:funceqlemcongruence} implies that 
+$[\pi]_H(T) \equiv T^{q^n}$ mod $\pi$. So $H$ is a Lubin--Tate formal $\cO_K$-module
+law of height $n$, we call it the standard Lubin--Tate formal module law of
+height $n$. 
+
+
+% subsubsection Deformations of Formal Modules and the Standard Formal Module (end)
+
+

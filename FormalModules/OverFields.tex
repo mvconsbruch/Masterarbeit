@@ -1,0 +1,97 @@
+As above, let $A$ be a discrete valuation ring with uniformizer $\pi$ and finite 
+residue field $k$; write $q$ for the cardinality of $k$. Let $K$ denote the
+field of fractions of $A$.
+
+We introduce the concept of height, which is an integer attached to
+morphisms of formal group laws over fields. The height of a formal $A$-module
+$\cF$ over $R$ will be defined as the height of it's endomorphism $[\pi]_\cF$. 
+
+We have seen in the previous section that if $R$ is a field extension of $K$,
+then any morphism of formal group laws $f: F \to G$ over $R$ is either $0$, in
+which case we say it has height $\infty$, or an isomorphism, in which case we
+say it has height $0$. The height becomes interesting in positive
+characteristic. 
+
+We define the height over field extensions of the residue field. 
+\begin{defi}[Height of morphisms of group laws]
+  Assume that $R$ is a field extension of $k$ and $f: F \to G$ is a morphism of 
+  formal groups laws over $R$, given by a formal series $f(T) \in R\llbr T \rrbr$. 
+  If $f = 0$, we say that $f$ has infinite height. 
+  If $f \neq 0$, the height of $f$ is defined as the largest integer $h$ such that 
+  $f = g(T^{q^h})$ for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in
+  R\llbr T \rrbr$ with $c_1 \neq 0$. 
+\end{defi}
+One readily checks that if $f: \cF \to \cG$ is a morphism of formal groups over
+a field extension $R$ of $k$, the height of $f$ does not depend on the choices
+of group laws on $\cF$ and $\cG$. This allows us to define the height function 
+attached to $f$. 
+\begin{defi}[Height function]
+  Let $f: \cF \to \cG$ be a morphism of formal groups over a scheme $X$.
+  For a (scheme-theoretic) point $x \in \abs X$, let $f_x$ denote the 
+  base-change of $f$ to the residue field of $x$. 
+  The height function attached to $f$ is the upper-semicontinuous function
+  \begin{equation} \label{eq:defheight}
+    \height(f) : \abs X \to \Z_{\geq 0} \cup \{\infty\}, \quad x \mapsto 
+    \height(f_x).
+  \end{equation}
+\end{defi}
+It is not hard to see that the height function is additive, that is, we have
+\begin{equation*}
+  \height(f \circ g) = \height(f) + \height(g).
+\end{equation*}
+
+Let $R$ be a local $A$-algebra and let $k'$ be a separable closure of $R/\fm_R$.
+Let $F$ be a formal $A$-module law over $R$ of height $h$. Then we have the
+following result on the endomorphisms of $F \otimes_R k'$.
+\begin{lem}
+  The $A$-module $\End_{\FMOver A{k'}}(F \otimes_R k')$ is isomorphic to the ring
+  of integers of a central division algebra $D$ over $K$ of invariant $\frac 1h$.
+\begin{proof}
+  \cite[Proposition 1.7]{drinfel1974elliptic} \red{The proof uses techniques from
+    deformations of formal modules. Hence perhaps it would make sense to have this
+  in the next chapter.}
+\end{proof}
+\end{lem}
+
+\begin{defi}[Isogeny]
+  A morphism $f: \cF \to \cG$ of formal groups over a field $k$ is called an isogeny if
+  $\ker(f)$ is a represented by a finite free $k$-scheme. More generally, a
+  morphism of formal $A$-modules over a base scheme $X$ is an isogeny if and
+  only if $\ker(f)$ is finite and locally free over $X$. 
+\end{defi}
+
+Isogenies can be described using the height function.
+
+\begin{lem}
+  A morphism $f: \cF \to \cG$ is a isogeny if and only if the height 
+  function $\height(f)$ is locally constant with values in $\Z_{\geq 0}$. 
+\end{lem}
+
+\begin{defi}[$\pi$-divisible $A$-module]
+  We say that a formal $A$-module $H$ over $X$ is $\pi$-divisible if 
+  $[\pi]_H$ is an isogeny. If $X$ is connected, the height of $H$ is the
+  (constant) height of the endomorphism $[\pi]_H: A \to A$. 
+\end{defi}
+
+\begin{lem}
+  Over sepearbly closed fields, the formal group laws are classified by their 
+  heights.
+\begin{proof}
+  \cite[Theorem 19.4.1]{hazewinkel1978formal}, this is originally due to Drinfeld.
+  Note that this is only interesting in positive characteristic.
+\end{proof}
+\end{lem}
+
+The following lemma allows us to invert quasi-isogenies.
+
+\begin{lem}
+  Let $f: \cF \to \cG$ be an isogeny of $\pi$-divisible formal $A$-modules over a
+  quasi-compact \red{quasi-separated?} $A$-scheme $X$. Then there is an 
+  integer $n \geq 0$ and an isogeny $g: \cG \to \cF$ with 
+  \begin{equation*}
+    f \circ g = [\pi^n]_\cG \quad \text{and} \quad g \circ f = [\pi^n]_\cF.
+  \end{equation*}
+\end{lem}
+% subsubsection Formal DVR-Modules over Fields of Characteristic 0 (end)
+
+

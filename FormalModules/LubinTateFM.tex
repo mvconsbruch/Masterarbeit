@@ -1,0 +1,91 @@
+Suppose that $K$ is a local field with ring of integers $\cO_K$, with uniformizer
+$\pi$ and residue field $\FF_q$. 
+
+Let $H_0$ be the formal $\cO_K$-module law defined over $\FF_q$ by setting
+\begin{equation*}
+  H_0(X,Y) = X + Y, \quad [\pi]_{H_0}(X) = X^q, \quad [u]_{H_0}= \bar u X.
+\end{equation*}
+Here, $u$ runs over the units of $\cO_K$ and $\bar u \in \FF_q$ is such that 
+$u \equiv \bar u$ mod $\pi$. This uniquely determines $[a]_{H_0}$ 
+for $a \in \cO_K$ as $a$ may be written as $a = \pi^{\nu} u$ for a unit $u$ and
+$[\pi]_{H_0}$ and $[u]_{H_0}$ commute. 
+
+Lubin--Tate formal module laws are $\cO_K$-module laws $H$ over $\cO_K$ such that 
+$H \otimes_{\cO_K} \FF_q = H_0$. 
+
+The construction of the Lubin--Tate formal module laws rests on the following 
+lemma, which is Lemma 1 in \cite{LubinTateFormalMult}.
+\begin{lem}\label{lem:LTLemma1}
+  \todo{Restate in more general terms, for arbitrary powers of $q$, and perhaps
+  for general discrete valuation rings with finite residue field.}
+  Let $f(T)$ and $g(T)$ be elements of $\cF_\pi$ and let 
+  $L(X_1, \dots, X_n) = \sum_{i=1}^n a_i X_i$ be a linear form with coefficients in 
+  $\cO_K$. Then there exists a unique series $F(X_1, \dots, X_n)$ with coefficients 
+  in $\cO_K$ such that 
+  \begin{gather*}
+    F(X_1, \dots, X_n) \equiv L(X_1, \dots, X_n) \pmod {T^2}, \\ \text{and} \\
+    f(F(X_1, \dots, X_n)) = F(g(X_1), \dots, g(X_n)).
+  \end{gather*}
+\end{lem}
+Although stated only for the rings of integers of a local field, the proof only
+uses that $\cO_K$ is complete with respect to the $\pi$-adic topology, $\pi$ is
+not a zero divisor and the map $x \mapsto x^q$ restricts to the identity mod $\pi$.
+In particular, the statement remains true if working over the integers of the
+completion of a maximal unramified extension $\br K$ of $K$.
+
+Write $\cF_\pi$ for the set of power series that may arise as $[\pi]_H$, that is,
+\begin{equation*}
+  \cF_\pi \coloneqq \{f \in \cO_K \llbr T \rrbr \mid f \equiv \pi T \pmod {T^2}
+    \text{ and } f \equiv T^q \pmod \pi\}. 
+\end{equation*}
+Using Lemma \ref{lem:LTLemma1}, we can construct formal $\cO_K$-modules over 
+$\cO_K$ as follows. Attached to $f \in \cF_\pi$, we find a unique power series
+$F_f(X,Y) \in \cO_K\llbr X,Y\rrbr$ satisfying
+\begin{equation}\label{eq:LTMoLaAddCond}
+  F_f(X,Y) \equiv X+Y \pmod{(X,Y)^2} \quad \text{and} \quad
+  F_f(f(X),f(Y)) = f(F_f(X,Y)).
+\end{equation}
+Furthermore, attached to each $a \in \cO_K$ and $f,g \in \cF_\pi$, we find
+unique $[a]_{f,g}(T) \in \cO_K\llbr T \rrbr$ satisfying
+\begin{equation}\label{eq:LTMoLaScaCond}
+  [a]_{f,g}(T) \equiv aT \pmod {(T)^2} \quad \text{and} \quad
+  f([a]_{f,g}(T)) = [a]_{f,g}(g(T)).
+\end{equation}
+We now have
+\begin{thm}[Lubin--Tate Formal $\cO_K$-Module Laws]
+  For $f \in \cF_\pi$, the family of power series $(F_f, ([a]_{f,f})_{a \in \cO_K})$
+  gives rise to a formal $\cO_K$-module law over $\cO_K$. For 
+  $f,g \in \cF_\pi$, the formal $\cO_K$-module laws $F_f$ and $F_g$ are isomorphic,
+  via the morphism induced by $[1]_{f,g} \in \cO_K\llbr T \rrbr$. 
+
+\begin{proof}
+  See Theorem 1 of \cite{LubinTateFormalMult} and the succeeding discussion.
+\end{proof}
+\end{thm}
+In particular, up to isomorphism, the construction of a Lubin--Tate formal
+$\cO_K$-module law only depends on the choice of the uniformizer $\pi \in
+\cO_K$, not on the choice of $f \in \cF_\pi$. 
+
+\begin{xpl}
+  If $K = \Q_p$, this reconstructs the multiplicative formal 
+  $\Z_p$ module $\GG_m$ constructed above. Indeed, we have 
+  \begin{equation*}
+    \cF_p = \{f \in \Z_p\llbr T \rrbr \mid f(T) \equiv T^p \text{ mod } p
+    \text{ and } f(T) \equiv pT \text{ mod } (T)^2 \},
+  \end{equation*}
+  implying that $f(T) = (1+T)^p-1$ lies in $\cF_p$.  
+  One quickly checks that 
+  \begin{equation*}
+    F_f(X,Y) = (1+X)(1+Y) - 1 = X + Y + XY \in \Z_p \llbr X,Y \rrbr
+  \end{equation*}
+  satisfies the conditions of \eqref{eq:LTMoLaAddCond}, and that 
+  for $a \in \Z_p$, the power series
+  \begin{equation*}
+    [a]_{f,f} = (1+T)^{a} - 1 \in \Z_p \llbr T \rrbr
+  \end{equation*}
+  satisfies the condition of \eqref{eq:LTMoLaScaCond}. 
+\end{xpl}
+
+% subsubsection Lubin--Tate Formal Module Laws (end)
+
+

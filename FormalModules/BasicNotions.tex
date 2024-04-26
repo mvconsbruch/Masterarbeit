@@ -1,0 +1,198 @@
+As promised in the introduction, we begin by defining {formal group
+laws}.
+
+\begin{defi}[Formal Group Law]
+    Let $R$ be a ring. A (commututative, one-\allowbreak
+    dimen\-sional) formal group law over $R$ is a power series $F(X,Y) \in
+    R\llbr X, Y \rrbr$ such that $F(X,Y) \equiv X + Y$ modulo terms
+    of degree $\geq 2$ and
+    the following properties are satisfied:
+    \begin{itemize}
+        \item $F(F(X,Y),Z) = F(X,F(Y,Z))$,
+        \item $F(X,Y) = F(Y,X)$,
+        \item $F(X,0) = X$.
+    \end{itemize}
+\end{defi}
+
+Given two formal group laws $F, G \in R\llbr X,Y\rrbr$, a morphism
+$f: F\to G$ is a 
+power series $f \in R\llbr T \rrbr$ such that $f(0) = 0$ and $f(F(X,Y)) =
+G(f(X),f(Y))$.
+To any Such a series is an isomorphism if there is an {inverse}, that
+is, a power series $g \in R\llbr T \rrbr$ with $(f \circ g)(T) = T$.
+This yields the category of formal group laws over $R$, which we notate by
+$\FGLOver R$.
+
+The following statements about morphisms of formal group laws are 
+useful and easily verified.
+\begin{lem}\label{lem:FGLeasyfacts}
+  Let $R$ be a ring and let $F,G \in R\llbr X,Y\rrbr$ be two formal
+  group laws over $R$. 
+  \begin{enumerate}
+    \item Given two morphisms $f,g : F \to G$, the power series $G(f(T), g(T))
+      \in R\llbr T \rrbr$ is a morphism of formal group laws 
+      $F \to G$. In particular, $\Hom_\FGLOver R(F,G)$ is an abelian
+      group for any two formal group laws $F,G$.
+    \item The abelian group $\End_\FGLOver R(F)$ has a natural ring structure
+      with multiplication given by composition.
+    \item A morphism $f = c_1 T + c_2 T^2 + \dots \in R\llbr T \rrbr$ between
+      $F$ and $G$ is an isomorphism if and only if $c_1 \in R^\times$.
+  \end{enumerate}
+\end{lem}
+
+\begin{xpl} Let us introduce the following two formal group laws.
+  \begin{itemize}
+    \item \textit{The additive formal group law}. Write 
+      $\GG_a$ for the formal group law with addition given by 
+      $\GG_a(X,Y) = X + Y$. 
+    \item We write $\GG_m$ for the formal group law associated with the 
+      with $\GG_m(X,Y) = X + Y + XY$. Note that $\GG_m(X,Y) = (X+1)(Y+1) - 1$
+  \end{itemize}
+\end{xpl}
+
+Next up is the definition of formal $A$-module laws. Naively, we would like to
+say
+that an $A$-module law is the same as that of a formal group law $F$
+plus $A$-module structure, i.e. a morphism of rings $[\cdot]_F: A \to
+\End_\FGLOver R(F)$. But there is a subtlety here: let 
+\begin{equation*}
+  \Lie: \FGLOver R \to \Ab 
+\end{equation*}
+be the (constant) functor that sends $F \in \FGLOver R$ to $(R,+)$, and morphisms
+$f: G \to H$ given by a formal power series
+$f = c_1 T + c_2 T^2 + \dots \in R\llbr T \rrbr$ to the endomorphism
+of $R$ given by multiplication with $c_1$. The condition that 
+$F(X,Y) \equiv X+Y$ modulo degree $2$ enforces that the induced map
+$\End(F) \to \End(R)$ is a morphism of rings. Now, the $A$-module structure on $F$ 
+yields an $A$-module structure on $R$, given by the composition\begin{equation*}
+  A \xto{[\cdot]_F} \End(F) \xto{\Lie} \End(R), \quad a \mapsto \Lie([a]_F)
+\end{equation*}
+
+This is a morphism of rings, and we obtain an $A$-algebra structure on $R$. We would
+like the $A$-algebra structure on $R$ to be uniform. This
+motivates the following definition.
+\begin{defi}[Formal $A$-module law]
+  Let $A$ be a ring and $R$ be an $A$-algebra with structure
+  morphism $p: A \to R$. A (one-dimensional) $A$-module law over $R$ is a
+  pair $(F, ([a]_F)_{a \in A})$, where $F \in R\llbr X,Y \rrbr$ is 
+  a formal group law and $[a]_F = p(a)X + c_2X^2 + \dots 
+  \in R\llbr X \rrbr$ yield endomorphisms $F \to F$ such that the induced map
+  \begin{equation*}
+    A \to \End(F), \quad a \mapsto [a]_F 
+  \end{equation*}
+  is a morphism of rings.
+\end{defi}
+Similarly to above, we obtain a category of formal $A$-module laws over $R$,
+which we denote by $\FMLOver A R$. Note that $\FGLOver R \cong \FMLOver \Z R$.
+Slightly abusing notation, we usually do not explicitely mention the $A$-structure
+when referring to formal module laws, simply writing $F \in \FMLOver AR$, for
+example. 
+
+The following lemma explains a the functoriality of the assignment
+$R \mapsto \FMLOver A R$.
+
+\begin{lem}\label{lem:FMLFunc}
+  The assignment $R \mapsto \FMLOver A R$ is functorial in the following sense.
+  If $p: R \to R'$ is a morphism of $A$-algebras, we obtain a functor
+  \begin{equation*}
+    \FMLOver A R \to \FMLOver A {R'}, \quad F \mapsto p_*F,
+  \end{equation*}
+  where $p_*F$ is the formal $A$-module law obtained by applying $p$ to the
+  coefficients of the formal power series representing addition
+  and scalar multiplication of $F$. We sometimes write
+  (with abuse of notation) $p_* F = F \otimes_R R'$. 
+\end{lem}
+
+Note that every formal module law $F \in \FMLOver A R$ yields a functor
+\begin{equation}\label{eq:fmnilpfunc}
+  \Alg R \to \Mod A, \quad S \mapsto \Nil(S),
+\end{equation}
+where $\Nil(S)$, the set of nilpotent elements of $S$, is equipped with
+addition and scalars given by 
+\begin{equation*}
+  s_1 + s_2 = F(s_1, s_2) \in \Nil(S), \quad a s = [a]_F(s) \in \Nil(S).
+\end{equation*}
+This construction yields a functor (with slight abuse of notation)
+\begin{equation}\label{eq:formfunc}
+  \FMLOver A R \to \Fun(\Alg R, \Mod A),
+\end{equation}
+where $\Fun$ denotes the functor category.
+
+Passing from discrete $R$-algebras to admissible $R$-algebras, this construction extends
+naturally to a functor 
+\begin{equation*}
+  \Spf^F: \FMLOver AR \to \Fun (\Adm R, \Mod A), \quad F \mapsto \Spf R\llbr T \rrbr,
+\end{equation*}
+where we equip $\Spf R \llbr T \rrbr$ with the structure of an $A$-module object
+using the endomorphisms coming from $F$. 
+Following this line of thought leads naturally to the definition of
+formal modules. 
+
+\begin{defi}[Formal Group and Formal Module.]
+  Let $X$ be an $A$-scheme, and let 
+  let $\cF$ be an $A$-module object in $\FSchOver X$, the category of formal
+  schemes over $X$. Suppose that there is a Zariski-covering
+  $(\spec(R_i))_{i \in I}$ of $X$ with $\cF \times_{X} U_i \cong
+  \spf(R_i\llbr T \rrbr).$ If for every $i\in I$ the induced $A$-module
+  structure on $\spf(R_i\llbr T \rrbr)$ comes from a formal $A$-module law
+  $F_i$ over $R_i$, we say that $\cF$ is a formal $A$-module. 
+\end{defi}
+
+\begin{rmk} 
+  Formal schemes (over a base an $A$-scheme $X$, say) locally isomorphic to 
+  $\spf \cO_X(U)\llbr T \rrbr$ are sometimes called (one-dimensional) Formal
+  Lie Varieties \todo{reference}. Equivalently to the definition above, we could
+  have defined formal $A$-modules as $A$-module objects (of relative dimension one
+  over $X$) in the category of Formal Lie Varieties, such that the $A$-module structure
+  on the tangent space at the identity agrees with the usual one.
+\end{rmk}
+
+\begin{defi}[Coordinate]
+  Let $\cF$ be a formal $A$-module over $X$. The choice of a cover $\sqcup_{i
+  \in I} \spec(R_i) \to X$ together with isomorphisms $\cF \times_X \spec(R_i)
+  \cong \Spf(R_i\llbr T \rrbr)$ will be referred to as a coordinate of $\cF$. 
+\end{defi}
+
+Of course there is a functor 
+\begin{equation*}
+  \FMLOver AR \to \FMOver AR,
+\end{equation*}
+essentially forgetting the choice of module law. The observation of Lemma 
+\ref{lem:FMLFunc} translates to formal modules, a morphism $p : R \to R'$ 
+yields a functor 
+\begin{equation*} 
+  p_*: \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
+\end{equation*}
+
+\begin{xpl}
+  The additive group law $\GG_a$ extends to a formal $A$-module over an affine base
+  $\spec R$ by setting 
+  \begin{equation*}
+    [a]_{\GG_a}(T) = aT
+  \end{equation*}
+  for $a \in A$. More generally, we obtain a formal $A$-module over an arbitrary base
+  scheme.
+
+  The formal group associated to $\GG_m$ over $\Z_p$ is isomorphic to the functor
+  \begin{equation*}
+    \Adm {\Z_p} \to \Ab, \quad S \mapsto 1 + S^\cici \subset S^\times.
+  \end{equation*}
+  Here, we equipped $\Z_p$ with the $p$-adic topology.
+  The subgroup $1 + S^\cici$ naturally carries the structure of a $\Z_p$-module.
+  Indeed, for $k \in \N$, we have
+  \begin{equation*}
+    (1+s)^{p^k} = 1 + p^ks + \binom{p^k}2 s^2 + \dots + s^{p^k},
+  \end{equation*}
+  and given $s \in S^\cici$, this is of the form $1+ o(1)$ as $k$ gets large. 
+  In particular, if $x = a_0 + a_1 p + a_2p^2 + \dots \in \Z_p$, expressions of the form
+  \begin{equation*}
+    (1+s)^x = \prod_{i = 1}^\infty (1+s)^{a_k p^k}
+  \end{equation*}
+  make sense by lemma \ref{lem:infiniteseriesandproducts}. This gives
+  $\GG_{m,\Z_p}$ the structure of a formal $\Z_p$-module. 
+  In the upcoming subsection, we discuss how this is the simplest example of a
+  whole family of formal modules constructed by 
+  Lubin and Tate. In section \ref{sec:Local Class Field Theory} we explain applications of these formal modules to local class field theory.
+\end{xpl}
+
+
