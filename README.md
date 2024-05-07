@@ -1,4 +1,9 @@
 # Master's thesis
+## 7th of May 
+[05_07_version.pdf](./05_07_version.pdf) 
+Still trying to get done with chapter 2... But I am close. 
+The introduction of formal modules of arbitrary dimensions should propbably be
+done at the very beginning, but then I'd have to rewrite the whole subsection. 
 
 ## 17th of April 
 [04_17_version.pdf](./04_17_version.pdf) 

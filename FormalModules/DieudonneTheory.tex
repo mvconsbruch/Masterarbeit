@@ -1,158 +1,22 @@
-We explain construct a functor $\M^\vee: \FMOver AR \to \Mod R$, satisfying the 
-following condition.
-\begin{enumerate}
-  \item bla
-\end{enumerate}
+\subsubsection{Rigidified Extensions and Quasi-Logarithms} % (fold)
+The aim of this subsection is to give a description of $\RigExt(\cF, \cF')$ 
+similarly to the one given for $\Ext(\cF, \cF')$ in the previous 
+subsection, at least in the case where $\cF' = \GG_a$ is the (one-dimensional)
+additive formal group law and $\cF$ comes from a one-dimensional group law $F$. 
+This description will be in terms of quasi-logarithms, which we shall now
+define.
 
-\subsubsection{Higher-Dimensional Formal Modules and the Universal Additive Extension} % (fold)
-\label{ssub:Higher-Dimensional Formal Modules and the Universal Additive Extension}
-For now, let $A$ be any ring and let $R$ be an $A$-algebra.
-We introduce the notion of higher-dimensional formal modules, which will play a role 
-only in this chapter. 
-\begin{defi}[Formal Group Laws of arbitrary dimension]
-  A (commutative) formal group law $\mathbf F$ of dimension $n$ over $R$ is a tuple of
-  power series $$F_i(X_1, \dots, X_n,Y_1, \dots, Y_n) \in R\llbr X_1, \dots,
-  X_n, Y_1, \dots, Y_n\rrbr, \quad 1 \leq i \leq n$$
-  such that $F_i(\mathbf X, \mathbf Y) \equiv X_i + Y_i $ modulo degree $\geq 2$.
-  and the following equalities are satisfied:
-  \begin{enumerate}
-    \item $\mathbf F(\mathbf F (\mathbf X, \mathbf Y), \mathbf Z) = 
-      \mathbf F(\mathbf X, \mathbf F(\mathbf Y, \mathbf Z))$.
-    \item $\mathbf F( \mathbf X, \mathbf 0) = \mathbf X$.
-    \item $\mathbf F( \mathbf X, \mathbf Y) = \mathbf F(\mathbf Y, \mathbf X).$
-  \end{enumerate}
-  Here, and in the sequel, we have $\mathbf F = (F_1, \dots, F_n)$, $\mathbf X =
-  (X_1, \dots, X_n)$, et cetera.
-  Given a formal group $\mathbf F$ of dimension $n$ and a formal group law
-  $\mathbf G$ of dimension $m$,
-  a morphism $\mathbf F \to \mathbf G$ is a $m$-tuple $\mathbf f = (f_1, \dots, f_m)$ 
-  of power series $f_i \in R\llbr X_1, \dots, X_n \rrbr$ such that 
-  \begin{equation*}
-    \mathbf G(\mathbf f( \mathbf X), \mathbf f( \mathbf Y) ) = \mathbf
-    f(\mathbf F( \mathbf X, \mathbf Y)).
-  \end{equation*}
-  For any $n$-dimensional formal module $\mathbf F$, the identity is given by 
-  the morphism $\id_{\mathbf F}$ with components $\id_{\mathbf F,i}( \mathbf X) = X_i$. 
-  Composition of morphisms is given by composition of tuples of power-series.
-  This yields the category of formal modules of arbitrary dimension over $R$,
-  which we denote by $\FGLArbOver R$.
-\end{defi}
-One readily checks that $\End_{\FGLArbOver R}(\mathbf F)$ is a (possibly 
-non-commutative) $R$-algebra. Note that there is 
-a functor $\Lie: \FGLArbOver R \to \Ab$, taking an $n$-dimensional 
-formal group law $\mathbf F$ to the additive group $R^n$, and morphisms
-$\mathbf f$ to multiplication with the matrix 
-\begin{equation*}
-  \Lie(\mathbf f) = \left(\frac{\partial f_j}{\partial X_i} (0) \right)_{\substack{1 \leq j \leq m\\1 \leq i \leq n}} \in \End_{\Mod R}(R^n).
-\end{equation*}
-This generalizes the one-dimensional situation.
-Given a ring $A$ and a morphism of rings
-$A \to \End_{\FGLArbOver R}(\mathbf F)$, we obtain an $A$-module structure on $R^n$
-by composing with $\Lie(-): \End_{\FMLArbOver A R}(\mathbf F) \to \End_{\Mod R}(R^n)$.
-The definition for formal modules generalizes as follows. 
-\begin{defi}[Formal $A$-Modules of arbitrary dimension]
-  Let $R$ be an $A$-algebra. A formal $A$-module over $R$ of dimension $n$ is
-  given by the data of 
-  a formal $n$-dimensional group law $\mathbf F$ over $R$ and a morphism of rings
-  \begin{equation*}
-    A \to \End_{\FGLArbOver R} (\mathbf F), \quad a \mapsto ([a]_{\mathbf F,i}
-    )_{1 \leq i \leq n} \in (R \llbr X_1, \dots, X_n \rrbr )^n
-  \end{equation*}
-  such that $[a]_{\mathbf F,i}(\mathbf X) \equiv a X_i$ modulo terms of degree 
-  $\geq 2$. Morphisms between formal $A$-modules of arbitrary dimension are 
-  morphisms of formal groups respecting the $A$-module structure. 
-  The resulting category is denoted $\FMLArbOver A R$.
-\end{defi}
-\color{blue}The following two definitions are only included for completeness.
-\begin{defi}[Formal $A$-modules]
-  Similarly to before, given an $A$-scheme $X$, we define the category
-  $\FMArbOver A X$ as follows. Objects are group objects $\cF$ in the category
-  of formal schemes over $X$, locally isomorphic to $U_i = \Spf R_i\llbr X_1,
-  \dots, X_n\rrbr$, such that the induced $A$-module structure on $U_i$
-  agrees with one coming from a formal $A$-module law on $R_i$. 
-\end{defi}
 
-\begin{defi}[Lie functor]
-  The functor $\Lie$ descents to a functor 
-  \begin{equation*}
-    \Lie: \FMArbOver A X \to \QCoh {\cO_X}, 
-  \end{equation*}
-  given by locally describing a formal $A$-module $\cF$ via formal group laws
-  and glueing the local data. Alternatively, it arises from sending 
-  sending a formal $A$-module $\cF$ to $\cI / \cI^2$, where $\cI$ is the ideal
-  associated to the closed immersion $[0]_\cF: X \to \cF$. 
-\end{defi}
-\color{black}
+By Theorem \ref{thm:ExtClassCoc} and Theorem \ref{thm:RigExtStr}, we may equip the 
+sets $\Ext(F, \GG_a)$ and $\RigExt(F, \GG_a)$ with the structure of an $R$-module. 
+There is a natural map of $R$-modules $\RigExt(F, \GG_a) \to \Ext(F, \GG_a)$
+sending $(E, \omega_E)$ to $E$. This map is surjective. The kernel is given by
+pairs $(\GG_a \oplus F, \omega) \in \RigExt(F, \GG_a)$, where $\omega$ is an
+invariant differential on
+$\GG_a \oplus F$ pulling back to $\dc X$ on $\GG_a$. As $\omega(\GG_a \oplus F)
+\cong \omega(\GG_a) \times \omega(F)$, this datum is equivalent to an invariant
+differential $\nu \in \omega(F)$. 
 
-\subsubsection{Quasi-Logarithms and Rigidified Extensions} % (fold)
-\label{ssub:Quasi-Logarithms and Rigidified Extensions}
-We define short exact sequences.
-\begin{defi}[Short exact sequence]
-  A pair of composable morphisms $\bF' \to \bF \to \bF''$ in 
-  $\FMLArbOver A R$ is called 
-  a short exact sequence if the induced sequence 
-  \begin{equation*}
-    0 \to \Lie(\bF') \to \Lie(\bF) \to \Lie(\bF'') \to 0
-  \end{equation*}
-  is a short exact sequence of $R$-modules.
-\end{defi}
-\red{\textbf{Question}. Is $\FMArbOver A X$ an exact category (in the sense of Quillen)?}
 
-\begin{defi}[Rigidified Extension]
-  An extension of $\bF$ by $\bF'$ is a short exact sequence 
-  \begin{equation*}
-    0 \to \bF' \to \bE \to \bF \to 0.
-  \end{equation*}
-  We say that this extension is equivalent to another extension 
-  \begin{equation*}
-    0 \to \bF' \to \bE' \to \bF \to 0
-  \end{equation*}
-  if and only if there is a morphism $\bE \to \bE'$ making the diagram 
-  \begin{equation*}
-    \begin{tikzcd}[ampersand replacement=\&]
-    	0 \& {\bF'} \& \bE \& \bF \& 0 \\
-    	0 \& {\bF'} \& {\bE'} \& \bF \& 0
-    	\arrow[from=1-1, to=1-2]
-    	\arrow[from=1-2, to=1-3]
-    	\arrow[Rightarrow, no head, from=1-2, to=2-2]
-    	\arrow[from=1-3, to=1-4]
-    	\arrow[from=1-3, to=2-3]
-    	\arrow[from=1-4, to=1-5]
-    	\arrow[Rightarrow, no head, from=1-4, to=2-4]
-    	\arrow[from=2-1, to=2-2]
-    	\arrow[from=2-2, to=2-3]
-    	\arrow[from=2-3, to=2-4]
-    	\arrow[from=2-4, to=2-5]
-    \end{tikzcd}
-  \end{equation*}
-  commute. We denote the set of extensions of $\bF$ by $\bF'$ by 
-  $\Ext(\bF, \bF')$. A rigidified extension is given by an extension as above
-  together with a splitting $s: \Lie(\bF) \to \Lie(\bE)$ of the induced morphism
-  $\Lie(\bE) \to \Lie(\bF)$. We denote the set of rigidified extensions of
-  $\bF$ by $\bF'$ as $\RigExt(\bF, \bF')$.
-\end{defi}
-\begin{rmk} 
-  Note that if $X = \spec R$ is affine,  such a splitting always exists because 
-  $\Lie(\cF)$ is locally free, thereby projective. Giving a splitting 
-  is the same as to give a differential form $\omega_E \in \omega(E)$ that pulls
-  back to $\dc X' \in \GG_a$\todo{why?}.
-  \todo{Also, what about $R$-module structure on $\RigExt$?}
-\end{rmk}
+% subsubsection Rigidified Extensions (end)
 
-Given an $n$-dimensional $A$-module law $\bF$, an $m$-dimensional $A$-module law 
-$\bF'$, and an $m$-tuple of power series $\bff = (f_1, \dots, f_m)$ with $f_i \in
-(R \otimes_A K)\llbr X_1, \dots, X_n \rrbr$ with no constant term, we define
-\begin{gather*}
-  \delta_{a,F,F''}(\bff) = [a]_{F'}(\bff) - \bff([a]_F) \in (R \otimes_A K)\llbr
-  X_1, \dots, X_n \rrbr, \\
-  \Delta_{F,F'}(\bff) = \bF'(\bff(\bX), \bff(\bY)) - \bff(\bF(\bX,\bY)) \in 
-  (R \otimes_A K) \llbr X_1, \dots, X_n, Y_1, \dots, Y_n\rrbr.
-\end{gather*}
-Following \cite{hopkins1994equivariant}.
-
-\begin{itemize}
-  \item Definition using quasi-logarithms
-  \item Definition with rigidified extensions as in \cite{hopkins1994equivariant} (?)
-\end{itemize}
-% subsubsection Quasi-Logarithms and Rigidified Extensions (end)
-% subsubsection The Dieudonn`e functor (end)

@@ -40,18 +40,6 @@ It is not hard to see that the height function is additive, that is, we have
   \height(f \circ g) = \height(f) + \height(g).
 \end{equation*}
 
-Let $R$ be a local $A$-algebra and let $k'$ be a separable closure of $R/\fm_R$.
-Let $F$ be a formal $A$-module law over $R$ of height $h$. Then we have the
-following result on the endomorphisms of $F \otimes_R k'$.
-\begin{lem}
-  The $A$-module $\End_{\FMOver A{k'}}(F \otimes_R k')$ is isomorphic to the ring
-  of integers of a central division algebra $D$ over $K$ of invariant $\frac 1h$.
-\begin{proof}
-  \cite[Proposition 1.7]{drinfel1974elliptic} \red{The proof uses techniques from
-    deformations of formal modules. Hence perhaps it would make sense to have this
-  in the next chapter.}
-\end{proof}
-\end{lem}
 
 \begin{defi}[Isogeny]
   A morphism $f: \cF \to \cG$ of formal groups over a field $k$ is called an isogeny if
@@ -70,28 +58,53 @@ Isogenies can be described using the height function.
 \begin{defi}[$\pi$-divisible $A$-module]
   We say that a formal $A$-module $H$ over $X$ is $\pi$-divisible if 
   $[\pi]_H$ is an isogeny. If $X$ is connected, the height of $H$ is the
-  (constant) height of the endomorphism $[\pi]_H: A \to A$. 
+  (constant) height of the endomorphism $[\pi]_H: H \to H$. 
 \end{defi}
 
-\begin{lem}
-  Over sepearbly closed fields, the formal group laws are classified by their 
-  heights.
+We close this subsection with a discussion about the structure of 
+formal $\cO_K$-modules over separably closed field extensions $k'$ of
+$k$. 
+\begin{lem}\label{lem:classificationofmodulelawsbyheight}
+  Over $k'$, any two formal $\cO_K$-module laws of the same height are isomorphic.
 \begin{proof}
-  \cite[Theorem 19.4.1]{hazewinkel1978formal}, this is originally due to Drinfeld.
-  Note that this is only interesting in positive characteristic.
+  \cite[Proposition 1.7]{drinfel1974elliptic}.
+\end{proof}
+\end{lem}
+In particular, any formal $\cO_K$-module of height $h$ is isomorphic to 
+the formal $\cO_K$-module $F_\mathrm{norm}$ with $[\pi]_{F_\mathrm{norm}}(T) =
+  T^{q^h}$. We call this the normalized formal $\cO_K$-module.
+
+\begin{lem}\label{lem:EndomorphismsOfFormalModulesOverksep}
+  Suppose that $F \in \FMLOver {\cO_K}{k'}$. Then $\End_{\FMOver A{k'}}(F)$ is 
+  isomorphic to the maximal order
+  of the central division algebra $D$ over $K$ of rank $h^2$ and invariant
+  $\frac 1h$.
+\begin{proof}
+  Also \cite[Proposition 1.7]{drinfel1974elliptic}. 
 \end{proof}
 \end{lem}
 
-The following lemma allows us to invert quasi-isogenies.
-
-\begin{lem}
-  Let $f: \cF \to \cG$ be an isogeny of $\pi$-divisible formal $A$-modules over a
-  quasi-compact \red{quasi-separated?} $A$-scheme $X$. Then there is an 
-  integer $n \geq 0$ and an isogeny $g: \cG \to \cF$ with 
+\begin{lem}\label{lem:inverseqisog}
+  Let $f: F \to G$ be an isogeny of $\pi$-divisible formal $\cO_K$-module laws
+  over $k'$. Then there is an 
+  integer $n \geq 0$ and an isogeny $g: G \to F$ with 
   \begin{equation*}
     f \circ g = [\pi^n]_\cG \quad \text{and} \quad g \circ f = [\pi^n]_\cF.
   \end{equation*}
+  \begin{proof}[Proof]
+    As the height is additive, we necessarily have 
+    $\height(F) = \height(G)$, thus by Lemma
+    \ref{lem:classificationofmodulelawsbyheight}, we may assume that $F$ and
+    $G$ are given by the normalized formal $\cO_K$-module
+    $F_\mathrm{norm}$.
+    Write $f(T) = g(T^{q^n})$ for some power series $h(T) = c_1 T + c_2T^2 +
+    \dots$, where $c_1 \neq 0$ is a unit in $k'$, and let $g(T) = h^{-1}(T)$ be the 
+    formal inverse of $h$. Now $g$ is a morphism of formal $\cO_K$-module laws
+    satisfying $f \circ g(T) = g\circ f(T) = T^{q^n}$. The claim follows.
+  \end{proof}
 \end{lem}
+
+
 % subsubsection Formal DVR-Modules over Fields of Characteristic 0 (end)
 
 
