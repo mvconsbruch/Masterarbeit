@@ -88,29 +88,49 @@ structure coming from the natural action of $R \subset \End(\GG_a)$.
 \end{proof}
 \end{prop}
 
-Suppose now that $F \in \FMLOver A R$ is a one-dimensional formal module. 
-The previous Proposition shows that if $R$ is a $K$-algebra, the invariant differential 
-$\omega_1(X)$ constructed above comes from a homomorphism $f(X) = X + c_2 X^2 + \dots$,
-which is an isomorphism by Lemma \ref{lem:FGLeasyfacts}. 
-This allows us to define the logarithm attached to $F$.
+Suppose now that $F \in \FMLArbOver A R$ is a formal module law of dimension $n$, 
+and let $\omega_1, \dots, \omega_n$ be the distinguished basis for $\omega(F)$
+constructed above. 
+By the previous proposition, there are unique power series 
+$f_i(\bX) \in (R \otimes_A K)\llbr \bX \rrbr$ furnishing homomorphisms
+$F \otimes (R \otimes_A K) \to \GG_a$ of formal $A$-module laws and satisfying
+\begin{equation*}
+  \dc_F f_i(\bX) = \omega_i(\bX) \in \omega(F).
+\end{equation*}
+The induced morphism 
+\begin{equation*}
+  f = (f_1, \dots, f_n) : F \otimes (R \otimes_A K) \to \GG_a
+\end{equation*}
+satsfies $\Lie(f) = \id \in \End(R^n) = \End(\Lie(F))$. Hence $f$ is an isomorphism.
+We call $f$ the logarithm attached to $F$.
 \begin{defi}[Logarithm and Exponential]
-  If $R$ is a flat $A$-algebra, there is a unique power series
-  \begin{equation*}
-    \log_F(X) = X + c_2 X^2 + \dots \in (R \otimes_A K)\llbr X \rrbr 
-  \end{equation*}
-  inducing an isomorphism $F \otimes (R \otimes K) \to \GG_{a,R\otimes K}$.
-  This power series is called the logarithm attached to $F$.   The inverse of $\log_F$ is called the exponential of $F$ and will be denoted by
-  $\exp_F$.
+  The isomorphism of formal group laws $f: F \otimes (R \otimes_A K) \to \GG_a$ 
+  is called the logarithm attached to $F$, we write 
+  $\log_F(\bX) \in ((R \otimes_A K)\llbr \bX \rrbr)^n$ for the corresponding collection
+  of power series. The inverse of $\log_F(\bX)$ is called the exponential 
+  attached to $F$, denoted $\exp_F(\bX)$. We have $\Lie(\log_F) = \Lie(\exp_F) = \id$. 
 \end{defi}
-\begin{rmk} \leavevmode
-  \begin{enumerate}
-    \item We have $\dc \log_F(X) = \omega_1(X)$, hence $\log'_F(X) \in R\llbr X \rrbr$. 
-    \item These definitions do not descent to formal modules. Given $\cF \in \FMOver A
-  R$, there is no natural choice of Logarithms and Exponentials, these
-  definitions depend on the choice of parametrization
-  $\cF \cong \Spf R \llbr T \rrbr$. 
-  \end{enumerate}
-  \end{rmk}
 
-
-
+\begin{lem}
+  Let $F$ and $G$ be formal $A$-modules of over $R$, with $\dim F = n$ and 
+  $\dim G = m$. 
+  Let $\phi: F \to G$ be a morphism. Then the diagram 
+  \begin{equation*}
+  \begin{tikzcd}[ampersand replacement=\&]
+  	{F \otimes(R \otimes_A K)} \& {\GG_a \otimes \Lie(F)} = \GG_a^n \\
+  	{G \otimes(R \otimes_A K)} \& {\GG_a \otimes \Lie(G)} = \GG_a^m
+  	\arrow["{\log_F}", from=1-1, to=1-2]
+  	\arrow["\phi"', from=1-1, to=2-1]
+  	\arrow["{\Lie(\phi)}", from=1-2, to=2-2]
+  	\arrow["{\log_G}", from=2-1, to=2-2]
+  \end{tikzcd}
+  \end{equation*}
+  commutes. In particular, attached to any $\cF \in \FMArbOver AR$ comes a 
+  natural morphism 
+  $$\log_\cF: \cF \otimes (R \otimes_A K) \to \GG_a \otimes \Lie(\cF).$$
+  \begin{proof}
+    The square commutes because $\Hom(\GG_a^n, \GG_a^m) \cong \Hom_{R \otimes_A
+    K}((R\otimes_A K^n), (R\otimes_A K)^m)$
+    and $\Lie(\log_G \circ \phi \circ \exp_H) = \Lie(\phi).$
+  \end{proof}
+\end{lem}
