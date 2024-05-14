@@ -137,3 +137,22 @@ We call $f$ the logarithm attached to $F$.
     and $\Lie(\log_G \circ \phi \circ \exp_H) = \Lie(\phi).$
   \end{proof}
 \end{lem}
+
+\begin{lem}\label{lem:KernelOfLog}
+  Let $K$ be a local field with integers $\cO_K$ and a choice of uniformizer $\pi \in \cO_K$, 
+  and let $F$ be a Lubin-Tate $\cO_K$-module law corresponding to some 
+  $f \in \cF_\pi$, cf. Theorem \ref{thm:LTModLaw}. Let $S$ be an admissible 
+  $\cO_K$-algebra. Then for $s \in S^\cici$ we have $\log_F(s) = 0$ if and only if 
+  $[\pi]^r_F(s) = 0$ for some $r \in \N$. 
+\begin{proof}
+  Up to canonical isomorphism, $F$ is a $\cO_K$-module law with $[\pi]_F(T) =
+  \pi T + T^q$. Now one may check that 
+  \begin{equation*}
+    \log_F(T) = \lim_{r \to \infty} \frac{ [\pi]_F^r(T) }{\pi^r} = \prod_{i=1}^\infty 
+    \frac{[\pi]^i_F(T)}{\pi [\pi]^{i-1}_F(T)},
+  \end{equation*}
+  where convergence is to be taken coefficient-wise. After plugging in 
+  $s \in S^\cici$, we see that the product vanishes if and only if $[\pi]_F^r(s) = 0$
+  for some $r \in \N$. 
+\end{proof}
+\end{lem}

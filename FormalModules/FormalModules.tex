@@ -1147,11 +1147,12 @@ logarithm
 \begin{equation*}
   \log_{\wedge H}(T) = \sum_{i = 0}^\infty (-1)^{(n-1)i} \frac{T^{qi}}{\pi^i}.
 \end{equation*}
-Then we have naturally $\Dio(\wedge H) = \wedge^n \Dio(H)$. 
-We describe a map $\delta: \Tilde H^n \to \Tilde {\wedge H}$ making the square
+We have $\Dio(\wedge H) = \wedge^n \Dio(H)$. 
+We follow \cite[Theorem 2.10.3]{BoyarchenkoWeinstein2011MaxVar} to describe a map $\delta:
+\Tilde H^n \to \Tilde {\wedge H}$ making the square
 \begin{equation}\label{diag:qlogsquare}
 \begin{tikzcd}[ampersand replacement=\&]
-	{\Tilde H^n(S)} \& {\Tilde{\wedge H}} \\
+	{\Tilde H^n(S)} \& {\Tilde{\wedge H}(S)} \\
 	{\Dio(H)^n \otimes (S\otimes_{\cO_K} K)} \& {\Dio(\wedge H) \otimes(S\otimes_{\cO_K}K)}
 	\arrow["\delta", from=1-1, to=1-2]
 	\arrow["\qlog_H \times \dots \times \qlog_H"', from=1-1, to=2-1]
@@ -1159,7 +1160,56 @@ We describe a map $\delta: \Tilde H^n \to \Tilde {\wedge H}$ making the square
 	\arrow["\det", from=2-1, to=2-2]
 \end{tikzcd}
 \end{equation}
-commute.
+commute. 
+
+Let $(s_1, \dots, s_n) \in \Tilde H(S)^n$, and write $x_i = \lambda(s_i) \in \Nilp^\flat(S)$,
+which are elements in $S^\cici$ with distinguished $p$-power roots.
+Here $\lambda: \Tilde H \to \Nilp^\flat$ is the isomorphism from Section
+\ref{sub:Tate Modules and the Universal Cover} with inverse $\mu = (\mu_0, \mu_1, \dots)$. 
+We set
+\begin{equation*}
+  \delta_0(s_1, \dots, s_n) = \sum_{(a_1, \dots, a_n)} \varepsilon(a_1, \dots
+  a_n) \mu_0(x_1^{q^{a_1}} \cdots x_n^{q^{a_n}}) \in \wedge H(S),
+\end{equation*}
+where 
+\begin{itemize}
+  \item the sum ranges over $n$-tuples $(a_1, \dots, a_n)$ of integers (including negative
+    integers) satisfying $a_1 + \dots + a_n = n (n-1)/2$, subject to the
+    condition that each $a_i$ occupies a distinct residue class modulo $n$.
+  \item The expression $\varepsilon(a_1, \dots, a_n)$ denotes the sign of the 
+    permutation $i \mapsto a_{i+1}$ (mod $n$) of $(0, \dots, n-1)$.
+  \item The sum takes place in ${\wedge H}(S)$.
+\end{itemize}
+
+\begin{prop}
+  The map $\delta_0$ makes the diagram 
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+    	{\tilde H^n(S)} \& {\wedge H(S)} \\
+    	{D(H)^n \otimes (S \otimes K)} \& {D(\wedge H) \otimes(S \otimes K)}
+    	\arrow["{\delta_0}", from=1-1, to=1-2]
+    	\arrow["{\qlog_H^n}"', from=1-1, to=2-1]
+    	\arrow["{\log_{\wedge H}}", from=1-2, to=2-2]
+    	\arrow["\det", from=2-1, to=2-2]
+    \end{tikzcd}
+  \end{equation*}
+  commute. It is $\cO_K$-multilinear and alternating.
+\begin{proof}
+  Commutativity follows from 
+  \begin{multline*}
+    \log_{\wedge H}(\delta_0(s_1, \dots, s_n)) = \sum_{(a_1, \dots, a_n)} 
+    \varepsilon(\mathbf a) \log_{\wedge H} \mu_0( x_1^{q^{a_1}}\cdots x_n^{q^{a_n}})
+     \\ = \sum_{(a_1, \dots, a_n)} \varepsilon(\mathbf a) \sum_{m \in \Z} (-1)^{(n-1)m}
+    \frac{x_1^{q^{a_1+m}} \cdots x_n^{q^{a_n+m}}}{\pi^m} 
+    = \det \left( \sum_{m \in \Z} \frac{x_i^{q^{mn + j}}}{\pi^m} \right)_{
+      1 \leq i \leq n,
+      0 \leq j \leq n-1},
+  \end{multline*}
+  which is equal to $\det(\qlog_H^n(s_1, \dots, s_n))$ by Proposition 
+  \ref{prop:qlogmapExplicit} and Lemma \ref{lem:LogInTermsOfNil}.
+\end{proof}
+\end{prop}
+
 
 \begin{itemize}
   \item "Functorial" description of the determinant. Either as in

@@ -264,7 +264,8 @@ Note that $\lambda_i(\Pi x) = \lambda_i(x)^q$ for $x \in \Tilde H(S)$ and
 $i=0,1,\dots$. 
 
 \begin{rmk} 
-  In case where $H$ comes from a Lubin--Tate $\cO_K$-module law of height $n$,
+  In case where $\cF$ comes from a $\cO_K$-module law $F$ over 
+  $\cO_K$ with $[\pi]_F(T) \equiv T^{q^n}$ mod $(\pi)$,
   the bijections
   \begin{equation*}
     \tilde H(S) \rightleftarrows \Nilp^\flat(S), \quad (x_0, x_1, \dots)
@@ -299,15 +300,18 @@ useful later.
   	\arrow[maps to, from=1-5, to=2-5]
   \end{tikzcd}
   \end{equation*}
+  With this terminology, we have $\log_H((\Pi^j x)_0) = \sum_{i = -\infty}^\infty
+  \frac{ y^{ni + j}}{\pi^i}$. 
 \begin{proof}
-  This follows directly from the above remark. Let $x \in \Tilde H(S)$ and write
+  This follows directly from the remark above. Let $x \in \Tilde H(S)$ and write
   $(y, y^{1/q}, \dots)$ for $\lambda(x)$. We have $x_0 = \lim_{s \to \infty}
   [\pi^s]_H(y^{-ns})$, hence
   \begin{equation*}
-    \log_H(x_0) = \lim_{s \to \infty} \pi^s \log_H(y^{1/q^{ns}}) = 
-    \lim_{s \to \infty} \sum_{i=0}^\infty \frac{y^{q^{n(i-s)}}}{\pi^{i-s}}
-    = \sum_{i=-\infty}^\infty y^{q^{ni}}{\pi^i}.
+    \log_H(x_0) = \lim_{s \to \infty}\left( \pi^s \log_H(y^{1/q^{ns}})\right) = 
+    \lim_{s \to \infty}\left( \sum_{i=0}^\infty  \frac{y^{q^{n(i-s)}}}{\pi^{i-s}}\right)
+    = \sum_{i=-\infty}^\infty \frac{y^{q^{ni}}}{\pi^i}.
   \end{equation*}
+  The second part is an immediate consequence.
 \end{proof}
 \end{lem}
 % subsubsection The Universal Cover (end)
