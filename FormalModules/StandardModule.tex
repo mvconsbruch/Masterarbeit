@@ -53,9 +53,10 @@ the second part of the Functional Equation Lemma implies that we even obtain
 formal $B^\sigma$-modules with $[b]_F(T) = f^{-1}(b f(T))$, as $bf(T)$
 satisfies the same functional equation if $b \in B^\sigma$. 
 
-We use the Functional Equation Lemma to construct Lubin--Tate Formal Group Laws. 
-Hence we now enter the situation where $K$ is a local field with ring of integers
-$\cO_K$ and uniformizer $\pi$. A special role will play the power series
+We now enter the situation where $K$ is a local field with ring of integers
+$\cO_K$ and uniformizer $\pi$ and 
+use the Functional Equation Lemma to construct Lubin--Tate Formal Group Laws. 
+A special role will play the power series
 \begin{equation*}
   f(T) = \sum_{i=1}^\infty \frac{T^{q^{in}}}{\pi^i} \in K\llbr T \rrbr.
 \end{equation*}
@@ -90,23 +91,23 @@ height $n$.
 \end{rmk}
 
 It will be convenient to make the terms in the exact sequence of Proposition 
-\ref{prop:ExplicitInterestingES} explicit for $F = H$. As $F$ is of height $n>0$, 
-there is no non-trivial map $F \to \GG_a$ and the sequence becomes
+\ref{prop:ExplicitInterestingES} explicit for $\cF = \FGG(H)$. As $H$ is of height $n>0$, 
+there is no non-trivial map $H \to \GG_a$ and the sequence becomes
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
 	0 \& {\omega(H)} \& {\RigExt(H,\GG_a)} \& {\Ext(H,\GG_a)} \& 0 \\
-	0 \& \begin{array}{c} \left\{\begin{gathered} {g \in TK\llbr T \rrbr : \delta g = 0} \\          \text{ and $g'(T) \in \cO_K\llbr T \rrbr$}\end{gathered} \right\} \end{array} \& {\QLog(H)} \& {\frac{\SymCoc^2(H, \GG_a^n)}{\{\delta g \mid g \in T \cO_K\llbr T \rrbr\}}} \& 0.
+	0 \& \begin{array}{c} \left\{\begin{gathered} {g \in TK\llbr T \rrbr : \delta g = 0} \\          \text{ and $g'(T) \in \cO_K\llbr T \rrbr$}\end{gathered} \right\} \end{array} \& {\QLog(H)} \& {\frac{\SymCoc^2(H, \GG_a)}{\{\delta g \mid g \in T \cO_K\llbr T \rrbr\}}} \& 0.
 	\arrow[from=1-1, to=1-2]
 	\arrow[from=1-2, to=1-3]
 	\arrow[from=1-2, to=2-2]
 	\arrow[from=1-3, to=1-4]
 	\arrow[from=1-3, to=2-3]
-	\arrow["0", from=1-4, to=1-5]
+	\arrow[from=1-4, to=1-5]
 	\arrow[from=1-4, to=2-4]
 	\arrow["", from=2-1, to=2-2]
 	\arrow[from=2-2, to=2-3]
 	\arrow["\delta", from=2-3, to=2-4]
-	\arrow["0", from=2-4, to=2-5]
+	\arrow[from=2-4, to=2-5]
 \end{tikzcd}   
 \end{equation*}
 We now have 

@@ -14,11 +14,11 @@ with pioneering works of Lazard \cite{Lazard1955FGrps}. \todo{blabla}
 \subsection{BasicNotions.tex} 
 \label{sub:Basic Notions}
 \input{BasicNotions.tex}
-test
 
 \subsection{Lubin--Tate Formal Module Laws} % (fold)
 \label{sub:Lubin--Tate Formal Module Laws}
 \input{LubinTateFM.tex}
+% (end)
 
 \subsection{Logarithms} % (fold)
 \label{sub:Logarithms}
@@ -818,7 +818,7 @@ uniformizing parameter $\pi$ and finite residue field $k$.
 \end{prop}
 
 We admit the following facts from Section 9 of \cite{hopkins1994equivariant}.
-\begin{prop}
+\begin{prop}\label{prop:InterestingSequenceStdMod}
   Let $F$ be a formal $A$-module law of height $h$ over a local, adic
   $A$-algebra $R$. Write $\cF$ for the formal $A$-module coming from 
   $F$. Then $\Ext(\cF, \GG_a)$ is a free $R$-module of rank $n-1$, 
@@ -874,24 +874,24 @@ $R$ is a local admissible $A$-algebra with residue field $\bar \FF_q$.
 \end{proof}
 \end{lem}
 
-Let $\cF$ be a one-dimensional formal $A$-module over $R$ of height $n$, coming
-from a formal $A$-module law $F$ over $R$. 
-We put $M \coloneqq \Hom_R(\Ext(F, \GG_a), R)$, which is free of rank $n-1$, and
-write $\cF' = \GG_a \otimes M$. Now, by the previous lemma,
+Let $\cF$ be a one-dimensional formal $A$-module over $R$.
+We put $\mathrm M(\cF) \coloneqq \Hom_R(\Ext(\cF, \GG_a), R)$, which is free of
+rank $n-1$, and
+write $\cV = \GG_a \otimes \mathrm M(\cF)$. Now, by the previous lemma,
 \begin{equation*}
-  \Ext(\cF,\cF') = \Ext(\cF, \GG_a \otimes M) = \End_R(\Ext(\cF, \GG_a)). 
+  \Ext(\cF,\cV) = \Ext(\cF, \GG_a \otimes \mathrm M(\cF)) = \End_R(\Ext(\cF, \GG_a)). 
 \end{equation*}
-Let $0 \to \cF' \to \cE \to \cF \to 0$ be the extension corresponding to the identity 
+Let $0 \to \cV \to \cE \to \cF \to 0$ be the extension corresponding to the identity 
 on the right. This class is unique up to unique isomrphism. Indeed, 
-as $R$ is a local ring we may choose formal module laws $F$ and $F'$ giving rise
-to $\cF$ and $\cF'$, and let $E$ be the module law obtained from 
+as $R$ is a local ring we may choose formal module laws $F$ and $V$ giving rise
+to $\cF$ and $\cV$, and let $E$ be the module law obtained from 
 Lemma \ref{lem:SESStandardForm}. 
-If $0 \to F' \to E' \to F \to 0$ is another extension in this class, we
+If $0 \to V \to E' \to F \to 0$ is another extension in this class, we
 have by construction a commutative square
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
-	0 \& {F'} \& E \& F \& 0 \\
-	0 \& {F'} \& {E'} \& F \& 0,
+	0 \& {V} \& E \& F \& 0 \\
+	0 \& {V} \& {E'} \& F \& 0,
 	\arrow[from=1-1, to=1-2]
 	\arrow[from=1-2, to=1-3]
 	\arrow[Rightarrow, no head, from=1-2, to=2-2]
@@ -906,27 +906,27 @@ have by construction a commutative square
 \end{tikzcd}
 \end{equation*}
 and by Proposition \ref{prop:ExtInTermsOfSymCoc} we see that 
-any other isomorphisms $i'$ making the diagram above diagram commutes differes from
-$i$ by an element in $\Hom(F, F') = 0$. 
+any other isomorphism $i'$ making the diagram above commute differes from
+$i$ by an element in $\Hom(F, V) = 0$. 
 
 \begin{defi}[Universal Additive Extension]
   The extension
   \begin{equation*}
-    0 \to \cF' \to \cE \to \cF \to 0
+    0 \to \cV \to \cE \to \cF \to 0
   \end{equation*}
   constructed above is called the universal additive extension of $\cF$.
 \end{defi}
 
 \begin{prop}
-  If $N$ is a free $R$-module, $\cG' = \GG_a \otimes N$ and 
+  If $N$ is a finite, free $R$-module, $\cG' = \GG_a \otimes N$ and 
   \begin{equation*}
     0 \to \cG' \to \cE' \to F \to 0
   \end{equation*}
   is an extension of $\cF$ by $\cG'$, there are unique homomorphisms
-    $i: \cE \to \cE'$ and $g': \cF' \to \cG'$ making the diagram
+    $i: \cE \to \cE'$ and $g': \cV \to \cG'$ making the diagram
   \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
-	0 \& {\cF'} \& \cE \& \cF \& 0 \\
+	0 \& {\cV} \& \cE \& \cF \& 0 \\
 	0 \& {\cG'} \& {\cE'} \& \cF \& 0
 	\arrow[from=1-1, to=1-2]
 	\arrow[from=1-2, to=1-3]
@@ -943,9 +943,10 @@ $i$ by an element in $\Hom(F, F') = 0$.
   \end{equation*}
   commute. In particular, we have $\cE' = g'_* \cE$. 
 \begin{proof}
-  As $\cF'$ and $\cG'$ are additive, we have
+  As $\cV$ and $\cG'$ are additive, we have
   \begin{equation*}
-    \Hom(\cF', \cG') = \Hom_R(M, N) = \Ext(\cF, \GG_a) \otimes N = \Ext(\cF, \cG').
+    \Hom(\cV, \cG') = \Hom_R(\mathrm M(\cF), N) = \Ext(\cF, \GG_a) \otimes N =
+    \Ext(\cF, \cG').
   \end{equation*}
   This yields $g'$. Again, $i$ is unique as by observations similar to 
   Proposition \ref{prop:ExtInTermsOfSymCoc}, the difference of two
@@ -955,21 +956,22 @@ $i$ by an element in $\Hom(F, F') = 0$.
 \end{prop}
 
 \begin{lem}\label{lem:LieAlgOfUnivAddExt}
-  We have $\Lie(\cE) = \Hom(\RigExt(\cF, \GG_a), R) = \Dio(\cF)$.
+  There is a natural isomorphism $\Lie(\cE) \xto \sim \Hom(\RigExt(\cF, \GG_a), R) 
+  = \Dio(\cF)$.
 \begin{proof}
-  We show equivalently that $\omega(\cE) = \RigExt(\cF, \GG_a)$. 
+  We show the equivalent statement $\omega(\cE) = \RigExt(\cF, \GG_a)$. 
   Let $(\cE', \omega_{\cE'}) \in \RigExt(\cF, \GG_a)$. Then by universality of 
   $\cE$, we obtain a unique homomorphism $i: \cE \to \cE'$. This yields a 
   homomorphism of $R$-modules $\RigExt(\cF, \GG_a) \to \omega(\cE)$, 
-  $(\cE', \omega_{\cE'}) \mapsto i^*\omega_{\cE'}$. This morphism fits into
-  the following commutative diagram, where the top row is 
+  sending a pair $(\cE', \omega_{\cE'})$ to $i^*\omega_{\cE'}$. This morphism
+  fits into the following commutative diagram, where the top row is 
   the short exact sequence from Proposition \ref{prop:ExplicitInterestingES}
   and the bottom row is the dual short exact sequence of 
-  $0 \to \Lie(\cF') \to \Lie(\cE) \to \Lie(\cF) \to 0$.
+  $0 \to \Lie(\cV) \to \Lie(\cE) \to \Lie(\cF) \to 0$.
   \begin{equation*}
   \begin{tikzcd}[ampersand replacement=\&]
   	0 \& {\omega(\cF)} \& {\RigExt(\cF, \GG_a)} \& {\Ext(\cF, \GG_a)} \& 0 \\
-  	0 \& {\omega(\cF)} \& {\omega(\cE)} \& {\omega(\cF')} \& 0
+  	0 \& {\omega(\cF)} \& {\omega(\cE)} \& {\omega(\cV)} \& 0
   	\arrow[from=1-1, to=1-2]
   	\arrow[from=1-2, to=1-3]
   	\arrow[Rightarrow, no head, from=1-2, to=2-2]
@@ -983,7 +985,7 @@ $i$ by an element in $\Hom(F, F') = 0$.
   	\arrow[from=2-4, to=2-5]
   \end{tikzcd}
   \end{equation*}
-  Hence, it is a natural isomorphism.
+  Thereby, $\RigExt(\cF, \GG_a) \to \omega(\cE)$ is a natural isomorphism.
 \end{proof}
 \end{lem}
 % subsection The Universal Additive Extension (end)
@@ -995,8 +997,178 @@ $i$ by an element in $\Hom(F, F') = 0$.
 
 \subsection{The Quasilogarithm Map} % (fold)
 \label{sub:The Quasilogarithm map}
-\input{QLog.tex}
-% (end)
+We keep the assumptions on $A$, $R$ and $S$ from the previous subsection. That is,
+$A$ is a local ring with finite residue field and uniformizer $\pi$, 
+$R$ is a local $A$-algebra with maximal ideal $I$ complete with respect to
+the $I$-adic topology and algebraically closed residue field $k_R$, and 
+$S$ denotes an admissible $R$-algebra (where $R \to S$ is continuous with
+the $I$-adic topology on $R$) with ideal of definition $J \subseteq S$ containing
+the image of $I$. 
+
+The aim of this subsection is to define, attached to any $\pi$-divisible formal
+$A$-module $\cF$ over $R$, a map
+\begin{equation*}
+\qlog_\cF: \tilde \cF(S) \to \Dio(\cF) \otimes_R (S \otimes_A K),
+\end{equation*}
+called the quasi-logarithm map.
+We give an explicit description of this map if $\cF = H$ is the standard
+$\cO_K$-module over $\cO_{\breve K}$. 
+
+We begin with a sequence $(x_1, x_2, \dots) \in \tilde \cF(S)$. 
+Let $0 \to \cV \xto\psi \cE \xto\phi \cF \to 0$ be the universal additive
+extension of $\cF$, and choose an arbitrary sequence $(y_1, y_2, \dots) \in
+\tilde \cE(S)$ such that $y_i$ is a lift of $x_i$ under the map $\cE(S) \to \cF(S)$. 
+Let $y$ be the limit $y = \lim_{i \to \infty} [\pi]_{\cE}^i(y_i)$ and put 
+$$\qlog_\cF((x_1, x_2, \dots)) = \log_\cE(y) \in \Dio(\cF) \otimes_R(S \otimes_A K).$$ 
+
+\begin{prop}
+  This construction yields a well-defined map. 
+\begin{proof}
+  We may assume that $\cF$ and $\cV$ come from a formal module laws $F$ and 
+  $V$, which canonically
+  leads to a module $E$ for $\cE$ by Lemma \ref{lem:SESStandardForm}. Now
+  $(x_1, x_2, \dots)$ is a sequence in $S^\cici$ and $(y_1, y_2, \dots)$ is a
+  sequence of elements in $(S^\cici)^n$.
+
+  It suffices to show that $y = \lim_{i\to \infty} [\pi]^i_E(y_i)$ exists and 
+  that it is independent of the choice of lifts $(y_1, y_2, \dots)$. 
+  Both claims follow from additivity of $\cV$, implying that 
+  $[\pi]_{V}(T) = \pi T$. The sequence 
+  $([\pi^i]_{E}(y_i))$ converges, as for positive integers $i\leq j$, we have 
+  \begin{equation*}
+    [\pi^i](y_i) - [\pi^j](y_j) = [\pi^i]([\pi^{i-j}]y_j - y_i)
+    \in \psi(\pi^i (S^\cici)^{n-1}) \subseteq J^i (S^\cici)^{n}. 
+  \end{equation*}
+
+  If $(y_1', y'_2, \dots)$ is another sequence of lifts, put
+  $y' = \lim_{i \to \infty} [\pi^i]_E (y_i') \in S^\cici$. Now there exists some
+  $z \in \cV(S)$ such that 
+  $y - y' = \psi(z)$. But by construction
+  $z \in \bigcap_{i \in \N} \pi^i(S^{\cici})^{n-1} = 0$.
+\end{proof}
+\end{prop}
+
+Let us now consider the case where $\cF = \FGG(H)$ comes from the standard
+formal $\cO_K$-module of height $n$ over $\cO_{\breve K}$. Then 
+from Proposition \ref{prop:InterestingSequenceStdMod} we have the distinguished
+basis elements of $\Ext(H,\GG_a)$ corresponding to the symmetric $2$-cocycles
+$\delta f_i$, $1 \leq i \leq n-1$ where $f_i(T) = \frac 1 \pi
+\log_H(T^{q^i})$. Also recall that, setting $f_0(T) = \log_H(T)$, the elements 
+$(f_0, f_1, \dots, f_{n-1})$ freely generate $\QLog(H)$. The universal
+additive extension now corresponds to the symmetric $2$-cocycle $(\delta f_1,
+\dots, \delta f_{n-1}) \in \SymCoc^2(H,V)$.
+We can make the quasi-logarithm map explicit.
+
+\begin{prop}\label{prop:qlogmapExplicit}
+  Let $x = (x_0, x_1, \dots) \in \Tilde H(S)$. With respect to the basis
+  $(\log_H(T),\allowbreak \log_H(T^q), \allowbreak \dots, \allowbreak \log_H(T^{q^{n-1}}))$ of 
+  $\QLog(H) \otimes_{\cO_K} K$, the quasi-logarithm map is given by
+  \begin{equation*}
+    \qlog_H(x) = \left(\log_H(x_0), \log_H((\Pi x)_0), \dots, \log_H((\Pi^{n-1}
+    x)_0)\right) \in (S\otimes K)^n.
+  \end{equation*}
+  Here, $\Pi x = ((\Pi x)_0, (\Pi x)_1, \dots)$ is the image of $x$ under
+  $\Pi$, the endomorphism of $\Tilde
+  H(S)$ induced by the Frobenius automorphism on $H_0$, cf. Definition
+  \ref{def:FrobOnUnivCov}.
+\end{prop}
+We postpone the proof to state the following auxiliary result.
+\begin{lem}\label{lem:FrobOnTildeHExpl}
+  Let $x = (x_0 ,x_1, \dots) \in \Tilde H(S)$. For positive integers $i$ and
+  $j$ we have
+  \begin{equation*}
+    \log_H((\Pi^j x)_i) = \lim_{r \to \infty} \pi^r \log_H(x_{r+i}^{q^j}).
+  \end{equation*}
+\begin{proof}
+  Tracing through the commutative square (with $\lambda$ and $\mu$ the
+  isomorphisms from the previous subsection)
+    \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+    	{\Tilde H(S)} \& {\Nilp^\flat(S)} \\
+    	{\Tilde H(S)} \& {\Nilp^\flat(S),}
+    	\arrow["\lambda", from=1-1, to=1-2]
+    	\arrow["\Pi", from=1-1, to=2-1]
+    	\arrow["{(y_i)_i \mapsto (y_i^{q})_i}", from=1-2, to=2-2]
+    	\arrow["\mu"', from=2-2, to=2-1]
+    \end{tikzcd}
+    \end{equation*}
+    we find 
+    \begin{equation} \label{eq:CompsOfPiExplicit}
+      (\Pi^j x)_i = \lim_{s \to \infty} \lim_{r\to\infty} \left([\pi]_H^s
+      (x_{r+s+i}^{q^{nr + j}})\right).
+    \end{equation}
+    The claim follows after applying $\log_H$ and making repeated use of the
+    functional equation $\log_H(T^{q^n}) = \pi \log_H(T) + \pi T$.
+\end{proof}
+\end{lem}
+\begin{proof}[Proof of Proposition \ref{prop:qlogmapExplicit}]
+  Using the coordinates provided by $(\delta f_1, \dots, \delta f_{n-1})$, the
+  universal additive extension of $H$ is isomorphic to 
+  \begin{equation*}
+    0 \to \GG_a^{n-1} \to E \to H \to 0,
+  \end{equation*}
+  where $E$ is a module law with 
+  \begin{equation*}
+    [\pi]_E(\bX, T) = \big(\pi X_1 + (\delta_{\pi}f_1)(T), \dots, \pi X_{n-1} + 
+    (\delta_{\pi}f_{n-1})(T), [\pi]_H(T)\big).
+  \end{equation*}
+  Beginning with $x = (x_0, x_1, \dots) \in \Tilde H (S)$, lifting to $(y_0,
+  y_1, \dots) \in E(S)^\N$ 
+  and writing $y = \lim_{i\to\infty} [\pi]_E^i (y_i)$, we find
+  \begin{equation*}
+    y = \left(\lim_{r\to\infty} (\delta_{\pi^r} f_1)(x_r), \dots, \lim_{r\to \infty}
+    (\delta_{\pi^r}f_{n-1})(x_r), x_0\right) \in E(S).
+  \end{equation*}
+  Now, Lemma \ref{lem:FrobOnTildeHExpl} provides the equality
+  $$\lim_{r\to\infty}\delta_{\pi^r} f_i(x_r) = \frac 1\pi \lim_{r \to \infty}
+  \pi^r \log_H(x_r^{q^{nr+i}}) - \frac 1\pi \log_H\left(x_0^{q^i}\right) = 
+  \frac 1\pi \left(\log_H((\Pi^i x)_0)- \log_H(x_0^{q^i})\right).$$
+  We need to calculate $\log_E(y)$, which calls for an explicit description of 
+  $\log_E : E \otimes (R \otimes_AK) \to (\GG_a \otimes(R \otimes_A K))^n$. 
+  Tracing through the procedure provided in Subsection \ref{sub:Logarithms},
+  we find
+  \begin{equation*}
+    \log_E(\bX, T) = \left(X_1 + \tfrac 1\pi \log_H(T^q), \dots, 
+    X_{n-1} + \tfrac 1\pi \log_H(T^{q^{n-1}}), \log_H(T)\right).
+  \end{equation*}
+  This representation is with respect to the basis $(f_1, \dots, f_{n-1}, f_0)$. 
+  The claim follows.
+\end{proof}
+
+
+
+% subsubsection The Quasilogarithm map (end)
+
+\subsection{Determinants } % (fold)
+\label{sub:Determinants}
+Let $H$ be the standard formal $\cO_K$-module over $\cO_{\breve K}$ of height
+$n$. Write $\wedge H$ for the formal $\cO_K$-module over $\cO_{\breve K}$ with
+logarithm
+\begin{equation*}
+  \log_{\wedge H}(T) = \sum_{i = 0}^\infty (-1)^{(n-1)i} \frac{T^{qi}}{\pi^i}.
+\end{equation*}
+Then we have naturally $\Dio(\wedge H) = \wedge^n \Dio(H)$. 
+We describe a map $\delta: \Tilde H^n \to \Tilde {\wedge H}$ making the square
+\begin{equation}\label{diag:qlogsquare}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\Tilde H^n(S)} \& {\Tilde{\wedge H}} \\
+	{\Dio(H)^n \otimes (S\otimes_{\cO_K} K)} \& {\Dio(\wedge H) \otimes(S\otimes_{\cO_K}K)}
+	\arrow["\delta", from=1-1, to=1-2]
+	\arrow["\qlog_H \times \dots \times \qlog_H"', from=1-1, to=2-1]
+  \arrow["\qlog_{\wedge H}", from=1-2, to=2-2]
+	\arrow["\det", from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation}
+commute.
+
+\begin{itemize}
+  \item "Functorial" description of the determinant. Either as in
+    \cite{BoyarchenkoWeinstein2011MaxVar}, or as in \cite{weinstein2016semistable}.
+  \item Construction.
+  \item Approximations.
+\end{itemize}
+
+% subsubsection Determinants of Formal Modules (end)
 
 
 \end{document}

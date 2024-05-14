@@ -170,6 +170,7 @@ We collect results.
 \end{proof}
 \end{prop}
 % subsubsection Useful Calculations (end)
+
 \subsubsection{The Universal Cover} % (fold)
 \label{ssub:The Universal Cover}
 Let $A$ be an integral domain and $R$ be an $A$-algebra. Given $H \in \FMOver
@@ -187,9 +188,10 @@ by shifting to the left)  so that $\tilde H_a(S)$ is naturally an
 $A[\frac1a]$-module.
 
 From now on assume that $A$ is a discrete valuation ring with uniformizer
-$\pi$, finite residue field $k$ and field of fractions $K$. Let $R$ be 
-a local $A$-algebra with maximal ideal $I$ and algebraically closed residue field 
-$k_R = R/I$. Let $H$ be a formal $A$-module over $R$. 
+$\pi$, finite residue field $k$ and field of fractions $K$. 
+Write $q = \# k$. Let $R$ be a local $A$-algebra with maximal ideal $I$ and
+algebraically closed residue field $k_R = R/I$. Let $H$ be a formal
+$\pi$-divisible $A$-module over $R$ of height $n$. 
 \begin{defi}[The Universal Cover and Tate Module]
   We write $\tilde H = \tilde H_\pi$. This functor
   takes values in the category of $K$-vector spaces.
@@ -235,31 +237,79 @@ $k_R = R/I$. Let $H$ be a formal $A$-module over $R$.
 \end{lem}
 
 The following is analogous to Proposition \ref{prop:pHTcalc}.
-\begin{prop}
+\begin{prop}\label{prop:UnivCoverReductionIso}
   Let $S$ be an admissible $R$-algebra with ideal of definition $J$ such that 
   $\phi(I) \subseteq J$. Then there are canonical isomorphisms (of sets)
-      \begin{equation*}
-        \tilde H(S) \cong \tilde H(S/J) = \tilde H_0(S/J) \cong \Nilp^\flat(S/J) \cong
-        \Nilp^\flat(S).
-      \end{equation*}
+  \begin{equation*}
+    \tilde H(S) \cong \tilde H(S/J) = \tilde H_0(S/J) \cong \Nilp^\flat(S/J) \cong
+    \Nilp^\flat(S).
+  \end{equation*}
   In particular, $\tilde H(S)$ is, as a functor to $\Set$, representable by
   $\spf(R \llbr T^{q^{-\infty}} \rrbr)$.
 \end{prop}
+We write $\lambda$ for the isomorphism $\Tilde H \to \Nilp^\flat$, and
+$\lambda_i: \Tilde H \to (-)^\cici$ for projection on the $i$-th component.
+Similarly, we write $\mu: \Nilp^\flat \to \Tilde H$ for the inverse of 
+$\lambda$ and $\mu_i$ for the $i$-th component of $\mu$. 
+
+By Proposition \ref{prop:UnivCoverReductionIso}, we obtain an action of 
+$\End(H \otimes_R k_R)$ on $\Tilde H$.
+
+\begin{defi}[Frobenius on $\Tilde H$] \label{def:FrobOnUnivCov}
+  Write $\Pi: \Tilde H \to \Tilde H$ for the automorphism of $\Tilde H$ corresponding
+  to the Frobenius automorphism (which sends $T$ to $T^q$) of $H_0$.
+\end{defi}
+
+Note that $\lambda_i(\Pi x) = \lambda_i(x)^q$ for $x \in \Tilde H(S)$ and 
+$i=0,1,\dots$. 
 
 \begin{rmk} 
-  In case where $H$ comes from a Lubin--Tate $\cO_K$-module law, the bijections
+  In case where $H$ comes from a Lubin--Tate $\cO_K$-module law of height $n$,
+  the bijections
   \begin{equation*}
-    \tilde H(S) \rightleftarrows \Nilp^\flat(S), \quad (x_0, x_1, \dots) \mapsspamto (y_0, y_1, \dots)
+    \tilde H(S) \rightleftarrows \Nilp^\flat(S), \quad (x_0, x_1, \dots)
+    \mapsspamto (y, y^{q^{-n}}, y^{q^{-2n}}, \dots)
   \end{equation*}
   are, in either direction, given by the equations
   \begin{equation*}
-    y_i = \lim_{r \to \infty} x_{i+r}^{q^r} \quad \text{and} \quad 
-    x_i = \lim_{s \to \infty} [\pi^s]_H(y_{i+s}).
+    y^{1/q^{ni}} = \lim_{r \to \infty} x_{r+i}^{q^{nr}} \quad \text{and} \quad 
+    x_i = \lim_{s \to \infty} [\pi^s]_H(y^{q^{-n(i+s)}}).
   \end{equation*}
   This follows directly from the explicit description of the isomorphism in
-  Proposition \ref{prop:pHTcalc}, as we may choose $h_{[\pi]_H}(T) = h_{T^q}(T)
+  Proposition \ref{prop:pHTcalc}, as we may choose $h_{[\pi]_H}(T) = h_{T^{q^n}}(T)
   = T$.
 \end{rmk}
+
+We add calculations regarding the interplay of $\lambda$ and $\log_H$ which will prove
+useful later.
+\begin{lem}\label{lem:LogInTermsOfNil}
+  Let $H$ be the standard formal $\cO_K$-module of height $n$ over $R =
+  \cO_{\breve K}$. We have a commutative diagram (cf. \cite[Lemma
+  2.6.1]{BoyarchenkoWeinstein2011MaxVar})
+  \begin{equation*}
+  \begin{tikzcd}[ampersand replacement=\&]
+  	{(x_0, x_1, \dots)} \& {\Tilde H(S)} \&\& {\Nil^\flat(S)} \& {(y,y^{1/q}, \dots)} \\
+  	{\sum_{i=0}^\infty \frac{x_0^{q^{ni}}}{\pi^i}} \&\& {S\otimes_{\cO_K}K} \&\& {\sum_{i = -\infty}^\infty\frac{y^{q^{ni}}}{\pi^i}}
+  	\arrow["\in"{description}, draw=none, from=1-1, to=1-2]
+  	\arrow[maps to, from=1-1, to=2-1]
+  	\arrow["\lambda", from=1-2, to=1-4]
+  	\arrow["{\log_H}"', from=1-2, to=2-3]
+  	\arrow[from=1-4, to=2-3]
+  	\arrow["\ni"{description}, draw=none, from=1-5, to=1-4]
+  	\arrow[maps to, from=1-5, to=2-5]
+  \end{tikzcd}
+  \end{equation*}
+\begin{proof}
+  This follows directly from the above remark. Let $x \in \Tilde H(S)$ and write
+  $(y, y^{1/q}, \dots)$ for $\lambda(x)$. We have $x_0 = \lim_{s \to \infty}
+  [\pi^s]_H(y^{-ns})$, hence
+  \begin{equation*}
+    \log_H(x_0) = \lim_{s \to \infty} \pi^s \log_H(y^{1/q^{ns}}) = 
+    \lim_{s \to \infty} \sum_{i=0}^\infty \frac{y^{q^{n(i-s)}}}{\pi^{i-s}}
+    = \sum_{i=-\infty}^\infty y^{q^{ni}}{\pi^i}.
+  \end{equation*}
+\end{proof}
+\end{lem}
 % subsubsection The Universal Cover (end)
 
 % subsection Tate Modules and the Universal Cover (end)

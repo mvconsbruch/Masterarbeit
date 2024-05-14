@@ -93,7 +93,8 @@ and let $\omega_1, \dots, \omega_n$ be the distinguished basis for $\omega(F)$
 constructed above. 
 By the previous proposition, there are unique power series 
 $f_i(\bX) \in (R \otimes_A K)\llbr \bX \rrbr$ furnishing homomorphisms
-$F \otimes (R \otimes_A K) \to \GG_a$ of formal $A$-module laws and satisfying
+$F \otimes (R \otimes_A K) \to \GG_{a,R\otimes_AK}$ of formal $A$-module laws
+and satisfying
 \begin{equation*}
   \dc_F f_i(\bX) = \omega_i(\bX) \in \omega(F).
 \end{equation*}
@@ -117,8 +118,10 @@ We call $f$ the logarithm attached to $F$.
   Let $\phi: F \to G$ be a morphism. Then the diagram 
   \begin{equation*}
   \begin{tikzcd}[ampersand replacement=\&]
-  	{F \otimes(R \otimes_A K)} \& {\GG_a \otimes \Lie(F)} = \GG_a^n \\
-  	{G \otimes(R \otimes_A K)} \& {\GG_a \otimes \Lie(G)} = \GG_a^m
+    {F \otimes(R \otimes_A K)} \& {\GG_a \otimes (\Lie(F)} \otimes_A K) =
+    \GG_{a, R\otimes_AK}^n \\
+    {G \otimes(R \otimes_A K)} \& {\GG_a \otimes (\Lie(G)} \otimes_A K) =
+    \GG_{a, R\otimes_AK}^m
   	\arrow["{\log_F}", from=1-1, to=1-2]
   	\arrow["\phi"', from=1-1, to=2-1]
   	\arrow["{\Lie(\phi)}", from=1-2, to=2-2]
@@ -127,10 +130,10 @@ We call $f$ the logarithm attached to $F$.
   \end{equation*}
   commutes. In particular, attached to any $\cF \in \FMArbOver AR$ comes a 
   natural morphism 
-  $$\log_\cF: \cF \otimes (R \otimes_A K) \to \GG_a \otimes \Lie(\cF).$$
+  $$\log_\cF: \cF \otimes (R \otimes_A K) \to \GG_a \otimes (\Lie(\cF) \otimes_A K).$$
   \begin{proof}
-    The square commutes because $\Hom(\GG_a^n, \GG_a^m) \cong \Hom_{R \otimes_A
-    K}((R\otimes_A K^n), (R\otimes_A K)^m)$
+    The square commutes because $\Hom(\GG_{a, R\otimes_AK}^n, \GG_{a, R\otimes_AK}^m) = \Hom_{R \otimes_A
+    K}((R\otimes_A K)^n, (R\otimes_A K)^m)$
     and $\Lie(\log_G \circ \phi \circ \exp_H) = \Lie(\phi).$
   \end{proof}
 \end{lem}
