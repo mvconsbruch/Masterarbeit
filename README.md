@@ -1,4 +1,12 @@
 # Master's thesis
+## 15th of May
+[05_18_version.pdf](./compiled_versions/05_15_version.pdf) 
+I think I finally said (almost) everything there is to say about Formal Modules. 
+I might have to expand on Dieudonné Theory at some point, but I'll postpone this.
+
+Minor Issue: It is not completely clear to me why the determinant map defined
+in [BW11] is the same as the one defined in [Wei16]. 
+
 ## 8th of May
 [05_08_version.pdf](./compiled_versions/05_08_version.pdf) 
 Added the construction of the universal additive extension.
