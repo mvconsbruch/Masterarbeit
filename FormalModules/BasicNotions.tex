@@ -2,43 +2,50 @@ As promised in the introduction, we begin by defining {formal group
 laws}.
 For now, let $A$ be any ring.
 \begin{defi}[Formal Group Laws of arbitrary dimension]
-  A (commutative, one-dimensional) formal group law  of dimension
-  $n$ over $R$ is a power series $ F(X,Y) \in R\llbr X ,Y \rrbr $ 
-  such that $F( X,  Y) \equiv X + Y $ modulo degree $\geq 2$
+  A (commutative) formal group law  of dimension
+  $n$ over $R$ is a tuple of
+  power series $F = (F_1, \dots, F_n)$ with $$F_i(X_1, \dots, X_n,Y_1,
+  \dots, Y_n) \in R\llbr X_1, \dots,
+  X_n, Y_1, \dots, Y_n\rrbr, \quad 1 \leq i \leq n$$
+  such that $F_i(\mathbf X, \mathbf Y) \equiv X_i + Y_i $ modulo degree $\geq 2$
   and the following equalities are satisfied:
   \begin{enumerate}
-    \item $ F( F ( X,  Y),  Z) = 
-       F( X,  F( Y,  Z))$.
-    \item $ F(  X,  0) =  X$.
-    \item $ F(  X,  Y) =  F( Y,  X).$
+    \item $F(F (\mathbf X, \mathbf Y), \mathbf Z) = 
+      F(\mathbf X, F(\mathbf Y, \mathbf Z))$.
+    \item $F( \mathbf X, \mathbf 0) = \mathbf X$.
+    \item $F( \mathbf X, \mathbf Y) = F(\mathbf Y, \mathbf X).$
   \end{enumerate}
-  Given two formal group laws $F$ and $G$
-  a morphism $ F \to  G$ is a power series $f \in R\llbr T \rrbr$ such that
-  $f(0)=0$ and
+  Here, and in the sequel, we abbreviate $\mathbf X =
+  (X_1, \dots, X_n)$, et cetera.
+  Given a formal group $F$ of dimension $n$ and a formal group law
+  $G$ of dimension $m$,
+  a morphism $F \to G$ is a $m$-tuple $f = (f_1, \dots, f_m)$ 
+  of power series $f_i \in R\llbr X_1, \dots, X_n \rrbr$ such that $\bff(0)=0$ and
   \begin{equation*}
-    G( f(  X),  f(  Y) ) = 
-    f( F(  X,  Y)).
+    G(f( \mathbf X), f( \mathbf Y) ) = f(F( \mathbf X, \mathbf Y)).
   \end{equation*}
-  For any formal module $F$, the identity is given by 
-  the morphism $\id_{F}(X) = X$. 
-  Composition of morphisms is given by composition of power-series.
-  This yields the category of formal modules of dimension $1$ over $R$,
-  which we denote by $\FGLOver R$. 
+  For any $n$-dimensional formal module $F$, the identity is given by 
+  the morphism $\id_{F}$ with components $\id_{F,i}( \mathbf X) = X_i$. 
+  Composition of morphisms is given by composition of tuples of power-series.
+  This yields the category of formal modules of arbitrary dimension over $R$,
+  which we denote by $\FGLArbOver R$. We will mostly be concerned with the full
+  subcategory of one-dimensional formal groups, which we denote by $\FGLOver R$. 
 \end{defi}
-We encounter higher-dimensional group laws later in this section, but they only
-play an auxilliary role, see Definition \ref{def:FGLArb}.
 
-The following statements about morphisms of formal group laws are 
-useful and easily verified.
-\begin{lem}\label{lem:FGLeasyfacts}
-  Let $R$ be a ring and let $F,G \in R\llbr X,Y\rrbr$ be two formal
-  (one-dimensional) group laws over $R$. 
+\begin{lem}\label{lem:FGLAdditive}
   \begin{enumerate}
-    \item The set $\Hom_{\FGLOver R} (F,G)$
-      is an abelian group with addition $f+g = G(f,g)$, and $\End_\FGLOver R(F)$
-      has a natural ring structure with multiplication given by composition.
-    \item A morphism $f = c_1 T + c_2 T^2 + \dots \in R\llbr T \rrbr$ between
-      $F$ and $G$ is an isomorphism if and only if $c_1 \in R^\times$.
+    \item The set $\Hom_{\FGLArbOver R} (F,G)$
+      is an abelian group with addition $f+g = G(f,g)$. 
+      In particular, $\FGLArbOver R$ is pre-additive (cf.
+      \cite[\href{https://stacks.math.columbia.edu/tag/00ZY}{Tag
+      00ZY}]{stacks-project}).     
+    \item Furthermore, $\FGLArbOver R$ admits finite products. Thereby it is 
+      an additive category (cf. \cite[\href{https://stacks.math.columbia.edu/tag/0104}{Tag
+      0104}]{stacks-project}).
+      The unique final and initial object of $\FGLArbOver R$ is the unique
+      $0$-dimensional formal $A$-module law.
+    \item In particular $\End_{\FGLArbOver R}(F)$ is a (possibly non-commutative)
+      ring.
   \end{enumerate}
 \end{lem}
 
@@ -55,64 +62,86 @@ useful and easily verified.
 Next up is the definition of formal $A$-module laws. Naively, we would like to 
 define formal $A$-module laws as formal group laws $F$
 with $A$-module structure, i.e. a morphism of rings $[\cdot]_F: A \to
-\End_\FGLOver R(F)$. But there is a subtlety: let 
+\End_\FGLArbOver R(F)$. But there is a subtlety, which becomes evident after defining
+the Lie-algebra of a formal group law. 
+\begin{defi}[Lie-algebra of formal group law]
+Let $\Lie: \FGLArbOver R \to \Ab$ be the functor taking an $n$-dimensional 
+formal group law $\mathbf F$ to the $R$-module
 \begin{equation*}
-  \Lie: \FGLOver R \to \Ab 
+  \Lie(\bF) = \Hom_{\Mod R} \left( \frac{(X_1, \dots, X_n)}{(X_1, \dots,
+  X_n)^2}, R \right) 
 \end{equation*}
-be the (constant) functor that sends $F \in \FGLOver R$ to $(R,+)$, and morphisms
-$f: G \to H$ given by a formal power series
-$f = c_1 T + c_2 T^2 + \dots \in R\llbr T \rrbr$ to the endomorphism
-of $R$ given by multiplication with $c_1$. The condition that 
+Given an $m$-dimensional group law $\bG$ and a morphism $\mathbf f: \bF \to
+\bG$, $\Lie(\bff)$ is the induced morphism
+\begin{equation*}
+  \Lie(\bF) \to \Lie(\bG), \quad \psi \mapsto \left( S_j \mapsto \psi
+  (\overline{f_j})\right) \in 
+  \Hom_\Mod R\left(\frac{(X_1, \dots, X_n)}{(X_1, \dots, X_n)^2}, R \right),
+\end{equation*}
+where $\overline{ f_j}$ is the reduction of $f_j$ mod $(\bX)^2$. 
+\end{defi}
+We have a canonical basis on both sides, and writing $\Lie(\bF) = R^n$, 
+$\Lie(\bG) \cong R^m$, the induced map $\Lie(\bff) : R^n \to R^m$ is
+given by multiplication with the matrix 
+\begin{equation*}
+  \left( \frac {\partial f_j}{\partial X_i} (0) \right)_{i,j}.
+\end{equation*}
+
+Given $F \in \FGLOver R$, the condition that 
 $F(X,Y) \equiv X+Y$ modulo degree $2$ enforces that the induced map
-$\End(F) \to \End(R)$ is a morphism of rings. Now, the $A$-module structure on $F$ 
+$\End(F) \xto{\Lie} \End(R)$ is a morphism of rings. 
+If we are given $[-]_F: A \to \End_{\FGLOver R}(F)$, this $A$-module structure on $F$ 
 yields an $A$-module structure on $R$, given by the composition
 \begin{equation*}
   A \xto{[\cdot]_F} \End(F) \xto{\Lie} \End(R), \quad a \mapsto \Lie([a]_F)
 \end{equation*}
 This is a morphism of rings, and we obtain an $A$-algebra structure on $R$. 
 This motivates the following definition.
-\begin{defi}[Formal $A$-module law]\label{def:formalmodulelaw}
-  Let $A$ be a ring and $R$ be an $A$-algebra with structure
-  morphism $i: A \to R$. A (one-dimensional) $A$-module law over $R$ is a
-  pair $(F, ([a]_F)_{a \in A})$, where $F \in R\llbr X,Y \rrbr$ is 
-  a formal group law and $[a]_F = i(a)X + c_2X^2 + \dots 
-  \in R\llbr X \rrbr$ yield endomorphisms $F \to F$ such that the induced map
+\begin{defi}[Formal $A$-Modules of arbitrary dimension]\label{def:formalmodulelaw}
+  Let $R$ be an $A$-algebra with structure morphism $j: A \to R$. A formal
+  $A$-module over $R$ of dimension $n$ is
+  given by the data of 
+  a formal $n$-dimensional group law $F$ over $R$ and a morphism of rings
   \begin{equation*}
-    A \to \End(F), \quad a \mapsto [a]_F 
+    A \to \End_{\FGLArbOver R} (F), \quad a \mapsto ([a]_{F,i}
+    )_{1 \leq i \leq n} \in (R \llbr X_1, \dots, X_n \rrbr )^n
   \end{equation*}
-  is a morphism of rings. A morphism $f: F\to G$ between formal $A$-module laws
-  $F$ and $G$ is a morphism 
-  $f(T) \in \Hom_{\FGLOver A R}(F,G)$ satisfying the additional constraint
-  $f([a]_F(T)) = [a]_G(f(T))$ for all $a \in A$.
+  such that $[a]_{F,i}(\mathbf X) \equiv j(a) X_i$ modulo terms of degree 
+  $\geq 2$. Morphisms between formal $A$-modules of arbitrary dimension are 
+  morphisms of formal groups respecting the $A$-module structure. 
+  The resulting category is denoted $\FMLArbOver A R$. As before, the full
+  subcategory of one-dimensional formal $A$ modules over $R$ is denoted 
+  $\FMLOver A R$.
 \end{defi}
-Similarly to above, we obtain a category of formal $A$-module laws over $R$,
-which we denote by $\FMLOver A R$. Note that $\FGLOver R \cong \FMLOver \Z R$.
+
+Note that $\FGLOver R \cong \FMLOver \Z R$.
 Slightly abusing notation, we usually do not explicitely mention the $A$-structure
 when referring to formal module laws, simply writing $F \in \FMLOver AR$, for
 example. 
 
 The following lemma explains a the functoriality of the assignment
-$R \mapsto \FMLOver A R$.
+$R \mapsto \FMLArbOver A R$.
 
 \begin{lem}\label{lem:FMLFunc}
-  The assignment $R \mapsto \FMLOver A R$ is functorial in the following sense.
+  The assignment $R \mapsto \FMLArbOver A R$ is functorial in the following sense.
   If $i: R \to R'$ is a morphism of $A$-algebras, we obtain a functor
   \begin{equation*}
-    \FMLOver A R \to \FMLOver A {R'}, \quad F \mapsto F \otimes_R R',
+    \FMLArbOver A R \to \FMLArbOver A {R'}, \quad F \mapsto F \otimes_R R',
   \end{equation*}
   where $F \otimes_R R'$ is the formal $A$-module law obtained by applying $i$
   to the coefficients of the formal power series representing the $A$-module
   structure of $F$. 
 \end{lem}
 
-Note that every formal module law $F \in \FMLOver A R$ yields a functor
+Note that every $n$-dimensional formal module law $F \in \FMLArbOver A R$
+yields a functor
 \begin{equation}\label{eq:fmnilpfunc}
-  \Alg R \to \Mod A, \quad S \mapsto \Nil(S),
+  \Alg R \to \Mod A, \quad S \mapsto \Nil(S)^n,
 \end{equation}
-where $\Nil(S)$, the set of nilpotent elements of $S$, is equipped with
+where $\Nil(S)^n$, the set of $n$-tuples of nilpotent elements of $S$, is equipped with
 addition and scalars given by 
 \begin{equation*}
-  s_1 + s_2 = F(s_1, s_2) \in \Nil(S), \quad a s = [a]_F(s) \in \Nil(S).
+  s_1 + s_2 = F(s_1, s_2) \in \Nil(S)^n, \quad a s = [a]_F(s) \in \Nil(S)^n.
 \end{equation*}
 This construction yields a functor (with slight abuse of notation)
 \begin{equation}\label{eq:formfunc}
@@ -123,48 +152,92 @@ where $\Fun$ denotes the functor category.
 Passing from discrete $R$-algebras to admissible $R$-algebras (cf. Definition
 \ref{def:admring}), this construction extends naturally to a functor 
 \begin{equation*}
-  \FMLOver AR \to \Fun (\Adm R, \Mod A), \quad F \mapsto \Spf R\llbr T \rrbr,
+  \FMLOver AR \to \Fun (\Adm R, \Mod A), \quad F \mapsto \Spf R\llbr \bT \rrbr,
 \end{equation*}
-where we equip $\Spf R \llbr T \rrbr$ with the structure of an $A$-module object
+where we equip $\Spf R \llbr \bT \rrbr$ with the structure of an $A$-module object
 using the endomorphisms coming from $F$. 
 Following this line of thought leads naturally to the definition of
 formal modules. 
 
-\begin{defi}[Formal Group and Formal Module.]
-  Let $X$ be an $A$-scheme. A formal $A$-module $\cF$ over $X$ 
-  is an $A$-module object in $\FSchOver X$, the category of formal
-  schemes over $X$, satisfying the following condition.
-  That there is a Zariski-covering $(\spec(R_i))_{i \in I}$ of $X$ with $\cF
-  \times_{X} U_i \cong \spf(R_i\llbr T \rrbr)$ for every $i\in I$ the induced
-  $A$-module structure on $\spf(R_i\llbr T \rrbr)$ comes from a formal
-  $A$-module law $F_i$ over $R_i$.
+\begin{defi}[Formal Groups and Formal Modules.]
+  Given an $A$-scheme $X$, we define the category
+  $\FMArbOver A X$ as follows. 
+  Objects are $A$-module objects $\cF$ in the category
+  of formal schemes over $X$, such that 
+  there is a cover of $X$ by Zariski-open affine subsets $U_i = \spec (R_i)$
+  such that $\cF \times_X U_i$ is isomorphic to $\Spf R_i\llbr X_1, \dots,
+  X_n\rrbr$ and the induced $A$-module structure on $\spf R_i\llbr X_1, \dots, X_n\rrbr$
+  yields a formal $A$-module law on $R_i$. Given $\cF, \cG \in \FMLArbOver AX$,
+  a morphism $\phi: \cF \to \cG$ in the category of formal schemes over $X$ is
+  a morphism of formal $A$-modules if $\phi$ is a morphism of $A$-module objects.
+  Again, we denote the category of one-dimensional formal $A$-modules over $X$
+  by $\FMOver AX$. 
 \end{defi}
 
 \begin{rmk} 
   Formal schemes (over a base an $A$-scheme $X$, say) locally isomorphic to 
-  $\spf \cO_X(U)\llbr T \rrbr$ are sometimes called (one-dimensional) Formal
+  $\spf \cO_X(U)\llbr \bT \rrbr$ are sometimes called Formal
   Lie Varieties \todo{reference}. Equivalently to the definition above, we could
-  have defined formal $A$-modules as $A$-module objects (of relative dimension one
-  over $X$) in the category of Formal Lie Varieties, such that the $A$-module structure
+  have defined formal $A$-modules as $A$-module objects in the category of
+  Formal Lie Varieties, such that the $A$-module structure
   on the tangent space at the identity agrees with the usual one.
 \end{rmk}
 
 \begin{defi}[Coordinate]
   Let $\cF$ be a formal $A$-module over $X$. The choice of a cover $\sqcup_{i
   \in I} \spec(R_i) \to X$ together with isomorphisms $\cF \times_X \spec(R_i)
-  \cong \Spf(R_i\llbr T \rrbr)$ will be referred to as a coordinate of $\cF$. 
+  \cong \Spf(R_i\llbr \bT \rrbr)$ will be referred to as a coordinate of $\cF$. 
 \end{defi}
 
 Of course there is a functor 
 \begin{equation*}
-  \FMLOver AR \to \FMOver AR,
+  \FGG: \FMLOver AR \to \FMOver AR,
 \end{equation*}
 essentially forgetting the choice of module law. The observation of Lemma 
-\ref{lem:FMLFunc} translates to formal modules, a morphism $p : R \to R'$ 
+\ref{lem:FMLFunc} translates to formal modules, a morphism $j : R \to R'$ 
 yields a functor 
 \begin{equation*} 
-  p_*: \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
+  \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
 \end{equation*}
+
+\begin{defi}[Lie functor]
+  The functor $\Lie$ descents to a functor 
+  \begin{equation*}
+    \Lie: \FMArbOver A X \to \QCoh {\cO_X}, 
+  \end{equation*}
+  given by locally describing a formal $A$-module $\cF$ via formal group laws
+  and glueing the local data. Alternatively, it arises from sending 
+  sending a formal $A$-module $\cF$ to $(\cI / \cI^2)^\vee$, where $\cI$ is the
+  ideal associated to the closed immersion $[0]_\cF: X \to \cF$. 
+\end{defi}
+
+\begin{lem}\label{lem:IsosCheckOnLie}
+  A map $\phi: \cF \to \cG$ of formal $A$-modules (of arbitrary dimension) over
+  $X$ is an isomorphism if and only if the induced
+  morphism of Lie-algebras $\Lie(\phi): \Lie(\cF) \to \Lie(\cG)$ is an isomorphism.
+\begin{proof}
+  This is easily verified in the one-dimensional situation after choosing coordinates.
+  The general case adds no complication. 
+\end{proof}
+\end{lem}
+
+\begin{defi}[Formal Module associated to $R$-module]
+  \label{def:additiveformalmoduleassociatedtomodule}
+  Suppose that $M$ is a projective $R$-module. Then we write
+  $\GG_a \otimes M$ for the additive formal $A$-module associated to $M$ over $R$.
+  As a formal scheme, this formal module is given by
+  \begin{equation*}
+    \GG_a \otimes_A M \cong \spf R \llbr M^\vee \rrbr,
+  \end{equation*}
+  where $R \llbr M^\vee \rrbr$ denotes the completion of $\Sym_R(M^\vee)$ with respect
+  to the ideal generated by $M^\vee$. The (formal) $A$-module structure is the
+  canonical additive one. 
+  Note that $\Lie(\GG_a \otimes M) = M$ by design. 
+  More generally, if $X$ is a quasi-compact and quasi-separated $A$-scheme
+  and $\cM$ is a finite locally free quasi-coherent 
+  $\cO_X$-module, this construction yields a formal $A$-module
+  $\GG_a \otimes \cM$ over $X$.
+\end{defi}
 
 \begin{xpl}
   The additive group law $\GG_a$ extends to a formal $A$-module over an affine base

@@ -27,7 +27,7 @@ lemma.
   \begin{equation*}
     F(X,Y) = f^{-1}(f(X) + f(Y)) \in B \llbr X,Y \rrbr,
   \end{equation*}
-  where $f^{-1}$ is the inverse power series as in Lemma \ref{lem:FGLeasyfacts}.
+  where $f^{-1}$ is the inverse power series as in Lemma \ref{lem:IsosCheckOnLie}.
   Also, if $g(Z) \in L\llbr Z \rrbr$ is another power series satisfying the 
   same condition
   \begin{equation*}
@@ -84,7 +84,8 @@ height $n$.
   \begin{equation*}
     \log_F(T) = \sum_{i=0}^\infty b_i X^{q^i}
   \end{equation*}
-  for elements $b_0, b_1, \dots \in R \otimes_A K$. If $R$ is flat over $A$,
+  for elements $b_0, b_1, \dots \in R \otimes_A K$ (cf. \cite[Definition
+  21.5.5 and Criterion 21.5.9]{hazewinkel1978formal}). If $R$ is flat over $A$,
   every formal $A$-module over $R$ is isomorphic to an $A$-typical one
   (cf. \cite[21.5.6]{hazewinkel1978formal}). The following discussion remains
   valid for $\cO_K$-typical formal modules.
@@ -124,7 +125,7 @@ We now have
     \left(\frac 1\pi f(T^{q^{n-1}})\right ) \right \rangle \to 0.
   \end{equation*}
 \begin{proof}
-  It is easily checked that $\frac 1\pi f(T^{q^k})$ is a quasi-logarithm for 
+  An easy calculation shows that $\frac 1\pi f(T^{q^k})$ is a quasi-logarithm for 
   $1 \leq k \leq n-1$. As $\delta f = 0$, we have $f(T) \in \QLog(F)$ as well. 
   The claim is \cite[Proposition 13.8]{hopkins1994equivariant} which is a 
   special case of [ibid., Proposition 9.8].

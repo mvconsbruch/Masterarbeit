@@ -11,152 +11,24 @@ Groups over fields of characteristic $0$, cf. \cite{Bochner1946FGrps}.
 The study of formal groups later became interesting for its own right, 
 with pioneering works of Lazard \cite{Lazard1955FGrps}. \todo{blabla}
 
-\subsection{BasicNotions.tex} 
+\subsection{Basic Notions} 
 \label{sub:Basic Notions}
-\input{BasicNotions.tex}
+\input{FormalModules/BasicNotions.tex}
 
 \subsection{Lubin--Tate Formal Module Laws} % (fold)
 \label{sub:Lubin--Tate Formal Module Laws}
-\input{LubinTateFM.tex}
+\input{FormalModules/LubinTateFM.tex}
 % (end)
 
 \subsection{Logarithms} % (fold)
 \label{sub:Logarithms}
-\input{Logarithms.tex}
+\input{FormalModules/Logarithms.tex}
 % subsection Logarithms (end)
 
 \subsection{Formal DVR-Modules over Fields} % (fold)
 \label{sub:Formal DVR-Modules over Fields}
-\input{OverFields.tex}
+\input{FormalModules/OverFields.tex}
 % subsection overFields (end)
-
-\subsection{Formal Modules of Arbitrary Dimension} % (fold)
-\label{sub:Formal Modules of Arbitrary Dimension}
-We introduce the category $\FMLArbOver AS$ of formal $A$-modules
-of arbitrary dimension over a base scheme $S$.
-\begin{defi}[Formal Group Laws of arbitrary dimension]\label{def:FGLArb}
-  A (commutative) formal group law  of dimension
-  $n$ over $R$ is a tuple of
-  power series $\mathbf F = (F_1, \dots, F_n)$ with $$F_i(X_1, \dots, X_n,Y_1,
-  \dots, Y_n) \in R\llbr X_1, \dots,
-  X_n, Y_1, \dots, Y_n\rrbr, \quad 1 \leq i \leq n$$
-  such that $F_i(\mathbf X, \mathbf Y) \equiv X_i + Y_i $ modulo degree $\geq 2$
-  and the following equalities are satisfied:
-  \begin{enumerate}
-    \item $\mathbf F(\mathbf F (\mathbf X, \mathbf Y), \mathbf Z) = 
-      \mathbf F(\mathbf X, \mathbf F(\mathbf Y, \mathbf Z))$.
-    \item $\mathbf F( \mathbf X, \mathbf 0) = \mathbf X$.
-    \item $\mathbf F( \mathbf X, \mathbf Y) = \mathbf F(\mathbf Y, \mathbf X).$
-  \end{enumerate}
-  Here, and in the sequel, we abbreviate $\mathbf F = (F_1, \dots, F_n)$, $\mathbf X =
-  (X_1, \dots, X_n)$, et cetera.
-  Given a formal group $\mathbf F$ of dimension $n$ and a formal group law
-  $\mathbf G$ of dimension $m$,
-  a morphism $\mathbf F \to \mathbf G$ is a $m$-tuple $\mathbf f = (f_1, \dots, f_m)$ 
-  of power series $f_i \in R\llbr X_1, \dots, X_n \rrbr$ such that $\bff(0)=0$ and
-  \begin{equation*}
-    \mathbf G(\mathbf f( \mathbf X), \mathbf f( \mathbf Y) ) = \mathbf
-    f(\mathbf F( \mathbf X, \mathbf Y)).
-  \end{equation*}
-  For any $n$-dimensional formal module $\mathbf F$, the identity is given by 
-  the morphism $\id_{\mathbf F}$ with components $\id_{\mathbf F,i}( \mathbf X) = X_i$. 
-  Composition of morphisms is given by composition of tuples of power-series.
-  This yields the category of formal modules of arbitrary dimension over $R$,
-  which we denote by $\FGLArbOver R$. 
-\end{defi}
-
-One readily checks that $\End_{\FGLArbOver R}(\mathbf F)$ is a (possibly 
-non-commutative) algebra. Note that there is 
-a functor $\Lie: \FGLArbOver R \to \Ab$, taking an $n$-dimensional 
-formal group law $\mathbf F$ to the $R$-module
-\begin{equation*}
-  \Lie(\bF) = \Hom_{\Mod R} \left( \frac{(X_1, \dots, X_n)}{(X_1, \dots,
-  X_n)^2}, R \right) 
-\end{equation*}
-Given an $m$-dimensional group law $\bG$ and a morphism $\mathbf f: \bF \to
-\bG$, $\Lie(\bff)$ is the induced morphism
-\begin{equation*}
-  \Lie(\bF) \to \Lie(\bG), \quad \psi \mapsto \left( S_j \mapsto \psi
-  (\overline{f_j})\right) \in 
-  \Hom_\Mod R\left(\frac{(X_1, \dots, X_n)}{(X_1, \dots, X_n)^2}, R \right),
-\end{equation*}
-where $\overline{ f_j}$ is the reduction of $f_j$ mod $(\bX)^2$. 
-We have a canonical basis on both sides, and writing $\Lie(\bF) \cong R^n$, 
-$\Lie(\bG) \cong R^m$, the induced map $\Lie(\bff) : R^n \to R^m$ is
-given by multiplication with the matrix 
-\begin{equation*}
-  \left( \frac {\partial f_j}{\partial X_i} (0) \right)_{i,j}.
-\end{equation*}
-
-Given a ring $A$ and a morphism of rings
-$A \to \End_{\FGLArbOver R}(\mathbf F)$, we obtain an $A$-module structure on 
-$\Lie(\bF) \cong R^n$. by composing with $\Lie(-): \End_{\FMLArbOver A
-R}(\mathbf F) \to \End_{\Mod R}(\Lie(\bF))$. If $R$ is an $A$-algebra, we want the 
-$A$-module structures on $\Lie(\bF)$ to be the same. This motivates the following 
-definition.
-\begin{defi}[Formal $A$-Modules of arbitrary dimension]
-  Let $R$ be an $A$-algebra with structure morphism $i: A \to R$. A formal
-  $A$-module over $R$ of dimension $n$ is
-  given by the data of 
-  a formal $n$-dimensional group law $\mathbf F$ over $R$ and a morphism of rings
-  \begin{equation*}
-    A \to \End_{\FGLArbOver R} (\mathbf F), \quad a \mapsto ([a]_{\mathbf F,i}
-    )_{1 \leq i \leq n} \in (R \llbr X_1, \dots, X_n \rrbr )^n
-  \end{equation*}
-  such that $[a]_{\mathbf F,i}(\mathbf X) \equiv i(a) X_i$ modulo terms of degree 
-  $\geq 2$. Morphisms between formal $A$-modules of arbitrary dimension are 
-  morphisms of formal groups respecting the $A$-module structure. 
-  The resulting category is denoted $\FMLArbOver A R$. As before, the
-  subcategory of one-dimensional formal $A$ modules over $R$ is denoted 
-  $\FMLOver A R$.
-\end{defi}
-
-Note that an $n$-dimensional formal module law $(\bF, [-]_\bF)$ equips the 
-formal scheme $\FGG(\cF) \coloneqq \spf(R \llbr T_1, \dots, T_n\rrbr)$ with the
-structure of an $A$-module object in the category $\FSchOver R$ of formal
-schemes over $\spec R$. This leads naturally to the more geometric notion of 
-formal $A$-modules.
-\begin{defi}[Formal $A$-modules]
-  Given an $A$-scheme $X$, we define the category
-  $\FMArbOver A X$ as follows. Objects are group objects $\cF$ in the category
-  of formal schemes over $X$, such that 
-  there is a cover of $X$ by Zariski-open affine subsets $U_i = \spec (R_i)$
-  such that $\cF \times_X U_i$ is isomorphic to $\Spf R_i\llbr X_1, \dots,
-  X_n\rrbr$ and the induced $A$-module structure on $R_i\llbr X_1, \dots, X_n\rrbr$
-  yields a formal $A$-module law on $R_i$. 
-\end{defi}
-
-\begin{defi}[Lie functor]
-  The functor $\Lie$ descents to a functor 
-  \begin{equation*}
-    \Lie: \FMArbOver A X \to \QCoh {\cO_X}, 
-  \end{equation*}
-  given by locally describing a formal $A$-module $\cF$ via formal group laws
-  and glueing the local data. Alternatively, it arises from sending 
-  sending a formal $A$-module $\cF$ to $(\cI / \cI^2)^\vee$, where $\cI$ is the
-  ideal associated to the closed immersion $[0]_\cF: X \to \cF$. 
-\end{defi}
-
-\begin{defi}[Formal Module associated to $R$-module]
-  \label{def:additiveformalmoduleassociatedtomodule}
-  Suppose that $M$ is a projective $R$-module. Then we write
-  $\GG_a \otimes M$ for the additive formal $A$-module associated to $M$ over $R$.
-  As a formal scheme, this formal module is given by
-  \begin{equation*}
-    \GG_a \otimes_A M \cong \spf R \llbr M^\vee \rrbr,
-  \end{equation*}
-  where $R \llbr M^\vee \rrbr$ denotes the completion of $\Sym_R(M^\vee)$ with respect
-  to the ideal generated by $M^\vee$. The (formal) $A$-module structure is the
-  canonical additive one. 
-  Note that $\Lie(\GG_a \otimes M) = M$ by design. 
-  More generally, if $X$ is a quasi-compact and quasi-separated $A$-scheme
-  and $\cM$ is a finite locally free quasi-coherent 
-  $\cO_X$-module, this construction yields a formal $A$-module
-  $\GG_a \otimes \cM$ over $X$.
-\end{defi}
-
-
-% subsubsection Formal Modules of Arbitrary Dimension (end)
 
 \subsection{Exact Categories, Extensions of Formal Modules} % (fold)
  \label{sub:Exact Categories Extensions of Formal Modules}
@@ -223,7 +95,9 @@ exact categories, following \cite[Appendix A]{keller1990chain}.
 
 As above, suppose that $A$ is any ring and $X$ is a quasi-compact and
 quasi-separated $A$-scheme. Let $\cF$, $\cE$ and $\cF'$ be formal $A$-modules
-over $X$. 
+over $X$. As a primer, we note that the category $\FMArbOver AX$ is additive 
+(essentially by Lemma \ref{lem:FGLAdditive}).
+
 \begin{defi}[Short Exact Sequence]\label{def:SESofFormalModules}
   A pair of composable morphisms $\cF' \to \cE \to \cF$ in 
   $\FMArbOver A X$ is called 
@@ -851,7 +725,7 @@ As a corollary, the authors obtain
 
 \subsection{Hazewinkel's Functional Equation Lemma and the Standard Formal Module Law} % (fold)
 \label{sub:Hazewinkels FuncEq and the Standard Formal Module}
-\input{StandardModule.tex}
+\input{FormalModules/StandardModule.tex}
 % (end)
 
 \subsection{The Universal Additive Extension} % (fold)
@@ -860,6 +734,7 @@ We follow \cite[Section 11]{hopkins1994equivariant},
 and specialize to the situation where $A$ is a complete discrete valuation ring
 with uniformizer $\pi$ and finite residue field of characteristic $p$ and
 $R$ is a local admissible $A$-algebra with residue field $\bar \FF_q$.
+test
 
 \begin{lem}
   Let $M$ be a finite free module over $R$. Then there is a natural bijection,
@@ -992,7 +867,7 @@ $i$ by an element in $\Hom(F, V) = 0$.
 
 \subsection{Tate Modules and the Universal Cover} % (fold)
 \label{sub:Tate Modules and the Universal Cover}
-\input{UnivCover.tex}
+\input{FormalModules/UnivCover.tex}
 % (end)
 
 \subsection{The Quasilogarithm Map} % (fold)
@@ -1162,9 +1037,9 @@ We follow \cite[Theorem 2.10.3]{BoyarchenkoWeinstein2011MaxVar} to describe a ma
 \end{equation}
 commute. 
 
-Let $(s_1, \dots, s_n) \in \Tilde H(S)^n$, and write $x_i = \lambda(s_i) \in \Nilp^\flat(S)$,
-which are elements in $S^\cici$ with distinguished $p$-power roots.
-Here $\lambda: \Tilde H \to \Nilp^\flat$ is the isomorphism from Section
+Let $(s_1, \dots, s_n) \in \Tilde H(S)^n$, and write $x_i = \lambda(s_i) \in
+\Nilp^\flat(S)$, which are elements in $S^\cici$ with distinguished $q$-power
+roots. Here $\lambda: \Tilde H \to \Nilp^\flat$ is the isomorphism from Section
 \ref{sub:Tate Modules and the Universal Cover} with inverse $\mu = (\mu_0, \mu_1, \dots)$. 
 We set
 \begin{equation*}
@@ -1173,8 +1048,8 @@ We set
 \end{equation*}
 where 
 \begin{itemize}
-  \item the sum ranges over $n$-tuples $(a_1, \dots, a_n)$ of integers (including negative
-    integers) satisfying $a_1 + \dots + a_n = n (n-1)/2$, subject to the
+  \item the sum ranges over $n$-tuples $(a_1, \dots, a_n)$ of (possibly negative) integers 
+    satisfying $a_1 + \dots + a_n = n (n-1)/2$, subject to the
     condition that each $a_i$ occupies a distinct residue class modulo $n$.
   \item The expression $\varepsilon(a_1, \dots, a_n)$ denotes the sign of the 
     permutation $i \mapsto a_{i+1}$ (mod $n$) of $(0, \dots, n-1)$.
@@ -1195,28 +1070,54 @@ where
   \end{equation*}
   commute. It is $\cO_K$-multilinear and alternating.
 \begin{proof}
+  This is part of the proof of \cite[Theorem
+  2.10.3]{BoyarchenkoWeinstein2011MaxVar}.
   Commutativity follows from 
   \begin{multline*}
     \log_{\wedge H}(\delta_0(s_1, \dots, s_n)) = \sum_{(a_1, \dots, a_n)} 
     \varepsilon(\mathbf a) \log_{\wedge H} \mu_0( x_1^{q^{a_1}}\cdots x_n^{q^{a_n}})
      \\ = \sum_{(a_1, \dots, a_n)} \varepsilon(\mathbf a) \sum_{m \in \Z} (-1)^{(n-1)m}
     \frac{x_1^{q^{a_1+m}} \cdots x_n^{q^{a_n+m}}}{\pi^m} 
-    = \det \left( \sum_{m \in \Z} \frac{x_i^{q^{mn + j}}}{\pi^m} \right)_{
-      1 \leq i \leq n,
-      0 \leq j \leq n-1},
+    = \det \left( \sum_{m \in \Z} \frac{x_i^{q^{mn + j-1}}}{\pi^m} \right)_{\substack{
+      1 \leq i \leq n,\\
+      1 \leq j \leq n}},
   \end{multline*}
   which is equal to $\det(\qlog_H^n(s_1, \dots, s_n))$ by Proposition 
-  \ref{prop:qlogmapExplicit} and Lemma \ref{lem:LogInTermsOfNil}.
+  \ref{prop:qlogmapExplicit} and Lemma \ref{lem:LogInTermsOfNil}. 
+  The fact that $\delta_0$ is multilinear and alternating ultimately follows
+  from the corresponding properties of $\det$, the fact that $\ker(\log_H) =
+  \wedge H[\pi^\infty]$ (cf. Lemma \ref{lem:KernelOfLog}) and topological considerations
+  in the induced diagram in the category of adic spaces over $(\breve K, \cO_{\breve K})$.
 \end{proof}
 \end{prop}
 
+This allows us to define the sought for morphism of functors
+$\delta: \Tilde H^n \to \Tilde {\wedge H}$. 
+\begin{defi}\label{def:DeltaMap}
+  Put $\delta_i(s_1, \dots, s_n) = \delta_0(\pi^{-i} s_1, \dots, s_n)$. Then 
+  $\delta = (\delta_0, \delta_1, \dots)$ yields a map 
+  $\Tilde H^n \to \Tilde{\wedge H}$. It is $K$-multilinear and alternating.
+\end{defi}
 
-\begin{itemize}
-  \item "Functorial" description of the determinant. Either as in
-    \cite{BoyarchenkoWeinstein2011MaxVar}, or as in \cite{weinstein2016semistable}.
-  \item Construction.
-  \item Approximations.
-\end{itemize}
+Using the canonical identificaitons $\Tilde {H}^n \cong (\Nilp^\flat)^n$
+and $\Tilde{\wedge H} \cong \Nilp^\flat$, the morphism $\delta$ yields a 
+map $(\Nilp^\flat)^n \to \Nilp^\flat$, which in turn is the same as a power series 
+\begin{equation*}
+  \Delta(X_1, \dots, X_n) \in \cO_{\breve K}\llbr X_1^{q^{-\infty}}, \dots,
+  X_n^{q^{-\infty}}\rrbr
+\end{equation*}
+together with distinguished $q$-th power roots. 
+We have the following approximation of $\Delta$. 
+\begin{lem}\label{lem:DeltaApprox}
+  We have $\Delta(X_1, \dots, X_n) \equiv \det(X_i^{q^{j-1}})_{\substack{1 \leq i \leq n,\\ 1 \leq j \leq n}}$ modulo $(X_1, \dots, X_n)^{q^n}$.
+\begin{proof}
+  \red{TODO. This is \cite[Lemma 2.10.4]{BoyarchenkoWeinstein2011MaxVar}, but they
+  don't explain the proof.}
+\end{proof}
+\end{lem}
+
+
+
 
 % subsubsection Determinants of Formal Modules (end)
 

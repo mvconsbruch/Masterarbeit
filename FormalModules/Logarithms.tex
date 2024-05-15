@@ -1,13 +1,13 @@
-\blue{
 Again, $A$ is a complete discrete valuation ring with uniformizing parameter 
 $\pi$ and finite residue field $k = A/\pi A$. We write $q$ for the cardinality of 
-$k$ and $K$ for the residue field of $A$. Let $R$ be a (commutative) $A$-algebra
-with structure map $i: A \to R$.}
+$k$ and $K$ for the field of fractions of $A$. Let $R$ be a local,
+admissible $A$-algebra with structure map $i: A \to R$.
 
 We review results from section
 2 and 3 of \cite{hopkins1994equivariant}. 
-Suppose that $\bF = (F_1, \dots, F_n)$ is an $n$-dimensional formal $A$-module law over an
-$A$-algebra $R$. Write $\bX = (X_1, \dots, X_n)$, $\bY = (Y_1, \dots, Y_n)$, etc.
+Suppose that $\bF = (F_1, \dots, F_n)$ is an $n$-dimensional formal $A$-module
+law over a $R$. Write $\bX = (X_1, \dots, X_n)$, $\bY = (Y_1,
+\dots, Y_n)$, etc.
 
 \begin{defi}[Invariant Differentials for module laws.]
   The module $\omega(\bF)$ of invariant differentials is the submodule of the
@@ -16,7 +16,7 @@ $A$-algebra $R$. Write $\bX = (X_1, \dots, X_n)$, $\bY = (Y_1, \dots, Y_n)$, etc
     \Omega_{R\llbr T_1, \dots, T_n \rrbr/R} \cong \bigoplus_{i=1}^n R\llbr T_1, \dots, T_n
     \rrbr \dc T_i,
   \end{equation*}
-  cut out by the condition that any $\omega \in \omega(\bF)$ satisfies
+  consisting of those $\omega \in \omega(\bF)$ satisfying
   \begin{equation}\label{eq:diffcond}
     \omega(\bF(\bX,\bY)) = \omega(\bX) + \omega(\bY)\quad \text{and} \quad
     \omega([a]_\bF(\bX)) = a\omega(\bX).
@@ -79,17 +79,13 @@ structure coming from the natural action of $R \subset \End(\GG_a)$.
     \item If $R$ is a $K$-algebra, the map $\dc_F$ is an isomorphism.
   \end{enumerate}
 \begin{proof}
-  \cite[Proposition 3.2]{hopkins1994equivariant} \todo{PROOF}\red{ Everything is easy if 
-  $K$ has characteristic $0$, as we can integrate the differential forms.
-  The proof in positive characteristic is a bit tricky; First it is shown that 
-  there is an isomorphism of formal goups $F \cong \GG_a$, which is immediate.
-  Then that there is a unique homomorphism $f: \GG_a \to \GG_a$ that maps to $\omega_F$
-  and behaves well with respect to the $A$-module structure on $F$. }
+  This is \cite[Proposition 3.2]{hopkins1994equivariant}.
 \end{proof}
 \end{prop}
 
-Suppose now that $F \in \FMLArbOver A R$ is a formal module law of dimension $n$, 
-and let $\omega_1, \dots, \omega_n$ be the distinguished basis for $\omega(F)$
+Suppose now that $F \in \FMLArbOver A R$ is a formal module law of dimension $n$
+over a flat $A$-algebra $R$. 
+Let $\omega_1, \dots, \omega_n$ be the distinguished basis for $\omega(F)$
 constructed above. 
 By the previous proposition, there are unique power series 
 $f_i(\bX) \in (R \otimes_A K)\llbr \bX \rrbr$ furnishing homomorphisms
@@ -98,22 +94,20 @@ and satisfying
 \begin{equation*}
   \dc_F f_i(\bX) = \omega_i(\bX) \in \omega(F).
 \end{equation*}
-The induced morphism 
-\begin{equation*}
-  f = (f_1, \dots, f_n) : F \otimes (R \otimes_A K) \to \GG_a
-\end{equation*}
-satsfies $\Lie(f) = \id \in \End(R^n) = \End(\Lie(F))$. Hence $f$ is an isomorphism.
-We call $f$ the logarithm attached to $F$.
 \begin{defi}[Logarithm and Exponential]
-  The isomorphism of formal group laws $f: F \otimes (R \otimes_A K) \to \GG_a$ 
+  The induced morphism of formal group laws
+  \begin{equation*}
+    f = (f_1, \dots, f_n) : F \otimes (R \otimes_A K) \to \GG_a
+  \end{equation*}
   is called the logarithm attached to $F$, we write 
   $\log_F(\bX) \in ((R \otimes_A K)\llbr \bX \rrbr)^n$ for the corresponding collection
   of power series. The inverse of $\log_F(\bX)$ is called the exponential 
-  attached to $F$, denoted $\exp_F(\bX)$. We have $\Lie(\log_F) = \Lie(\exp_F) = \id$. 
+  attached to $F$, denoted $\exp_F(\bX)$. We have $\Lie(\log_F) = \Lie(\exp_F) = \id$,
+  so $\log_F$ and $\exp_F$ are isomorphisms.
 \end{defi}
 
 \begin{lem}
-  Let $F$ and $G$ be formal $A$-modules of over $R$, with $\dim F = n$ and 
+  Let $F$ and $G$ be formal $A$-module laws over $R$, with $\dim F = n$ and
   $\dim G = m$. 
   Let $\phi: F \to G$ be a morphism. Then the diagram 
   \begin{equation*}
@@ -132,8 +126,8 @@ We call $f$ the logarithm attached to $F$.
   natural morphism 
   $$\log_\cF: \cF \otimes (R \otimes_A K) \to \GG_a \otimes (\Lie(\cF) \otimes_A K).$$
   \begin{proof}
-    The square commutes because $\Hom(\GG_{a, R\otimes_AK}^n, \GG_{a, R\otimes_AK}^m) = \Hom_{R \otimes_A
-    K}((R\otimes_A K)^n, (R\otimes_A K)^m)$
+    The square commutes because $\Hom(\GG_{a, R\otimes_AK}^n, \GG_{a,
+    R\otimes_AK}^m) = \Hom_{R \otimes_A K}((R\otimes_A K)^n, (R\otimes_A K)^m)$
     and $\Lie(\log_G \circ \phi \circ \exp_H) = \Lie(\phi).$
   \end{proof}
 \end{lem}
@@ -142,8 +136,10 @@ We call $f$ the logarithm attached to $F$.
   Let $K$ be a local field with integers $\cO_K$ and a choice of uniformizer $\pi \in \cO_K$, 
   and let $F$ be a Lubin-Tate $\cO_K$-module law corresponding to some 
   $f \in \cF_\pi$, cf. Theorem \ref{thm:LTModLaw}. Let $S$ be an admissible 
-  $\cO_K$-algebra. Then for $s \in S^\cici$ we have $\log_F(s) = 0$ if and only if 
-  $[\pi]^r_F(s) = 0$ for some $r \in \N$. 
+  $\cO_K$-algebra, and let $s \in S^\cici$ be an element such that the
+  series $\log_{\cF}(s)$ 
+  converges. Then we have $\log_F(s) = 0$ if and only if $[\pi]^r_F(s) = 0$ for
+  some $r \in \N$. 
 \begin{proof}
   Up to canonical isomorphism, $F$ is a $\cO_K$-module law with $[\pi]_F(T) =
   \pi T + T^q$. Now one may check that 
