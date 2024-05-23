@@ -4,15 +4,15 @@
 \begin{document}
 \section{Non-Abelian Lubin-Tate Theory: An Overview} % (fold)
 \label{sec:Non-Abelian Lubin-Tate Theory: An Overview}
-In the preceeding chapter we used formal $\cO_K$-modules to understand the 
-maximial abelian extension of a local field $K$. The hope of non-Abelian Lubin-Tate
-theory is to gain insight about the Abelian extensions of $K$ by considering
-certain moduli spaces of formal $\cO_K$-modules.
-More precisely, attached to a formal $\cO_K$-module $H_0$ over $\Fqbar$ (determined
+In the preceeding chapter we used formal $\cO_F$-modules to understand the 
+maximial abelian extension of a local field $F$. The hope of non-Abelian Lubin-Tate
+theory is to gain insight about the Abelian extensions of $F$ by considering
+certain moduli spaces of formal $\cO_F$-modules.
+More precisely, attached to a formal $\cO_F$-module $H_0$ over $\Fqbar$ (determined
 up to isomorphism by its height $n$), we attach a system of rigid spaces 
-$\{M_K\}_{K \subset \GL_n(\cO_K)}$, the so called Lubin-Tate Tower. For $l \neq p$, 
+$\{M_K\}_{K \subset \GL_n(\cO_F)}$, the so called Lubin-Tate Tower. For $l \neq p$, 
 the system of $l$-adic compactly supported cohomology groups $\{H_c^{i}(M_K,
-\bar \Q_l)\}_K$ admits commuting actions by $\GL_n(K)$, $W_K$ and $D^\times$,
+\bar \Q_l)\}_K$ admits commuting actions by $\GL_n(F)$, $W_F$ and $D^\times$,
 where the latter denotes the units of the central divison algebra $D =
 \End_{\FMOver {\cO_K}{\Fqbar}}(H_0) \otimes \Q$. This yields a correspondence of 
 representations of the respective groups, and Harris and Taylor showed in
@@ -20,12 +20,46 @@ representations of the respective groups, and Harris and Taylor showed in
 the Local Langlands Correspondence for $\GL_n$. Our goal is an explicit
 description of this correspondence, and we obtain such descriptions by
 understanding the Lubin-Tate tower explicitely.
-As it turns out, the the limit $\lim_{K} M_K$ is representable by a perfectoid space
+As it turns out, the the limit $\lim_{K\subset \GL_n{\cO_F}} M_K$ is
+representable by a perfectoid space
 which is is easier to describe than its individual layers.
 
 \subsection{The Lubin-Tate Tower} % (fold)
 \label{sub:The Lubin-Tate Tower}
 \input{NonAbLTT/LTT.tex}
+
+\begin{defi}[Lubin-Tate rigid space with $K$-level structure]\label{def:LTRigidSpaceFinLev}
+  \todo{}
+\end{defi}
+
+For $K \subset \GL_n(\cO_F)$, write $M_{K, \varpi^\Z}$ for the quotient of 
+$M_K$ (cf. Definition \ref{def:LTRigidSpaceFinLev}) by the action of the subgroup
+$\varpi^\Z \subset D^\times$. Writing $\cM_m = \coprod_{\delta \in \Z} \cM_m^{(\delta)}$
+induces $M_K = \coprod_{\delta \in\Z} M_K^{(\delta)}$, and 
+the action of $\varpi$ induces for any $\delta \in \Z$ an isomorphism 
+$M_K^{(\delta)} \cong M_K^{(\delta +n)}$. Hence, $M_{K, \varpi^\Z}$ is 
+isomorphic to $\coprod_{0 \leq \delta \leq n-1} M_{K}^{(\delta)}$. 
+
+Let $l \neq p$ be a prime number and fix an isomorphism $\bar \Q_l \cong \C$.
+
+\begin{defi}[Cohomology of the Lubin--Tate tower]
+  We write $\HLT = \lim_{K} H^{n-1}_c (M_{K, \varpi^\Z} \otimes_{\breve F} C, \bar \Q_l)$.
+\end{defi}
+
+\begin{thm}[Non-Abelian Lubin--Tate theory]
+  Let $\pi$ be an irreducible supercuspidal representation of $\GL_n(F)$ whose central
+  character is trivial on $\varpi^\Z$. We write $\rec_F(\pi)$ for the irreducible 
+  smooth representation of $W_F$ corresponding to $\pi$ undet the local Langlands
+  correspondence, and $\JL(\pi)$ for the irreducible smooth representation of
+  $D^\times$ corresponding to $\pi$ under the local Jacquet-Langlands correspondence.
+  Then we have 
+  \begin{equation*}
+    \HLT[\pi^\vee] = \pi^\vee \boxtimes \JL(\pi) \boxtimes \rec_F(\pi)(\tfrac{1-n}2)
+  \end{equation*}
+  as representations of $\GL_n(F) \times D^\times \times W_F$. 
+\begin{proof}
+\end{proof}
+\end{thm}
 
 % subsection The Lubin-Tate Tower (end)
 

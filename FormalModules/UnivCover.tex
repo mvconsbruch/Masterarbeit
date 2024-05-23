@@ -188,28 +188,28 @@ by shifting to the left)  so that $\tilde H_a(S)$ is naturally an
 $A[\frac1a]$-module.
 
 From now on assume that $A$ is a discrete valuation ring with uniformizer
-$\pi$, finite residue field $k$ and field of fractions $K$. 
+$\varpi$, finite residue field $k$ and field of fractions $K$. 
 Write $q = \# k$. Let $R$ be a local $A$-algebra with maximal ideal $I$ and
 algebraically closed residue field $k_R = R/I$. Let $H$ be a formal
-$\pi$-divisible $A$-module over $R$ of height $n$. 
+$\varpi$-divisible $A$-module over $R$ of height $n$. 
 \begin{defi}[The Universal Cover and Tate Module]
-  We write $\tilde H = \tilde H_\pi$. This functor
+  We write $\tilde H = \tilde H_\varpi$. This functor
   takes values in the category of $K$-vector spaces.
   Up to natural isomorphism, $\tilde H$ does not depend on the choice of 
-  $\pi$. We call this functor the universal cover of $H$. 
+  $\varpi$. We call this functor the universal cover of $H$. 
 
-  The Tate-Module $T_\pi H$ is the subfunctor of $\Tilde H$ cut out out
-  by the condition that $[\pi]_H(x_1) = 0$. Note that $T_\pi H$ does no longer 
+  The Tate-Module $T_\varpi H$ is the subfunctor of $\Tilde H$ cut out out
+  by the condition that $[\varpi]_H(x_1) = 0$. Note that $T_\varpi H$ does no longer 
   carry the structure of a $K$-vector space, it is an $A$-module. The Rational
-  Tate Module $V_\pi H$ is the subfunctor of $\Tilde H$ cut out by the
-  condition that $x_1$ has $[\pi]_H$-torsion. Equivalently, we have 
+  Tate Module $V_\varpi H$ is the subfunctor of $\Tilde H$ cut out by the
+  condition that $x_1$ has $[\varpi]_H$-torsion. Equivalently, we have 
   \begin{equation*}
-    V_\pi H (S) = T_\pi H(S) \otimes_A K.
+    V_\varpi H (S) = T_\varpi H(S) \otimes_A K.
   \end{equation*}
 \end{defi}
 
 \begin{lem}
-  Let $H$ be a $\pi$-divisible formal $A$-module over $R$ and write $H_0 = H
+  Let $H$ be a $\varpi$-divisible formal $A$-module over $R$ and write $H_0 = H
   \otimes_R k_R$. Now the choice of a coordinate on $H_0$ gives rise to a
   an isomorphism 
   \begin{equation*}
@@ -217,21 +217,21 @@ $\pi$-divisible $A$-module over $R$ of height $n$.
   \end{equation*}
   of functors $\Adm {k_R} \to \Set$
   \begin{proof}
-    Note that given any coordinate on $H$, we have $[\pi]_H(T) \in \cF_R$. Hence,
+    Note that given any coordinate on $H$, we have $[\varpi]_H(T) \in \cF_R$. Hence,
     the statement is an application of Lemma \ref{lem:nilp0iso}.
   \end{proof}
 \end{lem}
 
 \begin{lem}
   Suppose that $S$ is an admissible $R$-algebra admitting an ideal of definition
-  $J$ such that $\pi \in J$. Then the natural reduction map
+  $J$ such that $\varpi \in J$. Then the natural reduction map
   \begin{equation*}
     \tilde H(S) \to \tilde H(S/J)
   \end{equation*}
   is an isomorphism.
   \begin{proof}[Proof]
-    After choosing a coordinate on $H$, we have $[\pi]_H \in \cF_R$ and 
-    $\tilde H(S) \cong U_{[\pi]_H}$, and the statement is given by 
+    After choosing a coordinate on $H$, we have $[\varpi]_H \in \cF_R$ and 
+    $\tilde H(S) \cong U_{[\varpi]_H}$, and the statement is given by 
     Lemma \ref{lem:reductioniso}.
   \end{proof}
 \end{lem}
@@ -265,7 +265,7 @@ $i=0,1,\dots$.
 
 \begin{rmk} 
   In case where $\cF$ comes from a $\cO_K$-module law $F$ over 
-  $\cO_K$ with $[\pi]_F(T) \equiv T^{q^n}$ mod $(\pi)$,
+  $\cO_K$ with $[\varpi]_F(T) \equiv T^{q^n}$ mod $(\varpi)$,
   the bijections
   \begin{equation*}
     \tilde H(S) \rightleftarrows \Nilp^\flat(S), \quad (x_0, x_1, \dots)
@@ -274,10 +274,10 @@ $i=0,1,\dots$.
   are, in either direction, given by the equations
   \begin{equation*}
     y^{1/q^{ni}} = \lim_{r \to \infty} x_{r+i}^{q^{nr}} \quad \text{and} \quad 
-    x_i = \lim_{s \to \infty} [\pi^s]_H(y^{q^{-n(i+s)}}).
+    x_i = \lim_{s \to \infty} [\varpi^s]_H(y^{q^{-n(i+s)}}).
   \end{equation*}
   This follows directly from the explicit description of the isomorphism in
-  Proposition \ref{prop:pHTcalc}, as we may choose $h_{[\pi]_H}(T) = h_{T^{q^n}}(T)
+  Proposition \ref{prop:pHTcalc}, as we may choose $h_{[\varpi]_H}(T) = h_{T^{q^n}}(T)
   = T$.
 \end{rmk}
 
@@ -290,7 +290,7 @@ useful later.
   \begin{equation*}
   \begin{tikzcd}[ampersand replacement=\&]
   	{(x_0, x_1, \dots)} \& {\Tilde H(S)} \&\& {\Nil^\flat(S)} \& {(y,y^{1/q}, \dots)} \\
-  	{\sum_{i=0}^\infty \frac{x_0^{q^{ni}}}{\pi^i}} \&\& {S\otimes_{\cO_K}K} \&\& {\sum_{i = -\infty}^\infty\frac{y^{q^{ni}}}{\pi^i}}
+  	{\sum_{i=0}^\infty \frac{x_0^{q^{ni}}}{\varpi^i}} \&\& {S\otimes_{\cO_K}K} \&\& {\sum_{i = -\infty}^\infty\frac{y^{q^{ni}}}{\varpi^i}}
   	\arrow["\in"{description}, draw=none, from=1-1, to=1-2]
   	\arrow[maps to, from=1-1, to=2-1]
   	\arrow["\lambda", from=1-2, to=1-4]
@@ -301,15 +301,15 @@ useful later.
   \end{tikzcd}
   \end{equation*}
   With this terminology, we have $\log_H((\Pi^j x)_0) = \sum_{i = -\infty}^\infty
-  \frac{ y^{ni + j}}{\pi^i}$. 
+  \frac{ y^{ni + j}}{\varpi^i}$. 
 \begin{proof}
   This follows directly from the remark above. Let $x \in \Tilde H(S)$ and write
   $(y, y^{1/q}, \dots)$ for $\lambda(x)$. We have $x_0 = \lim_{s \to \infty}
-  [\pi^s]_H(y^{-ns})$, hence
+  [\varpi^s]_H(y^{-ns})$, hence
   \begin{equation*}
-    \log_H(x_0) = \lim_{s \to \infty}\left( \pi^s \log_H(y^{1/q^{ns}})\right) = 
-    \lim_{s \to \infty}\left( \sum_{i=0}^\infty  \frac{y^{q^{n(i-s)}}}{\pi^{i-s}}\right)
-    = \sum_{i=-\infty}^\infty \frac{y^{q^{ni}}}{\pi^i}.
+    \log_H(x_0) = \lim_{s \to \infty}\left( \varpi^s \log_H(y^{1/q^{ns}})\right) = 
+    \lim_{s \to \infty}\left( \sum_{i=0}^\infty  \frac{y^{q^{n(i-s)}}}{\varpi^{i-s}}\right)
+    = \sum_{i=-\infty}^\infty \frac{y^{q^{ni}}}{\varpi^i}.
   \end{equation*}
   The second part is an immediate consequence.
 \end{proof}

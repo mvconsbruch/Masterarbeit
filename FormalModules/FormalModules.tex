@@ -642,9 +642,9 @@ This bijection is an isomorphism of $R$-modules.
 \end{thm}
 
 Now, let $A$ be a complete, discrete valuation ring with 
-uniformizing parameter $\pi$ and finite residue field $k$. 
+uniformizing parameter $\varpi$ and finite residue field $k$. 
 \begin{prop} \label{prop:ExplicitInterestingES}
-  If $\cF$ comes from a one-dimensional formal $A$-module law over a flat
+  If $\cF$ comes from a one-dimensional formal $A$-module law over a flat, local
   $A$-algebra $R$ and $\cF' = \GG_a$,
   the short exact sequence of Proposition \ref{prop:InterestingES}
   fits into a commutative diagram with 
@@ -711,14 +711,33 @@ As a corollary, the authors obtain
   If $R \to R'$ is a homomorphism of local $A$-algebras, the induced maps 
   of free $R'$-modules
   \begin{gather*}
-    \Ext_R(\cF, \GG_a) \otimes_R R' \to \Ext_{R'}(F, \GG_a) \\
-    \RigExt_R(\cF, \GG_a) \otimes_R R' \to \RigExt_{R'}(F, \GG_a)
+    \Ext_R(\cF, \GG_a) \otimes_R R' \to \Ext_{R'}(\cF, \GG_a) \\
+    \RigExt_R(\cF, \GG_a) \otimes_R R' \to \RigExt_{R'}(\cF, \GG_a)
   \end{gather*}
   are isomorphisms.
 \begin{proof}
   \cite[Corollary 9.13]{hopkins1994equivariant}.
 \end{proof}
 \end{lem}
+
+\begin{defi}[The Dieudonn\'e module of a formal $A$-module]\label{def:DioModule}
+  Given $\cF \in \FMOver AR$, we define 
+  $$\Dio(\cF) \coloneqq \Hom_R(\RigExt(\cF, \GG_a), R).$$ 
+  We call $\Dio(\cF)$ the (covariant) Dieudonn\'e-module of $\cF$. 
+\end{defi}
+
+\begin{prop}[Crystalline Nature of $\Dio(-)$]\label{prop:DioCrystalline}
+  The assignment $\cF \mapsto \Dio(\cF)$ yields a functor
+  \begin{equation*}
+    \FMOver AR \to \Mod R.
+  \end{equation*}
+  Given two formal $A$-modules $\cF, \cG \in \FMOver AR$ and two morphisms
+  $\phi, \psi$ from $\cF$ to $\cG$ such that the induced morphisms of their reductions
+  to $R/I$ agree, the induced morphisms $\Dio(\cF) \to \Dio(\cG)$ agree.
+  \begin{proof}
+    \todo{!!!} 
+  \end{proof}
+\end{prop}
 % subsubsection Explicit Dieudonne Theory (end)
 
 % subsection Exact Categories, Extensions of Formal Modules (end)
@@ -732,9 +751,8 @@ As a corollary, the authors obtain
 \label{sub:The Universal Additive Extension}
 We follow \cite[Section 11]{hopkins1994equivariant}, 
 and specialize to the situation where $A$ is a complete discrete valuation ring
-with uniformizer $\pi$ and finite residue field of characteristic $p$ and
+with uniformizer $\varpi$ and finite residue field of characteristic $p$ and
 $R$ is a local admissible $A$-algebra with residue field $\bar \FF_q$.
-test
 
 \begin{lem}
   Let $M$ be a finite free module over $R$. Then there is a natural bijection,
@@ -757,7 +775,7 @@ write $\cV = \GG_a \otimes \mathrm M(\cF)$. Now, by the previous lemma,
   \Ext(\cF,\cV) = \Ext(\cF, \GG_a \otimes \mathrm M(\cF)) = \End_R(\Ext(\cF, \GG_a)). 
 \end{equation*}
 Let $0 \to \cV \to \cE \to \cF \to 0$ be the extension corresponding to the identity 
-on the right. This class is unique up to unique isomrphism. Indeed, 
+on the right. This class is unique up to unique isomorphism. Indeed, 
 as $R$ is a local ring we may choose formal module laws $F$ and $V$ giving rise
 to $\cF$ and $\cV$, and let $E$ be the module law obtained from 
 Lemma \ref{lem:SESStandardForm}. 
@@ -873,14 +891,14 @@ $i$ by an element in $\Hom(F, V) = 0$.
 \subsection{The Quasilogarithm Map} % (fold)
 \label{sub:The Quasilogarithm map}
 We keep the assumptions on $A$, $R$ and $S$ from the previous subsection. That is,
-$A$ is a local ring with finite residue field and uniformizer $\pi$, 
+$A$ is a local ring with finite residue field and uniformizer $\varpi$, 
 $R$ is a local $A$-algebra with maximal ideal $I$ complete with respect to
 the $I$-adic topology and algebraically closed residue field $k_R$, and 
 $S$ denotes an admissible $R$-algebra (where $R \to S$ is continuous with
 the $I$-adic topology on $R$) with ideal of definition $J \subseteq S$ containing
 the image of $I$. 
 
-The aim of this subsection is to define, attached to any $\pi$-divisible formal
+The aim of this subsection is to define, attached to any $\varpi$-divisible formal
 $A$-module $\cF$ over $R$, a map
 \begin{equation*}
 \qlog_\cF: \tilde \cF(S) \to \Dio(\cF) \otimes_R (S \otimes_A K),
@@ -893,7 +911,7 @@ We begin with a sequence $(x_1, x_2, \dots) \in \tilde \cF(S)$.
 Let $0 \to \cV \xto\psi \cE \xto\phi \cF \to 0$ be the universal additive
 extension of $\cF$, and choose an arbitrary sequence $(y_1, y_2, \dots) \in
 \tilde \cE(S)$ such that $y_i$ is a lift of $x_i$ under the map $\cE(S) \to \cF(S)$. 
-Let $y$ be the limit $y = \lim_{i \to \infty} [\pi]_{\cE}^i(y_i)$ and put 
+Let $y$ be the limit $y = \lim_{i \to \infty} [\varpi]_{\cE}^i(y_i)$ and put 
 $$\qlog_\cF((x_1, x_2, \dots)) = \log_\cE(y) \in \Dio(\cF) \otimes_R(S \otimes_A K).$$ 
 
 \begin{prop}
@@ -905,21 +923,21 @@ $$\qlog_\cF((x_1, x_2, \dots)) = \log_\cE(y) \in \Dio(\cF) \otimes_R(S \otimes_A
   $(x_1, x_2, \dots)$ is a sequence in $S^\cici$ and $(y_1, y_2, \dots)$ is a
   sequence of elements in $(S^\cici)^n$.
 
-  It suffices to show that $y = \lim_{i\to \infty} [\pi]^i_E(y_i)$ exists and 
+  It suffices to show that $y = \lim_{i\to \infty} [\varpi]^i_E(y_i)$ exists and 
   that it is independent of the choice of lifts $(y_1, y_2, \dots)$. 
   Both claims follow from additivity of $\cV$, implying that 
-  $[\pi]_{V}(T) = \pi T$. The sequence 
-  $([\pi^i]_{E}(y_i))$ converges, as for positive integers $i\leq j$, we have 
+  $[\varpi]_{V}(T) = \varpi T$. The sequence 
+  $([\varpi^i]_{E}(y_i))$ converges, as for positive integers $i\leq j$, we have 
   \begin{equation*}
-    [\pi^i](y_i) - [\pi^j](y_j) = [\pi^i]([\pi^{i-j}]y_j - y_i)
-    \in \psi(\pi^i (S^\cici)^{n-1}) \subseteq J^i (S^\cici)^{n}. 
+    [\varpi^i](y_i) - [\varpi^j](y_j) = [\varpi^i]([\varpi^{i-j}]y_j - y_i)
+    \in \psi(\varpi^i (S^\cici)^{n-1}) \subseteq J^i (S^\cici)^{n}. 
   \end{equation*}
 
   If $(y_1', y'_2, \dots)$ is another sequence of lifts, put
-  $y' = \lim_{i \to \infty} [\pi^i]_E (y_i') \in S^\cici$. Now there exists some
+  $y' = \lim_{i \to \infty} [\varpi^i]_E (y_i') \in S^\cici$. Now there exists some
   $z \in \cV(S)$ such that 
   $y - y' = \psi(z)$. But by construction
-  $z \in \bigcap_{i \in \N} \pi^i(S^{\cici})^{n-1} = 0$.
+  $z \in \bigcap_{i \in \N} \varpi^i(S^{\cici})^{n-1} = 0$.
 \end{proof}
 \end{prop}
 
@@ -927,7 +945,7 @@ Let us now consider the case where $\cF = \FGG(H)$ comes from the standard
 formal $\cO_K$-module of height $n$ over $\cO_{\breve K}$. Then 
 from Proposition \ref{prop:InterestingSequenceStdMod} we have the distinguished
 basis elements of $\Ext(H,\GG_a)$ corresponding to the symmetric $2$-cocycles
-$\delta f_i$, $1 \leq i \leq n-1$ where $f_i(T) = \frac 1 \pi
+$\delta f_i$, $1 \leq i \leq n-1$ where $f_i(T) = \frac 1 \varpi
 \log_H(T^{q^i})$. Also recall that, setting $f_0(T) = \log_H(T)$, the elements 
 $(f_0, f_1, \dots, f_{n-1})$ freely generate $\QLog(H)$. The universal
 additive extension now corresponds to the symmetric $2$-cocycle $(\delta f_1,
@@ -952,7 +970,7 @@ We postpone the proof to state the following auxiliary result.
   Let $x = (x_0 ,x_1, \dots) \in \Tilde H(S)$. For positive integers $i$ and
   $j$ we have
   \begin{equation*}
-    \log_H((\Pi^j x)_i) = \lim_{r \to \infty} \pi^r \log_H(x_{r+i}^{q^j}).
+    \log_H((\Pi^j x)_i) = \lim_{r \to \infty} \varpi^r \log_H(x_{r+i}^{q^j}).
   \end{equation*}
 \begin{proof}
   Tracing through the commutative square (with $\lambda$ and $\mu$ the
@@ -969,11 +987,11 @@ We postpone the proof to state the following auxiliary result.
     \end{equation*}
     we find 
     \begin{equation} \label{eq:CompsOfPiExplicit}
-      (\Pi^j x)_i = \lim_{s \to \infty} \lim_{r\to\infty} \left([\pi]_H^s
+      (\Pi^j x)_i = \lim_{s \to \infty} \lim_{r\to\infty} \left([\varpi]_H^s
       (x_{r+s+i}^{q^{nr + j}})\right).
     \end{equation}
     The claim follows after applying $\log_H$ and making repeated use of the
-    functional equation $\log_H(T^{q^n}) = \pi \log_H(T) + \pi T$.
+    functional equation $\log_H(T^{q^n}) = \varpi \log_H(T) + \varpi T$.
 \end{proof}
 \end{lem}
 \begin{proof}[Proof of Proposition \ref{prop:qlogmapExplicit}]
@@ -984,27 +1002,27 @@ We postpone the proof to state the following auxiliary result.
   \end{equation*}
   where $E$ is a module law with 
   \begin{equation*}
-    [\pi]_E(\bX, T) = \big(\pi X_1 + (\delta_{\pi}f_1)(T), \dots, \pi X_{n-1} + 
-    (\delta_{\pi}f_{n-1})(T), [\pi]_H(T)\big).
+    [\varpi]_E(\bX, T) = \big(\varpi X_1 + (\delta_{\varpi}f_1)(T), \dots, \varpi X_{n-1} + 
+    (\delta_{\varpi}f_{n-1})(T), [\varpi]_H(T)\big).
   \end{equation*}
   Beginning with $x = (x_0, x_1, \dots) \in \Tilde H (S)$, lifting to $(y_0,
   y_1, \dots) \in E(S)^\N$ 
-  and writing $y = \lim_{i\to\infty} [\pi]_E^i (y_i)$, we find
+  and writing $y = \lim_{i\to\infty} [\varpi]_E^i (y_i)$, we find
   \begin{equation*}
-    y = \left(\lim_{r\to\infty} (\delta_{\pi^r} f_1)(x_r), \dots, \lim_{r\to \infty}
-    (\delta_{\pi^r}f_{n-1})(x_r), x_0\right) \in E(S).
+    y = \left(\lim_{r\to\infty} (\delta_{\varpi^r} f_1)(x_r), \dots, \lim_{r\to \infty}
+    (\delta_{\varpi^r}f_{n-1})(x_r), x_0\right) \in E(S).
   \end{equation*}
   Now, Lemma \ref{lem:FrobOnTildeHExpl} provides the equality
-  $$\lim_{r\to\infty}\delta_{\pi^r} f_i(x_r) = \frac 1\pi \lim_{r \to \infty}
-  \pi^r \log_H(x_r^{q^{nr+i}}) - \frac 1\pi \log_H\left(x_0^{q^i}\right) = 
-  \frac 1\pi \left(\log_H((\Pi^i x)_0)- \log_H(x_0^{q^i})\right).$$
+  $$\lim_{r\to\infty}\delta_{\varpi^r} f_i(x_r) = \frac 1\varpi \lim_{r \to \infty}
+  \varpi^r \log_H(x_r^{q^{nr+i}}) - \frac 1\varpi \log_H\left(x_0^{q^i}\right) = 
+  \frac 1\varpi \left(\log_H((\Pi^i x)_0)- \log_H(x_0^{q^i})\right).$$
   We need to calculate $\log_E(y)$, which calls for an explicit description of 
   $\log_E : E \otimes (R \otimes_AK) \to (\GG_a \otimes(R \otimes_A K))^n$. 
   Tracing through the procedure provided in Subsection \ref{sub:Logarithms},
   we find
   \begin{equation*}
-    \log_E(\bX, T) = \left(X_1 + \tfrac 1\pi \log_H(T^q), \dots, 
-    X_{n-1} + \tfrac 1\pi \log_H(T^{q^{n-1}}), \log_H(T)\right).
+    \log_E(\bX, T) = \left(X_1 + \tfrac 1\varpi \log_H(T^q), \dots, 
+    X_{n-1} + \tfrac 1\varpi \log_H(T^{q^{n-1}}), \log_H(T)\right).
   \end{equation*}
   This representation is with respect to the basis $(f_1, \dots, f_{n-1}, f_0)$. 
   The claim follows.
@@ -1020,7 +1038,7 @@ Let $H$ be the standard formal $\cO_K$-module over $\cO_{\breve K}$ of height
 $n$. Write $\wedge H$ for the formal $\cO_K$-module over $\cO_{\breve K}$ with
 logarithm
 \begin{equation*}
-  \log_{\wedge H}(T) = \sum_{i = 0}^\infty (-1)^{(n-1)i} \frac{T^{qi}}{\pi^i}.
+  \log_{\wedge H}(T) = \sum_{i = 0}^\infty (-1)^{(n-1)i} \frac{T^{qi}}{\varpi^i}.
 \end{equation*}
 We have $\Dio(\wedge H) = \wedge^n \Dio(H)$. 
 We follow \cite[Theorem 2.10.3]{BoyarchenkoWeinstein2011MaxVar} to describe a map $\delta:
@@ -1077,8 +1095,8 @@ where
     \log_{\wedge H}(\delta_0(s_1, \dots, s_n)) = \sum_{(a_1, \dots, a_n)} 
     \varepsilon(\mathbf a) \log_{\wedge H} \mu_0( x_1^{q^{a_1}}\cdots x_n^{q^{a_n}})
      \\ = \sum_{(a_1, \dots, a_n)} \varepsilon(\mathbf a) \sum_{m \in \Z} (-1)^{(n-1)m}
-    \frac{x_1^{q^{a_1+m}} \cdots x_n^{q^{a_n+m}}}{\pi^m} 
-    = \det \left( \sum_{m \in \Z} \frac{x_i^{q^{mn + j-1}}}{\pi^m} \right)_{\substack{
+    \frac{x_1^{q^{a_1+m}} \cdots x_n^{q^{a_n+m}}}{\varpi^m} 
+    = \det \left( \sum_{m \in \Z} \frac{x_i^{q^{mn + j-1}}}{\varpi^m} \right)_{\substack{
       1 \leq i \leq n,\\
       1 \leq j \leq n}},
   \end{multline*}
@@ -1086,7 +1104,7 @@ where
   \ref{prop:qlogmapExplicit} and Lemma \ref{lem:LogInTermsOfNil}. 
   The fact that $\delta_0$ is multilinear and alternating ultimately follows
   from the corresponding properties of $\det$, the fact that $\ker(\log_H) =
-  \wedge H[\pi^\infty]$ (cf. Lemma \ref{lem:KernelOfLog}) and topological considerations
+  \wedge H[\varpi^\infty]$ (cf. Lemma \ref{lem:KernelOfLog}) and topological considerations
   in the induced diagram in the category of adic spaces over $(\breve K, \cO_{\breve K})$.
 \end{proof}
 \end{prop}
@@ -1094,7 +1112,7 @@ where
 This allows us to define the sought for morphism of functors
 $\delta: \Tilde H^n \to \Tilde {\wedge H}$. 
 \begin{defi}\label{def:DeltaMap}
-  Put $\delta_i(s_1, \dots, s_n) = \delta_0(\pi^{-i} s_1, \dots, s_n)$. Then 
+  Put $\delta_i(s_1, \dots, s_n) = \delta_0(\varpi^{-i} s_1, \dots, s_n)$. Then 
   $\delta = (\delta_0, \delta_1, \dots)$ yields a map 
   $\Tilde H^n \to \Tilde{\wedge H}$. It is $K$-multilinear and alternating.
 \end{defi}
