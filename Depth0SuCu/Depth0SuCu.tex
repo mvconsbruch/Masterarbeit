@@ -5,18 +5,74 @@
 \section{The Explicit Local Langlands Correspondence for Depth Zero Supercuspidal Representations} % (fold)
 \label{sec:The Explicit Local Langlands Correspondence for Depth Zero Supercuspidal Representations}
 
-\subsection{The Special Affinoid} % (fold)
-\label{sub:The Special Affinoid}
-
-% subsection The Special Affinoid (end)
 
 \subsection{Deligne-Lusztig Theory for Depth Zero Representations} % (fold)
 \label{sub:Deligne-Lusztig Theory for Depth Zero Representations}
+\begin{defi}[Deligne-Lusztig Variety for $\GL_n(\FF_q)$]\label{def:DLVariety}
+  \todo{}
+\end{defi}
+
+\begin{defi}[Deligne-Lusztig Correspondence]\label{def:DLCorrespondence}
+  \todo{}
+\end{defi}
+
+
 
 % subsection Deligne-Lusztig Theory for Depth Zero Representations (end)
 
-\subsection{Proof} % (fold)
-\label{sub:Proof}
+\subsection{The Special Affinoid} % (fold)
+\label{sub:The Special Affinoid}
+\begin{defi}[The special Affinoid]
+  \todo{}
+\end{defi}
+
+% subsection The Special Affinoid (end)
+
+\subsection{The Explicit Correspondence} % (fold)
+\label{sub:The Explicit Correspondence}
+Fix, for the remainder of the section, a character $\theta: \FF_{q^n}^\times
+\to \C^\times$.
+The datum of $\theta$ can be used to construct representations 
+of $F_n^\times$ and $D^\times$ and, making use of Deligne-Lusztig
+theory, of $\GL_n(F)$.
+\begin{itemize}
+  \item Let $\bar \sigma_\theta$ be the character of $\Weil_{F_n}$ given by 
+    the composition
+    \begin{equation*}
+      \Weil_{F_n} \to \Weil_{F_n}^\ab \xto{\Art_{F_n}^{-1}} F_n^\times \cong
+      \Z \times \cO_{F_n}^\times \surj \FF_{q^n}^\times \xto \theta \C^\times
+    \end{equation*}
+  and put $\sigma_\theta = \cInd_{\Weil_{F_n}}^{\Weil_F}(\bar \sigma_\theta)$.
+  \item Let $\bar \rho_\theta$ be the character on 
+    $F^\times \cO_D^\times$ given by the composition
+    \begin{equation*}
+      F^\times\cO_D^\times = \varpi^\Z \times \cO_D^\times \surj 
+      \FF_{q^n} \xto \theta \C^\times
+    \end{equation*}
+    and let $\rho_\theta = \cInd_{F^\times \cO_D^\times}^{D^\times}$. 
+  \item Let $\bar \pi_\theta$ be the representation of $F^\times \GL_n(\cO_F)$
+    arising from applying $R_\theta$ (cf. Definition
+    \ref{def:DLCorrespondence}) to the composition
+    \begin{equation*}
+      F^\times \GL_n(\cO_F) \cong \varpi^\Z \times \GL_n(\cO_F)
+      \surj \GL_n(\cO_F) \surj \GL_n(\FF_q).
+    \end{equation*}
+    Let $\pi_\theta = \cInd_{F^\times \GL_n(\cO_F)}^{\GL_n(F)}(\bar \pi_\theta)$. 
+\end{itemize}
+It is konwn that $\pi_\theta$, $\rho_\theta$ and $\sigma_\theta$ are smooth and 
+irreducible representations. \red{Why? I think I can proof smoothness (it should be 
+almost trivial), and I do not think we need irreducibility (it will follow a
+posteriori. Whatever}
+
+\red{the following will not make it to the final draft}
+We also write
+\begin{itemize}
+  \item $G \coloneqq \GL_n(F) \times \cO_D/\varpi^\Z \times W_F$,
+  \item $G^1 \coloneqq \{(g,d,\sigma) \in G \mid N(gd\sigma) = 1\}$,
+  \item $J \coloneqq F^\times \GL_n(\cO_F) \times \cO_D^\times \times \Z$,
+  \item $J^1 \coloneqq J \cap G^1$. 
+\end{itemize}
+
 
 % subsection Proof (end)
 
