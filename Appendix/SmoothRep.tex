@@ -1,0 +1,155 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Smooth Representations of Locally Profinite Groups}
+We review some aspects of the representation theory (over complex vector spaces)
+of locally profinite groups. 
+If $G$ is an arbitrary group, we denote the category of complex representations,
+(that is, morphisms $G \to \GL(V)$, where $V$ is a $\C$-vector space) as
+$\Rep G$. At the slight cost of precision, we allow ourselves to refer to an element of 
+$\pi: G \to \GL(V) \in \Rep G$ by the underlying vector space $V$, or the 
+pair $(\pi, V)$. 
+
+Recall the following basic definitions.
+\begin{defi}[Locally Profinite Group]
+  A locally profinite group is a Hausdorff topological group such that there exists 
+  a neighbourhood of $1 \in G$ consisting of compact open subgroups.
+\end{defi}
+Throughout this section, if not stated otherwise, $G$ is a locally profinite
+group and $H \subset G$ is a closed subgroup of $G$.
+
+\begin{defi}[Smooth Representation]
+  A smooth representation of $G$ is a
+  representation $\pi: G \to \GL(V) \in \Rep G$,
+  such that for any $v \in V$, the stabilizer $G_v$ of $v$ is an open subgroup
+  of $G$. We define $\RepSm G$, the category of smooth $G$-representations, as
+  the full subcategory of $\Rep G$ with objects given by smooth
+  $G$-representations.
+\end{defi}
+
+\begin{defi}[Smooth Part of a Representation]
+  Let $\pi:G \to \GL(V) \in \Rep G$. We write 
+  \begin{equation*}
+    V^\sm = \bigcup_{K \subseteq G} V^K,
+  \end{equation*}
+  where $K$ runs over the compact open subgroups of $G$ and $V^K \subseteq V$ denotes the 
+  subspace of elements fixed by $K$. We write $\pi^\sm$ for 
+  the induced subrepresentation $G \to \GL(V^\sm)$ of $\pi$.
+\end{defi}
+
+\begin{defi}[Algebraic Induction]
+  Let $G$ be any group and let $H$ be a subgroup of $G$. We define the Algebraic
+  Induction Functor $\algInd_H^G: \Rep H \to \Rep G$ as follows. Given an
+  $H$-representation $\pi: H \to \GL(V)$, consider the vector space
+  \begin{equation*}
+    \algInd_H^G(V) = \{\phi: G \to V \mid \phi(hg) = \pi(h) g\}.
+  \end{equation*}
+  Now $G$ acts naturally on $\algInd_H^G(V)$ by right-translation (that is, 
+  $g.\phi(x) = \phi(xg)$), and we write
+  $(\algInd_H^G(\pi),\algInd_H^G(V))$ for the corresponding representation of $G$.
+\end{defi}
+
+\begin{rmk} 
+  We have $\algInd_H^G(V) = \Hom_{\Mod{\C[H]}}(\C[G], V)$. As
+  $\C[G]$ has a natural $(\C[H], \C[G])$-bimodule structure, we obtain a natural
+  left-$G$-action on $\algInd_H^G(V)$. This action is precisely the one
+  described above.
+\end{rmk}
+
+\begin{defi}[Smooth Induction]\label{def:SmoothInduction}
+  We define the smooth indction functor $\Ind_H^G: \RepSm H \to \RepSm G$ as 
+  the smooth part of the algebraic induction functor. That is, for any smooth
+  representation $\pi: G \to \GL(V)$, we define
+  \begin{equation*}
+    \Ind_H^G(\pi) \coloneqq \algInd_H^G(\pi)^\sm.
+  \end{equation*}
+  \end{defi}
+
+\begin{defi}[Compact Induction]\label{def:CompactInduction}
+  Let $\pi: H \to \GL(V)$ be a smooth representation
+  of $H$. Then we define $\cInd_H^G(\pi)$, the compactly induced representation of $\pi$
+  as the subrepresentation of $\Ind_H^G(\pi)$ with underlying vector space
+  \begin{equation*}
+    \{\phi \in \Ind_H^G(\pi) \mid \supp(\phi) \subseteq G \text{ is compact in }
+    H\backslash G\}.
+  \end{equation*}
+  This construction yields a functor $\cInd_H^G: \RepSm H \to \RepSm G$. 
+\end{defi}
+Note that if $H$ is co-compact in $G$, we have $\cInd_H^G = \Ind_H^G$. 
+
+\begin{rmk} 
+  If $H$ is an open subgroup of $G$, the quotient $H \backslash G$ is 
+  discrete. Now given $(\pi, V) \in \RepSm H$, an element $\phi \in \Ind_H^G(\pi)$
+  lies in $\cInd_H^G(\pi)$ if and only if 
+  the image of $\supp(\phi)$ is finite in $H \backslash G$. 
+  In this case there is an isomorphism
+  \begin{equation}\label{eq:cIndTensorExpr}
+    \Psi: \cInd_H^G(V) \cong \C[G] \otimes_{\C[H]} V, \quad \phi \mapsto \sum_{[g]
+    \in \supp(\phi)} g^{-1} \otimes \phi(g)
+  \end{equation}
+  which does not depend on the choice of representative $g \in [g]$ as 
+  $(hg)^{-1} \otimes \phi(hg) = g^{-1} \otimes \phi(g)$. 
+  Giving $\C[G]$ the structure of an $(\C[G], \C[H])$-bimodule, the natural
+  left-$G$-action on $\C[G] \otimes_{\C[H]} V$ agrees with the one 
+  of $\cInd_H^G(V)$ under the isomorphism $\Psi$. 
+\end{rmk}
+
+\begin{defi}[Restriction Functor]\label{def:RestrictionFunctor}
+  Let $G$ be any group and let $H$ be a subgroup of $G$.
+  If $\pi: G \to \GL(V)$ is a representation of $G$, we define the
+  restriction of $\pi$ from $G$ to $H$ as
+  \begin{equation*}
+    \Res_H^G(\pi): H \inj G \to \GL(V)
+  \end{equation*}
+  and call $\Res_H^G: \Rep G \to \Rep H$ the restriction functor.  
+If $G$ is locally profinite and $H$ is a closed subgroup, this construction restricts
+to a functor
+\begin{equation*}
+  \Res_H^G(\pi): \RepSm G \to \RepSm H.
+\end{equation*}
+\end{defi}
+
+\begin{thm}[Frobenius Reciprocity]\label{thm:Frobenius Reciprocity}
+  Let $G$ be a locally profinite group and let $H \subseteq G$ be an open subgroup.
+  Then there are adjunctions
+  \begin{equation*}
+    \cInd_H^G \ladj \Res_H^G \ladj \Ind_H^G.
+  \end{equation*}
+  In particular, if $H$ is additionally co-compact, $\Ind_H^G$ is both left-
+  and right-adjoint to $\Res_H^G$.
+\begin{proof}
+  Making use of the remarks above, both adjunctions are the
+  Tensor-Hom-Adjunction in disguise. 
+\end{proof}
+\end{thm}
+
+\begin{lem}\label{lem:FrobRecUnitsAreInjective}
+  Let $H$ be an open subgroup of $G$. 
+  The functors $\cInd_H^G$ and $\Res_H^G$ are faithful. 
+  Equivalently, the components of the units
+  \begin{equation*}
+    \id_{\RepSm H} \to \Res_H^G \circ \cInd_H^G \quad \text{ and } \quad 
+    \id_{\RepSm G} \to \Ind_H^G \circ \Res_H^G
+  \end{equation*}
+  coming from the adjunctions in Theorem \ref{thm:Frobenius Reciprocity} are
+  injective. 
+\begin{proof}
+  Faithfulness of $\Res_H^G$ is clear. For faithfulness of $\cInd_H^G$, note that 
+  the unit of the adjunction $\cInd_H^G \ladj \Res_H^G$ is given 
+  on components $(\pi, V) \in \RepSm H$ by the map 
+  $v \mapsto \phi_v$, where $\phi_v \in \cInd_H^G(V)$ is defined as
+  \begin{equation*}
+    \phi_v: G \to V, \quad g \mapsto \begin{cases}
+      \pi(g)v &\text{ if } g \in H,\\
+      0       &\text{ otherwise.}
+    \end{cases}
+  \end{equation*}
+  The resulting morphism $V \to \Res_H^G ( \cInd_H^G(V))$ is injective. Now all
+  claims follow since faithfulness of the left-adjoint is 
+  equivalent to the unit being a monomorphism on components, cf. \cite[Lemma
+  4.5.13]{riehl2017category}.
+\end{proof}
+\end{lem}
+
+
+\end{document}

@@ -66,6 +66,53 @@ Let $l \neq p$ be a prime number and fix an isomorphism $\bar \Q_l \cong \C$.
 \subsection{The Local Langlands Correspondence for the General Linear Group} % (fold)
 \label{sub:The Local Langlands Correspondence for the General Linear Group}
 
+We set 
+\begin{equation} \label{eq:DefHLTHprLT}
+  \begin{gathered}
+  \HLT \coloneqq \lim_K H^{n-1}_c(M_{K, \varpi^\Z} \otimes_{\breve F} C, \bar Q_l)
+  \\ \text{and} \\
+  \HLT' \coloneqq \lim_K H^{n-1}_c(M_{K}^{(0)} \otimes_{\breve F} C, \bar Q_l).
+  \end{gathered}
+\end{equation}
+Also, we set 
+\begin{equation}\label{eq:DefGandG1}
+\begin{gathered} 
+  G \coloneqq \GL_n(F) \times D^\times/\varpi^\Z \times W_F \\  \text{ and } \\
+  G^1 \coloneqq \{(g,d,\sigma) \in \GL_n(F) \times D^\times \times W_F \mid 
+  \det(g)^{-1} \Nrd(d) \Art_F^{-1}(\sigma) = 1\}.
+\end{gathered}
+\end{equation}
+\begin{lem}\label{lem:G1subG}
+  The natural map $G^1 \to G$ is injective and realizes $G^1$ as a co-compact closed
+  normal subgroup of $G$.
+\begin{proof}
+  The morphism $G^1 \to G$ is clearly injective, Further, the image of the natural
+  homomorphism is isomorphic to the kernel of the map 
+  $\nu: G \to F^\times/\varpi^{n\Z}$, given by $\nu(g, \bar d, \sigma) = 
+  \bar{\det(g)^{-1}\Nrd(d)\Art_F^{-1}(\sigma)}$. The claim follows.
+\end{proof}
+\end{lem}
+
+\begin{thm}[Non-Abelian Lubin-Tate Theory]\label{thm:NonAbLTT}
+  Let $\pi$ be a irreducible supercuspidal representation of $\GL_n$ whose cetral 
+  character is trivial on $\varpi^\Z$. Then, as representations of 
+  $\GL_n(F) \times D^\times \times \Weil_F$, the $\pi^\vee$-supercuspidal part
+  of $\HLT$ has the form
+  \begin{equation} \label{eq:DefRecJL}
+    {\HLT}_{,\pi^\vee} = \pi^\vee \boxtimes \JL(\pi) \boxtimes
+                  \rec_F(\pi)(\tfrac {1-n}2),
+  \end{equation}
+  $\JL(\pi)$ is a representation of $D^\times$ and $\rec_F(\pi)$ is a representation of 
+  $W_F$. The assignments $\pi \mapsto \JL(\pi)$ and 
+  $\pi \mapsto \rec_F(\pi)$ satisfy the conditions imposed on the 
+  Jacquet--Langlands and local Langlands correspondeces for $\GL_n$.
+\end{thm}
+
+We have actions $G \lacts \HLT$ and $G^1 \lacts \HLT'$. 
+\begin{lem}\label{lem:GActsSmoothly}
+  These actions are smooth. We have $\cInd_{G^1}^G \HLT' = \HLT$.
+\end{lem}
+
 % subsection The Local Langlands Correspondence for the General Linear Group (end)
 
 \subsection{The Lubin-Tate Perfectoid Space} % (fold)

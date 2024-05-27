@@ -46,15 +46,29 @@
 \newcommand{\rec}{\mathrm{rec}}
 \newcommand{\JL}{\mathrm{JL}}
 \newcommand{\LT}{\mathrm{LT}}
-\newcommand{\HLT}{H_\mathrm{LT}}
+
+\newcommand{\hH}{H}
+\newcommand{\HLT}{\hH_\LT}
+\newcommand{\HDL}{\hH_\mathrm{DL}}
+\newcommand{\HYb}{\hH_{Y_b}}
 
 \newcommand{\DL}{\mathrm{DL}}
+\newcommand{\Yb}{Y_b}
+\newcommand{\perf}{\mathit{prf}}
+
+\newcommand{\algInd}{\mathrm{algInd}}
 \newcommand{\Ind}{\mathrm{Ind}}
+\newcommand{\Res}{\mathrm{Res}}
 \newcommand{\cInd}{\mathrm{c\text{-}Ind}}
 
-\DeclareMathOperator{\Art}{Art}
-\DeclareMathOperator{\val}{val}
-\DeclareMathOperator{\Weil}{\mathrm W}
+\newcommand{\Norm}{\mathrm{N}}
+\newcommand{\Nrd}{\mathrm{Nrd}}
+
+\newcommand{\Art}{\mathrm{Art}}
+\newcommand{\val}{\mathrm{val}}
+\newcommand{\Weil}{\mathrm W}
+
+\newcommand{\sm}{\mathrm{sm}}
 
 
 
@@ -164,8 +178,8 @@
 \newcommand{\category}[1]{{(\mathrm{#1})}}
 \newcommand{\categoryover}[2]{{(\mathrm{#1}/{#2})}}
 \newcommand{\categoryoverover}[3]{{(\mathrm{#1}/{#2}/{#3})}}
-\newcommand{\structcategory}[2]{{({#2}\text-\mathrm{#1})}}
-\newcommand{\structcategoryover}[3]{{({#2}\text-\mathrm{#1}/{#3})}}
+\newcommand{\structcategory}[2]{{({#2}\text-\allowbreak\mathrm{#1})}}
+\newcommand{\structcategoryover}[3]{{({#2}\text-\allowbreak\mathrm{#1}/{#3})}}
 
 \newcommand{\opp}{{\mathrm{op}}}
 \newcommand{\op}{{\mathrm{op}}}
@@ -201,6 +215,9 @@
 \newcommand{\FMLArbOver}[2]{\structcategoryover{FML^{arb}}{#1}{#2}}
 
 \newcommand{\Mod}[1]{\structcategory{Mod}{#1}}
+\newcommand{\BiMod}[1]{\structcategory{BiMod}{#1}}
+\newcommand{\Rep}[1]{\structcategory{Rep}{#1}}
+\newcommand{\RepSm}[1]{\structcategory{Rep^{\mathrm{sm}}}{#1}}
 \newcommand{\Alg}[1]{\structcategory{Alg}{#1}}
 \newcommand{\Adm}[1]{\structcategory{Adm}{#1}}
 \newcommand{\Adic}[1]{\structcategory{Adic}{#1}}

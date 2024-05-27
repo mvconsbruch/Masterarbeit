@@ -2,8 +2,9 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\section{The Explicit Local Langlands Correspondence for Depth Zero Supercuspidal Representations} % (fold)
-\label{sec:The Explicit Local Langlands Correspondence for Depth Zero Supercuspidal Representations}
+\section{Explicit Non-Abelian Lubin--Tate Theory for Depth Zero Supercuspidal
+Representations} % (fold)
+\label{sec:Explicit Non-Abelian Lubin-Tate Theory for Depth Zero Supercuspidal Representations}
 
 
 \subsection{Deligne-Lusztig Theory for Depth Zero Representations} % (fold)
@@ -12,11 +13,52 @@
   \todo{}
 \end{defi}
 
-\begin{defi}[Deligne-Lusztig Correspondence]\label{def:DLCorrespondence}
-  \todo{}
+\begin{lem}
+  We have $$\DL_n = \coprod_{b} Y_b,$$
+  where $b$ runs over the set elements in $\FF_{q^n}^\times$ satisfying 
+  $b^{q-1} = (-1)^{n-1}$. 
+\end{lem}
+
+\begin{equation} \label{eq:defDLCohom}
+  \HDL \coloneqq \hH^{n-1}_c(\DL_n^\perf, \bar \Q_l) \quad \text{and} \quad
+  \HYb = \hH^{n-1}_c(\Yb^\perf, \bar \Q_l).
+\end{equation}
+
+\begin{defi}[Regular Character on $\FF_{q^n}^\times$]
+  We say that a character $\theta: \FF_{q^n}^\times \to \C^\times$ is 
+  regular if it does not factor through the norm morphism
+  $\FF_{q^n}^\times \to \FF_{q^m}^\times$ for any $m \leq n$.
 \end{defi}
 
+\begin{defi}[Deligne-Lusztig Correspondence] \label{def:DLCorrespondence}
+  Let $\theta: \FF_{q^n}^\times \to \C^\times$. be a regular character.
+  Then we have 
+  \begin{equation*}
+    {\HDL}_{, \theta} = \theta \boxtimes R_\theta,
+  \end{equation*}
+  where $R_\theta$ is an \red{irreducible?} representation of $\GL_n(\FF_q)$. 
+\end{defi}
 
+\begin{prop}
+  Using a \red{to be made explicit} Weil-Descent Datum, we also have a natural
+  action of $\Frob_q^{n\Z}$ on $\HDL$. Here, $\Frob_q^n$ acts by the scalar
+  $(-1)^{n-1} q^{\frac{n(n-1)}2}$. 
+  \begin{proof}
+    This is somewhere in \cite{digne1985fonctions}, according to \cite[Lemma
+    5.10]{mieda2016geometric}.
+  \end{proof}
+\end{prop}
+
+\begin{thm}[]
+  For a regular character $\theta: \FF_{q^n}^\times \to \C^\times$, the 
+  $\theta$-isotypic component of $\HDL$ is, as a representation of 
+  $\GL_n(\FF_q) \times \FF_{q^n}^\times \times \Frob_q^{n\Z}$, given by 
+  \begin{equation*}
+    {\HDL}_{,\theta} = R_\theta \boxtimes \theta \boxtimes (\delta^{n-1})(\tfrac{1-n}2).
+  \end{equation*}
+  Here, $\delta: W_{F_n} \to \{\pm 1\}$ is the non-trivial quadratic unramified character.
+  \red{QUESTION: How do we make sense of half tate-twists?}
+\end{thm}
 
 % subsection Deligne-Lusztig Theory for Depth Zero Representations (end)
 
@@ -30,19 +72,21 @@
 
 \subsection{The Explicit Correspondence} % (fold)
 \label{sub:The Explicit Correspondence}
-Fix, for the remainder of the section, a character $\theta: \FF_{q^n}^\times
-\to \C^\times$.
+Fix, for the remainder of the section, a regular character $\theta: \FF_{q^n}^\times
+\to \C^\times$. Here, regular means that $\theta$ does not factor through
+the norm map $\Norm_{\FF_{q^n}/\FF_{q^m}}: \FF_{q^n}^\times \to
+\FF_{q^m}^\times$ for any $m \leq n$. 
 The datum of $\theta$ can be used to construct representations 
-of $F_n^\times$ and $D^\times$ and, making use of Deligne-Lusztig
-theory, of $\GL_n(F)$.
+of $W_F$ and $D^\times$ and, making use of Deligne-Lusztig
+theory, a representation of $\GL_n(F)$.
 \begin{itemize}
-  \item Let $\bar \sigma_\theta$ be the character of $\Weil_{F_n}$ given by 
+  \item Let $\bar \tau_\theta$ be the character of $\Weil_{F_n}$ given by 
     the composition
     \begin{equation*}
       \Weil_{F_n} \to \Weil_{F_n}^\ab \xto{\Art_{F_n}^{-1}} F_n^\times \cong
       \Z \times \cO_{F_n}^\times \surj \FF_{q^n}^\times \xto \theta \C^\times
     \end{equation*}
-  and put $\sigma_\theta = \cInd_{\Weil_{F_n}}^{\Weil_F}(\bar \sigma_\theta)$.
+  and put $\tau_\theta = \cInd_{\Weil_{F_n}}^{\Weil_F}(\bar \tau_\theta)$.
   \item Let $\bar \rho_\theta$ be the character on 
     $F^\times \cO_D^\times$ given by the composition
     \begin{equation*}
@@ -51,27 +95,126 @@ theory, of $\GL_n(F)$.
     \end{equation*}
     and let $\rho_\theta = \cInd_{F^\times \cO_D^\times}^{D^\times}$. 
   \item Let $\bar \pi_\theta$ be the representation of $F^\times \GL_n(\cO_F)$
-    arising from applying $R_\theta$ (cf. Definition
-    \ref{def:DLCorrespondence}) to the composition
+    arising from post-composing $R_\theta$ (cf. Definition
+    \ref{def:DLCorrespondence}) with the composition
     \begin{equation*}
       F^\times \GL_n(\cO_F) \cong \varpi^\Z \times \GL_n(\cO_F)
       \surj \GL_n(\cO_F) \surj \GL_n(\FF_q).
     \end{equation*}
     Let $\pi_\theta = \cInd_{F^\times \GL_n(\cO_F)}^{\GL_n(F)}(\bar \pi_\theta)$. 
 \end{itemize}
-It is konwn that $\pi_\theta$, $\rho_\theta$ and $\sigma_\theta$ are smooth and 
-irreducible representations. \red{Why? I think I can proof smoothness (it should be 
-almost trivial), and I do not think we need irreducibility (it will follow a
-posteriori. Whatever}
+It is konwn that $\rho_\theta$ \red{and $\tau_\theta$?} is a smooth and 
+irreducible representation. \red{Why? I think I can proof smoothness (the corresponding
+  statement for $\bar \pi_\theta$, etc should be true because these representations are 
+  (I think) trivial on $1 + \varpi \GL_n(\cO_F)$ etc.), but irreducibility seems harder,
+  and we need it. Whatever.}
 
-\red{the following will not make it to the final draft}
-We also write
-\begin{itemize}
-  \item $G \coloneqq \GL_n(F) \times \cO_D/\varpi^\Z \times W_F$,
-  \item $G^1 \coloneqq \{(g,d,\sigma) \in G \mid N(gd\sigma) = 1\}$,
-  \item $J \coloneqq F^\times \GL_n(\cO_F) \times \cO_D^\times \times \Z$,
-  \item $J^1 \coloneqq J \cap G^1$. 
-\end{itemize}
+The aim of this section is the following statement.
+\begin{thm}[Explicit Non-Abelian Lubin--Tate Theory for Depth Zero Supercuspidal
+  Representations]\label{thm:MainRes1}
+  The representation $\JL(\pi_\theta)$ of $D^\times$ and the representation
+  $\rec_F(\pi_\theta)$ of $\Weil_F$ take the form
+  \begin{equation*}
+    \JL(\pi_\theta) = \rho_{\theta}
+    \quad \text{and} \quad \rec_F(\pi_\theta) = \Ind_{\Weil_{F_n}}^{\Weil_F} 
+    (\tau_\theta \delta^{n-1}),
+  \end{equation*}
+  where $\delta: \Weil_{F_n} \to \{\pm 1\}$ is the unramified quadratic
+  character given corresponding to the character $a \mapsto (-1)^{\val_{F_n}(a)}$
+  under the isomorphism $\Art_{F_n}: F_n^\times \to \Weil_{F_n}^\ab$. 
+\end{thm}
+
+We set 
+\begin{equation} \label{eq:defJandJ1}
+  J \coloneqq F^\times \GL_n(\cO_F) \times \cO_D^\times \times \Weil_{F_n}
+  \text{ and } J^1 = J \cap G^1.
+\end{equation}
+Also, we define a morphism 
+\begin{equation*}
+  \Theta: J \to \GL_n(\FF_q) \times \FF_{q^n}^\times \times {\Frob_q^{n\Z}}, \quad
+  (\varpi^m g,d,\sigma) \mapsto (\bar g, \bar {d^{-1}u_\sigma^{-1}}, \bar{\sigma}).
+\end{equation*}
+
+
+\begin{lem}
+  The morphism $\Theta$ makes $J$ act on ${\hH}_{\DL,\theta}$. This representation is 
+  of the form 
+  \begin{equation*}
+    (g,d,\sigma) \mapsto \bar \varpi_\theta(g) \otimes \bar \rho_{\theta^{-1}}(d)
+    \otimes \left(\bar \tau_\theta \, \delta^{n-1}\right)^{-1}(\tfrac{1-n}2)(\sigma).
+  \end{equation*}
+  This representation is smooth.
+\begin{proof}
+  This is a direct calculation.
+\end{proof}
+\end{lem}
+
+The input we get from Mieda's result is the following.
+\begin{prop}\label{prop:J1EquivInjMor}
+  There is a injective morphism of  $J^1$-representations
+  \begin{equation*} 
+    \Res_{J^1}^J( \hH_{\DL,\theta} ) \inj \Res_{J^1}^{G^1}( \hH'_{\DL}).
+  \end{equation*}
+\begin{proof}
+  \red{This is \cite[Proposition 5.11]{mieda2016geometric}.}
+\end{proof}
+\end{prop}
+
+\begin{lem} \label{lem:JEquivInjMor}
+  The morphism of Proposition \ref{prop:J1EquivInjMor} naturally gives rise to
+  a sequence of $J$-equivariant injective morphisms
+  \begin{equation*}
+    \hH_{\DL,\theta} \inj \Ind_{J^1}^J (\Res_{J^1}^{G^1} \hH'_{\LT}) \inj \Res_J^G \hH_\LT.
+  \end{equation*}
+\begin{proof}
+  \textit{The First morphism.}
+  The unit of the adjunction $\Res_{J^1}^J \ladj \Ind_{J^1}^J$ yields a
+  morphism of $J$-representations $\hH_{\DL,\theta} \to \Ind_{J^1}^J(\Res_{J^1}^{J}
+  \hH_{\DL, \theta})$. As $\Res_{J^1}^J$ is a faithful functor, this 
+  is a monomorphism (cf. \cite[Lemma 4.5.13]{riehl2017category}). 
+  Applying $\Ind_{J^1}^J$ to the injective morphism in Proposition
+  \ref{prop:J1EquivInjMor} yields a morphism
+  \begin{equation*}
+    \Ind_{J^1}^J ( \Res_{J^1}^J \hH_{\DL,\theta} ) \to  \Ind_{J^1}^J
+    (\Res_{J^1}^{G^1} \hH'_{\LT}).
+  \end{equation*}
+  This morphism is injective because $\Ind_{J^1}^J$ is exact. 
+
+  \textit{The second morphism.} 
+  We have an isomorphism (cf. \cite[p.40]{mieda2016geometric})
+  \begin{equation*}
+  \Ind_{J^1}^J( \Res_{J^1}^{G^1} \hH'_\LT) \cong \Res_J^{G^1J}( \Ind_{G^1}^{G^1J} \hH'_\LT).
+  \end{equation*}
+  The unit of the adjunction $\cInd_{G^1J}^G \ladj \Res_{G^1J}^G$ yields a 
+  morphism of $G^1J$-representations 
+  \begin{equation*}
+    \Ind_{G^1}^{G^1J} \hH_\LT' \to \Res_{G^1J}^G
+    (\cInd_{G^1J}^G(\Ind_{G^1}^{G^1J} \hH'_\LT)).
+  \end{equation*}
+  As $G^1J$ is open and co-compact in $G$, $\cInd_{G^1J}^G$ is faithful and 
+  $\cInd_{G^1J}^G = \Ind_{G^1J}^G$, so that the map is injective and the right-hand
+  side is isomorphic to $\Res_{G^1J}^G(\Ind_{G^1}^G \hH'_\LT) \cong
+  \Res_{G^1J}^G(\hH_\LT)$. The claim follows.
+\end{proof}
+\end{lem}
+
+The morphism constructed in Lemma \ref{lem:JEquivInjMor} yields, by Frobensius
+Reciprocity, a non-zero map of $G$-representations
+\begin{equation} \label{eq:WantedMap}
+  \Ind_{J}^G (\hH_{\DL,\theta}) = \pi_\theta \boxtimes \rho_{\theta^{-1}}
+  \boxtimes (\tau_\theta \, \delta^{n-1})^{-1}(\tfrac{1-n}2) \to \hH_\LT.
+\end{equation}
+As $\pi_\theta$ is supercuspidal and its central character is trivial on 
+$\varpi^\Z$, Theorem \ref{thm:NonAbLTT} yields a map
+\begin{equation*}
+  \rho_{\theta^{-1}} \boxtimes (\tau_\theta \, \delta^{n-1}) \to
+  \JL(\pi_\theta)^\vee \boxtimes \rec_F(\theta)^\vee.
+\end{equation*}
+
+
+
+
+
 
 
 % subsection Proof (end)
