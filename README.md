@@ -1,4 +1,9 @@
 # Master's thesis
+## 28th of May
+[05_28_version.pdf](./compiled_versions/05_28_version.pdf) 
+I wrote up the proof of the explicit correspondence, starting from the 
+$J^1$-equivariant map.
+
 ## 15th of May
 [05_18_version.pdf](./compiled_versions/05_15_version.pdf) 
 I think I finally said (almost) everything there is to say about Formal Modules. 

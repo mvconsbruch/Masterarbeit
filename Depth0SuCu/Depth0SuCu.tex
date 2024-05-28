@@ -7,9 +7,9 @@ Representations} % (fold)
 \label{sec:Explicit Non-Abelian Lubin-Tate Theory for Depth Zero Supercuspidal Representations}
 
 
-\subsection{Deligne-Lusztig Theory for Depth Zero Representations} % (fold)
+\subsection{Deligne--Lusztig Theory for Depth Zero Representations} % (fold)
 \label{sub:Deligne-Lusztig Theory for Depth Zero Representations}
-\begin{defi}[Deligne-Lusztig Variety for $\GL_n(\FF_q)$]\label{def:DLVariety}
+\begin{defi}[Deligne--Lusztig Variety for $\GL_n(\FF_q)$]\label{def:DLVariety}
   \todo{}
 \end{defi}
 
@@ -30,17 +30,18 @@ Representations} % (fold)
   $\FF_{q^n}^\times \to \FF_{q^m}^\times$ for any $m \leq n$.
 \end{defi}
 
-\begin{defi}[Deligne-Lusztig Correspondence] \label{def:DLCorrespondence}
+\begin{prop}[Deligne--Lusztig Correspondence] \label{prop:DLCorrespondence}
   Let $\theta: \FF_{q^n}^\times \to \C^\times$. be a regular character.
-  Then we have 
+  As representations of $\GL_n(\FF_q) \times \FF_{q^n}^\times$, there is an
+  isomorhphism 
   \begin{equation*}
-    {\HDL}_{, \theta} = \theta \boxtimes R_\theta,
+    {\HDL}_{, \theta} \cong  R_\theta \boxtimes \theta,
   \end{equation*}
   where $R_\theta$ is an \red{irreducible?} representation of $\GL_n(\FF_q)$. 
-\end{defi}
+\end{prop}
 
 \begin{prop}
-  Using a \red{to be made explicit} Weil-Descent Datum, we also have a natural
+  Using a \red{to be made precise} Weil-Descent Datum, we also have a natural
   action of $\Frob_q^{n\Z}$ on $\HDL$. Here, $\Frob_q^n$ acts by the scalar
   $(-1)^{n-1} q^{\frac{n(n-1)}2}$. 
   \begin{proof}
@@ -77,8 +78,8 @@ Fix, for the remainder of the section, a regular character $\theta: \FF_{q^n}^\t
 the norm map $\Norm_{\FF_{q^n}/\FF_{q^m}}: \FF_{q^n}^\times \to
 \FF_{q^m}^\times$ for any $m \leq n$. 
 The datum of $\theta$ can be used to construct representations 
-of $W_F$ and $D^\times$ and, making use of Deligne-Lusztig
-theory, a representation of $\GL_n(F)$.
+of $W_F$ and $D^\times$ and, making use of Deligne--Lusztig
+theory, a representation of $\GL_n(F)$. We proceed as follows.
 \begin{itemize}
   \item Let $\bar \tau_\theta$ be the character of $\Weil_{F_n}$ given by 
     the composition
@@ -90,26 +91,37 @@ theory, a representation of $\GL_n(F)$.
   \item Let $\bar \rho_\theta$ be the character on 
     $F^\times \cO_D^\times$ given by the composition
     \begin{equation*}
-      F^\times\cO_D^\times = \varpi^\Z \times \cO_D^\times \surj 
+      F^\times\cO_D^\times \cong \varpi^\Z \times \cO_D^\times \surj 
       \FF_{q^n} \xto \theta \C^\times
     \end{equation*}
-    and let $\rho_\theta = \cInd_{F^\times \cO_D^\times}^{D^\times}$. 
+    and let $\rho_\theta = \cInd_{F^\times \cO_D^\times}^{D^\times}(\bar \rho_\theta)$.
   \item Let $\bar \pi_\theta$ be the representation of $F^\times \GL_n(\cO_F)$
     arising from post-composing $R_\theta$ (cf. Definition
-    \ref{def:DLCorrespondence}) with the composition
+    \ref{prop:DLCorrespondence}) with the composition
     \begin{equation*}
       F^\times \GL_n(\cO_F) \cong \varpi^\Z \times \GL_n(\cO_F)
       \surj \GL_n(\cO_F) \surj \GL_n(\FF_q).
     \end{equation*}
     Let $\pi_\theta = \cInd_{F^\times \GL_n(\cO_F)}^{\GL_n(F)}(\bar \pi_\theta)$. 
 \end{itemize}
-It is konwn that $\rho_\theta$ \red{and $\tau_\theta$?} is a smooth and 
-irreducible representation. \red{Why? I think I can proof smoothness (the corresponding
-  statement for $\bar \pi_\theta$, etc should be true because these representations are 
-  (I think) trivial on $1 + \varpi \GL_n(\cO_F)$ etc.), but irreducibility seems harder,
-  and we need it. Whatever.}
 
-The aim of this section is the following statement.
+\begin{lem}\label{lem:BarRepsAreSmooth}
+  The representations $\bar \pi_\theta$, $\bar \rho_\theta$ and $\bar
+  \tau_\theta$ are smooth, in particular
+  $\pi_\theta$, $\rho_\theta$ and $\tau_\theta$ are smooth as well. Additionally, the
+  representations $\pi_\theta$ and $\rho_\theta$ are irreducible, and
+  $\pi_\theta$ is supercuspidal.
+\begin{proof}
+  By design, $\bar \pi_\theta$ is trivial on the compact open subgroup $1 +
+  \varpi \Mat_{n \times n}(\cO_F)$ of $F^\times \GL_n(\cO_F)$. Similar
+  statements hold for $\bar \rho_\theta$
+  and $\bar \tau_\theta$. 
+  \red{why is $\rho_\theta$ irreducible? Why is $\pi_\theta$ supercuspidal and
+  irreducible?}
+\end{proof}
+\end{lem}
+
+The aim of this section is to prove the following statement.
 \begin{thm}[Explicit Non-Abelian Lubin--Tate Theory for Depth Zero Supercuspidal
   Representations]\label{thm:MainRes1}
   The representation $\JL(\pi_\theta)$ of $D^\times$ and the representation
@@ -117,11 +129,12 @@ The aim of this section is the following statement.
   \begin{equation*}
     \JL(\pi_\theta) = \rho_{\theta}
     \quad \text{and} \quad \rec_F(\pi_\theta) = \Ind_{\Weil_{F_n}}^{\Weil_F} 
-    (\tau_\theta \delta^{n-1}),
+    (\tau_\theta \, \delta^{n-1}),
   \end{equation*}
   where $\delta: \Weil_{F_n} \to \{\pm 1\}$ is the unramified quadratic
-  character given corresponding to the character $a \mapsto (-1)^{\val_{F_n}(a)}$
-  under the isomorphism $\Art_{F_n}: F_n^\times \to \Weil_{F_n}^\ab$. 
+  character. This is the character corresponding to $a \mapsto
+  (-1)^{\val_{F_n}(a)}$ under the isomorphism $\Art_{F_n}: F_n^\times \to
+  \Weil_{F_n}^\ab$. 
 \end{thm}
 
 We set 
@@ -135,12 +148,13 @@ Also, we define a morphism
   (\varpi^m g,d,\sigma) \mapsto (\bar g, \bar {d^{-1}u_\sigma^{-1}}, \bar{\sigma}).
 \end{equation*}
 
-
+Recall that $H_\DL$ denotes the middle $l$-adic cohomology of 
+$\DL_n$, cf. Section \ref{sub:Deligne-Lusztig Theory for Depth Zero Representations}.
 \begin{lem}
   The morphism $\Theta$ makes $J$ act on ${\hH}_{\DL,\theta}$. This representation is 
   of the form 
   \begin{equation*}
-    (g,d,\sigma) \mapsto \bar \varpi_\theta(g) \otimes \bar \rho_{\theta^{-1}}(d)
+    (g,d,\sigma) \mapsto \bar \pi_\theta(g) \otimes \bar \rho_{\theta^{-1}}(d)
     \otimes \left(\bar \tau_\theta \, \delta^{n-1}\right)^{-1}(\tfrac{1-n}2)(\sigma).
   \end{equation*}
   This representation is smooth.
@@ -162,60 +176,68 @@ The input we get from Mieda's result is the following.
 
 \begin{lem} \label{lem:JEquivInjMor}
   The morphism of Proposition \ref{prop:J1EquivInjMor} naturally gives rise to
-  a sequence of $J$-equivariant injective morphisms
+  a of $J$-equivariant injective 
   \begin{equation*}
-    \hH_{\DL,\theta} \inj \Ind_{J^1}^J (\Res_{J^1}^{G^1} \hH'_{\LT}) \inj \Res_J^G \hH_\LT.
+    \hH_{\DL,\theta} \inj \Ind_{J^1}^J (\Res_{J^1}^{G^1} \hH'_{\LT}).
+  \end{equation*}
+  There also is an injective morphism of $J$-representations
+  \begin{equation*}
+     \Ind_{J^1}^J (\Res_{J^1}^{G^1} \hH'_{\LT}) \inj \Res_J^G \hH_\LT.
   \end{equation*}
 \begin{proof}
-  \textit{The First morphism.}
+  \textit{The first morphism.}
   The unit of the adjunction $\Res_{J^1}^J \ladj \Ind_{J^1}^J$ yields a
   morphism of $J$-representations $\hH_{\DL,\theta} \to \Ind_{J^1}^J(\Res_{J^1}^{J}
-  \hH_{\DL, \theta})$. As $\Res_{J^1}^J$ is a faithful functor, this 
-  is a monomorphism (cf. \cite[Lemma 4.5.13]{riehl2017category}). 
+  \hH_{\DL, \theta})$, which is injective by Lemma \ref{lem:FrobRecUnitsAreInjective}.
   Applying $\Ind_{J^1}^J$ to the injective morphism in Proposition
   \ref{prop:J1EquivInjMor} yields a morphism
   \begin{equation*}
     \Ind_{J^1}^J ( \Res_{J^1}^J \hH_{\DL,\theta} ) \to  \Ind_{J^1}^J
     (\Res_{J^1}^{G^1} \hH'_{\LT}).
   \end{equation*}
-  This morphism is injective because $\Ind_{J^1}^J$ is exact. 
+  This morphism is injective because $\Ind_{J^1}^J$ is exact, cf. Proposition
+  \ref{prop:InducedRepresentationExact}. 
 
   \textit{The second morphism.} 
-  We have an isomorphism (cf. \cite[p.40]{mieda2016geometric})
+  As $G^1$ is open and normal in $G$ and $J^1 = G^1 \cap J$, 
+  Lemma \ref{lem:BaseChangeForResInd} gives an isomorphism
   \begin{equation*}
-  \Ind_{J^1}^J( \Res_{J^1}^{G^1} \hH'_\LT) \cong \Res_J^{G^1J}( \Ind_{G^1}^{G^1J} \hH'_\LT).
+    \Ind_{J^1}^J( \Res_{J^1}^{G^1} \hH'_\LT) \cong \Res_J^{G^1J}(
+    \Ind_{G^1}^{G^1J} \hH'_\LT).
   \end{equation*}
-  The unit of the adjunction $\cInd_{G^1J}^G \ladj \Res_{G^1J}^G$ yields a 
-  morphism of $G^1J$-representations 
-  \begin{equation*}
+  Since $G^1J$ is open in $G$, the unit of the adjunction $\cInd_{G^1J}^G \ladj
+  \Res_{G^1J}^G$ yields a monomorphism of $G^1J$-representations 
+  \begin{equation}\label{eq:MiedaEx1Morph1}
     \Ind_{G^1}^{G^1J} \hH_\LT' \to \Res_{G^1J}^G
     (\cInd_{G^1J}^G(\Ind_{G^1}^{G^1J} \hH'_\LT)).
-  \end{equation*}
-  As $G^1J$ is open and co-compact in $G$, $\cInd_{G^1J}^G$ is faithful and 
-  $\cInd_{G^1J}^G = \Ind_{G^1J}^G$, so that the map is injective and the right-hand
+  \end{equation}
+  As $G^1J$ co-compact in $G$, we have $\cInd_{G^1J}^G =
+  \Ind_{G^1J}^G$, so the right-hand
   side is isomorphic to $\Res_{G^1J}^G(\Ind_{G^1}^G \hH'_\LT) \cong
-  \Res_{G^1J}^G(\hH_\LT)$. The claim follows.
+  \Res_{G^1J}^G(\hH_\LT)$ by Proposition \ref{prop:InductionOnTower} and 
+  Lemma \ref{lem:InductionStatementOnHLT}. Hence, applying $\Res_J^{G^1J}$ to the
+  morphism in \eqref{eq:MiedaEx1Morph1} yields the desired map.
 \end{proof}
 \end{lem}
 
-The morphism constructed in Lemma \ref{lem:JEquivInjMor} yields, by Frobensius
-Reciprocity, a non-zero map of $G$-representations
+The morphism constructed in Lemma \ref{lem:JEquivInjMor} yields, by Frobenius
+reciprocity, a non-zero map of $G$-representations
 \begin{equation} \label{eq:WantedMap}
-  \Ind_{J}^G (\hH_{\DL,\theta}) = \pi_\theta \boxtimes \rho_{\theta^{-1}}
+  \Ind_{J}^G (\hH_{\DL,\theta}) \cong \pi_\theta \boxtimes \rho_{\theta^{-1}}
   \boxtimes (\tau_\theta \, \delta^{n-1})^{-1}(\tfrac{1-n}2) \to \hH_\LT.
 \end{equation}
 As $\pi_\theta$ is supercuspidal and its central character is trivial on 
-$\varpi^\Z$, Theorem \ref{thm:NonAbLTT} yields a map
+$\varpi^\Z$, Theorem \ref{thm:NonAbLTT} yields a non-zero map
 \begin{equation*}
   \rho_{\theta^{-1}} \boxtimes (\tau_\theta \, \delta^{n-1}) \to
-  \JL(\pi_\theta)^\vee \boxtimes \rec_F(\theta)^\vee.
+  \JL(\pi_\theta)^\vee \boxtimes \rec_F(\pi_\theta)^\vee.
 \end{equation*}
-
-
-
-
-
-
+As $\rho_{\theta^{-1}}$ and $\JL(\pi_\theta)^\vee$ are irreducible, this implies
+$\JL(\pi_\theta) = \rho_{\theta^{-1}}^\vee = \rho_\theta$. As 
+$\rec_F(\pi_\theta)$ is irreducible and $\dim(\tau_\theta) = n = \dim
+(\rec_F(\pi_\theta))$, this also implies $\tau_\theta \, \delta^{n-1} =
+\rec_F(\pi_\theta)$. Admitting Proposition \ref{prop:J1EquivInjMor}, this
+concludes the proof of Theorem \ref{thm:MainRes1}.
 
 % subsection Proof (end)
 

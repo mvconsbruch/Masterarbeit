@@ -6,11 +6,10 @@ We review some aspects of the representation theory (over complex vector spaces)
 of locally profinite groups. 
 If $G$ is an arbitrary group, we denote the category of complex representations,
 (that is, morphisms $G \to \GL(V)$, where $V$ is a $\C$-vector space) as
-$\Rep G$. At the slight cost of precision, we allow ourselves to refer to an element of 
-$\pi: G \to \GL(V) \in \Rep G$ by the underlying vector space $V$, or the 
-pair $(\pi, V)$. 
+$\Rep G$. At the slight cost of precision, we also allow ourselves to refer to
+an element of $\pi: G \to \GL(V) \in \Rep G$ by the underlying vector space
+$V$, or the pair $(\pi, V)$. 
 
-Recall the following basic definitions.
 \begin{defi}[Locally Profinite Group]
   A locally profinite group is a Hausdorff topological group such that there exists 
   a neighbourhood of $1 \in G$ consisting of compact open subgroups.
@@ -28,19 +27,20 @@ group and $H \subset G$ is a closed subgroup of $G$.
 \end{defi}
 
 \begin{defi}[Smooth Part of a Representation]
-  Let $\pi:G \to \GL(V) \in \Rep G$. We write 
+  Let $(\pi,V) \in \Rep G$. We write 
   \begin{equation*}
     V^\sm = \bigcup_{K \subseteq G} V^K,
   \end{equation*}
-  where $K$ runs over the compact open subgroups of $G$ and $V^K \subseteq V$ denotes the 
-  subspace of elements fixed by $K$. We write $\pi^\sm$ for 
-  the induced subrepresentation $G \to \GL(V^\sm)$ of $\pi$.
+  where $K$ runs over the compact open subgroups of $G$ and $V^K \subseteq V$
+  denotes the subspace of elements fixed by $K$. 
+  Now $V^\sm$ is a $G$-stable subspace of $V$, and we write $(\pi^\sm, V^\sm)$ 
+  for the induced $G \to \GL(V^\sm)$ of $\pi$.
 \end{defi}
 
 \begin{defi}[Algebraic Induction]
   Let $G$ be any group and let $H$ be a subgroup of $G$. We define the Algebraic
   Induction Functor $\algInd_H^G: \Rep H \to \Rep G$ as follows. Given an
-  $H$-representation $\pi: H \to \GL(V)$, consider the vector space
+  $H$-representation $(\pi, V)\in \Rep H$, consider the vector space
   \begin{equation*}
     \algInd_H^G(V) = \{\phi: G \to V \mid \phi(hg) = \pi(h) g\}.
   \end{equation*}
@@ -56,19 +56,60 @@ group and $H \subset G$ is a closed subgroup of $G$.
   described above.
 \end{rmk}
 
+\begin{defi}[Restriction Functor]\label{def:RestrictionFunctor}
+  Let $G$ be any group and let $H$ be a subgroup of $G$.
+  If $\pi: G \to \GL(V)$ is a representation of $G$, we define the
+  restriction of $\pi$ from $G$ to $H$ as
+  \begin{equation*}
+    \Res_H^G(\pi): H \inj G \xto\pi \GL(V)
+  \end{equation*}
+  and call $\Res_H^G: \Rep G \to \Rep H$ the restriction functor.  
+\end{defi}
+
+\begin{lem}\label{lem:AlgFrobRec}
+  Let $G$ be any group and let $H$ be any subgroup of $G$. Then 
+  $\Res_H^G$ is left-adjoint to $\algInd_H^G$.
+\begin{proof}
+  By the Remark above, this statement readily reduces to the Tensor-Hom-Adjunction.
+\end{proof}
+\end{lem}
+
+\begin{lem}\label{lem:SmoothRestriction}
+  If $G$ is locally profinite and $H$ is a closed subgroup, for any 
+  $(\pi,V) \in \Rep G$ we have
+  \begin{equation*}
+    \Res_H^G (V^\sm) \subseteq \left( \Res_H^G (V) \right)^\sm,
+  \end{equation*}
+  with equality if $H$ is open. 
+  In particular, $\Res_H^G$ restricts to a functor
+  \begin{equation*}
+    \Res_H^G: \RepSm G \to \RepSm H.
+  \end{equation*}
+\begin{proof}
+  The first part follows from
+  \begin{equation*}
+    \Res_H^G(V^\sm) = \bigcup_{K \subset G} V^K \subseteq \bigcup_{K \subset G}
+    V^{K \cap H} = \left(\Res_H^G(V)\right)^\sm,
+  \end{equation*}
+  where $K$ runs over the compact open subsets of $G$. This is an equality if
+  $H$ is open. 
+\end{proof}
+\end{lem}
+
 \begin{defi}[Smooth Induction]\label{def:SmoothInduction}
   We define the smooth indction functor $\Ind_H^G: \RepSm H \to \RepSm G$ as 
   the smooth part of the algebraic induction functor. That is, for any smooth
-  representation $\pi: G \to \GL(V)$, we define
+  representation $\pi: G \to \GL(V)$, we set
   \begin{equation*}
-    \Ind_H^G(\pi) \coloneqq \algInd_H^G(\pi)^\sm.
+    \Ind_H^G(\pi) \coloneqq \left(\algInd_H^G(\pi)\right)^\sm.
   \end{equation*}
   \end{defi}
 
 \begin{defi}[Compact Induction]\label{def:CompactInduction}
   Let $\pi: H \to \GL(V)$ be a smooth representation
-  of $H$. Then we define $\cInd_H^G(\pi)$, the compactly induced representation of $\pi$
-  as the subrepresentation of $\Ind_H^G(\pi)$ with underlying vector space
+  of $H$. Then we define $\cInd_H^G(\pi)$, the compactly induced representation
+  of $\pi$, as the subrepresentation of $\Ind_H^G(\pi)$ with underlying vector
+  space
   \begin{equation*}
     \{\phi \in \Ind_H^G(\pi) \mid \supp(\phi) \subseteq G \text{ is compact in }
     H\backslash G\}.
@@ -90,49 +131,65 @@ Note that if $H$ is co-compact in $G$, we have $\cInd_H^G = \Ind_H^G$.
   which does not depend on the choice of representative $g \in [g]$ as 
   $(hg)^{-1} \otimes \phi(hg) = g^{-1} \otimes \phi(g)$. 
   Giving $\C[G]$ the structure of an $(\C[G], \C[H])$-bimodule, the natural
-  left-$G$-action on $\C[G] \otimes_{\C[H]} V$ agrees with the one 
-  of $\cInd_H^G(V)$ under the isomorphism $\Psi$. 
+  left-$G$-action on $\C[G] \otimes_{\C[H]} V$ is compatible with the one 
+  on $\cInd_H^G(V)$ under the isomorphism $\Psi$. 
 \end{rmk}
 
-\begin{defi}[Restriction Functor]\label{def:RestrictionFunctor}
-  Let $G$ be any group and let $H$ be a subgroup of $G$.
-  If $\pi: G \to \GL(V)$ is a representation of $G$, we define the
-  restriction of $\pi$ from $G$ to $H$ as
-  \begin{equation*}
-    \Res_H^G(\pi): H \inj G \to \GL(V)
-  \end{equation*}
-  and call $\Res_H^G: \Rep G \to \Rep H$ the restriction functor.  
-If $G$ is locally profinite and $H$ is a closed subgroup, this construction restricts
-to a functor
-\begin{equation*}
-  \Res_H^G(\pi): \RepSm G \to \RepSm H.
-\end{equation*}
-\end{defi}
+\begin{prop}\label{prop:InducedRepresentationExact}
+  For $H$ a closed subgroup of $G$, the functors $\algInd_H^G$, $\Ind_H^G$ and
+  $\cInd_H^G$  are exact. 
+  \begin{proof}
+    The statement for $\algInd_H^G$ is implied by the fact that 
+    $\C[G]$ is a free (thereby projective) $\C[H]$-module. For the remaining statements,
+    see \cite[p. 18f]{bushnell2006local}.
+  \end{proof}
+\end{prop}
 
-\begin{thm}[Frobenius Reciprocity]\label{thm:Frobenius Reciprocity}
-  Let $G$ be a locally profinite group and let $H \subseteq G$ be an open subgroup.
-  Then there are adjunctions
+
+
+\begin{thm}[Smooth Frobenius Reciprocity]\label{thm:SmFrobRec}
+  Let $G$ be a locally profinite group and let $H \subseteq G$ be a closed subgroup.
+  Then there is an adjunction
   \begin{equation*}
-    \cInd_H^G \ladj \Res_H^G \ladj \Ind_H^G.
+    \Res_H^G \ladj \Ind_H^G.
   \end{equation*}
-  In particular, if $H$ is additionally co-compact, $\Ind_H^G$ is both left-
+  If $H$ is additionally assumed to be open in $G$, there is an adjunction
+  $$\cInd_H^G \ladj \Res_H^G.$$
+  In particular, if $H$ is co-compact and open in $G$, $\Ind_H^G$ is both left-
   and right-adjoint to $\Res_H^G$.
 \begin{proof}
   Making use of the remarks above, both adjunctions are the
-  Tensor-Hom-Adjunction in disguise. 
+  Tensor-Hom-Adjunction in disguise. For the adjunction $\cInd_H^G \ladj
+  \Res_H^G$, this is immediate. For the second we observe that
+  \begin{equation*}
+    \Hom_{\RepSm H}(\Res_H^G V, W) \cong \Hom_{\Rep G}(V, \algInd_H^G(W)) = 
+    \Hom_{\RepSm G}(V, \Ind_H^G(W)).
+  \end{equation*}
+  Here the first isomorphism is by Tensor-Hom-adjunction, the second 
+  equality uses that $V$ is a smooth representation of $G$.
 \end{proof}
 \end{thm}
 
+\begin{prop}\label{prop:InductionOnTower}
+  Let $I$ be a closed subgroup of $H$. There is a natural isomorphism $\Ind_H^G
+  \circ \Ind_I^H \xto{\sim} \Ind_I^G$. 
+  The same statement is true for compact and algebraic induction.
+  \begin{proof}
+    Trivially, $\Res_I^G = \Res_I^H \circ \Res_H^G$. The claim follows as the functors
+    in question are adjoints to the left or the right hand side of this equation,
+    thereby isomorphic.
+  \end{proof}
+\end{prop}
+
 \begin{lem}\label{lem:FrobRecUnitsAreInjective}
-  Let $H$ be an open subgroup of $G$. 
-  The functors $\cInd_H^G$ and $\Res_H^G$ are faithful. 
-  Equivalently, the components of the units
-  \begin{equation*}
-    \id_{\RepSm H} \to \Res_H^G \circ \cInd_H^G \quad \text{ and } \quad 
-    \id_{\RepSm G} \to \Ind_H^G \circ \Res_H^G
-  \end{equation*}
-  coming from the adjunctions in Theorem \ref{thm:Frobenius Reciprocity} are
-  injective. 
+  Let $H$ be a closed subgroup of $G$. The functor $\Res_H^G$ is faithful.
+  Equivalently, the unit $\id_{\RepSm G} \to \Ind_H^G \circ \Res_H^G$ of 
+  the adjunction $\Res_H^G \ladj \Ind_H^G$ is injective on components.
+  If $H$ is additionally assumed to be an open subgroup of $G$,
+  The functor $\cInd_H^G$ is faithful. 
+  Equivalently, the components of the unit
+    $\id_{\RepSm H} \to \Res_H^G \circ \cInd_H^G$
+  coming from the adjunction $\cInd_H^G \ladj \Res_H^G$ are injective. 
 \begin{proof}
   Faithfulness of $\Res_H^G$ is clear. For faithfulness of $\cInd_H^G$, note that 
   the unit of the adjunction $\cInd_H^G \ladj \Res_H^G$ is given 
@@ -150,6 +207,50 @@ to a functor
   4.5.13]{riehl2017category}.
 \end{proof}
 \end{lem}
+
+\begin{rmk} 
+  For the sake of completeness, we note that the unit of the adjunction 
+  $\Res_H^G \ladj \Ind_H^G$ is given on components $(\pi, V) \in \RepSm G$ by
+  \begin{equation*}
+    V \to \Ind_H^G( \Res_H^G(V)), \quad v \mapsto \psi_v; \quad
+    \text{where}\quad \psi_v(g) = \pi(g) v.
+  \end{equation*}
+\end{rmk}
+
+The following Lemma is an instance of base-change.
+\begin{lem}\label{lem:BaseChangeForResInd}
+  Let $H$ be a closed subgroup of $G$ and let $N$ be another closed subgroup
+  of $G$ satisfying $NH = HN$. Let $(\pi, V)$ be a smooth representation of $H$.
+  Then there is a natural injective morphism
+  \begin{equation*}
+    \Res_N^{HN} (\Ind_H^{HN} \pi) \to \Ind_{H \cap N}^N(\Res_{H\cap N}^H \pi).
+  \end{equation*}
+  If $N$ is open in $G$, this map is an isomorphism.
+\begin{proof}
+  One quickly checks that the map
+  \begin{equation*}
+    \Res^{HN}_{N}(\algInd_{N}^{HN} V) \to \algInd_{H\cap N}^{N}(\Res_{H \cap N}^H V)
+  \end{equation*}
+  given by sending $\phi: HN \to V$ to its restriction $\phi|_N$, is an
+  isomorphism. Now the claim follows by taking smooth parts and applying Lemma
+  \ref{lem:SmoothRestriction}.
+\end{proof}
+\end{lem}
+\begin{rmk} 
+  There are multiple ways to construct the map above.
+  Applying $\Ind_H^{HN}(-)$ to the unit of the adjunction $\Res_{H\cap N}^H \ladj
+  \Ind_{H\cap N}^H$ yields for any $\pi \in \RepSm H$ a natural morphism
+  \begin{equation*}
+    \Ind_H^{HN}(\pi) \to \Ind_{H\cap N}^H \Res_{H \cap N}^H (\pi) \cong
+    \Ind_{N}^{HN} \Ind_{H \cap N}^N \Res_{H \cap N}^H (\pi),
+  \end{equation*}
+  which is equivalent to a map 
+  \begin{equation*}
+    \Res_N^{HN} (\Ind_H^{HN} \pi) \to \Ind_{H \cap N}^N(\Res_{H\cap N}^H \pi).
+  \end{equation*}
+  This gives the same map as in the proof. The dual construction (starting with the
+  co-unit) also yields the same map.
+\end{rmk}
 
 
 \end{document}
