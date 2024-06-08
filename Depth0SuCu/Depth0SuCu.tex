@@ -6,9 +6,137 @@
 Representations} % (fold)
 \label{sec:Explicit Non-Abelian Lubin-Tate Theory for Depth Zero Supercuspidal Representations}
 
-
 \subsection{Deligne--Lusztig Theory for Depth Zero Representations} % (fold)
 \label{sub:Deligne-Lusztig Theory for Depth Zero Representations}
+The aim of this section is to outline the construction of a correspondence
+between characters of $\FF_{q^n}^\times$ (with values in $\C$) and 
+cuspidal representations of $\GL_n(\FF_q)$. The correspondence we construct here
+is an application of a more general theory due to Deligne--Lusztig. 
+In \cite{delignelusztig1976}, they construct
+for any connected reductive algebraic group $G$ over $\FF_q$ and any
+Frobenius-stable 
+maximal torus $T \subseteq G$ a correspondence associating to certain
+characters $\theta$ of $T^F$ a virtual representation $R_{T,\theta}$ of 
+$G$. We review the theory. For the remainder of this section, $G$ is a smooth
+connected reductive algebraic group over $\bar \FF_q$, obtained by extension of 
+scalars from a reductive group $G_0$ over $\FF_q$. Here, we implicitely made a choice 
+$\FF_q \inj \bar \FF_q$. We denote by $F$ the Frobenius endomorphism
+$F: G \to G$, defined over $\FF_q$. 
+
+\subsubsection{General Theory} % (fold)
+\label{ssub:General Theory}
+
+We recall a few basic notions from the theory of algebraic groups. Milne's book
+\cite{milne2017reductive} is the main reference. 
+
+\begin{defi}[Borel Subgroup]\label{def:BorelSubgrp}
+  A smooth connected solvable sub-groupscheme $B \subset G$ is called Borel if it 
+  is maximal among the smooth connected solvable sub-groupschemes of $G$. 
+  A pair of sub-groupschemes $(B,T)$ is called a Borel pair if $B \subset G$ is 
+  Borel and $T$ is a maximal Torus of $G$ contained in $B$.
+\end{defi}
+For the remainder of this subsection, fix a Borel pair $(B,T)$. By an application
+of Chevalley's theorem, the quotient $G/B$ (in the sense of \cite{milne2017algebraic})
+exists. This quotient is the unique scheme (up to unique isomorphism) representing
+the \'etale sheafification of the presheaf $T \mapsto G(T)/B(T)$. In particular,
+we have $(G/B)(k) = G(k)/B(k)$. Quotients of the form $G/H$ exist generally for
+smooth algebraic subgroups $H \subset G$. 
+\begin{defi}[Weyl Group]\label{def:WeylGroup}
+  The Weyl group associated to $T \subset G$ is defined as $\Weyl(G,T) =
+  \Norm_G(T)/T$, where $\Norm_G(T)$ is the normalizer of $T$ in $G$. 
+  If $T'$ is another maximal torus inside $G$, $T$ and $T'$ are conjugate,
+  and there is a canonical isomorphism $\Weyl(G,T) \cong \Weyl(G,T')$. 
+  This allows us to omit $T$ from notation, and talk about the (canonical)
+  Weyl group.
+\end{defi}
+
+\begin{thm}[Bruhat Decomposition]\label{thm:BruhatDecomposition}
+  There is an isomorphism of smooth algebraic varieties
+  \begin{equation*}
+    G / B = \bigcup_{w \in \Weyl(G,T)} B w B/B.
+  \end{equation*}
+  In particular, there is a natural bijection
+  \begin{equation*}
+    G \backslash ( G / B \times G / B ) \to B \backslash G / B.
+  \end{equation*}
+\begin{proof}
+  See \cite[Section 20.h]{milne2017algebraic}. The bijection is given (on
+  rational points) by $(gB, g'B) \mapsto  B g^{-1} g' B$. 
+\end{proof}
+\end{thm}
+
+
+
+
+% subsection General Theory (end)
+
+Given a Borel sub-groupscheme $B$ of $G$, the quotient $G/B$ (to be taken as 
+the fppf-sheafification \red{if we only care about smooth, etale should
+suffice} of the presheaf $S \mapsto G(S)/B(S)$ for 
+suitable $k$-schemes $S$) exists and is representable by a complete algebraic
+variety \red{todo: See MilneBook Ch. 18 and ConradBook discussion at beginning
+of Ch. 1}. Following notation in \cite{delignelusztig1976}, we write 
+$X = X_G = G/B$. The $k$-valued points of $X$ are in bijection with the 
+Borel sub-groupschemes of $G$. Indeed, it is easy to see that for any $g \in G(k)$,
+the subgroup $g B g^{-1}$ of $G$ is Borel. The induced action
+\begin{equation*}
+  G(k) \lacts \{B \subset G \mid B \text{ Borel}\}, \quad g.B = gBg^{-1}
+\end{equation*}
+is transitive by \red{MilneBook, 18.17} and any Borel sub-groupscheme $B$ is
+stabilized by its $k$-rational points. 
+
+\begin{rmk} 
+  In the case where $G = \GL_n$, the Borel subgroups are given by those subgroups
+  that are diagonalizable. In particular, a valid choice for $B$
+  is the subgroup of invertible upper triangular matrices, which contains the 
+  Torus $T$ of diagonal matrices. In this case the quotient $\GL_n/B$ has
+  another description; it is isomorphic to the complete flag variety. 
+  \red{expand, cf. MilneBook, p 149}.
+\end{rmk}
+
+\begin{defi}[Weyl Group]\label{def:WeylGrp}
+  If $T$ is a maximal Torus in $G$, the group $\Weyl(G,T) = \Norm_G(T)/T$ does - up to
+  canonical isomorphism - only depend on $G$. It is therefore justified to omit
+  $T$ from notation, writing $\Weyl(G) = \Weyl(G,T)$. We call $\Weyl(G)$ the
+  Weyl group of $G$.
+  \red{I think, technically speaking, the Weyl group is also a group scheme?}
+\end{defi}
+
+For the remainder of this section we fix a Borel pair $(B,T)$. 
+
+\begin{prop}\label{prop:WeylGroupActsOnBorel}
+  There is a simply transitive action $\Weyl(G) \lacts X$. 
+\begin{proof}
+  This is essentially the Bruhat decomposition, cf. \red{Milne, Prop. 18.59}
+\end{proof}
+\end{prop}
+
+\begin{defi}[Relative Position]\label{def:BorelsInRelPos}
+  Let $w \in \Weyl(G, T)$. 
+  We say that two Borel subgroups $B', B''$ are in relative position $w$ if 
+  $w.B' = B''$. 
+\end{defi}
+
+We denote by $O(w)(k) \subset X(k) \times_{\spec(k)} X$ the subset
+of $X(k) \times X(k)$ given by pairs $(B', B'')$ in relative position $w$. 
+More generally, $O(w)$ is the locally closed subscheme of $X \times_{\spec \bar
+\FF_q} X$ given by the orbit of the element $(B, w. B) \in (X \times_k X)(k)$. 
+
+For $w \in \Weyl(G)$, we denote by $X(w)$ the intersection of $O(w)$ with the graph
+of the Frobenius $\Gamma_F \subset X \times_k X$. The $k$-rational points of $X(w)$ 
+are given by those Borel subgroups $B' \subset G$ that are in relative 
+position $w$ to their Frobenius twist $F(B')$. It can be shown that 
+$X(w)$ is smooth of dimension $l(w)$, where $l(w)$ denotes the Coxeter-length
+of $w$. In addition, $X(w)$ admits an action of $G^F$. 
+
+\textbf{Example.}
+Again, we fix the Borel subgroup $B \subset \GL_n$ of upper triangular matrices
+and $T \subset B$ the torus of diagonal matrices. These choices provide an isomorphism
+$\Weyl(\GL_n,T) \cong \Sigma_n$, the symmetric group with $n$ elements.
+Let $w = (1\ 2\ \dots\ n) \in \Sigma_n$ be the $n$-cycle. Then $X(w)$ is an
+$n-1$-dimensional
+smooth projective subvariety of $X$. 
+
 \begin{defi}[Deligne--Lusztig Variety for $\GL_n(\FF_q)$]\label{def:DLVariety}
   \todo{}
 \end{defi}
@@ -165,9 +293,9 @@ $\DL_n$, cf. Section \ref{sub:Deligne-Lusztig Theory for Depth Zero Representati
 
 The input we get from Mieda's result is the following.
 \begin{prop}\label{prop:J1EquivInjMor}
-  There is a injective morphism of  $J^1$-representations
+  There is an injective morphism of  $J^1$-representations
   \begin{equation*} 
-    \Res_{J^1}^J( \hH_{\DL,\theta} ) \inj \Res_{J^1}^{G^1}( \hH'_{\DL}).
+    \Res_{J^1}^J( \hH_{\DL,\theta} ) \inj \Res_{J^1}^{G^1}( \hH'_{\LT}).
   \end{equation*}
 \begin{proof}
   \red{This is \cite[Proposition 5.11]{mieda2016geometric}.}
@@ -175,36 +303,37 @@ The input we get from Mieda's result is the following.
 \end{prop}
 
 \begin{lem} \label{lem:JEquivInjMor}
-  The morphism of Proposition \ref{prop:J1EquivInjMor} naturally gives rise to
+  The morphism in Proposition \ref{prop:J1EquivInjMor} naturally gives rise to
   an injective $J$-equivariant morphism
   \begin{equation*}
-    \hH_{\DL,\theta} \inj \Ind_{J^1}^J (\Res_{J^1}^{G^1} \hH'_{\LT}).
-  \end{equation*}
-  There also is an injective morphism of $J$-representations
-  \begin{equation*}
-     \Ind_{J^1}^J (\Res_{J^1}^{G^1} \hH'_{\LT}) \inj \Res_J^G \hH_\LT.
+    \hH_{\DL,\theta} \inj \Res_J^G \hH_\LT.
   \end{equation*}
 \begin{proof}
-  \textit{The first morphism.}
-  The unit of the adjunction $\Res_{J^1}^J \ladj \Ind_{J^1}^J$ yields a
-  morphism of $J$-representations $\hH_{\DL,\theta} \to \Ind_{J^1}^J(\Res_{J^1}^{J}
-  \hH_{\DL, \theta})$, which is injective by Lemma \ref{lem:FrobRecUnitsAreInjective}.
-  Applying $\Ind_{J^1}^J$ to the injective morphism in Proposition
-  \ref{prop:J1EquivInjMor} yields a morphism
+  We construct a sequence of $J$-equivariant injections
   \begin{equation*}
-    \Ind_{J^1}^J ( \Res_{J^1}^J \hH_{\DL,\theta} ) \to  \Ind_{J^1}^J
-    (\Res_{J^1}^{G^1} \hH'_{\LT}).
+    \hH_{\DL,\theta} \inj \Ind_{J^1}^J ( \Res_{J^1}^J \hH_{\DL,\theta}) \inj
+    \Ind_{J^1}^J (\Res_{J^1}^{G^1} \hH'_{\LT}) \\ \xto \sim \Res_J^{G^1J}(
+    \Ind_{G^1}^{G^1J} \hH'_\LT) 
+ \inj \Res_J^G \hH_\LT.
   \end{equation*}
-  This morphism is injective because $\Ind_{J^1}^J$ is exact, cf. Proposition
+  \textit{The first morphism.}
+  This is the unit of the adjunction $\Res_{J^1}^J \ladj \Ind_{J^1}^J$ 
+  applied at $\hH_{\DL,\theta}$, which is injective by Lemma
+  \ref{lem:FrobRecUnitsAreInjective}.
+
+  \textit{The second morphism.}
+  This is $\Ind_{J^1}^J$ applied to the injective morphism in Proposition
+  \ref{prop:J1EquivInjMor}. The resulting morphism is injective because
+  $\Ind_{J^1}^J$ is exact, cf. Proposition
   \ref{prop:InducedRepresentationExact}. 
 
-  \textit{The second morphism.} 
-  As $G^1$ is open and normal in $G$ and $J^1 = G^1 \cap J$, 
-  Lemma \ref{lem:BaseChangeForResInd} gives an isomorphism
-  \begin{equation*}
-    \Ind_{J^1}^J( \Res_{J^1}^{G^1} \hH'_\LT) \cong \Res_J^{G^1J}(
-    \Ind_{G^1}^{G^1J} \hH'_\LT).
-  \end{equation*}
+  \textit{The third morphism.} 
+  The morphism is given by the inverse of the base-change morphism constructed in
+  Lemma \ref{lem:BaseChangeForResInd}, which is applied with $H = G^1$, $N = J$. 
+  Note that $G^1$ is normal in $G$, so the assumptions of the Lemma are
+  satisfied. As $J$ is open in $G$, the map is an isomorphism. 
+  
+  \textit{The fourth morphism.}
   Since $G^1J$ is open in $G$, the unit of the adjunction $\cInd_{G^1J}^G \ladj
   \Res_{G^1J}^G$ yields a monomorphism of $G^1J$-representations 
   \begin{equation}\label{eq:MiedaEx1Morph1}
@@ -239,7 +368,44 @@ $\rec_F(\pi_\theta)$ is irreducible and $\dim(\tau_\theta) = n = \dim
 \rec_F(\pi_\theta)$. Admitting Proposition \ref{prop:J1EquivInjMor}, this
 concludes the proof of Theorem \ref{thm:MainRes1}.
 
-% subsection Proof (end)
+\subsubsection{Proof of Proposition \ref{prop:J1EquivInjMor}} % (fold)
+\label{ssub:Proof of Proposition}
+
+\begin{lem}\label{lem:GeneratorsForJ1}
+  The group $J^1$ is generated by the following elements.
+  \begin{itemize}
+    \item $(g,1,1)$ for $g \in \GL_n(\cO_F)$ with $\deg g = 1$,
+    \item $(1,d,1)$ for $d \in \cO_D^\times$ with $\Nrd d = 1$, 
+    \item $(a,a,1)$ for $a \in F_n^\times$, 
+    \item $(1, \Art^{-1}_{F_n}(\sigma)^{-1}, \sigma)$ for $\sigma \in W_{I_n}$, 
+    \item and $(1, \varpi^{-1}, \sigma)$ for $\sigma \in W_{F_n}$ with
+              $\Art^{-1}_{F_n}(\sigma) = \varpi$. 
+  \end{itemize}
+  The image of $J^1$ under the homomorphism $\Theta$ lies inside  
+  \begin{equation*}
+    \{(g,d,\sigma) \in \GL_n(\FF_q) \times \FF_{q^n}^\times \times \Frob_q^{n\Z} \mid 
+    \det(g) \Norm_{\FF_{q^n}/\FF_q}(d) = 1\}.
+  \end{equation*}
+\begin{proof}
+\end{proof}
+\end{lem}
+
+\begin{lem}\label{lem:J1ActionOnYb}
+  Through the homomorphism $\Theta$, $J$ acts on $\DL_n$ over $Y_b$.
+\begin{proof}
+\end{proof}
+\end{lem}
+
+\begin{prop}\label{prop:J1ActionOnAffinoid}
+  The action of $J^1$ on $M_{\infty, C}^{(0)}$ stabilizes $U$ and extends to
+  $\cX$. The induced action on the special fiber $\cX_s$ is compatible with the
+  action of $J^1$ on $Y_b$.
+\begin{proof}
+\end{proof}
+\end{prop}
+% subsubsection Proof of Proposition \ref{prop:J1EquivInjMor} (end)
+
+% subsection (end)
 
 % section The Explicit Local Langlands Correspondence for Depth Zero Supercuspidal Representations (end)
 \end{document}

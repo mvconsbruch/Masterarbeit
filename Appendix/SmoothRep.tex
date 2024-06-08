@@ -26,6 +26,8 @@ group and $H \subset G$ is a closed subgroup of $G$.
   $G$-representations.
 \end{defi}
 
+The forgetful functor $\Rep G \to \RepSm G$ has a left adjoint, given by taking
+smooth parts. 
 \begin{defi}[Smooth Part of a Representation]
   Let $(\pi,V) \in \Rep G$. We write 
   \begin{equation*}
@@ -34,7 +36,8 @@ group and $H \subset G$ is a closed subgroup of $G$.
   where $K$ runs over the compact open subgroups of $G$ and $V^K \subseteq V$
   denotes the subspace of elements fixed by $K$. 
   Now $V^\sm$ is a $G$-stable subspace of $V$, and we write $(\pi^\sm, V^\sm)$ 
-  for the induced $G \to \GL(V^\sm)$ of $\pi$.
+  for the induced representation $G \to \GL(V^\sm)$ of $\pi$.
+  We call $\pi^\sm$ the smooth part of $\pi$.
 \end{defi}
 
 \begin{defi}[Algebraic Induction]
@@ -76,7 +79,7 @@ group and $H \subset G$ is a closed subgroup of $G$.
 
 \begin{lem}\label{lem:SmoothRestriction}
   If $G$ is locally profinite and $H$ is a closed subgroup, for any 
-  $(\pi,V) \in \Rep G$ we have
+  $(\pi,V) \in \Rep G$ we have an $H$-equivariant split inclusion
   \begin{equation*}
     \Res_H^G (V^\sm) \subseteq \left( \Res_H^G (V) \right)^\sm,
   \end{equation*}
@@ -92,7 +95,8 @@ group and $H \subset G$ is a closed subgroup of $G$.
     V^{K \cap H} = \left(\Res_H^G(V)\right)^\sm,
   \end{equation*}
   where $K$ runs over the compact open subsets of $G$. This is an equality if
-  $H$ is open. 
+  $H$ is open. The canonical splitting (sending everything outside the image to 
+  zero) is $H$-equivariant.
 \end{proof}
 \end{lem}
 
@@ -219,17 +223,17 @@ Note that if $H$ is co-compact in $G$, we have $\cInd_H^G = \Ind_H^G$.
 
 The following Lemma is an instance of base-change.
 \begin{lem}\label{lem:BaseChangeForResInd}
-  Let $H$ be a closed subgroup of $G$ and let $N$ be another closed subgroup
-  of $G$ satisfying $NH = HN$. Let $(\pi, V)$ be a smooth representation of $H$.
-  Then there is a natural injective morphism
+  Let $H$ and $N$ be closed subgroups of $G$ satisfying $NH = HN$. Let $(\pi,
+  V)$ be a smooth representation of $H$.
+  Then there is a natural split monomorphism of $N$-representations 
   \begin{equation*}
     \Res_N^{HN} (\Ind_H^{HN} \pi) \to \Ind_{H \cap N}^N(\Res_{H\cap N}^H \pi).
   \end{equation*}
-  If $N$ is open in $G$, this map is an isomorphism.
+  If $N$ is open in $HN$, this map is an isomorphism.
 \begin{proof}
   One quickly checks that the map
   \begin{equation*}
-    \Res^{HN}_{N}(\algInd_{N}^{HN} V) \to \algInd_{H\cap N}^{N}(\Res_{H \cap N}^H V)
+    \Res^{HN}_{N}(\algInd_{H}^{HN} V) \to \algInd_{H\cap N}^{N}(\Res_{H \cap N}^H V)
   \end{equation*}
   given by sending $\phi: HN \to V$ to its restriction $\phi|_N$, is an
   isomorphism. Now the claim follows by taking smooth parts and applying Lemma
