@@ -11,24 +11,649 @@ Groups over fields of characteristic $0$, cf. \cite{Bochner1946FGrps}.
 The study of formal groups later became interesting for its own right, 
 with pioneering works of Lazard \cite{Lazard1955FGrps}. \todo{blabla}
 
-\subsection{Basic Notions} 
+\subsection{Basic Notions} % (fold)
 \label{sub:Basic Notions}
-\input{FormalModules/BasicNotions.tex}
+As promised in the introduction, we begin by defining {formal group
+laws}.
+For now, let $A$ be any ring.
+\begin{defi}[Formal Group Laws of arbitrary dimension]
+  A (commutative) formal group law  of dimension
+  $n$ over $R$ is a tuple of
+  power series $F = (F_1, \dots, F_n)$ with $$F_i(X_1, \dots, X_n,Y_1,
+  \dots, Y_n) \in R\llbr X_1, \dots,
+  X_n, Y_1, \dots, Y_n\rrbr, \quad 1 \leq i \leq n$$
+  such that $F_i(\mathbf X, \mathbf Y) \equiv X_i + Y_i $ modulo degree $\geq 2$
+  and the following equalities are satisfied:
+  \begin{enumerate}
+    \item $F(F (\mathbf X, \mathbf Y), \mathbf Z) = 
+      F(\mathbf X, F(\mathbf Y, \mathbf Z))$.
+    \item $F( \mathbf X, \mathbf 0) = \mathbf X$.
+    \item $F( \mathbf X, \mathbf Y) = F(\mathbf Y, \mathbf X).$
+  \end{enumerate}
+  Here, and in the sequel, we abbreviate $\mathbf X =
+  (X_1, \dots, X_n)$, et cetera.
+  Given a formal group $F$ of dimension $n$ and a formal group law
+  $G$ of dimension $m$,
+  a morphism $F \to G$ is a $m$-tuple $f = (f_1, \dots, f_m)$ 
+  of power series $f_i \in R\llbr X_1, \dots, X_n \rrbr$ such that $\bff(0)=0$ and
+  \begin{equation*}
+    G(f( \mathbf X), f( \mathbf Y) ) = f(F( \mathbf X, \mathbf Y)).
+  \end{equation*}
+  For any $n$-dimensional formal module $F$, the identity is given by 
+  the morphism $\id_{F}$ with components $\id_{F,i}( \mathbf X) = X_i$. 
+  Composition of morphisms is given by composition of tuples of power-series.
+  This yields the category of formal modules of arbitrary dimension over $R$,
+  which we denote by $\FGLArbOver R$. We will mostly be concerned with the full
+  subcategory of one-dimensional formal groups, which we denote by $\FGLOver R$. 
+\end{defi}
+
+\begin{lem}\label{lem:FGLAdditive}
+  \begin{enumerate}
+    \item The set $\Hom_{\FGLArbOver R} (F,G)$
+      is an abelian group with addition $f+g = G(f,g)$. 
+      In particular, $\FGLArbOver R$ is pre-additive (cf.
+      \cite[\href{https://stacks.math.columbia.edu/tag/00ZY}{Tag
+      00ZY}]{stacks-project}).     
+    \item Furthermore, $\FGLArbOver R$ admits finite products. Thereby it is 
+      an additive category (cf. \cite[\href{https://stacks.math.columbia.edu/tag/0104}{Tag
+      0104}]{stacks-project}).
+      The unique final and initial object of $\FGLArbOver R$ is the unique
+      $0$-dimensional formal $A$-module law.
+    \item In particular $\End_{\FGLArbOver R}(F)$ is a (possibly non-commutative)
+      ring.
+  \end{enumerate}
+\end{lem}
+
+\begin{xpl} Let us introduce the following two formal group laws.
+  \begin{itemize}
+    \item \textit{The additive formal group law}. Write 
+      $\GG_a$ for the formal group law with addition given by 
+      $\GG_a(X,Y) = X + Y$. 
+    \item We write $\GG_m$ for the formal group law associated with the 
+      with $\GG_m(X,Y) = X + Y + XY$. Note that $\GG_m(X,Y) = (X+1)(Y+1) - 1$
+  \end{itemize}
+\end{xpl}
+
+Next up is the definition of formal $A$-module laws. Naively, we would like to 
+define formal $A$-module laws as formal group laws $F$
+with $A$-module structure, i.e. a morphism of rings $[\cdot]_F: A \to
+\End_\FGLArbOver R(F)$. But there is a subtlety, which becomes evident after defining
+the Lie-algebra of a formal group law. 
+\begin{defi}[Lie-algebra of formal group law]
+Let $\Lie: \FGLArbOver R \to \Ab$ be the functor taking an $n$-dimensional 
+formal group law $F$ to the $R$-module
+\begin{equation*}
+  \Lie(\bF) = \Hom_{\Mod R} \left( \frac{(X_1, \dots, X_n)}{(X_1, \dots,
+  X_n)^2}, R \right) 
+\end{equation*}
+Given an $m$-dimensional group law $\bG$ and a morphism $\bff: \bF \to
+\bG$, $\Lie(\bff)$ is the induced morphism
+\begin{equation*}
+  \Lie(\bF) \to \Lie(\bG), \quad \psi \mapsto \left( S_j \mapsto \psi
+  (\overline{f_j})\right) \in 
+  \Hom_\Mod R\left(\frac{(X_1, \dots, X_n)}{(X_1, \dots, X_n)^2}, R \right),
+\end{equation*}
+where $\overline{ f_j}$ is the reduction of $f_j$ mod $(\bX)^2$. 
+\end{defi}
+We have a canonical basis on both sides, and writing $\Lie(\bF) = R^n$, 
+$\Lie(\bG) \cong R^m$, the induced map $\Lie(\bff) : R^n \to R^m$ is
+given by multiplication with the matrix 
+\begin{equation*}
+  \left( \frac {\partial f_i}{\partial X_j} (0) \right)_{\substack{1 \leq i \leq m \\ 1 \leq j \leq n}}.
+\end{equation*}
+
+Given a one-dimensional group law $F \in \FGLOver R$, the condition that 
+$F(X,Y) \equiv X+Y$ modulo degree $\geq 2$ enforces that the induced map
+$\End(F) \xto{\Lie} \End(R)$ is a morphism of rings. 
+If we are given $[-]_F: A \to \End_{\FGLOver R}(F)$, this $A$-module structure on $F$ 
+yields an $A$-module structure on $R$, given by the composition
+\begin{equation*}
+  A \xto{[\cdot]_F} \End(F) \xto{\Lie} \End(R), \quad a \mapsto \Lie([a]_F)
+\end{equation*}
+This is a morphism of rings, and we obtain an $A$-algebra structure on $R$. 
+This motivates the following definition.
+\begin{defi}[Formal $A$-Module Law of arbitrary dimension]\label{def:formalmodulelaw}
+  Let $R$ be an $A$-algebra with structure morphism $j: A \to R$. A formal
+  $A$-module law over $R$ of dimension $n$ is given by the data of 
+  a formal $n$-dimensional group law $F$ over $R$ and a morphism of rings
+  \begin{equation*}
+    A \to \End_{\FGLArbOver R} (F), \quad a \mapsto ([a]_{F,i}
+    )_{1 \leq i \leq n} \in (R \llbr X_1, \dots, X_n \rrbr )^n
+  \end{equation*}
+  such that $[a]_{F,i}(\mathbf X) \equiv j(a) X_i$ modulo terms of degree 
+  $\geq 2$. Morphisms between formal $A$-modules of arbitrary dimension are 
+  morphisms of formal groups respecting the $A$-module structure. 
+  The resulting category is denoted $\FMLArbOver A R$. As before, the full
+  subcategory of one-dimensional formal $A$ modules over $R$ is denoted 
+  $\FMLOver A R$.
+\end{defi}
+
+Note that $\FGLOver R \cong \FMLOver \Z R$.
+Slightly abusing notation, we usually do not explicitely mention the $A$-structure
+when referring to formal module laws, simply writing $F \in \FMLOver AR$, for
+example. 
+
+The following lemma explains the functoriality of the assignment
+$R \mapsto \FMLArbOver A R$.
+
+\begin{lem}\label{lem:FMLFunc}
+  The assignment $R \mapsto \FMLArbOver A R$ is functorial in the following sense.
+  If $i: R \to R'$ is a morphism of $A$-algebras, we obtain a functor
+  \begin{equation*}
+    \FMLArbOver A R \to \FMLArbOver A {R'}, \quad F \mapsto F \otimes_R R',
+  \end{equation*}
+  where $F \otimes_R R'$ is the formal $A$-module law obtained by applying $i$
+  to the coefficients of the formal power series representing the $A$-module
+  structure of $F$. 
+\end{lem}
+
+Note that every $n$-dimensional formal module law $F \in \FMLArbOver A R$
+yields a functor
+\begin{equation}\label{eq:fmnilpfunc}
+  \Alg R \to \Mod A, \quad S \mapsto \Nil(S)^n,
+\end{equation}
+where $\Nil(S)^n$, the set of $n$-tuples of nilpotent elements of $S$, is equipped with
+addition and scalars given by 
+\begin{equation*}
+  s_1 + s_2 = F(s_1, s_2) \in \Nil(S)^n, \quad a s = [a]_F(s) \in \Nil(S)^n.
+\end{equation*}
+This construction yields a functor (with slight abuse of notation)
+\begin{equation}\label{eq:formfunc}
+  \FMLOver A R \to \Fun(\Alg R, \Mod A),
+\end{equation}
+where $\Fun$ denotes the functor category.
+
+Passing from discrete $R$-algebras to admissible $R$-algebras (cf. Definition
+\ref{def:admring}), this construction extends naturally to a functor 
+\begin{equation*}
+  \FMLOver AR \to \Fun (\Adm R, \Mod A), \quad F \mapsto \Spf R\llbr \bT \rrbr,
+\end{equation*}
+where we equip $\Spf R \llbr \bT \rrbr$ with the structure of an $A$-module object
+using the endomorphisms coming from $F$. 
+Following this line of thought leads naturally to the definition of
+formal modules. 
+
+\begin{defi}[Formal Groups and Formal Modules.]
+  Given an $A$-scheme $X$, we define the category
+  $\FMArbOver A X$ as follows. 
+  Objects are $A$-module objects $\cF$ in the category
+  of formal schemes over $X$, having the property that 
+  there is a cover of $X$ by Zariski-open affine subsets $U_i = \spec (R_i)$
+  such that $\cF \times_X U_i$ is isomorphic to $\Spf R_i\llbr X_1, \dots,
+  X_n\rrbr$ and the induced $A$-module structure on $\spf R_i\llbr X_1, \dots, X_n\rrbr$
+  yields a formal $A$-module law on $R_i$. Given $\cF, \cG \in \FMLArbOver AX$,
+  a morphism $\phi: \cF \to \cG$ is the same as a morphism of $A$-module objects 
+  in the category of formal schemes over $X$.
+  Again, we denote the full subcategory of one-dimensional formal $A$-modules
+  over $X$ by $\FMOver AX$. 
+\end{defi}
+
+\begin{rmk} 
+  Formal schemes (over a base an $A$-scheme $X$, say) locally isomorphic to 
+  $\spf \cO_X(U)\llbr \bT \rrbr$ are sometimes called Formal
+  Lie Varieties \todo{reference}. Equivalently to the definition above, we could
+  have defined formal $A$-modules as $A$-module objects in the category of
+  Formal Lie Varieties, such that the $A$-module structure
+  on the tangent space at the identity agrees with the usual one.
+\end{rmk}
+
+\begin{defi}[Coordinate]
+  Let $\cF$ be a formal $A$-module over $X$. The choice of a cover $\sqcup_{i
+  \in I} \spec(R_i) \to X$ together with isomorphisms $\cF \times_X \spec(R_i)
+  \cong \Spf(R_i\llbr \bT \rrbr)$ will be referred to as a coordinate of $\cF$. 
+\end{defi}
+
+Of course there is a functor 
+\begin{equation*}
+  \FGG: \FMLArbOver AR \to \FMArbOver AR,
+\end{equation*}
+essentially forgetting the choice of module law. The observation of Lemma 
+\ref{lem:FMLFunc} translates to formal modules, a morphism $j : R \to R'$ 
+yields a functor 
+\begin{equation*} 
+  \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
+\end{equation*}
+
+\begin{defi}[Lie functor]
+  The functor $\Lie$ descents to a functor 
+  \begin{equation*}
+    \Lie: \FMArbOver A X \to \QCoh {\cO_X}, 
+  \end{equation*}
+  given by locally describing a formal $A$-module $\cF$ via formal group laws
+  and gluing the local data. Alternatively, it arises from sending 
+  sending a formal $A$-module $\cF$ to $(\cI / \cI^2)^\vee$, where $\cI$ is the
+  ideal associated to the closed immersion $[0]_\cF: X \to \cF$. 
+\end{defi}
+
+\begin{lem}\label{lem:IsosCheckOnLie}
+  A map $\phi: \cF \to \cG$ of formal $A$-modules (of arbitrary dimension) over
+  $X$ is an isomorphism if and only if the induced
+  morphism of Lie-algebras $\Lie(\phi): \Lie(\cF) \to \Lie(\cG)$ is an isomorphism.
+\begin{proof}
+  This is easily verified in the one-dimensional situation after choosing coordinates.
+  The general case adds no complication. 
+\end{proof}
+\end{lem}
+
+
+\begin{xpl}
+  The additive group law $\GG_a$ extends to a formal $A$-module over an affine base
+  $\spec R$ by setting 
+  \begin{equation*}
+    [a]_{\GG_a}(T) = aT
+  \end{equation*}
+  for $a \in A$. More generally, we obtain a formal $A$-module over an
+  arbitrary base scheme $X$ over $A$.
+
+  Over $\Z_p$, the formal group $\GG_m$ extends to a formal 
+  $\Z_p$-module as follows. 
+  As a functor, $\GG_m$ is isomorphic to the assignment
+  \begin{equation*}
+    \Adm {\Z_p} \to \Ab, \quad S \mapsto 1 + S^\cici \subset S^\times.
+  \end{equation*}
+  Here, we equipped $\Z_p$ with the $p$-adic topology.
+  The subgroup $1 + S^\cici$ naturally carries the structure of a $\Z_p$-module.
+  Indeed, for $k \in \N$, we have
+  \begin{equation*}
+    (1+s)^{p^k} = 1 + p^ks + \binom{p^k}2 s^2 + \dots + s^{p^k},
+  \end{equation*}
+  and given $s \in S^\cici$, this is of the form $1+ o(1)$ as $k$ gets large. 
+  In particular, if $x = a_0 + a_1 p + a_2p^2 + \dots \in \Z_p$, expressions of
+  the form
+  \begin{equation*}
+    (1+s)^x = \prod_{i = 1}^\infty (1+s)^{a_k p^k}
+  \end{equation*}
+  make sense by Lemma \ref{lem:infiniteseriesandproducts}. This gives
+  $\GG_{m,\Z_p}$ the structure of a formal $\Z_p$-module. 
+  In the upcoming subsection, we discuss how this is the simplest example of a
+  whole family of formal modules constructed by 
+  Lubin and Tate. In section \ref{sec:Local Class Field Theory} we explain applications of these formal modules to local class field theory.
+\end{xpl}
+
+\begin{defi}[Formal Module associated to $R$-module]
+  \label{def:additiveformalmoduleassociatedtomodule}
+  Suppose that $M$ is a finite projective $R$-module. Then we write
+  $\GG_a \otimes M$ for the additive formal $A$-module associated to $M$ over $R$.
+  As a formal scheme, this formal module is given by
+  \begin{equation*}
+    \GG_a \otimes M \cong \spf R \llbr M^\vee \rrbr,
+  \end{equation*}
+  where $R \llbr M^\vee \rrbr$ denotes the completion of $\Sym_R(M^\vee)$ with respect
+  to the ideal generated by $M^\vee$. The (formal) $A$-module structure is the
+  canonical additive one. 
+  Note that $\Lie(\GG_a \otimes M) = M$ by design. 
+  More generally, if $X$ is a quasi-compact and quasi-separated $A$-scheme
+  and $\cM$ is a finite locally free quasi-coherent 
+  $\cO_X$-module, this construction yields a formal $A$-module
+  $\GG_a \otimes \cM$ over $X$.
+\end{defi}
+\begin{rmk} 
+  If $R\to R'$ is a morphism of rings that turns $R'$ into a (say) finite free
+  $R$-algebra, the definition above overloads the expression $\GG_a \otimes_R R'$.
+  In order to disambiguate, we usually denote the additive formal $A$-module
+  over $R'$ by $\GG_{a, R'}$. 
+\end{rmk}
+
+% subsection Basic Notions (end)
 
 \subsection{Lubin--Tate Formal Module Laws} % (fold)
 \label{sub:Lubin--Tate Formal Module Laws}
-\input{FormalModules/LubinTateFM.tex}
-% (end)
+We sketch the construction of a family of formal modules introduced by 
+Lubin and Tate in \cite{LubinTateFormalMult}.
+
+Let $A$ be a complete discrete valuation ring with 
+finite residue field $k$, set $q = \# k$ and let $\varpi \in A$ be a choice of a
+uniformizer.
+Write $\cF_{\varpi, h}$ for the following set of power series
+\begin{equation*}
+  \cF_\varpi \coloneqq \{f \in \cO_K \llbr T \rrbr \mid f \equiv \varpi T \pmod {T^2}
+  \text{ and } f \equiv T^{q^n} \pmod \varpi\}. 
+\end{equation*}
+
+The construction of Lubin--Tate formal module laws rests on the following 
+lemma, which is Lemma 1 in \cite{LubinTateFormalMult}.
+\begin{lem}\label{lem:LTLemma1}
+  Let $f(T)$ and $g(T)$ be elements of $\cF_{\varpi,h}$ and let 
+  $L(X_1, \dots, X_n) = \sum_{i=1}^n a_i X_i$ be a linear form with coefficients in 
+  $A$. Then there exists a unique series $F(X_1, \dots, X_n)$ with coefficients 
+  in $A$ such that 
+  \begin{gather*}
+    F(X_1, \dots, X_n) \equiv L(X_1, \dots, X_n) \pmod {T^2}, \\ \text{and} \\
+    f(F(X_1, \dots, X_n)) = F(g(X_1), \dots, g(X_n)).
+  \end{gather*}
+\end{lem}
+
+As a direct consequence, we obtain the following useful result.
+\begin{lem}
+  Let $f \in \cF_{\varpi, h}$. Then there is a unique formal $A$-module law $F_f$ over $A$
+  with $[\varpi]_F(T) = f(T)$.
+\begin{proof}
+  In the above Lemma, set $L(X,Y) = X+Y$ and $g=f$ to uniquely determine 
+  the power series $F_f$. The same Lemma yields unique power series
+  $[a]_{F_f}(T) \in R\llbr T \rrbr$ by setting $L(T) = a T$, $g=f$. It is
+  routine to check that $(F_f, ([a]_f)_{a \in A})$ is a formal $A$-module law, 
+  cf. \cite{LubinTateFormalMult}.
+\end{proof}
+\end{lem}
+
+\begin{defi}[Lubin--Tate Module Law]
+  We refer to module laws arising by the construction above as Lubin--Tate module laws.
+\end{defi}
+
+Furthermore, attached to each $a \in \cO_K$ and $f,g \in \cF_{\varpi,h}$, we find
+unique $[a]_{f,g}(T) \in \cO_K\llbr T \rrbr$ satisfying
+\begin{equation}\label{eq:LTMoLaScaCond}
+  [a]_{f,g}(T) \equiv aT \pmod {(T)^2} \quad \text{and} \quad
+  f([a]_{f,g}(T)) = [a]_{f,g}(g(T)).
+\end{equation}
+We now have the following theorem.
+\begin{thm}[Lubin--Tate Formal $\cO_K$-Module Laws]\label{thm:LTModLaw}
+  Let $K$ be a local field with ring of integers $\cO_K$. For any choice of 
+  uniformizer $\varpi \in \cO_K$ and any $f \in \cF_{\varpi,h}$, the family of power
+  series $(F_f, ([a]_{f,f})_{a \in \cO_K})$
+  gives rise to a formal $\cO_K$-module law over $\cO_K$. For 
+  $f,g \in \cF_{\varpi,h}$, the formal $\cO_K$-module laws $F_f$ and $F_g$ are
+  canonically isomorphic, via the morphism induced by $[1]_{f,g} \in \cO_K\llbr
+  T \rrbr$. 
+\begin{proof}
+  See Theorem 1 of \cite{LubinTateFormalMult} and the subsequent discussion.
+\end{proof}
+\end{thm}
+In particular, up to canonical isomorphism, there is only one Lubin--Tate formal
+$\cO_K$-module law over $\cO_K$ attached to the choice of the uniformizer $\varpi \in
+\cO_K$. 
+
+\begin{xpl}
+  If $K = \Q_p$, this reconstructs the multiplicative formal 
+  $\Z_p$ module $\GG_m$ constructed above. Indeed, we have 
+  \begin{equation*}
+    \cF_p = \{f \in \Z_p\llbr T \rrbr \mid f(T) \equiv T^p \text{ mod } p
+    \text{ and } f(T) \equiv pT \text{ mod } (T)^2 \},
+  \end{equation*}
+  implying that $f(T) = (1+T)^p-1$ lies in $\cF_p$.  
+  One quickly checks that 
+  \begin{equation*}
+    F_f(X,Y) = (1+X)(1+Y) - 1 = X + Y + XY \in \Z_p \llbr X,Y \rrbr
+  \end{equation*}
+  is the addition law associated to $f$, and that 
+  for $a \in \Z_p$, the power series
+  \begin{equation*}
+    [a]_{f,f} = (1+T)^{a} - 1 \in \Z_p \llbr T \rrbr
+  \end{equation*}
+  satisfies the condition of \eqref{eq:LTMoLaScaCond}. 
+\end{xpl}
+
+% subsubsection Lubin--Tate Formal Module Laws (end)
 
 \subsection{Logarithms} % (fold)
 \label{sub:Logarithms}
-\input{FormalModules/Logarithms.tex}
+Again, $A$ is a complete discrete valuation ring with uniformizing parameter 
+$\varpi$ and finite residue field $k = A/\varpi A$. We write $q$ for the cardinality of 
+$k$ and $K$ for the field of fractions of $A$. Let $R$ be a local,
+admissible $A$-algebra with structure map $i: A \to R$.
+
+We review results from section
+2 and 3 of \cite{hopkins1994equivariant}. 
+Suppose that $\bF = (F_1, \dots, F_n)$ is an $n$-dimensional formal $A$-module
+law over a $R$. We abbreviate $\bX = (X_1, \dots, X_n)$, $\bY = (Y_1,
+\dots, Y_n)$, etc.
+
+\begin{defi}[Invariant Differentials]
+  The module $\omega(\bF)$ of invariant differentials is the submodule of the
+  $R$-module of differentials
+  \begin{equation*}
+    \Omega_{R\llbr T_1, \dots, T_n \rrbr/R} \cong \bigoplus_{i=1}^n R\llbr T_1, \dots, T_n
+    \rrbr \dc T_i,
+  \end{equation*}
+  consisting of those $\omega \in \omega(\bF)$ satisfying
+  \begin{equation}\label{eq:diffcond}
+    \omega(\bF(\bX,\bY)) = \omega(\bX) + \omega(\bY)\quad \text{and} \quad
+    \omega([a]_\bF(\bX)) = a\omega(\bX).
+  \end{equation} 
+  for all $a \in A$. 
+\end{defi}
+
+It is possible to explicitly calculate a basis for the $R$-module
+$\omega(\bF)$, which we now explain. Let 
+$$A(\bX, \bY) \in \Mat_{n \times n} (R\llbr \bX, \bY \rrbr)$$ 
+denote the matrix $\left((\partial/\partial X_j)F_i (\bX,\bY)\right)_{i,j}$,
+the derivative of $\bF(\bX,\bY)$ with respect to $\bX$. Set 
+$B(\bY) = A(0,\bY)$. Then $B$ is a unit in $\Mat_{n \times n} R\llbr \bY \rrbr$; 
+and we write $(C_{ij}(\bY))$ for the components of 
+$B(\bY)^{-1}$. We now construct 
+$$\omega_{i} \coloneqq \sum_{j=1}^n C_{ij}(\bX) \dc X_j \in \Omega_{R\llbr \bX \rrbr/R}$$ 
+for $1 \leq i \leq n$. By definition we have 
+\begin{equation}\label{eq:coeffofcanonicaldiff}
+  C_{ij}(0) = \begin{cases}
+    1 &\text{ if }i = j,\\
+    0 &\text{ otherwise.}
+  \end{cases}
+\end{equation}
+Checking that $\omega_{i}$ is an invariant differential is a matter of
+applying the chain rule. 
+\begin{prop}
+    The $R$-module $\omega(\bF)$ is free of rank $n$ generated by invariant differentials
+    $\omega_{1}, \omega_{2}, \dots, \omega_{n}$.
+\begin{proof}
+  This is \cite[Proposition 1.1]{1970HondaFormalGroups}. 
+\end{proof}
+\end{prop}
+\begin{xpl}
+  The invariant differentials for $\GG_a$ are spanned by the form $\dc X$. 
+  The invariant differentials for $\GG_m$ are spanned by the form 
+  $\omega_1(X) = \frac 1{1+X} \dc X$.
+\end{xpl}
+By the Proposition above and Equation \eqref{eq:coeffofcanonicaldiff}, we may
+define a pairing
+\begin{equation*}
+  \omega(\bF) \times \Lie(\bF) \to R, \quad \langle X_i, \omega_j \rangle =
+  \begin{cases}
+    1 &\text{ if } i = j,\\
+    0 &\text{ otherwise.}
+  \end{cases}
+\end{equation*}
+This pairing is independent of the parametrization of $\bF$. In particular, it
+descents to a pairing defined for formal modules $\cF \in \FMArbOver A R$, and
+we have a natural isomorphism $\omega(\cF) \cong \Hom_R(R, \Lie(\cF))$.
+
+Let $\GG_a$ be the additive formal $A$-module over $R$. There is a map
+\begin{equation} \label{eq:functorinvdifftohom}
+  \dc_\bF : \Hom_{\FMLOver AR} (\bF, \GG_{a,R}) \to \omega(\bF), \quad f \mapsto \dc f(\bX)
+\end{equation}
+which is a map of $R$-modules if we equip the left hand side with the $R$-module
+structure coming from the natural action of $R \subset \End(\GG_a)$. 
+\begin{prop}\label{prop:loginvdiff}
+  \begin{enumerate}
+    \item If $R$ is a flat $A$-algebra, the map $\dc_F$ is injective.
+    \item If $R$ is a $K$-algebra, the map $\dc_F$ is an isomorphism.
+  \end{enumerate}
+\begin{proof}
+  This is \cite[Proposition 3.2]{hopkins1994equivariant}.
+\end{proof}
+\end{prop}
+
+Suppose now that $F \in \FMLArbOver A R$ is a formal module law of dimension $n$
+over a flat $A$-algebra $R$. 
+Let $\omega_1, \dots, \omega_n$ be the distinguished basis for $\omega(F)$
+constructed above. 
+By the previous proposition, there are unique power series 
+$f_i(\bX) \in (R \otimes_A K)\llbr \bX \rrbr$ furnishing homomorphisms
+$F \otimes (R \otimes_A K) \to \GG_{a,R\otimes_AK}$ of formal $A$-module laws
+and satisfying
+\begin{equation*}
+  \dc_F f_i(\bX) = \omega_i(\bX) \in \omega(F).
+\end{equation*}
+\begin{defi}[Logarithm and Exponential]
+  The induced morphism of formal group laws
+  \begin{equation*}
+    f = (f_1, \dots, f_n) : F \otimes (R \otimes_A K) \to \GG_a^n \otimes_R (R \otimes K)
+  \end{equation*}
+  is called the logarithm attached to $F$, we write 
+  $\log_F(\bX) \in ((R \otimes_A K)\llbr \bX \rrbr)^n$ for the corresponding collection
+  of power series. The inverse of $\log_F(\bX)$ is called the exponential 
+  attached to $F$, denoted $\exp_F(\bX)$. We have $\Lie(\log_F) = \Lie(\exp_F) = \id$,
+  so $\log_F$ and $\exp_F$ are isomorphisms.
+\end{defi}
+
+\begin{lem}
+  Let $F$ and $G$ be formal $A$-module laws over $R$, with $\dim F = n$ and
+  $\dim G = m$. 
+  Let $\phi: F \to G$ be a morphism. Then the diagram 
+  \begin{equation*}
+  \begin{tikzcd}[ampersand replacement=\&]
+    {F \otimes(R \otimes_A K)} \& {\GG_a \otimes (\Lie(F)} \otimes_A K) =
+    \GG_{a, R\otimes_AK}^n \\
+    {G \otimes(R \otimes_A K)} \& {\GG_a \otimes (\Lie(G)} \otimes_A K) =
+    \GG_{a, R\otimes_AK}^m
+  	\arrow["{\log_F}", from=1-1, to=1-2]
+  	\arrow["\phi"', from=1-1, to=2-1]
+  	\arrow["{\Lie(\phi)}", from=1-2, to=2-2]
+  	\arrow["{\log_G}", from=2-1, to=2-2]
+  \end{tikzcd}
+  \end{equation*}
+  commutes. In particular, attached to any $\cF \in \FMArbOver AR$ comes a 
+  natural morphism 
+  $$\log_\cF: \cF \otimes (R \otimes_A K) \to \GG_{a, R\otimes_A K} \otimes
+  \left(\Lie(\cF) \otimes_R (R \otimes_A K)\right).$$
+  \begin{proof}
+    The square commutes because $\Hom(\GG_{a, R\otimes_AK}^n, \GG_{a,
+    R\otimes_AK}^m) = \Hom_{R \otimes_A K}((R\otimes_A K)^n, (R\otimes_A K)^m)$
+    and $\Lie(\log_G \circ \phi \circ \exp_H) = \Lie(\phi).$
+  \end{proof}
+\end{lem}
+
+\begin{lem}\label{lem:KernelOfLog}
+  Let $K$ be a local field with integers $\cO_K$ and a choice of uniformizer $\varpi \in \cO_K$, 
+  and let $F$ be a Lubin-Tate $\cO_K$-module law corresponding to some 
+  $f \in \cF_\varpi$, cf. Theorem \ref{thm:LTModLaw}. Let $S$ be an admissible 
+  $\cO_K$-algebra, and let $s \in S^\cici$ be an element such that the
+  series $\log_{\cF}(s)$ 
+  converges. Then we have $\log_F(s) = 0$ if and only if $[\varpi]^r_F(s) = 0$ for
+  some $r \in \N$. 
+\begin{proof}
+  Up to canonical isomorphism, $F$ is a $\cO_K$-module law with $[\varpi]_F(T) =
+  \varpi T + T^q$. Now one may check that 
+  \begin{equation*}
+    \log_F(T) = \lim_{r \to \infty} \frac{ [\varpi]_F^r(T) }{\varpi^r} = \prod_{i=1}^\infty 
+    \frac{[\varpi]^i_F(T)}{\varpi [\varpi]^{i-1}_F(T)},
+  \end{equation*}
+  where convergence is to be taken coefficient-wise. After plugging in 
+  $s \in S^\cici$, we see that the product vanishes if and only if $[\varpi]_F^r(s) = 0$
+  for some $r \in \N$. 
+\end{proof}
+\end{lem}
 % subsection Logarithms (end)
 
 \subsection{Formal DVR-Modules over Fields} % (fold)
 \label{sub:Formal DVR-Modules over Fields}
-\input{FormalModules/OverFields.tex}
-% subsection overFields (end)
+As above, let $A$ be a discrete valuation ring with uniformizer $\varpi$ and finite 
+residue field $k$; write $q$ for the cardinality of $k$. Let $K$ denote the
+field of fractions of $A$.
+
+We introduce the concept of height, which is an integer attached to
+morphisms of formal group laws over fields. The height of a formal $A$-module
+$\cF$ over $R$ will be defined as the height of it's endomorphism $[\varpi]_\cF$. 
+
+We have seen in the previous section that if $R$ is a field extension of $K$,
+then any morphism of formal group laws $f: F \to G$ over $R$ is either $0$, in
+which case we say it has height $\infty$, or an isomorphism, in which case we
+say it has height $0$. The height becomes interesting in positive
+characteristic. 
+
+We define the height over field extensions of the residue field. 
+\begin{defi}[Height of morphisms of group laws]
+  Assume that $R$ is a field extension of $k$ and $f: F \to G$ is a morphism of 
+  formal groups laws over $R$, given by a formal series $f(T) \in R\llbr T \rrbr$. 
+  If $f = 0$, we say that $f$ has infinite height. 
+  If $f \neq 0$, the height of $f$ is defined as the largest integer $h$ such that 
+  $f = g(T^{q^h})$ for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in
+  R\llbr T \rrbr$ with $c_1 \neq 0$. 
+\end{defi}
+One readily checks that if $f: \cF \to \cG$ is a morphism of formal groups over
+a field extension $R$ of $k$, the height of $f$ does not depend on the choices
+of group laws on $\cF$ and $\cG$. This allows us to define the height function 
+attached to $f$. 
+\begin{defi}[Height function]
+  Let $f: \cF \to \cG$ be a morphism of formal groups over a scheme $X$.
+  For a (scheme-theoretic) point $x \in \abs X$, let $f_x$ denote the 
+  base-change of $f$ to the residue field of $x$. 
+  The height function attached to $f$ is the upper-semicontinuous function
+  \begin{equation} \label{eq:defheight}
+    \height(f) : \abs X \to \Z_{\geq 0} \cup \{\infty\}, \quad x \mapsto 
+    \height(f_x).
+  \end{equation}
+\end{defi}
+It is not hard to see that the height function is additive, that is, we have
+\begin{equation*}
+  \height(f \circ g) = \height(f) + \height(g).
+\end{equation*}
+
+
+\begin{defi}[Isogeny]
+  A morphism $f: \cF \to \cG$ of formal groups over a field $k$ is called an isogeny if
+  $\ker(f)$ is a represented by a finite free $k$-scheme. More generally, a
+  morphism of formal $A$-modules over a base scheme $X$ is an isogeny if and
+  only if $\ker(f)$ is finite and locally free over $X$. 
+\end{defi}
+
+Isogenies can be described using the height function.
+
+\begin{lem}
+  A morphism $f: \cF \to \cG$ is a isogeny if and only if the height 
+  function $\height(f)$ is locally constant with values in $\Z_{\geq 0}$. 
+\end{lem}
+
+\begin{defi}[$\varpi$-divisible $A$-module]
+  We say that a formal $A$-module $H$ over $X$ is $\varpi$-divisible if 
+  $[\varpi]_H$ is an isogeny. If $X$ is connected, the height of $H$ is the
+  (constant) height of the endomorphism $[\varpi]_H: H \to H$. 
+\end{defi}
+
+We close this subsection with a discussion about the structure of 
+formal $\cO_K$-modules over separably closed field extensions $k'$ of
+$k$. 
+\begin{lem}\label{lem:classificationofmodulelawsbyheight}
+  Over $k'$, any two formal $\cO_K$-module laws of the same height are isomorphic.
+\begin{proof}
+  \cite[Proposition 1.7]{drinfel1974elliptic}.
+\end{proof}
+\end{lem}
+In particular, any formal $\cO_K$-module of height $h$ is isomorphic to 
+the formal $\cO_K$-module $F_\mathrm{norm}$ with $[\varpi]_{F_\mathrm{norm}}(T) =
+  T^{q^h}$. We call this the normalized formal $\cO_K$-module.
+
+\begin{lem}\label{lem:EndomorphismsOfFormalModulesOverksep}
+  Suppose that $F \in \FMLOver {\cO_K}{k'}$. Then $\End_{\FMOver A{k'}}(F)$ is 
+  isomorphic to the maximal order
+  of the central division algebra $D$ over $K$ of rank $h^2$ and invariant
+  $\frac 1h$.
+\begin{proof}
+  Also \cite[Proposition 1.7]{drinfel1974elliptic}. 
+\end{proof}
+\end{lem}
+
+\begin{lem}\label{lem:inverseqisog}
+  Let $f: F \to G$ be an isogeny of $\varpi$-divisible formal $\cO_K$-module laws
+  over $k'$. Then there is an 
+  integer $n \geq 0$ and an isogeny $g: G \to F$ with 
+  \begin{equation*}
+    f \circ g = [\varpi^n]_\cG \quad \text{and} \quad g \circ f = [\varpi^n]_\cF.
+  \end{equation*}
+  \begin{proof}[Proof]
+    As the height is additive, we necessarily have 
+    $\height(F) = \height(G)$, thus by Lemma
+    \ref{lem:classificationofmodulelawsbyheight}, we may assume that $F$ and
+    $G$ are given by the normalized formal $\cO_K$-module
+    $F_\mathrm{norm}$.
+    Write $f(T) = g(T^{q^n})$ for some power series $h(T) = c_1 T + c_2T^2 +
+    \dots$, where $c_1 \neq 0$ is a unit in $k'$, and let $g(T) = h^{-1}(T)$ be the 
+    formal inverse of $h$. Now $g$ is a morphism of formal $\cO_K$-module laws
+    satisfying $f \circ g(T) = g\circ f(T) = T^{q^n}$. The claim follows.
+  \end{proof}
+\end{lem}
+
+% subsubsection Formal DVR-Modules over Fields of Characteristic 0 (end)
+% subsection over Fields (end)
 
 \subsection{Exact Categories, Extensions of Formal Modules} % (fold)
  \label{sub:Exact Categories Extensions of Formal Modules}
@@ -42,8 +667,8 @@ Quillen \cite[Appendix A]{keller1990chain}. We introduce functors
   \Ext(-,-)&: \FMArbOver AX^\opp \times \FMArbOver AX \to \Set \\
   \RigExt(-,-)&: \FMArbOver AX^\opp \times \FMArbOver AX \to \Set,
 \end{align*}
-which send a pair $(\cF, \cF')$ to the set of equialence classses of 
-extensions (resp. rigidified extensions) of $\cF$ by $\cF'$. These functors
+which send a pair $(\cF, \cF')$ to the set of equivalence classes of 
+extensions (respectively rigidified extensions) of $\cF$ by $\cF'$. These functors
 will play a major role in the upcoming discussion.
 
 \subsubsection{The Category of Formal Modules is Exact} % (fold)
@@ -58,8 +683,8 @@ exact categories, following \cite[Appendix A]{keller1990chain}.
     X \xto i Y \xto d Z,
   \end{equation*}
   where $i$ is a kernel of $d$ and $d$ is a cokernel of $i$. 
-  We call a morphism $i:X \to Y$ an inflation if it apears as first component
-  of some $(i,d) \in E$, second components are called deflations.
+  We call a morphism $i:X \to Y$ an inflation if it appears as first component
+  of some $(i,d) \in E$, second components of such pairs are called deflations.
   We say that the pair $(\cA, \cE)$ is an exact category if 
   $\cE$ is closed under isomorphisms and satisfies the following properties.
   \begin{enumerate}
@@ -142,7 +767,7 @@ over $X$. As a primer, we note that the category $\FMArbOver AX$ is additive
 \begin{proof}
   The construction of $E$ is sketched in \cite[Proposition
   6.5]{hopkins1994equivariant}. We know that $\cE \cong \spf R\llbr M \rrbr$ 
-  for some free $R$ module $M$ of rank $m+n$. As we have a short 
+  for some free $R$-module $M$ of rank $m+n$. As we have a short 
   exact sequence on Lie-algebras, we may apply the formal implicit function
   theorem \todo{reference/proof} to obtain a section 
   $\sigma: \cF \to \cE$ of $\beta:\cE \to \cF$. 
@@ -200,7 +825,7 @@ appearing in the above Lemma. They satisfy certain conditions.
 \end{prop}
 
 \begin{lem}
-  If $\cF'$, $\cE$ and $\cF$ are formal $A$-modules over a qcqs $A$-scheme $X$,
+  If $\cF'$, $\cE$ and $\cF$ are formal $A$-modules over a quasi-compact and quasi-separated $A$-scheme $X$,
   and $\alpha$ and $\beta$ are morphisms such that 
   $0 \to \cF' \xto\alpha \cE \xto\beta \cF \to 0$ 
   is a short exact sequence of formal $A$-modules, $\alpha$ is a kernel of
@@ -609,7 +1234,7 @@ $\delta g \in \SymCoc^2(F,\GG_a)$.
 
 Furthermore, given two rigidified extensions
 $(E, \omega_E), (D, \omega_{D})$ with associated quasi-logarithms
-$g(T)$ and $h(T)$, there is a (uniqe) isomorphism $(E, \omega_E) \to (D \omega_{D})$
+$g(T)$ and $h(T)$, there is a (unique) isomorphism $(E, \omega_E) \to (D \omega_{D})$
 if and only if $h(T)-g(T) =: f(T)$ has coefficients in $R\llbr T \rrbr$. 
 In this case, the isomorphism $i_f(X,T) \in \Hom_{\FMLArbOver A R}(E, D)$ is
 given by $i_f(X,T) = (X+f(T), T)$. In particular, there is a canonical bijection
@@ -698,7 +1323,7 @@ We admit the following facts from Section 9 of \cite{hopkins1994equivariant}.
   $F$. Then $\Ext(\cF, \GG_a)$ is a free $R$-module of rank $n-1$, 
   $\RigExt(\cF, \GG_a)$ is a free $R$-module of rank $n$. 
 \begin{proof}
-  This is Proposition 9.8 in the beforementioned source. The authors make
+  This is Proposition 9.8 in \cite{hopkins1994equivariant}. The authors make
   use of a description of $\Ext(F, \GG_a)$ in terms of deformation theory
   and combine it with a convenient normal form of formal $A$-modules, so called
   $A$-typical modules (we touch upon the theory in section \ref{sub:Hazewinkels
@@ -744,8 +1369,140 @@ As a corollary, the authors obtain
 
 \subsection{Hazewinkel's Functional Equation Lemma and the Standard Formal Module Law} % (fold)
 \label{sub:Hazewinkels FuncEq and the Standard Formal Module}
-\input{FormalModules/StandardModule.tex}
-% (end)
+If, $A$ is an integral domain and $R$ is a flat $A$-module, the structure of a formal
+$A$-module $F$ over $R$ is uniquely determined by its logarithm $\log_H
+\in R \otimes_A K \llbr T \rrbr$. Indeed, we find
+\begin{equation*}
+  F(X,Y) = \exp_H(X+Y), \quad [a]_F(X) = \exp_H(a X).
+\end{equation*}
+It is therefore natural to wonder about conditions on power series $f \in
+(R\otimes_A K) \llbr T \rrbr$ ensuring that $f$ is the logarithm of some
+formal group law. Hazewinkel found such a condition in his functional equation
+lemma.
+
+\begin{prop}[Hazewinkel's Functional Equation Lemma] 
+  Let $p$ be a prime and $q = p^e$. Given an inclusion of rings $B \subseteq
+  L$, an ideal $\fa \subseteq B$ containing $p$, an endomorphism of rings
+  $\sigma: L \to L$ and elements $s_1, s_2, \dots \in L$ subject to the conditions
+  that 
+  \begin{equation*}
+    \sigma(b) \equiv b^q \pmod \fa \text{ for all } b \in B \quad \text{and} \quad 
+    \sigma^r(s_i) \fa \subset B \text{ for all } r,s \geq 1.
+  \end{equation*}
+  Suppose now that $f \in L\llbr T \rrbr$ has $f'(0) \in L^\times$ and
+  satisfies the functional equation condition
+  \begin{equation*}
+    f(X) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(X^{q^i}) \in B\llbr X \rrbr.
+  \end{equation*}
+  Then we have 
+  \begin{equation*}
+    F(X,Y) = f^{-1}(f(X) + f(Y)) \in B \llbr X,Y \rrbr,
+  \end{equation*}
+  where $f^{-1}$ is the inverse power series as in Lemma \ref{lem:IsosCheckOnLie}.
+  Also, if $g(Z) \in L\llbr Z \rrbr$ is another power series satisfying the 
+  same condition
+  \begin{equation*}
+    g(Z) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(Z^{q^i}) \in B\llbr Z \rrbr,
+  \end{equation*}
+  then $f^{-1}(g(Z)) \in B\llbr Z \rrbr$. 
+  Furthermore, if $\alpha(T) \in B\llbr T \rrbr$ and $\beta(T) \in B \llbr T \rrbr$, then
+  \begin{equation} \label{eq:funceqlemcongruence}
+    \alpha(T) \equiv \beta(T) \pmod {\fa^r} \iff f(\alpha(T)) \equiv f(\beta(T))
+    \pmod {\fa^r}
+  \end{equation}
+
+  \begin{proof}
+    A more general statement can be found in \cite[Section
+    2]{hazewinkel1979funceqexp}. Proofs can be found in \cite[Sections 2 and
+    10]{hazewinkel1978formal}.
+  \end{proof}
+\end{prop}
+Note that by construction, $F(X,Y)$ as defined above yields a (commutative)
+formal group law over $B$. 
+Let $B^\sigma$ denote the subring of elements in $B$ fixed by $\sigma$. Then 
+the second part of the Functional Equation Lemma implies that we even obtain
+formal $B^\sigma$-modules with $[b]_F(T) = f^{-1}(b f(T))$, as $bf(T)$
+satisfies the same functional equation if $b \in B^\sigma$. 
+
+We now enter the situation where $K$ is a local field with ring of integers
+$\cO_K$ and uniformizer $\varpi$ and 
+use the Functional Equation Lemma to construct Lubin--Tate Formal Group Laws. 
+A special role will play the power series
+\begin{equation*}
+  f(T) = \sum_{i=1}^\infty \frac{T^{q^{in}}}{\varpi^i} \in K\llbr T \rrbr.
+\end{equation*}
+It satisfies the functional equation
+\begin{equation*}
+  f(T) = T + \frac 1\varpi f(T^{q^n}),
+\end{equation*}
+which is a functional equation of the form above, with 
+$B = \cO_K$, $\fa = (\varpi)$, $L = K$, $s_1 = \varpi^{-1}$, $s_2 = s_3 = \dots = 0$,
+$\sigma = \id_L$. 
+Hence $f$ arises as the logarithm of a formal $\cO_K$-module law $H$ over $\cO_K$.
+The fact that $f^{-1}(X) = X - \frac 1\varpi X^{q^n} + \dots$ reveals
+$[\varpi]_H(T) \equiv \varpi T$ mod $(T^2)$. Additionally, note that 
+\begin{equation*}
+  f([\varpi]_H(T)) = \varpi f(T) = \varpi T + f(T^{q^n}) \equiv f(T^{q^n}) \pmod \varpi.
+\end{equation*}
+Hence, the equivalence in \eqref{eq:funceqlemcongruence} implies that 
+$[\varpi]_H(T) \equiv T^{q^n}$ mod $\varpi$. So $H$ is a Lubin--Tate formal $\cO_K$-module
+law of height $n$, we call it the standard Lubin--Tate formal module law of
+height $n$. 
+\begin{rmk} 
+  The formal $\cO_K$-module $H$ is a member of the set of so called $A$-typical
+  formal modules - formal $A$-modules $F$ with logarithm of the 
+  form
+  \begin{equation*}
+    \log_F(T) = \sum_{i=0}^\infty b_i X^{q^i}
+  \end{equation*}
+  for elements $b_0, b_1, \dots \in R \otimes_A K$ (cf. \cite[Definition
+  21.5.5 and Criterion 21.5.9]{hazewinkel1978formal}). If $R$ is flat over $A$,
+  every formal $A$-module over $R$ is isomorphic to an $A$-typical one
+  (cf. \cite[21.5.6]{hazewinkel1978formal}). The following discussion remains
+  valid for $\cO_K$-typical formal modules.
+\end{rmk}
+
+It will be convenient to make the terms in the exact sequence of Proposition 
+\ref{prop:ExplicitInterestingES} explicit for $\cF = \FGG(H)$. As $H$ is of height $n>0$, 
+there is no non-trivial map $H \to \GG_a$ and the sequence becomes
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	0 \& {\omega(H)} \& {\RigExt(H,\GG_a)} \& {\Ext(H,\GG_a)} \& 0 \\
+	0 \& \begin{array}{c} \left\{\begin{gathered} {g \in TK\llbr T \rrbr : \delta g = 0} \\          \text{ and $g'(T) \in \cO_K\llbr T \rrbr$}\end{gathered} \right\} \end{array} \& {\QLog(H)} \& {\frac{\SymCoc^2(H, \GG_a)}{\{\delta g \mid g \in T \cO_K\llbr T \rrbr\}}} \& 0.
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-4, to=2-4]
+	\arrow["", from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow["\delta", from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}   
+\end{equation*}
+We now have 
+\begin{prop}
+  The $R$-module $\omega(H)$ is free of rank $1$, generated by 
+  $f(T) = \log_H(T)$. $\QLog(H)$ is free of rank $n$, generated by the classes of
+  $(f(T), \frac 1\varpi f(T^q), \dots, \frac 1\varpi f(T^{q^{n-1}}))$. Consequently,
+  the short exact sequence above is given by 
+  \begin{equation*}
+    0 \to \left \langle f(T) \right \rangle \to \left \langle f(T), \frac 1\varpi
+      f(T^q) , \dots,
+    \frac 1\varpi f(T^{q^{n-1}}) \right \rangle \xto \delta 
+    \left \langle \delta \left(\frac 1\varpi f(T^q)\right),\dots, \delta
+    \left(\frac 1\varpi f(T^{q^{n-1}})\right ) \right \rangle \to 0.
+  \end{equation*}
+\begin{proof}
+  An easy calculation shows that $\frac 1\varpi f(T^{q^k})$ is a quasi-logarithm for 
+  $1 \leq k \leq n-1$. As $\delta f = 0$, we have $f(T) \in \QLog(F)$ as well. 
+  The claim is \cite[Proposition 13.8]{hopkins1994equivariant} which is a 
+  special case of [ibid., Proposition 9.8].
+\end{proof}
+\end{prop}
+% subsubsection Deformations of Formal Modules and the Standard Formal Module (end)
 
 \subsection{The Universal Additive Extension} % (fold)
 \label{sub:The Universal Additive Extension}
@@ -799,7 +1556,7 @@ have by construction a commutative square
 \end{tikzcd}
 \end{equation*}
 and by Proposition \ref{prop:ExtInTermsOfSymCoc} we see that 
-any other isomorphism $i'$ making the diagram above commute differes from
+any other isomorphism $i'$ making the diagram above commute differs from
 $i$ by an element in $\Hom(F, V) = 0$. 
 
 \begin{defi}[Universal Additive Extension]
@@ -885,8 +1642,323 @@ $i$ by an element in $\Hom(F, V) = 0$.
 
 \subsection{Tate Modules and the Universal Cover} % (fold)
 \label{sub:Tate Modules and the Universal Cover}
-\input{FormalModules/UnivCover.tex}
-% (end)
+\subsubsection{Useful Calculations} % (fold)
+\label{ssub:Useful Calculations}
+Let $p$ be a prime. Let $R$ be a Noetherian local ring with maximal ideal $I$
+such that $p \in I$, $R$ is complete with respect to the $I$-adic topology and
+$k_R \coloneqq R/I$ is an algebraically closed field (necessarily of
+characteristic $p$). If $q$ is a power of $p$, we write $\cF_{R,q}$ for the set
+of power series $f \in R\llbr T \rrbr$ satisfying 
+\begin{equation} \label{eq:condonpowerseries}
+  f(T) \equiv g(T^q) \pmod I
+\end{equation}
+for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in R\llbr T \rrbr$ with 
+$c_1 \in R^\times$. 
+If $q'>q$ is another power of $p$, we have injections $\cF_{R,q} \inj \cF_{R,q'}$
+given by sending $f(T)$ to its $(q'/q)$-fold self-composite $f^{q'/q}(T)$. 
+Making use of these transition maps, we define
+\begin{equation*}
+  \cF_R \coloneqq \colim_{n \in \N} \cF_{R, p^n},
+\end{equation*}
+identifying any power series $f \in \cF_{R,q}$ with its image in $\cF_{R,q'}$ for 
+higher $p$-powers $q'$. 
+For any $f \in \cF_{R,q}$, we define the functor
+\begin{equation*}
+  U_f: \Adm R \to \Set, \quad S \mapsto \left\{(x_0,x_1, \dots) \in \prod_\N S^\cici 
+                                          \mid f(x_{i+1}) = x_i\right\}.
+\end{equation*}
+This functor does, up to canonical isomorphism, only depend on the equivalence
+class of $f$ in $\cF_{R}$. 
+We write $U_{0,f}$ for the base change of $U_f$ to $k_R$, that is
+\begin{equation*}
+  U_{0,f}: \Adm {k_R} \to \Set, \quad S \mapsto \left\{(x_0,x_1, \dots) \in
+                              \prod_\N S^\cici \mid \bar f(x_{i+1}) = x_i\right\}.
+\end{equation*}
+Here, $\bar f$ is the image of $f$ under the reduction map $R\llbr T \rrbr \to
+k_R\llbr T \rrbr$. 
+
+In the sequel, we denote $R$-algebras by $S$ and write $J$ for an ideal
+of definition containing the image of $I$ (provided, for example, by \ref{lem:iodimage}).
+Given an element $f\in \cF_R$, we do not distinguish between $f$ and a choice of a 
+representative $\tilde f \in \cF_{R,q}$ for some sufficiently large $p$-power.
+
+The following observation lays the groundwork for many of the upcoming results.
+\begin{lem}\label{lem:cryscalc}
+  Let $f$ be any power series in $\cF_R$. For any two elements $s_1,s_2 \in S$ 
+  with $s_1 \equiv s_2 \mod J$ such that $f(s_1)$ and $f(s_2)$ exist (for
+  example if $f$ is a polynomial or $s_1, s_2 \in S^\cici$), we have 
+  \begin{equation*}
+    f^k(s_1) \equiv f^k(s_2) \pmod {J^{k+1}}.
+  \end{equation*}
+  Here, $f^k$ denotes $k$-fold composition of $f$.
+\begin{proof}
+  We will show that if $s_1 \equiv s_2$ mod $J^k$, then $f(s_1) \equiv f(s_2)$ mod 
+  $J^{k+1}$, which suffices to prove the claim. 
+  We may write $s_2 = s_1 + r$ for some $r\in J^k$. By the assumptions on $f$
+  there exist power series 
+  $g,h \in R\llbr T \rrbr$ such that $h$ only
+  has coefficients in $I$ and $f(T) = g(T^q) + h(T)$. As $I$ is finitely generated,
+  say by elements $(r_1, \dots, r_l)$, we obtain a representation 
+  \begin{equation*}
+    f(s_1) - f(s_2) \in g(s_1^{q})-g(s_2^{q}) + \sum_{i=1}^l r_i \left(h_i(s_1) -
+    h_i(s_2)\right).
+  \end{equation*}
+  As $r$ divides $\left(h_i(s_1) - h_i(s_2)\right)$, we find
+  $r_i(h_i(s_1) - h_i(s_2)) \in (r_i r) \subseteq J^{k+1}$. Also note that 
+  for any $s\in S$ and $n \in \N$, 
+  $$(s+r)^{nq} = s^{nq} + nqrs^{nq-1}r + \dots + r^{nq},$$
+  so after cancellation, all monomials of $g(s_1^q) - g(s_2^q)$ lie in
+  $(qr)$ or $(r^2)$. This implies
+  \begin{equation*}
+    g(s_1^q) - g\left((s_1+r)^q\right) \in (qr) + (r^2) \subseteq J^{k+1},
+  \end{equation*}
+  and we are done.
+\end{proof}
+\end{lem}
+
+\begin{lem}\label{lem:reductioniso}
+  The natural reduction map 
+  \begin{equation*}
+    U_f(S) \to U_{f}(S/J) = U_{0,f}(S/J)
+  \end{equation*}
+  is bijective.
+\begin{proof}
+  We first show surjectivity. Given a sequence $(x_0, x_1, \dots) \in U_{f}(S/J)$, 
+  we can choose a sequence of arbitrary lifts $(y_0, y_1, \dots ) \in \prod_\N
+  S^\cici$ and set 
+  \begin{equation*}
+    z_i = \lim_{r \to \infty} f^r(y_{i+r}).
+  \end{equation*}
+  The limit exists, because if $s\geq r$ are two non-negative integers, we calculate
+  \begin{equation*}
+    f^{s-r}(y_{i+s}) \equiv \bar f^{s-r}(x_{i+s}) = x_{i+r} \equiv y_{i+r}
+    \pmod J,
+  \end{equation*}
+  implying by Lemma \ref{lem:cryscalc} that 
+  \begin{equation*}
+    f^{s}(y_{i+s}) \equiv f^r(y_{i+r}) \pmod{J^r}.
+  \end{equation*}
+  This shows that $(f^{r}(y_{i+r}))_{r \in \N}$ is a Cauchy-sequence for the 
+  $J$-adic topology on $S$, thereby convergent (cf. Lemma
+  \ref{lem:AdmAdicComp}). The sequence $(z_0, z_1, \dots)$ now lies in $U_f(S)$
+  and lifts $(x_0, x_1, \dots)$. It remains to show that the lift is unique.
+  Suppose that $(z'_0, z'_1, \dots)$ is another lift. Then, for any $i,k \in\N$
+  we have $z_{i+k} \equiv z'_{i+k}$ mod $J$, and another application of Lemma
+  \ref{lem:cryscalc} shows that 
+  \begin{equation*}
+    z_i = f^k(z_{i+k}) \equiv f^k(z'_{i+k}) = z'_i \pmod {J^k}.
+  \end{equation*}
+  Thereby $(z_i - z'_i) \in \bigcap_{k \in \N} J^k = \{0\}$. Hence,
+  the lift is unique.
+\end{proof}
+\end{lem}
+
+We write $\Nilp^\flat$ for the functor $U_{T^q}$. That is, 
+$\Nilp^\flat(S) = \lim_{x \mapsto x^q}S^\cici$ is 
+the set of $q$-power compatible sequences with values in $S^\cici$. 
+
+\begin{lem}\label{lem:nilp0iso}
+  For any $f \in \cF_R$, there is a canonical \todo{Use different $S$}
+  bijection $U_{0,f}(S/J) \to \Nilp^\flat(S/J)$. This bijection is functorial in 
+  $S$.
+\begin{proof}
+  By assumption on $f$ we have $f(T) = g(T^{q}) \in k_R\llbr T \rrbr$ for some 
+  $g(T) = c_1T + c_2T^2 + \dots$ with $c_1 \neq 0$. For each coefficient $c_i$, let
+  $d_i \in k_R$ be the unique element such that $d_i^{q} = c_i$. Let
+  $h(T) \in k_R\llbr T \rrbr$ be the power series given by $d_1 T + d_2
+  T^2 + \dots$. Now $(h(T))^{q}=f(T)$, and we find that 
+  \begin{equation*}
+      U_f(S/J) \to \Nilp^\flat(S/J): \quad
+      (x_1, x_2, x_3, \dots) \mapsto (x_1, h(x_2), h(h(x_3)), \dots)
+  \end{equation*}
+  is a well-defined function, and (trivially) functorial in $S$. For the
+  inverse, let $h^{-1}(T) \in k_R\llbr T \rrbr$ be the unique power
+  series with $h^{-1}(h(T))= h(h^{-1}(T)) = T$, see Lemma
+  \ref{lem:IsosCheckOnLie}. The map
+  \begin{equation*}
+      \Nilp^\flat(S/J) \to U_f(S/J), \quad 
+      (x_1, x_2, \dots ) \mapsto (x_1, h^{-1}(x_2), h^{-1}(h^{-1}(x_3)), \dots)
+  \end{equation*}
+  is well-defined as
+  \begin{equation*}
+      f(h^{-1}(T)) = g((h^{-1}(T))^{q}) = (h(h^{-1}(T)))^{q} =
+      T^{q},
+  \end{equation*}
+  and it is readily seen to be inverse to the map constructed above.
+\end{proof}
+\end{lem}
+
+We collect results.
+\begin{prop}\label{prop:pHTcalc}
+  Given $f,g \in \cF_R$, we have bijections, functorial in $S$,
+  \begin{equation} 
+    U_f(S) \to U_f(S/J) \to \Nilp^\flat(S/J) \to U_g(S/J) \to U_g(S).
+  \end{equation}
+  Explicitly, the bijection $U_f(S) \to U_g(S)$ can be described as follows.
+  Suppose that $f,g \in \cF_{R,q}$ for some sufficiently large $q$. 
+  Let $h_f(T)$ and $h_g(T)$ be power series with coefficients in $A$ such that 
+  $$h_f(T)^q \equiv f(T) \pmod I\quad\text{and}\quad h_g(T)^q \equiv g(T) \pmod
+  I.$$
+  Write $h_g^{-1}(T)$ for the (formal) inverse power series of $h_g$. 
+  Now the isomorphism is given by the mapping
+  \begin{equation*}
+    (x_0, x_1, \dots) \mapsto (y_0, y_1, \dots), \quad \text{where} \quad y_i =
+    \lim_{r \to \infty} g^r(h_g^{-(r+i)}(h_f^{r+i} (x_{i+r}))).
+  \end{equation*}
+  Here, the exponents are to be interpreted as iterated composition.
+\begin{proof}
+  The first part follows directly from repeated application of the previous
+  two Lemmas. The second part follows by tracing through the previous lemmas.  
+\end{proof}
+\end{prop}
+% subsubsection Useful Calculations (end)
+
+\subsubsection{The Universal Cover} % (fold)
+\label{ssub:The Universal Cover}
+Let $A$ be an integral domain and $R$ be an $A$-algebra. Given $H \in \FMOver
+AR$ and $a \in A$,
+we define the functor 
+\begin{equation*}
+  \Tilde H_a : \Adm R \to \Mod {A}, \quad
+  S \mapsto \left\{(x_1, x_2, \dots) \in \prod_{\N} H(S) \mid [a]_H(x_{i+1}) =
+  x_i \right\}.
+\end{equation*}
+Here, the $A$-module structure is given by $b.(x_1, x_2,\dots) = ([b]_H(x_1), [b]_(x_2),
+\dots)$. Note that multiplication by $a$ on $\tilde H_a(S)$ is an automorphism
+(it sends $(x_1, x_2, \dots)$ to $([a]_H x_1, x_1, x_2, \dots)$, which has inverse given
+by shifting to the left)  so that $\tilde H_a(S)$ is naturally an
+$A[\frac1a]$-module.
+
+From now on assume that $A$ is a discrete valuation ring with uniformizer
+$\varpi$, finite residue field $k$ and field of fractions $K$. 
+Write $q = \# k$. Let $R$ be a local $A$-algebra with maximal ideal $I$ and
+algebraically closed residue field $k_R = R/I$. Let $H$ be a formal
+$\varpi$-divisible $A$-module over $R$ of height $n$. 
+\begin{defi}[The Universal Cover and Tate Module]
+  We write $\tilde H = \tilde H_\varpi$. This functor
+  takes values in the category of $K$-vector spaces.
+  Up to natural isomorphism, $\tilde H$ does not depend on the choice of 
+  $\varpi$. We call this functor the universal cover of $H$. 
+
+  The Tate-Module $T_\varpi H$ is the subfunctor of $\Tilde H$ cut out out
+  by the condition that $[\varpi]_H(x_1) = 0$. Note that $T_\varpi H$ does no longer 
+  carry the structure of a $K$-vector space, it is an $A$-module. The Rational
+  Tate Module $V_\varpi H$ is the subfunctor of $\Tilde H$ cut out by the
+  condition that $x_1$ has $[\varpi]_H$-torsion. Equivalently, we have 
+  \begin{equation*}
+    V_\varpi H (S) = T_\varpi H(S) \otimes_A K.
+  \end{equation*}
+\end{defi}
+
+\begin{lem}
+  Let $H$ be a $\varpi$-divisible formal $A$-module over $R$ and write $H_0 = H
+  \otimes_R k_R$. Now the choice of a coordinate on $H_0$ gives rise to
+  an isomorphism 
+  \begin{equation*}
+    \tilde H_0 \cong \Nilp^\flat_{k_R}
+  \end{equation*}
+  of functors $\Adm {k_R} \to \Set$
+  \begin{proof}
+    Note that given any coordinate on $H$, we have $[\varpi]_H(T) \in \cF_R$. Hence,
+    the statement is an application of Lemma \ref{lem:nilp0iso}.
+  \end{proof}
+\end{lem}
+
+\begin{lem}
+  Suppose that $S$ is an admissible $R$-algebra admitting an ideal of definition
+  $J$ such that $\varpi \in J$. Then the natural reduction map
+  \begin{equation*}
+    \tilde H(S) \to \tilde H(S/J)
+  \end{equation*}
+  is an isomorphism.
+  \begin{proof}[Proof]
+    After choosing a coordinate on $H$, we have $[\varpi]_H \in \cF_R$ and 
+    $\tilde H(S) \cong U_{[\varpi]_H}$, and the statement is given by 
+    Lemma \ref{lem:reductioniso}.
+  \end{proof}
+\end{lem}
+
+The following is analogous to Proposition \ref{prop:pHTcalc}.
+\begin{prop}\label{prop:UnivCoverReductionIso}
+  Let $S$ be an admissible $R$-algebra with ideal of definition $J$ such that 
+  $\phi(I) \subseteq J$. Then there are canonical isomorphisms (of sets)
+  \begin{equation*}
+    \tilde H(S) \cong \tilde H(S/J) = \tilde H_0(S/J) \cong \Nilp^\flat(S/J) \cong
+    \Nilp^\flat(S).
+  \end{equation*}
+  In particular, $\tilde H(S)$ is, as a functor to $\Set$, representable by
+  $\spf(R \llbr T^{q^{-\infty}} \rrbr)$.
+\end{prop}
+We write $\lambda$ for the isomorphism $\Tilde H \to \Nilp^\flat$, and
+$\lambda_i: \Tilde H \to (-)^\cici$ for projection on the $i$-th component.
+Similarly, we write $\mu: \Nilp^\flat \to \Tilde H$ for the inverse of 
+$\lambda$ and $\mu_i$ for the $i$-th component of $\mu$. 
+
+By Proposition \ref{prop:UnivCoverReductionIso}, we obtain an action of 
+$\End(H \otimes_R k_R)$ on $\Tilde H$.
+
+\begin{defi}[Frobenius on $\Tilde H$] \label{def:FrobOnUnivCov}
+  Write $\Pi: \Tilde H \to \Tilde H$ for the automorphism of $\Tilde H$ corresponding
+  to the Frobenius automorphism (which sends $T$ to $T^q$) of $H_0$.
+\end{defi}
+
+Note that $\lambda_i(\Pi x) = \lambda_i(x)^q$ for $x \in \Tilde H(S)$ and 
+$i=0,1,\dots$. 
+
+\begin{rmk} 
+  In case where $\cF$ comes from a $\cO_K$-module law $F$ over 
+  $\cO_K$ with $[\varpi]_F(T) \equiv T^{q^n}$ mod $(\varpi)$,
+  the bijections
+  \begin{equation*}
+    \tilde H(S) \rightleftarrows \Nilp^\flat(S), \quad (x_0, x_1, \dots)
+    \mapsspamto (y, y^{q^{-n}}, y^{q^{-2n}}, \dots)
+  \end{equation*}
+  are, in either direction, given by the equations
+  \begin{equation*}
+    y^{1/q^{ni}} = \lim_{r \to \infty} x_{r+i}^{q^{nr}} \quad \text{and} \quad 
+    x_i = \lim_{s \to \infty} [\varpi^s]_H(y^{q^{-n(i+s)}}).
+  \end{equation*}
+  This follows directly from the explicit description of the isomorphism in
+  Proposition \ref{prop:pHTcalc}, as we may choose $h_{[\varpi]_H}(T) = h_{T^{q^n}}(T)
+  = T$.
+\end{rmk}
+
+We add calculations regarding the interplay of $\lambda$ and $\log_H$ which will prove
+useful later.
+\begin{lem}\label{lem:LogInTermsOfNil}
+  Let $H$ be the standard formal $\cO_K$-module of height $n$ over $R =
+  \cO_{\breve K}$. We have a commutative diagram (cf. \cite[Lemma
+  2.6.1]{BoyarchenkoWeinstein2011MaxVar})
+  \begin{equation*}
+  \begin{tikzcd}[ampersand replacement=\&]
+  	{(x_0, x_1, \dots)} \& {\Tilde H(S)} \&\& {\Nil^\flat(S)} \& {(y,y^{1/q}, \dots)} \\
+  	{\sum_{i=0}^\infty \frac{x_0^{q^{ni}}}{\varpi^i}} \&\& {S\otimes_{\cO_K}K} \&\& {\sum_{i = -\infty}^\infty\frac{y^{q^{ni}}}{\varpi^i}}
+  	\arrow["\in"{description}, draw=none, from=1-1, to=1-2]
+  	\arrow[maps to, from=1-1, to=2-1]
+  	\arrow["\lambda", from=1-2, to=1-4]
+  	\arrow["{\log_H}"', from=1-2, to=2-3]
+  	\arrow[from=1-4, to=2-3]
+  	\arrow["\ni"{description}, draw=none, from=1-5, to=1-4]
+  	\arrow[maps to, from=1-5, to=2-5]
+  \end{tikzcd}
+  \end{equation*}
+  With this terminology, we have $\log_H((\Pi^j x)_0) = \sum_{i = -\infty}^\infty
+  \frac{ y^{ni + j}}{\varpi^i}$. 
+\begin{proof}
+  This follows directly from the remark above. Let $x \in \Tilde H(S)$ and write
+  $(y, y^{1/q}, \dots)$ for $\lambda(x)$. We have $x_0 = \lim_{s \to \infty}
+  [\varpi^s]_H(y^{-ns})$, hence
+  \begin{equation*}
+    \log_H(x_0) = \lim_{s \to \infty}\left( \varpi^s \log_H(y^{1/q^{ns}})\right) = 
+    \lim_{s \to \infty}\left( \sum_{i=0}^\infty  \frac{y^{q^{n(i-s)}}}{\varpi^{i-s}}\right)
+    = \sum_{i=-\infty}^\infty \frac{y^{q^{ni}}}{\varpi^i}.
+  \end{equation*}
+  The second part is an immediate consequence.
+\end{proof}
+\end{lem}
+% subsubsection The Universal Cover (end)
+
+% subsection Tate Modules and the Universal Cover (end)
 
 \subsection{The Quasilogarithm Map} % (fold)
 \label{sub:The Quasilogarithm map}
@@ -1117,7 +2189,7 @@ $\delta: \Tilde H^n \to \Tilde {\wedge H}$.
   $\Tilde H^n \to \Tilde{\wedge H}$. It is $K$-multilinear and alternating.
 \end{defi}
 
-Using the canonical identificaitons $\Tilde {H}^n \cong (\Nilp^\flat)^n$
+Using the canonical identifications $\Tilde {H}^n \cong (\Nilp^\flat)^n$
 and $\Tilde{\wedge H} \cong \Nilp^\flat$, the morphism $\delta$ yields a 
 map $(\Nilp^\flat)^n \to \Nilp^\flat$, which in turn is the same as a power series 
 \begin{equation*}
@@ -1134,10 +2206,5 @@ We have the following approximation of $\Delta$.
 \end{proof}
 \end{lem}
 
-
-
-
 % subsubsection Determinants of Formal Modules (end)
-
-
 \end{document}

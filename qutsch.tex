@@ -1,0 +1,115 @@
+\subsubsection{General Theory} % (fold)
+\label{ssub:General Theory}
+
+We recall a few basic notions from the theory of algebraic groups. Milne's book
+\cite{milne2017reductive} is the main reference. 
+
+\begin{defi}[Borel Subgroup]\label{def:BorelSubgrp}
+  A smooth connected solvable sub-groupscheme $B \subset G$ is called Borel if it 
+  is maximal among the smooth connected solvable sub-groupschemes of $G$. 
+  A pair of sub-groupschemes $(B,T)$ is called a Borel pair if $B \subset G$ is 
+  Borel and $T$ is a maximal Torus of $G$ contained in $B$.
+\end{defi}
+For the remainder of this subsection, fix a Borel pair $(B,T)$. By an application
+of Chevalley's theorem, the quotient $G/B$ (in the sense of \cite{milne2017algebraic})
+exists. This quotient is the unique scheme (up to unique isomorphism) representing
+the \'etale sheafification of the presheaf $T \mapsto G(T)/B(T)$. In particular,
+we have $(G/B)(k) = G(k)/B(k)$. Quotients of the form $G/H$ exist generally for
+smooth algebraic subgroups $H \subset G$. 
+\begin{defi}[Weyl Group]\label{def:WeylGroup}
+  The Weyl group associated to $T \subset G$ is defined as $\Weyl(G,T) =
+  \Norm_G(T)/T$, where $\Norm_G(T)$ is the normalizer of $T$ in $G$. 
+  If $T'$ is another maximal torus inside $G$, $T$ and $T'$ are conjugate,
+  and there is a canonical isomorphism $\Weyl(G,T) \cong \Weyl(G,T')$. 
+  This allows us to omit $T$ from notation, and talk about the (canonical)
+  Weyl group.
+\end{defi}
+
+\begin{thm}[Bruhat Decomposition]\label{thm:BruhatDecomposition}
+  There is an isomorphism of smooth algebraic varieties
+  \begin{equation*}
+    G / B = \bigcup_{w \in \Weyl(G,T)} B w B/B.
+  \end{equation*}
+  In particular, there is a natural bijection
+  \begin{equation*}
+    G \backslash ( G / B \times G / B ) \to B \backslash G / B.
+  \end{equation*}
+\begin{proof}
+  See \cite[Section 20.h]{milne2017algebraic}. The bijection is given (on
+  rational points) by $(gB, g'B) \mapsto  B g^{-1} g' B$. 
+\end{proof}
+\end{thm}
+
+
+
+
+% subsection General Theory (end)
+
+Given a Borel sub-groupscheme $B$ of $G$, the quotient $G/B$ (to be taken as 
+the fppf-sheafification \red{if we only care about smooth, etale should
+suffice} of the presheaf $S \mapsto G(S)/B(S)$ for 
+suitable $k$-schemes $S$) exists and is representable by a complete algebraic
+variety \red{todo: See MilneBook Ch. 18 and ConradBook discussion at beginning
+of Ch. 1}. Following notation in \cite{delignelusztig1976}, we write 
+$X = X_G = G/B$. The $k$-valued points of $X$ are in bijection with the 
+Borel sub-groupschemes of $G$. Indeed, it is easy to see that for any $g \in G(k)$,
+the subgroup $g B g^{-1}$ of $G$ is Borel. The induced action
+\begin{equation*}
+  G(k) \lacts \{B \subset G \mid B \text{ Borel}\}, \quad g.B = gBg^{-1}
+\end{equation*}
+is transitive by \red{MilneBook, 18.17} and any Borel sub-groupscheme $B$ is
+stabilized by its $k$-rational points. 
+
+\begin{rmk} 
+  In the case where $G = \GL_n$, the Borel subgroups are given by those subgroups
+  that are diagonalizable. In particular, a valid choice for $B$
+  is the subgroup of invertible upper triangular matrices, which contains the 
+  Torus $T$ of diagonal matrices. In this case the quotient $\GL_n/B$ has
+  another description; it is isomorphic to the complete flag variety. 
+  \red{expand, cf. MilneBook, p 149}.
+\end{rmk}
+
+\begin{defi}[Weyl Group]\label{def:WeylGrp}
+  If $T$ is a maximal Torus in $G$, the group $\Weyl(G,T) = \Norm_G(T)/T$ does - up to
+  canonical isomorphism - only depend on $G$. It is therefore justified to omit
+  $T$ from notation, writing $\Weyl(G) = \Weyl(G,T)$. We call $\Weyl(G)$ the
+  Weyl group of $G$.
+  \red{I think, technically speaking, the Weyl group is also a group scheme?}
+\end{defi}
+
+For the remainder of this section we fix a Borel pair $(B,T)$. 
+
+\begin{prop}\label{prop:WeylGroupActsOnBorel}
+  There is a simply transitive action $\Weyl(G) \lacts X$. 
+\begin{proof}
+  This is essentially the Bruhat decomposition, cf. \red{Milne, Prop. 18.59}
+\end{proof}
+\end{prop}
+
+\begin{defi}[Relative Position]\label{def:BorelsInRelPos}
+  Let $w \in \Weyl(G, T)$. 
+  We say that two Borel subgroups $B', B''$ are in relative position $w$ if 
+  $w.B' = B''$. 
+\end{defi}
+
+We denote by $O(w)(k) \subset X(k) \times_{\spec(k)} X$ the subset
+of $X(k) \times X(k)$ given by pairs $(B', B'')$ in relative position $w$. 
+More generally, $O(w)$ is the locally closed subscheme of $X \times_{\spec \bar
+\FF_q} X$ given by the orbit of the element $(B, w. B) \in (X \times_k X)(k)$. 
+
+For $w \in \Weyl(G)$, we denote by $X(w)$ the intersection of $O(w)$ with the graph
+of the Frobenius $\Gamma_F \subset X \times_k X$. The $k$-rational points of $X(w)$ 
+are given by those Borel subgroups $B' \subset G$ that are in relative 
+position $w$ to their Frobenius twist $F(B')$. It can be shown that 
+$X(w)$ is smooth of dimension $l(w)$, where $l(w)$ denotes the Coxeter-length
+of $w$. In addition, $X(w)$ admits an action of $G^F$. 
+
+\textbf{Example.}
+Again, we fix the Borel subgroup $B \subset \GL_n$ of upper triangular matrices
+and $T \subset B$ the torus of diagonal matrices. These choices provide an isomorphism
+$\Weyl(\GL_n,T) \cong \Sigma_n$, the symmetric group with $n$ elements.
+Let $w = (1\ 2\ \dots\ n) \in \Sigma_n$ be the $n$-cycle. Then $X(w)$ is an
+$n-1$-dimensional
+smooth projective subvariety of $X$. 
+
+
