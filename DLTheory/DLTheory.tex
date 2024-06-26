@@ -1,0 +1,731 @@
+%! TeX root: ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Deligne--Lusztig Theory for Depth Zero Representations} % (fold)
+\label{sub:Deligne-Lusztig Theory for Depth Zero Representations}
+The aim of this section is to outline the construction of a correspondence
+between certain characters of $\FF_{q^n}^\times$ (with values in $\C^\times$) and 
+cuspidal representations of $\GL_n(\FF_q)$. The correspondence we construct here
+is an application of a more general theory developed by Deligne--Lusztig. 
+In \cite{delignelusztig1976}, they construct
+for any connected reductive algebraic group $G$ over $\FF_q$ and any
+Frobenius-stable maximal torus $T \subseteq G$ a correspondence associating to
+certain characters $\theta$ of $T^F$ a virtual representation $R_{T,\theta}$ of 
+$G^F$. These virtual representations arise from the $l$-adic cohomology (with
+$l \neq p$) of a certain variety $\DL_{G,T}$ admitting commuting actions by
+$G^F$ and $T^F$. 
+In this section, we give explicit descriptions of the occuring spaces 
+in the situation where $G = \GL_{V_0 \otimes \bar \FF_q}$ for some
+$n$-dimensional $\FF_q$-vector space $V_0$ and $T \subset G$ is a maximal 
+Frobenius-stable torus with $T(\bar \FF_q) = \FF_{q^n}^\times$.
+The main theorems of the theory are stated as facts, proofs are omitted.
+
+\subsection{Deligne--Lusztig Varieties for the General Linear Group} % (fold)
+\label{ssub:Deligne--Lusztig Varieties}
+We begin by introducing (full) flags and their classifying objects, flag
+varieties. Let $k$ be a field and let $V$ be a finite dimensional $k$-vector space
+of dimension $n$. We write $\tilde V$ for the corresponding quasi-coherent sheaf
+on $\spec k$, and $\GL_V$ for the general linear group scheme of $\tilde V$.
+
+\begin{defi}[Flag Variety]\label{def:FlagVariety}
+  Let $X: \SchOver k^\op \to \Set$ be the functor assigning to each $k$-scheme 
+  $f:S \to \spec k$
+  the set 
+  \begin{multline*}
+    X(S) = \\ \left\{\cF_1 \subset \cF_2 \subset \dots \subset \cF_{n-1} \subset
+      f^* \tilde V \ \bigg \vert  \begin{array}c
+      \text{For all $i$, $\cF_i$ is locally a direct summand} \\
+      \text{of $f^*\tilde V$, locally free of rank $i$}
+  \end{array} \right\}.
+  \end{multline*}
+  Recall that a subsheaf $\cF_i \subset f^* \tilde V$ is
+  locally a direct summand
+  if it is quasi-coherent, and for each $s \in S$ there is some neighbourhood 
+  $U$ of $s$ such that $\cF_i|_U$ is a direct summand of $f^* \tilde V|_U$. 
+  The $S$-valued points of $S$ are called families of flags over $S$.
+\end{defi}
+Elements of $X(k)$ are called (full) Flags. They are given by an increasing
+$n-1$-tuple of vector spaces 
+$$\Flag = (F_1 \subsetneq F_2 \subsetneq \dots F_{n-1} \subsetneq V) \in X(k).$$
+  %By \cite[Prposition 8.10]{gortz2020algebraic} and the subsequent discussion,
+  %a subsheaf $\cF \subset \cO_S^n$ being locally a direct summand is equivalent
+  %to the quotient sheaf $\cO_S^n/\cF$ being locally free.
+  There are natural morphisms
+  \begin{equation*}
+    \nu_i: X \to \Grass_{V,i}, \quad (\cF_1 \subset \dots \subset \cF_{n-1}
+    \subset f^* \tilde V) \mapsto (f^* \tilde V^\vee \surj \cF_i^\vee),
+  \end{equation*}
+  where $\Grass_{V,i}$ denotes the Grassmannian with 
+  respect to the finite free $\cO_{\spec k}$-module $\tilde V^\vee$, as defined
+  in \cite{Ricolfi2022}.
+
+\begin{prop}\label{prop:FlagVarisProjective}
+  The induced morphism of functors
+  \begin{equation*}
+    X \to \Grass_{V,1} \times_{\spec k} \dots \times_{\spec k}
+    \Grass_{V,n-1}
+  \end{equation*}
+  is representable by a closed embedding. In particular, as $\Grass_{V,d}$ is
+  representable by a projective scheme for integers $1 \leq d \leq n-1$, 
+  the functor $X$ is representable by a projective scheme. 
+\begin{proof}
+  Upon picking a basis of $V$, the claim can be checked directly on the
+  standard affine cover of the Grassmannians, where the condition that $\cF_i$ is
+  contained in $\cF_{i+1}$ is a polynomial condition.
+  For representability of $\Grass_{V,d}$, cf. \cite[Theorem 5.1.4]{Ricolfi2022}.
+\end{proof}
+\end{prop}
+
+There is a natural $\GL_V$-action on $X$, induced by the natural action of 
+$\GL_V(S)$ on $f^* \tilde V$. Given a flag $\Flag \in
+X(k)$, we write $B_{\Flag} \subset \GL_V$ for the isotropy subgroup of $\Flag$
+under this action. In \cite{delignelusztig1976}, the authors work with schemes
+arising as quotients $G/B$ where $B$ is some Borel subgroup of a connected, reductive
+algebraic group $G$. 
+It is an elementary fact that $B_{\Flag}$ is a Borel subgroup of $\GL_V$,
+and the following proposition shows that $X$ is of this form.
+
+\begin{prop}\label{prop:FlagVarietyAsQuotient}
+  The morphism of schemes $\mu_{\Flag}: \GL_V \to X$, $g \mapsto g.\Flag$
+  yields an isomorphism $\GL_V/B_{\Flag} \to X$. 
+\begin{proof}
+  We show that Zariski-locally, $\mu_{\Flag}$ induces an isomorphism 
+  $\GL_V(S)/B_{\Flag}(S) \to X(S)$.
+  Let $(v_1, v_2, \dots, v_n)$ be a basis of $V$ such that each $F_i$ is generated
+  by the first $i$ basis vectors. 
+  Given any $k$-scheme $S$ and a family of flags $\Flag' \in X(S)$, 
+  there is a Zariski-cover $\phi: S' \to S$ (with structure map to $k$ denoted
+  by $f'$) trivializing all of the quotients $F_i'/F_{i-1}'$ for $i = 1, \dots,
+  n$. Hence we may choose generators $w_i \in \Gamma(S', \phi^*(F_i'/F_{i-1}'))$,
+  and lift them to elements $\tilde w_i \in \Gamma(S', f'^* \tilde V)$. The 
+  global sections $w_i$ generate $f'^* \tilde V$, and the $\cO_{S'}$-linear
+  map $f'^* v_i \mapsto w_i$ yields an element in $\GL_V(S')$, unique up to 
+  an element in $B_{\Flag}(S')$. Thereby $X(S') \cong \GL_V(S')/B_{\Flag}(S')$.
+\end{proof}
+\end{prop}
+
+\textbf{Remark. }The proof shows that the quotient $\GL_V/B$ is trivialized 
+Zariski-locally (as opposed to fppf-locally).
+
+\begin{cor}\label{cor:XisSmoothAndOfDimension}
+  The scheme $X$ is smooth over $k$, of dimension $\frac{n(n-1)}2$. 
+\begin{proof}
+  This follows as quotients of smooth algebraic groups by algebraic subgroups are 
+  smooth (cf. \cite[Corollary 5.26]{milne2017algebraic}), and the fact that 
+  $$n^2 = \dim \GL_V = \dim B + \dim X = \frac{n(n+1)}2 + \dim X,$$
+  cf. \cite[Proposition 5.23]{milne2017algebraic}. 
+\end{proof}
+\end{cor}
+
+Write $\TT_X$ for the sheaf assigning to an $X$-scheme $S \to X$ (corresponding
+to a  family of flags $(\cF_i)_i \in X(S)$) the group 
+$$\TT_X(S) = \Aut_{\cO_S}(\cF_1/\cF_0) \times \dots \times \Aut_{\cO_S}(\cF_n/\cF_{n-1}) 
+= \GG_{m,X}^n(S).$$
+
+\begin{defi}[Functor of Marked Flags]\label{def:MarkedFlagVar}
+  Let $Y$ be the functor $\SchOver X^\op \to \Set$ given by sending a morphism
+  $S \to X$, corresponding to a family of flags $(\cF_i)_i \in X(S)$, to the set
+  \begin{equation*}
+    Y(S) = \left\{(e_1, \dots, e_n) \mid e_i: \cO_S \xto \sim 
+    \cF_i/\cF_{i-1}\right\}.
+  \end{equation*}
+  Here, $\cF_0$ is the zero-sheaf.
+\end{defi}
+Just like $X$, the functor $Y$ comes with a natural action by $\GL_V$
+and the natural morphism
+\begin{equation}\label{eq:naturalmapYtoX}
+  Y(S) \to X(S), \quad (\cF_i, e_i)_i \mapsto (\cF_i)_i
+\end{equation}
+is equivariant for this action. One readily checks that $Y$ is a sheaf in
+$\SchOver X_{\mathrm{Zar}}$, the big Zariski site of schemes over $X$. 
+By design, it is a $\TT_X$-torsor and thereby admits a Zariski-cover of open
+subfunctors isomorphic to $\TT_X$. Hence it is representable (cf. \cite[Theorem
+8.9]{gortz2020algebraic}), and the morphism $Y \to X$ is smooth and affine.
+
+Furthermore, the scheme $Y$ is also isomorphic to certain quotients of
+algebraic groups.
+Let $\Flag \in X(k)$ be a flag and $e_\bullet$ be a marking. Let 
+$U_{\Flag, e_\bullet} \subset \GL_V$ be the (unipotent) isotropy subgroup of
+the corresponding element $(\Flag, e_\bullet) \in Y(k)$ under the action of
+$\GL_V$. 
+\begin{lem}\label{lem:MarkedFlagVarietyAsQuotient}
+  In this situation, $Y \cong \GL_V/U_{\Flag, e_\bullet}$.
+\begin{proof}
+  This can be shown using the same arguments as in the proof of
+  Proposition \ref{prop:FlagVarietyAsQuotient}.
+\end{proof}
+\end{lem}
+
+If $(v_1, \dots, v_n)$ is a basis for $V$, we write $\vecFlag(v_1, \dots, v_n)$ for
+the (marked) flag spanned by the vectors $(v_1, \dots, v_n)$. 
+More generally, if $S$ is a $k$-scheme $(v_1, \dots, v_n)$ is a tuple of elements 
+in $\Gamma(S, f^*\tilde V)$ such that the induced map $(v_1, \dots, v_n): \cO_S^n \to 
+f^* \tilde V$ is an isomorphism (in which case we call $(v_i)_i$ a basis), we
+write $\vecFlag(v_1, \dots, v_n)$ for the corresponding family of (marked) flags.
+
+Recall the Bruhat decomposition for $\GL_V$.
+Fixing a basis $(e_1, \dots, e_n)$ of $V$, we obtain an injection
+$\Sigma_n \inj \GL_V$ (assigning to each $w \in \Sigma_n$ the corresponding
+permutation matrix), and a (marked) flag $\Flag^\std = \vecFlag(e_1, \dots, e_n) \in
+X(k)$.  For any such choice of a basis, we define $O_w$ as the $\GL_V$-orbit
+of the pair of flags $(\Flag^\std, w.\Flag^\std) \in (X \times X)(k)$.
+Note that this does not depend on the choice of basis.
+The Bruhat decomposition states that all $\GL_V$-orbits inside $X \times X$ are of 
+this form.
+
+\begin{prop}[Bruhat Decomposition]\label{prop:BruhatDecomp}
+  There is a decomposition of 
+  $X \times X$ into $\GL_V$-stable locally closed subschemes
+  \begin{equation*}
+    X \times X = \bigcup_{w \in \Sigma_n}^{\cdot} O_w.
+  \end{equation*}
+  Each $O_w$ is smooth of dimension $\dim(X) + l(w)$, where $l(w)$ denotes the
+  Coxeter-length of $w$.
+\begin{proof}
+   By construction, $O_w$ is locally closed and smooth (orbits are locally
+   closed by \cite[Proposition 1.65 b)]{milne2017algebraic}). The remaining claims
+   boil down to classical theory (in particular, the classical Bruhat decomposition),
+   cf. \cite[Chapter 21]{milne2017algebraic}, and elementary considerations about 
+   the dimensions of the isotropy subgroups of pairs $(\Flag, \Flag') \in X_w(k)$.
+\end{proof}
+\end{prop}
+
+Let $(\Flag, \Flag') \in (X \times X)(S)$ be a pair of flags over a $k$-scheme
+$S$. We say that $(\Flag,\Flag')$ is in relative position 
+$w \in \Sigma_n$ if it lies inside $O_w(S)$. 
+
+Similarly, we can characterize the $\GL_V$-orbits in $Y \times_{\spec k} Y$.
+For any choice of elements $w \in \Sigma_n \subset \GL_V(k)$ and $t \in
+\TT_X(k)$, we define $\tilde O_{w,t}$ as the $\GL_V$-orbit of the element
+$$((\Flag^\std, e_\bullet^\std), (w.\Flag^\std, w.te_\bullet^\std)) \in (Y
+\times Y)(k).$$ 
+
+A pair of marked flags over a $k$-scheme $S$ is said to be in relative position
+$(w,t) \in \Sigma_n \times (k^\times)^n$ if it appears in $\tilde
+O_{w,t}$.
+The following proposition gives a convenient characterization of relative position.
+
+\begin{lem}\label{lem:RelativePositionVecCrit}
+  \begin{enumerate}
+    \item A pair of families of flags $(\Flag, \Flag') \in (X \times X)(S)$ is 
+      in relative position $w \in \Sigma_n$ if and only if there exists a
+      Zariski-cover $ \phi: S' \to S$ (with structure map to $k$ denoted by
+      $f'$) and a basis $(v_1, \dots, v_n) \in \Gamma(S', f'^*\tilde V)$ such
+      that 
+      \begin{equation*}
+        \phi^* F_i  = \langle v_1, \dots, v_i \rangle
+        \quad \text{ and } \quad 
+        \phi^* F'_i  = \langle v_{w(1)}, \dots, v_{w(i)} \rangle 
+        \quad \text{for all } i = 1, \dots, n-1.
+      \end{equation*}
+    \item A pair of families of marked flags $((\Flag, e_\bullet), (\Flag', e_\bullet'))
+      \in (Y \times Y)(S)$
+      is in relative position $(w,t)$ if and only if $(\Flag, \Flag')$ is in relative
+      position $w$ and there is a basis as above furthermore satisfying
+      \begin{equation*}
+        \phi^* e_i \equiv v_i \mod \phi^*F_{i-1} \quad \text{and} \quad
+        \phi^*e'_i \equiv t_{w(i)}v_{w(i)} \mod \phi^*F'_{w(i)-1} \quad
+        \text{for all } i = 1, \dots, n.
+      \end{equation*}
+      Here, $\phi^*$ denotes the natural pullback of sections
+      $\Gamma(S, f^*\tilde V) \to \Gamma(S', f'^* \tilde V)$.
+  \end{enumerate}
+\begin{proof}
+  This is a mere reformulation of what it means to be in the corresponding
+  $\GL_V$-orbits. Given any choice 
+  of 'standard' basis $(e_1, \dots, e_n)$ of $V$ and a section $(\Flag, \Flag')$
+  in the orbit of $(\Flag^\std, w.\Flag^\std)$, we
+  may choose $S'$ such that there exists a $g \in \GL_V(S')$ 
+  satisfying $g.(\Flag^\std|_{S'}, w.\Flag^{\std}|_{S'}) = (\Flag, \Flag')$.
+  Now it is easily seen that the global sections $v_i = g(e_i) \in \Gamma(S',
+  f^*\tilde V)$ satisfy the desired conditions. Conversely, any such basis
+  yields an element in $\GL_V(S')$. The same ideas lead to the second statement.
+  Note that here we only need to lift the sections $e_i$ to sections 
+  in $\phi^* \tilde V$, which is possible once $S'$ is affine. 
+\end{proof}
+\end{lem}
+
+We now specialize to the case where $k = \bar \FF_q$ is an algebraic closure of 
+the finite field with $q$ elements, and $V = V_0 \otimes_{\FF_q} k$ for 
+some $\FF_q$-vector space $V_0$. 
+This equips $V$ with a $\Gal(k/\FF_q)$-action, and in particular the Frobenius
+automorphism of $k$ (given on $k$ by $x\mapsto x^q$) yields a $k$-semilinear
+automorphism $\Frob: V \to V$. As this automorphism sends subspaces to
+subspaces, we obtain automorphisms 
+\begin{equation*}
+  \Frob: X \to X \quad \text{ and } \quad \Frob: Y \to Y.
+\end{equation*}
+Note that $X$ and $Y$ are defined over $\FF_q$, and these automorphisms come
+from the respective (relative) frobenii of $X$ and $Y$ over $k$. We write
+$\gamma_\Frob$ for the corresponding graph-morphisms $X \to X \times_{\spec k} X$ and 
+$Y \to Y\times_{\spec k} Y$.
+
+For $w \in \Sigma_n$ and $t \in \TT_X$, we define the spaces
+\begin{equation}\label{eq:defXYsigma}
+  X_w \coloneqq O_w \times_{X \times_{\spec k}X, \gamma_\Frob} X
+  \quad \text{and} \quad
+  Y_{w,t} \coloneqq \tilde O_{w,t} \times_{Y \times_{\spec k}Y,
+  \gamma_\Frob} Y
+\end{equation}
+As $\gamma_\Frob$ admits a section, $X_w$ is naturally a subscheme of $X$,
+parametrizing those families of flags that are pointwise in relative position
+$w$ to their Frobenius twist. Similarly, $Y_{w, t}$ is naturally a subscheme of $Y$,
+parametrizing families of marked flags in relative position $(w,t)$ with their
+Frobenius twist. 
+We have natural maps $Y_{w, t} \to X_w$. 
+As a pair of marked flags $((\Flag, e_\bullet), (\Flag', e_\bullet'))$ over $S$
+lies in the same $\GL_V$-orbit as $((\Flag, t_\bullet e_\bullet), (\Flag', t'_\bullet
+e_\bullet'))$ for $t_\bullet, t'_\bullet \in \GG_{m,X}^n(S)$ if and only if 
+$t_\bullet = t'_\bullet$, we find that $Y_{w,t}$ is a
+Zariski-torsor for an affine group scheme $\TT_w^\Frob \times_k X_w$,
+where $\TT_w^\Frob$ is the $k$-group scheme with $S$-rational points given by
+\begin{equation*}
+  \TT_{w}^\Frob(S) = \{(t_1, \dots, t_n) \in \GG_{m}^n(S) \mid 
+    t_i^q = t_{w(i)}\}.
+\end{equation*}
+
+One can show that the scheme $X_w$ is smooth (of pure dimension $l(w)$, 
+as the intersection in \eqref{eq:defXYsigma} is transverse, cf.
+\cite{delignelusztig1976}), so $Y_{w, t}$ is smooth and affine over $X_w$. 
+To this end, we have constructed the spaces in the commutative diagram
+\begin{equation} \label{eq:DLSquare}
+\begin{tikzcd}[ampersand replacement=\&]
+	{Y_{w,t}} \& {Y \cong \GL_V/U} \\
+	{X_w} \& {X \cong \GL_V/B.}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow["{\TT_w^{\Frob}\text{-torsor}}"', from=1-1, to=2-1]
+	\arrow["{\TT_X\text{-torsor}}", from=1-2, to=2-2]
+	\arrow[hook, from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation}
+The interesting space is $Y_{w,t}$. It comes with commuting (left-)actions of 
+$\GL_V^\Frob(k) = \GL_V(\FF_q)$ and $\TT_w^\Frob(k) = \FF_{q^n}^\times$. 
+% subsection Deligne--Lusztig Varieties (end)
+
+\subsection{An Explicit Example} % (fold)
+\label{sub:An Explicit Example}
+We keep the notation from the previous subsection. That is, $k = \bar \FF_q$, 
+$V = V_0 \otimes_{\FF_q} k$, $X$ is the flag variety of $V$, and $Y$ is the 
+variety of marked flags. In this subsection, we fix
+$w = (1 \ 2 \ \dots \ n) \in \Sigma_n$ and $t = (1, \dots, 1) \in \GG_{X,m}^n$,
+and give explicit descriptions of the resulting varieties appearing in the
+square \eqref{eq:DLSquare}. To clearify notation, we write $\DL_V = Y_{w, t}$ in this
+situation.
+
+First, note that $\TT_w^\Frob(S) = \GG_m(S)^{\Frob^n}$, implying that
+$\DL_V$ admits commuting actions 
+by $\GL(V_0)$ and $\TT_w^\Frob(k) = \FF_{q^n}^\times$.
+
+\begin{lem}\label{lem:FlagsInRelPosWareez}
+  A pair of flags $(\Flag, \Flag') \in (X \times X)(S)$ is in relative position
+  $(1 \ 2 \ \dots \ n)$ 
+  if and only if for all $i = 1, \dots, n-1$ the condition $F_i + F_i' =
+  F_{i+1}$ is satisfied. Here, the sum denotes the Zariski-sheafification of the
+  corresponding presheaf. 
+\begin{proof}
+  It is easily seen that the criterion may be checked Zariski-locally.
+  Here it follows quickly from Lemma \ref{lem:RelativePositionVecCrit} and 
+  the Bruhat decomposition, Proposition \ref{prop:BruhatDecomp}.
+  \end{proof}
+\end{lem}
+
+For a linear form $\mu \in V^\vee$, we write 
+$D^+(\mu)$ for the affine open subscheme of $\PP(V)$ parametrizing
+lines in $V$ that do not lie in the hyperplane spanned by $\mu$.
+
+\begin{prop}\label{prop:XwExplicitely}
+  If $w = (1 \ 2 \ \dots \ n)$, the morphism of functors defined on 
+  $k$-schemes $S$ by
+  \begin{equation*}
+    \Phi(S): X_w(S) \to \PP(V)(S) \quad \Flag \mapsto F_1
+  \end{equation*}
+  yields an isomorphism 
+  $$X_w \cong \bigcap_{\mu \in V_0^\vee} D^+(\mu) \subset \PP(V).$$
+  That is, $X_w$ parametrizes lines in $V$ that do not lie inside any
+  $\FF_q$-rational hyperplane. In particular $X_w$ is equal to a finite
+  intersection of affine subschemes, hence an affine scheme itself.
+\begin{proof}
+  We first show that the image of any family of flags $\Flag \in X_w(S)$ lies inside
+  $\cap_{\mu} D^+(\mu)(S)$. As the latter is an open subscheme, it suffices to
+  show that any $s \in |S|$ maps into
+  $\cap_{\mu} D^+(\mu)$, which is the case if any only if $F_1(s) = F_1
+  \otimes_{\cO_{\spec k}} \cO_{\spec \kappa(s)}(\{s\})$  does not lie inside
+  any $\FF_q$-rational hyperplane in $\kappa(s) \otimes_k V$. By Lemma
+  \ref{lem:FlagsInRelPosWareez}, we find
+  $$F_1(s) \oplus \Frob(F_1(s)) \oplus \dots \oplus \Frob^{n-1}(F_1(s)) = V
+  \otimes_k \kappa(s),$$
+  so $F_1(s)$ cannot lie inside any non-trivial Frobenius-stable linear subspace
+  of $V \otimes_k \kappa(s)$. The claim follows. 
+
+  To see bijectivity of $\Phi$, note that the inverse is, if well-defined,
+  given by
+  \begin{equation*}
+    \Psi: \bigcap_{\mu \in V_0^\vee}D^+(\mu)(S) \to X_w(S), \quad L \mapsto 
+    \big(L \oplus \Frob(L) \oplus \dots \oplus \Frob^{i-1} L\big)_{i = 1, \dots, n}.
+  \end{equation*}
+  To see that this is indeed well-defined, choose a basis $(e_1, \dots, e_n)$
+  of $V_0$ and take any section $\cL \in \cap_{\mu \in
+  V_0^\vee}D^+(\mu)(S)$, interpreted as a locally direct summand of $f^* \tilde V$. 
+  Hence for any $s \in S$ there is some open affine $\spec R \subset S$ trivializing
+  $\cL$. Write $L$ for the corresponding free rank $1$ direct summand of 
+  $R^n$. Then $L = \langle v \rangle$ for some $v = (v_1, \dots, v_n) \in R^n$. Now 
+  $L$ constitutes a flag if and only if $(v, \Frob(v), \dots, \Frob^{n-1}(v))$
+  is a basis for $R^n$ if and only if $\det(\Frob^{j-1}(v_i))_{i,j} \in R^\times$.
+  The last condition is satisfied. Indeed, if not, we may 
+  choose a maximal ideal $\fm \in \spec R$ containing
+  $\det(\Frob^{j-1}(v_i))_{i,j}$. Let $\bar v$ denote the residue of $v$ in
+  $(R/\fm)^n$. Now, the subspace
+  $$\langle \bar v, \Frob(\bar v), \dots, \Frob^{n-1}(\bar v)\rangle \subset (R/\fm)^n$$ 
+  is non-trivial and Frobenius-stable, and in particular
+  contained in some $\FF_q$-rational hyperplane. This contradicts $\cL \in
+  \cap_{\mu \in V_0^\vee}D^+(\mu)(S)$.
+\end{proof}
+\end{prop}
+
+We write $\Delta: \Sym(\bigwedge V^\vee) \to \Sym(V^\vee)$ for the morphism corresponding
+to the $k$-linear morphism 
+\begin{equation*}
+  \bigwedge V^\vee \to \Sym(V^\vee), \quad \mu \mapsto \big[v \mapsto 
+  \mu(v \wedge \Frob(v) \wedge \dots \Frob^{n-1}(v))\big].
+\end{equation*}
+
+\begin{prop}\label{prop:prop_YwExplicitely}
+  The map of functors $\DL_V \to \spec \Sym(V^\vee)$ given by 
+  $(\Flag, e_\bullet) \mapsto e_1$ 
+  yields an isomorphism of $\DL_V$ and the subfunctor of $\spec \Sym(V^\vee)$ given on
+  affine schemes by
+  \begin{equation*}
+    \spec R \mapsto \left\{v \in R \otimes_k V \, \bigg \vert
+      \begin{array}c 
+        (v, \Frob\, v, \dots, \Frob^{n-1} v) \text{ is a basis and } \\ 
+        v \wedge \dots \wedge \Frob^{n-1} v = (-1)^{n-1} \Frob( v \wedge \dots
+        \wedge \Frob^{n-1}v) 
+      \end{array}\right\}.
+  \end{equation*}
+  Writing $S_1$ for the degree-$1$ part of $\Sym(\bigwedge V^\vee)$,
+  this functor is readily seen to representable by the $k$-scheme
+  \begin{equation*}
+    \DL_V \coloneq \spec \left( \frac{\Sym(V^\vee)[\Delta(S_1 \setminus\{0\})^{-1}]}
+    {(\Frob (\Delta(\lambda)) - (-1)^{n-1} \Delta(\lambda) \mid \lambda \in S_1)} \right).
+  \end{equation*}
+  Upon choosing a basis of $V_0 \cong \FF_q^n$, this takes on the form
+  \begin{equation*}
+    \DL_n \coloneq \spec \left(\frac{k[x_1, \dots, x_n]}{\left(
+        \det D(\underline x)^{q-1} - (-1)^{n-1}\right)} \right), \quad
+        \text{where} \quad D(\underline x) = 
+          \begin{pmatrix}
+            x_1 & \dots & x_1^{q^{n-1}}\\
+            \vdots & \ddots  & \vdots \\
+            x_n & \dots & x_n^{q^{n-1}}
+          \end{pmatrix}.
+  \end{equation*}
+\begin{proof}
+  Let $S = \spec R$ be an affine $k$-scheme and let $(\Flag, e_\bullet) \in \DL_V(S)$. 
+  By Lemma \ref{lem:RelativePositionVecCrit}, there is a basis 
+  $(v_1, \dots, v_n)$ of $R \otimes_k V$ such that 
+  \begin{equation}\label{eq:conditionsonvecs}
+    \begin{aligned}
+      v_i &\equiv e_i \mod F_{i-1} \quad &\text{and} \quad v_{i+1} &\equiv
+      \Frob(e_i) \mod \Frob(F_{i-1}) \quad \text{for } 1 \leq i \leq n-1,\\ 
+      v_n &\equiv e_n \mod F_{n-1} \quad &\text{and}\hspace{0.8em}\quad  v_1 &\equiv
+    \Frob(e_n) \mod \Frob(F_{n-1}).
+  \end{aligned}
+\end{equation}
+  From here we quickly find
+  \begin{equation*}
+    \Frob(v_1 \wedge v_2 \wedge \dots \wedge v_n) = 
+    \Frob\, v_1 \wedge \dots \wedge \Frob\, v_n = v_2 \wedge v_3
+    \wedge \dots \wedge v_{n} \wedge v_1.
+  \end{equation*}
+  The equivalences in \eqref{eq:conditionsonvecs} also imply that for integers
+  $2 \leq m \leq n$, we have $\Frob^{m-1} \, v_1
+  \equiv v_m \mod \Frob(F_{m-2})$. Also, we find $v_1 \equiv \Frob^n \, v_1 \mod \Frob
+  (F_{n-1})$. Altogether, writing $v = v_1 = e_1$, this yields 
+  \begin{equation}\label{eq:WedgeConditionMarkedFlagInDL}
+    \Frob (v \wedge \Frob(v) \wedge \dots \wedge \Frob^{n-1} v) = 
+    (-1)^{n-1} (v \wedge \dots \wedge \Frob^{n-1}v).
+  \end{equation}
+  This shows that the map given in the statement of the proposition is
+  well-defined. To see that it is bijective, note that it has an inverse. Indeed,
+  given any $v \in R \otimes_k V$ such that $(v, \Frob\, v, \dots, \Frob^{n-1} v)$
+  is a basis and $v$ satisfies the equation \eqref{eq:WedgeConditionMarkedFlagInDL},
+  Gaussian elimination shows that the corresponding marked flag is in relative
+  position $(w,1)$ to its Frobenius-twist.
+
+  If we are given a basis of $V_0$, we may write $v = (x_1, \dots, x_n)$
+  and identify $v \wedge \Frob\, v \wedge \dots \Frob^{n-1} v$ with
+  $\det\left[ (x_i^{q^{j-1}})_{1 \leq i,j \leq n} \right]$.
+  Thereby $v$ gives a marked flag in $\DL_n$ if and only if
+  \begin{equation*}
+    \det((x_i^{q^{j-1}})_{i,j})^{q-1} = (-1)^{n-1}.
+  \end{equation*}
+  This gives the representability statement of $\DL_n$.
+\end{proof}
+\end{prop}
+
+Note that $\DL_n$ has $q-1$ disjoint irreducible components, parametrized by the set
+of solutions $b \in k$ to the equation $z^{q-1}=(-1)^{n-1}$. For any such $b
+\in k$ we write (in accordance with notation in \cite{mieda2016geometric})
+\begin{equation}\label{eq:DefYb}
+  Y_b \coloneqq \spec \left(\frac{k[x_1, \dots, x_n]}{(\det D(\underline x) - b)}\right),
+\end{equation}
+and obtain $\DL_n = \sqcup_{b^{q-1} = (-1)^{n-1}} Y_b$.
+
+The (left-)action of $\GL_n(\FF_q) \times \FF_{q^n}^\times$ on $\DL_n$ has the following
+explicit description.
+
+\begin{lem}\label{lem:ActionsOnDLn}
+  The action of $\GL_n$ on $\DL_n$ is given by
+  \begin{equation*}
+    (a_{ij})_{i,j}.(x_1, \dots, x_n) = \left(\sum_{j = 1}^n
+    a_{ij}x_j\right)_{i = 1, \dots, n}
+  \end{equation*}
+  The action of $\FF_{q^n}^\times$ is given by
+  \begin{equation*}
+    d.(x_1, \dots, x_n) = (d^{-1}x_1, \dots, d^{-1}x_n).
+  \end{equation*}
+\end{lem}
+
+Through the relative Frobenius, we may also define an action of 
+$\Z$ on $\DL_n$, sending $1$ to the automorphism given by $x_i \mapsto
+\Frob(x_i) = x_i^q$. By construction, the actions of $\GL_n(\FF_q)$, 
+$\FF_{q^n}^\times$ and $\Z$ commute.
+
+Note that $g \in \GL_n(\FF_q)$ induces a morphism of schemes
+$Y_b \to Y_{b \det(g)}$. Similarly, $\zeta \in \FF_{q^\times}$ 
+restricts to $Y_b \to Y_{b \Norm(\zeta)}$, where $\Norm = \Norm_{\FF_{q^n}/\FF_q}$
+denotes the norm map of the extension $\FF_{q^n}/\FF_q$. The relative Frobenius
+morphism $\DL_n \to \DL_n$ stabilizes the components $Y_b$. In particular, 
+the stabilizer subgroup of $\GL_n \times \FF_{q^n}^\times \times \Z$
+for each component $Y_b$ is given by
+\begin{equation*}
+  (\GL_n(\FF_q) \times \FF_{q^n}^\times)^1 \times \Z 
+  \coloneq \{(g,d,n) \in \GL_n(\FF_q) \times \FF_{q^n}^\times \times \Z 
+  \mid \det(g) \Norm(d) = 1\}.
+\end{equation*}
+
+We write $\hH_\DL$ for the $\bar \Q_l$-vector space
+\begin{equation*}
+  \hH_\DL = \hH_c^{n-1}(\DL_n, \bar \Q_l).
+\end{equation*}
+By the above, this is a representation of $\GL_n(\FF_q) \times
+\FF_{q^n}^\times \times \Z$. The following subsection is concerned with the
+study of this representation.
+
+% subsection An Explicit Example (end)
+
+\subsection{An Example of the Deligne--Lusztig Correspondence} % (fold)
+\label{sub:The Deligne--Lusztig Correspondence for the Explicit Example}
+
+In this subsection, we are concerned with the \'etale cohomology of the variety
+$\DL_n$ introduced in the previous subsection. As before, $k$ denotes an algebraic
+closure of $\FF_q$.
+
+We give a short review of \cite{delignelusztig1976}.
+For a connected, reductive algebraic group $G$ defined over $\FF_q$ and a maximal
+Frobenius-stable torus $T \subset G$ contained in a Borel subgroup $B
+\subset G$, Deligne and Lusztig construct varieties with right $G^F$-actions
+$X_{T\subset B}$ and $\tilde X_{T \subset B}$, constituting a $G^F$-equivariant
+Galois-covering
+\begin{equation*}
+  \tilde X_{T \subset B} \to X_{T \subset B}
+\end{equation*}
+with Galois-group $T^F$. See \eqref{eq:ExplicitDLVarieties} for explicit
+descriptions of these spaces. The space $\tilde X_{T \subset B}$ comes with
+commuting actions of $G^F$ and $T^F$, and for characters $\theta$ of $T^F(k)$,
+the main concern of \cite{delignelusztig1976} is the study of the resulting
+virtual representations
+\begin{equation} \label{eq:DLRepresentation}
+  R_{T}^\theta = \sum_{i} (-1)^i \hH_c^i(\tilde X_{T \subset B}, \bar
+  \Q_l)_\theta \in \cR(T^F(k) \times G^F(k)).
+\end{equation}
+Here, the subscript $\theta$ denotes the direct summand of $\hH^i_c(\tilde X_{T
+\subset B}, \bar \Q_l)$ where $T^F(k)$ acts by $\theta$.
+These representations do only depend on the choice of the torus, not on the
+choice of the Borel sugroup
+(\cite[Corollary 4.3]{delignelusztig1976}). 
+
+Recall that for a finite group $H$, the Grothendieck group $\cR(H)$ of finite 
+dimensional $H$-representations in $\bar \Q_l$ comes with a natural inner product. Indeed,
+as $\rho(h)^{\# H} = 1$, any representation takes values in the maximal cyclotomic
+subfield $\cup_{r} \Q(\zeta_r) \subset \bar \Q_l$, which has the unique 
+"complex conjugation" automorphism given by $\zeta_r \mapsto \zeta_r^{-1}$ for 
+$r \in \N$. 
+The inner product is now defined on representations $\rho, \rho' \in \Rep H$ as
+\begin{equation*}
+  \langle \rho, \rho' \rangle = \frac 1 {\# H} \sum_{h \in H} \Tr(\rho(h)) \bar {\Tr (\rho'(h))} \in \bar \Q_l.
+\end{equation*}
+This definition extends linearly to $\cR(H)$. An orthogonal basis for $\cR(H)
+\otimes \Q$ is given by the irreducible finite-dimensional representations of
+$H$. If $\rho$ is an irreducible representation of $H$ and 
+$R$ is an element in $\cR(H) \otimes \Q$, we say that $\rho$ occurs in $R$ if 
+$\langle \rho, R\rangle \neq 0$.
+
+\begin{defi}[Geometrically Conjugates and Regular Position]\label{def:DLGeomConjRegularPos}
+  Let $T$ be a Frobenius-stable maximal  torus of $G$ and let $\theta$ be a character
+  of $T^F(k)$. 
+  \begin{enumerate}
+    \item We say that $\theta$ is in general position if it is not fixed by any
+      non-trivial element of $\Weyl_G(T)^F$. Here $\Weyl_G(T)$ denotes the Weyl
+      group $(\Norm_G(T)/T)$.
+  \item If $(T', \theta')$ is another pair consisting of a Frobenius-stable maximal
+    torus and a character of $T^F(k)$, we say that the pairs $(T,\theta)$ and 
+    $(T', \theta')$ are geometrically conjugate if there exists an integer $n$
+    such that the pairs $(T, \theta\circ {N_n})$, $(T', \theta' \circ N_n)$ 
+    are conjugate, where $N_n$ is the norm function $T^{\Frob^n}(k) \to T^{\Frob}(k)$. 
+  \end{enumerate}
+\end{defi}
+
+We summarize a few of the results of the theory.
+
+\begin{thm}[Some Results of Deligne-Lusztig Theory]\label{thm:DLTheoryGeneralResults}
+  \leavevmode
+  \begin{enumerate}
+      \item \textnormal{\cite[Corollary 7.7]{delignelusztig1976}} For any
+        irreducible representation
+          $\rho$ of $G^F$, there exists an $F$-stable maximal torus $T$ and a character
+        $\theta$ of $T^F$ such that $\langle \rho, R_T^\theta\rangle \neq 0$.
+      \item \textnormal{\cite[Corollary 6.3]{delignelusztig1976}} If 
+        $(T, \theta)$ and $(T', \theta')$ are not geometrically conjugate, 
+        no irreducible representation of $G^F(k)$ occurs in both
+        $R^\theta_T$ and $R^{\theta'}_{T'}$.
+      \item \textnormal{\cite[Corollary 7.3]{delignelusztig1976}} If 
+        $(T, \theta)$ is in general position, one of $\pm R_T^\theta$ is an 
+        irreducible representation.
+      \item \textnormal{\cite[Corollary 8.3]{delignelusztig1976}} If furthermore
+        $T$ is not contained in any proper Frobenius-stable parabolic subgroup,
+        one of $\pm R^\theta_T$ is a cuspidal representation of $G^F(k)$.
+      \item \textnormal{\cite[Corollary 9.9]{delignelusztig1976}} If furthermore
+        $\tilde X_{T \subset G}$ (or equivalently, $X_{T \subset G}$) is affine, 
+        and we denote by $w \in \Weyl_G(T)$ the relative position of $B$ and
+        $\Frob(B)$ (cf. the Bruhat decomposition for $G$),
+        we have $$\hH_c^i(\tilde X_{T \subset G}, \bar \Q_l)_\theta = 0 \quad \text{if}
+        \quad i \neq l(w).$$
+        Here, $l(w)$ denotes the Coxeter-length of $w$.
+      \item \textnormal{\cite[Theorem 9.8]{delignelusztig1976}} For a character 
+        $\theta$ in general position, the natural map
+        \begin{equation*}
+          \hH^i_c(Y_{T \subset B},\bar \Q_l)_\theta \to \hH^i(Y_{T \subset
+          B}, \bar \Q_l)
+        \end{equation*}
+        is an isomorphism.
+    \end{enumerate}
+\end{thm}
+
+We next explain how these results apply to the comactly supported \'etale cohomology
+of $\DL_n$. Obviously we set $G = \GL_n$, and we fix the standard
+torus $T^\std$ (of diagonal matrices), the standard Borel $B^\std$ (of upper
+diagonal matrices) and the standard unipotent subgroup $U^\std$. 
+
+Choose a flag $\Flag \in X_w(k)$, where $w$ is, as usual, $(1\ 2\ \dots \ n)
+\in \Sigma_n \cong \Weyl_G(T^\std)$ (although the discussion remains valid for any choice
+of permutations). 
+Let $B \subset \GL_n$ denote the isotropy subgroup of $\Flag$, and let 
+$T \subset B$ be a Frobenius-stable torus in $B$.
+Write $U$ for the unipotent radical of $B$.
+We have the explicit descriptions (cf. \cite[Definition 1.17]{delignelusztig1976})
+\begin{equation} \label{eq:ExplicitDLVarieties}
+  \begin{array}c
+  X_{T \subset B} = \{g \in \GL_n \mid g^{-1} F(g) \in F(U)\}/(T^F(U \cap F(U)))\\
+  \text{and} \\
+  \tilde X_{T \subset B} = \{g \in \GL_n \mid g^{-1} F(g) \in F(U)\}(U \cap F(U)).
+  \end{array}
+\end{equation}
+Given any marked flag $(\Flag', e'_\bullet) \in X(S)$, we write $g(\Flag', e'_\bullet) \in
+\GL_n/U^\std(S)$ for the corresponding
+section under the isomorphism of Proposition \ref{lem:MarkedFlagVarietyAsQuotient}
+(i.e., $g.(\Flag^\std,e_\bullet^\std) = (\Flag',e'_\bullet)$). Also, we may
+choose $h \in \GL_n(k)$ such that $h(T^\std, B^\std)h^{-1} = (T,B)$. Then
+by \cite[Proposition 1.19]{delignelusztig1976}, the map
+\begin{equation*}
+\DL_n \to \tilde X_{T \subset B}, \quad (\Flag', e'_\bullet) \mapsto g(\Flag',
+e'_\bullet)h^{-1}
+\end{equation*}
+gives an isomorphism of $\GL_n^\Frob$-equivariant torsors
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\DL_n} \& {\tilde X_{T\subset B}} \\
+	{X_w} \& {X_{T \subset B.}}
+  \arrow[""{name=0, anchor=center, inner sep=0},
+  "{\TT_w^\Frob\text{-torsor}}"', from=1-1, to=2-1]
+  \arrow[""{name=1, anchor=center, inner sep=0}, "{T^\Frob\text{-torsor}}",
+  from=1-2, to=2-2] \arrow["\sim", shorten <=15pt, shorten >=15pt, from=0, to=1]
+\end{tikzcd}
+\end{equation*}
+
+Given any representation $\theta$ of $\TT^\Frob_w(k)$, we write
+\begin{equation*}
+  R^\theta_w = \sum_i (-1)^i \hH_c^i(\DL_n, \bar \Q_l).
+\end{equation*}
+We may embed the torus $\TT_w$, which is the standard torus with 
+rational structure such that $\Frob$ acts by $\ad w \circ \Frob$, into
+$\GL_n$. Now it is conjugated to $T^\std$, and this
+identification yields isomorphisms $R^{\theta \circ \ad h}_w \cong R^\theta_{T\subset
+B}$, where $h$ is chosen as above. If $\theta$ is a character of $\TT_w^\Frob(k)
+\cong \FF_{q^n}^\times$, the pair $(T, w \circ \ad h)$ is in regular position
+if and only if $\theta$ is regular, in the following sense.
+
+\begin{defi}[Regular Character on $\FF_{q^n}^\times$]
+  We say that a character $\theta: \FF_{q^n}^\times \to \C^\times$ is 
+  regular if it does not factor through the norm morphism
+  $$\Norm_{\FF_{q^n}/\FF_{q^m}}:\FF_{q^n}^\times \to \FF_{q^m}^\times$$ 
+  for any $m \leq n$.
+\end{defi}
+
+
+The statements of Theorem \ref{thm:DLTheoryGeneralResults} reduce to
+the following.
+
+\begin{thm}[Deligne--Lusztig Correspondence]\label{thm:DLCorrespondenceForUs}
+  \leavevmode
+  \begin{enumerate}
+    \item If $\theta$ is a regular character of $\FF_{q^n}^\times$, we have
+      \begin{equation*}
+        \hH_{\DL,\theta} = \hH_c^{n-1}(\DL_n, \bar \Q_l)_\theta = R_\theta \boxtimes
+        \theta
+      \end{equation*}
+      as representations of $\GL_n(\FF_q) \times \FF_{q^n}^\times$.
+      The representation $R_\theta$ is irreducible and cuspidal.
+    \item The natural map 
+      \begin{equation*}
+        \hH^{n-1}_c(\DL_n, \bar \Q_l) \to \hH^{n-1}(\DL_n, \bar \Q_l)
+      \end{equation*}
+      is an isomorphism.
+  \end{enumerate}
+\end{thm}
+
+This finishes the discussion about the $\GL_n(\FF_q) \times \FF_{q^n}^\times$-action
+on $\hH_\DL$. Recall that the Frobenius-automorphism yields an action of 
+$\Z$ on $\hH_\DL$. This action admits the following partial description.
+
+\begin{prop}
+  The action of $n\Z$ on $\hH_\DL$, induced by the $n$-th power of the
+  relative Frobenius automorphism $\Frob_q^n: \DL_n \to \DL_n$ is given by 
+  $$\gamma(nm) : x \mapsto (-1)^{(n-1)m} q^{m \frac{n(n-1)}2} x.$$
+  That is, $\Frob_q^n$ induces multiplication by the scalar $(-1)^{n-1}q^{\frac{n(n-1)}2}$
+  on $\hH_\DL$.
+  \begin{proof}
+    The result is due to Digne--Michel, cf. \cite{digne1985fonctions}. Also see 
+    the proof of \cite[Théorème 3.1.12]{wang2014espace}.
+  \end{proof}
+\end{prop}
+
+Concludingly, we obtain
+
+\begin{thm}[Structure of $\hH_\DL$]\label{thm:MainThmHDlStructure}
+  For a regular character $\theta: \FF_{q^n}^\times \to \bar \Q_l^\times$, 
+  $\hH_{\DL, \theta}$ is, as a representation of 
+  $\GL_n(\FF_q) \times \FF_{q^n}^\times \times n\Z$, given by 
+  \begin{equation*}
+    {\HDL}_{,\theta} = R_\theta \boxtimes \theta \boxtimes \gamma.
+  \end{equation*}
+\end{thm}
+
+% subsection The Deligne--Lusztig Correspondence for the Explicit Example (end)
+% section Deligne-Lusztig Theory for Depth Zero Representations (end)
+
+\end{document}
+
+

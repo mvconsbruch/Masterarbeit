@@ -1,0 +1,51 @@
+We highlight two equivalent
+characterizations of relative position. 
+
+\begin{prop}\label{prop:RelativePosition2}
+  A pair of flags $(\Flag, \Flag')$ is in relative position $w \in \Sigma_n$ 
+  if and only if one of the following equivalent conditions is satisfied.
+  \begin{enumerate}
+    \item There exists a faithfully flat finitely presented $S$-scheme 
+      $\phi: S' \to S$ (with structure map to $\spec k$ denoted by $f'$) and a
+      $n$-tuple of global sections 
+      $$(v_1, \dots, v_n) \in \Gamma(S', f'^* \tilde V)^n$$ satisfying for all $i =
+      1, \dots, n$ that 
+      \begin{equation*}
+        \phi^* F_i  = \langle v_1, \dots, v_i \rangle
+        \quad \text{ and } \quad 
+        \phi^* F'_i  = \langle v_{w(1)}, \dots, v_{w(i)} \rangle
+      \end{equation*}
+      inside $f'^* \tilde V$. 
+    \item For all $i,j = 1, \dots, n$, the quasi-coherent $\cO_S$-module 
+      \begin{equation}\label{eq:RelPosCond}
+        W_{ij}(\Flag, \Flag') \coloneq \frac{F_i \cap F'_{j}}{F_{i-1} \cap F'_{j} +
+        F_i \cap F'_{j-1}}
+      \end{equation}
+      is non-vanishing if and only if $w(j) = i$. In this case it is always
+      locally free of rank $1$.
+  \end{enumerate}
+  \begin{proof}
+    The first condition is a reformulation of the fact that the orbit scheme
+    $O_w$ is isomorphic to the $\fppf$-sheafification of 
+    $\GL(V)/(B_{\Flag} \cap B_{\Flag'})$, cf. \cite[Definition 5.20 and
+    Corollary 7.13]{milne2017algebraic}. Indeed, given any choice 
+    of 'standard' basis $(e_1, \dots, e_n)$ of $V$, any section $(\Flag, \Flag')$
+    in the orbit of $(\Flag^\std, w.\Flag^\std)$ (as in the previous proof), we
+    may choose $S'$ such that there exists a $g \in \GL(V)(S')$ 
+    satisfying $g.(\Flag^\std|_{S'}, w.\Flag^{\std}|_{S'}) = (\Flag, \Flag')$.
+    Now it is easily seen that $v_i = g(e_i) \in \Gamma(S', f^*\tilde V)$
+    satisfy the desired conditions. Conversely, any such basis yields lifts
+    to $\GL(V)(S')$.
+
+    To obtain the second characterization, pick a $\fppf$-scheme $S'$ as in the
+    first condition, yielding the tuple of generators $(v_1, \dots, v_n)$. On
+    $S'$, the space $W_{ij}(\Flag, \Flag')$ is non-vanishing if and only if
+    $v_{i} \in F'_j \setminus F'_{j-1}$, or equivalently, $\sigma(i) = j$. In
+    this case, the module is free of rank $1$. As the condition
+    of quasi-coherent modules to be locally free of rank $1$ can be checked 
+    fppf-locally (cf. \cite[Proposition 14.48]{gortz2020algebraic}), the claim 
+    follows.
+  \end{proof}
+\end{prop}
+
+

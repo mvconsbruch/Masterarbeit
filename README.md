@@ -1,4 +1,8 @@
 # Master's thesis
+## 26th of June
+[06_26_version.pdf](./compiled_versions/06_26_version.pdf) 
+Finally finished the section on DL-Theory.
+
 ## 28th of May
 [05_28_version.pdf](./compiled_versions/05_28_version.pdf) 
 I wrote up the proof of the explicit correspondence, starting from the 

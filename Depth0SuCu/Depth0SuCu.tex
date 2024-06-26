@@ -6,284 +6,6 @@
 Representations} % (fold)
 \label{sec:Explicit Non-Abelian Lubin-Tate Theory for Depth Zero Supercuspidal Representations}
 
-\subsection{Deligne--Lusztig Theory for Depth Zero Representations} % (fold)
-\label{sub:Deligne-Lusztig Theory for Depth Zero Representations}
-The aim of this section is to outline the construction of a correspondence
-between characters of $\FF_{q^n}^\times$ (with values in $\C$) and 
-cuspidal representations of $\GL_n(\FF_q)$. The correspondence we construct here
-is an application of a more general theory due to Deligne--Lusztig. 
-In \cite{delignelusztig1976}, they construct
-for any connected reductive algebraic group $G$ over $\FF_q$ and any
-Frobenius-stable 
-maximal torus $T \subseteq G$ a correspondence associating to certain
-characters $\theta$ of $T^F$ a virtual representation $R_{T,\theta}$ of 
-$G^F$. These representations arise from the $l$-adic cohomology (with $l \neq p$)
-of a certain space $\DL_{G,T,w}$ admitting commuting actions by $G^F$ and $T^F$. 
-We give explicit descriptions of the occuring spaces and state the cohomological 
-results.
-
-\subsubsection{Deligne--Lusztig Varieties} % (fold)
-\label{ssub:Deligne--Lusztig Varieties}
-We begin by introducing (full) flags and their classifying objects, flag
-varieties. Let $k$ be a field and let $V$ be a finite dimensional $k$-vector space
-of dimension $n$.
-
-\begin{defi}[Flag Variety]\label{def:FlagVariety}
-  Let $X: \SchOver k \to \Set$ be the functor assigning to each $k$-scheme $S$
-  the set 
-  \begin{equation*}
-    X(S) = \left\{\cF_1 \subset \cF_2 \subset \dots \subset \cF_{n-1} \subset
-    \cO_S^n \ \big \vert  \begin{array}c
-      \text{For all $i$, $\cF_i$ is locally a direct} \\
-      \text{summand of $\cO_S \otimes_{\cO_k} \tilde V$, locally free of rank $i$}
-  \end{array} \right\}.
-  \end{equation*}
-  Recall that a subsheaf $\cF_i \subset \cO_S^n$ is locally a direct summand
-  if it is quasi-coherent, and for each $s \in S$ there is some neighbourhood 
-  $U$ of $s$ such that $\cF_i|_U$ is a direct summand of $\cO_S^n|_U$. 
-  The $S$-valued points of $S$ are called families of flags over $S$.
-\end{defi}
-Elements of $X(k)$ are called (full) Flags. They are given by an increasing
-$n-1$-tuple of vector spaces 
-$$\Flag = (F_1 \subsetneq F_2 \subsetneq \dots F_{n-1} \subsetneq V) \in X(k).$$
-  %By \cite[Prposition 8.10]{gortz2020algebraic} and the subsequent discussion,
-  %a subsheaf $\cF \subset \cO_S^n$ being locally a direct summand is equivalent
-  %to the quotient sheaf $\cO_S^n/\cF$ being locally free.
-  There are natural morphisms
-  \begin{equation*}
-    \nu_i: X \to \Grass_{n,i}, \quad (\cF_1 \subset \dots \subset \cF_{n-1}
-    \subset \cO_S^n) \mapsto (\cO_S^n \surj \cF_i^\vee),
-  \end{equation*}
-  where $\Grass_{n,i}$ denotes the Grassmannian as defined in
-  \cite[\href{https://stacks.math.columbia.edu/tag/089R}{Tag 089R}]{stacks-project}.  
-
-\begin{prop}\label{prop:FlagVarisProjective}
-  The induced morphism of functors
-  \begin{equation*}
-    X \to \Grass_{n,1} \times_{\spec k} \dots \times_{\spec k} \Grass_{n,n-1}
-  \end{equation*}
-  is representable by a closed embedding. In particular, as $\Grass_{n,d}$ is
-  representable by a projective scheme for integers $1 \leq d \leq n-1$, 
-  $X$ is representable by a projective scheme. 
-\begin{proof}
-  This can be checked directly on the standard affine cover of the Grassmannians,
-  where the condition that $F_i$ is contained in $F_{i+1}$ is a polynomial
-  condition.
-\end{proof}
-\end{prop}
-
-There is a natural $\GL_n$-action on $X$, induced by the natural action of 
-$\GL_n(S)$ on $\cO_S^n$. Given a flag $\Flag \in X(k)$, we
-write $B_\Flag \subset \GL_n$ for the isotropy subgroup of $\Flag$ under this
-action. In \cite{delignelusztig1976}, the authors work with schemes
-arising as quotients $G/B$ where $B$ is some Borel subgroup. 
-It is elementary that $B_\Flag$ is Borel, 
-and the following proposition shows that $X$ is of this form.
-
-\begin{lem}\label{lem:FlagVarietyAsQuotient}
-  The morphism of schemes $\mu_{\Flag}: \GL_n \to X$, $g \mapsto g.\Flag$
-  yields an isomorphism $\GL_n/B_{\Flag} \to X$. 
-\begin{proof}
-  As $X$ is separated, \cite[Proposition 7.13]{milne2017algebraic} yields an 
-  isomorphism $\GL_n/B_{\Flag} \to O(\Flag)$, where $O(\Flag)$
-  denotes the (unique) subscheme of $X$ with underlying topological space given by
-  $\mu_{\Flag}(\abs G)$. As the action is faithful on geometric points, 
-  we find $\abs{O(\Flag)} = \abs X$, and the claim follows.
-\end{proof}
-\end{lem}
-
-\begin{prop}\label{prop:FlagVarIsSmooth}
-  The scheme $X$ is smooth, and of pure dimension $\tfrac{n(n-1)}2$. 
-\begin{proof}
-  This follows by the fact that $\GL_n$ is smooth and the lemma above. 
-  Alternatively, this can be checked directly on the moduli problem.
-\end{proof}
-\end{prop}
-
-Write $T$ for the torus of diagonal matrices in $\GL_n$. 
-
-\begin{defi}[Functor of Marked Flags]\label{def:MarkedFlagVar}
-  Let $Y$ be the functor $\SchOver X \to \Set$ given by sending a morphism
-  $S \to X$, corresponding to a family of flags $(\cF_i)_i \in X(S)$, to the set
-  \begin{equation*}
-    Y(S) = \{(e_i)_{1 \leq i \leq n-1} \mid e_i: \cO_S \to \cF_i/\cF_{i-1}
-    \text{ is an isomorphism}\}.
-  \end{equation*}
-  Here, $\cF_0$ is the zero-sheaf.
-\end{defi}
-Just like $X$, the functor $Y$ comes with a natural action by $\GL_n$
-and the natural morphism
-\begin{equation}\label{eq:naturalmapYtoX}
-  Y(S) \to X(S), \quad (\cF_i, e_i)_i \mapsto (\cF_i)_i
-\end{equation}
-is equivariant for this action. One readily checks that $Y$ is a sheaf in
-$\SchOver X_{\mathrm{Zar}}$, the big Zariski site of schemes over $X$.
-
-\begin{lem}\label{prop:RepresentabilityOfYMarkedFlags}
-  The morphism described in \eqref{eq:naturalmapYtoX} turns $Y$ into a
-  $T \times_k X$-torsor \begin{proof}
-  For any $(\cF_i)_i \in X(S)$, the quotient sheaves $\cF_i/\cF_{i-1}$ are
-  (Zariski-) locally free of rank $1$. Hence there is a Zariski-cover $\sqcup_j
-  \spec R_j \to S$
-  with $(\cF_i/\cF_{i-1})|_{\spec R_j} \cong \cO_{\spec R_j}$ for all $i$. The claim
-  follows as on $\spec R_j$, any two isomorphisms $e_i$, $e_i'$ differ by a
-  unit in $R_j$, so any tuple of isomorphisms differs by an element in $(R_j^\times)^n
-  \cong T(R_j)$.
-\end{proof}
-\end{lem}
-
-As an immediate corollary, we obtain the following.
-\begin{prop}\label{prop:RepAndPropsOfY}
-  The functor $Y$ is representable, the morphism $Y \to X$ is smooth and affine.
-\begin{proof}
-  Let $\Flag^\univ$ be the universal flag coming from the identity on $X$. Then
-  we may pick a Zariski-cover $X' = \sqcup_j U_j \to X$ trivializing $Y$, so
-  that (as functors)
-  $Y \times_X X' \cong T \times_{\spec k} X \times_X X'$. Hence $Y \times_X U_j$ is
-  representable for all $j$. By the Yoneda-lemma and the fact that $Y$ is a sheaf over 
-  $X$ we obtain natural glueing data
-  \begin{equation*}
-    \phi_{j k}: (Y|_{U_j})|_{U_j \cap U_k} \xto \sim (Y|_{U_k})|_{U_j \cap U_k}.
-  \end{equation*}
-  These are readily seen to satifsy the cocycle condition. This turns $Y$ into a 
-  scheme over $X$. As $Y$ is locally on $X$ isomorphic to $T \times_{\spec k}
-  X$, it is relatively affine and smooth.
-\end{proof}
-\end{prop}
-
-Just like $X$, the scheme $Y$ admits representations as quotient of algebraic groups.
-Let $\Flag \in X(k)$ be a flag and $e_\bullet$ be a marking. Let 
-$U_{\Flag, e_\bullet} \subset \GL_n$ be the isotropy subgroup of the corresponding
-element of $Y(k)$ under the action of $\GL_n$.
-\begin{lem}\label{lem:MarkedFlagVarietyAsQuotient}
-  In this situation, $Y \cong \GL_n/U_{\Flag, e_\bullet}$.
-\begin{proof}
-  This can be shows using the same arguments as in the proof of
-  Lemma \ref{lem:FlagVarietyAsQuotient}.
-\end{proof}
-\end{lem}
-
-We next recall basic facts of the Bruhat decomposition for $\GL_n$. 
-Consider the diagonal action of $\GL_n$ on $X \times X$.
-\begin{prop}\label{prop:BruhatDecomp}
-  There is a decomposition into disjoint locally closed subschemes
-  \begin{equation*}
-    X \times X = \bigcup_{\sigma \in \Sigma_n}^{\cdot} O_\sigma.
-  \end{equation*}
-  Here, $O_\sigma$ is equal to the orbit of the element 
-  $(\Flag, \sigma.\Flag) \in (X \times X)(k)$. Each $O_\sigma$ is smooth of dimension
-  $\dim(X) + l(\sigma)$, where $l(\sigma)$ denotes the coxeter length of $\sigma$.
-\begin{proof}
-  See \red{Reference. Also, should follows from usual bruhat decomp.}.
-\end{proof}
-\end{prop}
-
-Given a basis $(v_1, \dots, v_n)$ of $V$, we write $\Flag(v_1, \dots, v_n) \in X(k)$ for
-the flag
-\begin{equation*}
-  0 \subsetneq \langle v_1 \rangle \subsetneq \langle v_1, v_2 \rangle 
-  \subsetneq \dots \subsetneq \langle v_1, \dots, v_n \rangle = V. 
-\end{equation*}
-It is equipped with a natural marking, given by the residue classes of the
-vectors $v_i$. 
-
-
-We next introduce the concept of relative position. 
-
-\begin{defi}[Relative Position]\label{def:RelPos}
-  A pair of flags $(\Flag,\Flag') \in X(k) \times X(k)$ is in relative position
-  $\sigma \in \Sigma_n$,
-  if there is a basis $(v_1, \dots, v_n)$ of $V$ such that for each $i = 
-  1, \dots, n-1$, the sub-vector space $F_i \subset V$ is equal to the span of
-  the vectors $v_1, \dots, v_i$ and $F'_i \subset V$ is equal to the span 
-  of the vectors $v_{\sigma(1)}, \dots, v_{\sigma(i)}$.
-\end{defi}
-\begin{prop}\label{prop:RelativePosWellDef}
-  For any pair of flags $(\Flag, \Flag')$, there is a unique $\sigma \in 
-  \Sigma_n$ such that $(\Flag, \Flag')$ is in relative position $\sigma$. 
-\begin{proof}
-  This statement is equivalent to the Bruhat decomposition for $\GL(V)$. See 
-  \cite[Chapter 21]{milne2017algebraic} for details.
-\end{proof}
-\end{prop}
-There is a scheme-theoretic analogue of \eqref{eq:BruhatDecompInOrbits}. 
-
-
-We now specialize to the case where $k = \bar \FF_q$ is an algebraic closure of 
-the finite field with $q$ elements. Then $X = X_0 \times_{\spec \FF_q} \spec \bar \FF_q$,
-where $X_0$ is the variety of full flags over $\FF_q$. Hence $X$ comes with
-the (absolute) Frobenius map $\Frob: X \to X$ defined over $\FF_q$. 
-Write $\gamma_{\Frob}: X \to X \times_{\spec \FF_q} X$ for the morphism sending
-a family of flags $\Flag$ to the pair $(\Flag, \Frob (\Flag))$. 
-For $\sigma \in \Sigma_n$, we define the space
-\begin{equation*}
-  X_\sigma \coloneqq O_\sigma \times_{X \times_{\spec \FF_q}X, \gamma_\Frob} X.
-\end{equation*}
-On $k$-rational points of $X$, $\Frob$ acts by sending a flag $\Flag(v_1,
-\dots, \allowbreak v_n)$
-to the flag $\Flag(\Frob(v_1), \dots, \allowbreak \Frob(v_n))$. Thereby, the
-set of $k$-rational points $X_\sigma(k)$ is given by those flags $\Flag$ which
-are in relative position $\sigma$ to the flag $\Frob(\Flag)$. The group
-$\GL_n(\FF_q)$ naturally acts on $X_\sigma(k)$. More generally, the group sheaf
-of Frobenius-invariants $\GL_n^\Frob$ acts on $X_\sigma$. 
-
-We obtain 
-
-% subsubsection Deligne--Lusztig Varieties (end)
-
-\begin{defi}[Deligne--Lusztig Variety for $\GL_n(\FF_q)$]\label{def:DLVariety}
-  \todo{}
-\end{defi}
-
-\begin{lem}
-  We have $$\DL_n = \coprod_{b} Y_b,$$
-  where $b$ runs over the set elements in $\FF_{q^n}^\times$ satisfying 
-  $b^{q-1} = (-1)^{n-1}$. 
-\end{lem}
-
-\begin{equation} \label{eq:defDLCohom}
-  \HDL \coloneqq \hH^{n-1}_c(\DL_n^\perf, \bar \Q_l) \quad \text{and} \quad
-  \HYb = \hH^{n-1}_c(\Yb^\perf, \bar \Q_l).
-\end{equation}
-
-\begin{defi}[Regular Character on $\FF_{q^n}^\times$]
-  We say that a character $\theta: \FF_{q^n}^\times \to \C^\times$ is 
-  regular if it does not factor through the norm morphism
-  $\FF_{q^n}^\times \to \FF_{q^m}^\times$ for any $m \leq n$.
-\end{defi}
-
-\begin{prop}[Deligne--Lusztig Correspondence] \label{prop:DLCorrespondence}
-  Let $\theta: \FF_{q^n}^\times \to \C^\times$. be a regular character.
-  As representations of $\GL_n(\FF_q) \times \FF_{q^n}^\times$, there is an
-  isomorhphism 
-  \begin{equation*}
-    {\HDL}_{, \theta} \cong  R_\theta \boxtimes \theta,
-  \end{equation*}
-  where $R_\theta$ is an \red{irreducible?} representation of $\GL_n(\FF_q)$. 
-\end{prop}
-
-\begin{prop}
-  We also have a natural action of $\Frob_q^{n\Z}$ on $\HDL$. Here, $\Frob_q^n$
-  acts by the scalar $(-1)^{n-1} q^{\frac{n(n-1)}2}$. 
-  \begin{proof}
-    This is somewhere in \cite{digne1985fonctions}, according to \cite[Lemma
-    5.10]{mieda2016geometric}.
-  \end{proof}
-\end{prop}
-
-\begin{thm}[]
-  For a regular character $\theta: \FF_{q^n}^\times \to \C^\times$, the 
-  $\theta$-isotypic component of $\HDL$ is, as a representation of 
-  $\GL_n(\FF_q) \times \FF_{q^n}^\times \times \Frob_q^{n\Z}$, given by 
-  \begin{equation*}
-    {\HDL}_{,\theta} = R_\theta \boxtimes \theta \boxtimes (\delta^{n-1})(\tfrac{1-n}2).
-  \end{equation*}
-  Here, $\delta: W_{F_n} \to \{\pm 1\}$ is the non-trivial quadratic unramified character.
-  \red{QUESTION: How do we make sense of half tate-twists?}
-\end{thm}
-
-% subsection Deligne-Lusztig Theory for Depth Zero Representations (end)
-
 \subsection{The Special Affinoid} % (fold)
 \label{sub:The Special Affinoid}
 \begin{defi}[The special Affinoid]
@@ -294,10 +16,8 @@ We obtain
 
 \subsection{The Explicit Correspondence} % (fold)
 \label{sub:The Explicit Correspondence}
-Fix, for the remainder of the section, a regular character $\theta: \FF_{q^n}^\times
-\to \C^\times$. Here, regular means that $\theta$ does not factor through
-the norm map $\Norm_{\FF_{q^n}/\FF_{q^m}}: \FF_{q^n}^\times \to
-\FF_{q^m}^\times$ for any $m \leq n$. 
+Fix, for the remainder of the section, an isomorphism $\bar \Q_l \cong \C$ and
+a regular character $\theta: \FF_{q^n}^\times \to \C^\times$. 
 The datum of $\theta$ can be used to construct representations 
 of $W_F$ and $D^\times$ and, making use of Deligne--Lusztig
 theory, a representation of $\GL_n(F)$. We proceed as follows.
@@ -317,8 +37,8 @@ theory, a representation of $\GL_n(F)$. We proceed as follows.
     \end{equation*}
     and let $\rho_\theta = \cInd_{F^\times \cO_D^\times}^{D^\times}(\bar \rho_\theta)$.
   \item Let $\bar \pi_\theta$ be the representation of $F^\times \GL_n(\cO_F)$
-    arising from post-composing $R_\theta$ (cf. Definition
-    \ref{prop:DLCorrespondence}) with the composition
+    arising from post-composing $R_\theta$ (cf. Theorem
+    \ref{thm:DLCorrespondenceForUs}) with the composition
     \begin{equation*}
       F^\times \GL_n(\cO_F) \cong \varpi^\Z \times \GL_n(\cO_F)
       \surj \GL_n(\cO_F) \surj \GL_n(\FF_q).
@@ -370,7 +90,8 @@ Also, we define a morphism
 \end{equation*}
 
 Recall that $H_\DL$ denotes the middle $l$-adic cohomology of 
-$\DL_n$, cf. Section \ref{sub:Deligne-Lusztig Theory for Depth Zero Representations}.
+$\DL_n$, cf. Section \ref{sub:The Deligne--Lusztig Correspondence for the
+Explicit Example}.
 \begin{lem}
   The morphism $\Theta$ makes $J$ act on ${\hH}_{\DL,\theta}$. This representation is 
   of the form 
