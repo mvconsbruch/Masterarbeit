@@ -701,18 +701,20 @@ on $\hH_\DL$. Recall that the Frobenius-automorphism yields an action of
 $\Z$ on $\hH_\DL$. This action admits the following partial description.
 
 \begin{prop}
-  The action of $n\Z$ on $\hH_\DL$, induced by the $n$-th power of the
-  relative Frobenius automorphism $\Frob_q^n: \DL_n \to \DL_n$ is given by 
-  $$\gamma(nm) : x \mapsto (-1)^{(n-1)m} q^{m \frac{n(n-1)}2} x.$$
-  That is, $\Frob_q^n$ induces multiplication by the scalar $(-1)^{n-1}q^{\frac{n(n-1)}2}$
-  on $\hH_\DL$.
+  The subgroup $n\Z \subset \Z$ acts on $\hH_\DL$ through the character $\gamma:
+  n\Z \to \Q^\times$, given by
+  $$\gamma(nm) =  (-1)^{(n-1)m} q^{m \frac{n(n-1)}2}.$$
+  That is, $\Frob_q^n$ induces multiplication by the scalar
+  $(-1)^{n-1}q^{\frac{n(n-1)}2}$ on $\hH_\DL$.
   \begin{proof}
     The result is due to Digne--Michel, cf. \cite{digne1985fonctions}. Also see 
     the proof of \cite[Théorème 3.1.12]{wang2014espace}.
   \end{proof}
 \end{prop}
 
-Concludingly, we obtain
+Concludingly, we obtain the following structural result about the 
+$\GL_n(\FF_q) \times \FF_{q^n}^\times \times \Z$-representation 
+$\hH_\DL$.
 
 \begin{thm}[Structure of $\hH_\DL$]\label{thm:MainThmHDlStructure}
   For a regular character $\theta: \FF_{q^n}^\times \to \bar \Q_l^\times$, 
@@ -721,6 +723,8 @@ Concludingly, we obtain
   \begin{equation*}
     {\HDL}_{,\theta} = R_\theta \boxtimes \theta \boxtimes \gamma.
   \end{equation*}
+  Here, $R_\theta$ is a irreducible cuspidal representation, and 
+  $\gamma$ is the character defined in the previous proposition.
 \end{thm}
 
 % subsection The Deligne--Lusztig Correspondence for the Explicit Example (end)
