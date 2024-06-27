@@ -279,12 +279,17 @@ As a pair of marked flags $((\Flag, e_\bullet), (\Flag', e_\bullet'))$ over $S$
 lies in the same $\GL_V$-orbit as $((\Flag, t_\bullet e_\bullet), (\Flag', t'_\bullet
 e_\bullet'))$ for $t_\bullet, t'_\bullet \in \GG_{m,X}^n(S)$ if and only if 
 $t_\bullet = t'_\bullet$, we find that $Y_{w,t}$ is a
-Zariski-torsor for an affine group scheme $\TT_w^\Frob \times_k X_w$,
-where $\TT_w^\Frob$ is the $k$-group scheme with $S$-rational points given by
+Zariski-torsor over $X_w$ for an affine group scheme $\TT_w^\Frob \times_k
+X_w$, where $\TT_w^\Frob$ is the $k$-group scheme with $S$-rational points
+given by 
 \begin{equation*}
   \TT_{w}^\Frob(S) = \{(t_1, \dots, t_n) \in \GG_{m}^n(S) \mid 
     t_i^q = t_{w(i)}\}.
 \end{equation*}
+
+Furthermore, an element $g \in \GL_V(S)$ stabilizes $Y_{w,t}(S) \subset Y(S)$ if
+$g \in \GL_V^\Frob(S)$, so we obtain a $\GL_V^\Frob$ action on $Y_{w,t}$ and 
+$X_w$. The morphism $Y_{w,t} \to X_w$ is equivariant for the $\GL_V^\Frob$-action.
 
 One can show that the scheme $X_w$ is smooth (of pure dimension $l(w)$, 
 as the intersection in \eqref{eq:defXYsigma} is transverse, cf.
@@ -333,7 +338,7 @@ by $\GL(V_0)$ and $\TT_w^\Frob(k) = \FF_{q^n}^\times$.
 
 For a linear form $\mu \in V^\vee$, we write 
 $D^+(\mu)$ for the affine open subscheme of $\PP(V)$ parametrizing
-lines in $V$ that do not lie in the hyperplane spanned by $\mu$.
+lines in $V$ that do not lie in the hyperplane defined by the equation $\mu(v) = 0$.
 
 \begin{prop}\label{prop:XwExplicitely}
   If $w = (1 \ 2 \ \dots \ n)$, the morphism of functors defined on 
@@ -350,8 +355,8 @@ lines in $V$ that do not lie in the hyperplane spanned by $\mu$.
   We first show that the image of any family of flags $\Flag \in X_w(S)$ lies inside
   $\cap_{\mu} D^+(\mu)(S)$. As the latter is an open subscheme, it suffices to
   show that any $s \in |S|$ maps into
-  $\cap_{\mu} D^+(\mu)$, which is the case if any only if $F_1(s) = F_1
-  \otimes_{\cO_{\spec k}} \cO_{\spec \kappa(s)}(\{s\})$  does not lie inside
+  $\cap_{\mu} D^+(\mu)$, which is the case if any only if $F_1(s) = F_{1,s}
+  \otimes_{\cO_{S,s}} \kappa(s)$  does not lie inside
   any $\FF_q$-rational hyperplane in $\kappa(s) \otimes_k V$. By Lemma
   \ref{lem:FlagsInRelPosWareez}, we find
   $$F_1(s) \oplus \Frob(F_1(s)) \oplus \dots \oplus \Frob^{n-1}(F_1(s)) = V
@@ -380,7 +385,8 @@ lines in $V$ that do not lie in the hyperplane spanned by $\mu$.
   $$\langle \bar v, \Frob(\bar v), \dots, \Frob^{n-1}(\bar v)\rangle \subset (R/\fm)^n$$ 
   is non-trivial and Frobenius-stable, and in particular
   contained in some $\FF_q$-rational hyperplane. This contradicts $\cL \in
-  \cap_{\mu \in V_0^\vee}D^+(\mu)(S)$.
+  \cap_{\mu \in V_0^\vee}D^+(\mu)(S)$. As both sides are Zariski-sheaves, the
+  morhpism $\Psi$ is well-defined.
 \end{proof}
 \end{prop}
 
@@ -477,14 +483,14 @@ The (left-)action of $\GL_n(\FF_q) \times \FF_{q^n}^\times$ on $\DL_n$ has the f
 explicit description.
 
 \begin{lem}\label{lem:ActionsOnDLn}
-  The action of $\GL_n$ on $\DL_n$ is given by
+  The action of $\GL_n(\FF_q)$ on $\DL_n$ is given by
   \begin{equation*}
     (a_{ij})_{i,j}.(x_1, \dots, x_n) = \left(\sum_{j = 1}^n
     a_{ij}x_j\right)_{i = 1, \dots, n}
   \end{equation*}
   The action of $\FF_{q^n}^\times$ is given by
   \begin{equation*}
-    d.(x_1, \dots, x_n) = (d^{-1}x_1, \dots, d^{-1}x_n).
+    d.(x_1, \dots, x_n) = (dx_1, \dots, dx_n).
   \end{equation*}
 \end{lem}
 
@@ -583,6 +589,9 @@ We summarize a few of the results of the theory.
 \begin{thm}[Some Results of Deligne-Lusztig Theory]\label{thm:DLTheoryGeneralResults}
   \leavevmode
   \begin{enumerate}
+      \item \textnormal{\cite[Corollary 1.22]{delignelusztig1976}} Let $Z \subset G$
+        denote the center of $G$. Then $Z^\Frob$ acts on $\hH^{n-1}_c(\tilde
+        X_{T \subset B}, \bar \Q_l)_{\theta}$ through $\theta|_{Z^F}$.
       \item \textnormal{\cite[Corollary 7.7]{delignelusztig1976}} For any
         irreducible representation
           $\rho$ of $G^F$, there exists an $F$-stable maximal torus $T$ and a character
@@ -608,7 +617,7 @@ We summarize a few of the results of the theory.
         $\theta$ in general position, the natural map
         \begin{equation*}
           \hH^i_c(Y_{T \subset B},\bar \Q_l)_\theta \to \hH^i(Y_{T \subset
-          B}, \bar \Q_l)
+          B}, \bar \Q_l)_\theta
         \end{equation*}
         is an isomorphism.
     \end{enumerate}
@@ -657,7 +666,7 @@ gives an isomorphism of $\GL_n^\Frob$-equivariant torsors
 
 Given any representation $\theta$ of $\TT^\Frob_w(k)$, we write
 \begin{equation*}
-  R^\theta_w = \sum_i (-1)^i \hH_c^i(\DL_n, \bar \Q_l).
+  R^\theta_w = \sum_i (-1)^i \hH_c^i(\DL_n, \bar \Q_l)_\theta.
 \end{equation*}
 We may embed the torus $\TT_w$, which is the standard torus with 
 rational structure such that $\Frob$ acts by $\ad w \circ \Frob$, into
@@ -687,7 +696,9 @@ the following.
         \theta
       \end{equation*}
       as representations of $\GL_n(\FF_q) \times \FF_{q^n}^\times$.
-      The representation $R_\theta$ is irreducible and cuspidal.
+      The representation $R_\theta$ is irreducible and cuspidal, and it's central
+      character is given by $\theta|_{\FF_q^\times}$ under the identification
+      $\FF_q^\times \cong Z_{\GL_n}$.
     \item The natural map 
       \begin{equation*}
         \hH^{n-1}_c(\DL_n, \bar \Q_l) \to \hH^{n-1}(\DL_n, \bar \Q_l)
@@ -701,11 +712,12 @@ on $\hH_\DL$. Recall that the Frobenius-automorphism yields an action of
 $\Z$ on $\hH_\DL$. This action admits the following partial description.
 
 \begin{prop}
-  The subgroup $n\Z \subset \Z$ acts on $\hH_\DL$ through the character $\gamma:
+  Let $\theta$ be a regular character. The subgroup $n\Z \subset \Z$ acts on
+  $\hH_{\DL,\theta}$ through the character $\gamma:
   n\Z \to \Q^\times$, given by
   $$\gamma(nm) =  (-1)^{(n-1)m} q^{m \frac{n(n-1)}2}.$$
   That is, $\Frob_q^n$ induces multiplication by the scalar
-  $(-1)^{n-1}q^{\frac{n(n-1)}2}$ on $\hH_\DL$.
+  $(-1)^{n-1}q^{\frac{n(n-1)}2}$ on $\hH_{\DL,\theta}$.
   \begin{proof}
     The result is due to Digne--Michel, cf. \cite{digne1985fonctions}. Also see 
     the proof of \cite[Théorème 3.1.12]{wang2014espace}.
