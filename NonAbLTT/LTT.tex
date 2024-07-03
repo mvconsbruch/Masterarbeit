@@ -3,48 +3,12 @@
 We mostly follow \cite[Chapter 2]{Strauch2008DefSp} for notation. Let $\cC$
 denote the category of local, Noetherian $\cO_\br K$-modules with residue field
 $\bar \FF_q$. Let $H_0$ be a formal $\cO_K$-module over $\bar \FF_q$. 
-\begin{defi}[Deformation]
-  Let $R \in \cC$. A deformation of $H_0$ to $R$ is a pair $(H, \iota)$ where
-  $H$ is a formal $\cO_K$-module over $R$ and $\iota$ is a quasi-isogeny
-  \begin{equation*}
-    \iota: H_0 \dashto H \otimes_R \Fqbar.
-  \end{equation*}
-  Two deformations $(H, \iota)$ and $(H', \iota')$ are isomorphic if there is
-  an isomorphism $\tau: H \to H'$ with $\iota' \circ \tau = \iota$. 
-\end{defi}
-The Lubin-Tate space without level structure is the moduli space of such deformations.
-More precisely, we define it as the functor
-\begin{equation*}
-  \cM_0: \cC \to \Set, \quad R \mapsto \{\text{deformations } (H, \iota) \text{
-  of $H_0$}\}/\text{iso}.
-\end{equation*}
 
-\begin{thm}[Representability of $\cM_0$]
-  The functor $\cM_0$ is (non-canonically) representable, by the noetherian
-  local ring
-  \begin{equation*}
-    A_0 \cong \cO_\br K\llbr u_1, \dots, u_{n-1} \rrbr.
-  \end{equation*}
-\end{thm}
-In particular, there is a universal deformation
-$(F^\univ, \iota^\univ)$, with $F^\univ \in \FMOver {\cO_\br K} {A_0}$.
 % subsection Deformations of Formal Modules (end)
 
 \subsubsection{Deformations of Formal Modules with Drinfeld Level Structure} 
 
 \label{subsub:Deformations of Formal Modules with Drinfeld Level Structure}
-\begin{defi}[Drinfeld level $\fp^m$-structure]
-  Let $R \in \cC$ and $H \in \FMOver {\cO_K}{R}$. A Drinfeld level 
-  $\fp^m$-structure on $H$ is a morphism of $R$-group schemes 
-  \begin{equation*}
-    (\fp^{-m}/\cO_K)^{\oplus n} \to H(R)[\varpi^m]
-  \end{equation*}
-  such that after choosing a coordinate $H \cong \spf R\llbr T \rrbr$, the 
-  power series $[\varpi]_H(T) \in R\llbr T \rrbr$ satisfies the divisibility constraint
-  \begin{equation*}
-    \prod_{x \in (\fp^{-1}/\cO_K)}(T - \phi(x)) \ \bigg\vert \ [\varpi]_H(T).
-  \end{equation*}
-\end{defi}
 The following examples might shed some light on this definition.
 \begin{xpl}
   \begin{itemize}

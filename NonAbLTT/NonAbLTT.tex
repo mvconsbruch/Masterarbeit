@@ -21,13 +21,208 @@ the Local Langlands Correspondence for $\GL_n$. Our goal is an explicit
 description of (a part of) this correspondence, and we obtain such a
 description by understanding (a part of) the Lubin-Tate tower explicitely.
 
-\subsection{The Lubin-Tate Tower} % (fold)
-\label{sub:The Lubin-Tate Tower}
-\input{NonAbLTT/LTT.tex}
+\subsection{Lubin--Tate Deformation Spaces} % (fold)
+\label{sub:Lubin-Tate Deformation Spaces}
+The aim of this section is to constuct, associated to a formal $\cO_K$-module
+$H_0 \in \FMOver Ak$ and an integer $m$, a certain moduli problem $\cM_{H_0, m}$,
+parametrizing "deformations of $H_0$ with Drinfeld level $\varpi^m$-structure".
+By results of Drinfeld \cite{drinfel1974elliptic}, these moduli problems turn
+out to be representable by formal schemes. 
 
-\begin{defi}[Lubin-Tate rigid space with $K$-level structure]\label{def:LTRigidSpaceFinLev}
-  \todo{}
+\subsubsection{The Tower of Deformation Spaces} % (fold)
+\label{ssub:The Tower of Deformation Spaces}
+We mostly follow \cite[Chapter 2]{Strauch2008DefSp} in the following
+exposition. Let $\cC$ denote the category of complete, local, Noetherian $\cO_\br
+F$-algebras with residue field $\bar \FF_q$.
+Let $H_0$ be a formal $\cO_F$-module law over $k$ and let $R$ be an element of 
+$\cC$.
+
+\begin{defi}[Deformation]
+  A deformation of $H_0$ to $R$ is a pair $(H, \iota)$ where
+  $H$ is a formal $\cO_K$-module over $R$ and $\iota$ is a quasi-isogeny
+  \begin{equation*}
+    \iota: H_0 \dashto H \otimes_R \Fqbar.
+  \end{equation*}
+  Two deformations $(H, \iota)$ and $(H', \iota')$ are isomorphic if there is
+  an isomorphism $\tau: H \to H'$ with $\iota' \circ \tau = \iota$. 
 \end{defi}
+The Lubin-Tate space without level structure is the moduli space of such deformations.
+More precisely, we define it as the functor
+\begin{equation*}
+  \cM_0: \cC \to \Set, \quad R \mapsto \{\text{deformations } (H, \iota) \text{
+  of $H_0$}\}/\text{iso}.
+\end{equation*}
+
+Note that we have a stratification
+\begin{equation*}
+  \cM_0 = \coprod_{j \in \Z} \cM_0^{(j)},
+\end{equation*}
+where $\cM_0^{(j)}$ parametrizes deformations $(H, \iota)$ with $\height(\iota) = j$.
+
+\begin{thm}[Representability of $\cM_0$]
+  The functor $\cM_0^{(0)}$ is representable by a ring $A_0 \in \cC$, non-canonically 
+  isomorphic to
+  \begin{equation*}
+    \cO_\br F\llbr u_1, \dots, u_{n-1} \rrbr \in \cC.
+  \end{equation*}
+In particular, there is a universal deformation
+$(F^\univ, \iota^\univ)$, with $F^\univ \in \FMOver {\cO_\br F} {A_0}$.
+\begin{proof}
+  This statement is due to Lubin--Tate, cf. \cite{LubinTate1966FormalModuli}. 
+  They show representability of a slightly different moduli functor 
+  (classifying certain $\star$-deformations of a formal group law $H_0 \in
+  \FMLOver{\cO_F}{\bar\FF_q})$). As quasi-isogenies of height $0$ are isomorphisms,
+  their result is equivalent to the one above.
+\end{proof}
+\end{thm}
+
+We next introduce variants of this moduli problem with a certain level structure.
+
+\begin{defi}[Drinfeld level $\varpi^m$-structure]
+  Let $H \in \FMOver {\cO_F}{R}$ be a $\varpi$-divisible formal $\cO_F$-module
+  of height $n>0$ and let $m$ be a non-negative 
+  integer. A Drinfeld level $\varpi^m$-structure on $H$ is a morphism of
+  $\cO_F$-modules
+  \begin{equation*}
+    (\varpi^{-m}\cO_F/\cO_F)^{n} \to H(R)
+  \end{equation*}
+  such that after choosing a coordinate $H \cong \spf R\llbr T \rrbr$, the 
+  power series $[\varpi]_H(T) \in R\llbr T \rrbr$ satisfies the divisibility constraint
+  \begin{equation*}
+    \prod_{x \in (\varpi^{-1}\cO_F/\cO_F)^n}(T - \phi(x)) \ \bigg\vert \ [\varpi]_H(T).
+  \end{equation*}
+\end{defi}
+
+\begin{defi}[Lubin--Tate Deformation Space with Level Structure]\label{def:LTDefSpaceWithLevel}
+  Let $\cM_m: \cC \to \Set$ be the functor assigning to $R \in \cC$ the set 
+  \begin{equation*}
+    \cM_m(R) \coloneqq \{(H, \iota, \phi) \mid (H, \iota) \in \cM_0(R) \text{ and }\phi
+    \text{ a Drinfeld level $\varpi^m$-structure on $H$}\}/\text{iso}.
+  \end{equation*}
+\end{defi}
+
+By results of Drinfeld, the functor $\cM_m$ is representable.
+
+\begin{thm}[Representability of the Lubin--Tate Deformation Space with Level Structure]\label{thm:LTSpaceWithLevelRep}
+  The functor $\cM_m^{(0)}$ is representable by a regular local ring $A_m \in \cC$ of 
+  dimension $m-1$.
+\begin{proof}
+  This is \cite[Proposition 4.3]{drinfel1974elliptic}.
+\end{proof}
+\end{thm}
+
+Note that for non-negative integers $m' \leq m$, we have natural morphisms $\cM_m
+\to \cM_{m'}$ by restricting the level structure. We obtain a tower
+$\{\cM_m\}_{m \geq 0}$ of Lubin--Tate deformation spaces.
+% subsubsection The Tower of Deformation Spaces (end)
+
+\subsubsection{Group Actions on the Tower of Lubin--Tate Deformation Spaces} % (fold)
+\label{ssub:Group Actions on the Tower of Lubin--Tate Deformation Spaces}
+We describe actions of $\GL_n(F) \times D^\times$ on the tower
+$\{\cM_m\}_{m \geq 0}$. More precisely, given an element $d \in D^\times$ and an element
+$g \in \GL_n(F)$, we construct, for sufficiently large $m\geq 0$, morphisms
+\begin{equation*}
+  d_m \colon \cM_m^{(j)} \to \cM_m^{(j')} \quad \text{and} \quad
+  g_{m,m''} \colon \cM_m^{(j)} \to \cM_{m''}^{(j'')},
+\end{equation*}
+where $j'= j+\val_\varpi(\Nrd(d))$, $j'' = j + \val_\varpi(\det(g))$ and $m''$
+is an integer depending on $m$ and $g$. 
+
+The action of $D^\times$ is easy to describe. Given $R \in \cC$ and 
+$d \in D^\times$, it acts via right-translation on $\iota$. That is, we put
+\begin{equation*}
+  (H, \iota, \phi).d = (H, \iota \circ d, \phi).
+\end{equation*}
+
+The group $\GL_n(F)$ acts in a less simple matter. We need the following 
+notion of quotients of formal $\cO_F$-modules.
+
+\begin{defi}[Quotient of Formal Module by Finite Subgroup]\label{def:QuotientModule}
+  Let $H$ be a formal $\cO_F$-module law and let $G \subset R^\cici$ be a finite
+  sub $\cO_F$-module, where we equip $R^\cici$ with the $\cO_F$-module structure 
+  coming from $H$. Then, we define the quotient $H/G$ as the following formal
+  $\cO_F$-module law. 
+  \red{How is this supposed to work please?? It should be something like
+  \begin{equation*}
+    (H/G)(X,Y) = g(H(g^{-1}(X), g^{-1}(Y)), \quad \text{where}\quad 
+    g(T) = \prod_{a \in F} (T - a).
+  \end{equation*}
+  But this doesn't make sense.
+  }
+\end{defi}
+
+\begin{lem}\label{lem:PropertyOfQuotient}
+  The quotient as above is a formal $A$-module. If $\# P = q^n$, the induced
+  morphism $H \to H/G$ of formal module laws over $R$ is of height $n$.
+\begin{proof}
+\end{proof}
+\end{lem}
+
+\begin{lem}\label{lem:DrinfeldLevelOnQuotients}
+  Let $H$ be a $\varpi$-divisible formal $A$-module over $R\in\cC$ and let 
+  $\phi$ be a Drinfeld $\varpi^m$-level structure on $H$. Suppose that 
+  $P \subset (\varpi^{-m} \cO_F/\cO_F)^n$ is a submodule and that 
+  there is an injection 
+  \begin{equation*}
+    \left(\varpi^{-m'} \cO_F/\cO_F \right)^n \to \frac{(\varpi^{-m}
+    \cO_F/\cO_F)^n}{P}.
+  \end{equation*}
+  Then, the morphism
+  \begin{equation*}
+    \phi': \left(\varpi^{-m'} \cO_F/\cO_F \right)^n \to X/\phi(P)
+  \end{equation*}
+  is a Drinfeld $\varpi^m$-level structure.
+\begin{proof}
+  This is \cite[Proposition 4.4]{drinfel1974elliptic}.
+\end{proof}
+\end{lem}
+
+First assume that $g \in \GL_n(F)$ is such that $g^{-1} \in \Mat_{n\times
+n}(\cO_F)$ and $g \in \varpi^{-d} \Mat_{n \times n}(\cO_F)$ for some non-negative
+integer $d$. In this case, we construct for all integers $m \geq d$ a natural
+transformation
+\begin{equation*}
+  g_{m, m-d}: \cM_m \to \cM_{m-d}.
+\end{equation*}
+Note that $g \cO_F^n \subset \varpi^{-d} \cO_F^n$, and that multiplication with
+$g$ yields an injection
+\begin{equation*}
+  (\varpi^{m-d}\cO_F/\cO_F)^n \xto g (\varpi^{-m}\cO_F^n/g\cO_F^n) = 
+  \frac{(\varpi^{-m} \cO_F^n /\cO_F^n)}{(g \cO_F^n/\cO_F^n)}.
+\end{equation*}
+Now, given a tuple $(X, \iota, \phi) \in \cM_m(R)$, we put
+$$(X, \iota, \phi).g = (X', \iota', \phi'),$$
+where 
+$$X'= X/\phi(g\cO_F^n/\cO_F^n)$$ 
+is a the quotient of $X$ as in Definition \ref{def:QuotientModule}, 
+$$\iota'\colon H_0 \to X \otimes \bar \FF_q \to X' \otimes \bar \FF_q$$ 
+is the corresponding quasi-isogeny of height 
+$(\height(\iota) - \val_\varpi( \det g))$, and 
+$$\phi'\colon (\varpi^{m-d}\cO_F/\cO_F)^n \to X'$$ 
+is the Drinfeld $\varpi^{m-d}$-level structure obtained by Lemma
+\ref{lem:DrinfeldLevelOnQuotients}. 
+This does not depend on the choice of $d$. Indeed, given integers $m \geq d'
+\geq d$ with $d$ as above, the triangle 
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\cM_{m}} \& {\cM_{m-d'}} \\
+	\& {\cM_{m-d}}
+	\arrow["{g_{m,m-d'}}", from=1-1, to=1-2]
+	\arrow["{g_{m,m-d}}"', from=1-1, to=2-2]
+	\arrow["\pr", from=1-2, to=2-2]
+\end{tikzcd}
+\end{equation*}
+commutes.
+
+If $g \in \GL_n(F)$ is an arbitrary element, we may choose, for a sufficiently
+large integer $d$, an integer $r$ such that $(\varpi^{-r} g)^{-1} \in \Mat_{n
+\times n}(\cO_F)$ and $\varpi^{-r}g \in \varpi^{-d}\Mat_{n \times n}(\cO_F)$.
+Now, for $m \geq d$, we obtain natural transformations
+\begin{equation*}
+  g_{m,m-d}\colon \cM_{m} \to \cM_{m-d}, \quad (X, \iota, \phi).g = (X, \iota \circ \varpi^{-r}, \phi).(\varpi^{-r}g).
+\end{equation*}
+This construction is independent of the choice of $r$. % subsubsection Group Actions on the Tower of Lubin--Tate Deformation Spaces (end)
+
 
 For $K \subset \GL_n(\cO_F)$, write $M_{K, \varpi^\Z}$ for the quotient of 
 $M_K$ (cf. Definition \ref{def:LTRigidSpaceFinLev}) by the action of the subgroup

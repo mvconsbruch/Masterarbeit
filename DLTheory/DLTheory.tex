@@ -12,10 +12,10 @@ is an instance of a more general theory developed by Deligne--Lusztig.
 In \cite{delignelusztig1976}, they construct
 for any connected reductive algebraic group $G = G_0 \times_{\FF_q} \bar \FF_q$ and any
 Frobenius-stable maximal torus $T \subseteq G$ a correspondence associating to
-certain characters $\theta$ of $T^F$ a virtual representation $R_{T,\theta}$ of 
-$G^F$. These virtual representations arise from the $\ell$-adic cohomology (with
+certain characters $\theta$ of $T^\Frob$ a virtual representation $R_{T,\theta}$ of 
+$G^\Frob$. These virtual representations arise from the $\ell$-adic cohomology (with
 $\ell \neq p$) of a certain variety $\DL_{G,T}$ admitting commuting actions by
-$G^F$ and $T^F$. 
+$G^\Frob$ and $T^\Frob$. 
 In this section, we give explicit descriptions of the occuring spaces 
 in the situation where $G = \GL_{V_0 \otimes \bar \FF_q}$ for some
 $n$-dimensional $\FF_q$-vector space $V_0$ and $T \subset G$ is a maximal 
@@ -364,17 +364,18 @@ lines in $V$ that do not lie in the hyperplane defined by the equation $\mu(v) =
   of $V \otimes_k \kappa(s)$. The claim follows. 
 
   To see bijectivity of $\Phi$, note that the inverse is, if well-defined,
-  given by
+  given by the morphism of functors $\Psi$ given on components by 
   \begin{equation*}
-    \Psi: \bigcap_{\mu \in V_0^\vee}D^+(\mu)(S) \to X_w(S), \quad L \mapsto 
+    \Psi(S): \bigcap_{\mu \in V_0^\vee}D^+(\mu)(S) \to X_w(S), \quad L \mapsto 
     \big(L \oplus \Frob(L) \oplus \dots \oplus \Frob^{i-1} L\big)_{i = 1, \dots, n}.
   \end{equation*}
   To see that this is indeed well-defined, choose a basis $(e_1, \dots, e_n)$
   of $V_0$ and take any section $\cL \in \cap_{\mu \in
   V_0^\vee}D^+(\mu)(S)$, interpreted as a locally direct summand of $f^* \tilde V$. 
-  Hence for any $s \in S$ there is some open affine $\spec R \subset S$ trivializing
-  $\cL$. Write $L$ for the corresponding free rank $1$ direct summand of 
-  $R^n$. Then $L = \langle v \rangle$ for some $v = (v_1, \dots, v_n) \in R^n$. Now 
+  It suffices to work locally on $S$, and we may pick for any $s \in \abs S$
+  some open affine $\spec R \subset S$ trivializing $\cL$. Write $L$ for the
+  corresponding free rank $1$ direct summand of $R^n$. Then $L = \langle v
+  \rangle$ for some $v = (v_1, \dots, v_n) \in R^n$. Now 
   $L$ constitutes a flag if and only if $(v, \Frob(v), \dots, \Frob^{n-1}(v))$
   is a basis for $R^n$ if and only if $\det(\Frob^{j-1}(v_i))_{i,j} \in R^\times$.
   The last condition is satisfied. Indeed, if not, we may 
@@ -384,8 +385,7 @@ lines in $V$ that do not lie in the hyperplane defined by the equation $\mu(v) =
   $$\langle \bar v, \Frob(\bar v), \dots, \Frob^{n-1}(\bar v)\rangle \subset (R/\fm)^n$$ 
   is non-trivial and Frobenius-stable, and in particular
   contained in some $\FF_q$-rational hyperplane. This contradicts $\cL \in
-  \cap_{\mu \in V_0^\vee}D^+(\mu)(S)$. As both sides are Zariski-sheaves, the
-  morhpism $\Psi$ is well-defined.
+  \cap_{\mu \in V_0^\vee}D^+(\mu)(S)$. 
 \end{proof}
 \end{prop}
 
@@ -531,64 +531,66 @@ closure of $\FF_q$.
 We give a short review of \cite{delignelusztig1976}.
 For a connected, reductive algebraic group $G$ defined over $\FF_q$ and a maximal
 Frobenius-stable torus $T \subset G$ contained in a Borel subgroup $B
-\subset G$, Deligne and Lusztig construct varieties with right $G^F$-actions
-$X_{T\subset B}$ and $\tilde X_{T \subset B}$, constituting a $G^F$-equivariant
+\subset G$, Deligne and Lusztig construct varieties with right $G^\Frob$-actions
+$X_{T\subset B}$ and $\tilde X_{T \subset B}$, constituting a $G^\Frob$-equivariant
 Galois-covering
 \begin{equation*}
   \tilde X_{T \subset B} \to X_{T \subset B}
 \end{equation*}
-with Galois-group $T^F$. See \eqref{eq:ExplicitDLVarieties} for explicit
+with Galois-group $T^\Frob$. See \eqref{eq:ExplicitDLVarieties} for explicit
 descriptions of these spaces. The space $\tilde X_{T \subset B}$ comes with
-commuting actions of $G^F$ and $T^F$, and for characters $\theta$ of $T^F(k)$,
+commuting actions of $G^\Frob$ and $T^\Frob$, and for characters $\theta$ of $T^\Frob(k)$,
 the main concern of \cite{delignelusztig1976} is the study of the resulting
 virtual representations
 \begin{equation} \label{eq:DLRepresentation}
   R_{T}^\theta = \sum_{i} (-1)^i \hH_c^i(\tilde X_{T \subset B}, \bar
-  \Q_l)_\theta \in \cR(T^F(k) \times G^F(k)).
+  \Q_l)_\theta \in \cR(T^\Frob(k) \times G^\Frob(k)).
 \end{equation}
 Here, the subscript $\theta$ denotes the direct summand of $\hH^i_c(\tilde X_{T
-\subset B}, \bar \Q_l)$ where $T^F(k)$ acts by $\theta$.
+\subset B}, \bar \Q_l)$ where $T^\Frob(k)$ acts by $\theta$.
 These representations do only depend on the choice of the torus, not on the
 choice of the Borel sugroup
-(\cite[Corollary 4.3]{delignelusztig1976}). 
+(\cite[Corollary 4.3]{delignelusztig1976}). To formulate the results of the theory 
+precisely, we need the notion of regular position.
 
-Recall that for a finite group $H$, the Grothendieck group $\cR(H)$ of finite 
-dimensional $H$-representations in $\bar \Q_l$ comes with a natural inner product. Indeed,
-as $\rho(h)^{\# H} = 1$, any representation takes values in the maximal cyclotomic
-subfield $\cup_{r} \Q(\zeta_r) \subset \bar \Q_l$, which has the unique 
-"complex conjugation" automorphism given by $\zeta_r \mapsto \zeta_r^{-1}$ for 
-$r \in \N$. 
-The inner product is now defined on representations $\rho, \rho' \in \Rep H$ as
-\begin{equation*}
-  \langle \rho, \rho' \rangle = \frac 1 {\# H} \sum_{h \in H} \Tr(\rho(h)) \bar {\Tr (\rho'(h))} \in \bar \Q_l.
-\end{equation*}
-This definition extends linearly to $\cR(H)$. An orthogonal basis for $\cR(H)
-\otimes \Q$ is given by the irreducible finite-dimensional representations of
-$H$. If $\rho$ is an irreducible representation of $H$ and 
-$R$ is an element in $\cR(H) \otimes \Q$, we say that $\rho$ occurs in $R$ if 
-$\langle \rho, R\rangle \neq 0$.
-
-\begin{defi}[Geometrically Conjugates and Regular Position]\label{def:DLGeomConjRegularPos}
+\begin{defi}[Regular Position]\label{def:DLGeomConjRegularPos}
   Let $T$ be a Frobenius-stable maximal  torus of $G$ and let $\theta$ be a character
-  of $T^F(k)$. We say that $\theta$ is in general position if it is not fixed by any
-  non-trivial element of $\Weyl_G(T)^F$. Here $\Weyl_G(T)$ denotes the Weyl
+  of $T^\Frob(k)$. We say that $\theta$ is in general position if it is not fixed by any
+  non-trivial element of $\Weyl_G(T)^\Frob$. Here $\Weyl_G(T)$ denotes the Weyl
   group $(\Norm_G(T)/T)$, which acts on $T$ by conjugation.
 \end{defi}
 
-We summarize a few of the results of the theory.
+Recall that for a finite group $H$, the Grothendieck group $\cR(H)$ of finite 
+dimensional $H$-representations over $\bar \Q_l$ comes with a natural inner
+product. Indeed, any representation takes values in the maximal cyclotomic
+subfield $\cup_{r} \Q(\zeta_r) \subset \bar \Q_l$, which has the unique 
+"complex conjugation" automorphism given by $\zeta_r \mapsto \zeta_r^{-1}$ for 
+$r \in \N$. 
+The inner product is now defined on finite-dimensional representations $\rho,
+\rho' \in \Rep H$ as
+\begin{equation*}
+  \langle \rho, \rho' \rangle = \frac 1 {\# H} \sum_{h \in H} \Tr(\rho(h)) \bar {\Tr (\rho'(h))} \in \bar \Q_l.
+\end{equation*}
+This definition linearly extends to $\cR(H)$, and the irreducible
+finite-dimensional representations of $H$ give an orthogonal basis for $\cR(H)
+\otimes \Q$. If $\rho$ is an irreducible representation of $H$ and 
+$R$ is an element in $\cR(H) \otimes \Q$, we say that $\rho$ occurs in $R$ if 
+$\langle \rho, R\rangle \neq 0$.
+
+The following results of Deligne-Lusztig theory are important for our purposes.
 
 \begin{thm}[Some Results of Deligne-Lusztig Theory]\label{thm:DLTheoryGeneralResults}
   \leavevmode
   \begin{enumerate}
       \item \textnormal{\cite[Corollary 1.22]{delignelusztig1976}} Let $Z \subset G$
         denote the center of $G$. Then $Z^\Frob$ acts on $\hH^{n-1}_c(\tilde
-        X_{T \subset B}, \bar \Q_l)_{\theta}$ through $\theta|_{Z^F}$.
+        X_{T \subset B}, \bar \Q_l)_{\theta}$ through $\theta|_{Z^\Frob}$.
       \item \textnormal{\cite[Corollary 7.3]{delignelusztig1976}} If 
         $(T, \theta)$ is in general position, one of $\pm R_T^\theta$ is an 
         irreducible representation.
       \item \textnormal{\cite[Corollary 8.3]{delignelusztig1976}} If furthermore
         $T$ is not contained in any proper Frobenius-stable parabolic subgroup,
-        one of $\pm R^\theta_T$ is a cuspidal representation of $G^F(k)$.
+        one of $\pm R^\theta_T$ is a cuspidal representation of $G^\Frob(k)$.
       \item \textnormal{\cite[Corollary 9.9]{delignelusztig1976}} If furthermore
         $\tilde X_{T \subset G}$ (or equivalently, $X_{T \subset G}$) is affine, 
         and we denote by $w \in \Weyl_G(T)$ the relative position of $B$ and
@@ -620,9 +622,10 @@ Write $U$ for the unipotent radical of $B$.
 We have the explicit descriptions (cf. \cite[Definition 1.17]{delignelusztig1976})
 \begin{equation} \label{eq:ExplicitDLVarieties}
   \begin{array}c
-  X_{T \subset B} = \{g \in \GL_n \mid g^{-1} F(g) \in F(U)\}/(T^F(U \cap F(U)))\\
+  X_{T \subset B} = \{g \in \GL_n \mid g^{-1} \Frob(g) \in \Frob(U)\}/(T^\Frob(U \cap \Frob(U)))\\
   \text{and} \\
-  \tilde X_{T \subset B} = \{g \in \GL_n \mid g^{-1} F(g) \in F(U)\}(U \cap F(U)).
+  \tilde X_{T \subset B} = \{g \in \GL_n \mid g^{-1} \Frob(g) \in \Frob(U)\}(U
+  \cap \Frob(U)).
   \end{array}
 \end{equation}
 Given any marked flag $(\Flag', e'_\bullet) \in X(S)$, we write $g(\Flag', e'_\bullet) \in
@@ -632,14 +635,12 @@ section under the isomorphism of Proposition \ref{lem:MarkedFlagVarietyAsQuotien
 \cite[Proposition 17.13]{milne2017algebraic}, we may
 choose $h \in \GL_n(k)$ such that $h(T^\std, B^\std)h^{-1} = (T,B)$. 
 Furthermore, for any $k$-scheme $S$, we may identify $\TT_w^\Frob$ with the subgroup 
-
 \begin{equation*}
   \{t \in T^\std(S) \mid \ad w^{-1} t = \Frob(t)\} \subset T^\std(S).
 \end{equation*}
 
 Using these identifications, \cite[Proposition 1.19]{delignelusztig1976}
 implies that the map
-
 \begin{equation*}
 \DL_n \to \tilde X_{T \subset B}, \quad (\Flag', e'_\bullet) \mapsto g(\Flag',
 e'_\bullet)h^{-1}
@@ -663,8 +664,8 @@ Given any representation $\theta$ of $\TT^\Frob_w(k)$, we write
   R_\theta = \sum_i (-1)^i \hH_c^i(\DL_n, \bar \Q_l)_\theta.
 \end{equation*}
 
-This yields an isomorphism of representations $R_{\theta \circ \ad h} \cong
-R^\theta_{T\subset B}$, where $h$ is chosen as above. If $\theta$ is a
+By definition, we have $R_{\theta \circ \ad h} \cong R^\theta_{T\subset B}$,
+where $h$ is chosen as above. If $\theta$ is a
 character of $\TT_w^\Frob(k) \cong \FF_{q^n}^\times$, the pair $(T, w \circ \ad
 h)$ is in regular position if and only if $\theta$ is regular, in the following
 sense.
@@ -681,20 +682,24 @@ The statements of Theorem \ref{thm:DLTheoryGeneralResults} reduce to
 the following.
 
 \begin{thm}[Deligne--Lusztig Correspondence]\label{thm:DLCorrespondenceForUs}
-  Let $\theta$ be a regular character of $\FF_{q^n}^\times$. 
+  Let $\theta$ be a regular character of $\FF_{q^n}^\times$, and let
+  $\hH_{\DL,\theta} = \hH^{n-1}_c(\DL_n, \bar \Q_l)_\theta$ denote the direct
+  summand of $\HDL$ on which $\FF_{q^n}^\times$
+  acts through $\theta$. 
   \begin{enumerate}
     \item We have
       \begin{equation*}
-        \hH_{\DL,\theta} = \hH_c^{n-1}(\DL_n, \bar \Q_l)_\theta = R_\theta \boxtimes
+        \hH_{\DL,\theta} = R_\theta \boxtimes
         \theta
       \end{equation*}
       as representations of $\GL_n(\FF_q) \times \FF_{q^n}^\times$.
-      The representation $R_\theta$ is irreducible and cuspidal, and it's central
+      The representation $R_\theta$ is irreducible and cuspidal, and its central
       character is given by $\theta|_{\FF_q^\times}$ under the identification
       $\FF_q^\times \cong Z_{\GL_n}$.
     \item The natural map 
       \begin{equation*}
-        \hH^{n-1}_c(\DL_n, \bar \Q_l)_\theta \to \hH^{n-1}(\DL_n, \bar \Q_l)_\theta
+        \hH^{n-1}_c(\DL_n, \bar \Q_l)_\theta \to
+        \hH^{n-1}(\DL_n, \bar \Q_l)_\theta
       \end{equation*}
       is an isomorphism.
   \end{enumerate}
