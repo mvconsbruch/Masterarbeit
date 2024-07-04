@@ -125,8 +125,8 @@ $g \in \GL_n(F)$, we construct, for sufficiently large $m\geq 0$, morphisms
   d_m \colon \cM_m^{(j)} \to \cM_m^{(j')} \quad \text{and} \quad
   g_{m,m''} \colon \cM_m^{(j)} \to \cM_{m''}^{(j'')},
 \end{equation*}
-where $j'= j+\val_\varpi(\Nrd(d))$, $j'' = j + \val_\varpi(\det(g))$ and $m''$
-is an integer depending on $m$ and $g$. 
+where $j'= j+\val_\varpi(\Nrd(d))$, $j'' = j - \val_\varpi(\det g)$ and $m''
+= m-d$ is an integer differeing from $m$ by an integer depending on $g$. 
 
 The action of $D^\times$ is easy to describe. Given $R \in \cC$ and 
 $d \in D^\times$, it acts via right-translation on $\iota$. That is, we put
@@ -134,8 +134,13 @@ $d \in D^\times$, it acts via right-translation on $\iota$. That is, we put
   (H, \iota, \phi).d = (H, \iota \circ d, \phi).
 \end{equation*}
 
-The group $\GL_n(F)$ acts in a less simple matter. We need the following 
-notion of quotients of formal $\cO_F$-modules.
+The group $\GL_n(F)$ acts in a less simple matter. The idea is to have
+$\GL_n(F)$ act on the level structure of triples $(H, \iota, \phi) \in \cM_m(R)$.
+Akin to the action of $D^\times$, the idea is to put 
+$(H, \iota, \phi).g = (H, \iota, \phi \circ g)$. But this only makes sense
+if $g \in \GL_n(\cO_F)$. To nonetheless define an 'action' of $\GL_n(F)$, we
+allow ourselves to also change the underlying formal group.
+We need the following notion of quotients of formal $\cO_F$-modules.
 
 \begin{defi}[Quotient of Formal Module by Finite Subgroup]\label{def:QuotientModule}
   Let $H$ be a formal $\cO_F$-module law and let $G \subset R^\cici$ be a finite
@@ -147,7 +152,7 @@ notion of quotients of formal $\cO_F$-modules.
     (H/G)(X,Y) = g(H(g^{-1}(X), g^{-1}(Y)), \quad \text{where}\quad 
     g(T) = \prod_{a \in F} (T - a).
   \end{equation*}
-  But this doesn't make sense.
+  But this doesn't make sense. 
   }
 \end{defi}
 
@@ -169,7 +174,7 @@ notion of quotients of formal $\cO_F$-modules.
   \end{equation*}
   Then, the morphism
   \begin{equation*}
-    \phi': \left(\varpi^{-m'} \cO_F/\cO_F \right)^n \to X/\phi(P)
+    \phi': \left(\varpi^{-m'} \cO_F/\cO_F \right)^n \to H/\phi(P)
   \end{equation*}
   is a Drinfeld $\varpi^m$-level structure.
 \begin{proof}
@@ -190,25 +195,25 @@ $g$ yields an injection
   (\varpi^{m-d}\cO_F/\cO_F)^n \xto g (\varpi^{-m}\cO_F^n/g\cO_F^n) = 
   \frac{(\varpi^{-m} \cO_F^n /\cO_F^n)}{(g \cO_F^n/\cO_F^n)}.
 \end{equation*}
-Now, given a tuple $(X, \iota, \phi) \in \cM_m(R)$, we put
-$$(X, \iota, \phi).g = (X', \iota', \phi'),$$
+Now, given a tuple $(H, \iota, \phi) \in \cM_m(R)$, we put
+$$(H, \iota, \phi).g = (H', \iota', \phi'),$$
 where 
-$$X'= X/\phi(g\cO_F^n/\cO_F^n)$$ 
-is a the quotient of $X$ as in Definition \ref{def:QuotientModule}, 
-$$\iota'\colon H_0 \to X \otimes \bar \FF_q \to X' \otimes \bar \FF_q$$ 
+$$H'= H/\phi(g\cO_F^n/\cO_F^n)$$ 
+is a the quotient of $H$ as in Definition \ref{def:QuotientModule}, 
+$$\iota'\colon H_0 \to H \otimes \bar \FF_q \to H' \otimes \bar \FF_q$$ 
 is the corresponding quasi-isogeny of height 
 $(\height(\iota) - \val_\varpi( \det g))$, and 
-$$\phi'\colon (\varpi^{m-d}\cO_F/\cO_F)^n \to X'$$ 
+$$\phi'\colon (\varpi^{m-d}\cO_F/\cO_F)^n \to H'$$ 
 is the Drinfeld $\varpi^{m-d}$-level structure obtained by Lemma
 \ref{lem:DrinfeldLevelOnQuotients}. 
 This does not depend on the choice of $d$. Indeed, given integers $m \geq d'
 \geq d$ with $d$ as above, the triangle 
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
-	{\cM_{m}} \& {\cM_{m-d'}} \\
-	\& {\cM_{m-d}}
-	\arrow["{g_{m,m-d'}}", from=1-1, to=1-2]
-	\arrow["{g_{m,m-d}}"', from=1-1, to=2-2]
+	{\cM_{m}} \& {\cM_{m-d}} \\
+	\& {\cM_{m-d'}}
+	\arrow["{g_{m,m-d}}", from=1-1, to=1-2]
+	\arrow["{g_{m,m-d'}}"', from=1-1, to=2-2]
 	\arrow["\pr", from=1-2, to=2-2]
 \end{tikzcd}
 \end{equation*}
@@ -219,13 +224,51 @@ large integer $d$, an integer $r$ such that $(\varpi^{-r} g)^{-1} \in \Mat_{n
 \times n}(\cO_F)$ and $\varpi^{-r}g \in \varpi^{-d}\Mat_{n \times n}(\cO_F)$.
 Now, for $m \geq d$, we obtain natural transformations
 \begin{equation*}
-  g_{m,m-d}\colon \cM_{m} \to \cM_{m-d}, \quad (X, \iota, \phi).g = (X, \iota \circ \varpi^{-r}, \phi).(\varpi^{-r}g).
+  g_{m,m-d}\colon \cM_{m} \to \cM_{m-d}, \quad (H, \iota, \phi).g = (H, \iota \circ \varpi^{-r}, \phi).(\varpi^{-r}g).
 \end{equation*}
-This construction is independent of the choice of $r$. % subsubsection Group Actions on the Tower of Lubin--Tate Deformation Spaces (end)
+This construction is independent of the choice of $r$. \todo{why?}
+Furthermore, given $g, g' \in \GL_n(F)$ with suitable choices of integers 
+$d, d'$, we obtain a commutative triangle
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\cM_{m}} \& {\cM_{m-d}} \\
+	\& {\cM_{m-d-d'}}
+	\arrow["{g_{m,m-d}}", from=1-1, to=1-2]
+	\arrow["{(gg')_{m,m-d-d'}}"', from=1-1, to=2-2]
+	\arrow["{g'_{m-d,m-d-d'}}", from=1-2, to=2-2]
+\end{tikzcd}
+\end{equation*}
+This finishes the construction of the $\GL_n(F)$-action.
+
+\red{Further observations: 
+For $m' \leq m$, we have $A_{m'} = A_m^{K_{m'}}$.
+We may, for $K \subset \GL_n(\cO_F)$ compact open and contained in $K_{m}$, define
+$A_K = A_{m}^K$. This gives refined tower $\{\cM_K\}_K$. 
+}
+% subsubsection Group Actions on the Tower of Lubin--Tate Deformation Spaces (end)
+
+% subsection The Lubin-Tate Tower (end)
+
+\subsection{The Local Langlands Correspondence for the General Linear Group} % (fold)
+\label{sub:The Local Langlands Correspondence for the General Linear Group}
+The aim of this section is to review some of the results in \cite{HTShimura}. 
+Recall from the previous section the tower of deformation spaces 
+$\{\cM_K\}_{K \subset \GL_n(\cO_F)}$. Let $M_K \in \RigOver {\br F}$ denote the
+generic fiber of $\cM_K \in \FSchOver {\cO_{\br F}}$\todo{reference
+(Berthelot?)}. Fix an algebraic closure $\C_p$ of $F$ and a prime number $\ell
+\neq p$. This section is concerned with the representation-theoretic aspects of
+the vector space
+\begin{equation*}
+  \HLT \coloneqq \lim_K H^{n-1}_c (M_{K} \otimes_{\breve F} \C_p, \bar \Q_l).
+\end{equation*}
+
+By functoriality of the generic fiber functor, the right action of $D^\times \times
+\GL_n(F)$ on the tower $\{\cM_K\}_{K \subset \GL_n(\cO_F)}$ yields a left-action
+of $D^\times \times \GL_n(F)$ on $\HLT$. 
 
 
 For $K \subset \GL_n(\cO_F)$, write $M_{K, \varpi^\Z}$ for the quotient of 
-$M_K$ (cf. Definition \ref{def:LTRigidSpaceFinLev}) by the action of the subgroup
+$M_K$  by the action of the subgroup
 $\varpi^\Z \subset D^\times$. Writing $\cM_m = \coprod_{\delta \in \Z} \cM_m^{(\delta)}$
 induces $M_K = \coprod_{\delta \in\Z} M_K^{(\delta)}$, and 
 the action of $\varpi$ induces for any $\delta \in \Z$ an isomorphism 
@@ -253,10 +296,6 @@ Let $l \neq p$ be a prime number and fix an isomorphism $\bar \Q_l \cong \C$.
 \end{proof}
 \end{thm}
 
-% subsection The Lubin-Tate Tower (end)
-
-\subsection{The Local Langlands Correspondence for the General Linear Group} % (fold)
-\label{sub:The Local Langlands Correspondence for the General Linear Group}
 
 We set 
 \begin{equation} \label{eq:DefHLTHprLT}
