@@ -208,27 +208,24 @@ Of course there is a functor
   \FGG: \FMLArbOver AR \to \FMArbOver AR,
 \end{equation*}
 essentially forgetting the choice of module law. The observation of Lemma 
-\ref{lem:FMLFunc} translates to formal modules, a morphism $j : R \to R'$ 
+\ref{lem:FMLFunc} remains valid in the category formal modules, a morphism $j : R \to R'$ 
 yields a functor 
 \begin{equation*} 
   \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
 \end{equation*}
 
 \begin{defi}[Lie functor]
-  The functor $\Lie$ descents to a functor 
+  The functor $\Lie$ descends to a functor 
   \begin{equation*}
     \Lie: \FMArbOver A X \to \QCoh {\cO_X}, 
   \end{equation*}
-  given by locally describing a formal $A$-module $\cF$ via formal group laws
-  and gluing the local data. Alternatively, it arises from sending 
+  given by locally describing a formal $A$-module $\cF$ via formal group laws and gluing the local data. Alternatively, it arises from sending 
   sending a formal $A$-module $\cF$ to $(\cI / \cI^2)^\vee$, where $\cI$ is the
   ideal associated to the closed immersion $[0]_\cF: X \to \cF$. 
 \end{defi}
 
 \begin{lem}\label{lem:IsosCheckOnLie}
-  A map $\phi: \cF \to \cG$ of formal $A$-modules (of arbitrary dimension) over
-  $X$ is an isomorphism if and only if the induced
-  morphism of Lie-algebras $\Lie(\phi): \Lie(\cF) \to \Lie(\cG)$ is an isomorphism.
+  A map $\phi: \cF \to \cG$ of formal $A$-modules (of arbitrary dimension) over $X$ is an isomorphism if and only if the induced morphism of Lie algebras $\Lie(\phi): \Lie(\cF) \to \Lie(\cG)$ is an isomorphism.
 \begin{proof}
   This is easily verified in the one-dimensional situation after choosing coordinates.
   The general case adds no complication. 
@@ -237,16 +234,13 @@ yields a functor
 
 
 \begin{xpl}
-  The additive group law $\Ghat_a$ extends to a formal $A$-module over an affine base
-  $\spec R$ by setting 
+  The additive group law $\Ghat_a$ extends to a formal $A$-module over an affine base $\spec R$ by setting 
   \begin{equation*}
     [a]_{\Ghat_a}(T) = aT
   \end{equation*}
-  for $a \in A$. More generally, we obtain a formal $A$-module over an
-  arbitrary base scheme $X$ over $A$.
+  for $a \in A$. More generally, we obtain a formal $A$-module over an arbitrary base scheme $X$ over $A$.
 
-  Over $\Z_p$, the formal group $\Ghat$ extends to a formal 
-  $\Z_p$-module as follows. 
+  Over $\Z_p$, the formal group $\Ghat$ extends to a formal $\Z_p$-module as follows. 
   As a functor, $\Ghat$ is isomorphic to the assignment
   \begin{equation*}
     \Adm {\Z_p} \to \Ab, \quad S \mapsto 1 + S^\cici \subset S^\times.
@@ -258,8 +252,7 @@ yields a functor
     (1+s)^{p^k} = 1 + p^ks + \binom{p^k}2 s^2 + \dots + s^{p^k},
   \end{equation*}
   and given $s \in S^\cici$, this is of the form $1+ o(1)$ as $k$ gets large. 
-  In particular, if $x = a_0 + a_1 p + a_2p^2 + \dots \in \Z_p$, expressions of
-  the form
+  In particular, if $x = a_0 + a_1 p + a_2p^2 + \dots \in \Z_p$, expressions of  the form
   \begin{equation*}
     (1+s)^x = \prod_{i = 1}^\infty (1+s)^{a_k p^k}
   \end{equation*}
@@ -267,7 +260,7 @@ yields a functor
   $\Ghat_{m,\Z_p}$ the structure of a formal $\Z_p$-module. 
   In the upcoming subsection, we discuss how this is the simplest example of a
   whole family of formal modules constructed by 
-  Lubin and Tate. In section \ref{sec:Local Class Field Theory} we explain applications of these formal modules to local class field theory.
+  Lubin and Tate. In Section \ref{sec:Local Class Field Theory} we explain applications of these formal modules to local class field theory.
 \end{xpl}
 
 \begin{defi}[Formal Module associated to $R$-module]
@@ -288,8 +281,8 @@ yields a functor
   $\Ghat_a \otimes \cM$ over $X$.
 \end{defi}
 \begin{rmk} 
-  If $R\to R'$ is a morphism of rings that turns $R'$ into a (say) finite free
-  $R$-algebra, the definition above overloads the expression $\Ghat_a \otimes_R R'$.
+  If $R\to R'$ is a ring morphism that turns $R'$ into a (say) finite free
+$R$ -algebra, the above definition overloads the expression $\Ghat_a \otimes_R R'$.
   In order to disambiguate, we usually denote the additive formal $A$-module
   over $R'$ by $\Ghat_{a, R'}$. 
 \end{rmk}
@@ -302,7 +295,7 @@ We sketch the construction of a family of formal modules introduced by
 Lubin and Tate in \cite{LubinTateFormalMult}.
 
 Let $A$ be a complete discrete valuation ring with 
-finite residue field $k$, set $q = \# k$ and let $\varpi \in A$ be a choice of a
+finite residue field $k$, set $q = \# k$ and let $\varpi \in A$ be a choice of
 uniformizer.
 Write $\cF_{\varpi, h}$ for the following set of power series
 \begin{equation*}
@@ -310,7 +303,7 @@ Write $\cF_{\varpi, h}$ for the following set of power series
   \text{ and } f \equiv T^{q^n} \pmod \varpi\}. 
 \end{equation*}
 
-The construction of Lubin--Tate formal module laws rests on the following 
+The construction of the Lubin--Tate formal module laws is based on the following 
 lemma, which is Lemma 1 in \cite{LubinTateFormalMult}.
 \begin{lem}\label{lem:LTLemma1}
   Let $f(T)$ and $g(T)$ be elements of $\cF_{\varpi,h}$ and let 
@@ -328,7 +321,7 @@ As a direct consequence, we obtain the following useful result.
   Let $f \in \cF_{\varpi, h}$. Then there is a unique formal $A$-module law $F_f$ over $A$
   with $[\varpi]_F(T) = f(T)$.
 \begin{proof}
-  In the above Lemma, set $L(X,Y) = X+Y$ and $g=f$ to uniquely determine 
+  In the above lemma, set $L(X,Y) = X+Y$ and $g=f$ to uniquely determine 
   the power series $F_f$. The same Lemma yields unique power series
   $[a]_{F_f}(T) \in R\llbr T \rrbr$ by setting $L(T) = a T$, $g=f$. It is
   routine to check that $(F_f, ([a]_f)_{a \in A})$ is a formal $A$-module law, 
@@ -337,7 +330,7 @@ As a direct consequence, we obtain the following useful result.
 \end{lem}
 
 \begin{defi}[Lubin--Tate Module Law]
-  We refer to module laws arising by the construction above as Lubin--Tate module laws.
+  We refer to module laws arising from the construction above as Lubin--Tate module laws.
 \end{defi}
 
 Furthermore, attached to each $a \in \cO_K$ and $f,g \in \cF_{\varpi,h}$, we find
@@ -392,10 +385,10 @@ $\varpi$ and finite residue field $k = A/\varpi A$. We write $q$ for the cardina
 $k$ and $K$ for the field of fractions of $A$. Let $R$ be a local,
 admissible $A$-algebra with structure map $i: A \to R$.
 
-We review results from section
+We review results from Sections
 2 and 3 of \cite{hopkins1994equivariant}. 
-Suppose that $\bF = (F_1, \dots, F_n)$ is an $n$-dimensional formal $A$-module
-law over a $R$. We abbreviate $\bX = (X_1, \dots, X_n)$, $\bY = (Y_1,
+Suppose that $\bF = (F_1, \dots, F_n)$ is a $n$-dimensional formal $A$-module
+law over $R$. We abbreviate $\bX = (X_1, \dots, X_n)$, $\bY = (Y_1,
 \dots, Y_n)$, etc.
 
 \begin{defi}[Invariant Differentials]
@@ -429,7 +422,7 @@ for $1 \leq i \leq n$. By definition we have
     0 &\text{ otherwise.}
   \end{cases}
 \end{equation}
-Checking that $\omega_{i}$ is an invariant differential is a matter of
+Checking that $\omega_{i}$ is an invariant differential is a matter of 
 applying the chain rule. 
 \begin{prop}
     The $R$-module $\omega(\bF)$ is free of rank $n$ generated by invariant differentials
@@ -452,8 +445,8 @@ define a pairing
     0 &\text{ otherwise.}
   \end{cases}
 \end{equation*}
-This pairing is independent of the parametrization of $\bF$. In particular, it
-descents to a pairing defined for formal modules $\cF \in \FMArbOver A R$, and
+This pairing is independent of the parameterization of $\bF$. In particular, it
+descends to a pairing defined for formal modules $\cF \in \FMArbOver A R$, and
 we have a natural isomorphism $\omega(\cF) \cong \Hom_R(R, \Lie(\cF))$.
 
 Let $\Ghat_a$ be the additive formal $A$-module over $R$. There is a map
@@ -477,7 +470,7 @@ over a flat $A$-algebra $R$.
 Let $\omega_1, \dots, \omega_n$ be the distinguished basis for $\omega(F)$
 constructed above. 
 By the previous proposition, there are unique power series 
-$f_i(\bX) \in (R \otimes_A K)\llbr \bX \rrbr$ furnishing homomorphisms
+$f_i(\bX) \in (R \otimes_A K)\llbr \bX \rrbr$ that furnish homomorphisms
 $F \otimes (R \otimes_A K) \to \Ghat_{a,R\otimes_AK}$ of formal $A$-module laws
 and satisfying
 \begin{equation*}
@@ -526,7 +519,7 @@ and satisfying
   Let $K$ be a local field with integers $\cO_K$ and a choice of uniformizer $\varpi \in \cO_K$, 
   and let $F$ be a Lubin-Tate $\cO_K$-module law corresponding to some 
   $f \in \cF_\varpi$, cf. Theorem \ref{thm:LTModLaw}. Let $S$ be an admissible 
-  $\cO_K$-algebra, and let $s \in S^\cici$ be an element such that the
+  $\cO_K$-algebra and let $s \in S^\cici$ be an element such that the
   series $\log_{\cF}(s)$ 
   converges. Then we have $\log_F(s) = 0$ if and only if $[\varpi]^r_F(s) = 0$ for
   some $r \in \N$. 
@@ -537,7 +530,7 @@ and satisfying
     \log_F(T) = \lim_{r \to \infty} \frac{ [\varpi]_F^r(T) }{\varpi^r} = \prod_{i=1}^\infty 
     \frac{[\varpi]^i_F(T)}{\varpi [\varpi]^{i-1}_F(T)},
   \end{equation*}
-  where convergence is to be taken coefficient-wise. After plugging in 
+  where convergence is taken coefficient-wise. After inserting
   $s \in S^\cici$, we see that the product vanishes if and only if $[\varpi]_F^r(s) = 0$
   for some $r \in \N$. 
 \end{proof}
@@ -554,8 +547,7 @@ We have seen in the previous section that if $R$ is a field extension of $K$,
 then any morphism of formal group laws $f: F \to G$ over $R$ is either $0$
 or an isomorphism, which makes the theory of formal $A$-modules over $R$ rather
 bland. If $R$ is an extension of $k$, the situation becomes more interesting,
-mainly because there are the non-trivial (relative)
-Frobenius-endomorphisms $\Frob: F \to F$, sending $T$ to $T^q$. 
+mainly because there are nontrivial (relative) Frobenius endomorphisms $\Frob: F \to F$, sending $T$ to $T^q$. 
 
 We introduce the concept of height, which is an attempt to quantify the disorder
 introduced by the Frobenius endomorphisms. This also leads to interesting
@@ -575,9 +567,8 @@ of group laws on $\cF$ and $\cG$. This allows us to define the height function
 attached to $f$. 
 \begin{defi}[Height function]
   Let $f: \cF \to \cG$ be a morphism of formal groups over a scheme $X$.
-  For a scheme-theoretic point $x \in \abs X$, let $f_x$ denote the 
-  base-change of $f$ to the residue field of $x$. 
-  The height function attached to $f$ is the upper-semicontinuous function
+  For a scheme-theoretic point $x \in \abs X$, let $f_x$ denote the base change of $f$ to the residue field of $x$. 
+  The height function attached to $f$ is the upper semicontinuous function.
   \begin{equation} \label{eq:defheight}
     \height(f) : \abs X \to \Z_{\geq 0} \cup \{\infty\}, \quad x \mapsto 
     \height(f_x).
@@ -627,7 +618,8 @@ the formal $\cO_K$-module $F_\mathrm{norm}$ with $[\varpi]_{F_\mathrm{norm}}(T) 
   of the central division algebra $D$ over $K$ of rank $h^2$ and invariant
   $\frac 1h$.
 \begin{proof}
-  Also \cite[Proposition 1.7]{drinfel1974elliptic}. 
+  This is part of \cite[Proposition 1.7]{drinfel1974elliptic}
+  as well. 
 \end{proof}
 \end{prop}
 
@@ -668,7 +660,7 @@ Quillen \cite[Appendix A]{keller1990chain}. We introduce functors
 \end{align*}
 which send a pair $(\cF, \cF')$ to the set of equivalence classes of 
 extensions (respectively rigidified extensions) of $\cF$ by $\cF'$. These functors
-will play a major role in the upcoming discussion.
+will play a major role in the discussion upcoming.
 
 \subsubsection{The Category of Formal Modules is Exact} % (fold)
 \label{ssub:The Category of Formal Modules is Exact}
@@ -681,7 +673,7 @@ exact categories, following \cite[Appendix A]{keller1990chain}.
   \begin{equation*}
     X \xto i Y \xto d Z,
   \end{equation*}
-  where $i$ is a kernel of $d$ and $d$ is a cokernel of $i$. 
+  where $i$ is a kernel of $d$ and $d$ is a co-kernel of $i$. 
   We call a morphism $i:X \to Y$ an inflation if it appears as first component
   of some $(i,d) \in E$, second components of such pairs are called deflations.
   We say that the pair $(\cA, \cE)$ is an exact category if 
@@ -741,7 +733,7 @@ over $X$. As a primer, we note that the category $\FMArbOver AX$ is additive
 \begin{lem}\label{lem:SESStandardForm}
   \todo{CONDITIONS ON R; NEED FORMAL IMPLICIT FUNCTION THEROEM!}
   Let $R$ be an $A$-algebra and let $F, F' \in \FMLArbOver AR$ be 
-  formal $A$-module laws of dimensions $m$ and $n$ respectively. Write 
+  formal $A$-module laws of dimensions $m$ and $n$, respectively. Write 
   $\cF', \cF \in \FMArbOver AR$ for the associated formal $A$-modules,
   and suppose that they fit into a exact sequence
   \begin{equation*}
@@ -1146,9 +1138,9 @@ Quasi-Logarithms, cf. Definition \ref{def:QuasiLogarithm}.
 
 Write $\bX$ for the variables of $F'$ and $\bZ$ for the variables of $F$.
 \begin{defi}[Symmetric $1$-Cochain] \label{def:SymCoc1}
-  A symmetric $1$-cochain associated to $(F,F')$ is a $n$-tuple of power 
+  A symmetric $1$-cochain for the pair $(F,F')$ is an $n$-tuple of power 
   series $\bgg = (g_1, \dots, g_m)$, such that $g_i(\bZ) \in R\llbr \bZ \rrbr$
-  has no constant term for all $i$. We write $\delta \bgg$ 
+  satisfying $g_i(0) = 0$ for all $i$. We write $\delta \bgg$ 
   for the coboundary of $\bgg$, that is, the pair $(\Delta \bgg, (\delta_a
   \bgg)_{a \in A})$,
   where
@@ -1175,7 +1167,7 @@ Write $\bX$ for the variables of $F'$ and $\bZ$ for the variables of $F$.
     \xto \sim \{\text{Isomorphisms of extensions } E \to E' \}.
   \end{equation*}
   Explicitly, this bijection is given by sending $\bgg$ to the morphism
-  $i_\bgg \in \Hom_{\FMLArbOver A R}(E, E')$, where 
+  $i_\bgg \in \Hom_{\FMLArbOver A R}(E, E')$, given by 
   $i_\bgg (\bX, \bZ) = (\bX +_{F'} \bgg(\bZ), \bZ)$. In particular, there is a bijection
   \begin{equation*}
     \Ext(\cF, \cF') \cong \frac{\SymCoc^2(F, F')}{\{\delta \bgg 
@@ -1233,7 +1225,7 @@ $\delta g \in \SymCoc^2(F,\Ghat_a)$.
 
 Furthermore, given two rigidified extensions
 $(E, \omega_E), (D, \omega_{D})$ with associated quasi-logarithms
-$g(T)$ and $h(T)$, there is a (unique) isomorphism $(E, \omega_E) \to (D \omega_{D})$
+$g(T)$ and $h(T)$, there is a (unique) isomorphism $(E, \omega_E) \to (D, \omega_{D})$
 if and only if $h(T)-g(T) =: f(T)$ has coefficients in $R\llbr T \rrbr$. 
 In this case, the isomorphism $i_f(X,T) \in \Hom_{\FMLArbOver A R}(E, D)$ is
 given by $i_f(X,T) = (X+f(T), T)$. In particular, there is a canonical bijection
@@ -1268,11 +1260,12 @@ This bijection is an isomorphism of $R$-modules.
 Now, let $A$ be a complete, discrete valuation ring with 
 uniformizing parameter $\varpi$ and finite residue field $k$. 
 \begin{prop} \label{prop:ExplicitInterestingES}
-  If $\cF$ comes from a one-dimensional formal $A$-module law over a flat, local
-  $A$-algebra $R$ and $\cF' = \Ghat_a$,
-  the short exact sequence of Proposition \ref{prop:InterestingES}
+  Let $\cF$ be a one-dimensional formal $A$-module law over a flat, local
+  $A$-algebra $R$, and suppose that $\cF' = \Ghat_a$.
+  The short exact sequence of Proposition \ref{prop:InterestingES}
   fits into a commutative diagram with 
-  exact rows and vertical maps (canonical) isomorphisms
+  exact rows and vertical maps isomorphisms induced by 
+  any choice of coordinate $\cF = \FGG(F)$.
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
   {\Hom(\cF,\Ghat_a)} \& {\omega(\cF)} \& {\RigExt(\cF,\Ghat_a)} \&
@@ -1284,7 +1277,7 @@ uniformizing parameter $\varpi$ and finite residue field $k$.
     \text{and $f'(T) \in R\llbr T \rrbr$}\end{gathered} \right\} \end{array} \& {\QLog(F)} \&
     {\frac{\SymCoc^2(F, \Ghat_a)}{\{\delta g \mid g \in T R\llbr T \rrbr\}}}
 	\arrow[hook, "{\dc_F}", from=1-1, to=1-2]
-	\arrow[Rightarrow, no head, from=1-1, to=2-1]
+	\arrow[from=1-1, to=2-1]
 	\arrow[from=1-2, to=1-3]
 	\arrow[from=1-2, to=2-2]
 	\arrow[two heads, from=1-3, to=1-4]
@@ -1301,8 +1294,7 @@ uniformizing parameter $\varpi$ and finite residue field $k$.
   \omega(\cF)$.
   Surjectivity of $\RigExt(\cF, \Ghat_a) \to \Ext(\cF, \Ghat_a)$ comes from the
   fact that $\Lie(\cF)$ is projective. 
-  The first vertical map is an equality, cf. Definitions
-  \ref{def:SymCoc1} and \ref{def:formalmodulelaw}. 
+  The first vertical map is an isomorphism by definition. 
   The vertical arrow describing $\omega(F)$ is obtained by
   identifying the preimage of $\omega(F) \subseteq \omega(F \otimes_R (R
   \otimes_AK))$ under the isomorphism 
@@ -1325,7 +1317,7 @@ We admit the following facts from Section 9 of \cite{hopkins1994equivariant}.
   This is Proposition 9.8 in \cite{hopkins1994equivariant}. The authors make
   use of a description of $\Ext(F, \Ghat_a)$ in terms of deformation theory
   and combine it with a convenient normal form of formal $A$-modules, so called
-  $A$-typical modules (we touch upon the theory in section \ref{sub:Hazewinkels
+  $A$-typical modules (we touch upon the theory in Section \ref{sub:Hazewinkels
   FuncEq and the Standard Formal Module}), to construct an explicit 
   basis for the corresponding modules. 
 \end{proof}
@@ -1481,7 +1473,7 @@ there is no non-trivial map $H \to \Ghat_a$ and the sequence becomes
 	\arrow[from=2-4, to=2-5]
 \end{tikzcd}   
 \end{equation*}
-We now have 
+This allows us to formulate the following result.
 \begin{prop}
   The $R$-module $\omega(H)$ is free of rank $1$, generated by 
   $f(T) = \log_H(T)$. $\QLog(H)$ is free of rank $n$, generated by the classes of
@@ -1975,12 +1967,12 @@ $A$-module $\cF$ over $R$, a map
 \qlog_\cF: \tilde \cF(S) \to \Dio(\cF) \otimes_R (S \otimes_A K),
 \end{equation*}
 called the quasi-logarithm map.
-We give an explicit description of this map if $\cF = H$ is the standard
+We give an explicit description of this map if $\cF = \FGG(H)$ is the standard
 $\cO_K$-module over $\cO_{\breve K}$. 
 
-We begin with a sequence $(x_1, x_2, \dots) \in \tilde \cF(S)$. 
+The construction of $\qlog_\cF$ is as follows.  
 Let $0 \to \cV \xto\psi \cE \xto\phi \cF \to 0$ be the universal additive
-extension of $\cF$, and choose an arbitrary sequence $(y_1, y_2, \dots) \in
+extension of $\cF$. For any sequence $(x_1, x_2, \dots) \in \tilde \cF(S)$, choose an arbitrary sequence $(y_1, y_2, \dots) \in
 \tilde \cE(S)$ such that $y_i$ is a lift of $x_i$ under the map $\cE(S) \to \cF(S)$. 
 Let $y$ be the limit $y = \lim_{i \to \infty} [\varpi]_{\cE}^i(y_i)$ and put 
 $$\qlog_\cF((x_1, x_2, \dots)) = \log_\cE(y) \in \Dio(\cF) \otimes_R(S \otimes_A K).$$ 
@@ -1988,15 +1980,15 @@ $$\qlog_\cF((x_1, x_2, \dots)) = \log_\cE(y) \in \Dio(\cF) \otimes_R(S \otimes_A
 \begin{prop}
   This construction yields a well-defined map. 
 \begin{proof}
-  We may assume that $\cF$ and $\cV$ come from a formal module laws $F$ and 
-  $V$, which canonically
-  leads to a module $E$ for $\cE$ by Lemma \ref{lem:SESStandardForm}. Now
+  We may assume that $\cF$ and $\cV$ come from formal module laws $F$ and 
+  $V$, and we may furthermore assume that $\cE = \FGG(E)$ 
+  for an $\cO_K$-module law $E$ obtained by Lemma \ref{lem:SESStandardForm}. Now
   $(x_1, x_2, \dots)$ is a sequence in $S^\cici$ and $(y_1, y_2, \dots)$ is a
   sequence of elements in $(S^\cici)^n$.
 
   It suffices to show that $y = \lim_{i\to \infty} [\varpi]^i_E(y_i)$ exists and 
   that it is independent of the choice of lifts $(y_1, y_2, \dots)$. 
-  Both claims follow from additivity of $\cV$, implying that 
+  Both claims follow from the additivity of $\cV$, implying that 
   $[\varpi]_{V}(T) = \varpi T$. The sequence 
   $([\varpi^i]_{E}(y_i))$ converges, as for positive integers $i\leq j$, we have 
   \begin{equation*}
@@ -2033,7 +2025,7 @@ We can make the quasi-logarithm map explicit.
   \end{equation*}
   Here, $\Pi x = ((\Pi x)_0, (\Pi x)_1, \dots)$ is the image of $x$ under
   $\Pi$, the endomorphism of $\Tilde
-  H(S)$ induced by the Frobenius automorphism on $H_0$, cf. Definition
+  H(S)$ induced by the (relative) Frobenius automorphism on $H_0$, cf. Definition
   \ref{def:FrobOnUnivCov}.
 \end{prop}
 We postpone the proof to state the following auxiliary result.
@@ -2111,7 +2103,8 @@ logarithm
 \begin{equation*}
   \log_{\wedge H}(T) = \sum_{i = 0}^\infty (-1)^{(n-1)i} \frac{T^{qi}}{\varpi^i}.
 \end{equation*}
-We have $\Dio(\wedge H) = \wedge^n \Dio(H)$. 
+By Hazewinkel's integrality Lemma (cf. Theorem \ref{thm:}), 
+such a module law exists. We have $\Dio(\wedge H) = \wedge^n \Dio(H)$. 
 We follow \cite[Theorem 2.10.3]{BoyarchenkoWeinstein2011MaxVar} to describe a map $\delta:
 \Tilde H^n \to \Tilde {\wedge H}$ making the square
 \begin{equation}\label{diag:qlogsquare}
@@ -2207,3 +2200,5 @@ We have the following approximation of $\Delta$.
 
 % subsubsection Determinants of Formal Modules (end)
 \end{document}
+
+\section{TESTESTSETESTSE}
