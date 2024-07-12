@@ -257,35 +257,55 @@ base change $\cM_{m, \cO_{\C_p}} = \cM \cotimes_{\cO_\br E} \cO_{\C_p}$.
 We recall the notion of Weil descent data and make use of this notion to describe
 an action of the Weil group $\Weil_E$ on $\cM_{m, \cO_{\C_p}}$.
 
-Let $\sigma \in \Gal(\br E / E)$ be the automorphism corresponding to the
-$q$-th power Frobenius automorphism of the residue field of $E$. 
-Given any presheaf $\cG \colon \FSchOver {\Spf(\cO_\br E)}^\op \to \Set$, we denote by
-$\sigma^* \cG$ the fiber product $\cG \times_{\spf(\cO_\br E), \sigma}
-\spf(\cO_\br E)$. In this situation, we have the notion of Weil descent data
+Let $\Phi \in \Gal(\br E / E)$ be the automorphism corresponding to the
+$q$-th power Frobenius automorphism of the residue field of $E$. Given
+an $\cO_\br E$-algebra $\cO_\br E \to R$, we write $\Phi^*R$ for the 
+$\cO_\br E$-algebra with structure morphism $\cO_\br E \xto \Phi \cO_\br E \to R$.
+The identity on $R$ yields a morphism $R \to \Phi^* R$, which preserves only the 
+$\cO_E$-algebra structure. Note that equivalently $\Phi^* R = R
+\cotimes_{\cO_\br E, \Phi^{-1}} \cO_\br E$.
+
+More generally, given any presheaf $\cG \colon \FSchOver {\cO_\br E}^\op
+\to \Set$, we denote by
+$\Phi^* \cG$ the fiber product $\cG \times_{\spf(\cO_\br E)} \spf(\Phi^*
+\cO_\br E)$, interpreted as a presheaf $\FSchOver{\cO_\br E}^\opp \to \Set$ under the
+equality of categories $\FSchOver{\Phi^*\cO_\br E} = \FSchOver{\cO_\br E}$. In
+this situation, we have the notion of Weil descent data
 (cf. \cite[Definition 3.45]{rapoport1996period}).
 
 \begin{defi}[Weil Descent Datum]\label{def:WeilDescentDatum}
-  A Weil Descent Datum for $\cG$ is an isomorphism of functors
+  A Weil Descent Datum for $\cG$ is an isomorphism
   \begin{equation*}
-    \alpha \colon \cG \xto\sim \sigma^* \cG.
+    \alpha \colon \cG \xto\sim \Phi^* \cG
   \end{equation*}
+  of functors $\FSchOver {\cO_\br E}^\opp \to \Set$.
 \end{defi}
 
 Given a Weil descent datum $\alpha$ on $\cG$ and an element $w \in \Weil_E$
-such that $w|_{\br E} = \sigma^m$ for $m \in \Z$, we have isomorphisms
+such that $w|_{\br E} = \Phi^m$ for $m \in \Z$, we have isomorphisms
 \begin{multline}\label{eq:ActionFromWeilDD}
-  \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p}) \xto{(1, w)} 
-  \cG \times_{\spf(\cO_\br E), \sigma^m} \spf(\cO_{\C_p}) \\
-  = \sigma^{m, *} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p})
+  \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p}) \xto{(1, \spf(w))} 
+  \cG \times_{\spf(\cO_\br E)} \spf(\Phi^{m,*}\cO_{\C_p}) \\
+  = \Phi^{m, *} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p})
   \xto {\alpha^{-m}} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p}).
 \end{multline}
 Here, $\alpha^{-m}$ denotes the inverse of the isomorphism $\cG \to 
-\sigma^{m, *} \cG$ obtained by iterating the isomorphism $\alpha$. This
+\Phi^{m, *} \cG$ obtained by iterating the isomorphism $\alpha$. This
 gives an action of $\Weil_E$ on $\cG \times_{\spf(\cO_\br E)} \spf(\cO_{\br E})$. 
 
 We define a Weil descent datum $\alpha$ on the functor $\cM_m$ as follows. 
+Given $R\in \cC$ and $(H, \iota, \phi) \in \cM_m(R)$, we put
+\begin{equation*}
+  \alpha(S) \left( H, \iota, \phi \right) = (\Phi^*H, \Frob^* \iota,\Phi^* \phi),
+\end{equation*}
+where
 \begin{itemize}
-  \item test
+  \item $\Phi^* H$ is equal to $H$, however interpreted as a formal module over $\Phi^*R$.
+    That is, $\Phi^* H = H \otimes_{R} \Phi^* R$.
+  \item $\Frob^* \iota$ is the pull-back of $\iota$ along $\Frob: \bar \FF_q
+    \to \bar \FF_q$.
+  \item Similarly, $\Phi^* \phi$ is the 
+
 \end{itemize}
 
 
@@ -410,3 +430,4 @@ Weil-Descent Data; make this precise.}
 
 % section Non-Abelian Lubin-Tate Theory: An Overview (end)
 \end{document}
+
