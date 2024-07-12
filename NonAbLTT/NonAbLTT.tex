@@ -50,7 +50,7 @@ The Lubin-Tate space without level structure is the moduli space of such deforma
 More precisely, we define it as the functor
 \begin{equation*}
   \cM_0: \cC \to \Set, \quad R \mapsto \{\text{deformations } (H, \iota) \text{
-  of $H_0$}\}/\text{iso}.
+  of $H_0$}\}/\simeq.
 \end{equation*}
 
 Note that we have a stratification
@@ -82,10 +82,11 @@ We next introduce variants of this moduli problem with a certain level structure
   Let $H \in \FMOver {\cO_F}{R}$ be a $\varpi$-divisible formal $\cO_F$-module
   of height $n>0$ and let $m$ be a non-negative 
   integer. A Drinfeld level $\varpi^m$-structure on $H$ is a morphism of
-  $\cO_F$-modules
+  $\cO_F$-module objects 
   \begin{equation*}
-    (\varpi^{-m}\cO_F/\cO_F)^{n} \to H(R)
+    \phi: \underline{(\varpi^{-m}\cO_F/\cO_F)}_{\spf R}^n \to H
   \end{equation*}
+  in the category of formal schemes over $\spf R$,
   such that after choosing a coordinate $H \cong \spf R\llbr T \rrbr$, the 
   power series $[\varpi]_H(T) \in R\llbr T \rrbr$ satisfies the divisibility constraint
   \begin{equation*}
@@ -97,7 +98,7 @@ We next introduce variants of this moduli problem with a certain level structure
   Let $\cM_m: \cC \to \Set$ be the functor assigning to $R \in \cC$ the set 
   \begin{equation*}
     \cM_m(R) \coloneqq \{(H, \iota, \phi) \mid (H, \iota) \in \cM_0(R) \text{ and }\phi
-    \text{ a Drinfeld level $\varpi^m$-structure on $H$}\}/\text{iso}.
+    \text{ a Drinfeld level $\varpi^m$-structure on $H$}\}/\simeq.
   \end{equation*}
 \end{defi}
 
@@ -136,8 +137,8 @@ $d \in D^\times$, it acts via right-translation on $\iota$. That is, we put
 
 The group $\GL_n(F)$ acts in a less simple matter. The idea is to have
 $\GL_n(F)$ act on the level structure of triples $(H, \iota, \phi) \in \cM_m(R)$.
-Akin to the action of $D^\times$, the idea is to put 
-$(H, \iota, \phi).g = (H, \iota, \phi \circ g)$. But this only makes sense
+Akin to the action of $D^\times$, we would like to define the action as
+$(H, \iota, \phi).g = (H, \iota, \phi \circ g)$, but this only makes sense
 if $g \in \GL_n(\cO_F)$. To nonetheless define an 'action' of $\GL_n(F)$, we
 allow ourselves to also change the underlying formal group.
 We need the following notion of quotients of formal $\cO_F$-modules.
@@ -195,9 +196,7 @@ $g$ yields an injection
   (\varpi^{m-d}\cO_F/\cO_F)^n \xto g (\varpi^{-m}\cO_F^n/g\cO_F^n) = 
   \frac{(\varpi^{-m} \cO_F^n /\cO_F^n)}{(g \cO_F^n/\cO_F^n)}.
 \end{equation*}
-Now, given a tuple $(H, \iota, \phi) \in \cM_m(R)$, we put
-$$(H, \iota, \phi).g = (H', \iota', \phi'),$$
-where 
+Now, given a tuple $(H, \iota, \phi) \in \cM_m(R)$, we put $$(H, \iota, \phi).g = (H', \iota', \phi'),$$ where 
 $$H'= H/\phi(g\cO_F^n/\cO_F^n)$$ 
 is a the quotient of $H$ as in Definition \ref{def:QuotientModule}, 
 $$\iota'\colon H_0 \to H \otimes \bar \FF_q \to H' \otimes \bar \FF_q$$ 
@@ -206,7 +205,8 @@ $(\height(\iota) - \val_\varpi( \det g))$, and
 $$\phi'\colon (\varpi^{m-d}\cO_F/\cO_F)^n \to H'$$ 
 is the Drinfeld $\varpi^{m-d}$-level structure obtained by Lemma
 \ref{lem:DrinfeldLevelOnQuotients}. 
-This does not depend on the choice of $d$. Indeed, given integers $m \geq d'
+For varying choices of $d$, this gives a system of maps compatible with the 
+transition functions $\cM_m \to \cM_{m'}$. Indeed, given integers $m \geq d'
 \geq d$ with $d$ as above, the triangle 
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
@@ -214,19 +214,22 @@ This does not depend on the choice of $d$. Indeed, given integers $m \geq d'
 	\& {\cM_{m-d'}}
 	\arrow["{g_{m,m-d}}", from=1-1, to=1-2]
 	\arrow["{g_{m,m-d'}}"', from=1-1, to=2-2]
-	\arrow["\pr", from=1-2, to=2-2]
+	\arrow[from=1-2, to=2-2]
 \end{tikzcd}
 \end{equation*}
 commutes.
 
-If $g \in \GL_n(F)$ is an arbitrary element, we may choose, for a sufficiently
-large integer $d$, an integer $r$ such that $(\varpi^{-r} g)^{-1} \in \Mat_{n
-\times n}(\cO_F)$ and $\varpi^{-r}g \in \varpi^{-d}\Mat_{n \times n}(\cO_F)$.
+If $g \in \GL_n(F)$ is an arbitrary element, we may choose an integer $r$ such
+that $(\varpi^{-r} g)^{-1} \in \Mat_{n \times n}(\cO_F)$. We now pick 
+$d > 0$ in a way that $\varpi^{-r}g \in \varpi^{-d}\Mat_{n \times n}(\cO_F)$. 
 Now, for $m \geq d$, we obtain natural transformations
 \begin{equation*}
   g_{m,m-d}\colon \cM_{m} \to \cM_{m-d}, \quad (H, \iota, \phi).g = (H, \iota \circ \varpi^{-r}, \phi).(\varpi^{-r}g).
 \end{equation*}
-This construction is independent of the choice of $r$. \todo{why?}
+By the same reason as above, this yields, for varying choices of $d$, a
+compatible system of natural transformations.
+This construction is independent of the choice of $r$, as $(H, \iota,
+\phi).(\varpi\cdot\id) \simeq (H, \iota \circ [\varpi^{-1}], \phi)$.
 Furthermore, given $g, g' \in \GL_n(F)$ with suitable choices of integers 
 $d, d'$, we obtain a commutative triangle
 \begin{equation*}
@@ -247,6 +250,50 @@ $A_K = A_{m}^K$. This gives refined tower $\{\cM_K\}_K$.
 }
 % subsubsection Group Actions on the Tower of Lubin--Tate Deformation Spaces (end)
 
+\subsubsection{The Weil Descent Datum on the Deformation Space} % (fold)
+\label{ssub:The Weil Descent Datum}
+We now fix an embedding $\br E \inj \C_p$ and consider for integers $m \geq 0$ the
+base change $\cM_{m, \cO_{\C_p}} = \cM \cotimes_{\cO_\br E} \cO_{\C_p}$. 
+We recall the notion of Weil descent data and make use of this notion to describe
+an action of the Weil group $\Weil_E$ on $\cM_{m, \cO_{\C_p}}$.
+
+Let $\sigma \in \Gal(\br E / E)$ be the automorphism corresponding to the
+$q$-th power Frobenius automorphism of the residue field of $E$. 
+Given any presheaf $\cG \colon \FSchOver {\Spf(\cO_\br E)}^\op \to \Set$, we denote by
+$\sigma^* \cG$ the fiber product $\cG \times_{\spf(\cO_\br E), \sigma}
+\spf(\cO_\br E)$. In this situation, we have the notion of Weil descent data
+(cf. \cite[Definition 3.45]{rapoport1996period}).
+
+\begin{defi}[Weil Descent Datum]\label{def:WeilDescentDatum}
+  A Weil Descent Datum for $\cG$ is an isomorphism of functors
+  \begin{equation*}
+    \alpha \colon \cG \xto\sim \sigma^* \cG.
+  \end{equation*}
+\end{defi}
+
+Given a Weil descent datum $\alpha$ on $\cG$ and an element $w \in \Weil_E$
+such that $w|_{\br E} = \sigma^m$ for $m \in \Z$, we have isomorphisms
+\begin{multline}\label{eq:ActionFromWeilDD}
+  \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p}) \xto{(1, w)} 
+  \cG \times_{\spf(\cO_\br E), \sigma^m} \spf(\cO_{\C_p}) \\
+  = \sigma^{m, *} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p})
+  \xto {\alpha^{-m}} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p}).
+\end{multline}
+Here, $\alpha^{-m}$ denotes the inverse of the isomorphism $\cG \to 
+\sigma^{m, *} \cG$ obtained by iterating the isomorphism $\alpha$. This
+gives an action of $\Weil_E$ on $\cG \times_{\spf(\cO_\br E)} \spf(\cO_{\br E})$. 
+
+We define a Weil descent datum $\alpha$ on the functor $\cM_m$ as follows. 
+\begin{itemize}
+  \item test
+\end{itemize}
+
+
+
+We now fix an algebraic closure $\bar E$ of $E$ and consider the functor
+obtained by base change $\cM_{m, \bar E} = $ 
+There is also an action of the Weil group of $E$ on 
+
 % subsection The Lubin-Tate Tower (end)
 
 \subsection{The Local Langlands Correspondence for the General Linear Group} % (fold)
@@ -262,10 +309,9 @@ the vector space
   \HLT \coloneqq \lim_K H^{n-1}_c (M_{K} \otimes_{\breve F} \C_p, \bar \Q_l).
 \end{equation*}
 
-By functoriality of the generic fiber functor, the right action of $D^\times \times
-\GL_n(F)$ on the tower $\{\cM_K\}_{K \subset \GL_n(\cO_F)}$ yields a left-action
-of $D^\times \times \GL_n(F)$ on $\HLT$. 
-
+By functoriality of the generic fiber functor, the action of $D^\times \times
+\GL_n(F)$ on the tower $\{\cM_K\}_{K \subset \GL_n(\cO_F)}$ from the right
+yields an action of $D^\times \times \GL_n(F)$ on $\HLT$ from the left. 
 
 For $K \subset \GL_n(\cO_F)$, write $M_{K, \varpi^\Z}$ for the quotient of 
 $M_K$  by the action of the subgroup
