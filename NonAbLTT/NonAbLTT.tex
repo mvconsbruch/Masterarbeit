@@ -265,11 +265,10 @@ The identity on $R$ yields a morphism $R \to \Phi^* R$, which preserves only the
 $\cO_E$-algebra structure. Note that equivalently $\Phi^* R = R
 \cotimes_{\cO_\br E, \Phi^{-1}} \cO_\br E$.
 
-More generally, given any presheaf $\cG \colon \FSchOver {\cO_\br E}^\op
-\to \Set$, we denote by
+More generally, given any functor $\cG \colon \cC \to \Set$, we denote by
 $\Phi^* \cG$ the fiber product $\cG \times_{\spf(\cO_\br E)} \spf(\Phi^*
-\cO_\br E)$, interpreted as a presheaf $\FSchOver{\cO_\br E}^\opp \to \Set$ under the
-equality of categories $\FSchOver{\Phi^*\cO_\br E} = \FSchOver{\cO_\br E}$. In
+\cO_\br E)$, interpreted as a functor $\cC \to \Set$ under the
+equality of categories $\Adm {\Phi^*\cO_\br E} = \Adm {\cO_\br E}$. In
 this situation, we have the notion of Weil descent data
 (cf. \cite[Definition 3.45]{rapoport1996period}).
 
@@ -278,42 +277,86 @@ this situation, we have the notion of Weil descent data
   \begin{equation*}
     \alpha \colon \cG \xto\sim \Phi^* \cG
   \end{equation*}
-  of functors $\FSchOver {\cO_\br E}^\opp \to \Set$.
+  of functors $\cC \to \Set$.
 \end{defi}
 
 Given a Weil descent datum $\alpha$ on $\cG$ and an element $w \in \Weil_E$
-such that $w|_{\br E} = \Phi^m$ for $m \in \Z$, we have isomorphisms
+such that $w|_{\br E} = \Phi^m$ for $m \in \Z$, we obtain isomorphisms
+of functors $\cC \to \Set$
 \begin{multline}\label{eq:ActionFromWeilDD}
-  \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p}) \xto{(1, \spf(w))} 
+  \delta_w: \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p}) \xto{(1, \spf(w))} 
   \cG \times_{\spf(\cO_\br E)} \spf(\Phi^{m,*}\cO_{\C_p}) \\
   = \Phi^{m, *} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p})
   \xto {\alpha^{-m}} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p}).
 \end{multline}
-Here, $\alpha^{-m}$ denotes the inverse of the isomorphism $\cG \to 
-\Phi^{m, *} \cG$ obtained by iterating the isomorphism $\alpha$. This
-gives an action of $\Weil_E$ on $\cG \times_{\spf(\cO_\br E)} \spf(\cO_{\br E})$. 
+Here, $\alpha^{-m}$ denotes the inverse of the isomorphism $\cG \to \Phi^{m, *}
+\cG$ obtained by iterating the isomorphism $\alpha$. Note that the square 
+\begin{equation*}
+  \begin{tikzcd}[ampersand replacement=\&]
+    {\cG \times_{\spf \cO_\br E} \spf(\cO_{\C_p})} \& {\cG \times_{\spf \cO_\br
+    E} \spf(\Phi^{m, *}\cO_{\C_p})} \\
+  	{\Phi^{-m,*}\cG \times_{\spf \cO_\br E} \spf( \cO_{\C_p})} 
+    = {\cG \times_{\spf \cO_\br E} \spf(\Phi^{-m,*}\cO_{\C_p})}
+    \& {\cG \times_{\spf \cO_\br E} \spf(  \cO_{\C_p})}
+  	\arrow["{(\id, \spf(w))}", from=1-1, to=1-2]
+    \arrow["{(\Phi^{-m, *}\alpha^{-m}, \id)}", from=1-1, to=2-1]
+    \arrow["{(\alpha^{-m}, \id)}"', from=1-2, to=2-2]
+  	\arrow["{(\id, \spf(w))}", from=2-1, to=2-2]
+  \end{tikzcd}
+\end{equation*}
+commutes, so that for $w_1, w_2 \in \Weil_E$, we have $\delta_{w_1 \circ w_2}
+= \delta_{w_1} \circ \delta_{w_2}$.
+Hence the assignment $w \mapsto \delta_{w^{-1}}$ defines a right-action of 
+$\Weil_E$ on $\cG \times_{\spf(\cO_{\br E})} \cO_{\C_p}$. 
 
 We define a Weil descent datum $\alpha$ on the functor $\cM_m$ as follows. 
 Given $R\in \cC$ and $(H, \iota, \phi) \in \cM_m(R)$, we put
 \begin{equation*}
-  \alpha(S) \left( H, \iota, \phi \right) = (\Phi^*H, \Frob^* \iota,\Phi^* \phi),
+  \alpha(S) \left( H, \iota, \phi \right) = (H', \iota',\phi'),
 \end{equation*}
 where
 \begin{itemize}
-  \item $\Phi^* H$ is equal to $H$, however interpreted as a formal module over $\Phi^*R$.
-    That is, $\Phi^* H = H \otimes_{R} \Phi^* R$.
-  \item $\Frob^* \iota$ is the pull-back of $\iota$ along $\Frob: \bar \FF_q
-    \to \bar \FF_q$.
-  \item Similarly, $\Phi^* \phi$ is the 
-
+  \item the formal group $H'$ is equal to $H$, however interpreted as a formal
+    module over $\Phi^*R$. That is, $H' = H \otimes_{R} \Phi^* R = \Phi^* H$.
+  \item the quasi-isogeny $\iota'$ is defined as
+    \begin{equation*}
+      H_0 \overset{\Frob_q^{-1}}{\dashrightarrow} H_0^{(-q)} = H_0
+      \otimes_{\bar \FF_q, \Frob^{-1}}
+      \bar \FF_q \dashrightarrow H \otimes_{R, \Phi^{-1}} (R/\fm_R) = (\Phi^*
+      H) \otimes_R \bar \FF_q.
+    \end{equation*}
+    Here $\Frob_q^{-1}$ denotes the inverse quasi-isogeny of the relative
+    Frobenius morphism $\Frob_q: H^{(-q)} \to H$. In particular, 
+    $\height(\iota') = \height(\iota)-1$.
+  \item the level structure $\phi'$ is
+    \begin{equation*}
+      \underline{\left({\varpi^{-m}\cO_E}/{\cO_E} \right)}^m_{\spf R}
+      \cong \Phi^* \underline{\left({\varpi^{-m}\cO_E}/{\cO_E} \right)}^m_{\spf R}
+      \xto{\Phi^* \phi} \Phi^* H.
+    \end{equation*}
 \end{itemize}
 
+As explained above, this yields a right action of $\Weil_E$ on $\cM_{m, \cO_{\C_p}}$.
+Given $w \in \Weil_E$ such that $w|_\br E = \Phi^m$ for $m \in \Z$, we find
+that $\delta_w$ restricts to an isomorphism $\cM_{m, \cO_{\C_p}}^{(j)} \to \cM_{m,
+\cO_{\C_p}}^{(j+m)}$. 
 
-
-We now fix an algebraic closure $\bar E$ of $E$ and consider the functor
-obtained by base change $\cM_{m, \bar E} = $ 
-There is also an action of the Weil group of $E$ on 
-
+\begin{xpl}
+  Suppose that $E'/\br E$ is a finite extension. Then $R = \cO_{E'} \in \cC$, 
+  and we may describe the action of $\Weil_E$ on 
+  $\cM_{m, \cO_{\C_p}}(R)$ as follows. Given (an equivalence class of)
+  a triple $(\cH, \iota, \phi) \in \cM_m(R)$ such that 
+  $\cH = \FGG(H)$, and an element $w \in \Weil_E$ such that 
+  $w|_{\br E} = \Phi^m$ for $m \in \Z$, we find 
+  $$\delta_w(H, \iota, \phi) = (\FGG(H^w), \iota^w \circ \Frob_q^m, \phi^w),$$ 
+  where $H^w$ is the formal group law over $E'$ obtained by applying 
+  $w|_{E'}$ to $H$ coefficient-wise. Likewise, 
+  $$\iota^w: H_0^{(q^m)} \dashrightarrow H^w \otimes \bar \FF_q
+  \quad \text{and} \quad
+  \phi^w:  \underline{\left({\varpi^{-m}\cO_E}/{\cO_E} \right)}^m_{\spf R}
+      \to H^w$$
+  denote the corresponding "twisted" quasi-isogeny and level structure.
+\end{xpl}
 % subsection The Lubin-Tate Tower (end)
 
 \subsection{The Local Langlands Correspondence for the General Linear Group} % (fold)
@@ -321,8 +364,8 @@ There is also an action of the Weil group of $E$ on
 The aim of this section is to review some of the results in \cite{HTShimura}. 
 Recall from the previous section the tower of deformation spaces 
 $\{\cM_K\}_{K \subset \GL_n(\cO_F)}$. Let $M_K \in \RigOver {\br F}$ denote the
-generic fiber of $\cM_K \in \FSchOver {\cO_{\br F}}$\todo{reference
-(Berthelot?)}. Fix an algebraic closure $\C_p$ of $F$ and a prime number $\ell
+(rigid) generic fiber of $\cM_K \in \FSchOver {\cO_{\br F}}$\todo{reference
+(Berthelot? Reference )}. Fix an algebraic closure $\C_p$ of $F$ and a prime number $\ell
 \neq p$. This section is concerned with the representation-theoretic aspects of
 the vector space
 \begin{equation*}
