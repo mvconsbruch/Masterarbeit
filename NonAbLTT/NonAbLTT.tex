@@ -127,7 +127,7 @@ $g \in \GL_n(F)$, we construct, for sufficiently large $m\geq 0$, morphisms
   g_{m,m''} \colon \cM_m^{(j)} \to \cM_{m''}^{(j'')},
 \end{equation*}
 where $j'= j+\val_\varpi(\Nrd(d))$, $j'' = j - \val_\varpi(\det g)$ and $m''
-= m-d$ is an integer differeing from $m$ by an integer depending on $g$. 
+= m-d$, where $d<m$ is an integer depending on $g$. 
 
 The action of $D^\times$ is easy to describe. Given $R \in \cC$ and 
 $d \in D^\times$, it acts via right-translation on $\iota$. That is, we put
@@ -205,7 +205,7 @@ $(\height(\iota) - \val_\varpi( \det g))$, and
 $$\phi'\colon (\varpi^{m-d}\cO_F/\cO_F)^n \to H'$$ 
 is the Drinfeld $\varpi^{m-d}$-level structure obtained by Lemma
 \ref{lem:DrinfeldLevelOnQuotients}. 
-For varying choices of $d$, this gives a system of maps compatible with the 
+For varying the choice of $d$, this gives a system of maps compatible with the 
 transition functions $\cM_m \to \cM_{m'}$. Indeed, given integers $m \geq d'
 \geq d$ with $d$ as above, the triangle 
 \begin{equation*}
@@ -246,14 +246,14 @@ This finishes the construction of the $\GL_n(F)$-action.
 \red{Further observations: 
 For $m' \leq m$, we have $A_{m'} = A_m^{K_{m'}}$.
 We may, for $K \subset \GL_n(\cO_F)$ compact open and contained in $K_{m}$, define
-$A_K = A_{m}^K$. This gives refined tower $\{\cM_K\}_K$. 
+$A_K = A_{m}^K$. This gives a refined tower $\{\cM_K\}_K$. 
 }
 % subsubsection Group Actions on the Tower of Lubin--Tate Deformation Spaces (end)
 
 \subsubsection{The Weil Descent Datum on the Deformation Space} % (fold)
 \label{ssub:The Weil Descent Datum}
 We now fix an embedding $\br E \inj \C_p$ and consider for integers $m \geq 0$ the
-base change $\cM_{m, \cO_{\C_p}} = \cM \cotimes_{\cO_\br E} \cO_{\C_p}$. 
+base change $\cM_{m, \cO_{\C_p}} = \cM_m \cotimes_{\cO_\br E} \cO_{\C_p}$. 
 We recall the notion of Weil descent data and make use of this notion to describe
 an action of the Weil group $\Weil_E$ on $\cM_{m, \cO_{\C_p}}$.
 
@@ -261,7 +261,7 @@ Let $\Phi \in \Gal(\br E / E)$ be the automorphism corresponding to the
 $q$-th power Frobenius automorphism of the residue field of $E$. Given
 an $\cO_\br E$-algebra $\cO_\br E \to R$, we write $\Phi^*R$ for the 
 $\cO_\br E$-algebra with structure morphism $\cO_\br E \xto \Phi \cO_\br E \to R$.
-The identity on $R$ yields a morphism $R \to \Phi^* R$, which preserves only the 
+The identity in $R$ induces a morphism $R \to \Phi^* R$, which preserves only the 
 $\cO_E$-algebra structure. Note that equivalently $\Phi^* R = R
 \cotimes_{\cO_\br E, \Phi^{-1}} \cO_\br E$.
 
@@ -302,7 +302,7 @@ where
 \begin{itemize}
   \item $\Phi^* H$ is equal to $H$, however interpreted as a formal module over $\Phi^*R$.
     That is, $\Phi^* H = H \otimes_{R} \Phi^* R$.
-  \item $\Frob^* \iota$ is the pull-back of $\iota$ along $\Frob: \bar \FF_q
+  \item $\Frob^* \iota$ is the pullback of $\iota$ along $\Frob: \bar \FF_q
     \to \bar \FF_q$.
   \item Similarly, $\Phi^* \phi$ is the 
 
