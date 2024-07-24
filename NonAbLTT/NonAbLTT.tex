@@ -283,29 +283,46 @@ this situation, we have the notion of Weil descent data
 To make this definition a bit more tangible, we give the following example.
 \red{Is this example too boring?}
 \begin{xpl}
-  Suppose that $p \neq 2$ and let $\ell \neq p$ be a prime number. Write 
+  \begin{enumerate}
+    \item Suppose that $p \neq 2$ and let $\ell \neq p$ be a prime number. Write 
   $\zeta_\ell \in \br \Q_p$ for a $\ell$-th root of unity. Let
   $\cP_{\zeta_\ell}$ be the functor parametrizing
   square roots of $\zeta_\ell$. One readily sees that $\cP_{\zeta_\ell}$ is
   representable by \red{In what category?}
   $\spf(R)$, where $R$ denotes the the $\br \Q_p$-algebra
-  $R = \frac{\br \Q_p[X]}{(X^2 - \zeta_\ell)}$. Now, a Weil descent datum for 
-  $\cP_{\zeta_\ell}$ is equvialent to a $\br \Q_p$-linear isomorphism of rings
+  $R = \frac{\br \Q_p[X]}{(X^2 - \zeta_\ell)}$. 
+
+  Now, $\Phi^*\cP_{\zeta_\ell}$ is readily seen to be the functor
+  parametrizing square roots of $\Phi^{-1}(\zeta_\ell) = \zeta_\ell^{p^{-1}}$,
+  where $p^{-1}$ denotes the inverse residue class of $p$ mod $\ell$. 
+  Hence, a Weil descent datum for $\cP_{\zeta_\ell}$ is equvialent to a 
+  $\br \Q_p$-linear isomorphism of rings
   \begin{equation*}
-    \alpha \colon \Phi^* R = \frac{\br \Q_p[X]}{X^2 - \zeta_\ell^{p^{-1}}} \to
-    \frac{\br \Q_p[X]}{X^2 - \zeta_\ell} = R, 
+    \alpha \colon \Phi^* R = \frac{\br \Q_p[X]}{(X^2 - \zeta_\ell^{p^{-1}})} \to
+    \frac{\br \Q_p[X]}{(X^2 - \zeta_\ell)} = R, 
   \end{equation*}
-  where $p^{-1}$ denotes the inverse of $p$ modulo $\ell$. 
-  One easily finds that any such isomorphism must 
-  send $X$ to $aX$, where $a$ is a square root of $\zeta_\ell^{p^{-1}-1}$, and
-  conversely any such square root yields a Weil descent datum. In particular,
-  unlike the  Lubin--Tate deformation space, there
-  is no canonical Weil descent datum for $\cP_{\zeta_\ell}$. 
+  One easily finds that any such isomorphism must send $X$ to $aX$, where $a$
+  is a square root of $\zeta_\ell^{p^{-1}-1}$, and conversely any such square
+  root yields a Weil descent datum. In particular, unlike the  Lubin--Tate
+  deformation space, there is no canonical Weil descent datum for
+  $\cP_{\zeta_\ell}$. 
+    \item More generally, if $\cG$ is representable by the formal spectrum of a 
+      ring formally of finite type over $\cO_{\br E}$, a Weil descent datum 
+      for $\cG$ is an isomorphism of topological $R$-algebras
+      \begin{equation*}
+        R = \frac{ \cO_{\br E}\llbr X_1, \dots, X_n \rrbr}{(f_1, \dots, f_n)}
+        \to 
+        \frac{ \cO_{\br E}\llbr X_1, \dots, X_n \rrbr}{(f_1^{\Phi}, \dots,
+        f_n^{\Phi})} = \Phi^{-1,*}R,
+      \end{equation*}
+      where $f_i^\Phi \in \cO_\br E\llbr X_1, \dots, X_n\rrbr$ denotes the 
+      power series obtained by applying $\Phi$ to the coefficients of $f_i$.
+  \end{enumerate}
 \end{xpl}
 
 Given a Weil descent datum $\alpha$ on $\cG$ and an element $w \in \Weil_E$
 such that $w|_{\br E} = \Phi^m$ for $m \in \Z$, we obtain isomorphisms
-of functors $\cC \to \Set$
+of functors $\FSchOver {\cO_\br E}^{\opp} \to \Set$
 \begin{multline}\label{eq:ActionFromWeilDD}
   \delta_w: \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p}) \xto{(1, \spf(w))} 
   \cG \times_{\spf(\cO_\br E)} \spf(\Phi^{m,*}\cO_{\C_p}) \\
