@@ -3,10 +3,75 @@
 
 \begin{document}
 \section{The Lubin--Tate Space at Infinite Level}
+In this section, we introduce, attached to a formal group law
+$H_0 \in \FMLOver {\cO_E}{\Fqbar}$ of height $n \in \N$, the infinite level
+deformation moduli problem
+\begin{equation*}
+  \cM_{\infty}^{(0)} = \lim_{m \in \N} \left(\cM_{m}^{(0)}\right).
+\end{equation*}
+We have seen in the previous section that $\cM_{m}^{(0)}$ is 
+representable by the formal spectrum of a local ring $A_m$, finite and \'etale
+over $\spf(A_0) = \spf(\cO_{\br E}\llbr u_1, \dots, u_{n-1}\rrbr)$. In particular,
+$\cM_{\infty}^{(0)}$ is represented by 
+the formal spectrum of the completed colimit 
+\begin{equation*}
+  A_\infty = (\colim_m A_m)^\wedge_{\fm}.
+\end{equation*}
+Here, $\fm$ denotes the image of the maximal ideal of $A_0$ (or of any $A_m$, it doesn't
+matter). Note that $\colim_m A_m$ is not Noetherian, so the completion 
+along an arbitrary ideal $I \subset A_\infty$ is, in general, not $I$-adically
+complete (see \cite[\href{https://stacks.math.columbia.edu/tag/05JA}{Tag
+05JA}]{stacks-project} for an example). However, we have seen that $\fm$ is
+finitely generated, so this pathology does not occur and $\cM_\infty^{(0)}
+\coloneqq \spf A_\infty$ makes senes as a formal scheme.
 
-\subsection{Determinants of Formal Modules} % (fold)
-\label{sub:Determinants of Formal Modules}
-Following 
+Let $G$ denote the product $\GL_n(E) \times D^\times \times \Weil_E$
+and write $G^0 \subset G$ for the subgroup given by the kernel of the homomorphism
+\begin{equation*}
+  G \to \Z, \quad (g, d, \sigma) \mapsto \val( \det(g)^{-1} \Nrd_{D/E}(d)
+  \Art_E^{-1}(\sigma)). 
+\end{equation*}
+The action of $G$ on the tower $\{\cM_{m, \cO_{\C_p}}\}_m$ constructed in
+Section \ref{ssub:The
+Tower of Deformation Spaces} restricts to an action of $G^0$ on the tower
+$\{\cM_{m, \cO_{\C_p}}^{(0)}\}_m$. This yields a right action of $G^0$ on the formal 
+scheme $\cM_{\infty}\times_{\spf(\cO_\br E)} \spf(\cO_{\C_p})$, equivalent to
+a left action on the ring $A_\infty \cotimes_{\cO_\br E} \cO_{\C_p}$.
+
+This section is concerned with the study of the ring $A_\infty$. 
+The main results are summarized as follows. 
+First, we review some of the constructions in Chapter 2 of \cite{weinstein2016semistable}.
+As a first step, making use of the determinants of formal $\cO_E$-modules constructed in 
+\cite{hedayatzadeh2015det}, we obtain a natural homomorphism
+\begin{equation*}
+   \cO_{\widehat{E^\ab}} \to  A_\infty.
+\end{equation*}
+We then introduce the notion of universal covers of formal $\cO_E$-modules; the 
+passage from $H$ to its universal cover $\tilde H$ can be interpreted as a sort
+of tilting procedure. Still following \cite{weinstein2016semistable}, this
+notion and its relation with the moduli problem $\cM_{\infty,
+\cO_{\C_p}}^{(0)}$ makes it possible to construct an isomorphism
+\begin{equation*}
+  A_{\infty, \cO_{\C_p}} \coloneq A_\infty \cotimes_{\cO_{\widehat{E^\ab}}} \cO_{\C_p} 
+  \cong \cO_{\C_p} \llbr X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}} \rrbr /
+  (\delta(X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}})^{q^{-m}} - \tau^{q^{-m}} \mid 
+  m \in \N)^- ,
+\end{equation*}
+where the superscript minus denotes the completion of the ideal. 
+
+The main effort is taken in an description of the action by $G^0$ 
+on $A_{\infty,\cO_{\C_p}}$ in terms of this isomorphism following
+\cite[Section 1.2]{imaitsushima2020affinoids}, 
+and an approximation of $\delta$ following \cite[Section
+2.10]{BoyarchenkoWeinstein2011MaxVar}.
+These results give the necessary information to observe the perfection of a
+Deligne--Lusztig variety as the special fiber of some affinoid inside the
+Lubin--Tate perfectoid space. This space is constructed at the end of this section.
+
+\subsection{Determinants of Formal modules} % (fold)
+\label{sub:Determinants of Formal modules}
+bla bla
+% subsubsection Determinants of Formal modules (end)
 
 \subsection{The Universal Cover} % (fold)
 \label{sub:Tate Modules and the Universal Cover}
@@ -139,7 +204,7 @@ the set of $q$-power compatible sequences with values in $S^\cici$.
       U_f(S/J) \to \Nilp^\flat(S/J): \quad
       (x_1, x_2, x_3, \dots) \mapsto (x_1, h(x_2), h(h(x_3)), \dots)
   \end{equation*}
-  is a well-defined function, and (trivially) functorial in $S$. For the
+  is a well-defined function, and functorial in $S$. For the
   inverse, let $h^{-1}(T) \in k_R\llbr T \rrbr$ be the unique power
   series with $h^{-1}(h(T))= h(h^{-1}(T)) = T$, see Lemma
   \ref{lem:IsosCheckOnLie}. The map
@@ -267,7 +332,7 @@ $\End(H \otimes_R k_R)$ on $\Tilde H$.
 
 \begin{defi}[Frobenius on $\Tilde H$] \label{def:FrobOnUnivCov}
   Write $\Pi: \Tilde H \to \Tilde H$ for the automorphism of $\Tilde H$ corresponding
-  to the Frobenius automorphism (which sends $T$ to $T^q$) of $H_0$.
+  to the Frobenius quasi-isogeny (which sends $T$ to $T^q$) of $H_0$.
 \end{defi}
 
 Note that $\lambda_i(\Pi x) = \lambda_i(x)^q$ for $x \in \Tilde H(S)$ and 
@@ -276,20 +341,67 @@ $i=0,1,\dots$.
 \begin{rmk} 
   In case where $\cF$ comes from a $\cO_K$-module law $F$ over 
   $\cO_K$ with $[\varpi]_F(T) \equiv T^{q^n}$ mod $(\varpi)$,
-  the bijections
-  \begin{equation*}
-    \tilde H(S) \rightleftarrows \Nilp^\flat(S), \quad (x_0, x_1, \dots)
-    \mapsspamto (y, y^{q^{-n}}, y^{q^{-2n}}, \dots)
-  \end{equation*}
-  are, in either direction, given by the equations
-  \begin{equation*}
-    y^{1/q^{ni}} = \lim_{r \to \infty} x_{r+i}^{q^{nr}} \quad \text{and} \quad 
-    x_i = \lim_{s \to \infty} [\varpi^s]_H(y^{q^{-n(i+s)}}).
-  \end{equation*}
-  This follows directly from the explicit description of the isomorphism in
+    This follows directly from the explicit description of the isomorphism in
   Proposition \ref{prop:pHTcalc}, as we may choose $h_{[\varpi]_H}(T) = h_{T^{q^n}}(T)
   = T$.
 \end{rmk}
+
+By the isomorphism above and the fact that $\tilde H$ is a $K$-vector space
+object, we obtain a left action of $K$ on $\Nilp^\flat$, which corresponds
+to a right action on $R\llbr T^{q^{-\infty}} \rrbr$. We can make this action
+explicit if $H$ comes from a Lubin--Tate formal module law.
+
+\begin{lem}\label{lem:GroupStructureOnNilp}
+  Suppose that $H$ is a formal module law over $R$ such that $[\varpi]_H(T) \equiv
+  T^{q^n}$ mod $I$. Now, the following assertions hold.
+  \begin{itemize}
+    \item The bijections
+        \begin{equation*}
+          \lambda \colon \tilde H(S) \rightleftarrows \Nilp^\flat(S) \colon
+          \mu, \quad (x_0, x_1, \dots) \mapsspamto (y, y^{q^{-n}}, y^{q^{-2n}},
+          \dots)
+        \end{equation*}
+        are, in either direction, given by the equations
+        \begin{equation*}
+          y^{1/q^{ni}} = \lim_{r \to \infty} x_{r+i}^{q^{nr}} \quad \text{and} \quad 
+          x_i = \lim_{s \to \infty} [\varpi^s]_H(y^{q^{-n(i+s)}}).
+        \end{equation*}
+    \item Given two $q$-th power compatible systems $y_1, y_2
+      \in \Nilp^\flat(S)$ corresponding to compatible systems
+      $\mu(y_1) = x_1, \mu(y_2) = x_2 \in \tilde H(S)$, the sum $x_1 + x_2 \in
+      \tilde H(S)$ corresponds to the element $\lambda(x_1 + x_2) = z \in
+      \Nilp^\flat(S)$, where 
+      \begin{equation*}
+        z^{1/q^j} = \lim_{r \to \infty} H( y_1^{q^{-r}}, y_2^{q^{-r}})^{q^{r-j}}.
+      \end{equation*}
+    \item Similarly, given $a \in \cO_E$ and $y \in \Nilp^\flat(S)$ with
+      $\mu(y) = x \in \Tilde H(S)$, we have 
+      \begin{equation*}
+        \lambda([a]_H(x)) = \lim_{r \to \infty} [a]_H(y^{q^{-r}})^{q^{r-j}}.
+      \end{equation*}
+  \end{itemize}
+\begin{proof}
+  The first statement is an immediate corollary of the second part of
+  Proposition \ref{prop:pHTcalc} applied with $f(T) = [\varpi]_H(T)$ and $g(T)
+  = T^{q^n}$, as we may choose $h_f(T) = h_g(T) = T$. 
+  The second assertion follows directly after tracing through the commutative diagram
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+    	\& {\Tilde H(S)^2} \& {\Tilde H(S)} \\
+    	{\Nilp^\flat(S)^2} \& {\Tilde H_0(S/J)^2} \& {\Tilde H_0(S/J)} \& {\Nilp^\flat(S).}
+    	\arrow["{H(-,-)}", from=1-2, to=1-3]
+    	\arrow[ from=1-2, to=2-2]
+    	\arrow[ from=1-3, to=2-3]
+    	\arrow["\lambda", from=1-3, to=2-4]
+    	\arrow["\mu", from=2-1, to=1-2]
+    	\arrow[ from=2-1, to=2-2]
+    	\arrow["{H_0(-,-)}", from=2-2, to=2-3]
+    	\arrow[from=2-3, to=2-4]
+    \end{tikzcd}
+  \end{equation*}
+  Similarly one proves the third statement.
+\end{proof}
+\end{lem}
 
 We add calculations regarding the interplay of $\lambda$ and $\log_H$ which will prove
 useful later.
@@ -325,6 +437,64 @@ useful later.
 \end{proof}
 \end{lem}
 % subsubsection The Universal Cover (end)
+
+\subsubsection{Group Actions on the Universal Cover} % (fold)
+\label{ssub:Group Actions on the Universal Cover}
+We quickly note that $\tilde H \otimes_{\cO_\br E} \cO_{\C_p}$ comes with commuting actions
+by the groups 
+$D^\times$ and $W_E$. 
+Both these actions come from the isomorphism of functors $\tilde H \cong \tilde H_0$. 
+
+By this isomorphism, we find that any $d \in \cO_D = \End_{\FMLOver
+{\cO_E}{\Fqbar}}(H_0)$ yields a morphism $\tilde H \to \tilde H$. As the morphism
+corresponding by $\varpi$ is an isomorphism, we obtain a (right-) action of 
+$D^\times \subset \cO_D[\varpi^{-1}]$ on $\tilde H$. 
+
+There is also an action of $\GL_n(E)$ on $\tilde H^n$. Given 
+$g \in \GL_n(E)$ with entries $a_{ij} \in E$, a complete, local $\cO_{\br E}$-algebra
+$R \in \cC$ and a section $(x_1, \dots, x_n) \in \tilde H^n(R)$, we set
+\begin{equation*}
+  g.(x_1, \dots, x_n) = (y_1, \dots, y_n), \quad \text{where}\quad
+  y_i = \sum_{j=1}^n{}^{(H)} a_{ij}x_j.
+\end{equation*}
+% subsubsection Group Actions on the Universal Cover (end)
+
+\subsubsection{Relation to the Deformation Space at Infinite Level} % (fold)
+\label{ssub:Relation to the Deformation Space at Infinite Level}
+As usual, let $H$ denote the standard formal $\cO_E$-module law over 
+$\cO_\br E$ of height $n$, and let $H_0$ be its reduction to 
+$\Fqbar$. 
+
+Let $(e_1, \dots, e_n)$ denote the standard basis of $\cO_E^n$. Given $R \in
+\cC$ and a sequence of elements
+\begin{equation*}
+  (F, \iota, \phi_m)_m \in \cM_\infty(R),
+\end{equation*}
+the corresponding sequence of Drinfeld basis vectors $x_i^{(m)} =
+\phi_m(\varpi^{-m}e_i) \in F(R)$ yield an element
+\begin{equation*}
+  \mathbf{x}_i \coloneqq \left(x_i^{(0)}, x_i^{(1)}, x_i^{(2)}, \dots \right)
+  \in \tilde F(R). 
+\end{equation*}
+
+By the isomorphism $\iota: F \otimes \Fqbar \to H_0$ and Proposition
+\ref{prop:UnivCoverReductionIso}, there is a canonical
+isomorphism $\tilde F \cong \tilde H$, so we may consider
+$\mathbf x_i$ elements of $\tilde H(R)$. We obtain a map
+\begin{equation*}
+  \cM_\infty(R) \to \tilde H(R), \quad (F, \iota, \phi_m)_m \mapsto 
+  (\mathbf x_1, \dots, \mathbf x_n) \in \tilde H(R),
+\end{equation*}
+functorial in $R$.
+\begin{lem}\label{lem:EquivarianceOfMap}
+  The functor constructed above is equivariant for the action of 
+  $\GL_n(E) \times D^\times \times \Weil_E$. 
+\begin{proof}
+  \red{todo.}
+\end{proof}
+\end{lem}
+
+% subsubsection Relation to the Deformation Space at Infinite Level (end)
 
 % subsection Tate Modules and the Universal Cover (end)
 
@@ -401,8 +571,8 @@ We can make the quasi-logarithm map explicit.
     x)_0)\right) \in (S\otimes K)^n.
   \end{equation*}
   Here, $\Pi x = ((\Pi x)_0, (\Pi x)_1, \dots)$ is the image of $x$ under
-  $\Pi$, the endomorphism of $\Tilde
-  H(S)$ induced by the (relative) Frobenius automorphism on $H_0$, cf. Definition
+  $\Pi$, the automorphism of $\Tilde
+  H(S)$ induced by the (relative) Frobenius quasi-isogeny on $H_0$, cf. Definition
   \ref{def:FrobOnUnivCov}.
 \end{prop}
 We postpone the proof to state the following auxiliary result.
@@ -472,7 +642,8 @@ We postpone the proof to state the following auxiliary result.
 
 % subsubsection The Quasilogarithm map (end)
 
-\subsection{Determinants } % (fold)
+
+\subsection{Determinants} % (fold)
 \label{sub:Determinants}
 Let $H$ be the standard formal $\cO_K$-module over $\cO_{\breve K}$ of height
 $n$. Write $\wedge H$ for the formal $\cO_K$-module over $\cO_{\breve K}$ with
@@ -521,7 +692,7 @@ where
   \begin{equation*}
     \begin{tikzcd}[ampersand replacement=\&]
     	{\tilde H^n(S)} \& {\wedge H(S)} \\
-    	{D(H)^n \otimes (S \otimes K)} \& {D(\wedge H) \otimes(S \otimes K)}
+    	{\Dio(H)^n \otimes (S \otimes K)} \& {\Dio(\wedge H) \otimes(S \otimes K)}
     	\arrow["{\delta_0}", from=1-1, to=1-2]
     	\arrow["{\qlog_H^n}"', from=1-1, to=2-1]
     	\arrow["{\log_{\wedge H}}", from=1-2, to=2-2]
@@ -575,6 +746,24 @@ We have the following approximation of $\Delta$.
   don't explain the proof.}
 \end{proof}
 \end{lem}
+
+\begin{thm}[]\label{thm:}
+  There is a cartesian square
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\cM_{H_0, \infty}} \& {\cM_{\wedge^n H_0, \infty}} \\
+	{\tilde H^n} \& {\widetilde{\wedge H}}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["\delta", from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation*}
+Here, the vertical arrows are given by the morphism constructed in 
+Section \ref{ssub:Relation to the Deformation Space at Infinite Level}. 
+\begin{proof}
+\end{proof}
+\end{thm}
 
 % subsubsection Determinants of Formal Modules (end)
 

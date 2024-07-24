@@ -280,6 +280,29 @@ this situation, we have the notion of Weil descent data
   of functors $\cC \to \Set$.
 \end{defi}
 
+To make this definition a bit more tangible, we give the following example.
+\red{Is this example too boring?}
+\begin{xpl}
+  Suppose that $p \neq 2$ and let $\ell \neq p$ be a prime number. Write 
+  $\zeta_\ell \in \br \Q_p$ for a $\ell$-th root of unity. Let
+  $\cP_{\zeta_\ell}$ be the functor parametrizing
+  square roots of $\zeta_\ell$. One readily sees that $\cP_{\zeta_\ell}$ is
+  representable by \red{In what category?}
+  $\spf(R)$, where $R$ denotes the the $\br \Q_p$-algebra
+  $R = \frac{\br \Q_p[X]}{(X^2 - \zeta_\ell)}$. Now, a Weil descent datum for 
+  $\cP_{\zeta_\ell}$ is equvialent to a $\br \Q_p$-linear isomorphism of rings
+  \begin{equation*}
+    \alpha \colon \Phi^* R = \frac{\br \Q_p[X]}{X^2 - \zeta_\ell^{p^{-1}}} \to
+    \frac{\br \Q_p[X]}{X^2 - \zeta_\ell} = R, 
+  \end{equation*}
+  where $p^{-1}$ denotes the inverse of $p$ modulo $\ell$. 
+  One easily finds that any such isomorphism must 
+  send $X$ to $aX$, where $a$ is a square root of $\zeta_\ell^{p^{-1}-1}$, and
+  conversely any such square root yields a Weil descent datum. In particular,
+  unlike the  Lubin--Tate deformation space, there
+  is no canonical Weil descent datum for $\cP_{\zeta_\ell}$. 
+\end{xpl}
+
 Given a Weil descent datum $\alpha$ on $\cG$ and an element $w \in \Weil_E$
 such that $w|_{\br E} = \Phi^m$ for $m \in \Z$, we obtain isomorphisms
 of functors $\cC \to \Set$
@@ -359,6 +382,8 @@ that $\delta_w$ restricts to an isomorphism $\cM_{m, \cO_{\C_p}}^{(j)} \to \cM_{
 \end{xpl}
 % subsection The Lubin-Tate Tower (end)
 
+
+% (end)
 \subsection{The Local Langlands Correspondence for the General Linear Group} % (fold)
 \label{sub:The Local Langlands Correspondence for the General Linear Group}
 The aim of this section is to review some of the results in \cite{HTShimura}. 
@@ -466,12 +491,6 @@ Weil-Descent Data; make this precise.}
 
 % subsection The Local Langlands Correspondence for the General Linear Group (end)
 
-\subsection{The Lubin-Tate Perfectoid Space} % (fold)
-\label{sub:The Lubin-Tate Perfectoid Space}
-
-% subsection The Lubin-Tate Perfectoid Space (end)
-
 % section Non-Abelian Lubin-Tate Theory: An Overview (end)
 
-% (end)
 \end{document}

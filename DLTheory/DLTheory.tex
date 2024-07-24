@@ -478,36 +478,40 @@ of solutions $b \in k$ to the equation $z^{q-1}=(-1)^{n-1}$. For any such $b
 \end{equation}
 and obtain $\DL_n = \sqcup_{b^{q-1} = (-1)^{n-1}} Y_b$.
 
-The (left-)action of $\GL_n(\FF_q) \times \FF_{q^n}^\times$ on $\DL_n$ has the following
+The right action of $\GL_n(\FF_q) \times \FF_{q^n}^\times$ on $\DL_n$ has the following
 explicit description.
 
 \begin{lem}\label{lem:ActionsOnDLn}
-  The action of $\GL_n(\FF_q)$ on $\DL_n$ is given by
+  Let $g \in \GL_n(\FF_q)$ be an element with matrix entries $(a_{ij})_{1 \leq
+  i,j \leq n}$. Then $g$ acts on the global sections of $\DL_n$ from the left via
   \begin{equation*}
-    (a_{ij})_{i,j}.(x_1, \dots, x_n) = \left(\sum_{j = 1}^n
-    a_{ij}x_j\right)_{i = 1, \dots, n}
+    x_i  \mapsto  \sum_{j = 1}^n a_{ij}x_j \quad i = 1, \dots, n. 
   \end{equation*}
-  The action of $\FF_{q^n}^\times$ is given by
+  Similarly, an element $d \in \FF_{q^n}^\times$ acts via
   \begin{equation*}
-    d.(x_1, \dots, x_n) = (dx_1, \dots, dx_n).
+    x_i \mapsto d x_i \quad i = 1, \dots, n.
   \end{equation*}
 \end{lem}
 
-Through the relative Frobenius, we may also define an action of 
-$\Z$ on $\DL_n$, sending $1$ to the automorphism given by $x_i \mapsto
-\Frob(x_i) = x_i^q$. By construction, the actions of $\GL_n(\FF_q)$, 
-$\FF_{q^n}^\times$ and $\Z$ commute.
+Through the $q$-th power Frobenius automorphism on $\bar \FF_q$, we may also
+define an action of $\Z$ on $\DL_n$, sending $1$ to the automorphism given by
+$x_i \mapsto x_i$, $a \mapsto a^{-q}$. Note that this action is defined over 
+$\FF_q$, not over $\bar \FF_q$. 
+By construction, the action of $\Z$ commutes with the action of $\GL_n(\FF_q)$, 
+but in order to make it commute with the action of $\FF_{q^n}^\times$, we 
+have to restrict to $n\Z \subset \Z$. 
 
 Note that $g \in \GL_n(\FF_q)$ induces a morphism of schemes
 $Y_b \to Y_{b \det(g)}$. Similarly, $\zeta \in \FF_{q^\times}$ 
 restricts to $Y_b \to Y_{b \Norm(\zeta)}$, where $\Norm = \Norm_{\FF_{q^n}/\FF_q}$
-denotes the norm map of the extension $\FF_{q^n}/\FF_q$. The relative Frobenius
-morphism $\DL_n \to \DL_n$ stabilizes the components $Y_b$. In particular, 
-the stabilizer subgroup of $\GL_n \times \FF_{q^n}^\times \times \Z$
-for each component $Y_b$ is given by
+denotes the norm map of the extension $\FF_{q^n}/\FF_q$. The action of 
+$1 \in \Z$ sends $Y_b$ to $Y_{(-1)^{n-1} b}$, therefore the action of 
+$n\Z$ stabilizes each component $Y_b$. In particular, 
+the subgroup of elements in $\GL_n \times \FF_{q^n}^\times \times \Z$
+stabilizing $Y_b$ is, for every $b$, given by
 \begin{equation*}
-  (\GL_n(\FF_q) \times \FF_{q^n}^\times)^1 \times \Z 
-  \coloneq \{(g,d,n) \in \GL_n(\FF_q) \times \FF_{q^n}^\times \times \Z 
+  (\GL_n(\FF_q) \times \FF_{q^n}^\times)^1 \times n\Z 
+  \coloneq \{(g,d,n) \in \GL_n(\FF_q) \times \FF_{q^n}^\times \times n\Z 
   \mid \det(g) \Norm(d) = 1\}.
 \end{equation*}
 
@@ -515,9 +519,9 @@ We write $\hH_\DL$ for the $\bar \Q_l$-vector space
 \begin{equation*}
   \hH_\DL = \hH_c^{n-1}(\DL_n, \bar \Q_l).
 \end{equation*}
-By the above, this is a representation of $\GL_n(\FF_q) \times
-\FF_{q^n}^\times \times \Z$. The following subsection is concerned with the
-study of this representation.
+By the above, this is a representation of $\GL_n(\FF_q) \times \FF_{q^n}^\times
+\times n\Z$. The following subsection is concerned with the study of this
+representation.
 
 % subsection An Explicit Example (end)
 
@@ -533,11 +537,11 @@ For a connected, reductive algebraic group $G$ defined over $\FF_q$ and a maxima
 Frobenius-stable torus $T \subset G$ contained in a Borel subgroup $B
 \subset G$, Deligne and Lusztig construct varieties with right $G^\Frob$-actions
 $X_{T\subset B}$ and $\tilde X_{T \subset B}$, constituting a $G^\Frob$-equivariant
-Galois-covering
+Galois covering
 \begin{equation*}
   \tilde X_{T \subset B} \to X_{T \subset B}
 \end{equation*}
-with Galois-group $T^\Frob$. See \eqref{eq:ExplicitDLVarieties} for explicit
+with Galois group $T^\Frob$. See \eqref{eq:ExplicitDLVarieties} for explicit
 descriptions of these spaces. The space $\tilde X_{T \subset B}$ comes with
 commuting actions of $G^\Frob$ and $T^\Frob$, and for characters $\theta$ of $T^\Frob(k)$,
 the main concern of \cite{delignelusztig1976} is the study of the resulting
@@ -609,10 +613,11 @@ The following results of Deligne-Lusztig theory are important for our purposes.
 \end{thm}
 
 We next explain how these results apply to the compactly supported \'etale cohomology
-of $\DL_n$. We set $G = \GL_n$, and we denote by $B^\std$ the standard Borel (of
-upper triangular matrices), by $T^\std$ the standard torus (of diagonal matrices)
-and by $U^\std$ the standard unipotent matrix (of upper triangular matrices with
-diagonal entries equal to $1$).
+of $\DL_n$. We set $G = \GL_n$, and we denote by $B^\std$ the standard Borel
+subgroup of upper triangular matrices, by $T^\std$ the standard torus of
+diagonal matrices
+and by $U^\std$ the standard unipotent subgroup of upper triangular matrices with
+diagonal entries equal to $1$. We have $T^\std U^\std = B^\std$. 
 
 Choose a flag $\Flag \in X_w(k)$, where $w$ is, as usual, $(1\ 2\ \dots \ n)
 \in \Sigma_n \cong \Weyl_G(T^\std)$. Let $B \subset \GL_n$ denote the isotropy
@@ -674,7 +679,7 @@ sense.
   We say that a character $\theta: \FF_{q^n}^\times \to \C^\times$ is 
   regular if it does not factor through the norm morphism
   $$\Norm_{\FF_{q^n}/\FF_{q^m}}:\FF_{q^n}^\times \to \FF_{q^m}^\times$$ 
-  for any $m \leq n$.
+  for any $m < n$.
 \end{defi}
 
 
@@ -706,34 +711,48 @@ the following.
 \end{thm}
 
 This finishes the discussion about the $\GL_n(\FF_q) \times \FF_{q^n}^\times$-action
-on $\hH_\DL$. Recall that the Frobenius-automorphism yields an action of 
-$\Z$ on $\hH_\DL$. This action admits the following partial description.
+on $\hH_\DL$. 
+
+It remains to make the action of $n\Z$ explicit. The Frobenius automorphism on
+$\bar \FF_q$ yields an action of $n\Z$ on $\hH_\DL$. This action admits the
+following partial description.
 
 \begin{prop}
   Let $\theta$ be a regular character. The subgroup $n\Z \subset \Z$ acts on
   $\hH_{\DL,\theta}$ through the character $\gamma:
   n\Z \to \Q^\times$, given by
   $$\gamma(nm) =  (-1)^{(n-1)m} q^{m \frac{n(n-1)}2}.$$
-  That is, $\Frob_q^n$ induces multiplication by the scalar
-  $(-1)^{n-1}q^{\frac{n(n-1)}2}$ on $\hH_{\DL,\theta}$.
   \begin{proof}
-    The result is due to Digne--Michel, cf. \cite{digne1985fonctions}. Also see 
-    the proof of \cite[Théorème 3.1.12]{wang2014espace}.
+    Note that, as the absolute Frobenius morphism $\DL_n \to \DL_n$
+    induces the identity on \'etale cohomology (cf.
+    \cite[\href{https://stacks.math.columbia.edu/tag/03SN}{Tag
+    03SN}]{stacks-project}), the claim is equivalent to showing that pullback 
+    along the relative Frobenius 
+    \begin{equation*}
+      \Frob_{q^n}: \DL_n \to \DL_n^{(q^n)} = \DL_n, \quad
+      x_i \mapsto x_i^q,\quad a \mapsto a \quad (a \in \bar \FF_q)
+    \end{equation*}
+    induces multiplication of $(-1)^{n-1}q^{\frac{n(n-1)}2}$
+    on $\hH^{n-1}_c(\DL_n, \bar \Q_\ell)_\theta$. 
+    This result is essentially due to Digne--Michel, cf. \cite[Remarque
+    3.14]{digne1985fonctions}, but their proof contains a sign error. This mistake
+    was identified and corrected by Wang in \cite[Théorème 3.1.12]{wang2014espace}.
   \end{proof}
 \end{prop}
 
 Concludingly, we obtain the following structural result about the 
-$\GL_n(\FF_q) \times \FF_{q^n}^\times \times \Z$-representation 
+$\GL_n(\FF_q) \times \FF_{q^n}^\times \times n\Z$-representation 
 $\hH_\DL$.
 
 \begin{thm}[Structure of $\hH_\DL$]\label{thm:MainThmHDlStructure}
-  For a regular character $\theta: \FF_{q^n}^\times \to \bar \Q_l^\times$, 
-  $\hH_{\DL, \theta}$ is, as a representation of 
-  $\GL_n(\FF_q) \times \FF_{q^n}^\times \times n\Z$, given by 
+  Let $\theta: \FF_{q^n}^\times \to \bar \Q_l^\times$ be a regular character.  
+  The $\GL_n(\FF_q) \times \FF_{q^n}^\times \times n\Z$-representation
+  $\hH_{\DL, \theta}$ is given by 
   \begin{equation*}
     {\HDL}_{,\theta} = R_\theta \boxtimes \theta \boxtimes \gamma.
   \end{equation*}
-  Here, $R_\theta$ is a irreducible cuspidal representation, and 
+  Here, $R_\theta$ is the irreducible cuspidal representation from
+  Deligne--Lusztig theory (cf. Theorem \ref{thm:DLCorrespondenceForUs}), and
   $\gamma$ is the character defined in the previous proposition.
 \end{thm}
 

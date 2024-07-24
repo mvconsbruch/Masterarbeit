@@ -494,9 +494,10 @@ and satisfying
   Let $\phi: F \to G$ be a morphism. Then the diagram 
   \begin{equation*}
   \begin{tikzcd}[ampersand replacement=\&]
-    {F \otimes(R \otimes_A K)} \& {\Ghat_a \otimes (\Lie(F)} \otimes_A K) =
+    {F \otimes(R \otimes_A K)} \& {\Ghat_{a, R\otimes_A K} \otimes (\Lie(F)}
+    \otimes_A K) =
     \Ghat_{a, R\otimes_AK}^n \\
-    {G \otimes(R \otimes_A K)} \& {\Ghat_a \otimes (\Lie(G)} \otimes_A K) =
+    {G \otimes(R \otimes_A K)} \& {\Ghat_{a, R\otimes_A K} \otimes (\Lie(G)} \otimes_A K) =
     \Ghat_{a, R\otimes_AK}^m
   	\arrow["{\log_F}", from=1-1, to=1-2]
   	\arrow["\phi"', from=1-1, to=2-1]
@@ -509,9 +510,9 @@ and satisfying
   $$\log_\cF: \cF \otimes (R \otimes_A K) \to \Ghat_{a, R\otimes_A K} \otimes
   \left(\Lie(\cF) \otimes_R (R \otimes_A K)\right).$$
   \begin{proof}
-    The square commutes because $\Hom(\Ghat_{a, R\otimes_AK}^n, \Ghat_{a,
-    R\otimes_AK}^m) = \Hom_{R \otimes_A K}((R\otimes_A K)^n, (R\otimes_A K)^m)$
-    and $\Lie(\log_G \circ \phi \circ \exp_H) = \Lie(\phi).$
+    The square commutes because of the equality
+    $$\Hom(\Ghat_{a, R\otimes_AK}^n, \Ghat_{a, R\otimes_AK}^m) = \Hom_{R \otimes_A K}((R\otimes_A K)^n, (R\otimes_A K)^m),$$
+    and the fact that $\Lie(\log_G \circ \phi \circ \exp_H) = \Lie(\phi).$
   \end{proof}
 \end{lem}
 
@@ -546,12 +547,17 @@ field of fractions of $A$, and let $R$ be a $A$-algebra.
 We have seen in the previous section that if $R$ is a field extension of $K$,
 then any morphism of formal group laws $f: F \to G$ over $R$ is either $0$
 or an isomorphism, which makes the theory of formal $A$-modules over $R$ rather
-bland. If $R$ is an extension of $k$, the situation becomes more interesting,
-mainly because there are nontrivial (relative) Frobenius endomorphisms $\Frob: F \to F$, sending $T$ to $T^q$. 
+simple. This situation changes if $R$ is a field extension of $k$: there are
+homomorphisms of formal group laws $f\colon F \to G$ corresponding to power
+series $f(T) \in R \llbr T \rrbr$ with vanishing differential. The prototype of
+such homomorphisms are the relative Frobenii $f \colon F \to F^{(q)}$ corresponding
+to the monomial $f(T) = T^q$. Here, of course, $F^{(q)}$ is the formal group
+law obtained by raising each coefficient of $F(X,Y) \in R\llbr X, Y\rrbr$ to
+the $q$-th power.
 
-We introduce the concept of height, which is an attempt to quantify the disorder
-introduced by the Frobenius endomorphisms. This also leads to interesting
-invariants of formal $A$-modules over local $A$-algebras $R$.
+We introduce the concept of height, which is in a sense an attempt to quantify
+the disorder introduced by the Frobenius homomorphisms. This leads to
+interesting invariants of formal $A$-modules over local $A$-algebras $R$.
 
 \begin{defi}[Height of morphisms of group laws]
   Assume that $R$ is a field extension of $k$ and $f: F \to G$ is a morphism of 
