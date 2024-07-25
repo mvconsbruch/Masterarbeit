@@ -259,11 +259,24 @@ an action of the Weil group $\Weil_E$ on $\cM_{m, \cO_{\C_p}}$.
 
 Let $\Phi \in \Gal(\br E / E)$ be the automorphism corresponding to the
 $q$-th power Frobenius automorphism of the residue field of $E$. Given
-an $\cO_\br E$-algebra $\cO_\br E \to R$, we write $\Phi^*R$ for the 
-$\cO_\br E$-algebra with structure morphism $\cO_\br E \xto \Phi \cO_\br E \to R$.
+an $\cO_\br E$-algebra $\cO_\br E \xto i R$, we write $\Phi^*R$ for the 
+$\cO_\br E$-algebra with structure morphism $\cO_\br E \xto \Phi \cO_\br E \xto i R$.
 The identity on $R$ yields a morphism $R \to \Phi^* R$, which preserves only the 
-$\cO_E$-algebra structure. Note that equivalently $\Phi^* R = R
-\cotimes_{\cO_\br E, \Phi^{-1}} \cO_\br E$.
+$\cO_E$-algebra structure. Note that $\Phi^* R$ admits the following equivalent
+descriptions as $\cO_\br E$-algebra:
+\begin{equation}\label{eq:PhiRDescription}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\Phi^*R} \& {R \cotimes_{\cO_{\br E, \Phi^{-1}}}\cO_{\br E} \ } \& {\ R \cotimes_{\cO_{\br E}, \id} \Phi^*\cO_{\br E}} \\
+	\& {\cO_{\br E}}
+	\arrow["{r \mapsto r \otimes 1}", draw=none, from=1-1, to=1-2]
+	\arrow["\sim"{description}, from=1-1, to=1-2]
+	\arrow["{(r,x) \mapsto r \otimes\Phi(x)}", draw=none, from=1-2, to=1-3]
+	\arrow["\sim"{description}, from=1-2, to=1-3]
+	\arrow["{i \circ \Phi}", from=2-2, to=1-1]
+	\arrow["{1 \otimes \id}"', from=2-2, to=1-2]
+	\arrow["{1 \otimes \Phi}"', from=2-2, to=1-3]
+\end{tikzcd}
+\end{equation}
 
 More generally, given any functor $\cG \colon \cC \to \Set$, we denote by
 $\Phi^* \cG$ the fiber product $\cG \times_{\spf(\cO_\br E)} \spf(\Phi^*
@@ -285,21 +298,21 @@ To make this definition a bit more tangible, we give the following example.
 \begin{xpl}
   \begin{enumerate}
     \item Suppose that $p \neq 2$ and let $\ell \neq p$ be a prime number. Write 
-  $\zeta_\ell \in \br \Q_p$ for a $\ell$-th root of unity. Let
+  $\zeta_\ell \in \cO_{\br \Q_p}$ for an $\ell$-th root of unity. Let
   $\cP_{\zeta_\ell}$ be the functor parametrizing
   square roots of $\zeta_\ell$. One readily sees that $\cP_{\zeta_\ell}$ is
   representable by \red{In what category?}
-  $\spf(R)$, where $R$ denotes the the $\br \Q_p$-algebra
-  $R = \frac{\br \Q_p[X]}{(X^2 - \zeta_\ell)}$. 
+  $\spf(R)$, where $R$ denotes the the $\cO_{\br \Q_p}$-algebra
+  $R = \frac{\cO_{\br \Q_p}[X]}{(X^2 - \zeta_\ell)}$. 
 
   Now, $\Phi^*\cP_{\zeta_\ell}$ is readily seen to be the functor
   parametrizing square roots of $\Phi^{-1}(\zeta_\ell) = \zeta_\ell^{p^{-1}}$,
   where $p^{-1}$ denotes the inverse residue class of $p$ mod $\ell$. 
   Hence, a Weil descent datum for $\cP_{\zeta_\ell}$ is equvialent to a 
-  $\br \Q_p$-linear isomorphism of rings
+  $\cO_{\br \Q_p}$-linear isomorphism of rings
   \begin{equation*}
-    \alpha \colon \Phi^* R = \frac{\br \Q_p[X]}{(X^2 - \zeta_\ell^{p^{-1}})} \to
-    \frac{\br \Q_p[X]}{(X^2 - \zeta_\ell)} = R, 
+    \alpha \colon \Phi^* R = \frac{\cO_{\br \Q_p}[X]}{(X^2 - \zeta_\ell^{p^{-1}})} \to
+    \frac{\cO_{\br \Q_p}[X]}{(X^2 - \zeta_\ell)} = R, 
   \end{equation*}
   One easily finds that any such isomorphism must send $X$ to $aX$, where $a$
   is a square root of $\zeta_\ell^{p^{-1}-1}$, and conversely any such square
@@ -310,49 +323,88 @@ To make this definition a bit more tangible, we give the following example.
       ring formally of finite type over $\cO_{\br E}$, a Weil descent datum 
       for $\cG$ is an isomorphism of topological $R$-algebras
       \begin{equation*}
-        R = \frac{ \cO_{\br E}\llbr X_1, \dots, X_n \rrbr}{(f_1, \dots, f_n)}
+        \Phi^* R \cong \frac{ \cO_{\br E}\llbr X_1, \dots, X_n \rrbr}{(f_1^{\Phi^{-1}},
+        \dots, f_n^{\Phi^{-1}})}
         \to 
-        \frac{ \cO_{\br E}\llbr X_1, \dots, X_n \rrbr}{(f_1^{\Phi}, \dots,
-        f_n^{\Phi})} = \Phi^{-1,*}R,
+        \frac{ \cO_{\br E}\llbr X_1, \dots, X_n \rrbr}{(f_1, \dots,
+        f_n)} = R,
       \end{equation*}
-      where $f_i^\Phi \in \cO_\br E\llbr X_1, \dots, X_n\rrbr$ denotes the 
-      power series obtained by applying $\Phi$ to the coefficients of $f_i$.
+      where $f_i^{\Phi^{-1}} \in \cO_\br E\llbr X_1, \dots, X_n\rrbr$ denotes the 
+      power series obtained by applying $\Phi^{-1}$ to the coefficients of $f_i$.
+      This follows quickly from the descriptions of $\Phi^*R$ in
+      \eqref{eq:PhiRDescription}.
   \end{enumerate}
 \end{xpl}
 
-Given a Weil descent datum $\alpha$ on $\cG$ and an element $w \in \Weil_E$
-such that $w|_{\br E} = \Phi^m$ for $m \in \Z$, we obtain isomorphisms
-of functors $\FSchOver {\cO_\br E}^{\opp} \to \Set$
-\begin{multline}\label{eq:ActionFromWeilDD}
-  \delta_w: \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p}) \xto{(1, \spf(w))} 
-  \cG \times_{\spf(\cO_\br E)} \spf(\Phi^{m,*}\cO_{\C_p}) \\
-  = \Phi^{m, *} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p})
-  \xto {\alpha^{-m}} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\C_p}).
-\end{multline}
-Here, $\alpha^{-m}$ denotes the inverse of the isomorphism $\cG \to \Phi^{m, *}
-\cG$ obtained by iterating the isomorphism $\alpha$. Note that the square 
+An element $w \in \Weil_E$ with $w|_{\br E} = \Phi^m$ for $m \in \Z$, induces
+a morphism
 \begin{equation*}
-  \begin{tikzcd}[ampersand replacement=\&]
-    {\cG \times_{\spf \cO_\br E} \spf(\cO_{\C_p})} \& {\cG \times_{\spf \cO_\br
-    E} \spf(\Phi^{m, *}\cO_{\C_p})} \\
-  	{\Phi^{-m,*}\cG \times_{\spf \cO_\br E} \spf( \cO_{\C_p})} 
-    = {\cG \times_{\spf \cO_\br E} \spf(\Phi^{-m,*}\cO_{\C_p})}
-    \& {\cG \times_{\spf \cO_\br E} \spf(  \cO_{\C_p})}
-  	\arrow["{(\id, \spf(w))}", from=1-1, to=1-2]
-    \arrow["{(\Phi^{-m, *}\alpha^{-m}, \id)}", from=1-1, to=2-1]
-    \arrow["{(\alpha^{-m}, \id)}"', from=1-2, to=2-2]
-  	\arrow["{(\id, \spf(w))}", from=2-1, to=2-2]
-  \end{tikzcd}
+  \cG \times_{\spf{\cO_{\br E}}} \spf(\cO_{\C_p}) \xto{(1,w)}
+  \Phi^{m, *}\cG \times_{\spf{\cO_{\br E}}} \spf(\cO_{\C_p}).
 \end{equation*}
-commutes, so that for $w_1, w_2 \in \Weil_E$, we have $\delta_{w_1 \circ w_2}
-= \delta_{w_1} \circ \delta_{w_2}$.
-Hence the assignment $w \mapsto \delta_{w^{-1}}$ defines a right-action of 
+If $\cG$ admits a Weil descent datum, we obtain a commuatative square 
+of isomorphisms of functors $\FSchOver {\cO_E}^{\opp} \to \Set$
+\begin{equation}\label{eq:WeilDescentActionCommSquare}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\cG \times_{\cO_\br E} \cO_{\C_p}} \& {\Phi^{-m, *}\cG \times_{\cO_\br E} \cO_{\C_p}} \\
+	{\Phi^{m, *}\cG \times_{\cO_\br E} \cO_{\C_p}} \& {\cG \times_{\cO_\br E} \cO_{\C_p}}.
+	\arrow["{(\Phi^{-m, *} \alpha^{-m}, 1)}", from=1-1, to=1-2]
+	\arrow["{(1, \spf(w))}"', from=1-1, to=2-1]
+	\arrow["{(1,\spf(w))}", from=1-2, to=2-2]
+	\arrow["{(\alpha^{-m}, 1)}", from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation}
+Here, $\alpha^{m}$ denotes the isomorphism 
+$$\alpha^m: \cG \xto \alpha \Phi^{*} \cG \xto {\Phi^* \alpha} \Phi^{2, *}\cG
+\xto{\Phi^{2,*}\alpha} \dots \xto{\Phi^{m-1,*}\alpha} \Phi^{m,*}\cG$$ 
+obtained by iterating the isomorphism $\alpha$, and 
+$\alpha^{-m}$ denotes the inverse of $\alpha^{m}$. 
+We write $\delta_w$ for the automorphism of $\cG \times_{\cO_\br E} \cO_{\C_p}$
+described in the square \eqref{eq:WeilDescentActionCommSquare}.
+For $w_1, w_2 \in \Weil_E$, we have $\delta_{w_1 \circ w_2} = \delta_{w_1}
+\circ \delta_{w_2}$,
+so the assignment $w \mapsto \delta_{w^{-1}}$ defines a right-action of 
 $\Weil_E$ on $\cG \times_{\spf(\cO_{\br E})} \cO_{\C_p}$. 
+
+\begin{xpl}
+  Again, suppose that the functor 
+  $\cG$ is representable by the formal spectrum of some $\cO_{\br E}$ algebra $R$,
+  and assume for simplicity that $R$ admits a finite presentation
+  \begin{equation*}
+    R = \frac{\cO_\br E \llbr X_1, \dots, X_n\rrbr}{(f_1, \dots, f_n)}.
+  \end{equation*}
+  Furthermore, assume that $\cG$ admits a Weil descent datum $\alpha$. 
+  Then by the example above, the inverse of $\Phi^{-m, *} \alpha^{-m}$
+  yields (upon choosing an embedding $\br E \to \C_p$) an isomorphism of
+  $\cO_{\C_p}$-algebras
+  \begin{equation*}
+    \rho^m: \frac{\cO_{\C_p} \llbr X_1, \dots, X_n\rrbr}{(f_1^{\Phi^m},
+    \dots, f_n^{\Phi^m})} \to 
+    \frac{\cO_{\C_p} \llbr X_1, \dots, X_n\rrbr}{(f_1, \dots, f_n)},
+  \end{equation*}
+  uniquely determined by the images $\rho(X_i)$. 
+  Let $w \in \Weil_E$ be an element satisfying $w|_{\br E} = \Phi^{m}$.
+  Then $\delta_w$ corresponds on the level of global sections to an isomorphism
+  \begin{equation*}
+    R \cotimes_{\cO_\br E} \cO_{\C_p} = \frac{\cO_{\C_p} \llbr X_1, \dots,
+    X_n\rrbr}{(f_1,
+      \dots, f_n)} \xto w  \frac{\cO_{\C_p} \llbr X_1, \dots,
+        X_n\rrbr}{(f_1^{\Phi^m}, \dots, f_n^{\Phi^m})} \xto {\rho^m}
+        \frac{\cO_{\C_p} \llbr X_1, \dots, X_n\rrbr}{(f_1, \dots, f_n)} = R
+        \cotimes_{\cO_\br E} {\cO_{\C_p}}.
+  \end{equation*}
+  That is, $\delta_w(a) = w(a)$ for $a \in \cO_{\C_p}$ and $\delta_w(X_i) =
+  \rho^m(X_i)$ for $i= 1, \dots, n$. The commutativity of the square
+  \eqref{eq:WeilDescentActionCommSquare}
+  reflects the fact that $w(\rho^m(X_i)) = \Phi^{m}(\rho^m(X_i))$. Also note that 
+  $\delta_w$ does not respect the $\cO_{\C_p}$- or 
+  $\cO_{\br E}$-structure, it is only an isomorphism of $\cO_E$-algebras.
+\end{xpl}
 
 We define a Weil descent datum $\alpha$ on the functor $\cM_m$ as follows. 
 Given $R\in \cC$ and $(H, \iota, \phi) \in \cM_m(R)$, we put
 \begin{equation*}
-  \alpha(S) \left( H, \iota, \phi \right) = (H', \iota',\phi'),
+  \alpha(R) \left( H, \iota, \phi \right) = (H', \iota',\phi'),
 \end{equation*}
 where
 \begin{itemize}

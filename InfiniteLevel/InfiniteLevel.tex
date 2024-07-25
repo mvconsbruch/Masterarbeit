@@ -327,25 +327,6 @@ $\lambda_i: \Tilde H \to (-)^\cici$ for projection on the $i$-th component.
 Similarly, we write $\mu: \Nilp^\flat \to \Tilde H$ for the inverse of 
 $\lambda$ and $\mu_i$ for the $i$-th component of $\mu$. 
 
-By Proposition \ref{prop:UnivCoverReductionIso}, we obtain an action of 
-$\End(H \otimes_R k_R)$ on $\Tilde H$.
-
-\begin{defi}[Frobenius on $\Tilde H$] \label{def:FrobOnUnivCov}
-  Write $\Pi: \Tilde H \to \Tilde H$ for the automorphism of $\Tilde H$ corresponding
-  to the Frobenius quasi-isogeny (which sends $T$ to $T^q$) of $H_0$.
-\end{defi}
-
-Note that $\lambda_i(\Pi x) = \lambda_i(x)^q$ for $x \in \Tilde H(S)$ and 
-$i=0,1,\dots$. 
-
-\begin{rmk} 
-  In case where $\cF$ comes from a $\cO_K$-module law $F$ over 
-  $\cO_K$ with $[\varpi]_F(T) \equiv T^{q^n}$ mod $(\varpi)$,
-    This follows directly from the explicit description of the isomorphism in
-  Proposition \ref{prop:pHTcalc}, as we may choose $h_{[\varpi]_H}(T) = h_{T^{q^n}}(T)
-  = T$.
-\end{rmk}
-
 By the isomorphism above and the fact that $\tilde H$ is a $K$-vector space
 object, we obtain a left action of $K$ on $\Nilp^\flat$, which corresponds
 to a right action on $R\llbr T^{q^{-\infty}} \rrbr$. We can make this action
@@ -358,7 +339,7 @@ explicit if $H$ comes from a Lubin--Tate formal module law.
     \item The bijections
         \begin{equation*}
           \lambda \colon \tilde H(S) \rightleftarrows \Nilp^\flat(S) \colon
-          \mu, \quad (x_0, x_1, \dots) \mapsspamto (y, y^{q^{-n}}, y^{q^{-2n}},
+          \mu, \quad (x_0, x_1, \dots) \mapsspamto (y, y^{q^{-1}}, y^{q^{-2}},
           \dots)
         \end{equation*}
         are, in either direction, given by the equations
@@ -402,6 +383,22 @@ explicit if $H$ comes from a Lubin--Tate formal module law.
   Similarly one proves the third statement.
 \end{proof}
 \end{lem}
+
+By Proposition \ref{prop:UnivCoverReductionIso}, we obtain an action of 
+$D^\times = (\End(H \otimes_R k_R)[\frac 1\varpi])^\times$ on $\Tilde H$.
+
+\begin{defi}[Frobenius on $\Tilde H$] \label{def:FrobOnUnivCov}
+  Write $\Pi: \Tilde H \to \Phi^{-1,*}\Tilde H$ for the morphism corresponding
+  to the Frobenius quasi-isogeny 
+  \begin{equation*}
+    \Frob_q: H_0 \to H_0^{(q)}.
+  \end{equation*}
+  \red{We need to make sure that $H$ is defined over $\cO_\br E$.}
+\end{defi}
+
+By explicit description of $\lambda$, we find that $\lambda_i(\Pi x) =
+\lambda_i(x)^q$ for $x \in \Tilde H(S)$ and $i=0,1,\dots$. 
+
 
 We add calculations regarding the interplay of $\lambda$ and $\log_H$ which will prove
 useful later.
