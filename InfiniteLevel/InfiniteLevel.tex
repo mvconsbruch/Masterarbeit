@@ -80,28 +80,28 @@ bla bla
 Let $p$ be a prime. Let $R$ be a Noetherian local ring with maximal ideal $I$
 such that $p \in I$, $R$ is complete with respect to the $I$-adic topology and
 $k_R \coloneqq R/I$ is an algebraically closed field (necessarily of
-characteristic $p$). If $q$ is a power of $p$, we write $\cF_{R,q}$ for the set
+characteristic $p$). If $q$ is a power of $p$, we write $\cP_{R,q}$ for the set
 of power series $f \in R\llbr T \rrbr$ satisfying 
 \begin{equation} \label{eq:condonpowerseries}
   f(T) \equiv g(T^q) \pmod I
 \end{equation}
 for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in R\llbr T \rrbr$ with 
 $c_1 \in R^\times$. 
-If $q'>q$ is another power of $p$, we have injections $\cF_{R,q} \inj \cF_{R,q'}$
+If $q'>q$ is another power of $p$, we have injections $\cP_{R,q} \inj \cP_{R,q'}$
 given by sending $f(T)$ to its $(q'/q)$-fold self-composite $f^{q'/q}(T)$. 
 Making use of these transition maps, we define
 \begin{equation*}
-  \cF_R \coloneqq \colim_{n \in \N} \cF_{R, p^n},
+  \cP_R \coloneqq \colim_{n \in \N} \cP_{R, p^n},
 \end{equation*}
-identifying any power series $f \in \cF_{R,q}$ with its image in $\cF_{R,q'}$ for 
+identifying any power series $f \in \cP_{R,q}$ with its image in $\cP_{R,q'}$ for 
 higher $p$-powers $q'$. 
-For any $f \in \cF_{R,q}$, we define the functor
+For any $f \in \cP_{R,q}$, we define the functor
 \begin{equation*}
   U_f: \Adm R \to \Set, \quad S \mapsto \left\{(x_0,x_1, \dots) \in \prod_\N S^\cici 
                                           \mid f(x_{i+1}) = x_i\right\}.
 \end{equation*}
 This functor does, up to canonical isomorphism, only depend on the equivalence
-class of $f$ in $\cF_{R}$. 
+class of $f$ in $\cP_R$. 
 We write $U_{0,f}$ for the base change of $U_f$ to $k_R$, that is
 \begin{equation*}
   U_{0,f}: \Adm {k_R} \to \Set, \quad S \mapsto \left\{(x_0,x_1, \dots) \in
@@ -112,12 +112,12 @@ k_R\llbr T \rrbr$.
 
 In the sequel, we denote $R$-algebras by $S$ and write $J$ for an ideal
 of definition containing the image of $I$ (provided, for example, by \ref{lem:iodimage}).
-Given an element $f\in \cF_R$, we do not distinguish between $f$ and a choice of a 
-representative $\tilde f \in \cF_{R,q}$ for some sufficiently large $p$-power.
+Given an element $f\in \cP_R$, we do not distinguish between $f$ and a choice of a 
+representative $\tilde f \in \cP_{R,q}$ for some sufficiently large $p$-power.
 
 The following observation lays the groundwork for many of the upcoming results.
 \begin{lem}\label{lem:cryscalc}
-  Let $f$ be any power series in $\cF_R$. For any two elements $s_1,s_2 \in S$ 
+  Let $f$ be any power series in $\cP_R$. For any two elements $s_1,s_2 \in S$ 
   with $s_1 \equiv s_2 \mod J$ such that $f(s_1)$ and $f(s_2)$ exist (for
   example if $f$ is a polynomial or $s_1, s_2 \in S^\cici$), we have 
   \begin{equation*}
@@ -152,7 +152,7 @@ The following observation lays the groundwork for many of the upcoming results.
 \begin{lem}\label{lem:reductioniso}
   The natural reduction map 
   \begin{equation*}
-    U_f(S) \to U_{f}(S/J) = U_{0,f}(S/J)
+    U_f(S) \to U_{f}(S/J) = U_{0,f}(S/J) 
   \end{equation*}
   is bijective.
 \begin{proof}
@@ -191,7 +191,7 @@ $\Nilp^\flat(S) = \lim_{x \mapsto x^q}S^\cici$ is
 the set of $q$-power compatible sequences with values in $S^\cici$. 
 
 \begin{lem}\label{lem:nilp0iso}
-  For any $f \in \cF_R$, there is a canonical \todo{Use different $S$}
+  For any $f \in \cP_R$, there is a canonical \todo{Use different $S$}
   bijection $U_{0,f}(S/J) \to \Nilp^\flat(S/J)$. This bijection is functorial in 
   $S$.
 \begin{proof}
@@ -223,12 +223,12 @@ the set of $q$-power compatible sequences with values in $S^\cici$.
 
 We collect results.
 \begin{prop}\label{prop:pHTcalc}
-  Given $f,g \in \cF_R$, we have bijections, functorial in $S$,
+  Given $f,g \in \cP_R$, we have bijections, functorial in $S$,
   \begin{equation} 
     U_f(S) \to U_f(S/J) \to \Nilp^\flat(S/J) \to U_g(S/J) \to U_g(S).
   \end{equation}
   Explicitly, the bijection $U_f(S) \to U_g(S)$ can be described as follows.
-  Suppose that $f,g \in \cF_{R,q}$ for some sufficiently large $q$. 
+  Suppose that $f,g \in \cP_{R,q}$ for some sufficiently large $q$. 
   Let $h_f(T)$ and $h_g(T)$ be power series with coefficients in $A$ such that 
   $$h_f(T)^q \equiv f(T) \pmod I\quad\text{and}\quad h_g(T)^q \equiv g(T) \pmod
   I.$$
@@ -248,51 +248,54 @@ We collect results.
 
 \subsubsection{The Universal Cover} % (fold)
 \label{ssub:The Universal Cover}
-Let $A$ be an integral domain and $R$ be an $A$-algebra. Given $H \in \FMOver
+Let $A$ be an integral domain and $R$ be an $A$-algebra. Given $\cF \in \FMOver
 AR$ and $a \in A$,
 we define the functor 
 \begin{equation*}
-  \Tilde H_a : \Adm R \to \Mod {A}, \quad
-  S \mapsto \left\{(x_1, x_2, \dots) \in \prod_{\N} H(S) \mid [a]_H(x_{i+1}) =
+  \Tilde \cF_a : \Adm R \to \Mod {A}, \quad
+  S \mapsto \left\{(x_1, x_2, \dots) \in \prod_{\N} \cF(S) \mid [a]_\cF(x_{i+1}) =
   x_i \right\}.
 \end{equation*}
-Here, the $A$-module structure is given by $b.(x_1, x_2,\dots) = ([b]_H(x_1), [b]_(x_2),
-\dots)$. Note that multiplication by $a$ on $\tilde H_a(S)$ is an automorphism
-(it sends $(x_1, x_2, \dots)$ to $([a]_H x_1, x_1, x_2, \dots)$, which has inverse given
-by shifting to the left)  so that $\tilde H_a(S)$ is naturally an
+Here, the $A$-module structure is given by $b.(x_1, x_2,\dots) = ([b]_\cF(x_1), [b]_(x_2),
+\dots)$. Note that multiplication by $a$ on $\tilde \cF_a(S)$ is an automorphism
+(it sends $(x_1, x_2, \dots)$ to $([a]_\cF x_1, x_1, x_2, \dots)$, which has inverse given
+by shifting to the left)  so that $\tilde \cF_a(S)$ is naturally an
 $A[\frac1a]$-module.
 
 From now on assume that $A$ is a discrete valuation ring with uniformizer
 $\varpi$, finite residue field $k$ and field of fractions $K$. 
 Write $q = \# k$. Let $R$ be a local $A$-algebra with maximal ideal $I$ and
-algebraically closed residue field $k_R = R/I$. Let $H$ be a formal
+algebraically closed residue field $k_R = R/I$. Let $\cF$ be a formal
 $\varpi$-divisible $A$-module over $R$ of height $n$. 
 \begin{defi}[The Universal Cover and Tate Module]
-  We write $\tilde H = \tilde H_\varpi$. This functor
+  We write $\tilde \cF = \tilde \cF_\varpi$. This functor
   takes values in the category of $K$-vector spaces.
-  Up to natural isomorphism, $\tilde H$ does not depend on the choice of 
-  $\varpi$. We call this functor the universal cover of $H$. 
+  Up to natural isomorphism, $\tilde \cF$ does not depend on the choice of 
+  $\varpi$. We call this functor the universal cover of $\cF$. 
 
-  The Tate-Module $T_\varpi H$ is the subfunctor of $\Tilde H$ cut out out
-  by the condition that $[\varpi]_H(x_1) = 0$. Note that $T_\varpi H$ does no longer 
+  The Tate-Module $T_\varpi \cF$ is the subfunctor of $\Tilde \cF$ cut out out
+  by the condition that $[\varpi]_\cF(x_1) = 0$. Note that $T_\varpi \cF$ does no longer 
   carry the structure of a $K$-vector space, it is an $A$-module. The Rational
-  Tate Module $V_\varpi H$ is the subfunctor of $\Tilde H$ cut out by the
-  condition that $x_1$ has $[\varpi]_H$-torsion. Equivalently, we have 
+  Tate Module $V_\varpi \cF$ is the subfunctor of $\Tilde \cF$ cut out by the
+  condition that $x_1$ has $[\varpi]_\cF$-torsion. Equivalently, we have 
   \begin{equation*}
-    V_\varpi H (S) = T_\varpi H(S) \otimes_A K.
+    V_\varpi \cF (S) = T_\varpi \cF(S) \otimes_A K.
   \end{equation*}
 \end{defi}
 
+Fix a coordinate $\cF \cong \spf(R\llbr T \rrbr)$ so that $\cF = \FGG(F)$ for
+some $A$-module law $F \in \FMLOver AR$. Then $[\varpi]_F(T) \in \cP_R$, and
+we obtain an isomorphism $\tilde \cF \cong U_{[\varpi]_F} \eqqcolon \tilde F$.
+Write $F_0 = F \otimes k_R$, and $\tilde F_0 = U_{0, [\varpi]_F}$. 
+
 \begin{lem}
-  Let $H$ be a $\varpi$-divisible formal $A$-module over $R$ and write $H_0 = H
-  \otimes_R k_R$. Now the choice of a coordinate on $H_0$ gives rise to
-  an isomorphism 
+  We have an isomorphism 
   \begin{equation*}
-    \tilde H_0 \cong \Nilp^\flat_{k_R}
+    \tilde \cF_0 \cong \Nilp^\flat_{k_R}
   \end{equation*}
   of functors $\Adm {k_R} \to \Set$
   \begin{proof}
-    Note that given any coordinate on $H$, we have $[\varpi]_H(T) \in \cF_R$. Hence,
+    Any lift of $[\varpi]_{F_0}(T) \in k_R\llbr T \rrbr$ lies inside $\cP_R$. Hence,
     the statement is an application of Lemma \ref{lem:nilp0iso}.
   \end{proof}
 \end{lem}
@@ -301,13 +304,13 @@ $\varpi$-divisible $A$-module over $R$ of height $n$.
   Suppose that $S$ is an admissible $R$-algebra admitting an ideal of definition
   $J$ such that $\varpi \in J$. Then the natural reduction map
   \begin{equation*}
-    \tilde H(S) \to \tilde H(S/J)
+    \tilde \cF(S) \to \tilde \cF(S/J) = \cF_0(S/J)
   \end{equation*}
   is an isomorphism.
   \begin{proof}[Proof]
-    After choosing a coordinate on $H$, we have $[\varpi]_H \in \cF_R$ and 
-    $\tilde H(S) \cong U_{[\varpi]_H}$, and the statement is given by 
-    Lemma \ref{lem:reductioniso}.
+    After choosing a coordinate $\cF = \FGG(F)$, we have $[\varpi]_F \in \cP_R$
+    and hence $\tilde \cF(S) \cong U_{[\varpi]_F}$. Thereby the statement is
+    given by Lemma \ref{lem:reductioniso}.
   \end{proof}
 \end{lem}
 
@@ -316,145 +319,74 @@ The following is analogous to Proposition \ref{prop:pHTcalc}.
   Let $S$ be an admissible $R$-algebra with ideal of definition $J$ such that 
   $\phi(I) \subseteq J$. Then there are canonical isomorphisms (of sets)
   \begin{equation*}
-    \tilde H(S) \cong \tilde H(S/J) = \tilde H_0(S/J) \cong \Nilp^\flat(S/J) \cong
+    \tilde \cF(S) \cong \tilde \cF(S/J) = \tilde \cF_0(S/J) \cong \Nilp^\flat(S/J) \cong
     \Nilp^\flat(S).
   \end{equation*}
-  In particular, $\tilde H(S)$ is, as a functor to $\Set$, representable by
+  In particular, $\tilde \cF(S)$ is, as a functor to $\Set$, representable by
   $\spf(R \llbr T^{q^{-\infty}} \rrbr)$.
 \end{prop}
-We write $\lambda$ for the isomorphism $\Tilde H \to \Nilp^\flat$, and
-$\lambda_i: \Tilde H \to (-)^\cici$ for projection on the $i$-th component.
-Similarly, we write $\mu: \Nilp^\flat \to \Tilde H$ for the inverse of 
+We write $\lambda$ for the isomorphism $\Tilde \cF \to \Nilp^\flat$, and
+$\lambda_i: \Tilde \cF \to (-)^\cici$ for projection on the $i$-th component.
+Similarly, we write $\mu: \Nilp^\flat \to \Tilde \cF$ for the inverse of 
 $\lambda$ and $\mu_i$ for the $i$-th component of $\mu$. 
 
-By the isomorphism above and the fact that $\tilde H$ is a $K$-vector space
-object, we obtain a left action of $K$ on $\Nilp^\flat$, which corresponds
-to a right action on $R\llbr T^{q^{-\infty}} \rrbr$. We can make this action
-explicit if $H$ comes from a Lubin--Tate formal module law.
+By the isomorphism above and the fact that $\tilde \cF$ is a $K$-vector space
+object, we obtain an action of $K$ on $\Nilp^\flat$, which corresponds
+to an action on $R\llbr T^{q^{-\infty}} \rrbr$. We can make this action
+explicit if $\cF$ comes from a Lubin--Tate formal module law.
 
 \begin{lem}\label{lem:GroupStructureOnNilp}
-  Suppose that $H$ is a formal module law over $R$ such that $[\varpi]_H(T) \equiv
-  T^{q^n}$ mod $I$. Now, the following assertions hold.
+  Suppose that $F$ is a formal module law over $R$ with $[\varpi]_F(T) \equiv
+  T^{q^n}$ mod $I$. Then the following assertions hold.
   \begin{itemize}
     \item The bijections
         \begin{equation*}
-          \lambda \colon \tilde H(S) \rightleftarrows \Nilp^\flat(S) \colon
+          \lambda \colon \tilde F(S) \rightleftarrows \Nilp^\flat(S) \colon
           \mu, \quad (x_0, x_1, \dots) \mapsspamto (y, y^{q^{-1}}, y^{q^{-2}},
           \dots)
         \end{equation*}
         are, in either direction, given by the equations
         \begin{equation*}
           y^{1/q^{ni}} = \lim_{r \to \infty} x_{r+i}^{q^{nr}} \quad \text{and} \quad 
-          x_i = \lim_{s \to \infty} [\varpi^s]_H(y^{q^{-n(i+s)}}).
+          x_i = \lim_{s \to \infty} [\varpi^s]_F(y^{q^{-n(i+s)}}).
         \end{equation*}
     \item Given two $q$-th power compatible systems $y_1, y_2
       \in \Nilp^\flat(S)$ corresponding to compatible systems
-      $\mu(y_1) = x_1, \mu(y_2) = x_2 \in \tilde H(S)$, the sum $x_1 + x_2 \in
-      \tilde H(S)$ corresponds to the element $\lambda(x_1 + x_2) = z \in
+      $\mu(y_1) = x_1, \mu(y_2) = x_2 \in \tilde \cF(S)$, the sum $x_1 + x_2 \in
+      \tilde \cF(S)$ corresponds to the element $\lambda(x_1 + x_2) = z \in
       \Nilp^\flat(S)$, where 
       \begin{equation*}
-        z^{1/q^j} = \lim_{r \to \infty} H( y_1^{q^{-r}}, y_2^{q^{-r}})^{q^{r-j}}.
+        z^{1/q^j} = \lim_{r \to \infty} F( y_1^{q^{-r}}, y_2^{q^{-r}})^{q^{r-j}}.
       \end{equation*}
     \item Similarly, given $a \in \cO_E$ and $y \in \Nilp^\flat(S)$ with
-      $\mu(y) = x \in \Tilde H(S)$, we have 
+      $\mu(y) = x \in \Tilde F(S)$, we have 
       \begin{equation*}
-        \lambda([a]_H(x)) = \lim_{r \to \infty} [a]_H(y^{q^{-r}})^{q^{r-j}}.
+        \lambda([a]_F(x)) = \lim_{r \to \infty} [a]_F(y^{q^{-r}})^{q^{r-j}}.
       \end{equation*}
   \end{itemize}
 \begin{proof}
   The first statement is an immediate corollary of the second part of
-  Proposition \ref{prop:pHTcalc} applied with $f(T) = [\varpi]_H(T)$ and $g(T)
+  Proposition \ref{prop:pHTcalc} applied with $f(T) = [\varpi]_F(T)$ and $g(T)
   = T^{q^n}$, as we may choose $h_f(T) = h_g(T) = T$. 
   The second assertion follows directly after tracing through the commutative diagram
   \begin{equation*}
     \begin{tikzcd}[ampersand replacement=\&]
-    	\& {\Tilde H(S)^2} \& {\Tilde H(S)} \\
-    	{\Nilp^\flat(S)^2} \& {\Tilde H_0(S/J)^2} \& {\Tilde H_0(S/J)} \& {\Nilp^\flat(S).}
-    	\arrow["{H(-,-)}", from=1-2, to=1-3]
+    	\& {\Tilde F(S)^2} \& {\Tilde F(S)} \\
+    	{\Nilp^\flat(S)^2} \& {\Tilde F_0(S/J)^2} \& {\Tilde F_0(S/J)} \& {\Nilp^\flat(S).}
+    	\arrow["{F(-,-)}", from=1-2, to=1-3]
     	\arrow[ from=1-2, to=2-2]
     	\arrow[ from=1-3, to=2-3]
     	\arrow["\lambda", from=1-3, to=2-4]
     	\arrow["\mu", from=2-1, to=1-2]
     	\arrow[ from=2-1, to=2-2]
-    	\arrow["{H_0(-,-)}", from=2-2, to=2-3]
+    	\arrow["{F_0(-,-)}", from=2-2, to=2-3]
     	\arrow[from=2-3, to=2-4]
     \end{tikzcd}
   \end{equation*}
   Similarly one proves the third statement.
 \end{proof}
 \end{lem}
-
-By Proposition \ref{prop:UnivCoverReductionIso}, we obtain an action of 
-$D^\times = (\End(H \otimes_R k_R)[\frac 1\varpi])^\times$ on $\Tilde H$.
-
-\begin{defi}[Frobenius on $\Tilde H$] \label{def:FrobOnUnivCov}
-  Write $\Pi: \Tilde H \to \Phi^{-1,*}\Tilde H$ for the morphism corresponding
-  to the Frobenius quasi-isogeny 
-  \begin{equation*}
-    \Frob_q: H_0 \to H_0^{(q)}.
-  \end{equation*}
-  \red{We need to make sure that $H$ is defined over $\cO_\br E$.}
-\end{defi}
-
-By explicit description of $\lambda$, we find that $\lambda_i(\Pi x) =
-\lambda_i(x)^q$ for $x \in \Tilde H(S)$ and $i=0,1,\dots$. 
-
-
-We add calculations regarding the interplay of $\lambda$ and $\log_H$ which will prove
-useful later.
-\begin{lem}\label{lem:LogInTermsOfNil}
-  Let $H$ be the standard formal $\cO_K$-module of height $n$ over $R =
-  \cO_{\breve K}$. We have a commutative diagram (cf. \cite[Lemma
-  2.6.1]{BoyarchenkoWeinstein2011MaxVar})
-  \begin{equation*}
-  \begin{tikzcd}[ampersand replacement=\&]
-  	{(x_0, x_1, \dots)} \& {\Tilde H(S)} \&\& {\Nil^\flat(S)} \& {(y,y^{1/q}, \dots)} \\
-  	{\sum_{i=0}^\infty \frac{x_0^{q^{ni}}}{\varpi^i}} \&\& {S\otimes_{\cO_K}K} \&\& {\sum_{i = -\infty}^\infty\frac{y^{q^{ni}}}{\varpi^i}}
-  	\arrow["\in"{description}, draw=none, from=1-1, to=1-2]
-  	\arrow[maps to, from=1-1, to=2-1]
-  	\arrow["\lambda", from=1-2, to=1-4]
-  	\arrow["{\log_H}"', from=1-2, to=2-3]
-  	\arrow[from=1-4, to=2-3]
-  	\arrow["\ni"{description}, draw=none, from=1-5, to=1-4]
-  	\arrow[maps to, from=1-5, to=2-5]
-  \end{tikzcd}
-  \end{equation*}
-  With this terminology, we have $\log_H((\Pi^j x)_0) = \sum_{i = -\infty}^\infty
-  \frac{ y^{ni + j}}{\varpi^i}$. 
-\begin{proof}
-  This follows directly from the remark above. Let $x \in \Tilde H(S)$ and write
-  $(y, y^{1/q}, \dots)$ for $\lambda(x)$. We have $x_0 = \lim_{s \to \infty}
-  [\varpi^s]_H(y^{-ns})$, hence
-  \begin{equation*}
-    \log_H(x_0) = \lim_{s \to \infty}\left( \varpi^s \log_H(y^{1/q^{ns}})\right) = 
-    \lim_{s \to \infty}\left( \sum_{i=0}^\infty  \frac{y^{q^{n(i-s)}}}{\varpi^{i-s}}\right)
-    = \sum_{i=-\infty}^\infty \frac{y^{q^{ni}}}{\varpi^i}.
-  \end{equation*}
-  The second part is an immediate consequence.
-\end{proof}
-\end{lem}
 % subsubsection The Universal Cover (end)
-
-\subsubsection{Group Actions on the Universal Cover} % (fold)
-\label{ssub:Group Actions on the Universal Cover}
-We quickly note that $\tilde H \otimes_{\cO_\br E} \cO_{\C_p}$ comes with commuting actions
-by the groups 
-$D^\times$ and $W_E$. 
-Both these actions come from the isomorphism of functors $\tilde H \cong \tilde H_0$. 
-
-By this isomorphism, we find that any $d \in \cO_D = \End_{\FMLOver
-{\cO_E}{\Fqbar}}(H_0)$ yields a morphism $\tilde H \to \tilde H$. As the morphism
-corresponding by $\varpi$ is an isomorphism, we obtain a (right-) action of 
-$D^\times \subset \cO_D[\varpi^{-1}]$ on $\tilde H$. 
-
-There is also an action of $\GL_n(E)$ on $\tilde H^n$. Given 
-$g \in \GL_n(E)$ with entries $a_{ij} \in E$, a complete, local $\cO_{\br E}$-algebra
-$R \in \cC$ and a section $(x_1, \dots, x_n) \in \tilde H^n(R)$, we set
-\begin{equation*}
-  g.(x_1, \dots, x_n) = (y_1, \dots, y_n), \quad \text{where}\quad
-  y_i = \sum_{j=1}^n{}^{(H)} a_{ij}x_j.
-\end{equation*}
-% subsubsection Group Actions on the Universal Cover (end)
 
 \subsubsection{Relation to the Deformation Space at Infinite Level} % (fold)
 \label{ssub:Relation to the Deformation Space at Infinite Level}
@@ -492,6 +424,79 @@ functorial in $R$.
 \end{lem}
 
 % subsubsection Relation to the Deformation Space at Infinite Level (end)
+
+\subsubsection{Group Actions on the Universal Cover} % (fold)
+\label{ssub:Group Actions on the Universal Cover}
+Given a $\varpi$-divisible formal $A$-module $\cF \in \FMOver AR$ of height
+$n$, we describe a right action on $\tilde \cF^n$ by the group 
+\begin{equation*}
+  G = \GL_n(E) \times D^\times \times W_E,
+\end{equation*}
+such that the map $\cM_{\infty} \to $
+We make this
+
+By this isomorphism, we find that any $d \in \cO_D = \End_{\FMLOver
+{\cO_E}{\Fqbar}}(H_0)$ yields a morphism $\tilde H \to \tilde H$. As the morphism
+corresponding by $\varpi$ is an isomorphism, we obtain a (right-) action of 
+$D^\times \subset \cO_D[\varpi^{-1}]$ on $\tilde H$. 
+
+There is also an action of $\GL_n(E)$ on $\tilde H^n$. Given 
+$g \in \GL_n(E)$ with entries $a_{ij} \in E$, a complete, local $\cO_{\br E}$-algebra
+$R \in \cC$ and a section $(x_1, \dots, x_n) \in \tilde H^n(R)$, we set
+\begin{equation*}
+  g.(x_1, \dots, x_n) = (y_1, \dots, y_n), \quad \text{where}\quad
+  y_i = \sum_{j=1}^n{}^{(H)} a_{ij}x_j.
+\end{equation*}
+
+\begin{defi}[Frobenius on $\Tilde \cF$] \label{def:FrobOnUnivCov}
+  Write $\Pi: \Tilde \cF \to \Phi^{-1,*}\Tilde \cF$ for the morphism corresponding
+  to the Frobenius quasi-isogeny 
+  \begin{equation*}
+    \Frob_q: \cF_0 \to \cF_0^{(q)}.
+  \end{equation*}
+  \red{We need to make sure that $\cF$ is defined over $\cO_\br E$.}
+\end{defi}
+
+By explicit description of $\lambda$, we find that $\lambda_i(\Pi x) =
+\lambda_i(x)^q$ for $x \in \Tilde \cF(S)$ and $i=0,1,\dots$. 
+
+We add calculations for the standard formal $\cO_K$-module $H$. 
+\begin{lem}\label{lem:LogInTermsOfNil}
+  Let $H$ be the standard formal $\cO_K$-module of height $n$ over $R =
+  \cO_{\breve K}$. We have a commutative diagram (cf. \cite[Lemma
+  2.6.1]{BoyarchenkoWeinstein2011MaxVar})
+  \begin{equation*}
+  \begin{tikzcd}[ampersand replacement=\&]
+  	{(x_0, x_1, \dots)} \& {\Tilde H(S)} \&\& {\Nil^\flat(S)} \& {(y,y^{1/q}, \dots)} \\
+  	{\sum_{i=0}^\infty \frac{x_0^{q^{ni}}}{\varpi^i}} \&\& {S\otimes_{\cO_K}K} \&\& {\sum_{i = -\infty}^\infty\frac{y^{q^{ni}}}{\varpi^i}}
+  	\arrow["\in"{description}, draw=none, from=1-1, to=1-2]
+  	\arrow[maps to, from=1-1, to=2-1]
+  	\arrow["\lambda", from=1-2, to=1-4]
+  	\arrow["{\log_H}"', from=1-2, to=2-3]
+  	\arrow[from=1-4, to=2-3]
+  	\arrow["\ni"{description}, draw=none, from=1-5, to=1-4]
+  	\arrow[maps to, from=1-5, to=2-5]
+  \end{tikzcd}
+  \end{equation*}
+  With this terminology, we have $\log_H((\Pi^j x)_0) = \sum_{i = -\infty}^\infty
+  \frac{ y^{ni + j}}{\varpi^i}$. 
+\begin{proof}
+  This follows directly from the remark above. Let $x \in \Tilde H(S)$ and write
+  $(y, y^{1/q}, \dots)$ for $\lambda(x)$. We have $x_0 = \lim_{s \to \infty}
+  [\varpi^s]_H(y^{-ns})$, hence
+  \begin{equation*}
+    \log_H(x_0) = \lim_{s \to \infty}\left( \varpi^s \log_H(y^{1/q^{ns}})\right) = 
+    \lim_{s \to \infty}\left( \sum_{i=0}^\infty  \frac{y^{q^{n(i-s)}}}{\varpi^{i-s}}\right)
+    = \sum_{i=-\infty}^\infty \frac{y^{q^{ni}}}{\varpi^i}.
+  \end{equation*}
+  The second part is an immediate consequence.
+\end{proof}
+\end{lem}
+
+
+% subsubsection Group Actions on the Universal Cover (end)
+
+
 
 % subsection Tate Modules and the Universal Cover (end)
 
