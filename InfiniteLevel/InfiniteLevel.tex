@@ -51,12 +51,12 @@ passage from $H$ to its universal cover $\tilde H$ can be interpreted as a sort
 of tilting procedure. Still following \cite{weinstein2016semistable}, this
 notion and its relation with the moduli problem $\cM_{\infty,
 \cO_{\C_p}}^{(0)}$ makes it possible to construct an isomorphism
-\begin{equation*}
+\begin{equation}\label{eq:ExplicitAinftyBCtoOC}
   A_{\infty, \cO_{\C_p}} \coloneq A_\infty \cotimes_{\cO_{\widehat{E^\ab}}} \cO_{\C_p} 
   \cong \cO_{\C_p} \llbr X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}} \rrbr /
   (\delta(X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}})^{q^{-m}} - \tau^{q^{-m}} \mid 
   m \in \N)^- ,
-\end{equation*}
+\end{equation}
 where the superscript minus denotes the completion of the ideal. 
 
 The main effort is taken in an description of the action by $G^0$ 
@@ -353,16 +353,20 @@ explicit if $\cF$ comes from a Lubin--Tate formal module law.
     \item Given two $q$-th power compatible systems $y_1, y_2
       \in \Nilp^\flat(S)$ corresponding to compatible systems
       $\mu(y_1) = x_1, \mu(y_2) = x_2 \in \tilde \cF(S)$, the sum $x_1 + x_2 \in
-      \tilde \cF(S)$ corresponds to the element $\lambda(x_1 + x_2) = z \in
+      \tilde \cF(S)$ corresponds to the element $\lambda(x_1 + x_2) = x_1 +_F x_2 \in
       \Nilp^\flat(S)$, where 
       \begin{equation*}
-        z^{1/q^j} = \lim_{r \to \infty} F( y_1^{q^{-r}}, y_2^{q^{-r}})^{q^{r-j}}.
+        (x_1 +_F x_2)^{1/q^j} = \lim_{r \to \infty} F( y_1^{q^{-r}},
+        y_2^{q^{-r}})^{q^{r-j}}.
       \end{equation*}
+      If $G \in \FMLOver AR$ with $G \otimes \Fqbar = F \otimes \Fqbar$,
+      the systems of $q$-th power roots $(x_1 +_F x_2)$ and $(x_1 +_G x_2)$ agree. 
     \item Similarly, given $a \in \cO_E$ and $y \in \Nilp^\flat(S)$ with
       $\mu(y) = x \in \Tilde F(S)$, we have 
       \begin{equation*}
         \lambda([a]_F(x)) = \lim_{r \to \infty} [a]_F(y^{q^{-r}})^{q^{r-j}}.
       \end{equation*}
+      For $G$ as above, we have $[a]_F(x) = [a]_G(x)$. 
   \end{itemize}
 \begin{proof}
   The first statement is an immediate corollary of the second part of
@@ -390,63 +394,101 @@ explicit if $\cF$ comes from a Lubin--Tate formal module law.
 
 \subsubsection{Relation to the Deformation Space at Infinite Level} % (fold)
 \label{ssub:Relation to the Deformation Space at Infinite Level}
-As usual, let $H$ denote the standard formal $\cO_E$-module law over 
-$\cO_\br E$ of height $n$, and let $H_0$ be its reduction to 
-$\Fqbar$. 
+Let $(e_1, \dots, e_n)$ denote the standard basis of $\cO_E^n$. By 
+Theorem \ref{thm:RepresentabilityOfDefSpaceWithLevel}, there is for
+every positive integer $m$ a universal 
+triple 
+$$(\cF^\univ_m, \iota^{\univ}_m, \phi^\univ_m) \in \cM_{m}^{(0)}(A_m),$$
+and the Drinfeld level $\varpi^m$-structure 
+\begin{equation*}
+  \phi_m^\univ: \underline{(\varpi^{-m}\cO_{E}/\cO_E)}^n \to \cF^\univ
+\end{equation*}
+gives, evaluated at $A_\infty$, rise to elements $x_i^{(m)} = \phi_m(e_i) \in
+\cF^{\univ}(A_\infty)$ for $i = 1, \dots, n$. Taking colimit over the index
+$m \in \N$, this gives an $n$-tuple 
+\begin{equation*}
+  (x_1, \dots, x_n) \in \tilde \cF^\univ (A_\infty). 
+\end{equation*}
+Now let $\cH$ be an arbitrary deformation of $\cF_0$ to $\cO_{\br E}$. By 
+Proposition \ref{prop:UnivCoverReductionIso}, we have isomorphisms
+\begin{equation*}
+  \tilde \cF^{\univ,n}(A_\infty) \cong \tilde \cF_0^n(A_\infty/I_\infty)
+  \cong \tilde \cH^n(A_\infty).
+\end{equation*}
+This constructs a morphism of formal schemes $\cM_\infty \to \tilde \cH^n(A_\infty)$. 
 
-Let $(e_1, \dots, e_n)$ denote the standard basis of $\cO_E^n$. Given $R \in
-\cC$ and a sequence of elements
-\begin{equation*}
-  (F, \iota, \phi_m)_m \in \cM_\infty(R),
-\end{equation*}
-the corresponding sequence of Drinfeld basis vectors $x_i^{(m)} =
-\phi_m(\varpi^{-m}e_i) \in F(R)$ yield an element
-\begin{equation*}
-  \mathbf{x}_i \coloneqq \left(x_i^{(0)}, x_i^{(1)}, x_i^{(2)}, \dots \right)
-  \in \tilde F(R). 
-\end{equation*}
-
-By the isomorphism $\iota: F \otimes \Fqbar \to H_0$ and Proposition
-\ref{prop:UnivCoverReductionIso}, there is a canonical
-isomorphism $\tilde F \cong \tilde H$, so we may consider
-$\mathbf x_i$ elements of $\tilde H(R)$. We obtain a map
-\begin{equation*}
-  \cM_\infty(R) \to \tilde H(R), \quad (F, \iota, \phi_m)_m \mapsto 
-  (\mathbf x_1, \dots, \mathbf x_n) \in \tilde H(R),
-\end{equation*}
-functorial in $R$.
-\begin{lem}\label{lem:EquivarianceOfMap}
-  The functor constructed above is equivariant for the action of 
-  $\GL_n(E) \times D^\times \times \Weil_E$. 
+\begin{thm}[Structure of $\cM_\infty$]\label{thm:WeinsteinsCartesianSquare}
+  There is a cartesian square of formal schemes
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      {\cM_\infty^{(0)}} \& {\cM_{\wedge, \infty}^{(0)}} \\
+    	{\widetilde \cH^n} \& {\widetilde{\wedge^n \cH}.}
+    	\arrow["\det", from=1-1, to=1-2]
+    	\arrow[from=1-1, to=2-1]
+    	\arrow[from=1-2, to=2-2]
+    	\arrow["\delta", from=2-1, to=2-2]
+    \end{tikzcd}
+  \end{equation*}
+  Here, the vertical maps are the ones constructed above, the horizontal ones
+  come from the determinant construction of \cite{hedayatzadeh2015det}. 
 \begin{proof}
-  \red{todo.}
+  This is \cite[Theorem 2.17]{weinstein2016semistable}.
 \end{proof}
-\end{lem}
+\end{thm}
+
+\begin{cor}\label{cor:StructureOfAinfty}
+  Let $(\tau^{1/q^m})_{m \in \N} \in \cO_{\hat E^\ab}$ be a \red{primitive, make
+  precise} system of $q$-th power roots. Then we have 
+  \begin{equation*}
+  A_\infty \cong \cO_{\hat E^\ab}\llbr X_1^{q^{-\infty}}, \dots,
+  X_n^{q^{-\infty}}\rrbr/(\delta^{q^{-m}} - \tau^{q^{-m}} \mid m \in \N)^-.
+  \end{equation*}
+  In particular, we obtain the equality in \eqref{eq:ExplicitAinftyBCtoOC}.
+\begin{proof}
+\end{proof}
+\end{cor}
+
 
 % subsubsection Relation to the Deformation Space at Infinite Level (end)
 
 \subsubsection{Group Actions on the Universal Cover} % (fold)
 \label{ssub:Group Actions on the Universal Cover}
 Given a $\varpi$-divisible formal $A$-module $\cF \in \FMOver AR$ of height
-$n$, we describe a right action on $\tilde \cF^n$ by the group 
+$n$, we write $\cF_{\cO_\Cp} = \cF \otimes \cO_\Cp$ and describe a natural right
+action on $\tilde \cF_{\cO_\Cp}^n$ by the group 
 \begin{equation*}
   G = \GL_n(E) \times D^\times \times W_E,
 \end{equation*}
-such that the map $\cM_{\infty} \to $
-We make this
+such that the map $\cM_{\infty, \cO_\Cp} \to \tilde \cF_{\cO_\Cp}^n$,
+induced by the map constructed above is equivariant for this action. 
 
-By this isomorphism, we find that any $d \in \cO_D = \End_{\FMLOver
-{\cO_E}{\Fqbar}}(H_0)$ yields a morphism $\tilde H \to \tilde H$. As the morphism
-corresponding by $\varpi$ is an isomorphism, we obtain a (right-) action of 
-$D^\times \subset \cO_D[\varpi^{-1}]$ on $\tilde H$. 
+All of these actions are easy to describe. For the action of $\GL_n(E)$, note
+that $\tilde \cF$ carries the structure of a $E$-vector space object, $\tilde
+\cF^n$ obtains a natural right action by $\GL_n(E)$: an object $g \in \GL_n(E)$
+with entries $g = (a_{ij})_{i,j}$ acts by left-multiplication with its transpose, that is 
+\begin{equation}\label{eq:UnivCoverGLnAction}
+  g.(x_1, \dots, x_n) = (y_1, \dots, y_n), \quad
+  \text{where} \quad y_j = \sum_{i=1}^n a_{ij} x_i. 
+\end{equation}
 
-There is also an action of $\GL_n(E)$ on $\tilde H^n$. Given 
-$g \in \GL_n(E)$ with entries $a_{ij} \in E$, a complete, local $\cO_{\br E}$-algebra
-$R \in \cC$ and a section $(x_1, \dots, x_n) \in \tilde H^n(R)$, we set
+For the action of $D^\times$, note that by Proposition
+\ref{prop:UnivCoverReductionIso}, we have 
+a natural left-action of $D^\times$ on $\tilde \cF$. 
+Indeed, given $0 \neq d_0 \in \End_{\FMOver A{\Fqbar}}(F_0) = \cO_D$, an
+integer $r \in \Z$ and any $S \in \Adm R$ \red{Correct Category?}, 
+we let the element $d = \varpi^r d_0 \in D^\times$ act on $\tilde \cF$ via the
+automorphism
 \begin{equation*}
-  g.(x_1, \dots, x_n) = (y_1, \dots, y_n), \quad \text{where}\quad
-  y_i = \sum_{j=1}^n{}^{(H)} a_{ij}x_j.
+  \tilde \cF(S) \to \tilde \cF_0(S/J) \xto{\varpi^{r}} \cF_0(S/J) \xto{d_0}
+  \tilde \cF_0(S/J) \to \tilde \cF(S), \quad x \mapsto dx.
 \end{equation*}
+Note that multiplication by $\varpi$ and $d_0$ commute (as $\varpi$ lies in the 
+center of the multiplicative monoid $\cO_D$), so this yields a well-defined
+left action. We define the right action of $D^\times$ on $\tilde \cF^n$ via
+\begin{equation*}
+  d.(x_1, \dots, x_n) = (d^{-1} x_1, \dots, d^{-1} x_n).
+\end{equation*}
+
 
 \begin{defi}[Frobenius on $\Tilde \cF$] \label{def:FrobOnUnivCov}
   Write $\Pi: \Tilde \cF \to \Phi^{-1,*}\Tilde \cF$ for the morphism corresponding
@@ -490,6 +532,14 @@ We add calculations for the standard formal $\cO_K$-module $H$.
     = \sum_{i=-\infty}^\infty \frac{y^{q^{ni}}}{\varpi^i}.
   \end{equation*}
   The second part is an immediate consequence.
+\end{proof}
+\end{lem}
+
+\begin{lem}\label{lem:EquivarianceOfMap}
+  The functor constructed above is equivariant for the action of 
+  $\GL_n(E) \times D^\times \times \Weil_E$. 
+\begin{proof}
+  \red{todo.}
 \end{proof}
 \end{lem}
 
