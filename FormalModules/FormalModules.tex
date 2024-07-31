@@ -1459,6 +1459,27 @@ height $n$.
   $\cO_K$-module $H$ remain true for general $\cO_K$-typical formal module laws.
 \end{rmk}
 
+We note the following. 
+\begin{lem}\label{lem:MultByROUForStandardModule}
+  Let $H$ be the standard formal $\cO_E$-module of height $n$ over 
+  $\cO_\br E$. 
+  Let $\zeta \in \br E$ be a $(q^n-1)$-th root of unity. Then 
+  $[\zeta]_H(T) = \zeta T$ is an automorphism of $H$. In particular,
+  $\End(H)$ naturally carries the structure of a $\cO_{E_n}$-algebra,
+  where $E_n$ is the unramified extension of $E$ with residue field
+  $\FF_{q^n}$. 
+\begin{proof}
+  This is an immediate consequence of the equality $\zeta \log_H(T)
+  = \log_H(\zeta T)$. We have
+  \begin{equation*}
+    \zeta T = \exp_H(\log_H(\zeta T)) = \exp_H(\zeta \log_H(T)) = \exp_H
+    ([\zeta]_{\Ghat_{a, \br E}}(\log_H(T))).
+  \end{equation*}
+  As $\exp_H: \Ghat_{a, \br E} \to H \otimes_{\cO_\br E} \br E$ is an isomorphism of 
+  formal modules, the claim follows.
+\end{proof}
+\end{lem}
+
 It will be convenient to make the terms in the exact sequence of Proposition 
 \ref{prop:ExplicitInterestingES} explicit for $\cF = \FGG(H)$. As $H$ is of height $n>0$, 
 there is no non-trivial map $H \to \Ghat_a$ and the sequence becomes
