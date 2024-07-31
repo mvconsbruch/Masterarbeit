@@ -331,10 +331,27 @@ $\lambda_i: \Tilde \cF \to (-)^\cici$ for projection on the $i$-th component.
 Similarly, we write $\mu: \Nilp^\flat \to \Tilde \cF$ for the inverse of 
 $\lambda$ and $\mu_i$ for the $i$-th component of $\mu$. 
 
-By the isomorphism above and the fact that $\tilde \cF$ is a $K$-vector space
-object, we obtain an action of $K$ on $\Nilp^\flat$, which corresponds
-to an action on $R\llbr T^{q^{-\infty}} \rrbr$. We can make this action
-explicit if $\cF$ comes from a Lubin--Tate formal module law.
+By the proposition above, quasi-isogenies on $\cF_0$ induce isomorphisms on 
+$\tilde \cF$. In particular, there is a natural left action of 
+$D^\times = \End_{\FMOver {\cO_E} \Fqbar}(\cF_0)[\varpi^{-1}]^\times$ on $\tilde \cF$. 
+The relative Frobenius morphism lifts as well.
+
+\begin{defi}[Relative Frobenius on $\Tilde \cF$] \label{def:FrobOnUnivCov}
+  Write $\Pi: \Tilde \cF \to \Phi^{-1,*}\Tilde \cF$ for the isomorphism coming from
+  the Frobenius quasi-isogeny 
+  \begin{equation*}
+    \Frob_q: \cF_0 \to \cF_0^{(q)} = \Phi^{-1,*} \cF_0.
+  \end{equation*}
+\end{defi}
+
+By the explicit description of $\lambda$ in Lemma
+\ref{lem:GroupStructureOnNilp}, we find that $\lambda_i(\Pi x) =
+\lambda_i(x)^q$ for $x \in \Tilde \cF(S)$ and $i\in \N_0$. 
+
+As $\tilde \cF$ is a $K$-vector space
+object, the isomorphism $\lambda: \tilde \cF \to \Nilp^\flat$ equips
+$\Nilp^\flat$ with the stucture of a $K$-vector space object. Upon choosing a 
+suitable coordinate for $\cF$, this structure admits the following description.
 
 \begin{lem}\label{lem:GroupStructureOnNilp}
   Suppose that $F$ is a formal module law over $R$ with $[\varpi]_F(T) \equiv
@@ -353,19 +370,19 @@ explicit if $\cF$ comes from a Lubin--Tate formal module law.
         \end{equation*}
     \item Given two $q$-th power compatible systems $y_1, y_2
       \in \Nilp^\flat(S)$ corresponding to compatible systems
-      $\mu(y_1) = x_1, \mu(y_2) = x_2 \in \tilde \cF(S)$, the sum $x_1 + x_2 \in
-      \tilde \cF(S)$ corresponds to the element $\lambda(x_1 + x_2) = x_1 +_F x_2 \in
+      $\mu(y_1) = x_1$, $\mu(y_2) = x_2 \in \tilde \cF(S)$, the sum $x_1 + x_2 \in
+      \tilde \cF(S)$ corresponds to the element $\lambda(x_1 + x_2) = y_1 +_F y_2 \in
       \Nilp^\flat(S)$, where 
       \begin{equation*}
-        (x_1 +_F x_2)^{1/q^j} = \lim_{r \to \infty} F( y_1^{q^{-r}},
+        (y_1 +_F y_2)^{1/q^j} = \lim_{r \to \infty} F( y_1^{q^{-r}},
         y_2^{q^{-r}})^{q^{r-j}}.
       \end{equation*}
       If $G \in \FMLOver AR$ with $G \otimes \Fqbar = F \otimes \Fqbar$,
-      the systems of $q$-th power roots $(x_1 +_F x_2)$ and $(x_1 +_G x_2)$ agree. 
+      the systems of $q$-th power roots $(y_1 +_F y_2)$ and $(y_1 +_G y_2)$ agree. 
     \item Similarly, given $a \in \cO_E$ and $y \in \Nilp^\flat(S)$ with
       $\mu(y) = x \in \Tilde F(S)$, we have 
       \begin{equation*}
-        \lambda([a]_F(x)) = \lim_{r \to \infty} [a]_F(y^{q^{-r}})^{q^{r-j}}.
+        a_F y = \lambda([a]_F(x)) = \lim_{r \to \infty} [a]_F(y^{q^{-r}})^{q^{r-j}}.
       \end{equation*}
       For $G$ as above, we have $[a]_F(x) = [a]_G(x)$. 
   \end{itemize}
@@ -393,9 +410,9 @@ explicit if $\cF$ comes from a Lubin--Tate formal module law.
 \end{lem}
 
 
-
 In the case where $H$ is the standard formal $\cO_E$-module over $\cO_\br E$,
-we have obtain the following description.
+we have the following description of the actions of $K^\times$ and $D^\times$ on
+$\Nilp^\flat$.
 
 \begin{cor}\label{cor:ExplicitDescriptionOfActionOnUnivCov}
   Let $a \in E$ and $d \in D^\times$ be elements so that
@@ -409,7 +426,7 @@ we have obtain the following description.
       $\vartheta \in \End_{\FMLOver {\cO_E}\Fqbar} (H_0)$ the endomorphism given
       by $\vartheta(T) = T^q$, of the form
       \begin{equation*}
-        d = \sum_{i = l}^\infty d_i \vartheta^i \quad \text{for} \quad
+        d = \sum_{i = l'}^\infty d_i \vartheta^i \quad \text{for} \quad
         d_i \in \mu_{q^n-1}(E_n) \cup \{0\}.
       \end{equation*}
       Here $E_n$ denotes the unramified extension of $E$ with residue field 
@@ -419,12 +436,12 @@ we have obtain the following description.
   \in \tilde H(S)$ with $\lambda(x)^{1/q^i} = y^{1/q^i} \in \Nilp^\flat(S)$, we
   have the explicit descriptions
   \begin{equation*}
-    a_H(y)^{1/q^j} \coloneqq \lambda([a]_H(x))^{1/q^j} = (H) \sum_{i=l}^\infty a_i y^{q^{ni-j}}
+    a_H(y)^{1/q^j}  = (H) \sum_{i=l}^\infty a_i y^{q^{ni-j}}
   \quad \text{and} \quad
   d_H(y)^{1/q^j} \coloneqq \lambda(dx)^{1/q^j} = (H) \sum_{i=l'}^\infty d_i y^{q^{i-j}}
   \end{equation*}
   Here the prefix $(H)$ denotes addition of $q$-th power root systems with
-  respect to the addition in $H$ as defined in the previous lemma.
+  respect to the addition in $H$, as defined in the previous lemma.
   \begin{proof}
     This is an immediate corollary of the Lemma above, Lemma
     \ref{lem:MultByROUForStandardModule} and the fact that 
@@ -435,19 +452,6 @@ we have obtain the following description.
 Finally, we remark how to express the logarithm map in terms of the isomorphism
 $\lambda$.
 
-First note that from the crystalline nature of $\tilde \cF$, the relative
-Frobenius morphism has a unique lift.
-\begin{defi}[Relative Frobenius on $\Tilde \cF$] \label{def:FrobOnUnivCov}
-  Write $\Pi: \Tilde \cF \to \Phi^{-1,*}\Tilde \cF$ for the morphism coming from
-  the Frobenius quasi-isogeny 
-  \begin{equation*}
-    \Frob_q: \cF_0 \to \cF_0^{(q)} = \Phi^{-1,*} \cF_0.
-  \end{equation*}
-\end{defi}
-
-By the explicit description of $\lambda$ in Lemma
-\ref{lem:GroupStructureOnNilp}, we find that $\lambda_i(\Pi x) =
-\lambda_i(x)^q$ for $x \in \Tilde \cF(S)$ and $i\in \N_0$. 
 
 \begin{lem}\label{lem:LogInTermsOfNil}
   Let $H$ be the standard formal $\cO_K$-module of height $n$ over $R =
@@ -638,17 +642,79 @@ following description.
   morphism $B_n \to B_n$ induced by the element $(g, d, \sigma) \in G$ is given by
   the composition of the morphsims
   \begin{itemize}
-    \item $g^*\colon B_n \to B_n$, given by $X_i \mapsto (H)\sum_{j=1}^n
-      {a_{ij}}_H(X_j)$. This can be made more explicit by the means of Corollary
-      \ref{cor:ExplicitDescriptionOfActionOnUnivCov}.
-    \item $d^{-1,*} \colon B_n \to B_n$, given by $X_i \mapsto d_H(X_i)$. This
-      can be made more explicit by the means of Corollary
-      \ref{cor:ExplicitDescriptionOfActionOnUnivCov} as well.
+    \item $g^*\colon B_n \to B_n$ is the morphism of $\cO_\Cp$ algebras given
+      by $X_i \mapsto \sum_{j=1}^n \sumH {a_{ij}}_H(X_j)$. Writing
+      $a_{ij} = \sum_{k=l}^\infty a_{ij}^{(k)} \varpi^k$ for  $a_{ij}^{(k)}$
+      either vanishing or a $(q-1)$th root of unity and a sufficiently small integer
+      $k$, we obtain, by Corollary
+      \ref{cor:ExplicitDescriptionOfActionOnUnivCov}, the description
+      \begin{equation*}
+        g^*(X_i) = \sum_{k=l}^\infty {\hspace{-3pt}}_H\hspace{3pt} \varpi^i_H
+        \sum_{j=1}^n{\hspace{-3pt}}_H\hspace{3pt} a_{ij}^{(k)} X_i^{q^{nk}}
+      \end{equation*}
+      
+    \item $d^{-1,*} \colon B_n \to B_n$ is the isomorphism of 
+      $\cO_\Cp$-algebras given by $X_i \mapsto d_H(X_i)$. 
+      Writing $d^{-1} = \sum_{k=l}^\infty d_i \vartheta^k$ for
+       a sufficiently small integer $k$, and $\vartheta$ and $d_i$ as in
+       Corollary \ref{cor:ExplicitDescriptionOfActionOnUnivCov}, we obtain the
+       description
+      \begin{equation*}
+        d^{-1, *}(X_i) =  \sum_{k=l}^\infty {\hspace{-3pt}}_H\hspace{3pt}
+        d_k X_i^{1/q^k}.
+      \end{equation*}
+
     \item $\sigma^*: B_n \to B_n$ is the isomorphism of 
       $\cO_E$-algebras given by $X_i \mapsto X_i^{q^{-m}}$ and 
       $a \mapsto \sigma(a)$ for $a \in \cO_\Cp$. 
   \end{itemize}
 \end{lem}
+
+Finally, we express the action of $G^1$ on $\cM_{\infty, \cO_\Cp}^{(0)} =
+A_\infty \cotimes_{\cO_\br E} \cO_\Cp$ in terms of the isomorphism
+\eqref{eq:ExplicitAinftyBCtoOC}.
+For $\alpha \in \Gal(\hat E^\ab / \br E) \cong \cO_E^\times$, we write
+$A_{\infty, \cO_\Cp}^{\alpha}$ for the ring
+$A_\infty \cotimes_{\hat E^\ab, \alpha} \cO_\Cp$.
+Under the isomorphism $\Gal(\hat E^\ab / \br E) \cong \cO_E^\times$ from 
+the local Kronecker--Weber theorem, this yields a decomposition
+\begin{equation*}
+  A_{\infty} \cotimes_{\cO_\br E} \cO_\Cp = \prod_{\alpha \in \cO_E^\times}
+  A_{\infty, \cO_\Cp}^{\alpha}.
+\end{equation*}
+We have 
+\begin{equation*}
+  A_{\infty, \cO_\Cp}^{\alpha} = \cO_{\Cp}\llbr X_1^{q^{-\infty}}, \dots, 
+  X_n^{q^{-\infty}} \rrbr / (\delta(X_1, \dots, X_n)^{1/q^m} - \Art_E(\alpha)(t)^{1/q^m} 
+  \mid m \in \N)^-,
+\end{equation*}
+and by local class field theory \red{make precise}, the action of $\Weil_E$ on
+$t$ induces a character $a_E: \Weil_E \to \cO_E^\times$. 
+
+
+\begin{prop}\label{prop:ExplicitDescriptionOfActionOnAinfty}
+  The group $G^1$ is generated by elements of the form
+  \begin{itemize}
+    \item $(a, a, 1) \in G$ for $a \in E^\times$.
+    \item $(g, d, 1) \in G$ such that $\det(g) \Nrd(d)^{-1} \in \cO_E^\times$.
+    \item $(1, \vartheta^{-m}, \sigma)$ for $\sigma \in \Weil_E$ with
+      $\sigma|_{\br E} = \Phi^m$. 
+  \end{itemize}
+  These elements act on $A_{\infty, \cO_\Cp}$ as follows.
+  \begin{itemize}
+    \item $(a,a,1)$ acts trivially.
+    \item $(g,d,1)$ acts by the morphism of $\cO_\Cp$-algebras
+      $$A_{\infty, \cO_\Cp}^\alpha \to A_{\infty, \cO_\Cp}^{\det(g)^{-1} \Nrd(d) \alpha},
+    \quad X_i \mapsto (g,d^{-1})^*(X_i) \ \text{for} \ i = 1, \dots,n.$$
+    \item $(1, \vartheta^{-m}, \sigma)$ acts by the morphism of $\cO_E$-algebras 
+      $A_{\infty, \cO_\Cp}^\alpha \to A_{\infty, \cO_\Cp}^{a_E(\sigma)\alpha}$
+      given by $X_i \mapsto X_i$ for $i = 1, \dots, n$ and $a \mapsto
+      \sigma(a)$ for $a \in \cO_\Cp$.
+  \end{itemize}
+\begin{proof}
+\end{proof}
+\end{prop}
+
 
 % subsubsection Group Actions on the Universal Cover (end)
 
