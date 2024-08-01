@@ -18,12 +18,153 @@ By Mieda's result, the compactly supported
 $\ell$-adic cohomology of $\DL_n$ and the representation $\HLT$ are related,
 which allows us to make some parts of $\HLT$ explicit.
 
-\subsection{The Special Affinoid} % (fold)
+\subsection{The Special Affinoid and its Formal Model} % (fold)
 \label{sub:The Special Affinoid}
-We construct an affinoid $U \subset M_{\infty,\cO_{\C_p}}^{(0)}$ and a
-formal model $\cX \in \FSchOver {\cO_{\C_p}}$ of $U$ whose special fiber $\cX_s = 
+We define the subspace $U \subset M_{\infty,\cO_{\C_p}}^{(0)}$ as the rational subset cut out
+by the inequalities $\abs{X_i} \leq \abs{\varpi}^{1/q^n-1}$ for $i = 1, \dots, n$. 
+We construct formal model $\cX \in \FSchOver {\cO_{\C_p}}$ of $U$ whose special fiber $\cX_s = 
 \cX \times_{\spf(\cO_{\C_p})}\spec(\bar \FF_q)$ is isomorphic to the perfection of the
 Deligne--Lusztig variety $\DL_n$ constructed in Section \ref{sub:An Explicit Example}.
+
+We define a formal model $\cX = \spf C_n$ as follows. Let $H$ be the standard
+formal $\cO_E$-module over $\cO_\br E$ and Let 
+$$y = (y_1, y_2, \dots) \in T_\varpi H(\cO_\Cp)$$ be a primitive element, that is,
+an element with $y_1 \neq 0$ and $[\varpi]_H(y_1) = 0$. Write $\xi = \lambda(y)$ 
+for the corresponding element of $\Nilp^\flat(\cO_\Cp)$. 
+
+\begin{lem}\label{lem:PropertiesOfXi}
+  We have 
+  \begin{equation*}
+    \log_H(y) = \sum_{i = -\infty}^ \infty \frac{\xi^{q^in}}{\varpi} = 0
+    \quad \text{and} \quad
+    \abs \xi^{q^n-1} = \abs \varpi.
+  \end{equation*}
+\begin{proof}
+  The first identity follows from Lemma \ref{lem:LogInTermsOfNil} and the fact that
+  $\log_H(y_1)$ vanishes, cf. Lemma \ref{lem:KernelOfLog}. 
+  \red{Todo: Finish this}
+\end{proof}
+\end{lem}
+
+Let $E_n$ be the degree $n$ unramified extension of $E$, and let 
+$(\alpha_1, \dots, \alpha_n)$ be a basis of $\cO_{E_n}$ over $\cO_E$. 
+Let $t \coloneq \delta(\alpha_1 y, \dots, \alpha_n y) \in (T_\varpi {\wedge H})(\cO_\Cp)$
+and write $\tau \in \Nilp^\flat(\cO_\Cp)$ for the corresponding system of $q$-th 
+power roots.
+
+\begin{lem}\label{lem:PropertiesOfTau}
+  We have 
+  \begin{equation*}
+    \log_{\wedge H}(t) = \sum_{i = -\infty}^\infty (-1)^{i(n-1)} \frac{\tau^{q^i}}{\varpi^i} = 0
+    \quad \text{and} \quad
+    \abs \tau^{q-1} = \abs \varpi.
+  \end{equation*}
+  Furthermore, the congruence
+  \begin{equation*}
+    \tau \equiv \det(\alpha_i^{q^j}) \xi^{1 + q + \dots + q^{n-1}} \pmod {\text{what?}}
+  \end{equation*}
+  holds.
+\begin{proof}
+  We have $t \neq 0$ and $[\varpi]_H(t) = 0$, so the first two assertions follow just 
+  as above, with the minor modification that $\wedge H$ isn't the standard formal
+  $\cO_E$-module but has the slightly different logarithm 
+  $\log_{\wedge H}(T) = \sum_{i=0}^\infty (-1)^{i(n-1)} \frac{T^{q^n}}{\varpi^n}$.
+  The congruence is a corollary of the approximation of 
+  $\Delta$ in Lemma \ref{lem:DeltaApprox}.
+\end{proof}
+\end{lem}
+
+We now define the formal model $\cX$. We abbreviate with $(x_i^{q^{-m}})_{m \in
+\N_0}$ the system of 
+$q$-th power roots $X_i^{q^{-m}}/\xi^{q^{-m}}$ of elements in $\cO_C \llbr
+X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}}\rrbr$, and define systems of $q$-th
+power roots $\Delta'$ and $\tau'$ as
+\begin{equation*}
+  \begin{array}c
+  \Delta'(x_1, \dots, x_n)^{q^{-m}} \coloneq (\xi^{q^{-m}})^{-(1 + q + \dots +
+  q^{n-1})} \Delta(X_1, \dots, X_n) \in \cO_C \llbr x_1^{q^{-\infty}}, \dots
+  , x_n^{q^{-\infty}}\rrbr  \\
+  \text{and} \\
+  \tau'^{q^{-m}} \coloneq (\xi^{q^{-m}})^{-(1 + q + \dots + q^{n-1})} \tau^{q^{-m}} \in
+  \cO_C^\times.
+  \end{array}
+\end{equation*}
+
+\begin{lem}\label{lem:PropsOfDeltaPrAndTauPr}
+  Let $\fm_\Cp$ denote the maximal ideal of $\cO_\Cp$. We have
+  \begin{equation*}
+    \Delta'(x_1, \dots, x_n)^{q^{-m}} \equiv (\det(x_i^{q^j})_{1 \leq i,j \leq
+    n})^{q^{-m}} \mod (\xi).
+  \end{equation*}
+  \red{Check this!!}
+  In particular, we have 
+  $\Delta'(x_1, \dots, x_n)^{q^{-m}} \in \cO_\Cp \langle x_1^{q^{-\infty}}, \dots
+  , x_n^{q^{-\infty}}\rangle.$
+  Also, $\tau'^{q^{-m}} \in \cO_\Cp^\times$. 
+\begin{proof}
+  The statement for $\Delta$ follows directly from the approximation in Lemma
+  \ref{lem:DeltaApprox} \red{todo: make more precise}. The statement about $\tau'$
+  follows after calculating its absolute value (for any choice of
+  non-archimedian norm on $\C_p$).
+\end{proof}
+\end{lem}
+
+We define 
+\begin{equation*}
+  \cX \coloneq \spf \left(
+    \frac
+    {\cO_\Cp \langle x_1^{q^{-\infty}}, \dots , x_n^{q^{-\infty}}
+      \rangle}
+    {(\Delta'(x_1, \dots, x_n)^{q^{-m}} - \tau'^{q^{-m}} \mid m \in \N_0)^-
+      }\right)
+\end{equation*}
+
+\begin{prop}\label{prop:AffinoidIsFormalModel}
+  The formal scheme $\cX$ is a formal model for $U$. 
+\end{prop}
+\begin{rmk} 
+  Disregarding finiteness conditions, $\cX$ can be interpreted as a subspace of the
+  formal admissible blowing up of $\cM_{\infty, \cO_\Cp}^{(0)}$ along the closed
+  subscheme corresponding to the ideal of $A_{\infty,\cO_\Cp}$ given by 
+  $\cI = (\xi^{q^{-m}}, X_1^{q^{-m}}, \dots, X_n^{q^{-m}} \mid m \in \N)^{-}$.
+  In light of Raynaulds view on the interplay between (reasonable) rigid spaces
+  over a non-Archimedian local field and (reasonable) formal schemes over 
+  its ring of integers, this realizes the inclusion
+  $U \inj M_{\infty, \Cp}^{(0)}$ as the inclusion of formal models
+  \begin{equation*}
+    \cX \inj \Bl_\cI (\cM_{\infty, \cO_\Cp}^{(0)}).
+  \end{equation*}
+\end{rmk}
+\begin{proof}[Proof of Proposition \ref{prop:AffinoidIsFormalModel}] 
+  \red{todo}
+\end{proof}
+
+\begin{prop}\label{prop:SpecialFiberOfAffinoidIsLusztig}
+  Let $b^{1/q^m}$ be the residue class of $\tau'^{1/q^m}$ in $\Cp/\fm_{\Cp}$. 
+  Then $b^{q-1} = (-1)^{n-1}$, and the special fiber of $\cX_s \coloneq \cX
+  \times_{\spf \cO_\Cp} \spec (\Fqbar)$ is isomorphic to $Y_b^\perf$, the
+  perfection of the component $Y_b \subset \DL_n$ defined in \eqref{eq:DefYb}.
+\begin{proof}
+  We first show that $b^{q^{-m}(q-1)} = (-1)^{n-1}$ for $m \in \Z$. 
+  This follows from Lemma \ref{lem:PropertiesOfTau}. 
+  Write $\bar \alpha_i \in \FF_{q^n}$ for the residue classes of the 
+  elements $\alpha_i$ for $i = 1, \dots, n$. We have $\bar \alpha_i^{q^n}
+  = \bar \alpha_i$, implying for $m \in \Z$ the equalities
+  \begin{equation*}
+    b^{q^{-(m-1)}} = \det(\bar \alpha_i^{q^j})_{1 \leq i,j \leq n}^{q^{-m}} =
+    (-1)^{n-1} \det (\bar \alpha_i^{q^{j-1}})_{1 \leq i,j \leq n}^{q^{-m}} =
+    (-1)^{n-1} b^{q^{-m}}.
+  \end{equation*}
+  This gives $b^{q^{-m}}(q-1) = (-1)^{n-1}$, as desired.
+  By Lemma \ref{lem:PropsOfDeltaPrAndTauPr}, we find that $\cX_s$ is equal to
+  \begin{equation*}
+    \spec \left( \frac{\Fqbar [x_1^{q^{-\infty,}}, \dots,
+    x_n^{q^{-\infty}}]}{(\det(x_i^{q^{j-1}})^{q^{-m}}- b^{q^{-m}}} \right),
+  \end{equation*}
+  which is precisely the perfection of $Y_b$.
+\end{proof}
+\end{prop}
+
 
 % subsection The Special Affinoid (end)
 
