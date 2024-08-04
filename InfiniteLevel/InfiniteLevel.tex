@@ -71,7 +71,84 @@ Lubin--Tate perfectoid space. This space is constructed at the end of this secti
 
 \subsection{Determinants of Formal modules} % (fold)
 \label{sub:Determinants of Formal modules}
-bla bla
+In \cite{hedayatzadeh2015det}, Hedayatzadeh constructs determinants of 
+$\varpi$-divisible formal $\cO_E$-modules over \red{properties} rings. 
+We cite the result of main importance for us.
+\begin{thm}[Determinants of Formal Modules]\label{thm:HedayatzadehsResult}
+  ABCDE
+\begin{proof}
+\end{proof}
+\end{thm}
+
+Let $\cF_0 \in \FMOver {\cO_E}{\Fqbar}$ be a formal module of height $n$ and 
+write $\wedge^n\cF_0$ for the associated determinant module, that is, the 
+formal $\cO_E$ module with $\Dio(\wedge^n\cF_0) = \wedge^n\Dio(\cF_0)$. Write
+$\cM_m$ for the Deformation space of $\cF_0$ with Drinfeld level
+$\varpi^m$-structure, and write $\cM_{m, \wedge}$ for the deformation space of
+$\wedge^n\cF$. 
+Following \cite{weinstein2016semistable}, we sketch how this result can be
+used to construct a functor $\cM_{m} \to \cM_{m, \wedge}$. 
+
+For $R\in\cC$ and $(\cF, \iota) \in \cM_{0}(R)$, we write $\lambda_m$ for the
+induced multilinear and alternating morphisms
+\begin{equation*}
+  \lambda_m: \cF[\varpi^m]^n \to \wedge^n\cF[\varpi^m].
+\end{equation*}
+
+We now have the following result.
+
+\begin{lem}\label{lem:DeterminantOfDrinfeldStructure}
+  Let $(x_1, \dots, x_n) \in \cF[\varpi^{m}]^n(R)$ be a Drinfeld level
+  $\varpi^m$ structure. Then 
+  \begin{equation*}
+    \lambda_m(x_1, \dots, x_n) \in \wedge^n\cF[\varpi^m](R) 
+  \end{equation*}
+  is a Drinfeld level $\varpi^m$ structure.
+\begin{proof}
+  This is \cite[Proposition 2.11]{weinstein2016semistable}.
+\end{proof}
+\end{lem}
+
+In particular, we obtain the desired map
+
+\begin{equation*}
+  \cM_m^{(0)}(R) \to \cM^{(0)}_{m, \wedge}(R), \quad, (\cF, \iota, \phi)
+  \mapsto (\wedge^n \cF, \wedge^n \iota, \lambda^m \circ \phi).
+\end{equation*}
+
+We also need the following result.
+
+\begin{lem}\label{lem:WeinsteinDeterminantAndNorm}
+  Let $L/E$ be a separable extension of degree $n$ and suppose that there 
+  is an action $\cO_L \inj \End(\cF)$ making $\cF$ into a formal $\cO_L$-module
+  of height $1$. Then, for all $m \geq 1$, the identity
+  \begin{equation*}
+    \lambda_m(\alpha x_1, \dots, \alpha x_n) = \Norm_{L/E}(\alpha) \lambda_m
+    (x_1, \dots, x_n)
+  \end{equation*}
+  holds. 
+  \begin{proof}
+    This is \cite[Lemma 2.12]{weinstein2016semistable}.
+  \end{proof}
+\end{lem}
+
+We remark that the Lemma above in particular applies to the standard formal 
+$\cO_E$-module $H$ over $\cO_\br E$. We turn our attention to the determinant of the standard
+formal $\cO_E$-module in the following example.
+
+\begin{xpl}
+  The determinant $\wedge^n H$ is the formal $\cO_E$-module over 
+  $\cO_\br E$ with logarithm given by the power series
+  \begin{equation*}
+    f_\wedge(T) = \sum_{i=0}^\infty (-1)^{(n-1)i} \frac{T^{q^i}}{\varpi^i}.
+  \end{equation*}
+  We do not prove this, but we note that this can be witnessed on the
+  corresponding Dieuodonn\'e-modules: $\Dio(\wedge^n H)$ and 
+  $\wedge^n \Dio(H)$ are naturally isomorphic.
+  By Theorem \ref{thm:HazewinkelIntegrality} we have that 
+  $[\varpi]_{(\wedge^n H)_0}(T) = (-1)^{n-1} T^q$. 
+\end{xpl}
+
 % subsubsection Determinants of Formal modules (end)
 
 \subsection{The Universal Cover} % (fold)
