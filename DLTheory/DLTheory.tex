@@ -485,11 +485,11 @@ explicit description.
   Let $g \in \GL_n(\FF_q)$ be an element with matrix entries $(a_{ij})_{1 \leq
   i,j \leq n}$. Then $g$ acts on the global sections of $\DL_n$ from the left via
   \begin{equation*}
-    x_i  \mapsto  \sum_{j = 1}^n a_{ij}x_j \quad i = 1, \dots, n. 
+    x_i  \mapsto  \sum_{j = 1}^n a_{ji}x_j \quad \text{for} \quad i = 1, \dots, n. 
   \end{equation*}
   Similarly, an element $d \in \FF_{q^n}^\times$ acts via
   \begin{equation*}
-    x_i \mapsto d x_i \quad i = 1, \dots, n.
+    x_i \mapsto d^{-1} x_i \quad \text{for} \quad i = 1, \dots, n.
   \end{equation*}
 \end{lem}
 
@@ -503,17 +503,18 @@ have to restrict to $n\Z \subset \Z$.
 
 Note that $g \in \GL_n(\FF_q)$ induces a morphism of schemes
 $Y_b \to Y_{b \det(g)}$. Similarly, $\zeta \in \FF_{q^\times}$ 
-restricts to $Y_b \to Y_{b \Norm(\zeta)}$, where $\Norm = \Norm_{\FF_{q^n}/\FF_q}$
+restricts to $Y_b \to Y_{b \Norm(\zeta)^{-1}}$, where $\Norm = \Norm_{\FF_{q^n}/\FF_q}$
 denotes the norm map of the extension $\FF_{q^n}/\FF_q$. The action of 
 $1 \in \Z$ sends $Y_b$ to $Y_{(-1)^{n-1} b}$, therefore the action of 
 $n\Z$ stabilizes each component $Y_b$. In particular, 
-the subgroup of elements in $\GL_n \times \FF_{q^n}^\times \times \Z$
-stabilizing $Y_b$ is, for every $b$, given by
+the subgroup 
 \begin{equation*}
   (\GL_n(\FF_q) \times \FF_{q^n}^\times)^1 \times n\Z 
   \coloneq \{(g,d,n) \in \GL_n(\FF_q) \times \FF_{q^n}^\times \times n\Z 
-  \mid \det(g) \Norm(d) = 1\}.
+  \mid \det(g) \Norm(d) = 1\}
 \end{equation*}
+of $\GL_n \times \FF_{q^n}^\times \times \Z$
+stabilizes $Y_b$ for every choice of $b$.
 
 We write $\hH_\DL$ for the $\bar \Q_l$-vector space
 \begin{equation*}

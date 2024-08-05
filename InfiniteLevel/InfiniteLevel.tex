@@ -89,10 +89,10 @@ $\wedge^n\cF$.
 Following \cite{weinstein2016semistable}, we sketch how this result can be
 used to construct a functor $\cM_{m} \to \cM_{m, \wedge}$. 
 
-For $R\in\cC$ and $(\cF, \iota) \in \cM_{0}(R)$, we write $\lambda_m$ for the
-induced multilinear and alternating morphisms
+For $R\in\cC$ and $(\cF, \iota) \in \cM_{0}(R)$, we write $\delta_m$ for the
+induced universal multilinear and alternating morphisms
 \begin{equation*}
-  \lambda_m: \cF[\varpi^m]^n \to \wedge^n\cF[\varpi^m].
+  \delta_m \cF[\varpi^m]^n \to \wedge^n\cF[\varpi^m].
 \end{equation*}
 
 We now have the following result.
@@ -101,7 +101,7 @@ We now have the following result.
   Let $(x_1, \dots, x_n) \in \cF[\varpi^{m}]^n(R)$ be a Drinfeld level
   $\varpi^m$ structure. Then 
   \begin{equation*}
-    \lambda_m(x_1, \dots, x_n) \in \wedge^n\cF[\varpi^m](R) 
+    \delta_m(x_1, \dots, x_n) \in \wedge^n\cF[\varpi^m](R) 
   \end{equation*}
   is a Drinfeld level $\varpi^m$ structure.
 \begin{proof}
@@ -112,8 +112,8 @@ We now have the following result.
 In particular, we obtain the desired map
 
 \begin{equation*}
-  \cM_m^{(0)}(R) \to \cM^{(0)}_{m, \wedge}(R), \quad, (\cF, \iota, \phi)
-  \mapsto (\wedge^n \cF, \wedge^n \iota, \lambda^m \circ \phi).
+  \cM_m^{(0)}(R) \to \cM^{(0)}_{m, \wedge}(R), \quad (\cF, \iota, \phi)
+  \mapsto (\wedge^n \cF, \wedge^n \iota, \delta_m \circ \phi).
 \end{equation*}
 
 We also need the following result.
@@ -722,7 +722,7 @@ following description.
     \item $g^*\colon B_n \to B_n$ is the morphism of $\cO_\Cp$ algebras given
       by $X_i \mapsto \sum_{j=1}^n \sumH {a_{ij}}_H(X_j)$. Writing
       $a_{ij} = \sum_{k=l}^\infty a_{ij}^{(k)} \varpi^k$ for  $a_{ij}^{(k)}$
-      either vanishing or a $(q-1)$th root of unity and a sufficiently small integer
+      either vanishing or a $(q-1)$th root of unity and a sufficiently chosen integer
       $k$, we obtain, by Corollary
       \ref{cor:ExplicitDescriptionOfActionOnUnivCov}, the description
       \begin{equation*}
