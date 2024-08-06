@@ -8,14 +8,13 @@
 We give a brief summary of the content of results in \cite{mieda2016geometric}.
 These results take the following form. 
 
-
-\subsection{Injectivity of the Specialization Map at Finite Level} % (fold)
+\subsection{The Specialization Map} % (fold)
 \label{sub:The Injectivity FinLevel}
-Let $\cY$ be a flat and topologically of finite type formal scheme over $\Spf \cO_\Cp$,
-and write $Y = d(\cY)$ for the corresponding analytic adic space over
-$\Spa(\Cp,\cO_\Cp)$ (for the construction cf. \cite[Section
-1.9]{huber2013etale} \red{Does this construction agree with the generic
-fiber?}). We denote by $\cY_s = \cY \times_{\Spf(\cO_\Cp)} \spec
+Let $\cY$ be a flat and topologically of finite type formal scheme over $\Spf \cO_\Cp$.
+Utilizing a classical construction of Raynauld \cite{raynaud1974geometrie}, we 
+can consider the corresponding rigid generic fiber $d(\cY)$, which we may
+consider as an analytic adic space over $\Spa(\Cp,\cO_\Cp)$ by \cite[Section
+1.9]{huber2013etale}. We denote by $\cY_s = \cY \times_{\Spf(\cO_\Cp)} \spec
 \Fqbar$ the special fiber of $\cY$, which is of finite type over $\spec
 \Fqbar$. Recall that we may identify the \'etale sites $(\cY_\reduc)_\et$ and
 $\cY_{s,\et}$ via the isomorphism induced by the closed immersion of formal schemes
@@ -23,23 +22,60 @@ $\cY_s \inj \cY_\reduc$.
 
 By \cite[Lemma 3.5.1]{huber2013etale} we have a morphism of sites
 \begin{equation*}
-  \lambda_\cY : d(\cY)_\et \to (\cY_\reduc)_\et = \cY_{s, \et}. 
+  \lambda_\cY : d(\cY)_\et \to (\cY_\reduc)_\et = \cY_{s, \et}.
 \end{equation*}
-Writing $\Lambda = \Z/\ell^m\Z$ for some positive integer $m$, we denote by
+Let us fix a torsion ring $\Lambda = \Z/\ell^m \Z$ and write $\underline
+\Lambda_{d(\cY)_\et}$ (respectively $\underline \Lambda_{\cY_{s, \et}}$)
+for the corresponding constant sheaf on $d(\cY)_\et$ (respectively $\cY_{s,\et}$). Then 
+pushforward along $\lambda_\cY$ induces a left-exact functor of Grothendieck
+Abelian categories
 \begin{equation*}
-  R \Psi_\cY: D(\Sh(d(\cY)_\et), \underline \Lambda) \to D(\Sh(\cY_{s, \et}), \underline 
-  \Lambda)
+  \lambda_{\cY,*}: \Mod {\underline \Lambda_{d(\cY)_\et}} \to \Mod{\underline \Lambda_{\cY_{s, \et}}},
 \end{equation*}
-the corresponding right-derived functor, which we call the nearby cycle functor.
+which is right-adjoint to the exact pullback functor $\lambda_\cY^*$.
+This allows for the following definitions.
 
+\begin{defi}[Formal Nearby Cycle Functor and Specialization
+  Map]\label{def:FormalNearbyCycleFunctor}
+  We denote by
+  \begin{equation*}
+    R \Psi_\cY: D(d(\cY)_\et, {\underline \Lambda_{d(\cY)_\et}}) \to
+    D(\cY_{s, \et},{\underline \Lambda_{\cY_{s, \et}}})
+  \end{equation*}
+  the right derived functor of $\lambda_{\cY,*}$, which we call the formal nearby
+  cycle functor. The unit of the adjunction $\lambda_{\cY}^* \ladj 
+  R \Psi_\cY$ induces, evaluated at $\underline \Lambda_{\cY_{s, \et}}$ a morphism
+  \begin{equation*}
+    \specmap^* : \underline \Lambda_{\cY_{s, \et}} \to 
+    R \Psi_\cY( \lambda_{\cY}^* \underline \Lambda_{\cY_{s, \et}}) = 
+    R \Psi_\cY(\underline \Lambda_{d(\cY)_\et}).
+  \end{equation*}
+  which we shall call the specialization map.
+\end{defi}
 
 % subsection The Injectivity Result (end)
 
 \subsection{Application to the Lubin--Tate Tower} % (fold)
 \label{sub:Application to the Lubin--Tate Tower}
+Let $U$ and $\cX = \spf C$ be ...
 
 \begin{thm}[Mieda's Result for the Lubin--Tate Tower]\label{thm:MiedaAppliedToLTT}
-  Content
+  Let $J$ be a subgroup of $G^1$ whose action on $M_{\infty, \Cp}^{(0)}$ 
+  stabilizes $U$ and extends to an action on $\cX$. Assume that there exists an
+  affine scheme $Y$ of finite type over $\Fqbar$ equipped with a left action of 
+  $J$ such that there is an isomorphism
+  \begin{equation*}
+    \cX_s = \spec(A \otimes_{\cO_\Cp} \Fqbar) \xto \sim Y^\perf
+  \end{equation*}
+  of schemes over $\spec \Fqbar$, equivariant for the action of $J$ on both sides.
+  Then we have the following.
+  \begin{enumerate}
+    \item We have a $J$-equivariant homomorphism
+      \begin{equation*}
+        \specmap^*: \hH_c^{n-1}(Y, \bar \Q_\ell) \to \colim_K \hH_c^{n-1}
+        (M_{K, \Cp}^{(0)}, \bar \Q_\ell) \eqcolon \HLT'.
+      \end{equation*}
+  \end{enumerate}
 \begin{proof}
 \end{proof}
 \end{thm}
