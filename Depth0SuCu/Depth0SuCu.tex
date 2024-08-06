@@ -43,7 +43,11 @@ for the corresponding element of $\Nilp^\flat(\cO_\Cp)$.
 \begin{proof}
   The first identity follows from Lemma \ref{lem:LogInTermsOfNil} and the fact that
   $\log_H(y_1)$ vanishes, cf. Lemma \ref{lem:KernelOfLog}. 
-  \red{Todo: Finish this}
+  For the second one, note that $[\varpi]_H(y_1) = 0$ and 
+  $[\varpi]_H(y_{k+1}) = y_k$ implies that 
+  $\abs{y_k} = \abs \varpi^{\frac{1}{q^{nk}(q^n-1)}}$. Hence, the claim follows by
+  the equality $\xi = \lim_{k \to \infty} y_k^{q^{nk}}$, cf. Lemma
+  \ref{lem:GroupStructureOnNilp}.
 \end{proof}
 \end{lem}
 
@@ -66,24 +70,22 @@ power roots.
   \end{equation*}
   holds.
 \begin{proof}
-  We have $t \neq 0$ and $[\varpi]_H(t) = 0$, so the first two assertions follow just 
-  as above, with the minor modification that $\wedge H$ isn't the standard formal
-  $\cO_E$-module but has the slightly different logarithm 
-  $\log_{\wedge H}(T) = \sum_{i=0}^\infty (-1)^{i(n-1)} \frac{T^{q^n}}{\varpi^n}$.
-  The congruence is a corollary of the approximation of 
-  $\Delta$ in Lemma \ref{lem:DeltaApprox}.
+  We have $t \neq 0$ and $[\varpi]_{\wedge H}(t) = 0$, so the first two
+  assertions follow just as above in the proof of Lemma
+  \ref{lem:PropertiesOfXi}, appropiately adjusted. The congruence is a
+  corollary of the approximation of $\Delta$ in Lemma \ref{lem:DeltaApprox}.
 \end{proof}
 \end{lem}
 
 We now define the formal model $\cX$. We abbreviate with $(x_i^{q^{-m}})_{m \in
 \N_0}$ the system of 
-$q$-th power roots $X_i^{q^{-m}}/\xi^{q^{-m}}$ of elements in $\cO_C \llbr
-X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}}\rrbr$, and define systems of $q$-th
-power roots $\Delta'$ and $\tau'$ as
+$q$-th power roots $(X_i^{q^{-m}}/\xi^{q^{-m}})_{m \in \N_0}$ of elements in
+$\cO_C \llbr X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}}\rrbr$, and define
+systems of $q$-th power roots $\Delta'$ and $\tau'$ as
 \begin{equation*}
   \begin{array}c
   \Delta'(x_1, \dots, x_n)^{q^{-m}} \coloneq (\xi^{q^{-m}})^{-(1 + q + \dots +
-  q^{n-1})} \Delta(X_1, \dots, X_n) \in \cO_C \llbr x_1^{q^{-\infty}}, \dots
+  q^{n-1})} \Delta(\xi x_1, \dots, \xi x_n) \in \cO_C \llbr x_1^{q^{-\infty}}, \dots
   , x_n^{q^{-\infty}}\rrbr  \\
   \text{and} \\
   \tau'^{q^{-m}} \coloneq (\xi^{q^{-m}})^{-(1 + q + \dots + q^{n-1})} \tau^{q^{-m}} \in
@@ -345,17 +347,16 @@ Explicit Example}.
 \end{proof}
 \end{lem}
 
-The input we get from Mieda's result is the following.
+The input we get from Mieda's theory is the following.
 \begin{prop}\label{prop:J1EquivInjMor}
   There is an injective morphism of  $J^1$-representations
   \begin{equation*} 
     \Res_{J^1}^J( \hH_{\DL,\theta} ) \inj \Res_{J^1}^{G^1}( \hH'_{\LT}).
   \end{equation*}
+  \begin{proof}
+    This is \cite[Proposition 5.11]{mieda2016geometric}. 
+  \end{proof}
 \end{prop}
-  \red{This is \cite[Proposition 5.11]{mieda2016geometric}.}
-
-We postpone the proof and show first how to deduce Theorem
-\ref{thm:MainRes1} from this proposition. 
 
 \begin{lem} \label{lem:JEquivInjMor}
   The morphism in Proposition \ref{prop:J1EquivInjMor} naturally gives rise to

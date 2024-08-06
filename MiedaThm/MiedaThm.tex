@@ -24,8 +24,9 @@ By \cite[Lemma 3.5.1]{huber2013etale} we have a morphism of sites
 \begin{equation*}
   \lambda_\cY : d(\cY)_\et \to (\cY_\reduc)_\et = \cY_{s, \et}.
 \end{equation*}
-Let us fix a torsion ring $\Lambda = \Z/\ell^m \Z$ and write $\underline
-\Lambda_{d(\cY)_\et}$ (respectively $\underline \Lambda_{\cY_{s, \et}}$)
+For a positive integer $m$, let us fix the torsion ring $\Lambda = \Z/\ell^m
+\Z$ and write $\underline \Lambda_{d(\cY)_\et}$ (respectively $\underline
+\Lambda_{\cY_{s, \et}}$)
 for the corresponding constant sheaf on $d(\cY)_\et$ (respectively $\cY_{s,\et}$). Then 
 pushforward along $\lambda_\cY$ induces a left-exact functor of Grothendieck
 Abelian categories
@@ -44,7 +45,7 @@ This allows for the following definitions.
   \end{equation*}
   the right derived functor of $\lambda_{\cY,*}$, which we call the formal nearby
   cycle functor. The unit of the adjunction $\lambda_{\cY}^* \ladj 
-  R \Psi_\cY$ induces, evaluated at $\underline \Lambda_{\cY_{s, \et}}$ a morphism
+  R \Psi_\cY$ induces, evaluated at $\underline \Lambda_{\cY_{s, \et}}$, a morphism
   \begin{equation*}
     \specmap^* : \underline \Lambda_{\cY_{s, \et}} \to 
     R \Psi_\cY( \lambda_{\cY}^* \underline \Lambda_{\cY_{s, \et}}) = 
@@ -59,10 +60,12 @@ This allows for the following definitions.
 \label{sub:Application to the Lubin--Tate Tower}
 Let $U$ and $\cX = \spf C$ be ...
 
+For our purposes the following results, taken from \cite[Corollary
+4.6]{mieda2016geometric}, suffice.
 \begin{thm}[Mieda's Result for the Lubin--Tate Tower]\label{thm:MiedaAppliedToLTT}
   Let $J$ be a subgroup of $G^1$ whose action on $M_{\infty, \Cp}^{(0)}$ 
   stabilizes $U$ and extends to an action on $\cX$. Assume that there exists an
-  affine scheme $Y$ of finite type over $\Fqbar$ equipped with a left action of 
+  affine scheme $Y$ of finite type over $\Fqbar$ equipped with a right action of 
   $J$ such that there is an isomorphism
   \begin{equation*}
     \cX_s = \spec(A \otimes_{\cO_\Cp} \Fqbar) \xto \sim Y^\perf
@@ -75,9 +78,16 @@ Let $U$ and $\cX = \spf C$ be ...
         \specmap^*: \hH_c^{n-1}(Y, \bar \Q_\ell) \to \colim_K \hH_c^{n-1}
         (M_{K, \Cp}^{(0)}, \bar \Q_\ell) \eqcolon \HLT'.
       \end{equation*}
+    \item If $Y$ is pure-dimensional and smooth over $\spec(\Fqbar)$
+      and $V$ is a subspace of $\hH^{n-1}_c(Y, \bar \Q_\ell)$ such that the
+      composite 
+      $$V \inj H^{n-1}_c(Y, \bar \Q_\ell) \inj \hH^{n-1}_c(Y, \bar \Q_\ell)$$
+      is injective, the composite
+      \begin{equation*}
+        V \inj \hH^{n-1}_c(Y, \bar \Q_\ell) \xto {\specmap^*} \HLT'
+      \end{equation*}
+      is injective as well.
   \end{enumerate}
-\begin{proof}
-\end{proof}
 \end{thm}
 
 % subsubsection Injectivity of the Specialization Map at Infinite Level (end)
