@@ -8,15 +8,16 @@ Representations} % (fold)
 
 In this final section, we explicitely calculate the representations
 arising in Theorem \ref{thm:NonAbLTT} for depth zero supercuspidal
-representations $\pi \in \Rep{\GL_n(F)}$, that is, representations of $F$
-obtained by compact induction from Deligne--Lusztig theory. In particular, 
-we give explicit descriptions of $\rec_E(\pi)$ and $\JL(\pi)$. 
+representations $\pi \in \Rep{\GL_n(F)}$, which essentially are representations
+of $\GL_n(F)$
+obtained by compact induction from Deligne--Lusztig theory. In
+particular, we give explicit descriptions of $\rec_E(\pi)$ and $\JL(\pi)$. 
 The main input is the construction of an affinoid in the Lubin--Tate perfectoid
 space whose special fiber is isomorphic to the perfection of the 
 Deligne--Lusztig variety constructed in Section \ref{sub:An Explicit Example}.
-By Mieda's result, the compactly supported 
-$\ell$-adic cohomology of $\DL_n$ and the representation $\HLT$ are related,
-which allows us to make some parts of $\HLT$ explicit.
+Mieda's results give a relation between the $\ell$-adic cohomology of $\DL_n$
+and the representation $\HLT$, which allows to make some parts of $\HLT$
+explicit.
 
 \subsection{The Special Affinoid and its Formal Model} % (fold)
 \label{sub:The Special Affinoid}
@@ -28,7 +29,7 @@ Deligne--Lusztig variety $\DL_n$ constructed in Section \ref{sub:An Explicit Exa
 
 The formal model $\cX = \spf C_n$ is defined as follows. Let $H$
 be the standard
-formal $\cO_E$-module over $\cO_\br E$ and Let 
+formal $\cO_E$-module over $\cO_\br E$ and let 
 $$y = (y_1, y_2, \dots) \in T_\varpi H(\cO_\Cp)$$ be a primitive element, that is,
 an element with $y_1 \neq 0$ and $[\varpi]_H(y_1) = 0$. Write $\xi = \lambda(y)$ 
 for the corresponding element of $\Nilp^\flat(\cO_\Cp)$. 
@@ -177,8 +178,10 @@ We define
 \subsection{Comparison of the Group Actions} % (fold)
 \label{sub:Proof of Proposition}
 In Section \ref{sec:Non-Abelian Lubin-Tate Theory: An Overview}, we saw that
-the Lubin--Tate perfectoid space $M_{\infty, \C_p}^{(0)}$ admits a right action
-by the group
+the Lubin--Tate perfectoid space 
+$$M_{\infty, \C_p}^{(0)} = \cM_{\infty} \times_{\Spa(\hat E^\ab, \cO_{\hat
+E^\ab})} \Spa(\Cp, \cO_\Cp)$$ 
+admits a right action by the group
 \begin{equation*}
   G^1 \subset G = \GL_n(E) \times D^\times \times W_E,
 \end{equation*}
@@ -235,6 +238,13 @@ $\bar J^1$, so the induced action of $J^1$ on $\DL_n$ stabilizes $Y_b$.
 \end{proof}
 \end{lem}
 
+For $(g,d,\sigma) \in G^1$, recall the definition of $g^* \in \cO_\Cp\llbr
+X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}}\rrbr$ and 
+$d^* \in \cO_\Cp \llbr X^{q^{-\infty}} \rrbr$ from Proposition
+\ref{lem:ExplicitActionOnQthPowerRootSystems}. We have the following description
+of group actions.
+
+\begin{figure}[H]
 \begin{center}
 \begin{tabularx} {0.9\textwidth} { 
   |>{\centering\arraybackslash}X ||>{\centering\arraybackslash}X
@@ -243,19 +253,25 @@ $\bar J^1$, so the induced action of $J^1$ on $\DL_n$ stabilizes $Y_b$.
  Element & Action on $A_{\infty,\cO_\Cp}$ & Action on $C_n$ & Action on
  $Y_b^\perf$ \\ [0.5ex] 
  \hline\hline
- $(g,1,1)$ & $X_i \mapsto g^*(X_1, \dots, X_n)$ & 87837 & $x_i \mapsto (x_1,
+ $(g,1,1)$ & $(X_1, \dots, X_n) \mapsto g^*(X_1, \dots, X_n)$ & $(x_1, \dots,
+ x_n) \mapsto \xi^{-1}g^*(\xi x_1, \dots, \xi x_n)$ & $(x_1,\dots, x_n) \mapsto (x_1,
  \dots, x_n)\cdot\bar g$\\ 
  \hline
- $(1,d,1)$ & $X_i \mapsto d^{-1, *}(X_i)$ & 78 & $x_i \mapsto \bar d^{-1} x_i$ \\
+ $(1,d,1)$ & $X_i \mapsto d^{-1, *}(X_i)$ & $x_i \mapsto \xi^{-1} d^{-1, *}(\xi
+ x_i)$ & $x_i
+ \mapsto \bar d^{-1} x_i$ \\
  \hline
  $(a,a,1)$ & trivial & trivial & trivial \\
  \hline
- $(1, \alpha^{-1}, \sigma)$ & $a \mapsto \sigma(a)$ & 18744 & trivial \\
+ $(1, \alpha^{-1}, \sigma)$ & $a \mapsto \sigma(a)$ & $a \mapsto \sigma(a)$ & trivial \\
  \hline
- $(1, \varpi, \sigma)$ & $a \mapsto \sigma(a)$ & 788 & $a \mapsto a^{q^{-n}}$ \\ [1ex] 
+ $(1, \varpi, \sigma)$ & $a \mapsto \sigma(a)$ & $a \mapsto \sigma(a)$ & $a
+ \mapsto a^{q^{-n}}$ \\ [1ex] 
  \hline
 \end{tabularx}
 \end{center}
+\caption{Description of the group actions.}
+\end{figure}
 
 \begin{prop}\label{prop:J1ActionOnAffinoid}
   The action of $J^1$ on $M_{\infty, C}^{(0)}$ stabilizes $U$ and extends to

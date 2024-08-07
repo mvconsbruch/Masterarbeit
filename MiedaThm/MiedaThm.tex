@@ -10,11 +10,13 @@ These results take the following form.
 
 \subsection{The Specialization Map} % (fold)
 \label{sub:The Injectivity FinLevel}
-Let $\cY$ be a flat and topologically of finite type formal scheme over $\Spf \cO_\Cp$.
+Let $R$ be a complete discrete valuation ring with residue field $\Fqbar$ and
+write $E$ for the field of fractions of $R$.
+Let $\cY$ be a flat and topologically of finite type formal scheme over $\Spf R$.
 Utilizing a classical construction of Raynauld \cite{raynaud1974geometrie}, we 
 can consider the corresponding rigid generic fiber $d(\cY)$, which we may
-consider as an analytic adic space over $\Spa(\Cp,\cO_\Cp)$ by \cite[Section
-1.9]{huber2013etale}. We denote by $\cY_s = \cY \times_{\Spf(\cO_\Cp)} \spec
+consider as an analytic adic space over $\Spa(E,R)$ by \cite[Section
+1.9]{huber2013etale}. We denote by $\cY_s = \cY \times_{\Spf(R)} \spec
 \Fqbar$ the special fiber of $\cY$, which is of finite type over $\spec
 \Fqbar$. Recall that we may identify the \'etale sites $(\cY_\reduc)_\et$ and
 $\cY_{s,\et}$ via the isomorphism induced by the closed immersion of formal schemes
@@ -25,8 +27,8 @@ By \cite[Lemma 3.5.1]{huber2013etale} we have a morphism of sites
   \lambda_\cY : d(\cY)_\et \to (\cY_\reduc)_\et = \cY_{s, \et}.
 \end{equation*}
 For a positive integer $m$, let us fix the torsion ring $\Lambda = \Z/\ell^m
-\Z$ and write $\underline \Lambda_{d(\cY)_\et}$ (respectively $\underline
-\Lambda_{\cY_{s, \et}}$)
+\Z$ and write $\underline \Lambda_{d(\cY)}$ (respectively $\underline
+\Lambda_{\cY_{s}}$)
 for the corresponding constant sheaf on $d(\cY)_\et$ (respectively $\cY_{s,\et}$). Then 
 pushforward along $\lambda_\cY$ induces a left-exact functor of Grothendieck
 Abelian categories
@@ -40,35 +42,92 @@ This allows for the following definitions.
   Map]\label{def:FormalNearbyCycleFunctor}
   We denote by
   \begin{equation*}
-    R \Psi_\cY: D(d(\cY)_\et, {\underline \Lambda_{d(\cY)_\et}}) \to
-    D(\cY_{s, \et},{\underline \Lambda_{\cY_{s, \et}}})
+    R \Psi_\cY: D(d(\cY)_\et, {\underline \Lambda_{d(\cY)}}) \to
+    D(\cY_{s, \et},{\underline \Lambda_{\cY_{s}}})
   \end{equation*}
   the right derived functor of $\lambda_{\cY,*}$, which we call the formal nearby
   cycle functor. The unit of the adjunction $\lambda_{\cY}^* \ladj 
   R \Psi_\cY$ induces, evaluated at $\underline \Lambda_{\cY_{s, \et}}$, a morphism
   \begin{equation*}
-    \specmap^* : \underline \Lambda_{\cY_{s, \et}} \to 
-    R \Psi_\cY( \lambda_{\cY}^* \underline \Lambda_{\cY_{s, \et}}) = 
-    R \Psi_\cY(\underline \Lambda_{d(\cY)_\et}).
+    \specmap^* : \underline \Lambda_{\cY_{s}} \to 
+    R \Psi_\cY( \lambda_{\cY}^* \underline \Lambda_{\cY_{s}}) = 
+    R \Psi_\cY(\underline \Lambda_{d(\cY)}).
   \end{equation*}
   which we shall call the specialization map.
 \end{defi}
+
+Our goal is to compare the compact supported cohomologies of $\cY_s$ and $d(\cY)$.
+From classical results (cf. for example \cite[Corollary 0.7.9]{huber2013etale}, which
+essentially deals with the case where $\cY$ is algebraizable),
+we might hope that if $\cY$ admits a suitable compactification, there is isomorphism
+\begin{equation}\label{eq:NearbyCycleIsomorphism}
+  R\Gamma_c(\cY_s, R\Psi_\cY \underline \Lambda_{d(\cY)}) \xto\sim R\Gamma_c
+  (d(\cY), \Lambda)
+\end{equation}
+inducing the morphism
+\begin{equation*}
+  \specmap^*: R\Gamma_c(\cX_s, \underline \Lambda_{\cY_s}) \to R \Gamma_c(d(\cX), \underline
+  \Lambda_{d(\cY)}).
+\end{equation*}
+And indeed, in \cite[Corollary 4.29]{mieda2014variants}, Mieda constructs an
+isomorphism as in \eqref{eq:NearbyCycleIsomorphism}
+if $\cY$ is pseudo-compactifiable over $\Spf A$ in the sense of \cite[Definition
+4.24]{mieda2014variants}. We do not explain this notion here, but we remark that
+all affine formal schemes that are topologically of finite type are
+pseudo-compactifiable (cf. \cite[Example 4.25]{mieda2014variants}), which is
+the only important case for us.
+
+Let us assume that $d(\cY)$ is smooth. Then, by \cite[7.3.4]{huber2013etale}, we have
+the trace map
+\begin{equation*}
+  \Tr_{d(\cY)} \colon R \Gamma_c( d(\cY), \underline \Lambda_{d(\cY)} ) \to 
+  \Lambda(-d)[-2d].
+\end{equation*}
+Let us write $i: \cF_s \to \spec(\Fqbar)$ for the structure map. Then by the 
+adjunction $Ri_! \ladj i^!$ and the isomorphism in \eqref{eq:NearbyCycleIsomorphism},
+we obtain a map
+
+\begin{equation*}
+  \cospecmap \colon R\Psi_\cY \Lambda \to i^! \Lambda(-d)[-2d].
+\end{equation*}
+
+The main result of Mieda is the following.
+
+\begin{thm}[Mieda's theorem about the Specialization Map]\label{thm:MiedaFirstStepSpecMap}
+  The composite 
+  $$\Lambda \xto {\specmap^*} R \Psi_\cY \cospecmap i^! \Lambda(-d)[-2d]$$
+  is equal to the Gysin map with respect to $i$, that is, the map
+  $\Lambda \to i^! \Lambda(-d)[-2d]$ obtained by the trace map 
+  \begin{equation*}
+    \Tr_i: R i_! \Lambda \to \Lambda(-d)[-2d].
+  \end{equation*}
+\begin{proof}
+\end{proof}
+\end{thm}
+
+
+
+\begin{thm}[Mieda's Theorem about the Specialization Map]\label{thm:MiedaThmFiniteLvl}
+  Let $\pi: \cY_s \to $
+\begin{proof}
+\end{proof}
+\end{thm}
 
 % subsection The Injectivity Result (end)
 
 \subsection{Application to the Lubin--Tate Tower} % (fold)
 \label{sub:Application to the Lubin--Tate Tower}
-Let $U$ and $\cX = \spf C$ be ...
+
 
 For our purposes the following results, taken from \cite[Corollary
 4.6]{mieda2016geometric}, suffice.
 \begin{thm}[Mieda's Result for the Lubin--Tate Tower]\label{thm:MiedaAppliedToLTT}
-  Let $J$ be a subgroup of $G^1$ whose action on $M_{\infty, \Cp}^{(0)}$ 
+  Let $J$ be a subgroup of $G^1$ whose action on $M_{\infty, E}^{(0)}$ 
   stabilizes $U$ and extends to an action on $\cX$. Assume that there exists an
   affine scheme $Y$ of finite type over $\Fqbar$ equipped with a right action of 
   $J$ such that there is an isomorphism
   \begin{equation*}
-    \cX_s = \spec(A \otimes_{\cO_\Cp} \Fqbar) \xto \sim Y^\perf
+    \cX_s = \spec(A \otimes_{R} \Fqbar) \xto \sim Y^\perf
   \end{equation*}
   of schemes over $\spec \Fqbar$, equivariant for the action of $J$ on both sides.
   Then we have the following.
@@ -76,7 +135,7 @@ For our purposes the following results, taken from \cite[Corollary
     \item We have a $J$-equivariant homomorphism
       \begin{equation*}
         \specmap^*: \hH_c^{n-1}(Y, \bar \Q_\ell) \to \colim_K \hH_c^{n-1}
-        (M_{K, \Cp}^{(0)}, \bar \Q_\ell) \eqcolon \HLT'.
+        (M_{K, E}^{(0)}, \bar \Q_\ell) \eqcolon \HLT'.
       \end{equation*}
     \item If $Y$ is pure-dimensional and smooth over $\spec(\Fqbar)$
       and $V$ is a subspace of $\hH^{n-1}_c(Y, \bar \Q_\ell)$ such that the
