@@ -9,8 +9,9 @@
 * Definition of supercuspidal representations
 
 ### Small to dos:
-* Change $A$ to ring of integers of $E$ throughout
+* Change $A$ to ring of integers of $E$ throughout, $R$ to ring of integers of $\breve E$.
 * Replace admissible algebras by adic ones (more comfortable)
+* Minor fixes in DLTheory chapter
 * What is a supercuspidal representation?
 * Proof of Proposition 8.3.4 (Application of Mieda's results)
 
