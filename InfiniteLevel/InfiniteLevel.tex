@@ -3,6 +3,7 @@
 
 \begin{document}
 \section{The Lubin--Tate Space at Infinite Level}
+% Intro (fold)
 In this section, we introduce, attached to a formal group law
 $H_0 \in \FMLOver {\cO_E}{\Fqbar}$ of height $n \in \N$, the infinite level
 deformation moduli problem
@@ -25,24 +26,12 @@ complete (see \cite[\href{https://stacks.math.columbia.edu/tag/05JA}{Tag
 finitely generated, so this pathology does not occur and $\cM_\infty^{(0)}
 \coloneqq \spf A_\infty$ makes senes as a formal scheme.
 
-Let $G$ denote the product $\GL_n(E) \times D^\times \times \Weil_E$
-and write $G^0 \subset G$ for the subgroup given by the kernel of the homomorphism
-\begin{equation*}
-  G \to \Z, \quad (g, d, \sigma) \mapsto \val( \det(g)^{-1} \Nrd_{D/E}(d)
-  \Art_E^{-1}(\sigma)). 
-\end{equation*}
-The action of $G$ on the tower $\{\cM_{m, \cO_{\C_p}}\}_m$ constructed in
-Section \ref{ssub:The
-Tower of Deformation Spaces} restricts to an action of $G^0$ on the tower
-$\{\cM_{m, \cO_{\C_p}}^{(0)}\}_m$. This yields a right action of $G^0$ on the formal 
-scheme $\cM_{\infty}\times_{\spf(\cO_\br E)} \spf(\cO_{\C_p})$, equivalent to
-a left action on the ring $A_\infty \cotimes_{\cO_\br E} \cO_{\C_p}$.
-
 This section is concerned with the study of the ring $A_\infty$. 
 The main results are summarized as follows. 
-First, we review some of the constructions in Chapter 2 of \cite{weinstein2016semistable}.
-As a first step, making use of the determinants of formal $\cO_E$-modules constructed in 
-\cite{hedayatzadeh2015det}, we obtain a natural homomorphism
+First, we review some of the constructions in Chapter 2 of
+\cite{weinstein2016semistable}. As a first step, making use of the determinants
+of formal $\cO_E$-modules constructed in \cite{hedayatzadeh2015det}, we obtain
+a natural homomorphism
 \begin{equation*}
    \cO_{\widehat{E^\ab}} \to  A_\infty.
 \end{equation*}
@@ -55,19 +44,37 @@ notion and its relation with the moduli problem $\cM_{\infty,
   A_{\infty, \cO_{\C_p}} \coloneq A_\infty \cotimes_{\cO_{\widehat{E^\ab}}}
   \cO_{\C_p} 
   \cong \cO_{\C_p} \llbr X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}} \rrbr /
-  (\delta(X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}})^{q^{-m}} - \tau^{q^{-m}} \mid 
+  (\Delta(X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}})^{q^{-m}} - \tau^{q^{-m}} \mid 
   m \in \N)^- ,
 \end{equation}
-where the superscript minus denotes the completion of the ideal. 
+for certain elements $\Delta \in \cO_{\br E} \llbr X_1^{q^{-\infty}}, \dots,
+X_n^{q^{-\infty}}\rrbr$ and $\tau \in \cO_\Cp$. The superscript minus denotes
+the completion of the ideal.
 
-The main effort is taken in an description of the action by $G^0$ 
-on $A_{\infty,\cO_{\C_p}}$ in terms of this isomorphism following
-\cite[Section 1.2]{imaitsushima2020affinoids}, 
-and an approximation of $\delta$ following \cite[Section
+The main effort is taken in an description of the various group actions on
+$\cM_\infty \times_{\Spf(\cO_\br E)} \Spf(\cO_\Cp)$ in terms of this
+isomorphism, following \cite[Section 1.2]{imaitsushima2020affinoids}, 
+as well as an approximative description of $\Delta$ following \cite[Section
 2.10]{BoyarchenkoWeinstein2011MaxVar}.
 These results give the necessary information to observe the perfection of a
 Deligne--Lusztig variety as the special fiber of some affinoid inside the
-Lubin--Tate perfectoid space. This space is constructed at the end of this section.
+Lubin--Tate perfectoid space, in a certain way compatible with the respective group
+actions. 
+
+%Let $G$ denote the product $\GL_n(E) \times D^\times \times \Weil_E$.
+%We have seen in Section \ref{sec:Non-Abelian Lubin-Tate Theory: An Overview} 
+%that $G$ acts on the tower $\{\cM_{m} \times_{\spf(\cO_\br E)} \cO_{\C_p}\}_m$,
+%inducing an action on the infinite-level space 
+%$\cM_\infty \times_{\Spf(\cO_\br E)} \Spf(\cO_\Cp)$,
+%which we will see to admit a decomposition
+%\begin{equation}\label{eq:DecompositionOfMinfty}
+%  \cM_\infty \times_{\Spf(\cO_\br E)} \Spf(\cO_\Cp) = \coprod_{\alpha \in E^\times}
+%  \cM_{\infty,\cO_\Cp}^\alpha = \coprod_{\alpha \in E^\times} \Spf
+%  (A_{\infty,\cO_\Cp}^\alpha).
+%\end{equation}
+
+
+% Intro (end)
 
 \subsection{Determinants of Formal modules} % (fold)
 \label{sub:Determinants of Formal modules}
@@ -152,7 +159,39 @@ formal $\cO_E$-module in the following example.
 % subsubsection Determinants of Formal modules (end)
 
 \subsection{The Universal Cover} % (fold)
-\label{sub:Tate Modules and the Universal Cover}
+\label{sub:Tate Modules and the Universal Cover} 
+
+% Subintro (fold)
+Assume that $A$ is a discrete valuation ring with uniformizer
+$\varpi$, finite residue field $k$ and field of fractions $K$. 
+Write $q = \# k$. Let $R$ be an admissible $A$-algebra admitting an ideal of definition
+$I$ with $R/I = \Fqbar$. Let $\cF$ be a formal
+$\varpi$-divisible $A$-module over $R$ of height $n$. 
+\begin{defi}[The Universal Cover]
+  We denote by $\tilde \cF$ the functor
+  \begin{equation*}
+    \Tilde \cF \colon \Adm R \to \Vec {K}, \quad
+    S \mapsto \left\{(x_1, x_2, \dots) \in \prod_{\N} \cF(S) \mid \varpi (x_{i+1}) =
+    x_i \right\}.
+  \end{equation*}
+  Note that for $S \in \Adm R$, the set $\Tilde \cF(S)$ has a natural
+  $A$-module structure with multiplication by $\varpi$ an isomorphism, making
+  it a $K$-vector space.
+\end{defi}
+
+We remark that the Tate module
+\begin{equation}\label{eq:TateModuleDef}
+  T_\varpi \cF \colon \Adm R \to \Mod A, \quad S \mapsto \{(x_1, x_2, \dots)
+  \in \tilde \cF \mid \varpi x_1 = 0\}
+\end{equation}
+as well as the rational Tate module 
+\begin{equation}\label{eq:RationalTateModuleDef}
+  V_\varpi \cF \colon \Adm R \to \Vec K, \quad S \mapsto \{(x_1, x_2, \dots)
+  \in \tilde \cF \mid \exists n \in \N : \varpi^n x_1 = 0\}
+\end{equation}
+arise as subfunctors of $\Tilde \cF$. 
+% Subintro (end)
+
 \subsubsection{Useful Calculations} % (fold)
 \label{ssub:Useful Calculations}
 Let $p$ be a prime. Let $R$ be a Noetherian local ring with maximal ideal $I$
@@ -324,42 +363,8 @@ We collect results.
 \end{prop}
 % subsubsection Useful Calculations (end)
 
-\subsubsection{The Universal Cover} % (fold)
+\subsubsection{Applications to the Universal Cover} % (fold)
 \label{ssub:The Universal Cover}
-Let $A$ be an integral domain and $R$ be an $A$-algebra. Given $\cF \in \FMOver
-AR$ and $a \in A$,
-we define the functor 
-\begin{equation*}
-  \Tilde \cF_a : \Adm R \to \Mod {A}, \quad
-  S \mapsto \left\{(x_1, x_2, \dots) \in \prod_{\N} \cF(S) \mid [a]_\cF(x_{i+1}) =
-  x_i \right\}.
-\end{equation*}
-Here, the $A$-module structure is given by $b.(x_1, x_2,\dots) = ([b]_\cF(x_1), [b]_(x_2),
-\dots)$. Note that multiplication by $a$ on $\tilde \cF_a(S)$ is an automorphism
-(it sends $(x_1, x_2, \dots)$ to $([a]_\cF x_1, x_1, x_2, \dots)$, which has inverse given
-by shifting to the left)  so that $\tilde \cF_a(S)$ is naturally an
-$A[\frac1a]$-module.
-
-From now on assume that $A$ is a discrete valuation ring with uniformizer
-$\varpi$, finite residue field $k$ and field of fractions $K$. 
-Write $q = \# k$. Let $R$ be a local $A$-algebra with maximal ideal $I$ and
-algebraically closed residue field $k_R = R/I$. Let $\cF$ be a formal
-$\varpi$-divisible $A$-module over $R$ of height $n$. 
-\begin{defi}[The Universal Cover and Tate Module]
-  We write $\tilde \cF = \tilde \cF_\varpi$. This functor
-  takes values in the category of $K$-vector spaces.
-  Up to natural isomorphism, $\tilde \cF$ does not depend on the choice of 
-  $\varpi$. We call this functor the universal cover of $\cF$. 
-
-  The Tate-Module $T_\varpi \cF$ is the subfunctor of $\Tilde \cF$ cut out out
-  by the condition that $[\varpi]_\cF(x_1) = 0$. Note that $T_\varpi \cF$ does no longer 
-  carry the structure of a $K$-vector space, it is an $A$-module. The Rational
-  Tate Module $V_\varpi \cF$ is the subfunctor of $\Tilde \cF$ cut out by the
-  condition that $x_1$ has $[\varpi]_\cF$-torsion. Equivalently, we have 
-  \begin{equation*}
-    V_\varpi \cF (S) = T_\varpi \cF(S) \otimes_A K.
-  \end{equation*}
-\end{defi}
 
 Fix a coordinate $\cF \cong \spf(R\llbr T \rrbr)$ so that $\cF = \FGG(F)$ for
 some $A$-module law $F \in \FMLOver AR$. Then $[\varpi]_F(T) \in \cP_R$, and
@@ -409,10 +414,9 @@ Similarly, we write $\mu: \Nilp^\flat \to \Tilde \cF$ for the inverse of
 $\lambda$ and $\mu_i$ for the $i$-th component of $\mu$. 
 
 By the proposition above, quasi-isogenies on $\cF_0$ induce isomorphisms on 
-$\tilde \cF$. In particular, there is a natural left action of 
-$D^\times = \End_{\FMOver {\cO_E} \Fqbar}(\cF_0)[\varpi^{-1}]^\times$ on $\tilde \cF$. 
+$\tilde \cF$. This will be used to construct an action of $D^\times$ on 
+$\tilde \cF$ below. 
 The relative Frobenius morphism lifts as well.
-
 \begin{defi}[Relative Frobenius on $\Tilde \cF$] \label{def:FrobOnUnivCov}
   Write $\Pi: \Tilde \cF \to \Phi^{-1,*}\Tilde \cF$ for the isomorphism coming from
   the Frobenius quasi-isogeny 
@@ -421,146 +425,6 @@ The relative Frobenius morphism lifts as well.
   \end{equation*}
 \end{defi}
 
-By the explicit description of $\lambda$ in Lemma
-\ref{lem:GroupStructureOnNilp}, we find that $\lambda_i(\Pi x) =
-\lambda_i(x)^q$ for $x \in \Tilde \cF(S)$ and $i\in \N_0$. 
-
-As $\tilde \cF$ is a $K$-vector space
-object, the isomorphism $\lambda: \tilde \cF \to \Nilp^\flat$ equips
-$\Nilp^\flat$ with the stucture of a $K$-vector space object. Upon choosing a 
-suitable coordinate for $\cF$, this structure admits the following description.
-
-\begin{lem}\label{lem:GroupStructureOnNilp}
-  Suppose that $F$ is a formal module law over $R$ with $[\varpi]_F(T) \equiv
-  T^{q^n}$ mod $I$. Then the following assertions hold.
-  \begin{itemize}
-    \item The bijections
-        \begin{equation*}
-          \lambda \colon \tilde F(S) \rightleftarrows \Nilp^\flat(S) \colon
-          \mu, \quad (x_0, x_1, \dots) \mapsspamto (y, y^{q^{-1}}, y^{q^{-2}},
-          \dots)
-        \end{equation*}
-        are, in either direction, given by the equations
-        \begin{equation*}
-          y^{1/q^{ni}} = \lim_{r \to \infty} x_{r+i}^{q^{nr}} \quad \text{and} \quad 
-          x_i = \lim_{s \to \infty} [\varpi^s]_F(y^{q^{-n(i+s)}}).
-        \end{equation*}
-    \item Given two $q$-th power compatible systems $y_1, y_2
-      \in \Nilp^\flat(S)$ corresponding to compatible systems
-      $\mu(y_1) = x_1$, $\mu(y_2) = x_2 \in \tilde \cF(S)$, the sum $x_1 + x_2 \in
-      \tilde \cF(S)$ corresponds to the element $\lambda(x_1 + x_2) = y_1 +_F y_2 \in
-      \Nilp^\flat(S)$, where 
-      \begin{equation*}
-        (y_1 +_F y_2)^{1/q^j} = \lim_{r \to \infty} F( y_1^{q^{-r}},
-        y_2^{q^{-r}})^{q^{r-j}}.
-      \end{equation*}
-      If $G \in \FMLOver AR$ with $G \otimes \Fqbar = F \otimes \Fqbar$,
-      the systems of $q$-th power roots $(y_1 +_F y_2)$ and $(y_1 +_G y_2)$ agree. 
-    \item Similarly, given $a \in \cO_E$ and $y \in \Nilp^\flat(S)$ with
-      $\mu(y) = x \in \Tilde F(S)$, we have 
-      \begin{equation*}
-        a_F y = \lambda([a]_F(x)) = \lim_{r \to \infty} [a]_F(y^{q^{-r}})^{q^{r-j}}.
-      \end{equation*}
-      For $G$ as above, we have $[a]_F(x) = [a]_G(x)$. 
-  \end{itemize}
-\begin{proof}
-  The first statement is an immediate corollary of the second part of
-  Proposition \ref{prop:pHTcalc} applied with $f(T) = [\varpi]_F(T)$ and $g(T)
-  = T^{q^n}$, as we may choose $h_f(T) = h_g(T) = T$. 
-  The second assertion follows directly after tracing through the commutative diagram
-  \begin{equation*}
-    \begin{tikzcd}[ampersand replacement=\&]
-    	\& {\Tilde F(S)^2} \& {\Tilde F(S)} \\
-    	{\Nilp^\flat(S)^2} \& {\Tilde F_0(S/J)^2} \& {\Tilde F_0(S/J)} \& {\Nilp^\flat(S).}
-    	\arrow["{F(-,-)}", from=1-2, to=1-3]
-    	\arrow[ from=1-2, to=2-2]
-    	\arrow[ from=1-3, to=2-3]
-    	\arrow["\lambda", from=1-3, to=2-4]
-    	\arrow["\mu", from=2-1, to=1-2]
-    	\arrow[ from=2-1, to=2-2]
-    	\arrow["{F_0(-,-)}", from=2-2, to=2-3]
-    	\arrow[from=2-3, to=2-4]
-    \end{tikzcd}
-  \end{equation*}
-  Similarly one proves the third statement.
-\end{proof}
-\end{lem}
-
-
-In the case where $H$ is the standard formal $\cO_E$-module over $\cO_\br E$,
-we have the following description of the actions of $K^\times$ and $D^\times$ on
-$\Nilp^\flat$.
-
-\begin{cor}\label{cor:ExplicitDescriptionOfActionOnUnivCov}
-  Let $a \in E$ and $d \in D^\times$ be elements so that
-  \begin{itemize}
-    \item the element $a$ is, for some $l \in \Z$, of the form
-      \begin{equation*}
-        a = \sum_{i = l}^\infty a_i \varpi^i \quad \text{for} \quad
-        a_i \in \mu_{q-1}(E) \cup \{0\}.
-      \end{equation*}
-    \item the element $d$ is, for some $l' \in \Z$ and 
-      $\vartheta \in \End_{\FMLOver {\cO_E}\Fqbar} (H_0)$ the endomorphism given
-      by $\vartheta(T) = T^q$, of the form
-      \begin{equation*}
-        d = \sum_{i = l'}^\infty d_i \vartheta^i \quad \text{for} \quad
-        d_i \in \mu_{q^n-1}(E_n) \cup \{0\}.
-      \end{equation*}
-      Here $E_n$ denotes the unramified extension of $E$ with residue field 
-      $\FF_{q^n}$. 
-  \end{itemize}
-  Then, given any $S \in \Adm R$ \red{Correct category?} and $x = (x_1, x_2, \dots)
-  \in \tilde H(S)$ with $\lambda(x)^{1/q^i} = y^{1/q^i} \in \Nilp^\flat(S)$, we
-  have the explicit descriptions
-  \begin{equation*}
-    a_H(y)^{1/q^j}  = (H) \sum_{i=l}^\infty a_i y^{q^{ni-j}}
-  \quad \text{and} \quad
-  d_H(y)^{1/q^j} \coloneqq \lambda(dx)^{1/q^j} = (H) \sum_{i=l'}^\infty d_i y^{q^{i-j}}
-  \end{equation*}
-  Here the prefix $(H)$ denotes addition of $q$-th power root systems with
-  respect to the addition in $H$, as defined in the previous lemma.
-  \begin{proof}
-    This is an immediate corollary of the Lemma above, Lemma
-    \ref{lem:MultByROUForStandardModule} and the fact that 
-    $[\varpi]_H(T) \equiv T^{q^n} \pmod \varpi$. 
-  \end{proof}
-\end{cor}
-
-Finally, we remark how to express the logarithm map in terms of the isomorphism
-$\lambda$.
-
-
-\begin{lem}\label{lem:LogInTermsOfNil}
-  Let $H$ be the standard formal $\cO_K$-module of height $n$ over $R =
-  \cO_{\breve K}$. We have a commutative diagram (cf. \cite[Lemma
-  2.6.1]{BoyarchenkoWeinstein2011MaxVar})
-  \begin{equation*}
-  \begin{tikzcd}[ampersand replacement=\&]
-  	{(x_0, x_1, \dots)} \& {\Tilde H(S)} \&\& {\Nil^\flat(S)} \& {(y,y^{1/q}, \dots)} \\
-  	{\sum_{i=0}^\infty \frac{x_0^{q^{ni}}}{\varpi^i}} \&\& {S\otimes_{\cO_K}K} \&\& {\sum_{i = -\infty}^\infty\frac{y^{q^{ni}}}{\varpi^i}}
-  	\arrow["\in"{description}, draw=none, from=1-1, to=1-2]
-  	\arrow[maps to, from=1-1, to=2-1]
-  	\arrow["\lambda", from=1-2, to=1-4]
-  	\arrow["{\log_H}"', from=1-2, to=2-3]
-  	\arrow[from=1-4, to=2-3]
-  	\arrow["\ni"{description}, draw=none, from=1-5, to=1-4]
-  	\arrow[maps to, from=1-5, to=2-5]
-  \end{tikzcd}
-  \end{equation*}
-  With this terminology, we have $\log_H((\Pi^j x)_0) = \sum_{i = -\infty}^\infty
-  \frac{ y^{ni + j}}{\varpi^i}$. 
-\begin{proof}
-  This follows directly from the remark above. Let $x \in \Tilde H(S)$ and write
-  $\lambda(x) = (y, y^{1/q}, \dots)$. We have $x_0 = \lim_{s \to \infty}
-  [\varpi^s]_H(y^{-ns})$, hence
-  \begin{equation*}
-    \log_H(x_0) = \lim_{s \to \infty}\left( \varpi^s \log_H(y^{1/q^{ns}})\right) = 
-    \lim_{s \to \infty}\left( \sum_{i=0}^\infty  \frac{y^{q^{n(i-s)}}}{\varpi^{i-s}}\right)
-    = \sum_{i=-\infty}^\infty \frac{y^{q^{ni}}}{\varpi^i}.
-  \end{equation*}
-  The second part is an immediate consequence.
-\end{proof}
-\end{lem}
 
 
 % subsubsection The Universal Cover (end)
@@ -586,7 +450,8 @@ of compatible systems
 Now let $\cF$ be an arbitrary deformation of $\cF_0$ to $\cO_{\br E}$. By 
 Proposition \ref{prop:UnivCoverReductionIso}, we have isomorphisms
 \begin{equation*}
-  \tilde \cF^{\univ,n}(A_\infty) \cong \tilde \cF_0^n(A_\infty/I_\infty)
+  \tilde \cF^{\univ,n}(A_\infty) \cong \tilde \cF_0^{\univ, n}(A_\infty/I_\infty)
+  \xto{\iota} \tilde \cF_0(A_\infty/I_\infty)
   \cong \tilde \cF^n(A_\infty).
 \end{equation*}
 This constructs a morphism of formal schemes over $\spf R$
@@ -613,31 +478,49 @@ This constructs a morphism of formal schemes over $\spf R$
 \end{proof}
 \end{thm}
 
-\begin{cor}\label{cor:StructureOfAinfty}
-  Let $(\tau^{1/q^m})_{m \in \N} \in \cO_{\hat E^\ab}$ be a \red{primitive, make
-  precise} system of $q$-th power roots. Then we have 
-  \begin{equation*}
-  A_\infty \cong \cO_{\hat E^\ab}\llbr X_1^{q^{-\infty}}, \dots,
-  X_n^{q^{-\infty}}\rrbr/(\delta^{q^{-m}} - \tau^{q^{-m}} \mid m \in \N)^-.
-  \end{equation*}
-  In particular, we obtain the equality in \eqref{eq:ExplicitAinftyBCtoOC}.
-\begin{proof}
-\end{proof}
-\end{cor}
 
+To end this subsection, we note that, as the embeddings of 
+$\cO_\br E \inj \cO_{\hat E^\ab}$ are identified with $\cO_E^\times$ by
+the Artin map, we have the decomposition
+\begin{equation}\label{eq:decompofcMinftyZEROtensorwithOCp}
+  \cM_{\infty}^{(0)} \times_{\Spf \cO_\br E} \Spf(\cO_\Cp)
+  = \coprod_{\alpha \in \cO_E^\times} \cM_{\infty, \cO_\Cp}^\alpha.
+\end{equation}
+Here $\cM_{\infty, \cO_\Cp}^\alpha \coloneqq \cM_{\infty}^{(0)} \times_{\Spf \cO_\br E,
+\alpha} \Spf(\cO_\Cp)$.
+This also implies the decomposition 
+\begin{equation}\label{eq:decompOfMInftyQuotTensorWithOCp}
+  \cM_{\infty, \varpi^\Z} \times_{\Spf \cO_\br E} \Spf (\cO_\Cp) = 
+  \coprod_{j \in \Z/n\Z} \cM_{\infty}^{(j)}\times_{\spf \cO_\br E} \Spf(\cO_\Cp)
+  = \coprod_{\alpha \in E^\times/\varpi^n} \cM_{\infty, \cO_\Cp}^{\alpha},
+\end{equation}
+where $\cM_{\infty, \cO_\Cp}^\alpha = \cM_{\infty}^{(j)} \times_{\spf \cO_\br E,
+\bar \alpha} \Spf \cO_\Cp$ for $j \in \Z/n\Z$ equal to the residue of the
+$\varpi$-adic valuation of $\alpha$ and $\bar \alpha =
+\varpi^{-\val_\varpi(\alpha)}\alpha \in \cO_E^\times$.
 
 % subsubsection Relation to the Deformation Space at Infinite Level (end)
 
-\subsubsection{Group Actions on the Universal Cover} % (fold)
+\subsubsection{Reviewing the Group Actions} % (fold)
 \label{ssub:Group Actions on the Universal Cover}
+Write
+\begin{equation*}
+  G \coloneqq \GL_n(E) \times D^\times \times \Weil_E,
+\end{equation*}
+and define a homomorphism
+\begin{equation*}
+  \theta \colon G \to E^\times, \quad (g,d,\sigma) \mapsto \det(g) \Nrd(d)^{-1}
+  \Art^{-1}_E(\sigma).
+\end{equation*}
+
+Let $G^1$ be the preimage of $\cO_E^\times$ under $\theta$, so that 
+$G^1$ acts on $\cM_{\infty}^{(0)} \times_{\Spf \br E} \Spf(\cO_\Cp)$. 
 Given a $\varpi$-divisible formal $A$-module $\cF \in \FMOver AR$ of height
 $n$, we write $\cF_{\cO_\Cp} = \cF \otimes \cO_\Cp$ and describe a natural right
 action on $\tilde \cF_{\cO_\Cp}^n$ by the group 
-\begin{equation*}
-  G = \GL_n(E) \times D^\times \times W_E,
-\end{equation*}
-such that the map $\cM_{\infty, \cO_\Cp} \to \tilde \cF_{\cO_\Cp}^n$,
-induced by the map constructed above is equivariant for this action. 
+such that the map $\cM_{\infty}^{(0)} \to \tilde \cF_{\cO_\Cp}^n$,
+induced by the map constructed above is equivariant for the respective
+$G^1$-actions.
 
 The action of $G$ on $\tilde \cF^n$ is easy to describe. For the action of
 $\GL_n(E)$, note that $\tilde \cF$ carries the structure of a $E$-vector space
@@ -679,8 +562,9 @@ It is easy to see that the actions of $\GL_n(E)$ and $\Weil_E$ commute,
 and that both these actions commute with the Weil descent datum. Hence we
 obtain a right action by $G$ on $\tilde \cF^n_{\cO_\Cp}$.
 
-\begin{lem}\label{lem:MapToUnivCovIsEquivariant}
-  The morphism $\cM_{\infty, \cO_\Cp}^{(0)} \to \tilde \cF_{\cO_\Cp}^n$
+\begin{prop}\label{lem:MapToUnivCovIsEquivariant}
+  The morphism $\cM_{\infty}^{(0)} \times_{\spf \cO_\br E} \spf(\cO_\Cp)
+  \to \tilde \cF_{\cO_\Cp}^n$
   in \eqref{eq:MapFromMtoTildeF} is equivariant for the action of $G^1$ on both
   sides.
 \begin{proof}
@@ -704,33 +588,179 @@ obtain a right action by $G$ on $\tilde \cF^n_{\cO_\Cp}$.
   commutes. 
   \red{Todo: more explicit description of group action on $A_\infty$.}
 \end{proof}
+\end{prop}
+
+% subsubsection Group Actions on the Universal Cover (end)
+
+\subsubsection{Making the Group Actions Explicit} % (fold)
+\label{ssub:Making the Group Actions Explicit}
+
+We now choose a coordinates for $\cM_{\infty}^{(0)}$ and make the group action
+of $G^1$ explicit in terms of these coordinates. Let $H$ be the standard formal
+$\cO_E$-module over $\br E$ of height $n$. By the monomorphism constructed in
+\eqref{eq:MapFromMtoTildeF} and Proposition \ref{lem:MapToUnivCovIsEquivariant},
+the action of $G^1$ on $\cM_{\infty}^{(0)}$ is determined by the action of 
+$G^1$ on $\tilde H^n$. As canonically $\tilde H^n \cong \Nilp^{\flat, n}$, the
+right action
+of $G$ on $\tilde H^n$ is equivalent to a left action on the algebra
+$$\Xi_n \coloneqq \cO_\Cp \llbr X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}}\rrbr.$$ 
+Our first aim is to make this action explicit.
+
+We begin with an explicit description of the isomorphisms $\mu$ and $\lambda$
+of Proposition \ref{prop:UnivCoverReductionIso}.
+
+\begin{lem}\label{lem:ExplicitDescrOfMuAndLambda}
+  The bijections
+  \begin{equation*}
+    \lambda \colon \tilde H(S) \rightleftarrows \Nilp^\flat(S) \colon
+    \mu, \quad (x_0, x_1, \dots) \mapsspamto (y, y^{q^{-1}}, y^{q^{-2}},
+    \dots)
+  \end{equation*}
+  are, in either direction, given by the equations
+  \begin{equation*}
+    y^{1/q^{ni}} = \lim_{r \to \infty} x_{r+i}^{q^{nr}} \quad \text{and} \quad 
+    x_i = \lim_{s \to \infty} [\varpi^s]_H(y^{q^{-n(i+s)}}).
+  \end{equation*}
+\begin{proof}
+  This follows directly from the fact that $[\varpi]_H(T) \equiv T^{q^n}$ modulo
+  $\varpi$ and the explicit description of the isomorphism in Proposition
+  \ref{prop:pHTcalc}.
+\end{proof}
 \end{lem}
 
-Suppose that $\cF = \FGG(H)$ comes from the standard formal $\cO_E$-module of
-height $n$ over $\cO_\br E$. Under the isomorphism $\lambda: \tilde H \to
-\Nilp^\flat$, the right action of $G$ on $\tilde H^n \otimes \cO_\Cp$
-corresponds to a left action of $G$ on $B_n = \cO_\Cp \llbr X_1^{q^{- \infty}}, \dots,
-X_n^{q^{- \infty}} \rrbr$. By tracing through the definitions, we obtain the 
-following description.
+This Lemma allows us to make the $\cO_E$-module structure on $\tilde H$
+explicit. Let $S$ be an adic $\cO_\br E$-algebra \red{correct category?}.
+
+\begin{lem}\label{lem:GroupStructureOnNilp}
+  The $K$-vector space structure on $\tilde H$ takes on the following form.
+  \begin{itemize}
+    \item Given two $q$-th power compatible systems $y_1, y_2
+      \in \Nilp^\flat(S)$ corresponding to compatible systems
+      $\mu(y_1) = x_1$, $\mu(y_2) = x_2 \in \tilde H(S)$, the sum $x_1 + x_2 \in
+      \tilde H(S)$ corresponds to the element $\lambda(x_1 + x_2) = y_1 +_H y_2 \in
+      \Nilp^\flat(S)$, where 
+      \begin{equation*}
+        (y_1 +_H y_2)^{1/q^j} = \lim_{r \to \infty} H( y_1^{q^{-r}},
+        y_2^{q^{-r}})^{q^{r-j}}.
+      \end{equation*}
+      If $G \in \FMLOver AR$ with $G \otimes \Fqbar = H \otimes \Fqbar$,
+      the systems of $q$-th power roots $(y_1 +_H y_2)$ and $(y_1 +_G y_2)$ agree. 
+    \item Similarly, given $a \in \cO_E$ and $y \in \Nilp^\flat(S)$ with
+      $\mu(y) = x \in \Tilde H(S)$, we have 
+      \begin{equation*}
+        a_H y = \lambda([a]_H(x)) = \lim_{r \to \infty} [a]_H(y^{q^{-r}})^{q^{r-j}}.
+      \end{equation*}
+      For $G$ as above, we have $[a]_H(x) = [a]_G(x)$. 
+  \end{itemize}
+\begin{proof}
+  The first statement follows directly from the lemma above, after tracing
+  through the commutative diagram
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+    	\& {\Tilde H(S)^2} \& {\Tilde H(S)} \\
+    	{\Nilp^\flat(S)^2} \& {\Tilde H_0(S/J)^2} \& {\Tilde H_0(S/J)} \& {\Nilp^\flat(S).}
+    	\arrow["{H(-,-)}", from=1-2, to=1-3]
+    	\arrow[ from=1-2, to=2-2]
+    	\arrow[ from=1-3, to=2-3]
+    	\arrow["\lambda", from=1-3, to=2-4]
+    	\arrow["\mu", from=2-1, to=1-2]
+    	\arrow[ from=2-1, to=2-2]
+    	\arrow["{H_0(-,-)}", from=2-2, to=2-3]
+    	\arrow[from=2-3, to=2-4]
+    \end{tikzcd}
+  \end{equation*}
+  Similarly one proves the third statement.
+\end{proof}
+\end{lem}
+
+We obtain the following description of the $K^\times \times D^\times$-action.
+
+\begin{cor}\label{cor:ExplicitDescriptionOfActionOnUnivCov}
+  Let $a \in E$ and $d \in D^\times$ be elements so that
+  \begin{itemize}
+    \item the element $a$ is, for some $l \in \Z$, of the form
+      \begin{equation*}
+        a = \sum_{i = l}^\infty a_i \varpi^i \quad \text{with} \quad
+        a_i \in \mu_{q-1}(E) \cup \{0\}.
+      \end{equation*}
+    \item the element $d$ is, for some $l' \in \Z$ and 
+      $\vartheta \in \End_{\FMLOver {\cO_E}\Fqbar} (H_0)$ the endomorphism given
+      by $\vartheta(T) = T^q$, of the form
+      \begin{equation*}
+        d = \sum_{i = l'}^\infty d_i \vartheta^i \quad \text{with} \quad
+        d_i \in \mu_{q^n-1}(E_n) \cup \{0\}.
+      \end{equation*}
+      Here $E_n$ denotes the unramified extension of $E$ with residue field 
+      $\FF_{q^n}$. 
+  \end{itemize}
+  Then, given any $x = (x_1, x_2, \dots)
+  \in \tilde H(S)$ with $\lambda(x)^{1/q^i} = y^{1/q^i} \in \Nilp^\flat(S)$, we
+  have the explicit descriptions
+  \begin{equation*}
+    a_H(y)^{1/q^j}  = \sum_{i=l}^\infty\sumH a_i y^{q^{ni-j}}
+  \quad \text{and} \quad
+  d_H(y)^{1/q^j} \coloneqq \lambda(dx)^{1/q^j} = \sum_{i=l'}^\infty \sumH d_i y^{q^{i-j}}
+  \end{equation*}
+  Here the symbol $\sum \sumH$ \hspace{-10pt} denotes addition of $q$-th power
+  root systems with
+  respect to the addition in $H$, as defined in the previous lemma.
+  \begin{proof}
+    This is an immediate corollary of the Lemma above, Lemma
+    \ref{lem:MultByROUForStandardModule} and the fact that 
+    $[\varpi]_H(T) \equiv T^{q^n} \pmod \varpi$. 
+  \end{proof}
+\end{cor}
+
+It is now not hard to deduce an explicit description of the $\GL_n(E)$-action
+on $\tilde H^n(S)$, we write it down in terms of $\Xi_n$ below. Finally, we
+describe the action of $\Weil_E$ on $(\tilde H \otimes \cO_\Cp)$ in terms
+of $\Nilp^\flat \times_{\spf \cO_\br E} \Spf(\cO_\Cp) \eqcolon \Nilp^\flat_{\cO_\Cp}$.
+
+\begin{lem}\label{lem:ExplicitWeilGroupActionOnTildeH}
+  Let $\sigma \in \Weil_E$ and let $m \in \Z$ be an integer such that
+  $\sigma|_\br E = \Phi^m$. Let $(y, y^{1/q}, \dots)$ be an element in
+  $\Nilp_{\cO_\Cp}^\flat(S)$.
+  Then
+  \begin{equation*}
+    \sigma.(y_1, y_2, \dots) = (\sigma(y)^{q^{-m}}, \sigma(y)^{q^{-(m+1)}}, \dots).
+  \end{equation*}
+\begin{proof}
+  This follows from the definition of the Weil descent datum and the fact that 
+  the square
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+    	{\tilde H(S)} \& {\Nilp^\flat(S)} \\
+    	{\tilde H(S)} \& {\Nilp^\flat(S)}
+    	\arrow["\sim", from=1-1, to=1-2]
+    	\arrow["\Pi"', from=1-1, to=2-1]
+    	\arrow["{y \mapsto y^q}", from=1-2, to=2-2]
+    	\arrow["\sim", from=2-1, to=2-2]
+    \end{tikzcd}
+  \end{equation*}
+  is commutative.
+\end{proof}
+\end{lem}
+
+We obtain the following description of the left action of $G$ on $\Xi_n$.
 
 \begin{lem}\label{lem:ExplicitActionOnQthPowerRootSystems}
   Let $g = (a_{ij})_{i,j} \in \GL_n(E)$, $d \in D^\times$ and $\sigma \in
   \Weil_E$. Let $m \in \Z$ be such that $\sigma|_{\br E} = \Phi^m$. Then the
-  morphism $B_n \to B_n$ induced by the element $(g, d, \sigma) \in G$ is given by
+  morphism $\Xi_n \to \Xi_n$ induced by the element $(g, d, \sigma) \in G$ is given by
   the composition of the morphsims
   \begin{itemize}
-    \item $g^*\colon B_n \to B_n$ is the morphism of $\cO_\Cp$ algebras given
+    \item $g^*\colon \Xi_n \to \Xi_n$ is the morphism of $\cO_\Cp$ algebras given
       by $X_i \mapsto \sum_{j=1}^n \sumH {a_{ji}}_H(X_j)$. Writing
       $a_{ij} = \sum_{k=l}^\infty a_{ij}^{(k)} \varpi^k$ for  $a_{ij}^{(k)}$
       either vanishing or a $(q-1)$th root of unity and a sufficiently chosen integer
       $k$, we obtain, by Corollary
       \ref{cor:ExplicitDescriptionOfActionOnUnivCov}, the description
       \begin{equation*}
-        g^*(X_i) = \sum_{k=l}^\infty {\hspace{-3pt}}_H\hspace{3pt} \varpi^i_H
+        g^*(X_i) = \sum_{k=l}^\infty {\hspace{-3pt}}_H\hspace{3pt}
         \sum_{j=1}^n{\hspace{-3pt}}_H\hspace{3pt} a_{ji}^{(k)} X_j^{q^{nk}}
       \end{equation*}
       
-    \item $d^{-1,*} \colon B_n \to B_n$ is the isomorphism of 
+    \item $d^{-1,*} \colon \Xi_n \to \Xi_n$ is the isomorphism of 
       $\cO_\Cp$-algebras given by $X_i \mapsto d_H(X_i)$. 
       Writing $d^{-1} = \sum_{k=l}^\infty d_i \vartheta^k$ for
        a sufficiently small integer $k$, and $\vartheta$ and $d_i$ as in
@@ -741,32 +771,39 @@ following description.
         d_k X_i^{1/q^k}.
       \end{equation*}
 
-    \item $\sigma^*: B_n \to B_n$ is the isomorphism of 
+    \item $\sigma^*: \Xi_n \to \Xi_n$ is the isomorphism of 
       $\cO_E$-algebras given by $X_i \mapsto X_i^{q^{-m}}$ and 
       $a \mapsto \sigma(a)$ for $a \in \cO_\Cp$. 
   \end{itemize}
 \end{lem}
 
-Finally, we express the action of $G^1$ on $\cM_{\infty, \cO_\Cp}^{(0)} =
-A_\infty \cotimes_{\cO_\br E} \cO_\Cp$ in terms of the isomorphism
-\eqref{eq:ExplicitAinftyBCtoOC}.
-For $\alpha \in \Gal(\hat E^\ab / \br E) \cong \cO_E^\times$, we write
-$A_{\infty, \cO_\Cp}^{\alpha}$ for the ring
-$A_\infty \cotimes_{\hat E^\ab, \alpha} \cO_\Cp$.
-Under the isomorphism $\Gal(\hat E^\ab / \br E) \cong \cO_E^\times$ from 
-the local Kronecker--Weber theorem, this yields a decomposition
-\begin{equation*}
-  A_{\infty} \cotimes_{\cO_\br E} \cO_\Cp = \prod_{\alpha \in \cO_E^\times}
-  A_{\infty, \cO_\Cp}^{\alpha}.
-\end{equation*}
-We have 
-\begin{equation*}
-  A_{\infty, \cO_\Cp}^{\alpha} = \cO_{\Cp}\llbr X_1^{q^{-\infty}}, \dots, 
-  X_n^{q^{-\infty}} \rrbr / (\delta(X_1, \dots, X_n)^{1/q^m} - \Art_E(\alpha)(t)^{1/q^m} 
-  \mid m \in \N)^-,
-\end{equation*}
-and by local class field theory \red{make precise}, the action of $\Weil_E$ on
-$t$ induces a character $a_E: \Weil_E \to \cO_E^\times$. 
+Let us now turn our attention to the space $\cM_{\infty,\cO_\Cp}^{(0)}$. Recall
+the decomposition in \eqref{eq:decompofcMinftyZEROtensorwithOCp} and write
+$\cM_{\infty, \cO_\Cp}^{(0), \alpha} = \Spf(A^\alpha_{\infty, \cO_\Cp})$. 
+By Proposition \ref{prop:UnivCoverReductionIso},
+we obtain the following description of $A_{\infty, \cO_\Cp}^{\alpha}$ from
+Proposition \ref{thm:WeinsteinsCartesianSquare}. 
+
+\begin{cor}\label{cor:StructureOfAinfty}
+  Let $(\tau^{1/q^m})_{m \in \N} \in \cO_{\hat E^\ab}$ be a \red{primitive, make
+  precise} system of $q$-th power roots. Then we have 
+  \begin{equation*}
+    A_\infty \cong \cO_{\hat E^\ab}\llbr X_1^{q^{-\infty}}, \dots,
+    X_n^{q^{-\infty}}\rrbr/(\delta^{q^{-m}} - \tau^{q^{-m}} \mid m \in \N)^-.
+  \end{equation*}
+  In particular, 
+  as $\Delta$ has coefficients in $\cO_E$, this implies
+  \begin{equation*}
+    A_{\infty, \cO_\Cp}^\alpha \cong \cO_{\Cp}\llbr X_1^{q^{-\infty}}, \dots,
+    X_n^{q^{-\infty}}\rrbr/(\delta^{q^{-m}} - \sigma(\tau^{q^{-m}}) \mid m \in \N)^-,
+  \end{equation*}
+  where $\sigma$ is the embedding $\cO_\br E \inj \cO_{\hat E^\ab}$ corresponding
+  to $\alpha$ under the Artin map (and a fixed choice of embedding
+  $\cO_E \inj \cO_{\hat E^\ab}$). With $\alpha = 1$, this is the isomorphism
+  \eqref{eq:ExplicitAinftyBCtoOC}.
+\end{cor}
+
+
 
 
 \begin{prop}\label{prop:ExplicitDescriptionOfActionOnAinfty}
@@ -792,11 +829,65 @@ $t$ induces a character $a_E: \Weil_E \to \cO_E^\times$.
 \end{proof}
 \end{prop}
 
+In particular, there is a natural left action of 
+$D^\times = \End_{\FMOver {\cO_E} \Fqbar}(\cF_0)[\varpi^{-1}]^\times$ on $\tilde \cF$. 
 
-% subsubsection Group Actions on the Universal Cover (end)
+By the explicit description of $\lambda$ in Lemma
+\ref{lem:GroupStructureOnNilp}, we find that $\lambda_i(\Pi x) =
+\lambda_i(x)^q$ for $x \in \Tilde \cF(S)$ and $i\in \N_0$. 
+
+As $\tilde \cF$ is a $K$-vector space
+object, the isomorphism $\lambda: \tilde \cF \to \Nilp^\flat$ equips
+$\Nilp^\flat$ with the stucture of a $K$-vector space object. Upon choosing a 
+suitable coordinate for $\cF$, this structure admits the following description.
+
+
+Finally, we remark how to express the logarithm map in terms of the isomorphism
+$\lambda$.
+
+
+\begin{lem}\label{lem:LogInTermsOfNil}
+  Let $H$ be the standard formal $\cO_K$-module of height $n$ over $R =
+  \cO_{\breve K}$. We have a commutative diagram (cf. \cite[Lemma
+  2.6.1]{BoyarchenkoWeinstein2011MaxVar})
+  \begin{equation*}
+  \begin{tikzcd}[ampersand replacement=\&]
+  	{(x_0, x_1, \dots)} \& {\Tilde H(S)} \&\& {\Nil^\flat(S)} \& {(y,y^{1/q}, \dots)} \\
+  	{\sum_{i=0}^\infty \frac{x_0^{q^{ni}}}{\varpi^i}} \&\& {S\otimes_{\cO_K}K} \&\& {\sum_{i = -\infty}^\infty\frac{y^{q^{ni}}}{\varpi^i}}
+  	\arrow["\in"{description}, draw=none, from=1-1, to=1-2]
+  	\arrow[maps to, from=1-1, to=2-1]
+  	\arrow["\lambda", from=1-2, to=1-4]
+  	\arrow["{\log_H}"', from=1-2, to=2-3]
+  	\arrow[from=1-4, to=2-3]
+  	\arrow["\ni"{description}, draw=none, from=1-5, to=1-4]
+  	\arrow[maps to, from=1-5, to=2-5]
+  \end{tikzcd}
+  \end{equation*}
+  With this terminology, we have $\log_H((\Pi^j x)_0) = \sum_{i = -\infty}^\infty
+  \frac{ y^{ni + j}}{\varpi^i}$. 
+\begin{proof}
+  This follows directly from the remark above. Let $x \in \Tilde H(S)$ and write
+  $\lambda(x) = (y, y^{1/q}, \dots)$. We have $x_0 = \lim_{s \to \infty}
+  [\varpi^s]_H(y^{-ns})$, hence
+  \begin{equation*}
+    \log_H(x_0) = \lim_{s \to \infty}\left( \varpi^s \log_H(y^{1/q^{ns}})\right) = 
+    \lim_{s \to \infty}\left( \sum_{i=0}^\infty  \frac{y^{q^{n(i-s)}}}{\varpi^{i-s}}\right)
+    = \sum_{i=-\infty}^\infty \frac{y^{q^{ni}}}{\varpi^i}.
+  \end{equation*}
+  The second part is an immediate consequence.
+\end{proof}
+\end{lem}
+
+
+
+
+
+
+
+% subsubsection Making the Group Actions Explicit (end)
+
 
 % subsection Tate Modules and the Universal Cover (end)
-
 
 \subsection{The Quasilogarithm Map} % (fold)
 \label{sub:The Quasilogarithm map}
@@ -941,7 +1032,6 @@ We postpone the proof to state the following auxiliary result.
 
 
 % subsubsection The Quasilogarithm map (end)
-
 
 \subsection{An Approximation of the Determinant Morphism} % (fold)
 \label{sub:Determinants}
