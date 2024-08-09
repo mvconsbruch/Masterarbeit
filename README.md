@@ -1,4 +1,20 @@
 # Master's thesis
+## 09th of August
+[08_09_version.pdf](./compiled_versions/08_09_version.pdf) 
+### Big to dos:
+* Proof of Proposition 5.2.11 (Equivariance of map between $\mathfrac M$ to universal cover)
+* Proof of Proposition 8.1.4 ($\mathfrac X$ is a formal model for $U$)
+* Finishing Section 6, Section 3 and Subsection 4.2 (mostly literature work)
+* Finish construction determinant map of Universal covers as in [Weinstein, Semistable ...]
+* Definition of supercuspidal representations
+
+### Small to dos:
+* Change $A$ to ring of integers of $E$ throughout
+* Replace admissible algebras by adic ones (more comfortable)
+* What is a supercuspidal representation?
+* Proof of Proposition 8.3.4 (Application of Mieda's results)
+
+
 ## 26th of June
 [06_26_version.pdf](./compiled_versions/06_26_version.pdf) 
 Finally finished the section on DL-Theory.
