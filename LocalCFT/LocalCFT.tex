@@ -4,62 +4,359 @@
 \begin{document}
 
 
-\section{Local Class Field Theory following Lubin--Tate} % (fold)
+\section{Explicit Aspects of Abelian Lubin--Tate Theory} % (fold)
 \label{sec:Local Class Field Theory}
-Let $K$ be a local field with residue field $k$, put $q = \# k$, and 
-denote by $\nu_K: K \to \Z \cup \{\infty\}$ the valuation of $K$, normalized
-such that $\nu_K(\varpi) = 1$ for a uniformizer $\varpi$ of $K$.
-The aim of this subsection is to describe the maximal abelian extension of
-a local field $K$.
+We review the ideas of classical Lubin--Tate theory, which essentially give 
+a recipe to construct the maximal abelian extension of a local field $E$. 
 
-The Local Kronecker-Weber theorem gives an explicit description of the
-abelianization of the absolute Galois group of $K$ only in terms of $K$:
-
-\begin{thm}[Local Kronecker-Weber]\label{thm:localKW}
-  There is an isomorphism (canonical up to choice of a uniformizer 
-  $\varpi \in K$)
+First results towards this direction date back as far as 1801, when 
+Gauß proved the famous quadratic reciprocity law: if $\ell \neq p$ are odd 
+prime numbers, we have the equality
+\begin{equation*}
+  \legendre p \ell = (-1)^{\frac{p-1}2 \frac{l-1}2} \legendre \ell p,
+\end{equation*}
+This unintuitive statement about the interplay of the multiplicative structures of
+$\FF_p$ and $\FF_\ell$ finds a deeper, more conceptual meaning when inspected through
+the lens of cyclotomic fields. This connection
+was first made by Gauß himself, when he provided a proof of quadratic
+reciprocity using so-called Gauß sums. Admitting theory of cyclotomic fields 
+(as developed in Chapter 1 of \cite{neukirch2006algebraische}), and denoting by
+$\Q(\zeta_\ell)$ the $\ell$-th cyclotomic extension,
+quadratic reciprocity is essentially equivalent to the following statement.
+\begin{equation*}
+  \legendre \ell p = (-1)^{\frac{l-1}2 \frac{p-1}2} \iff \begin{array}c
+    \text{The prime $p \in \Z$
+    decomposes into an even} \\ \text{number of prime ideals in
+  $\Q(\zeta_\ell)$.} \end{array}
+\end{equation*}
+This foreshadows class field theory. Indeed, one major achievement
+of class field theory is the Artin reciprocity law, which in particular yields a 
+description of the decomposition behaviour of unramified primes inside abelian extensions
+of number fields, cf. \cite[Theorem 7.3]{neukirch2006algebraische}. 
+The arithmetic of Abelian extensions of $\Q$ is governed by its cyclotomic extensions
+by the Kronecker--Weber\footnote{despite the name, the Kronecker--Weber Theorem
+wasn't (completely) proven by either Kronecker or Weber; the first correct
+prove was found by Hilbert. For more on the history of class field theory, see 
+\cite{Conrad2009HISTORYOC}.} Theorem.
+\begin{thm}[Kronecker--Weber]\label{thm:KroneckerWeber}
+  Every finite extension of $\Q$ embedds into $\Q(\zeta_m)$ for some $m \in \Z$.
+  That is, after choosing an algebraic closure $\Q \inj \bar \Q$, the maximal abelian
+  subextension is given by 
   \begin{equation*}
-    \Gal(\bar K/K)^\ab \cong \Gal(K^\ab/K) \cong \cO_K^\times
-    \times \hat \Z.
+    \Q^\ab = \bigcup_{m \in \N} \Q(\zeta_m) \subset \bar \Q.
   \end{equation*}
 \end{thm}
-Here, $K^\ab$ denote the maximal abelian extension of $K$, which can (after choosing
-an algebraic closure of $K$) be described as $\bar K^{[G_K, G_K]}$. 
 
-The extension $K^\ab$ consists of two parts, we have 
-$K^\ab = K^\ram \cdot K^\nr$. The field $K^\nr$, the maximal unramified extension
-of $K$, has relatively simple structure. 
-Describing the field $K^\ram$ (or rather, it's completion) is the hard part and
-it is here where we apply the theory of formal modules.
-
-The valuation $\nu_K$ extends uniquely to $\bar K$, yielding a
-$\varpi$-adic norm on $\bar K$. Let $C$ denote the completion with respect to this
-norm. An application of Krasner's Lemma implies that $\Gal(C/K) \cong \Gal(\bar
-K/K) \eqqcolon G_K$
-\todo{Ref}. One readily checks that any $\sigma \in G_K$ yields a 
-continuous automorphism $\cO_C \to \cO_C$, and we obtain a short exact sequence 
+The aim of this section is to prove an analogue of the Kronecker--Weber
+theorem for arbitrary non-Archimedian local fields. We shortly review the
+notions we need to formulate the results. Let $E$ be a non-Archimedian local
+field with residue field $\FF_q$, and choose an embedding $E \inj \bar E$
+into an algebraic closure $\bar E$ of $E$. 
+Let $E^\nr$ be maximal unramified subextension, with residue field
+identified with $\Fqbar$.
+In this situation, we have the short exact sequence
 \begin{equation*}
-  0 \to I_K \to G_K \to \Gal(\bar k /k) \to 0.
+  0 \to I_E = \Gal(\bar E/ E^\nr) \to \Gal(\bar E/E) \to \Gal(E^\nr /E) =
+  \Gal(\bar \FF_q /\FF_q) \to 0.
 \end{equation*}
-The subgroup $I_K \subset G_K$ is called the inertia subgroup of $K$,
-and we write $\breve K$ for the subfield of $C$ fixed by $I_K$. In particular
-we have $\Gal(\breve K /K) \cong \Gal(\bar k /k)$. One readily confirms that 
-$\breve K$ is complete with respect to the norm induced by $K$. 
-
-As the Galois group of any finite extension
-of $k$ is cyclic, we find that $\Gal(\breve K/K)$ is abelian. In fact,
-it is isomorphic to $\hat \Z = \lim_n (\Z/n\Z)$. Hence
-$K_\infty$ decomposes as $\breve K \cdot K_\varpi$ for some abelian, complete
-extension $K_\varpi/K$ such that $K_\varpi \cap \breve K = K$. Now $K_\varpi$ is the 
-completion of $K^\ram$. Observe that
+Recall that $\Gal(\Fqbar/\FF_q)$ is topologically generated by the $q$-th power
+Frobenius automorphism $\Frob_q: x \mapsto x^q$. Let $\Phi \in \Gal(E^\nr /E)$ 
+denote the corresponding Frobenius automorphism of $E^\nr$. 
+The Weil group is defined as
 \begin{equation*}
-  \Gal(K_\infty/K) \cong \Gal(K_\varpi/K) \times \Gal(\breve K/K) \cong
-  \Gal(K_\varpi/K) \times \hat \Z,
+  \Weil_E \coloneq \{\sigma \in \Gal(\bar E/E) : \sigma|_{E^\nr} = \Phi^m
+  \text{ for some } m \in \Z\}.
 \end{equation*}
-so Theorem \ref{thm:localKW}, the local Kronecker-Weber Theorem, is 
-equivalent to showing that the Galois group of $K_\varpi$ over $K$ is 
-isomorphic to $\cO_K^\times$.
+As above, we have the short exact sequence
+\begin{equation*}
+  0 \to I_E \to \Weil_E \to \Z \to 0.
+\end{equation*}
 
+We work towards the following Theorem.
+
+\begin{thm}[Local Class Field Theory]\label{thm:LocalKroneckerWeber} \leavevmode
+  \vspace{-0.8em}
+  \begin{enumerate}
+    \item \textnormal{The Local Kronecker--Weber Theorem.} For any choice of uniformizer $\varpi \in E^\times$, there exists a 
+      totally ramified field extensions $E_\varpi$ of $E$ such that 
+      the maximal abelian subextension $E^\ab \subset \bar E$ of $E$
+      decomposes as $E^\ab = E_\varpi E^\nr$. The extension 
+      $E_\varpi$ is obtained from $E$ by adjoining $\varpi$-torsion points of so-called
+      Lubin--Tate formal module laws. 
+    \item \textnormal{Local Artin Reciprocity.} There is a unique isomorphism
+      (the Artin map)
+      \begin{equation*}
+        \Art_E: E^\times \xto \sim \Weil_E^\ab
+      \end{equation*}
+      such that 
+      \begin{enumerate}
+        \item for any choice of uniformizer $\varpi \in E^\times$, we have
+          $\Art_E(\varpi)|_{E^\nr} = \Phi$.
+        \item for any finite Abelian extension $E'$ of $E$, the kernel of 
+          the induced map $E^\times \xto{\Art_E} \Weil_E \xto{\sigma \mapsto
+          \sigma|_{E'}} \Gal(E'/E)$ is given by $\Norm_{E'/E}(E'^\times)$.
+      \end{enumerate}
+  \end{enumerate}
+\end{thm}
+
+We follow the construction of $E_\varpi$ in \cite{LubinTateFormalMult}, and we sketch
+a proof of the equality $E^\ab = E_\varpi E^\nr$. Lubin and Tate showed this
+making use of previously known results in local class field theory, which ultimately
+rested on results from global class field theory. 
+In order to stay in the local setting, and to sell the theorem as a
+local version of the Kronecker--Weber theorem,
+we avoid these arguments by referring to ideas of Gold (cf.
+\cite{gold1981local}), who realized that the theorem of Hasse--Arf
+suffices to deduce this equality. 
+Once all of this is known, the isomorphism $\Art_E$ and property
+(a) arise naturally. We will not proof property (b), but rather refer to the original
+paper of Lubin--Tate again.
+
+\subsection{Lubin--Tate Formal Module Laws} % (fold)
+\label{sub:Lubin--Tate Formal Module Laws}
+Fix a uniformizer $\varpi \in E^\times$. In this section we explain the construction
+of Lubin--Tate module laws. As announced, these module laws will allow us to
+construct the totally ramified extension $E_\varpi$.
+
+Write $\cF_{\varpi, h}$ for the set of power series
+\begin{equation*}
+  \cF_\varpi \coloneqq \{f \in \cO_E \llbr T \rrbr \mid f \equiv \varpi T \pmod {T^2}
+  \text{ and } f \equiv T^{q^n} \pmod \varpi\}. 
+\end{equation*}
+
+The construction of the Lubin--Tate formal module laws is based on the following 
+lemma, which is Lemma 1 in \cite{LubinTateFormalMult}.
+\begin{lem}\label{lem:LTLemma1}
+  Let $f(T)$ and $g(T)$ be elements of $\cF_{\varpi,h}$ and let 
+  $L(X_1, \dots, X_n) = \sum_{i=1}^n a_i X_i$ be a linear form with coefficients in 
+  ${\cO_E}$. Then there exists a unique series $F(X_1, \dots, X_n)$ with coefficients 
+  in ${\cO_E}$ such that 
+  \begin{gather*}
+    F(X_1, \dots, X_n) \equiv L(X_1, \dots, X_n) \pmod {T^2}, \\ \text{and} \\
+    f(F(X_1, \dots, X_n)) = F(g(X_1), \dots, g(X_n)).
+  \end{gather*}
+\end{lem}
+
+As a direct consequence, we obtain the following useful result.
+\begin{lem}
+  Let $f \in \cF_{\varpi, h}$. Then there is a unique formal ${\cO_E}$-module law $F_f$ over ${\cO_E}$
+  with $[\varpi]_F(T) = f(T)$.
+\begin{proof}
+  In the above lemma, set $L(X,Y) = X+Y$ and $g=f$ to uniquely determine 
+  the power series $F_f$. The same Lemma yields unique power series
+  $[a]_{F_f}(T) \in R\llbr T \rrbr$ by setting $L(T) = a T$, $g=f$. It is
+  routine to check that $(F_f, ([a]_f)_{a \in {\cO_E}})$ is a formal ${\cO_E}$-module law, 
+  cf. \cite{LubinTateFormalMult}.
+\end{proof}
+\end{lem}
+
+\begin{defi}[Lubin--Tate Module Law]
+  We refer to module laws arising from the construction above as Lubin--Tate module laws.
+\end{defi}
+
+Furthermore, attached to each $a \in \cO_E$ and $f,g \in \cF_{\varpi,h}$, we find
+unique $[a]_{f,g}(T) \in \cO_E\llbr T \rrbr$ satisfying
+\begin{equation}\label{eq:LTMoLaScaCond}
+  [a]_{f,g}(T) \equiv aT \pmod {(T)^2} \quad \text{and} \quad
+  f([a]_{f,g}(T)) = [a]_{f,g}(g(T)).
+\end{equation}
+We now have the following theorem.
+\begin{thm}[Lubin--Tate Formal $\cO_E$-Module Laws]\label{thm:LTModLaw}
+  Let $E$ be a local field with ring of integers $\cO_E$. For any choice of 
+  uniformizer $\varpi \in \cO_E$ and any $f \in \cF_{\varpi,h}$, the family of power
+  series $(F_f, ([a]_{f,f})_{a \in \cO_E})$
+  gives rise to a formal $\cO_E$-module law over $\cO_E$. For 
+  $f,g \in \cF_{\varpi,h}$, the formal $\cO_E$-module laws $F_f$ and $F_g$ are
+  canonically isomorphic, via the morphism induced by $[1]_{f,g} \in \cO_E\llbr
+  T \rrbr$. 
+\begin{proof}
+  See Theorem 1 of \cite{LubinTateFormalMult} and the subsequent discussion.
+\end{proof}
+\end{thm}
+In particular, up to canonical isomorphism, there is only one Lubin--Tate formal
+$\cO_E$-module law over $\cO_E$ attached to the choice of the uniformizer $\varpi \in
+\cO_E$. 
+
+\begin{xpl}
+  If $E = \Q_p$, this reconstructs the multiplicative formal 
+  $\Z_p$ module $\Ghat$ constructed above. Indeed, we have 
+  \begin{equation*}
+    \cF_p = \{f \in \Z_p\llbr T \rrbr \mid f(T) \equiv T^p \text{ mod } p
+    \text{ and } f(T) \equiv pT \text{ mod } (T)^2 \},
+  \end{equation*}
+  implying that $f(T) = (1+T)^p-1$ lies in $\cF_p$.  
+  One quickly checks that 
+  \begin{equation*}
+    F_f(X,Y) = (1+X)(1+Y) - 1 = X + Y + XY \in \Z_p \llbr X,Y \rrbr
+  \end{equation*}
+  is the addition law associated to $f$, and that 
+  for $a \in \Z_p$, the power series
+  \begin{equation*}
+    [a]_{f,f} = (1+T)^{a} - 1 \in \Z_p \llbr T \rrbr
+  \end{equation*}
+  satisfies the condition of \eqref{eq:LTMoLaScaCond}. 
+\end{xpl}
+% subsubsection Lubin--Tate Formal Module Laws (end)
+
+\subsection{Construction of the Maximal Abelian Extension} % (fold)
+\label{sub:Construction of the Maximal Abelian Extension}
+We now come to the construction of $E_\varpi$. We first construct its
+finite parts $E_{\varpi, m}$ as follows. Let $\varpi$ be a
+uniformizer of $E$ and let $f \in \cF_\varpi$ with corresponding
+Lubin--Tate formal module law $F$. We define
+\begin{equation*}
+  \Lambda_{f,m} \coloneqq \{x \in \fm_{\bar E} \mid [\varpi^m]_F(x) = 0\}.
+\end{equation*}
+Here, we equip $\bar E$ with the canonical topology coming from $E$ by extending the
+$\varpi$-adic valuation to finite subextensions. With this topology, $\bar E$
+is not complete, but any $x \in \fm_{\bar E}$ lies inside some finite (hence
+complete) subextension, so the power series $[\varpi]_F(x)$ converges, and the 
+definition of $\Lambda_{f,m}$ makes sense.
+
+With the $\cO_E$-module structure from $F$, the set $\Lambda_{f,m}$ is a
+$\cO_E$-module. The absolute Galois group of $E$ acts $\cO_E$-linearly on
+$\Lambda_{f,m}$, as the power series constituting the $\cO_E$-structure all
+have coefficients in $E$. This yields a homomorphism 
+\begin{equation} \label{eq:GaloisGroupToLambdaHom}
+  \Gal(\bar E /E ) \to \Aut_{\Mod{\cO_E}}(\Lambda_{f,m}).
+\end{equation}
+
+We now define 
+\begin{equation*}
+  E_{\varpi, m} \coloneq E(\Lambda_{f, m})
+\end{equation*}
+and call it the Lubin--Tate extension of degree $m$. Omitting the choice of $f$ 
+in notation is justified, by the following key observation.
+\begin{lem}\label{lem:FiniteLTExtensionIndepOfF}
+  The Lubin--Tate extension of degree $m$ does only depend on the choice of $\varpi$,
+  not on the choice of power series $f \in \cF_\varpi$. 
+\begin{proof}
+  Given another choice $f' \in \cF_\varpi$ yielding a Lubin--Tate module law
+  $F'$, write $E'_{\varpi, m}$ for the Lubin--Tate extension of degree $m$ 
+  obtained by adjoining torsion points of $f'$. Then the power series 
+  $[1]_{f,f'}$ yields an isomorphism $\Lambda_{f,m} \to \Lambda_{f',m}$.
+  As $x \in E$ implies $[1]_{f,f'}(x) \in E$, we find $E' \subseteq E$, and the
+  claim follows by symmetry.
+\end{proof}
+\end{lem}
+
+Hence, we shall henceforth choose $f(T) = \varpi T + T^q$. From the fact that 
+$F$ is $\varpi$-divisible of height $1$, it is not hard to deduce that
+$\Lambda_{f,m}$ is isomorphic to $\cO_E/(\varpi^m \cO_E)$ as $\cO_E$-module,
+cf. \cite[Theorem 2]{LubinTateFormalMult}. 
+
+\begin{lem}\label{lem:PropertiesOfFiniteLTExt}
+  For any positive integer $m$, the extension $E_{\varpi,m}/E$ is totally ramified
+  and of degree $[E_{\varpi,m}:E] = (q-1) q^{m-1}$. Furthermore, the morphism
+  \eqref{eq:GaloisGroupToLambdaHom} induces an isomorphism
+  \begin{equation*}
+    \Gal(E_{\varpi, m}/E) \cong \Aut_{\Mod {\cO_E}}(\Lambda_{f,m}) = 
+    \cO_E^\times/(1 + \varpi^m \cO_E).
+  \end{equation*}
+\begin{proof}
+  Given a positive integer $i \in \N$, we write $f^i(T)$ for the $i$-fold
+  self-composite of $f$ and define
+  \begin{equation*}
+    \eta_i(T) \coloneq \frac{f^i(T)}{f^{i-1}(T)} = \varpi + f^{i-1}(T)^{q-1}.
+  \end{equation*}
+  By induction, this is seen to be an Eisenstein polynomial
+  of degree $(q-1) q^{i-1}$. The roots of $\eta_m(T)$ are in bijection with the 
+  elements in $\Lambda_{f,m} \setminus \Lambda_{f,m-1}$, and we may deduce that 
+  \begin{equation*}
+    E_{\varpi,m} \cong \frac{E[T]}{(\eta_m(T))}.
+  \end{equation*}
+  Hence $E_{\varpi,m}$ is totally ramified of the specified degree. As
+  $\Lambda_{f,m}$ generates $E_{\varpi, m}$, the morphism
+  $\Gal(E_{\varpi,m}/E) \to \Lambda_{f,m}$ is injective. This implies that it
+  is bijective since both source and target of this morphism have the same cardinality. 
+\end{proof}
+\end{lem}
+
+We define the Lubin--Tate extension of $E$ as the union
+\begin{equation*}
+  E_\varpi \coloneq \bigcup_{m \in \N} E_{\varpi, m} = E(\Lambda_f) \quad
+  \text{with} \quad \Lambda_f \coloneqq \bigcup_{m \in \N} \Lambda_{f,m}.
+\end{equation*}
+The lemma above implies the existence of an isomorphism
+\begin{equation*}
+  \cO_E^\times \cong \lim_{m \in \N} \cO_E^\times/(1 + \varpi^m \cO_E) \cong
+  \lim_{m \in \N} \Gal(E_{\varpi,m}/E) = \Gal(E_\varpi/E),
+\end{equation*}
+sending $u \in \cO_E^\times$ to the unique $E$-linear automorphism $\sigma$ of
+$E_\varpi$ satisfying $\sigma(x) = [u]_F(x)$ for $x \in \Lambda_f$. 
+
+The remainder of this section is devoted to the proof of the fact that $E^\ab =
+E_\varpi E^\nr$. 
+The proof makes heavy use of the upper numbering for the ramification filtration.
+We don't explain these notions here; instead we refer to \cite[Chapter
+IV]{serre2013local} for their definition and a survey of their properties. We
+do however note that in the case of Lubin--Tate extension, the ramification
+filtration can be calculated explicitely (cf. \cite[Theorem 2]{gold1981local}): we have
+\begin{equation}\label{eq:CalculationOfUpperRamificationFiltration}
+  \Gal(E_{\varpi, m}/E)^v \cong \begin{cases}
+    \cO_E^\times/(1 + \varpi^m \cO_E) \quad &\text{if } -1 \leq v < 0 \\
+    \{0\} \quad &\text{if } v \geq m \\
+    (1 + \varpi^i \cO_E)/(1+\varpi^m \cO_E) \quad &\text{if } i \leq v < i+1
+    \quad \text{for } i \in \N_0.
+  \end{cases}
+\end{equation}
+In particular, this implies by Herbrand's theorem (cf. \cite[Ch. 4, Proposition
+14]{serre2013local}) that the upper numbering filtration of 
+$\Gal(E_\varpi/E)$ has jumps exactly at the non-negative integers, with
+\begin{equation*}
+  q-1 \leq [\Gal(E_\varpi/E)^{v}: \Gal(E_\varpi/E)^{v-1}] \leq q.
+\end{equation*}
+
+By the theorem of Hasse--Arf, the same phenomenon occurs for any abelian extension.
+\begin{thm}[Hasse--Arf]\label{thm:Hasse--Arf}
+  Suppose that $E'/E$ is an abelian extension. If $v \in \R$ is a jump in the 
+  filtration $\Gal(E'/E)^v$, then $v$ is an integer.
+\end{thm}
+
+This quickly implies the following.
+
+\begin{lem}\label{lem:LocalKronWebAlmostDone}
+  Let $E'/E_\varpi$ be a totally ramified extension with $E'/E$ abelian.
+  Then $E' = E_\varpi$. 
+\begin{proof}
+  We write $G = \Gal(E'/E)$ and $H = \Gal(E'/E_\varpi)$. We want to show that 
+  $H$ is trivial. We make the following two observations.
+  \begin{enumerate}
+    \item We have $\cap_{v \geq 0} G^v = \{0\}$. Indeed, for any open subgroup
+      $J \subset G$ we have $\cap_{v \geq 0} (G/J)^v = 0$, and by Herbrand's theorem
+      $G^v = \lim_J (G/J)^v$. 
+    \item Also by Herbrand's theorem, we have for integers $v \geq 0$ the equality
+      \begin{equation*}
+        [G^v : G^{v+1}] = [(G/H)^v : (G/H)^{v+1}] [G^v \cap H : G^{v+1} \cap H].
+      \end{equation*}
+  \end{enumerate}
+  The fact that $E'/E$ is totally ramified implies that the left-hand side of
+  the equation above is bounded by $q$ (cf. \cite[Lemma 3]{gold1981local}).
+  Meanwhile, by \eqref{eq:CalculationOfUpperRamificationFiltration}, the
+  right-hand side is $\geq q-1$. This implies $[G^v \cap H : G^{v+1} \cap H] =
+  1$ for all $v \geq 0$, implying by our second observation that $H = \{0\}$,
+  as desired.
+\end{proof}
+\end{lem}
+
+\begin{proof}[Proof of the local Kronecker--Weber theorem]
+  Let $E'/E$ be an abelian extension, identified inside the 
+  algebraic closure $\bar E$. We show that $E' \subset E_\varpi E^\nr$. 
+  Consider the short exact sequence of Galois groups
+  \begin{equation*}
+    \{1\} \to \Gal(E' E_\varpi E^\nr/ E_\varpi E^\nr) \to 
+    \Gal(E' E_\varpi E^\nr/ E_\varpi) \to 
+    \Gal(E_\varpi E^\nr/ E_\varpi) \to  \{1\}.
+  \end{equation*}
+  As the intersection of  $E_\varpi$ and $E^\nr$ is trivial, the group on the right
+  is isomorphic to $\Gal(E^\nr /E) \cong \hat \Z$. Hence the sequence admits 
+  a splitting $\Gal(E_\varpi E^\nr/ E_\varpi) \to \Gal(E' E_\varpi E^\nr/
+  E_\varpi)$. The fixed field of the image of this splitting is 
+  $L/E_\varpi$ with $L E^\nr E_\varpi = E' E^\nr E_\varpi$ and $L/E$ abelian.
+  By the Lemma above this implies $L = E_\varpi$, hence $E' \subset E^\nr E_\varpi$. 
+\end{proof}
+
+% subsubsection Construction of the Maximal Abelian Extension (end)
 
 % subsection Application: The Local Class Field Theory (end)
 \end{document}
