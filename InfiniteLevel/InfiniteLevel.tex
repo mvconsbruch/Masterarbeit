@@ -98,9 +98,9 @@ used to construct a functor $\cM_{m} \to \cM_{m, \wedge}$.
 
 For $R\in\cC$ and $(\cF, \iota) \in \cM_{0}(R)$, we write $\delta_m$ for the
 induced universal multilinear and alternating morphisms
-\begin{equation*}
-  \delta_m \cF[\varpi^m]^n \to \wedge^n\cF[\varpi^m].
-\end{equation*}
+\begin{equation}\label{eq:determinantontorsionpoints}
+  \delta_m \colon \cF[\varpi^m]^n \to \wedge^n\cF[\varpi^m].
+\end{equation}
 
 We now have the following result.
 
@@ -130,7 +130,7 @@ We also need the following result.
   is an action $\cO_L \inj \End(\cF)$ making $\cF$ into a formal $\cO_L$-module
   of height $1$. Then, for all $m \geq 1$, the identity
   \begin{equation*}
-    \lambda_m(\alpha x_1, \dots, \alpha x_n) = \Norm_{L/E}(\alpha) \lambda_m
+    \delta_m(\alpha x_1, \dots, \alpha x_n) = \Norm_{L/E}(\alpha) \delta_m
     (x_1, \dots, x_n)
   \end{equation*}
   holds. 
@@ -271,7 +271,7 @@ The following observation lays the groundwork for many of the upcoming results.
   has coefficients in $I$ and $f(T) = g(T^q) + h(T)$. As $I$ is finitely generated,
   say by elements $(r_1, \dots, r_l)$, we obtain a representation 
   \begin{equation*}
-    f(s_1) - f(s_2) \in g(s_1^{q})-g(s_2^{q}) + \sum_{i=1}^l r_i \left(h_i(s_1) -
+    f(s_1) - f(s_2) = g(s_1^{q})-g(s_2^{q}) + \sum_{i=1}^l r_i \left(h_i(s_1) -
     h_i(s_2)\right).
   \end{equation*}
   As $r$ divides $\left(h_i(s_1) - h_i(s_2)\right)$, we find
@@ -408,7 +408,7 @@ Write $F_0 = F \otimes k_R$, and $\tilde F_0 = U_{0, [\varpi]_F}$.
   Suppose that $S$ is an admissible $R$-algebra admitting an ideal of definition
   $J$ such that $\varpi \in J$. Then the natural reduction map
   \begin{equation*}
-    \tilde \cF(S) \to \tilde \cF(S/J) = \cF_0(S/J)
+    \tilde \cF(S) \to \tilde \cF(S/J) = \tilde \cF_0(S/J)
   \end{equation*}
   is an isomorphism.
   \begin{proof}[Proof]
@@ -446,6 +446,19 @@ The relative Frobenius morphism lifts as well.
   \end{equation*}
 \end{defi}
 
+We finally note the following auxiliary result.
+\begin{lem}\label{lem:UnivCoverIsRatTateifDiscrete}
+  Let $S$ be a discrete admissible $R$-algebra. Then
+  \begin{equation*}
+    V_\varpi \cF(S) = \tilde \cF(S).
+  \end{equation*}
+\begin{proof}
+  As $S$ is discrete, each $s \in S^\cici$ is nilpotent. From here it is easy to 
+  see that there is some $m \in \N$ such that $[\varpi^m]_F(s) = 0$. The desired 
+  statement follows directly.
+\end{proof}
+\end{lem}
+
 
 
 % subsubsection The Universal Cover (end)
@@ -453,12 +466,14 @@ The relative Frobenius morphism lifts as well.
 \subsubsection{Relation to the Deformation Space at Infinite Level} % (fold)
 \label{ssub:Relation to the Deformation Space at Infinite Level}
 Let $(e_1, \dots, e_n)$ denote the standard basis of $\cO_E^n$. By 
-Theorem \ref{thm:RepresentabilityOfDefSpaceWithLevel}, there is for
+Theorem \ref{thm:RepresentabilityOfDefSpaceWithLevel} and the fact that for any
+$j \in \Z$ there exist (non-canonical) isomorphisms,
+$\cM_m^{(0)} \cong \cM_{m}^{(j)}$, there is for any
 every positive integer $m$ a universal triple 
-$$(\cF^\univ_m, \iota^{\univ}_m, \phi^\univ_m) \in \cM_{m}^{(0)}(A_m),$$
+$$(\cF^\univ_m, \iota^{\univ}_m, \phi^\univ_m) \in \cM_{m}^{(j)}(A_m),$$
 \red{where the pair $(\cF_m^\univ, \iota_m^\univ) = (\cF^\univ, \iota^\univ)$
-  can be chosen independently of $m$} and the Drinfeld level
-  $\varpi^m$-structure 
+ can be chosen independently of $m$} and the Drinfeld level
+$\varpi^m$-structure 
 \begin{equation*}
   \phi_m^\univ: \underline{(\varpi^{-m}\cO_{E}/\cO_E)}^n \to \cF^\univ
 \end{equation*}
@@ -471,34 +486,59 @@ of compatible systems
 Now let $\cF$ be an arbitrary deformation of $\cF_0$ to $\cO_{\br E}$. By 
 Proposition \ref{prop:UnivCoverReductionIso}, we have isomorphisms
 \begin{equation*}
-  \tilde \cF^{\univ,n}(A_\infty) \cong \tilde \cF_0^{\univ, n}(A_\infty/I_\infty)
-  \xto{\iota} \tilde \cF_0(A_\infty/I_\infty)
+  \tilde \cF^{\univ,n}(A_\infty) \cong \tilde \cF_0^{\univ, n}(A_\infty/\fm_0)
+  \xto{\iota} \tilde \cF_0^n(A_\infty/\fm_0)
   \cong \tilde \cF^n(A_\infty).
 \end{equation*}
 This constructs a morphism of formal schemes over $\spf R$
 \begin{equation} \label{eq:MapFromMtoTildeF}
-  \cM_\infty^{(0)} \to \tilde \cF^n.
+  \cM_\infty^{(j)} \to \tilde \cF^n.
 \end{equation}
 
-\begin{thm}[Structure of $\cM_\infty$]\label{thm:WeinsteinsCartesianSquare}
-  There is a cartesian square of formal schemes
-  \begin{equation*}
+In order to formulate the main result of this subsection, we also need a 
+version of the determinant mapping for the universal cover. 
+Taking the inverse limit with respect to $m$, the morphsims $\delta_m$ from
+\eqref{eq:determinantontorsionpoints} yield, for any 
+admissible $R$-algebra $S$, a determinant map on Tate modules
+\begin{equation*}
+  \delta \colon T_\varpi \cF (S)^n \to T_\varpi {\wedge \cF} (S) \quad \text{and} \quad
+  \delta \colon V_\varpi \cF (S)^n \to V_\varpi {\wedge \cF} (S),
+\end{equation*}
+as $V_\varpi \cF(S) = (T_\varpi \cF(S))\otimes_{\cO_E} E$. This allows us to define a 
+determinant map on the universal cover as follows. Let $J \subset S$ be an ideal
+of definition containing the image of the maximal ideal of $R$. Then 
+$S/J$ is discrete, and by Lemma \ref{lem:UnivCoverIsRatTateifDiscrete}, we may
+define $\delta \colon \tilde \cF^n(S) \to \widetilde {\wedge \cF}(S)$
+as the composite
+\begin{equation*}
+  \tilde \cF^n(S) \xto \sim \tilde \cF(S/J)^n = V_\varpi \cF^n(S/J) 
+  \xto \delta V_\varpi {\wedge \cF}\, (S/J) = \widetilde {\wedge \cF}(S/J) 
+  \cong \widetilde {\wedge \cF}(S).
+\end{equation*}
+
+It is not difficult to see that these constructions yield, for
+$j \in \Z$, a commutative square 
+\begin{equation*}
     \begin{tikzcd}[ampersand replacement=\&]
-      {\cM_\infty^{(0)}} \& {\cM_{\wedge, \infty}^{(0)}} \\
+      {\cM_\infty^{(j)}} \& {\cM_{\wedge, \infty}^{(j)}} \\
     	{\widetilde \cF^n} \& {\widetilde{\wedge^n \cF}.}
     	\arrow["\det", from=1-1, to=1-2]
     	\arrow[from=1-1, to=2-1]
     	\arrow[from=1-2, to=2-2]
     	\arrow["\delta", from=2-1, to=2-2]
     \end{tikzcd}
-  \end{equation*}
-  Here, the vertical maps are the ones constructed above, the horizontal ones
-  come from the determinant construction of \cite{hedayatzadeh2015det}. 
-\begin{proof}
+\end{equation*}
+
+All of the formal schemes in this square are affine, and with careful analysis
+of the underlying adic algebras, Weinstein was able to obtain the following key
+result.
+
+\begin{thm}[Structure of $\cM_\infty$]\label{thm:WeinsteinsCartesianSquare}
+  The square above is cartesian.
+  \begin{proof}
   This is \cite[Theorem 2.17]{weinstein2016semistable}.
 \end{proof}
 \end{thm}
-
 
 To end this subsection, we note that, as the embeddings of 
 $\cO_\br E \inj \cO_{\hat E^\ab}$ are identified with $\cO_E^\times$ by
@@ -539,7 +579,8 @@ $G^1$ acts on $\cM_{\infty}^{(0)} \times_{\Spf \br E} \Spf(\cO_\Cp)$.
 Given a $\varpi$-divisible formal $A$-module $\cF \in \FMOver AR$ of height
 $n$, we write $\cF_{\cO_\Cp} = \cF \otimes \cO_\Cp$ and describe a natural right
 action on $\tilde \cF_{\cO_\Cp}^n$ by the group 
-such that the map $\cM_{\infty}^{(0)} \to \tilde \cF_{\cO_\Cp}^n$,
+such that the map $\cM_{\infty}^{(0)} \times_{\spf \br E} \Spf(\cO_\Cp) \to
+\tilde \cF_{\cO_\Cp}^n$,
 induced by the map constructed above is equivariant for the respective
 $G^1$-actions.
 
@@ -588,6 +629,10 @@ obtain a right action by $G$ on $\tilde \cF^n_{\cO_\Cp}$.
   \to \tilde \cF_{\cO_\Cp}^n$
   in \eqref{eq:MapFromMtoTildeF} is equivariant for the action of $G^1$ on both
   sides.
+\end{prop}
+
+
+
 \begin{proof}
   It suffices to check $G$-equivariance of the induced map
   $$\cM_{\infty, \cO_\Cp}^{(0)}(A_\infty \cotimes_{R} \cO_\Cp) \to \tilde
@@ -609,7 +654,6 @@ obtain a right action by $G$ on $\tilde \cF^n_{\cO_\Cp}$.
   commutes. 
   \red{Todo: more explicit description of group action on $A_\infty$.}
 \end{proof}
-\end{prop}
 
 % subsubsection Group Actions on the Universal Cover (end)
 
@@ -649,11 +693,11 @@ of Proposition \ref{prop:UnivCoverReductionIso}.
 \end{proof}
 \end{lem}
 
-This Lemma allows us to make the $\cO_E$-module structure on $\tilde H$
+This Lemma allows us to make the $\cO_E$-module structure on $\Nilp^\flat$
 explicit. Let $S$ be an adic $\cO_\br E$-algebra \red{correct category?}.
 
 \begin{lem}\label{lem:GroupStructureOnNilp}
-  The $K$-vector space structure on $\tilde H$ takes on the following form.
+  The $K$-vector space structure on $\Nilp^\flat(S)$ takes on the following form.
   \begin{itemize}
     \item Given two $q$-th power compatible systems $y_1, y_2
       \in \Nilp^\flat(S)$ corresponding to compatible systems
@@ -761,6 +805,12 @@ of $\Nilp^\flat \times_{\spf \cO_\br E} \Spf(\cO_\Cp) \eqcolon \Nilp^\flat_{\cO_
   is commutative.
 \end{proof}
 \end{lem}
+\begin{rmk} 
+  Note that  as $\Xi_n$ is defined over $\cO_E$, it comes with a natural action
+  by $\Weil_E$. This action differs from the one defined above and is not
+  compatible with the Weil group action on $\cM_{\infty, \cO_\Cp}^{(0)}$.
+\end{rmk}
+
 
 We obtain the following description of the left action of $G$ on $\Xi_n$.
 
@@ -824,9 +874,8 @@ Proposition \ref{thm:WeinsteinsCartesianSquare}.
   \eqref{eq:ExplicitAinftyBCtoOC}.
 \end{cor}
 
-
-
-
+We obtain the following description of the $G^1$ action on $A_{\infty}\otimes_{\cO_\br E}
+\cO_\Cp$.
 \begin{prop}\label{prop:ExplicitDescriptionOfActionOnAinfty}
   The group $G^1$ is generated by elements of the form
   \begin{itemize}
@@ -835,7 +884,7 @@ Proposition \ref{thm:WeinsteinsCartesianSquare}.
     \item $(1, \vartheta^{-m}, \sigma)$ for $\sigma \in \Weil_E$ with
       $\sigma|_{\br E} = \Phi^m$. 
   \end{itemize}
-  These elements act on $A_{\infty, \cO_\Cp}$ as follows.
+  These elements act on $A_{\infty} \otimes_{\cO_\br E} \cO_\Cp$ as follows.
   \begin{itemize}
     \item $(a,a,1)$ acts trivially.
     \item $(g,d,1)$ acts by the morphism of $\cO_\Cp$-algebras
@@ -846,26 +895,10 @@ Proposition \ref{thm:WeinsteinsCartesianSquare}.
       given by $X_i \mapsto X_i$ for $i = 1, \dots, n$ and $a \mapsto
       \sigma(a)$ for $a \in \cO_\Cp$.
   \end{itemize}
-\begin{proof}
-\end{proof}
 \end{prop}
-
-In particular, there is a natural left action of 
-$D^\times = \End_{\FMOver {\cO_E} \Fqbar}(\cF_0)[\varpi^{-1}]^\times$ on $\tilde \cF$. 
-
-By the explicit description of $\lambda$ in Lemma
-\ref{lem:GroupStructureOnNilp}, we find that $\lambda_i(\Pi x) =
-\lambda_i(x)^q$ for $x \in \Tilde \cF(S)$ and $i\in \N_0$. 
-
-As $\tilde \cF$ is a $K$-vector space
-object, the isomorphism $\lambda: \tilde \cF \to \Nilp^\flat$ equips
-$\Nilp^\flat$ with the stucture of a $K$-vector space object. Upon choosing a 
-suitable coordinate for $\cF$, this structure admits the following description.
-
 
 Finally, we remark how to express the logarithm map in terms of the isomorphism
 $\lambda$.
-
 
 \begin{lem}\label{lem:LogInTermsOfNil}
   Let $H$ be the standard formal $\cO_K$-module of height $n$ over $R =

@@ -33,12 +33,12 @@ This foreshadows class field theory. Indeed, one major achievement
 of class field theory is the Artin reciprocity law, which in particular yields a 
 description of the decomposition behaviour of unramified primes inside abelian extensions
 of number fields, cf. \cite[Theorem 7.3]{neukirch2006algebraische}. 
-The arithmetic of Abelian extensions of $\Q$ is governed by its cyclotomic extensions
-by the Kronecker--Weber\footnote{despite the name, the Kronecker--Weber Theorem
+The appearence of cyclotomic fields above is also no coincidence.
+
+\begin{thm}[Kronecker--Weber\footnote{despite the name, the Kronecker--Weber Theorem
 wasn't (completely) proven by either Kronecker or Weber; the first correct
 prove was found by Hilbert. For more on the history of class field theory, see 
-\cite{Conrad2009HISTORYOC}.} Theorem.
-\begin{thm}[Kronecker--Weber]\label{thm:KroneckerWeber}
+\cite{Conrad2009HISTORYOC}.}] \label{thm:KroneckerWeber}
   Every finite extension of $\Q$ embedds into $\Q(\zeta_m)$ for some $m \in \Z$.
   That is, after choosing an algebraic closure $\Q \inj \bar \Q$, the maximal abelian
   subextension is given by 
@@ -47,13 +47,20 @@ prove was found by Hilbert. For more on the history of class field theory, see
   \end{equation*}
 \end{thm}
 
-The aim of this section is to prove an analogue of the Kronecker--Weber
-theorem for arbitrary non-Archimedian local fields. We shortly review the
-notions we need to formulate the results. Let $E$ be a non-Archimedian local
-field with residue field $\FF_q$, and choose an embedding $E \inj \bar E$
-into an algebraic closure $\bar E$ of $E$. 
-Let $E^\nr$ be maximal unramified subextension, with residue field
-identified with $\Fqbar$.
+The problem of finding similar descriptions for the maximal abelian extension of
+general number fields seems to be very difficult. There is a similar description 
+of Abelian extensions of imaginary quadratic fields (cf. \cite[Chapter II,
+§5]{silverman1994advanced}; these extensions arise by adjoining certain values attained
+by the so-called Weber function at the torion points of an elliptic curve with complex
+multiplication by the field in question), but in general this problem seems to be open.
+
+The situation simplifies a lot for non-Archimedian local fields. 
+The aim of this section is to discuss the analogues of the 
+Kronecker--Weber theorem and the Artin map for these fields. We shortly set the
+stage. Let $E$ be a non-Archimedian local field with residue field $\FF_q$ of
+characteristic $p$, and choose an embedding $E \inj \bar E$ into an algebraic
+closure $\bar E$ of $E$. Let $E^\nr$ be maximal unramified subextension, with
+residue field identified with $\Fqbar$.
 In this situation, we have the short exact sequence
 \begin{equation*}
   0 \to I_E = \Gal(\bar E/ E^\nr) \to \Gal(\bar E/E) \to \Gal(E^\nr /E) =
@@ -92,9 +99,10 @@ We work towards the following Theorem.
       \begin{enumerate}
         \item for any choice of uniformizer $\varpi \in E^\times$, we have
           $\Art_E(\varpi)|_{E^\nr} = \Phi$.
-        \item for any finite Abelian extension $E'$ of $E$, the kernel of 
-          the induced map $E^\times \xto{\Art_E} \Weil_E \xto{\sigma \mapsto
-          \sigma|_{E'}} \Gal(E'/E)$ is given by $\Norm_{E'/E}(E'^\times)$.
+        \item for any finite Abelian extension $E'$ of $E$, consider the
+          map $E^\times \xto{\Art_E} \Weil_E \xto{\sigma \mapsto
+          \sigma|_{E'}} \Gal(E'/E)$. It is surjective and has kernel given by
+          $\Norm_{E'/E}(E'^\times)$. 
       \end{enumerate}
   \end{enumerate}
 \end{thm}
@@ -109,8 +117,7 @@ we avoid these arguments by referring to ideas of Gold (cf.
 \cite{gold1981local}), who realized that the theorem of Hasse--Arf
 suffices to deduce this equality. 
 Once all of this is known, the isomorphism $\Art_E$ and property
-(a) arise naturally. We will not proof property (b), but rather refer to the original
-paper of Lubin--Tate again.
+(a) arise naturally. We do not prove property (b).
 
 \subsection{Lubin--Tate Formal Module Laws} % (fold)
 \label{sub:Lubin--Tate Formal Module Laws}
@@ -288,7 +295,7 @@ $E_\varpi$ satisfying $\sigma(x) = [u]_F(x)$ for $x \in \Lambda_f$.
 The remainder of this section is devoted to the proof of the fact that $E^\ab =
 E_\varpi E^\nr$. 
 The proof makes heavy use of the upper numbering for the ramification filtration.
-We don't explain these notions here; instead we refer to \cite[Chapter
+We introduce either of these notions here; instead we refer to \cite[Chapter
 IV]{serre2013local} for their definition and a survey of their properties. We
 do however note that in the case of Lubin--Tate extension, the ramification
 filtration can be calculated explicitely (cf. \cite[Theorem 2]{gold1981local}): we have
@@ -304,7 +311,7 @@ In particular, this implies by Herbrand's theorem (cf. \cite[Ch. 4, Proposition
 14]{serre2013local}) that the upper numbering filtration of 
 $\Gal(E_\varpi/E)$ has jumps exactly at the non-negative integers, with
 \begin{equation*}
-  q-1 \leq [\Gal(E_\varpi/E)^{v}: \Gal(E_\varpi/E)^{v-1}] \leq q.
+  q-1 \leq [\Gal(E_\varpi/E)^{v}: \Gal(E_\varpi/E)^{v+1}] \leq q.
 \end{equation*}
 
 By the theorem of Hasse--Arf, the same phenomenon occurs for any abelian extension.
@@ -331,11 +338,11 @@ This quickly implies the following.
       \end{equation*}
   \end{enumerate}
   The fact that $E'/E$ is totally ramified implies that the left-hand side of
-  the equation above is bounded by $q$ (cf. \cite[Lemma 3]{gold1981local}).
-  Meanwhile, by \eqref{eq:CalculationOfUpperRamificationFiltration}, the
-  right-hand side is $\geq q-1$. This implies $[G^v \cap H : G^{v+1} \cap H] =
-  1$ for all $v \geq 0$, implying by our second observation that $H = \{0\}$,
-  as desired.
+  the equation above is bounded from above by $q$ (cf. \cite[Lemma 3]{gold1981local}).
+  Meanwhile, by \eqref{eq:CalculationOfUpperRamificationFiltration}, the first factor
+  of the right-hand side is bounded from below by $q-1$. This implies $[G^v \cap H :
+  G^{v+1} \cap H] = 1$ for all $v \geq 0$. Hence, the first observation allows us
+  to deduce that $H = H \cap \left( \bigcap_{v \geq 0} G^v \right) = \{0\}$, as desired.
 \end{proof}
 \end{lem}
 
@@ -351,7 +358,7 @@ This quickly implies the following.
   As the intersection of  $E_\varpi$ and $E^\nr$ is trivial, the group on the right
   is isomorphic to $\Gal(E^\nr /E) \cong \hat \Z$. Hence the sequence admits 
   a splitting $\Gal(E_\varpi E^\nr/ E_\varpi) \to \Gal(E' E_\varpi E^\nr/
-  E_\varpi)$. The fixed field of the image of this splitting is 
+  E_\varpi)$. The fixed field of the image of this splitting is an extension
   $L/E_\varpi$ with $L E^\nr E_\varpi = E' E^\nr E_\varpi$ and $L/E$ abelian.
   By the Lemma above this implies $L = E_\varpi$, hence $E' \subset E^\nr E_\varpi$. 
 \end{proof}

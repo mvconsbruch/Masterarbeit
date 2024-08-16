@@ -21,15 +21,15 @@ explicit.
 
 \subsection{The Special Affinoid and its Formal Model} % (fold)
 \label{sub:The Special Affinoid}
-We define the subspace $U \subset M_{\infty,\cO_{\C_p}}^{(0)}$ as the rational subset cut out
-by the inequalities $\abs{X_i} \leq \abs{\varpi}^{1/q^n-1}$ for $i = 1, \dots, n$. 
-We construct formal model $\cX \in \FSchOver {\cO_{\C_p}}$ of $U$ whose special fiber $\cX_s = 
+We define the subspace $U \subset M_{\infty,\cO_{\C_p}}^{(0)}$ as the rational
+subset cut out by the inequalities $\abs{X_i} \leq \abs{\varpi}^{1/q^n-1}$ for
+$i = 1, \dots, n$. We construct formal model $\cX \in \FSchOver {\cO_{\C_p}}$
+of $U$ whose special fiber $\cX_s = 
 \cX \times_{\spf(\cO_{\C_p})}\spec(\bar \FF_q)$ is isomorphic to the perfection of the
 Deligne--Lusztig variety $\DL_n$ constructed in Section \ref{sub:An Explicit Example}.
 
-The formal model $\cX = \spf C_n$ is defined as follows. Let $H$
-be the standard
-formal $\cO_E$-module over $\cO_\br E$ and let 
+The formal model $\cX = \spf C_n$ is defined as follows. Let $H$ be the
+standard formal $\cO_E$-module over $\cO_\br E$ and let 
 $$y = (y_1, y_2, \dots) \in T_\varpi H(\cO_\Cp)$$ be a primitive element, that is,
 an element with $y_1 \neq 0$ and $[\varpi]_H(y_1) = 0$. Write $\xi = \lambda(y)$ 
 for the corresponding element of $\Nilp^\flat(\cO_\Cp)$. 
@@ -126,8 +126,23 @@ We define
 \begin{prop}\label{prop:AffinoidIsFormalModel}
   The formal scheme $\cX$ is a formal model for $U$. 
 \end{prop}
-\begin{proof}[Proof of Proposition \ref{prop:AffinoidIsFormalModel}] 
-  \red{todo}
+\begin{proof} 
+  By definition, $U$ is isomorphic to the affinoid adic space
+  \begin{equation*}
+    \Spa(B_n[\tfrac 1\varpi], \tilde B_n) \quad \text{where} \quad 
+    B_n \coloneqq \frac{\cO_\Cp \langle x_1^{q^{-\infty}}, \dots,
+    x_n^{q^{-\infty}} \rangle}
+    {\Delta^{q^{-m}}(\xi x_1, \dots, \xi x_n) - \tau^{q^{-m}} \mid m \in \N)^-}
+  \end{equation*}
+  and $\tilde B_n \subset B_n[\tfrac 1\varpi]$ denotes the normalization of 
+  $B_n$ inside $B_n[\tfrac 1 \varpi]$. 
+  We set 
+  $$B'_n \coloneqq \frac{\cO_\Cp \langle x_1^{q^{-\infty}}, \dots,
+  x_n^{q^{-\infty}} \rangle} {\Delta'(x_1, \dots, x_n)^{q^{-m}} -
+  \tau'^{q^{-m}} \mid m \in \N)^-}.$$
+  As $\xi$ is invertible in $B_n[\tfrac 1 \varpi]$, we have 
+  $B'_n[\tfrac 1 \varpi] = B_n[\tfrac 1 \varpi]$. Furthermore, the images of 
+  $B_n$ and $B'_n$ inside $B_n[\tfrac 1 \varpi]$ agree. The claim follows.
 \end{proof}
 
 %\begin{rmk} 
