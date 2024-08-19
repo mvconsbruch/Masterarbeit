@@ -136,13 +136,13 @@ We define
   \end{equation*}
   and $\tilde B_n \subset B_n[\tfrac 1\varpi]$ denotes the normalization of 
   $B_n$ inside $B_n[\tfrac 1 \varpi]$. 
-  We set 
-  $$B'_n \coloneqq \frac{\cO_\Cp \langle x_1^{q^{-\infty}}, \dots,
-  x_n^{q^{-\infty}} \rangle} {\Delta'(x_1, \dots, x_n)^{q^{-m}} -
+  As above, we set 
+  $$C_n = \frac{\cO_\Cp \langle x_1^{q^{-\infty}}, \dots,
+  x_n^{q^{-\infty}} \rangle} {(\Delta'(x_1, \dots, x_n)^{q^{-m}} -
   \tau'^{q^{-m}} \mid m \in \N)^-}.$$
   As $\xi$ is invertible in $B_n[\tfrac 1 \varpi]$, we have 
-  $B'_n[\tfrac 1 \varpi] = B_n[\tfrac 1 \varpi]$. Furthermore, the images of 
-  $B_n$ and $B'_n$ inside $B_n[\tfrac 1 \varpi]$ agree. The claim follows.
+  $C_n[\tfrac 1 \varpi] = B_n[\tfrac 1 \varpi]$. Furthermore, the images of 
+  $B_n$ and $C_n$ inside $B_n[\tfrac 1 \varpi]$ agree. The claim follows.
 \end{proof}
 
 %\begin{rmk} 
@@ -178,7 +178,7 @@ We define
     (-1)^{n-1} \det (\bar \alpha_i^{q^{j-1}})_{1 \leq i,j \leq n}^{q^{-m}} =
     (-1)^{n-1} b^{q^{-m}}.
   \end{equation*}
-  This gives $b^{q^{-m}}(q-1) = (-1)^{n-1}$, as desired.
+  This gives $b^{q^{-m}(q-1)} = (-1)^{n-1}$, as desired.
   By Lemma \ref{lem:PropsOfDeltaPrAndTauPr}, we find that $\cX_s$ is equal to
   \begin{equation*}
     \spec \left( \frac{\Fqbar [x_1^{q^{-\infty,}}, \dots,
@@ -188,7 +188,7 @@ We define
 \end{proof}
 \end{prop}
 
-We also have
+The last result we need is the following.
 \begin{prop}\label{prop:FlatnessOfFormalModel}
   The formal model $\cX$ is flat over $\spf(\cO_\Cp)$. 
 \begin{proof}

@@ -5,14 +5,14 @@
 \section{Extensions of Formal Modules} % (fold)
 \label{sub:Exact Categories Extensions of Formal Modules}
 
-In this section, we equip the category $\FMArbOver AX$, where 
-$A$ is any ring and $X$ is a quasi-compact and quasi-separated $A$-scheme,
-with a notion of short exact sequences. We show that this gives $\FMArbOver AX$ 
+In this section, we equip the category $\FMArbOver AS$, where 
+$A$ is any ring and $S$ is a $A$-scheme,
+with a notion of short exact sequences. We show that this gives $\FMArbOver AS$ 
 the structure of an exact category in the sense of 
 Quillen \cite[Appendix A]{keller1990chain}. We introduce functors
 \begin{align*}
-  \Ext(-,-)&: \FMArbOver AX^\opp \times \FMArbOver AX \to \Set \\
-  \RigExt(-,-)&: \FMArbOver AX^\opp \times \FMArbOver AX \to \Set,
+  \Ext(-,-)&: \FMArbOver AS^\opp \times \FMArbOver AS \to \Set \\
+  \RigExt(-,-)&: \FMArbOver AS^\opp \times \FMArbOver AS \to \Set,
 \end{align*}
 which send a pair $(\cF, \cF')$ to the set of equivalence classes of 
 extensions (respectively rigidified extensions) of $\cF$ by $\cF'$. 
@@ -64,19 +64,17 @@ exact categories, following \cite[Appendix A]{keller1990chain}.
   \end{enumerate}
 \end{defi}
 
-As above, suppose that $A$ is any ring and $X$ is a quasi-compact and
-quasi-separated $A$-scheme. Let $\cF$, $\cE$ and $\cF'$ be formal $A$-modules
-over $X$. As a primer, we note that the category $\FMArbOver AX$ is additive 
-(essentially by Lemma \ref{lem:FGLAdditive}).
+As above, suppose that $A$ is any ring and $S$ is an $A$-scheme. Let $\cF$, $\cE$ and $\cF'$ be formal $A$-modules
+over $S$. The category $\FMArbOver AS$ is additive by Lemma \ref{lem:FGLAdditive}.
 
 \begin{defi}[Short Exact Sequence]\label{def:SESofFormalModules}
   A pair of composable morphisms $\cF' \to \cE \to \cF$ in 
-  $\FMArbOver A X$ is called 
+  $\FMArbOver A S$ is called 
   a short exact sequence if the induced sequence 
   \begin{equation*}
     0 \to \Lie(\cF') \to \Lie(\cE) \to \Lie(\cF) \to 0
   \end{equation*}
-  is a short exact sequence of $\cO_X$-modules. In this case, we write
+  is a short exact sequence of $\cO_S$-modules. In this case, we write
   \begin{equation*}
     0 \to \cF' \to \cE \to \cF' \to 0.
   \end{equation*}
@@ -86,7 +84,6 @@ over $X$. As a primer, we note that the category $\FMArbOver AX$ is additive
 \end{defi}
 
 \begin{lem}\label{lem:SESStandardForm}
-  \todo{CONDITIONS ON R; NEED FORMAL IMPLICIT FUNCTION THEROEM!}
   Let $R$ be an $A$-algebra and let $F, F' \in \FMLArbOver AR$ be 
   formal $A$-module laws of dimensions $m$ and $n$, respectively. Write 
   $\cF', \cF \in \FMArbOver AR$ for the associated formal $A$-modules,
@@ -147,8 +144,7 @@ appearing in the above Lemma. They satisfy certain conditions.
       \delta_{a+b}(\bZ_1)$
     \item $[a]_{F'}\delta_b(\bZ_1) +_{F'} \delta_a([b]_F(\bZ_1)) = \delta_{ab}(\bZ_1)$.
   \end{itemize}
-  These objects are called symmetric $2$-cocycles. The set $\SymCoc^2(F, F')$
-  is naturally a left-$\End(F')$-module.
+  These objects are called symmetric $2$-cocycles. 
 \end{defi}
 \begin{prop}\label{prop:ClassOfFGLitoSymCoc}
   There is a bijection 
@@ -171,7 +167,7 @@ appearing in the above Lemma. They satisfy certain conditions.
 \end{prop}
 
 \begin{lem}
-  If $\cF'$, $\cE$ and $\cF$ are formal $A$-modules over a quasi-compact and quasi-separated $A$-scheme $X$,
+  If $\cF'$, $\cE$ and $\cF$ are formal $A$-modules over an $A$-scheme $S$,
   and $\alpha$ and $\beta$ are morphisms such that 
   $0 \to \cF' \xto\alpha \cE \xto\beta \cF \to 0$ 
   is a short exact sequence of formal $A$-modules, $\alpha$ is a kernel of
@@ -194,7 +190,7 @@ appearing in the above Lemma. They satisfy certain conditions.
     	\arrow["0"', from=2-3, to=1-4]
     \end{tikzcd}
   \end{equation*}
-  As $\overline \psi$ is unique, we may work locally $X$ and assume that $X =
+  As $\overline \psi$ is unique, we may work locally $S$ and assume that $S =
   \spec R$ is affine and 
   $\cF'$, $\cF$ and $\cG$ all come from formal $A$-module laws. We may
   now assume that the short exact sequence is in the form of Lemma
@@ -221,7 +217,7 @@ appearing in the above Lemma. They satisfy certain conditions.
 
 \begin{lem}
   Let $0 \to \cF' \xto\alpha \cE \xto\beta \cF \to 0$ be a short exact sequence in 
-  $\FMLArbOver AX$. If $f \in \Hom_{\FMArbOver AX} \cG \to \cF$ is a morphism 
+  $\FMLArbOver AS$. If $f \in \Hom_{\FMArbOver AS} \cG \to \cF$ is a morphism 
   of formal $A$-modules, then there is a formal $A$-module $f^*\cE$ 
   and a deflation $f^*\cE \to \cG$ fitting into a diagram with short exact 
   sequences as rows
@@ -244,7 +240,7 @@ appearing in the above Lemma. They satisfy certain conditions.
   \end{equation*}
   The square on the right is cartesian.
 \begin{proof}
-  Assume first that $X = \spec R$ is affine and that $\cF$, $\cF'$ and $\cG$ 
+  Assume first that $S = \spec R$ is affine and that $\cF$, $\cF'$ and $\cG$ 
   come from formal $A$-module laws over $R$. Then we assume to be in the
   situation of Lemma \ref{lem:SESStandardForm}, with
   $\cE$ coming from a formal $A$-module law $E$. Using the induced morphism 
@@ -273,16 +269,18 @@ appearing in the above Lemma. They satisfy certain conditions.
     \end{tikzcd}
   \end{equation*}
   is cartesian in the category of formal $A$-module laws over $R$. 
-  As the data of $\cE$ glue, the power series defining $f^*E$ glue to give
-  a formal $A$-module $f^*\cE$, satisfying all of the desired properties.
-\end{proof}
+  Hence the construction is independent of the choice of coordinate,
+  and we may define $f^* \cE$ as the formal module with underlying formal
+  scheme given by $\cE \times_{\cF} \cG$ and module law structure given by the
+  maps admitting the local description above.
+  \end{proof}
 \end{lem}
 
 The dual statement is also true. 
 \begin{lem}
   Let $0 \to \cF' \xto \alpha \cE \xto\beta \cF \to 0$ be as above, and let
-  $g \in \Hom_{\FMArbOver AX}(\cF', \cG')$ be a morphism of formal 
-  $A$ modules. There is a formal $A$-module $g_*\cE$ over $X$ and an
+  $g \in \Hom_{\FMArbOver AS}(\cF', \cG')$ be a morphism of formal 
+  $A$ modules. There is a formal $A$-module $g_*\cE$ over $S$ and an
   inflation $\alpha':\cG' \to g_*\cE$ fitting into a diagram with short 
   exact sequences
   \begin{equation*}
@@ -302,9 +300,10 @@ The dual statement is also true.
     	\arrow[from=2-4, to=2-5]
     \end{tikzcd}
   \end{equation*}
+  The square on the left is co-cartesian.
 \begin{proof}
   We proceed as in the proof of the previous lemma and assume that 
-  $X = \spec R$ and that $\cF'$, $\cF$ and $\cG$ come from formal $A$-module
+  $S = \spec R$ and that $\cF'$, $\cF$ and $\cG$ come from formal $A$-module
   laws over $R$. Now $E$ is a formal $A$-module law over $R$ of the form 
   described in Lemma \ref{lem:SESStandardForm}, and 
   using the power series $\Delta$ and $\delta_a$ we define $g_* E$ via 
@@ -316,14 +315,19 @@ The dual statement is also true.
   \end{gather*}
   The morphism $E \to g_*E$ is given by $(\bX, \bZ) \mapsto (g(\bX), \bZ)$. 
   These data glue and give rise to a formal $A$-module
-  $g_*\cE$ over $X$ satisfying the desired properties.
+  $g_*\cE$ over $S$ satisfying the desired properties.
 \end{proof}
 \end{lem}
 
-As a consequence of the previous lemmas, we obtain
+\begin{rmk} 
+  The constructions above show that $\SymCoc^2(F, F')$ is functorial in 
+  both entries; contravariant in the first, covariant in the second.
+\end{rmk}
+
+As a consequence of the previous lemmas, we obtain the following result.
 \begin{prop}\label{prop:FMArbIsExact}
-  Let $S$ be a quasi-compact and quasi-separated $S$-scheme. Then
-  the category $\FMLArbOver AS$, equipped with the notion of exact sequences
+  Let $S$ be an $A$-scheme. Then
+  the category $\FMArbOver AS$, equipped with the notion of exact sequences
   from Definition \ref{def:SESofFormalModules}, is an exact category. 
 \end{prop}
 
@@ -335,7 +339,7 @@ The following calculation is convenient.
     \quad \Lie(g_* \cE) \cong \Lie(\cG') \sqcup_{\Lie(\cF')} \Lie(\cE).
   \end{equation*}
 \begin{proof}
-  This is true locally, and the local descriptions descent to $X$.
+  This is true locally, and the local descriptions descent to $S$.
 \end{proof}
 \end{lem}
 
@@ -396,10 +400,10 @@ with zero-object given by the canonical extension $\cF \oplus \cF'$.
   	  \arrow[from=1-4, to=1-5]
     \end{tikzcd}
   \end{equation*}
-  We say that two rigidified extensions $(E,s)$, $(E',s')$ are isomorphic if there 
-  is an isomorphism $i: E \to E'$ of extensions such that $s' = \Lie(i) \circ s$. 
-  We denote the set of isomorphism classes of rigidified extensions by 
-  $\RigExt(\cF, \cF')$. 
+  We say that two rigidified extensions $(\cE,s)$ and $(\cE',s')$ are
+  isomorphic if there is an isomorphism $i: \cE \to \cE'$ of extensions such
+  that $s' = \Lie(i) \circ s$. We denote the set of isomorphism classes of
+  rigidified extensions by $\RigExt(\cF, \cF')$. 
 \end{defi}
 \begin{lem}
   The assignment $(\cF, \cF') \mapsto \RigExt(\cF,\cF')$ is functorial in both
@@ -448,14 +452,18 @@ term of an interesting exact sequence.
   is the identity. It is clear that these morphisms $s$ correspond to morphisms 
   $\Lie(\cF) \to \Lie(\cF')$. 
 
+  For any $\lambda: \Lie(\cF) \to \Lie(\cF')$, denote by $s_\lambda : 
+  \Lie(\cF) \to \Lie(\cF') \oplus \Lie(\cF)$ the splitting given by 
+  $y \mapsto (\lambda(y) , y)$.
   The kernel of $\Hom_{\QCoh {\cO_S}}(\Lie(\cF), \Lie(\cF')) \to \RigExt(\cF,
-  \cF')$ is spanned by those pairs $(\cE,s)$ that are in the same 
-  class as $(\cF' \oplus \cF, s_{\mathrm{triv}})$. Any such $\cE$ fits into
-  a diagram 
+  \cF')$ is spanned by those $\lambda: \Lie(\cF) \to \Lie(\cF')$ such that 
+  $(\cF' \oplus \cF, s_\lambda)$ is in the same equivalence
+  class as $(\cF' \oplus \cF, s_{\mathrm{triv}})$. Any such pair fits into
+  a commutative diagram 
   \begin{equation*}
     \begin{tikzcd}[ampersand replacement=\&]
     	0 \& {\cF'} \& {\cF' \oplus \cF} \& \cF \& 0 \\
-    	0 \& {\cF'} \& \cE \& \cF \& 0.
+    	0 \& {\cF'} \& {\cF' \oplus \cF} \& \cF \& 0,
     	\arrow[from=1-1, to=1-2]
     	\arrow[from=1-2, to=1-3]
     	\arrow[Rightarrow, no head, from=1-2, to=2-2]
@@ -464,19 +472,21 @@ term of an interesting exact sequence.
     	\arrow[from=1-4, to=1-5]
     	\arrow[Rightarrow, no head, from=1-4, to=2-4]
     	\arrow[from=2-1, to=2-2]
-    	\arrow["\alpha", from=2-2, to=2-3]
+    	\arrow[ from=2-2, to=2-3]
     	\arrow["\beta", from=2-3, to=2-4]
     	\arrow[from=2-4, to=2-5]
     \end{tikzcd}
   \end{equation*}
-  Working locally, we assume that $\cE$, $\cF$ and $\cF'$ come from formal 
-  module laws $E$, $F$ and $F'$. Now $\psi$ is necessarily of the form
-  $\psi(\bX, \bZ) = (\bX +_{F'} g(\bZ), \bZ)$. Hence, the power series
-  $g$ furnishes a morphism of formal module laws $F \to F'$. This construction
-  descents to a morphism of formal $A$-modules $\cF \to \cF'$, and we have 
-  $$s(x) = \Lie(\psi) \circ s_{\mathrm{triv}}(x) = \Lie(\alpha)\circ\Lie(g)(x)
-  + x \in \Lie(\cE).$$
-  This explains exactness on the left.
+  where $\psi$ is an isomorphism satisfying $\Lie(\psi)(x,y) = (x + \lambda(y), y)$.
+  This shows that the composition 
+  \begin{equation*}
+    \Hom_{\FMArbOver AS}(\cF, \cF') \xto{\Lie} \Hom_{\QCoh {\cO_S}}(\Lie(\cF),
+    \Lie(\cF')) \to \RigExt(\cF, \cF')
+  \end{equation*}
+  is the zero-morphism. Indeed, given $g \in  \Hom_{\FMArbOver AS}(\cF, \cF')$,
+  we may choose $\psi$ as the map $(x, y) \mapsto (x +_{\cF'} g(y), y)$.
+  Conversely, any morphism $\psi$ fitting into the diagram above is necessarily
+  of this form. This proves exactness on the left.
 \end{proof}
 \end{prop}
 % subsubsection Extensions and Rigidified Extensions (end)
