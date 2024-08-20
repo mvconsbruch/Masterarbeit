@@ -225,10 +225,9 @@ Furthermore, Mieda shows that the square
 	\arrow[Rightarrow, no head, from=2-1, to=2-2]
 \end{tikzcd}
 \end{equation*}
-is commutative. Passing from torsion cohomology to $\ell$-adic cohomology and utilizing
-commutativity of the squares above and in \eqref{eq:MiedasCommutingDiagram},
-we quickly arrive the following result.
-\begin{thm}\label{thm:SubspaceInjectionFiniteLevel}
+is commutative. The following statement is a direct consequence.
+
+\begin{prop}\label{thm:SubspaceInjectionFiniteLevel}
   Let $X$ and $\cY$ be as above, i.e., let $X$ be a purely $d$-dimensional
   separated smooth scheme of finite type over $\Fqbar$, and let 
   $\cY$ be a flat and topologically of finite type formal scheme over $R$ with 
@@ -239,20 +238,17 @@ we quickly arrive the following result.
 
   Then, the map 
   \begin{equation*}
-    \hH_c^i(X, \Qlbar) \xto {\times \deg \pi} 
-    \hH_c^i(X, \Qlbar) \to 
-    \hH^i(X,   \Qlbar)
+    \hH_c^i(X, \underline \Lambda_X) \xto {\times \deg \pi} 
+    \hH_c^i(X, \underline \Lambda_X) \to 
+    \hH^i(X,   \underline \Lambda_X)
   \end{equation*}
   factors through the composition
   \begin{equation*}
-    \hH_c^i(X,      \Qlbar) \xto {\pi^*}
-    \hH_c^i(\cY_s,  \Qlbar) \xto {\specmap^*}
-    \hH_c^i(d(\cY), \Qlbar) \to 
-    \hH_c^i(Z,      \Qlbar).
+    \hH_c^i(X,      \underline \Lambda_X) \xto {\pi^*}
+    \hH_c^i(\cY_s,  \underline \Lambda_{\cY_s}) \xto {\specmap^*}
+    \hH_c^i(d(\cY), \underline \Lambda_{d(\cY)}) \to 
+    \hH_c^i(Z,      \underline \Lambda_Z).
   \end{equation*}
-  In particular, if $V \subseteq \hH^i_c(X, \Qlbar)$ is a subspace such that the 
-  composition $V \inj \hH^i_c(X, \Qlbar) \to \hH^i(X, \Qlbar)$ is injective,
-  the map $V \inj \hH^i_c(X, \Qlbar) \to \hH^i_c(Z, \Qlbar)$ is injective as well.
 \begin{proof}
   By construction of the lower shriek for taut morphisms (cf. \cite[Section 0.4
   D)]{huber2013etale}), formation of the lower shriek functor is covariant with
@@ -270,9 +266,33 @@ we quickly arrive the following result.
     \end{tikzcd}
   \end{equation*}
   The claim now essentially follows from gluing together all the commutative
-  diagrams above. \red{up to concerns when taking the limits to obtain $\ell$-adic cohomology?} For details we refer to \cite[Theorem 2.8]{mieda2016geometric}.
+  diagrams above. 
+\end{proof}
+\end{prop}
+
+Passing from torsion cohomology to $\ell$-adic cohomology, we quickly arrive
+the following result.
+
+\begin{thm}[Mieda's Injectivity Result at Finite
+  Level]\label{thm:MiedaInjectivityAtFiniteLevel}
+  Let $X$ and $Z$ be as in Proposition \ref{thm:SubspaceInjectionFiniteLevel}.
+  If $V \subseteq \hH^i_c(X, \Qlbar)$ is a subspace such that the 
+  composition $V \inj \hH^i_c(X, \Qlbar) \to \hH^i(X, \Qlbar)$ is injective,
+  the map 
+  \begin{equation*}
+    V \inj \hH^i_c(X, \Qlbar) \xto {\specmap^* \circ \pi^*}
+    \hH^i_c(d(\cY), \Qlbar) \to \hH^i_c(Z, \Qlbar)
+  \end{equation*}
+  is injective as well.
+\begin{proof}
+  Up to concerns about the formation of $\ell$-adic cohomology, this is a
+  direct consequence of Proposition \ref{thm:SubspaceInjectionFiniteLevel}
+  above. We refer to \cite[Theorem 2.8]{mieda2016geometric} for details.
 \end{proof}
 \end{thm}
+
+
+
 
 % subsection The Injectivity Result (end)
 
@@ -281,12 +301,10 @@ we quickly arrive the following result.
 
 We now explain how the results of the previous subsection apply to the 
 cohomology of the Lubin--Tate tower.
-Recall that $\cM_{\infty, \cO_\Cp}^{(0)}$ 
-Using 
 
-\begin{defi}[Formal Model]\label{def:FormalModel}
-  
-\end{defi}
+Suppose we are given a rational subset $U$ of the Lubin--Tate perfectoid space
+$M_{\infty, \cO_\Cp}^{(0)}$ and a $\varpi$-adically complete, flat $\cO_\Cp$-algebra
+$A$ such that $\cX = \spf(A)$ is a formal model of $U$. 
 
 For our purposes the following results, taken from \cite[Corollary
 4.6]{mieda2016geometric}, suffice.
@@ -299,7 +317,6 @@ For our purposes the following results, taken from \cite[Corollary
     \cY_s = \spec(A \otimes_{R} \Fqbar) \xto \sim Y^\perf
   \end{equation*}
   of schemes over $\spec \Fqbar$, equivariant for the action of $J$ on both sides.
-  Then we have the following.
   \begin{enumerate}
     \item There is a $J$-equivariant homomorphism
       \begin{equation*}

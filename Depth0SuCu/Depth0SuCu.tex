@@ -107,7 +107,7 @@ systems of $q$-th power roots $\Delta'$ and $\tau'$ as
   , x_n^{q^{-\infty}}\rangle.$
   Also, $\tau'^{q^{-m}} \in \cO_\Cp^\times$. 
 \begin{proof}
-  The statement for $\Delta$ follows directly from the approximation in Lemma
+  The statement about $\Delta'$ follows directly from the approximation in Lemma
   \ref{lem:DeltaApprox}. One easily checks $\abs \tau = 1$, implying the second
   statement.
 \end{proof}
@@ -132,7 +132,7 @@ We define
     \Spa(B_n[\tfrac 1\varpi], \tilde B_n) \quad \text{where} \quad 
     B_n \coloneqq \frac{\cO_\Cp \langle x_1^{q^{-\infty}}, \dots,
     x_n^{q^{-\infty}} \rangle}
-    {\Delta^{q^{-m}}(\xi x_1, \dots, \xi x_n) - \tau^{q^{-m}} \mid m \in \N)^-}
+    {(\Delta^{q^{-m}}(\xi x_1, \dots, \xi x_n) - \tau^{q^{-m}} \mid m \in \N)^-}
   \end{equation*}
   and $\tilde B_n \subset B_n[\tfrac 1\varpi]$ denotes the normalization of 
   $B_n$ inside $B_n[\tfrac 1 \varpi]$. 
@@ -163,7 +163,7 @@ We define
 %\end{rmk}
 
 \begin{prop}\label{prop:SpecialFiberOfAffinoidIsLusztig}
-  Let $b^{1/q^m}$ be the residue class of $\tau'^{1/q^m}$ in $\Cp/\fm_{\Cp}$. 
+  Let $b^{1/q^m}$ be the residue class of $\tau'^{1/q^m}$ in $\cO_\Cp/\fm_{\Cp}$. 
   Then $b^{q-1} = (-1)^{n-1}$, and the special fiber of $\cX_s \coloneq \cX
   \times_{\spf \cO_\Cp} \spec (\Fqbar)$ is isomorphic to $Y_b^\perf$, the
   perfection of the component $Y_b \subset \DL_n$ defined in \eqref{eq:DefYb}.
@@ -274,7 +274,14 @@ We wish to show the following Proposition.
 \end{prop}
 
 \begin{proof}
-Note that by the description of the group action of $G^1$ on $A_{\infty, \cO_\Cp}$
+For $g \in \GL_n(E)$, write $\gamma_{g,i} = g^*(X_i) 
+\in \cO_\Cp \llbr X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}} \rrbr$, where 
+$g^*$ is the morphism defined in Lemma \ref{lem:ExplicitActionOnQthPowerRootSystems}.
+ Also, denote by $g_i$ the $i$-th column vector of $g$.
+
+Similarly, for $d \in D^\times$, write $\delta_d = d^*(X_i) \in \cO_\Cp\llbr
+X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}} \rrbr.$
+By the description of the group action of $G^1$ on $A_{\infty, \cO_\Cp}$
 in Proposition \ref{prop:ExplicitDescriptionOfActionOnAinfty}, the induced
 actions on $C_n$ and $Y_b^\perf$ must take the form described in Figure
 \ref{fig:TableOfGroupActionsOnModels}. 
@@ -282,20 +289,19 @@ actions on $C_n$ and $Y_b^\perf$ must take the form described in Figure
 \begin{figure}[H] 
 \centering
 \begin{center}
-\begin{tabularx} {0.9\textwidth} { 
+\begin{tabularx} {0.95\textwidth} { 
   |>{\centering\arraybackslash}X ||>{\centering\arraybackslash}X
   |>{\centering\arraybackslash}X |>{\centering\arraybackslash}X | }
  \hline
  Element & Action on $A_{\infty,\cO_\Cp}$ & Action on $C_n$ & Action on
  $Y_b^\perf$ \\ [0.5ex] 
  \hline\hline
- $(g,1,1)$ & $(X_1, \dots, X_n) \mapsto g^*(X_1, \dots, X_n)$ & $(x_1, \dots,
- x_n) \mapsto \xi^{-1}g^*(\xi x_1, \dots, \xi x_n)$ & $(x_1,\dots, x_n) \mapsto (x_1,
- \dots, x_n)\cdot\bar g$\\ 
+ $(g,1,1)$ & $X_i \mapsto \gamma_{g,i}(X_1, \dots, X_n)$ & $x_i \mapsto
+ \xi^{-1}\gamma_{g,i}(\xi x_1, \dots, \xi x_n)$ & $x_i \mapsto
+ (x_1, \dots, x_n)\cdot\bar g_i$\\ 
  \hline
- $(1,d,1)$ & $X_i \mapsto d^{-1, *}(X_i)$ & $x_i \mapsto \xi^{-1} d^{-1, *}(\xi
- x_i)$ & $x_i
- \mapsto \bar d^{-1} x_i$ \\
+$(1,d,1)$ & $X_i \mapsto \delta_{d^{-1}}(X_i)$ & $x_i \mapsto \xi^{-1}
+\delta_{d^{-1}}(\xi x_i)$ & $x_i \mapsto \bar d^{-1} x_i$ \\
  \hline
  $(a,a,1)$ & trivial & trivial & trivial \\
  \hline
@@ -314,10 +320,10 @@ actions on $C_n$ and $Y_b^\perf$ must take the form described in Figure
 To show that the actions described above fulfill the desired properties, it suffices
 to show the following claims.
 \begin{enumerate}
-  \item The power series 
-    $$\xi^{-1}g^*(\xi x_1, \dots, \xi x_n) \in \Cp\llbr x_1, \dots x_n \rrbr$$
+  \item For $i = 1, \dots, n$, the power series 
+    $$\xi^{-1}\gamma_{g,i}(\xi x_1, \dots, \xi x_n) \in \Cp\llbr x_1, \dots x_n \rrbr$$
     lies inside $\cO_\Cp \langle x_1, \dots, x_n \rangle$ and reduces to $(x_1,
-    \dots, x_n)\cdot \bar g$ modulo $\fm_\Cp$.
+    \dots, x_n)\cdot \bar g_i$ modulo $\fm_\Cp$.
   \item The power series 
     \begin{equation*}
       \xi^{-1} d^{-1, *} (\xi x_i) \in \Cp \llbr x_i\rrbr 
@@ -332,18 +338,19 @@ to show the following claims.
     $\xi/\sigma(\xi)$ reduces to $1$ modulo $\fm_\Cp$. 
 \end{enumerate}
 The first claim follows directly from the description of $g^*$ in
-Lemma \ref{lem:ExplicitActionOnQthPowerRootSystems}. Indeed, writing $g = (g_1,
-\dots, g_n)$ for $g_i$ the $i$-th column vector of $g$, one quickly checks that modulo
-$\fm_\Cp$, we have 
-$$\xi^{-1} g_i^*(\xi x_1, \dots, \xi x_n) \equiv \sum_{j=1}^n \sumH
-a_{ij}^{(0)} x_j = (x_1, \dots, x_n).\bar g_i \mod \fm_\Cp.$$ 
+Lemma \ref{lem:ExplicitActionOnQthPowerRootSystems}. Indeed, one quickly checks
+that modulo $\fm_\Cp$, we have 
+$$\xi^{-1} \gamma_{g,i}^*(\xi x_1, \dots, \xi x_n) \equiv \sum_{j=1}^n \sumH
+a_{ji}^{(0)} x_j = (x_1, \dots, x_n).\bar g_i \mod \fm_\Cp.$$ 
 Similarly one obtains the second claim.
 
 The third claim follows as $\sigma$ lies in the inertia subgroup,
 hence $\xi \equiv \sigma(\xi) \mod \fm_\Cp$.
 
-Finally, for the fourth statement, we use that by classical Lubin--Tate theory, $\sigma$
-acts trivially on the system
+Finally, for the fourth statement, note that each component of $y$ lies inside the
+(totally ramified) Lubin--Tate extension $E_\varpi$ (cf. Section \ref{sec:Local
+Class Field Theory}). By construction of the Artin map, $\sigma|_{E_\varpi} = 
+\id_{E_\varpi}$, hence $\sigma$ acts trivially on the system
 $(y_k)_{k\in \N}$. As $\sigma$ is continuous, this implies $\sigma(\xi) = \xi$,
 concluding the proof.
 \end{proof}
@@ -355,7 +362,7 @@ Fix, for the remainder of the section, an isomorphism $\bar \Q_l \cong \C$ and
 a regular character $\theta: \FF_{q^n}^\times \to \C^\times$. 
 The datum of $\theta$ can be used to construct representations 
 of $W_F$ and $D^\times$ and, making use of Deligne--Lusztig
-theory, a representation of $\GL_n(F)$. We proceed as follows.
+theory, a representation of $\GL_n(F)$. The construction is as follows.
 \begin{itemize}
   \item Let $\bar \tau_\theta$ be the character of $\Weil_{F_n}$ given by 
     the composition
@@ -432,12 +439,64 @@ Explicit Example}.
 
 The input we get from Mieda's theory is the following.
 \begin{prop}\label{prop:J1EquivInjMor}
-  There is an injective morphism of  $J^1$-representations
+  There is an injective morphism of $J^1$-representations
   \begin{equation*} 
     \Res_{J^1}^J( \hH_{\DL,\theta} ) \inj \Res_{J^1}^{G^1}( \hH'_{\LT}).
   \end{equation*}
   \begin{proof}
-    This is \cite[Proposition 5.11]{mieda2016geometric}. 
+    By the results of the previous two sections, $\cX = \Spf(B_n)$ is a formal
+    model of $U$ (Proposition \ref{prop:AffinoidIsFormalModel}), 
+    $B_n$ is flat over $\cO_\Cp$ (Proposition \ref{prop:FlatnessOfFormalModel}),
+    and there is group action of $J^1$ on $Y_b$, which is compatible with the group
+    action on $\cX_s$ obtained from the group action of $J^1$ on $M_{\infty,
+    \cO_\Cp}^{(0)}$ (Section \ref{sub:Proof of Proposition}).
+    We are therefore in the situation of Theorem \ref{thm:MiedaAppliedToLTT}, 
+    which we want to apply with $V = \hH^{n-1}_c(Y_b, \Qlbar)_\theta$. 
+    By part 2 of Theorem \ref{thm:DLCorrespondenceForUs}, 
+    the natural map $\hH_c^{n-1}(Y_b, \Qlbar)_\theta \to \hH^{n-1}(Y_b,
+    \Qlbar)$ is an isomorphism. Hence the composition
+    \begin{equation*}
+      \hH^{n-1}_c(Y_b, \Qlbar)_\theta \inj \hH^{n-1}_c(Y_b, \Qlbar)
+      \to \hH^{n-1}(Y_b, \Qlbar)
+    \end{equation*}
+    is injective. 
+    Mieda's theorem now yields a $J^1$-equivariant injective morphism
+    \begin{equation*}
+      \hH_c^{n-1}(Y_b, \Qlbar)_\theta \inj \hH'_\LT.
+    \end{equation*}
+    We claim that there is a $J^1$-equivariant isomorphism $\hH_c^{n-1}(Y_b,
+    \Qlbar)_\theta \cong \hH_c^{n-1}(\DL_n, \Qlbar)_\theta$,
+    which suffices to prove the claim. Given any $\zeta \in \FF_{q^n}^{\times}$,
+    the action of $\FF_{q^n}^\times$ on $\DL_n$ restricts to a map 
+    $Y_b \to Y_{b \Norm(\zeta)^{-1}}$. Writing
+    $(\FF_{q^n}^\times)^1 = \{\zeta \in \Fqbar \mid \Norm(\zeta) = 1\}$, 
+    this quickly implies
+    \begin{equation*}
+      \Ind_{(\FF_{q^n}^\times)^1}^{\FF_{q^n}^\times}\hH_c^{n-1}(Y_b, \Qlbar)
+      \cong \hH_c^{n-1}(\DL_n, \Qlbar).
+    \end{equation*}
+    Frobenius reciprocity now yields the isomorphism of
+    $(\FF_{q^n}^\times)^1$-Representations
+    \begin{multline*}
+      \hH^{n-1}_c(\DL_n, \Qlbar)_\theta \cong 
+      \Hom_{\Rep {\FF_{q^n}^\times}}(\theta, \hH^{n-1}_c(\DL_n, \Qlbar)) 
+      \cong 
+      \Hom_{\Rep {\FF_{q^n}^\times}}\left(\theta,
+      \Ind_{(\FF_{q^n}^\times)^1}^{\FF_{q^n}^\times}\hH_c^{n-1}(Y_b, \Qlbar) \right) \\
+      = 
+      \Hom_{\Rep {(\FF_{q^n}^\times)^1}}
+      \left(\Res^{\FF_{q^n}^\times}_{(\FF_{q^n}^\times)^1} \theta,
+        \hH_c^{n-1}(Y_b, \Qlbar) \right) = \hH_c^{n-1}(Y_b, \Qlbar)_\theta.
+    \end{multline*}
+    Explicitely, this isomorphism is given by the projection
+    \begin{equation*}
+      \hH^{n-1}_c(\DL_n, \Qlbar)_\theta \to \hH^{n-1}_c(Y_b, \Qlbar)_\theta ,
+      \quad x \mapsto \begin{cases}
+        x, &\text{ if }x \in \hH_c^{n-1}(Y_b, \Qlbar)_\theta \\
+        0, &\text{ otherwise}
+      \end{cases}
+    \end{equation*}
+    and thereby clearly $J^1$-equivariant.
   \end{proof}
 \end{prop}
 
