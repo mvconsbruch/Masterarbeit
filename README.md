@@ -1,4 +1,6 @@
 # Master's thesis
+## 20th of August
+[08_20_version.pdf](./compiled_versions/08_20_version.pdf) 
 ## 09th of August
 [08_09_version.pdf](./compiled_versions/08_09_version.pdf) 
 ### Big to dos:
