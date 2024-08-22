@@ -8,7 +8,8 @@ In this section, we introduce, attached to a formal group law
 $H_0 \in \FMLOver {\cO_E}{\Fqbar}$ of height $n \in \N$, the infinite level
 deformation moduli problem
 \begin{equation*}
-  \cM_{\infty}^{(0)} = \lim_{m \in \N} \left(\cM_{m}^{(0)}\right).
+  \cM_{\infty}^{(0)} = \lim_{m \in \N} \left(\cM_{m}^{(0)}\right) \colon 
+  \cC \to \Set.
 \end{equation*}
 We have seen in the previous section that $\cM_{m}^{(0)}$ is 
 representable by the formal spectrum of a local ring $A_m$, finite and \'etale
@@ -19,12 +20,15 @@ the formal spectrum of the completed colimit
   A_\infty = (\colim_m A_m)^\wedge_{\fm}.
 \end{equation*}
 Here, $\fm$ denotes the image of the maximal ideal of $A_0$ (or of any $A_m$, it doesn't
-matter). Note that $\colim_m A_m$ is not Noetherian, so the completion 
+matter). Note that $\colim_m A_m$ is not Noetherian and in particular
+$A_\infty$ does not lie inside $\cC$. Additionally, the completion 
 along an arbitrary ideal $I \subset A_\infty$ is, in general, not $I$-adically
 complete (see \cite[\href{https://stacks.math.columbia.edu/tag/05JA}{Tag
 05JA}]{stacks-project} for an example). However, we have seen that $\fm$ is
 finitely generated, so this pathology does not occur and $\cM_\infty^{(0)}
-\coloneqq \spf A_\infty$ makes senes as a formal scheme.
+\coloneqq \spf A_\infty$ makes senes as a formal scheme. A priori, it is not clear 
+if there is a good moduli description of $\cM_\infty^{(0)}$ as a functor
+$\FSchOver{\cO_\br E}^{\opp} \to \Set$.
 
 This section is concerned with the study of the ring $A_\infty$. 
 The main results are summarized as follows. 
@@ -631,8 +635,6 @@ obtain a right action by $G$ on $\tilde \cF^n_{\cO_\Cp}$.
   sides.
 \end{prop}
 
-
-
 \begin{proof}
   It suffices to check $G$-equivariance of the induced map
   $$\cM_{\infty, \cO_\Cp}^{(0)}(A_\infty \cotimes_{R} \cO_\Cp) \to \tilde
@@ -1202,7 +1204,9 @@ We have the following approximation of $\Delta$, cf. \cite[Lemma 2.10.4]{Boyarch
     \frac{X_i^{q^{nk + j-1}}}{\varpi^k} \right)_{1 \leq i, j \leq n}
   \end{equation*}
   of elements inside $\br E \llbr X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}} \rrbr$
-  (equipped with the $(\varpi, X_1, \dots, X_n)$-adic topology).
+  (equipped with the topology induced from the 
+  $(\varpi, X_1, \allowbreak \dots, X_n)$-adic topology on $\cO_\br E\llbr
+  X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}} \rrbr$).
   The claim follows after comparing coefficients of the respective series. 
 \end{proof}
 \end{lem}

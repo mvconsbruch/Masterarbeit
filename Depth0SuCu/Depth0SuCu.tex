@@ -466,17 +466,20 @@ The input we get from Mieda's theory is the following.
     \end{equation*}
     We claim that there is a $J^1$-equivariant isomorphism $\hH_c^{n-1}(Y_b,
     \Qlbar)_\theta \cong \hH_c^{n-1}(\DL_n, \Qlbar)_\theta$,
-    which suffices to prove the claim. Given any $\zeta \in \FF_{q^n}^{\times}$,
-    the action of $\FF_{q^n}^\times$ on $\DL_n$ restricts to a map 
-    $Y_b \to Y_{b \Norm(\zeta)^{-1}}$. Writing
+    which suffices to prove the claim. Any $\zeta \in \FF_{q^n}^{\times}$
+    yields an isomorphism $Y_b \to Y_{b \Norm(\zeta)^{-1}}$ 
+    through the action of $\FF_{q^n}^\times$ on $\DL_n$. Writing
     $(\FF_{q^n}^\times)^1 = \{\zeta \in \Fqbar \mid \Norm(\zeta) = 1\}$, 
     this quickly implies
     \begin{equation*}
+      \hH_c^{n-1}(\DL_n, \Qlbar) \cong
       \Ind_{(\FF_{q^n}^\times)^1}^{\FF_{q^n}^\times}\hH_c^{n-1}(Y_b, \Qlbar)
-      \cong \hH_c^{n-1}(\DL_n, \Qlbar).
+      = \bigoplus_{\zeta} \hH_c^{n-1}(Y_{b \Norm(\zeta)^{-1}}, \Qlbar),
     \end{equation*}
-    Frobenius reciprocity now yields the isomorphism of
-    $(\FF_{q^n}^\times)^1$-Representations
+    where $\zeta$ runs over representatives of the quotient
+    $\FF_{q^n}^\times/(\FF_{q^n}^\times)^1$.
+    Frobenius reciprocity now yields an isomorphism of
+    $(\FF_{q^n}^\times)^1$-representations
     \begin{multline*}
       \hH^{n-1}_c(\DL_n, \Qlbar)_\theta \cong 
       \Hom_{\Rep {\FF_{q^n}^\times}}(\theta, \hH^{n-1}_c(\DL_n, \Qlbar)) 
