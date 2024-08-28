@@ -131,8 +131,8 @@ We also need the following result.
 
 \begin{lem}\label{lem:WeinsteinDeterminantAndNorm}
   Let $L/E$ be a separable extension of degree $n$ and suppose that there 
-  is an action $\cO_L \inj \End(\cF)$ making $\cF$ into a formal $\cO_L$-module
-  of height $1$. Then, for all $m \geq 1$, the identity
+  is an action $\cO_L \inj \End(\cF)$ turning $\cF$ into a formal
+  $\cO_L$-module of height $1$. Then, for all $m \geq 1$, the identity
   \begin{equation*}
     \delta_m(\alpha x_1, \dots, \alpha x_n) = \Norm_{L/E}(\alpha) \delta_m
     (x_1, \dots, x_n)
@@ -470,11 +470,9 @@ We finally note the following auxiliary result.
 \subsubsection{Relation to the Deformation Space at Infinite Level} % (fold)
 \label{ssub:Relation to the Deformation Space at Infinite Level}
 Let $(e_1, \dots, e_n)$ denote the standard basis of $\cO_E^n$. By 
-Theorem \ref{thm:RepresentabilityOfDefSpaceWithLevel} and the fact that for any
-$j \in \Z$ there exist (non-canonical) isomorphisms,
-$\cM_m^{(0)} \cong \cM_{m}^{(j)}$, there is for any
+Theorem \ref{thm:RepresentabilityOfDefSpaceWithLevel}, there is for any
 every positive integer $m$ a universal triple 
-$$(\cF^\univ_m, \iota^{\univ}_m, \phi^\univ_m) \in \cM_{m}^{(j)}(A_m),$$
+$$(\cF^\univ, \iota^{\univ}, \phi^\univ_m) \in \cM_{m}^{(j)}(A_m),$$
 \red{where the pair $(\cF_m^\univ, \iota_m^\univ) = (\cF^\univ, \iota^\univ)$
  can be chosen independently of $m$} and the Drinfeld level
 $\varpi^m$-structure 
@@ -494,9 +492,13 @@ Proposition \ref{prop:UnivCoverReductionIso}, we have isomorphisms
   \xto{\iota} \tilde \cF_0^n(A_\infty/\fm_0)
   \cong \tilde \cF^n(A_\infty).
 \end{equation*}
-This constructs a morphism of formal schemes over $\spf R$
-\begin{equation} \label{eq:MapFromMtoTildeF}
-  \cM_\infty^{(j)} \to \tilde \cF^n.
+This constructs a morphism of formal schemes over $\spf \cO_\br E$
+\begin{equation*} 
+  \cM_\infty^{(0)} \to \tilde \cF^n.
+\end{equation*}
+Similarly, we obtain natural maps 
+\begin{equation}\label{eq:MapFromMtoTildeF}
+\cM_\infty^{(j)} \to \tilde \cF^n.
 \end{equation}
 
 In order to formulate the main result of this subsection, we also need a 
@@ -627,6 +629,8 @@ and in particular yields an action of $\Weil_E$ on $\tilde \cF_{\cO_\Cp}^n$.
 It is easy to see that the actions of $\GL_n(E)$ and $\Weil_E$ commute,
 and that both these actions commute with the Weil descent datum. Hence we
 obtain a right action by $G$ on $\tilde \cF^n_{\cO_\Cp}$.
+
+Recall 
 
 \begin{prop}\label{lem:MapToUnivCovIsEquivariant}
   The morphism $\cM_{\infty}^{(0)} \times_{\spf \cO_\br E} \spf(\cO_\Cp)
