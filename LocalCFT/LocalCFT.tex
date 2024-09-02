@@ -16,7 +16,7 @@ are odd prime numbers, we have the equality
   \legendre p \ell = (-1)^{\frac{p-1}2 \frac{l-1}2} \legendre \ell p.
 \end{equation*}
 This unintuitive statement about the interplay of the multiplicative structures of
-$\FF_p$ and $\FF_\ell$ finds a deeper, more conceptual meaning when inspected through
+$\FF_p$ and $\FF_\ell$ finds a deeper and more conceptual meaning when inspected through
 the lens of cyclotomic fields. This connection
 was first made by Gauß himself, when he provided a proof of quadratic
 reciprocity using so-called Gauß sums. Admitting theory of cyclotomic fields 
@@ -31,7 +31,7 @@ quadratic reciprocity is essentially equivalent to the following statement.
 \end{equation*}
 This foreshadows class field theory. Indeed, one major achievement
 of class field theory is the Artin reciprocity law, which in particular yields a 
-description of the decomposition behaviour of unramified primes inside abelian extensions
+description of the decomposition behavior of unramified primes inside abelian extensions
 of number fields, cf. \cite[Theorem 7.3]{neukirch2006algebraische}. 
 The appearence of cyclotomic fields above is also no coincidence.
 
@@ -39,7 +39,7 @@ The appearence of cyclotomic fields above is also no coincidence.
 wasn't (completely) proven by either Kronecker or Weber; the first correct
 prove was found by Hilbert. For more on the history of class field theory, see 
 \cite{Conrad2009HISTORYOC}.}] \label{thm:KroneckerWeber}
-  Every finite extension of $\Q$ embedds into $\Q(\zeta_m)$ for some $m \in \Z$.
+  Every finite extension of $\Q$ embeds into $\Q(\zeta_m)$ for some $m \in \Z$.
   That is, after choosing an algebraic closure $\Q \inj \bar \Q$, the maximal abelian
   subextension is given by 
   \begin{equation*}
@@ -246,7 +246,7 @@ is not complete, but any $x \in \fm_{\bar E}$ lies inside some finite (hence
 complete) subextension, so the power series $[\varpi]_F(x)$ converges, and the 
 definition of $\Lambda_{f,m}$ makes sense.
 
-With the $\cO_E$-module structure from $F$, the set $\Lambda_{f,m}$ is a
+With the $\cO_E$-module structure from $F$, the set $\Lambda_{f,m}$ is an
 $\cO_E$-module. The absolute Galois group of $E$ acts $\cO_E$-linearly on
 $\Lambda_{f,m}$, as the power series constituting the $\cO_E$-structure all
 have coefficients in $E$. This yields a homomorphism 
@@ -398,13 +398,13 @@ ramification filtration can be calculated explicitely (cf. \cite[Theorem
   \end{cases}
 \end{equation}
 In particular, this implies by Herbrand's theorem (cf. \cite[Ch. 4, Proposition
-14]{serre2013local}) that the upper numbering filtration of 
+-14]{serre2013local}) that the upper numbering filtration of 
 $\Gal(E_\varpi/E)$ has jumps exactly at the non-negative integers, with
 \begin{equation*}
   q-1 \leq [\Gal(E_\varpi/E)^{v} : \Gal(E_\varpi/E)^{v+1}] \leq q.
 \end{equation*}
 
-By the theorem of Hasse--Arf, the same phenomenon occurs for any abelian extension.
+By the Hasse--Arf theorem, the same phenomenon occurs for any abelian extension.
 \begin{thm}[Hasse--Arf]\label{thm:Hasse--Arf}
   Suppose that $E'/E$ is an abelian extension. If $v \in \R$ is a jump in the 
   filtration $\Gal(E'/E)^v$, then $v$ is an integer.
@@ -415,7 +415,7 @@ This quickly implies the following.
 \begin{lem}\label{lem:LocalKronWebAlmostDone}
   Let $E'/E_\varpi$ be a totally ramified extension with $E'/E$ abelian.
   Then $E' = E_\varpi$. 
-\begin{proof}
+\begin{proof}[Sketch of Proof]
   We write $G = \Gal(E'/E)$ and $H = \Gal(E'/E_\varpi)$. We want to show that 
   $H$ is trivial. This will follow from the following two observations.
   \begin{enumerate}

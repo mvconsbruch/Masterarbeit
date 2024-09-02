@@ -69,7 +69,7 @@ For now, let $R$ be any ring.
   \end{enumerate}
   \begin{proof}
     The first statement is an application of the formal implicit function theorem,
-    cf. \todo{citation}. The remaining statements are verified directly.
+    cf. \todo{citation}. The remaining statements are a matter of direct computation.
   \end{proof}
 \end{lem}
 
@@ -140,21 +140,24 @@ At the slight cost of precision, we usually do not explicitely mention the
 $A$-structure when referring to formal module laws, simply writing $F \in
 \FMLOver AR$ for example. 
 
-The following lemma explains the functoriality of the assignment
-$R \mapsto \FMLArbOver A R$.
+Given an additional $A$-algebra $R'$, a morphsim
+$i\colon R \to R'$ yields a functor 
+\begin{equation*}
+    \FMLArbOver AR \to \FMLArbOver A{R'}, \quad
+    F \mapsto F \otimes_R R',
+\end{equation*}
+where $F \otimes_R R'$ denotes the formal $A$-module law obtained by applying $i$
+to the coefficients of the formal power series representing the $A$-module structure of $F$. 
+This turns the assignment $R \mapsto \FMLArbOver AR$ into a 
+functor $\Alg A \to \Set$. The corresponding presheaf on $\AffSchOver {A}^\opp$ is  separated for the Zariski topology, 
+but it fails to be a sheaf in general: the Lie algebra of any
+formal group law over $R$ has to be free, and this condition cannot be 
+ensured Zariski-locally on $\spec R$. It may therefore be 
+advisable to consider the sheafification $R \mapsto \FMLArbOver AR^\#$ instead, but in our applications
+$R$ will almost always be a local $A$-algebra, so considerations
+of this type will not play a large role.
 
-\begin{lem}\label{lem:FMLFunc}
-  The assignment $R \mapsto \FMLArbOver A R$ is functorial in the following sense.
-  If $i\colon  R \to R'$ is a morphism of $A$-algebras, we obtain a functor
-  \begin{equation*}
-    \FMLArbOver A R \to \FMLArbOver A {R'}, \quad F \mapsto F \otimes_R R',
-  \end{equation*}
-  where $F \otimes_R R'$ is the formal $A$-module law obtained by applying $i$
-  to the coefficients of the formal power series representing the $A$-module
-  structure of $F$. 
-\end{lem}
-
-Note that every $n$-dimensional formal module law $F \in \FMLArbOver A R$
+Every $n$-dimensional formal module law $F \in \FMLArbOver A R$
 yields a functor
 \begin{equation}\label{eq:fmnilpfunc}
   \Alg R \to \Mod A, \quad S \mapsto \Nil(S)^n,
@@ -177,6 +180,9 @@ Passing from discrete $R$-algebras to admissible $R$-algebras (cf. Definition
 \end{equation*}
 where we equip $\Spf R \llbr \bT \rrbr$ with the structure of an $A$-module object
 using the endomorphisms coming from $F$. 
+
+
+
 Following this line of thought leads naturally to the definition of
 formal modules. 
 
@@ -195,14 +201,14 @@ formal modules.
   over $X$ by $\FMOver AX$. 
 \end{defi}
 
-\begin{rmk} 
-  Formal schemes (over a base an $A$-scheme $X$, say) locally isomorphic to 
-  $\spf \cO_X(U)\llbr \bT \rrbr$ are sometimes called Formal
-  Lie Varieties \todo{reference}. Equivalently to the definition above, we could
-  have defined formal $A$-modules as $A$-module objects in the category of
-  Formal Lie Varieties, such that the $A$-module structure
-  on the tangent space at the identity agrees with the usual one.
-\end{rmk}
+% \begin{rmk} 
+%   Formal schemes (over a base an $A$-scheme $X$, say) locally isomorphic to 
+%   $\spf \cO_X(U)\llbr \bT \rrbr$ are sometimes called Formal
+%   Lie Varieties \todo{reference}. Equivalently to the definition above, we could
+%   have defined formal $A$-modules as $A$-module objects in the category of
+%   Formal Lie Varieties, such that the $A$-module structure
+%   on the tangent space at the identity agr\textbf{}ees with the usual one.
+% \end{rmk}
 
 \begin{defi}[Coordinate]
   Let $\cF$ be a formal $A$-module over $X$. The choice of a cover $\sqcup_{i
@@ -1102,5 +1108,655 @@ $i$ by an element in $\Hom(F, V) = 0$.
 \end{proof}
 \end{lem}
 % subsection The Universal Additive Extension (end)
+\subsection{Determinants of Formal modules} % (fold)
+\label{sub:Determinants of Formal modules}
+In \cite{hedayatzadeh2015det}, Hedayatzadeh constructs determinants of 
+$\varpi$-divisible formal $\cO_E$-modules over \red{properties} rings. 
+We cite the result of main importance for us.
+\begin{thm}[Determinants of Formal Modules]\label{thm:HedayatzadehsResult}
+  ABCDE
+\begin{proof}
+\end{proof}
+\end{thm}
+
+Let $\cF_0 \in \FMOver {\cO_E}{\Fqbar}$ be a formal module of height $n$ and 
+write $\wedge^n\cF_0$ for the associated determinant module, that is, the 
+formal $\cO_E$ module with $\Dio(\wedge^n\cF_0) = \wedge^n\Dio(\cF_0)$. Write
+$\cM_m$ for the Deformation space of $\cF_0$ with Drinfeld level
+$\varpi^m$-structure, and write $\cM_{m, \wedge}$ for the deformation space of
+$\wedge^n\cF$. 
+Following \cite{weinstein2016semistable}, we sketch how this result can be
+used to construct a functor $\cM_{m} \to \cM_{m, \wedge}$. 
+
+For $R\in\cC$ and $(\cF, \iota) \in \cM_{0}(R)$, we write $\delta_m$ for the
+induced universal multilinear and alternating morphisms
+\begin{equation}\label{eq:determinantontorsionpoints}
+  \delta_m \colon \cF[\varpi^m]^n \to \wedge^n\cF[\varpi^m].
+\end{equation}
+
+We now have the following result.
+
+\begin{lem}\label{lem:DeterminantOfDrinfeldStructure}
+  Let $(x_1, \dots, x_n) \in \cF[\varpi^{m}]^n(R)$ be a Drinfeld level
+  $\varpi^m$ structure. Then 
+  \begin{equation*}
+    \delta_m(x_1, \dots, x_n) \in \wedge^n\cF[\varpi^m](R) 
+  \end{equation*}
+  is a Drinfeld level $\varpi^m$ structure.
+\begin{proof}
+  This is \cite[Proposition 2.11]{weinstein2016semistable}.
+\end{proof}
+\end{lem}
+
+In particular, we obtain the desired map
+
+\begin{equation*}
+  \cM_m^{(0)}(R) \to \cM^{(0)}_{m, \wedge}(R), \quad (\cF, \iota, \phi)
+  \mapsto (\wedge^n \cF, \wedge^n \iota, \delta_m \circ \phi).
+\end{equation*}
+
+We also need the following result.
+
+\begin{lem}\label{lem:WeinsteinDeterminantAndNorm}
+  Let $L/E$ be a separable extension of degree $n$ and suppose that there 
+  is an action $\cO_L \inj \End(\cF)$ turning $\cF$ into a formal
+  $\cO_L$-module of height $1$. Then, for all $m \geq 1$, the identity
+  \begin{equation*}
+    \delta_m(\alpha x_1, \dots, \alpha x_n) = \Norm_{L/E}(\alpha) \delta_m
+    (x_1, \dots, x_n)
+  \end{equation*}
+  holds. 
+  \begin{proof}
+    This is \cite[Lemma 2.12]{weinstein2016semistable}.
+  \end{proof}
+\end{lem}
+
+We remark that the Lemma above in particular applies to the standard formal 
+$\cO_E$-module $H$ over $\cO_\br E$. We turn our attention to the determinant of the standard
+formal $\cO_E$-module in the following example.
+
+\begin{xpl}
+  The determinant $\wedge^n H$ is the formal $\cO_E$-module law over 
+  $\cO_\br E$ with logarithm given by the power series
+  \begin{equation*}
+    f_\wedge(T) = \sum_{i=0}^\infty (-1)^{(n-1)i} \frac{T^{q^i}}{\varpi^i}.
+  \end{equation*}
+  This is to be understood in the following way. If $\cH$ is a formal module
+  equipped with a coordinate $\cH \cong \spf(\cO_\br E \llbr T \rrbr)$ inducing an 
+  isomorphism $\cH \cong \FGG(H)$, then the same coordinate yields 
+  an isomorphism $\wedge^n \cH \cong \FGG(\wedge H)$. We do not prove this,
+  but we note that it can be witnessed on the
+  corresponding Dieuodonn\'e-modules: $\Dio(\wedge^n H)$ and 
+  $\wedge^n \Dio(H)$ are naturally isomorphic. The module $\QLog(\wedge^n H)$
+  is
+  generated by $f_\wedge(T)$, and $\wedge^n \QLog(H)$ is generated by the element
+  \begin{equation*}
+    w(T) = \log_H(T) \wedge \frac 1\varpi \log_H(T^q) \wedge \dots \wedge \frac 1\varpi \log_H(T^{q^{n-1}}) \in \wedge^n \Dio(H).
+  \end{equation*}
+  We have $f_\wedge(T^q) = (-1)^{n-1} \varpi f(T) - \varpi T$, which equals
+  $(-1)^{n-1}\varpi f_\wedge(T)$ in $\QLog(\wedge^n H) \cong \Dio(\wedge^n
+  H)^\vee$. 
+  This readily implies
+  \begin{equation*}
+    \phi(w) = w(T^q) = (-1)^{n-1} \varpi w(T) \quad \text{and} \quad
+    \phi(f_\wedge(T)) = f_\wedge(T^q) = (-1)^{n-1}\varpi f_\wedge(T).
+  \end{equation*}
+  Thereby, $\Dio(\wedge^n H)$ and $\wedge^n \Dio(H)$ are free of rank one
+  with isomorphic Frobenius structure, hence isomorphic as Dieudonn\'e-modules.
+  We also note that by Theorem \ref{thm:HazewinkelIntegrality}, one finds
+  \begin{equation} \label{eq:detformalmodulevarpiexpl}
+    [\varpi]_{(\wedge^n H)_0}(T) = (-1)^{n-1} T^q.
+  \end{equation}
+\end{xpl}
+
+% subsubsection Determinants of Formal modules (end)
+\subsection{The Universal Cover} % (fold)
+\label{sub:Tate Modules and the Universal Cover} 
+
+% Subintro (fold)
+Assume that $A$ is a discrete valuation ring with uniformizer
+$\varpi$, finite residue field $k$ and fraction field $K$. 
+Write $q = \# k$. Let $R$ be an admissible $A$-algebra admitting an ideal of definition
+$I$ with $R/I = \Fqbar$. Let $\cF$ be a formal
+$\varpi$-divisible $A$-module over $R$ of height $n$. 
+\begin{defi}[The Universal Cover]
+  We denote by $\tilde \cF$ the functor
+  \begin{equation*}
+    \Tilde \cF \colon \Adm R \to \Vec {K}, \quad
+    S \mapsto \left\{(x_1, x_2, \dots) \in \prod_{\N} \cF(S) \mid \varpi (x_{i+1}) =
+    x_i \right\}.
+  \end{equation*}
+  Note that for $S \in \Adm R$, the set $\Tilde \cF(S)$ has a natural
+  $A$-module structure with multiplication by $\varpi$ an isomorphism, making
+  it a $K$-vector space.
+\end{defi}
+
+We remark that the Tate module
+\begin{equation}\label{eq:TateModuleDef}
+  T_\varpi \cF \colon \Adm R \to \Mod A, \quad S \mapsto \{(x_1, x_2, \dots)
+  \in \tilde \cF \mid \varpi x_1 = 0\}
+\end{equation}
+as well as the rational Tate module 
+\begin{equation}\label{eq:RationalTateModuleDef}
+  V_\varpi \cF \colon \Adm R \to \Vec K, \quad S \mapsto \{(x_1, x_2, \dots)
+  \in \tilde \cF \mid \exists n \in \N : \varpi^n x_1 = 0\}
+\end{equation}
+arise as subfunctors of $\Tilde \cF$. 
+% Subintro (end)
+
+\subsubsection{Useful Calculations} % (fold)
+\label{ssub:Useful Calculations}
+Let $p$ be a prime. Let $R$ be a Noetherian local ring with maximal ideal $I$
+such that $p \in I$, $R$ is complete with respect to the $I$-adic topology and
+$k_R \coloneqq R/I$ is an algebraically closed field (necessarily of
+characteristic $p$). If $q$ is a power of $p$, we write $\cP_{R,q}$ for the set
+of power series $f \in R\llbr T \rrbr$ satisfying 
+\begin{equation} \label{eq:condonpowerseries}
+  f(T) \equiv g(T^q) \pmod I
+\end{equation}
+for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in R\llbr T \rrbr$ with 
+$c_1 \in R^\times$. 
+If $q'>q$ is another power of $p$, we have injections $\cP_{R,q} \inj \cP_{R,q'}$
+given by sending $f(T)$ to its $(q'/q)$-fold self-composite $f^{q'/q}(T)$. 
+Making use of these transition maps, we define
+\begin{equation*}
+  \cP_R \coloneqq \colim_{n \in \N} \cP_{R, p^n},
+\end{equation*}
+identifying any power series $f \in \cP_{R,q}$ with its image in $\cP_{R,q'}$ for 
+higher $p$-powers $q'$. 
+For any $f \in \cP_{R,q}$, we define the functor
+\begin{equation*}
+  U_f: \Adm R \to \Set, \quad S \mapsto \left\{(x_0,x_1, \dots) \in \prod_\N S^\cici 
+                                          \mid f(x_{i+1}) = x_i\right\}.
+\end{equation*}
+This functor does, up to canonical isomorphism, only depend on the equivalence
+class of $f$ in $\cP_R$. 
+We write $U_{0,f}$ for the base change of $U_f$ to $k_R$, that is
+\begin{equation*}
+  U_{0,f}: \Adm {k_R} \to \Set, \quad S \mapsto \left\{(x_0,x_1, \dots) \in
+                              \prod_\N S^\cici \mid \bar f(x_{i+1}) = x_i\right\}.
+\end{equation*}
+Here, $\bar f$ is the image of $f$ under the reduction map $R\llbr T \rrbr \to
+k_R\llbr T \rrbr$. 
+
+In the sequel, we denote $R$-algebras by $S$ and write $J$ for an ideal
+of definition containing the image of $I$ (provided, for example, by \ref{lem:iodimage}).
+Given an element $f\in \cP_R$, we do not distinguish between $f$ and a choice of a 
+representative $\tilde f \in \cP_{R,q}$ for some sufficiently large $p$-power.
+
+The following observation lays the groundwork for many of the upcoming results.
+\begin{lem}\label{lem:cryscalc}
+  Let $f$ be any power series in $\cP_R$. For any two elements $s_1,s_2 \in S$ 
+  with $s_1 \equiv s_2 \mod J$ such that $f(s_1)$ and $f(s_2)$ exist (for
+  example if $f$ is a polynomial or $s_1, s_2 \in S^\cici$), we have 
+  \begin{equation*}
+    f^k(s_1) \equiv f^k(s_2) \pmod {J^{k+1}}.
+  \end{equation*}
+  Here, $f^k$ denotes $k$-fold composition of $f$.
+\begin{proof}
+  We will show that if $s_1 \equiv s_2$ mod $J^k$, then $f(s_1) \equiv f(s_2)$ mod 
+  $J^{k+1}$, which suffices to prove the claim. 
+  We may write $s_2 = s_1 + r$ for some $r\in J^k$. By the assumptions on $f$
+  there exist power series 
+  $g,h \in R\llbr T \rrbr$ such that $h$ only
+  has coefficients in $I$ and $f(T) = g(T^q) + h(T)$. As $I$ is finitely generated,
+  say by elements $(r_1, \dots, r_l)$, we obtain a representation 
+  \begin{equation*}
+    f(s_1) - f(s_2) = g(s_1^{q})-g(s_2^{q}) + \sum_{i=1}^l r_i \left(h_i(s_1) -
+    h_i(s_2)\right).
+  \end{equation*}
+  As $r$ divides $\left(h_i(s_1) - h_i(s_2)\right)$, we find
+  $r_i(h_i(s_1) - h_i(s_2)) \in (r_i r) \subseteq J^{k+1}$. Also note that 
+  for any $s\in S$ and $n \in \N$, 
+  $$(s+r)^{nq} = s^{nq} + nqrs^{nq-1}r + \dots + r^{nq},$$
+  so after cancellation, all monomials of $g(s_1^q) - g(s_2^q)$ lie in
+  $(qr)$ or $(r^2)$. This implies
+  \begin{equation*}
+    g(s_1^q) - g\left((s_1+r)^q\right) \in (qr) + (r^2) \subseteq J^{k+1},
+  \end{equation*}
+  and we are done.
+\end{proof}
+\end{lem}
+
+\begin{lem}\label{lem:reductioniso}
+  The natural reduction map 
+  \begin{equation*}
+    U_f(S) \to U_{f}(S/J) = U_{0,f}(S/J) 
+  \end{equation*}
+  is bijective.
+\begin{proof}
+  We first show surjectivity. Given a sequence $(x_0, x_1, \dots) \in U_{f}(S/J)$, 
+  we can choose a sequence of arbitrary lifts $(y_0, y_1, \dots ) \in \prod_\N
+  S^\cici$ and set 
+  \begin{equation*}
+    z_i = \lim_{r \to \infty} f^r(y_{i+r}).
+  \end{equation*}
+  The limit exists, because if $s\geq r$ are two non-negative integers, we calculate
+  \begin{equation*}
+    f^{s-r}(y_{i+s}) \equiv \bar f^{s-r}(x_{i+s}) = x_{i+r} \equiv y_{i+r}
+    \pmod J,
+  \end{equation*}
+  implying by Lemma \ref{lem:cryscalc} that 
+  \begin{equation*}
+    f^{s}(y_{i+s}) \equiv f^r(y_{i+r}) \pmod{J^r}.
+  \end{equation*}
+  This shows that $(f^{r}(y_{i+r}))_{r \in \N}$ is a Cauchy-sequence for the 
+  $J$-adic topology on $S$, thereby convergent (cf. Lemma
+  \ref{lem:AdmAdicComp}). The sequence $(z_0, z_1, \dots)$ now lies in $U_f(S)$
+  and lifts $(x_0, x_1, \dots)$. It remains to show that the lift is unique.
+  Suppose that $(z'_0, z'_1, \dots)$ is another lift. Then, for any $i,k \in\N$
+  we have $z_{i+k} \equiv z'_{i+k}$ mod $J$, and another application of Lemma
+  \ref{lem:cryscalc} shows that 
+  \begin{equation*}
+    z_i = f^k(z_{i+k}) \equiv f^k(z'_{i+k}) = z'_i \pmod {J^k}.
+  \end{equation*}
+  Thereby $(z_i - z'_i) \in \bigcap_{k \in \N} J^k = \{0\}$. Hence,
+  the lift is unique.
+\end{proof}
+\end{lem}
+
+We write $\Nilp^\flat$ for the functor $U_{T^q}$. That is, 
+$\Nilp^\flat(S) = \lim_{x \mapsto x^q}S^\cici$ is 
+the set of $q$-power compatible sequences with values in $S^\cici$. 
+
+\begin{lem}\label{lem:nilp0iso}
+  For any $f \in \cP_R$, there is a canonical \todo{Use different $S$}
+  bijection $U_{0,f}(S/J) \to \Nilp^\flat(S/J)$. This bijection is functorial in 
+  $S$.
+\begin{proof}
+  By assumption on $f$ we have $f(T) = g(T^{q}) \in k_R\llbr T \rrbr$ for some 
+  $g(T) = c_1T + c_2T^2 + \dots$ with $c_1 \neq 0$. For each coefficient $c_i$, let
+  $d_i \in k_R$ be the unique element such that $d_i^{q} = c_i$. Let
+  $h(T) \in k_R\llbr T \rrbr$ be the power series given by $d_1 T + d_2
+  T^2 + \dots$. Now $(h(T))^{q}=f(T)$, and we find that 
+  \begin{equation*}
+      U_f(S/J) \to \Nilp^\flat(S/J): \quad
+      (x_1, x_2, x_3, \dots) \mapsto (x_1, h(x_2), h(h(x_3)), \dots)
+  \end{equation*}
+  is a well-defined function, and functorial in $S$. For the
+  inverse, let $h^{-1}(T) \in k_R\llbr T \rrbr$ be the unique power
+  series with $h^{-1}(h(T))= h(h^{-1}(T)) = T$, see Lemma
+  \ref{lem:IsosCheckOnLie}. The map
+  \begin{equation*}
+      \Nilp^\flat(S/J) \to U_f(S/J), \quad 
+      (x_1, x_2, \dots ) \mapsto (x_1, h^{-1}(x_2), h^{-1}(h^{-1}(x_3)), \dots)
+  \end{equation*}
+  is well-defined as
+  \begin{equation*}
+      f(h^{-1}(T)) = g((h^{-1}(T))^{q}) = (h(h^{-1}(T)))^{q} =
+      T^{q},
+  \end{equation*}
+  and it is readily seen to be inverse to the map constructed above.
+\end{proof}
+\end{lem}
+
+We collect results.
+\begin{prop}\label{prop:pHTcalc}
+  Given $f,g \in \cP_R$, we have bijections, functorial in $S$,
+  \begin{equation} 
+    U_f(S) \to U_f(S/J) \to \Nilp^\flat(S/J) \to U_g(S/J) \to U_g(S).
+  \end{equation}
+  Explicitly, the bijection $U_f(S) \to U_g(S)$ can be described as follows.
+  Suppose that $f,g \in \cP_{R,q}$ for some sufficiently large $q$. 
+  Let $h_f(T)$ and $h_g(T)$ be power series with coefficients in $A$ such that 
+  $$h_f(T)^q \equiv f(T) \pmod I\quad\text{and}\quad h_g(T)^q \equiv g(T) \pmod
+  I.$$
+  Write $h_g^{-1}(T)$ for the (formal) inverse power series of $h_g$. 
+  Now the isomorphism is given by the mapping
+  \begin{equation*}
+    (x_0, x_1, \dots) \mapsto (y_0, y_1, \dots), \quad \text{where} \quad y_i =
+    \lim_{r \to \infty} g^r(h_g^{-(r+i)}(h_f^{r+i} (x_{i+r}))).
+  \end{equation*}
+  Here, the exponents are to be interpreted as iterated composition.
+\begin{proof}
+  The first part follows directly from repeated application of the previous
+  two Lemmas. The second part follows by tracing through the previous lemmas.  
+\end{proof}
+\end{prop}
+% subsubsection Useful Calculations (end)
+
+\subsubsection{Applications to the Universal Cover} % (fold)
+\label{ssub:The Universal Cover}
+
+Fix a coordinate $\cF \cong \spf(R\llbr T \rrbr)$ so that $\cF = \FGG(F)$ for
+some $A$-module law $F \in \FMLOver AR$. Then $[\varpi]_F(T) \in \cP_R$, and
+we obtain an isomorphism $\tilde \cF \cong U_{[\varpi]_F} \eqqcolon \tilde F$.
+Write $F_0 = F \otimes k_R$, and $\tilde F_0 = U_{0, [\varpi]_F}$. 
+
+\begin{lem}
+  We have an isomorphism 
+  \begin{equation*}
+    \tilde \cF_0 \cong \Nilp^\flat_{k_R}
+  \end{equation*}
+  of functors $\Adm {k_R} \to \Set$
+  \begin{proof}
+    Any lift of $[\varpi]_{F_0}(T) \in k_R\llbr T \rrbr$ lies inside $\cP_R$. Hence,
+    the statement is an application of Lemma \ref{lem:nilp0iso}.
+  \end{proof}
+\end{lem}
+
+\begin{lem}
+  Suppose that $S$ is an admissible $R$-algebra admitting an ideal of definition
+  $J$ such that $\varpi \in J$. Then the natural reduction map
+  \begin{equation*}
+    \tilde \cF(S) \to \tilde \cF(S/J) = \tilde \cF_0(S/J)
+  \end{equation*}
+  is an isomorphism.
+  \begin{proof}[Proof]
+    After choosing a coordinate $\cF = \FGG(F)$, we have $[\varpi]_F \in \cP_R$
+    and hence $\tilde \cF(S) \cong U_{[\varpi]_F}$. Thereby the statement is
+    given by Lemma \ref{lem:reductioniso}.
+  \end{proof}
+\end{lem}
+
+The following is analogous to Proposition \ref{prop:pHTcalc}.
+\begin{prop}\label{prop:UnivCoverReductionIso}
+  Let $S$ be an admissible $R$-algebra with ideal of definition $J$ such that 
+  $\phi(I) \subseteq J$. Then there are canonical isomorphisms (of sets)
+  \begin{equation*}
+    \tilde \cF(S) \cong \tilde \cF(S/J) = \tilde \cF_0(S/J) \cong \Nilp^\flat(S/J) \cong
+    \Nilp^\flat(S).
+  \end{equation*}
+  In particular, $\tilde \cF(S)$ is, as a functor to $\Set$, representable by
+  $\spf(R \llbr T^{q^{-\infty}} \rrbr)$.
+\end{prop}
+We write $\lambda$ for the isomorphism $\Tilde \cF \to \Nilp^\flat$, and
+$\lambda_i: \Tilde \cF \to (-)^\cici$ for projection on the $i$-th component.
+Similarly, we write $\mu: \Nilp^\flat \to \Tilde \cF$ for the inverse of 
+$\lambda$ and $\mu_i$ for the $i$-th component of $\mu$. 
+
+By the proposition above, quasi-isogenies on $\cF_0$ induce isomorphisms on 
+$\tilde \cF$. This will be used to construct an action of $D^\times$ on 
+$\tilde \cF$ below. 
+The relative Frobenius morphism lifts as well.
+\begin{defi}[Relative Frobenius on $\Tilde \cF$] \label{def:FrobOnUnivCov}
+  Write $\Pi: \Tilde \cF \to \Phi^{-1,*}\Tilde \cF$ for the isomorphism coming from
+  the Frobenius quasi-isogeny 
+  \begin{equation*}
+    \Frob_q: \cF_0 \to \cF_0^{(q)} = \Phi^{-1,*} \cF_0.
+  \end{equation*}
+\end{defi}
+
+We finally note the following auxiliary result.
+\begin{lem}\label{lem:UnivCoverIsRatTateifDiscrete}
+  Let $S$ be a discrete admissible $R$-algebra. Then
+  \begin{equation*}
+    V_\varpi \cF(S) = \tilde \cF(S).
+  \end{equation*}
+\begin{proof}
+  As $S$ is discrete, each $s \in S^\cici$ is nilpotent. From here it is easy to 
+  see that there is some $m \in \N$ such that $[\varpi^m]_F(s) = 0$. The desired 
+  statement follows directly.
+\end{proof}
+\end{lem}
+
+% subsubsection The Universal Cover (end)
+\subsection{The Quasilogarithm Map} % (fold)
+\label{sub:The Quasilogarithm map}
+We keep the assumptions on $A$, $R$ and $S$ from the previous subsection. That is,
+$A$ is a local ring with finite residue field and uniformizer $\varpi$, 
+$R$ is a local $A$-algebra with maximal ideal $I$ complete with respect to
+the $I$-adic topology and algebraically closed residue field $k_R$, and 
+$S$ denotes an admissible $R$-algebra (where $R \to S$ is continuous with
+the $I$-adic topology on $R$) with ideal of definition $J \subseteq S$ containing
+the image of $I$. 
+
+The aim of this subsection is to define, attached to any $\varpi$-divisible formal
+$A$-module $\cF$ over $R$, a map
+\begin{equation*}
+\qlog_\cF: \tilde \cF(S) \to \Dio(\cF) \otimes_R (S \otimes_A K),
+\end{equation*}
+called the quasi-logarithm map.
+We give an explicit description of this map if $\cF = \FGG(H)$ is the standard
+$\cO_K$-module over $\cO_{\breve K}$. 
+
+The construction of $\qlog_\cF$ is as follows.  
+Let $0 \to \cV \xto\psi \cE \xto\phi \cF \to 0$ be the universal additive
+extension of $\cF$. For any sequence $(x_1, x_2, \dots) \in \tilde \cF(S)$, choose an arbitrary sequence $(y_1, y_2, \dots) \in
+\tilde \cE(S)$ such that $y_i$ is a lift of $x_i$ under the map $\cE(S) \to \cF(S)$. 
+Let $y$ be the limit $y = \lim_{i \to \infty} [\varpi]_{\cE}^i(y_i)$ and put 
+$$\qlog_\cF((x_1, x_2, \dots)) = \log_\cE(y) \in \Dio(\cF) \otimes_R(S \otimes_A K).$$ 
+
+\begin{prop}
+  This construction yields a well-defined map. 
+\begin{proof}
+  We may assume that $\cF$ and $\cV$ come from formal module laws $F$ and 
+  $V$, and we may furthermore assume that $\cE = \FGG(E)$ 
+  for an $\cO_K$-module law $E$ obtained by Lemma \ref{lem:SESStandardForm}. Now
+  $(x_1, x_2, \dots)$ is a sequence in $S^\cici$ and $(y_1, y_2, \dots)$ is a
+  sequence of elements in $(S^\cici)^n$.
+
+  It suffices to show that $y = \lim_{i\to \infty} [\varpi]^i_E(y_i)$ exists and 
+  that it is independent of the choice of lifts $(y_1, y_2, \dots)$. 
+  Both claims follow from the additivity of $\cV$, implying that 
+  $[\varpi]_{V}(T) = \varpi T$. The sequence 
+  $([\varpi^i]_{E}(y_i))$ converges, as for positive integers $i\leq j$, we have 
+  \begin{equation*}
+    [\varpi^i](y_i) - [\varpi^j](y_j) = [\varpi^i]([\varpi^{i-j}]y_j - y_i)
+    \in \psi(\varpi^i (S^\cici)^{n-1}) \subseteq J^i (S^\cici)^{n}. 
+  \end{equation*}
+
+  If $(y_1', y'_2, \dots)$ is another sequence of lifts, put
+  $y' = \lim_{i \to \infty} [\varpi^i]_E (y_i') \in S^\cici$. Now there exists some
+  $z \in \cV(S)$ such that 
+  $y - y' = \psi(z)$. But by construction
+  $z \in \bigcap_{i \in \N} \varpi^i(S^{\cici})^{n-1} = 0$.
+\end{proof}
+\end{prop}
+
+Let us now consider the case where $\cF = \FGG(H)$ comes from the standard
+formal $\cO_K$-module of height $n$ over $\cO_{\breve K}$. Then 
+from Proposition \ref{prop:InterestingSequenceStdMod} we have the distinguished
+basis elements of $\Ext(H,\Ghat_a)$ corresponding to the symmetric $2$-cocycles
+$\delta f_i$, $1 \leq i \leq n-1$ where $f_i(T) = \frac 1 \varpi
+\log_H(T^{q^i})$. Also recall that, setting $f_0(T) = \log_H(T)$, the elements 
+$(f_0, f_1, \dots, f_{n-1})$ freely generate $\QLog(H)$. The universal
+additive extension now corresponds to the symmetric $2$-cocycle $(\delta f_1,
+\dots, \delta f_{n-1}) \in \SymCoc^2(H,V)$.
+We can make the quasi-logarithm map explicit.
+
+\begin{prop}\label{prop:qlogmapExplicit}
+  Let $x = (x_0, x_1, \dots) \in \Tilde H(S)$. With respect to the basis
+  $(\log_H(T),\allowbreak \log_H(T^q), \allowbreak \dots, \allowbreak \log_H(T^{q^{n-1}}))$ of 
+  $\QLog(H) \otimes_{\cO_K} K$, the quasi-logarithm map is given by
+  \begin{equation*}
+    \qlog_H(x) = \left(\log_H(x_0), \log_H((\Pi x)_0), \dots, \log_H((\Pi^{n-1}
+    x)_0)\right) \in (S\otimes K)^n.
+  \end{equation*}
+  Here, $\Pi x = ((\Pi x)_0, (\Pi x)_1, \dots)$ is the image of $x$ under
+  $\Pi$, the automorphism of $\Tilde
+  H(S)$ induced by the (relative) Frobenius quasi-isogeny on $H_0$, cf. Definition
+  \ref{def:FrobOnUnivCov}.
+\end{prop}
+We postpone the proof to state the following auxiliary result.
+\begin{lem}\label{lem:FrobOnTildeHExpl}
+  Let $x = (x_0 ,x_1, \dots) \in \Tilde H(S)$. For positive integers $i$ and
+  $j$ we have
+  \begin{equation*}
+    \log_H((\Pi^j x)_i) = \lim_{r \to \infty} \varpi^r \log_H(x_{r+i}^{q^j}).
+  \end{equation*}
+\begin{proof}
+  Tracing through the commutative square (with $\lambda$ and $\mu$ the
+  isomorphisms from the previous subsection)
+    \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+    	{\Tilde H(S)} \& {\Nilp^\flat(S)} \\
+    	{\Tilde H(S)} \& {\Nilp^\flat(S),}
+    	\arrow["\lambda", from=1-1, to=1-2]
+    	\arrow["\Pi", from=1-1, to=2-1]
+    	\arrow["{(y_i)_i \mapsto (y_i^{q})_i}", from=1-2, to=2-2]
+    	\arrow["\mu"', from=2-2, to=2-1]
+    \end{tikzcd}
+    \end{equation*}
+    we find 
+    \begin{equation} \label{eq:CompsOfPiExplicit}
+      (\Pi^j x)_i = \lim_{s \to \infty} \lim_{r\to\infty} \left([\varpi]_H^s
+      (x_{r+s+i}^{q^{nr + j}})\right).
+    \end{equation}
+    The claim follows after applying $\log_H$ and making repeated use of the
+    functional equation $\log_H(T^{q^n}) = \varpi \log_H(T) + \varpi T$.
+\end{proof}
+\end{lem}
+\begin{proof}[Proof of Proposition \ref{prop:qlogmapExplicit}]
+  Using the coordinates provided by $(\delta f_1, \dots, \delta f_{n-1})$, the
+  universal additive extension of $H$ is isomorphic to 
+  \begin{equation*}
+    0 \to \Ghat_a^{n-1} \to E \to H \to 0,
+  \end{equation*}
+  where $E$ is a module law with 
+  \begin{equation*}
+    [\varpi]_E(\bX, T) = \big(\varpi X_1 + (\delta_{\varpi}f_1)(T), \dots, \varpi X_{n-1} + 
+    (\delta_{\varpi}f_{n-1})(T), [\varpi]_H(T)\big).
+  \end{equation*}
+  Beginning with $x = (x_0, x_1, \dots) \in \Tilde H (S)$, lifting to $(y_0,
+  y_1, \dots) \in E(S)^\N$ 
+  and writing $y = \lim_{i\to\infty} [\varpi]_E^i (y_i)$, we find
+  \begin{equation*}
+    y = \left(\lim_{r\to\infty} (\delta_{\varpi^r} f_1)(x_r), \dots, \lim_{r\to \infty}
+    (\delta_{\varpi^r}f_{n-1})(x_r), x_0\right) \in E(S).
+  \end{equation*}
+  Now, Lemma \ref{lem:FrobOnTildeHExpl} provides the equality
+  $$\lim_{r\to\infty}\delta_{\varpi^r} f_i(x_r) = \frac 1\varpi \lim_{r \to \infty}
+  \varpi^r \log_H(x_r^{q^{nr+i}}) - \frac 1\varpi \log_H\left(x_0^{q^i}\right) = 
+  \frac 1\varpi \left(\log_H((\Pi^i x)_0)- \log_H(x_0^{q^i})\right).$$
+  We need to calculate $\log_E(y)$, which calls for an explicit description of 
+  $\log_E \colon E \otimes (R \otimes_AK) \to (\Ghat_a \otimes(R \otimes_A K))^n$. 
+  Tracing through the procedure provided in Subsection \ref{sub:Logarithms},
+  we find
+  \begin{equation*}
+    \log_E(\bX, T) = \left(X_1 + \tfrac 1\varpi \log_H(T^q), \dots, 
+    X_{n-1} + \tfrac 1\varpi \log_H(T^{q^{n-1}}), \log_H(T)\right).
+  \end{equation*}
+  This representation is with respect to the basis $(f_1, \dots, f_{n-1}, f_0)$. 
+  The claim follows.
+\end{proof}
+
+% subsubsection The Quasilogarithm map (end)
+\subsection{An Approximation of the Determinant Morphism} % (fold)
+\label{sub:Determinants}
+Let $H$ be the standard formal $\cO_K$-module over $\cO_{\breve K}$ of height
+$n$. Write $\wedge H$ for the formal $\cO_K$-module over $\cO_{\breve K}$ with
+logarithm
+\begin{equation*}
+  \log_{\wedge H}(T) = \sum_{i = 0}^\infty (-1)^{(n-1)i} \frac{T^{qi}}{\varpi^i}.
+\end{equation*}
+By Hazewinkel's integrality Lemma (cf. Theorem \ref{thm:HazewinkelIntegrality}), 
+such a module law exists. We have $\Dio(\wedge H) = \wedge^n \Dio(H)$. 
+We follow \cite[Theorem 2.10.3]{BoyarchenkoWeinstein2011MaxVar} to describe a map $\delta:
+\Tilde H^n \to \Tilde {\wedge H}$ making the square
+\begin{equation}\label{diag:qlogsquare}
+\begin{tikzcd}[ampersand replacement=\&]
+	{\Tilde H^n(S)} \& {\Tilde{\wedge H}(S)} \\
+	{\Dio(H)^n \otimes (S\otimes_{\cO_K} K)} \& {\Dio(\wedge H) \otimes(S\otimes_{\cO_K}K)}
+	\arrow["\delta", from=1-1, to=1-2]
+	\arrow["\qlog_H \times \dots \times \qlog_H"', from=1-1, to=2-1]
+  \arrow["\qlog_{\wedge H}", from=1-2, to=2-2]
+	\arrow["\det", from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation}
+commute. 
+
+Let $(s_1, \dots, s_n) \in \Tilde H(S)^n$, and write $x_i = \lambda(s_i) \in
+\Nilp^\flat(S)$, which are elements in $S^\cici$ with distinguished $q$-power
+roots. Here $\lambda: \Tilde H \to \Nilp^\flat$ is the isomorphism from Section
+\ref{sub:Tate Modules and the Universal Cover} with inverse $\mu = (\mu_0,
+\mu_1, \dots)$. 
+We set
+\begin{equation*}
+  \delta_0(s_1, \dots, s_n) = \sum_{(a_1, \dots, a_n)} \varepsilon(a_1, \dots
+  a_n) \mu_0(x_1^{q^{a_1}} \cdots x_n^{q^{a_n}}) \in \wedge H(S),
+\end{equation*}
+where 
+\begin{itemize}
+  \item The sum takes place in ${\wedge H}(S)$.
+  \item The sum ranges over $n$-tuples $(a_1, \dots, a_n)$ of (possibly negative) integers 
+    satisfying $a_1 + \dots + a_n = n (n-1)/2$, subject to the
+    condition that each $a_i$ occupies a distinct residue class modulo $n$.
+  \item The expression $\varepsilon(a_1, \dots, a_n)$ denotes the sign of the 
+    permutation $i \mapsto a_{i+1}$ (mod $n$) of $(0, \dots, n-1)$.
+\end{itemize}
+
+\begin{prop}\label{prop:commutativityofdeterminantqlogdiag}
+  The map $\delta_0$ makes the diagram 
+  \begin{equation*}
+    \begin{tikzcd}[ampersand replacement=\&]
+    	{\tilde H^n(S)} \& {\wedge H(S)} \\
+    	{\Dio(H)^n \otimes (S \otimes K)} \& {\Dio(\wedge H) \otimes(S \otimes K)}
+    	\arrow["{\delta_0}", from=1-1, to=1-2]
+    	\arrow["{\qlog_H^n}"', from=1-1, to=2-1]
+    	\arrow["{\log_{\wedge H}}", from=1-2, to=2-2]
+    	\arrow["\det", from=2-1, to=2-2]
+    \end{tikzcd}
+  \end{equation*}
+  commute. It is $\cO_K$-multilinear and alternating.
+\begin{proof}
+  This is part of the proof of \cite[Theorem
+  2.10.3]{BoyarchenkoWeinstein2011MaxVar}.
+  Commutativity follows from 
+  \begin{multline*}
+    \log_{\wedge H}(\delta_0(s_1, \dots, s_n)) = \sum_{(a_1, \dots, a_n)} 
+    \varepsilon(\mathbf a) \log_{\wedge H} \mu_0( x_1^{q^{a_1}}\cdots x_n^{q^{a_n}})
+     \\ = \sum_{(a_1, \dots, a_n)} \varepsilon(\mathbf a) \sum_{m \in \Z} (-1)^{(n-1)m}
+    \frac{x_1^{q^{a_1+m}} \cdots x_n^{q^{a_n+m}}}{\varpi^m} 
+    = \det \left( \sum_{m \in \Z} \frac{x_i^{q^{mn + j-1}}}{\varpi^m} \right)_{\substack{
+      1 \leq i \leq n,\\
+      1 \leq j \leq n}},
+  \end{multline*}
+  which is equal to $\det(\qlog_H^n(s_1, \dots, s_n))$ by Proposition 
+  \ref{prop:qlogmapExplicit} and Lemma \ref{lem:LogInTermsOfNil}. 
+  The fact that $\delta_0$ is multilinear and alternating ultimately follows
+  from the corresponding properties of $\det$, the fact that $\ker(\log_H) =
+  \wedge H[\varpi^\infty]$ (cf. Lemma \ref{lem:KernelOfLog}) and topological
+  considerations in the induced diagram in the category of adic spaces over
+  $(\breve K, \cO_{\breve K})$.
+\end{proof}
+\end{prop}
+
+This allows us to define the sought for morphism of functors
+$\delta: \Tilde H^n \to \Tilde {\wedge H}$. 
+\begin{defi}\label{def:DeltaMap}
+  Put $\delta_i(s_1, \dots, s_n) = \delta_0(\varpi^{-i} s_1, \dots, s_n)$. Then 
+  $\delta = (\delta_0, \delta_1, \dots)$ yields a map 
+  $\Tilde H^n \to \Tilde{\wedge H}$. It is $K$-multilinear and alternating.
+\end{defi}
+
+Using the canonical identifications $\Tilde {H}^n \cong (\Nilp^\flat)^n$
+and $\Tilde{\wedge H} \cong \Nilp^\flat$, the morphism $\delta$ yields a 
+map $(\Nilp^\flat)^n \to \Nilp^\flat$, which in turn is the same as a power series 
+\begin{equation*}
+  \Delta(X_1, \dots, X_n) \in \cO_{\breve K}\llbr X_1^{q^{-\infty}}, \dots,
+  X_n^{q^{-\infty}}\rrbr
+\end{equation*}
+together with distinguished $q$-th power roots. 
+We have the following approximation of $\Delta$, cf. \cite[Lemma 2.10.4]{BoyarchenkoWeinstein2011MaxVar}. 
+\begin{lem}\label{lem:DeltaApprox}
+  We have 
+  \begin{equation*}
+    \Delta(X_1, \dots, X_n) \equiv \det(X_i^{q^{j-1}})_{\substack{1 \leq
+  i \leq n,\\ 1 \leq j \leq n}} 
+  \end{equation*}
+  modulo terms of degree greater than $1 + q + \dots + q^{n-1}$.
+\begin{proof}
+  By Proposition \ref{prop:commutativityofdeterminantqlogdiag} and 
+  the explicit description of the quasi-logarithm map in Proposition
+  \ref{prop:qlogmapExplicit}, we have the equality
+  \begin{equation*}
+    \sum_{k = -\infty}^\infty (-1)^{(n-1) k} \frac{\Delta(X_1, \dots,
+    X_n)^{q^k}}{\varpi^k} = 
+    \det \left( \sum_{k = -\infty}^\infty
+    \frac{X_i^{q^{nk + j-1}}}{\varpi^k} \right)_{1 \leq i, j \leq n}
+  \end{equation*}
+  of elements inside $\br E \llbr X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}} \rrbr$
+  (equipped with the topology induced from the 
+  $(\varpi, X_1, \allowbreak \dots, X_n)$-adic topology on $\cO_\br E\llbr
+  X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}} \rrbr$).
+  The claim follows after comparing coefficients of the respective series. 
+\end{proof}
+\end{lem}
+
+% subsubsection Determinants of Formal Modules (end)
+
+
+% subsection Determinants of Formal Modules (end)
 
 \end{document}

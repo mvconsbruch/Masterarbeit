@@ -30,15 +30,14 @@ will be convenient (taken from \cite[Tag 07E8]{stacks-project}).
 draft}
 
 \begin{lem} \label{lem:iodimage}
-  Let $\phi: R \to S$ be a morphism of admissible rings, and let $I \subset R$ be an 
-  admissible ideal. Then the ideal $J = \phi(I) \cdot S$ is an ideal of definition in 
-  $S$.
+  Let $\phi: R \to S$ be a morphism of admissible rings, and let $I \subset R$ be a finitely generated, ideal of definition for 
+  $R$. Then, there exists an ideal of definition $J'$ of $S$ such that 
+  $\phi(I) \subseteq J'$.
 \begin{proof}
-  Let $U$ be an open ideal of $S$. By continuity of $\phi$, it's preimage
-  $U' = \phi^{-1}(U)$ is open in $R$. Hence there is some $n$ with 
-  $I^n \subset U'$. But now 
-  $$\phi(I)^n = \phi(I^n) \subseteq \phi(\phi^{-1}(U)) \subseteq U$$
-  and the claim follows.
+  Let $J$ be an ideal of definition for $S$. Then the open
+  ideal $J' = \phi(I)\cdot S + J$ works. Indeed, as $I$
+  is finitely generated and $J$ is open, there is some positive integer $m$ with $\phi(I)^m \subset J$. If now $U$ is any open neighborhood 
+  of $0$ so that $J^r \subseteq U$ for some $r \in \N$, then $J'^{rm} \subseteq U$. 
 \end{proof}
 \end{lem}
 
@@ -52,9 +51,10 @@ draft}
   reverse implication and the convergence of the product follows after writing
   $S \cong \lim_{J} S/J$ for a system of open ideals $J \subset S$. 
 \end{proof}
+\end{lem}
 
 The topology on an admissible ring $R$ with ideal of definition $I$ is coarser
-than the $I$-adic topology on $R$
+than the $I$-adic topology on $R$.
 \begin{lem}\label{lem:AdmAdicComp}
   Let $R$ be an admissible ring with ideal of definition $I$. Let $R'$ be the same 
   ring, but equipped with the $I$-adic topology. Then the identity map $R' \to R$
@@ -66,8 +66,6 @@ than the $I$-adic topology on $R$
   \subset J$. But now, for any $x \in J$, we have $x + I^n \subset J$. Hence,
   $J$ is open in $R'$.
 \end{proof}
-\end{lem}
-
 \end{lem}
 
 \end{document}

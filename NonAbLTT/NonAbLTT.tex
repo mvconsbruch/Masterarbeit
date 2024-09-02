@@ -281,9 +281,9 @@ descriptions as $\cO_\br E$-algebra:
 \end{tikzcd}
 \end{equation}
 
-More generally, given any functor $\cG \colon \cC \to \Set$, we denote by
+More generally, given any functor $\cG \colon \Adm{\cO_\br E} \to \Set$, we denote by
 $\Phi^* \cG$ the fiber product $\cG \times_{\spf(\cO_\br E)} \spf(\Phi^*
-\cO_\br E)$, interpreted as a functor $\cC \to \Set$ under the
+\cO_\br E)$, interpreted as a functor $\Adm{\cO_\br E} \to \Set$ under the
 equality of categories $\Adm {\Phi^*\cO_\br E} = \Adm {\cO_\br E}$. In
 this situation, we have the notion of Weil descent data
 (cf. \cite[Definition 3.45]{rapoport1996period}).
@@ -293,7 +293,7 @@ this situation, we have the notion of Weil descent data
   \begin{equation*}
     \alpha \colon \cG \xto\sim \Phi^* \cG
   \end{equation*}
-  of functors $\cC \to \Set$.
+  of functors $\Adm{\cO_\br E} \to \Set$.
 \end{defi}
 
 To make this definition a bit more tangible, we give the following example.
@@ -319,23 +319,22 @@ To make this definition a bit more tangible, we give the following example.
   \end{equation*}
   One easily finds that any such isomorphism must send $X$ to $aX$, where $a$
   is a square root of $\zeta_\ell^{p^{-1}-1}$, and conversely any such square
-  root yields a Weil descent datum. In particular, unlike the  Lubin--Tate
-  deformation space, there is no canonical Weil descent datum for
-  $\cP_{\zeta_\ell}$. 
-    \item More generally, if $\cG$ is representable by the formal spectrum of a 
+  root yields a Weil descent datum.
+    \item More generally, if $\cG = R$ is representable by the formal spectrum of a 
       ring formally of finite type over $\cO_{\br E}$, a Weil descent datum 
       for $\cG$ is an isomorphism of topological $R$-algebras
       \begin{equation*}
-        \Phi^* R \cong \frac{ \cO_{\br E}\llbr X_1, \dots, X_n \rrbr}{(f_1^{\Phi^{-1}},
+        \Phi^* R \cong \frac{ \cO_{\br E} [ X_1, \dots, X_n ]}{(f_1^{\Phi^{-1}},
         \dots, f_n^{\Phi^{-1}})}
         \to 
-        \frac{ \cO_{\br E}\llbr X_1, \dots, X_n \rrbr}{(f_1, \dots,
+        \frac{ \cO_{\br E}[ X_1, \dots, X_n ]}{(f_1, \dots,
         f_n)} = R,
       \end{equation*}
       where $f_i^{\Phi^{-1}} \in \cO_\br E\llbr X_1, \dots, X_n\rrbr$ denotes the 
       power series obtained by applying $\Phi^{-1}$ to the coefficients of $f_i$.
       This follows quickly from the descriptions of $\Phi^*R$ in
-      \eqref{eq:PhiRDescription}.
+      \eqref{eq:PhiRDescription}. A similar statement is true for admissible algebras
+      formally of finite type over $\cO_\br E$.
   \end{enumerate}
 \end{xpl}
 
