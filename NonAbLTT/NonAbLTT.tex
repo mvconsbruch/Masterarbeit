@@ -32,11 +32,7 @@ out to be representable by formal schemes.
 \subsubsection{The Tower of Deformation Spaces} % (fold)
 \label{ssub:The Tower of Deformation Spaces}
 We mostly follow \cite[Chapter 2]{Strauch2008DefSp} in the following
-exposition. Let $\cC$ denote the category of complete, local, Noetherian
-$\cO_\br F$-algebras with residue field $\bar \FF_q$. Morphisms in $\cC$ are continuous
-homomorphisms, a homomorphism of rings $\phi: R \to S$ lies in 
-$\Hom_{\cC}(R,S)$ if and only if $\phi(\fm_R) \subset \fm_S$.
-
+exposition. 
 Let $H_0$ be a formal $\cO_F$-module law over $k$ and let $R$ be an element of 
 $\cC$.
 
@@ -61,23 +57,6 @@ Note that we have a stratification
   \cM_0 = \coprod_{j \in \Z} \cM_0^{(j)},
 \end{equation*}
 where $\cM_0^{(j)}$ parametrizes deformations $(H, \iota)$ with $\height(\iota) = j$.
-
-\begin{thm}[Representability of $\cM_0$]\label{thm:RepresentabilityOfDefSpaceWOLevel}
-  The functor $\cM_0^{(0)}$ is representable by a ring $A_0 \in \cC$, non-canonically 
-  isomorphic to
-  \begin{equation*}
-    \cO_\br F\llbr u_1, \dots, u_{n-1} \rrbr \in \cC.
-  \end{equation*}
-In particular, there is a universal deformation
-$(F^\univ, \iota^\univ)$, with $F^\univ \in \FMOver {\cO_\br F} {A_0}$.
-\begin{proof}
-  This statement is due to Lubin--Tate, cf. \cite{LubinTate1966FormalModuli}. 
-  They show representability of a slightly different moduli functor 
-  (classifying certain $\star$-deformations of a formal group law $H_0 \in
-  \FMLOver{\cO_F}{\bar\FF_q})$). As quasi-isogenies of height $0$ are isomorphisms,
-  their result is equivalent to the one above.
-\end{proof}
-\end{thm}
 
 We next introduce variants of this moduli problem with a certain level structure.
 

@@ -60,7 +60,8 @@ For now, let $R$ be any ring.
       \cite[\href{https://stacks.math.columbia.edu/tag/00ZY}{Tag
       00ZY}]{stacks-project}).     
     \item Furthermore, $\FGLArbOver R$ admits finite products. Thereby it is 
-      an additive category (cf. \cite[\href{https://stacks.math.columbia.edu/tag/0104}{Tag
+      an additive category (cf.
+      \cite[\href{https://stacks.math.columbia.edu/tag/0104}{Tag
       0104}]{stacks-project}).
       The unique final and initial object of $\FGLArbOver R$ is the unique
       $0$-dimensional formal $A$-module law.
@@ -69,17 +70,19 @@ For now, let $R$ be any ring.
   \end{enumerate}
   \begin{proof}
     The first statement is an application of the formal implicit function theorem,
-    cf. \todo{citation}. The remaining statements are a matter of direct computation.
+    cf. \cite[Theorem A.4.7]{hazewinkel1978formal}. The remaining
+    statements are a matter of direct computation.
   \end{proof}
 \end{lem}
 
 \begin{xpl} Let us introduce the following two formal group laws.
   \begin{itemize}
-    \item \textit{The additive formal group law}. Write 
+    \item \textit{The additive formal group law}. Over any ring $R$, we write 
       $\Ghat_a$ for the formal group law with addition given by 
       $\Ghat_a(X,Y) = X + Y$. 
-    \item We write $\Ghat_m$ for the formal group law associated with the 
-      with $\Ghat_m(X,Y) = X + Y + XY$. Note that $\Ghat_m(X,Y) = (X+1)(Y+1) - 1$
+    \item \textit{The multiplicative formal group law}. We write $\Ghat_m$ for
+      the formal group law associated with the with $\Ghat_m(X,Y) = X + Y +
+      XY$. Note that $\Ghat_m(X,Y) = (X+1)(Y+1) - 1$. 
   \end{itemize}
 \end{xpl}
 
@@ -259,9 +262,9 @@ module laws, a morphism $R \to R'$ yields a functor
 \begin{xpl}
   % For any scheme $X$, the additive group law $\Ghat_a$ 
 
-  Over $\Z_p$, the formal group $\Ghat_m$ extends to a formal $\Z_p$-module
-  as follows. 
-  As a functor, $\Ghat_m$ is isomorphic to the assignment
+  Consider the formal group law $\Ghat_m$ over $\Z_p$. It 
+  admits the structure of a $\Z_p$-module law as follows. 
+  As formal group, $\Ghat_m$ is isomorphic to the assignment
   \begin{equation*}
     \Adm {\Z_p} \to \Ab, \quad S \mapsto 1 + S^\cici \subset S^\times.
   \end{equation*}
@@ -276,9 +279,9 @@ module laws, a morphism $R \to R'$ yields a functor
     (1+s)^x = \prod_{i = 1}^\infty (1+s)^{a_k p^k}
   \end{equation*}
   make sense by Lemma \ref{lem:infiniteseriesandproducts}. This gives
-  $\Ghat_{m,\Z_p}$ the structure of a formal $\Z_p$-module. 
-  In the upcoming subsection, we discuss how this is the simplest example of a
-  whole family of formal modules constructed by 
+  $\Ghat_{m,\Z_p}$ the structure of a formal $\Z_p$-module law, with
+  $[x]_{\Ghat_m}(T) = (1+T)^x -1$. 
+  This is the simplest example of a whole family of formal modules constructed by 
   Lubin and Tate. In Section \ref{sec:Local Class Field Theory} we explain
   applications of these formal modules to local class field theory.
 \end{xpl}
@@ -309,7 +312,7 @@ $R$ -algebra, the above definition overloads the expression $\Ghat_a \otimes_R R
 
 % subsection Basic Notions (end)
 
-\subsection{Logarithms} % (fold)
+\subsection{Invariant Differentials and Logarithms} % (fold)
 \label{sub:Logarithms}
 Again, $A$ is a complete discrete valuation ring with uniformizing parameter 
 $\varpi$ and finite residue field $k = A/\varpi A$. We write $q$ for the cardinality of 
@@ -419,6 +422,31 @@ and satisfying
   so $\log_F$ and $\exp_F$ are isomorphisms.
 \end{defi}
 
+\begin{xpl} \leavevmode
+  \begin{itemize}
+    \item The logarithm for the formal $\Z_p$-module law $\Ghat_m$ over 
+      $\Z_p$ is given by the integral of $\frac{1}{1+T} \dc T$, which is 
+      simply the usual logarithm
+      \begin{equation*}
+        \log_{\Ghat_m}(T) = - \sum_{i = 1}^\infty \frac{(-T)^{i}}i. 
+      \end{equation*}
+    \item If $F$ is the formal $\FF_q\llbr \varpi \rrbr$-module with $F(X,Y) = X+Y$,
+      $[\zeta]_F(T) = \zeta T$ for $\zeta \in \FF_q$ and $[\varpi]_F(T) = T^q$, 
+      the logarithm for $F$ needs to satisfy $\log_F(\zeta T) = \zeta \log_F(T)$.
+      Hence, it is necessarily of the form
+      \begin{equation*}
+        \log_F(T) = \sum_{i=0}^\infty a_i T^{q^i}
+      \end{equation*}
+      with $a_0 = 1$ and the remaining coefficients uniquely determined by the 
+      equation
+      \begin{equation*}
+         \log_F(T^q) = \log_F([\varpi]_F(T)) = \varpi \log_F(T).
+      \end{equation*}
+      This example foreshadows some of the results in \cref{sub:Hazewinkels
+      FuncEq and the Standard Formal Module}.
+  \end{itemize}
+\end{xpl}
+
 \begin{lem}
   Let $F$ and $G$ be formal $A$-module laws over $R$, with $\dim F = n$ and
   $\dim G = m$. 
@@ -443,7 +471,7 @@ and satisfying
   \begin{proof}
     The square commutes because of the equality
     $$\Hom(\Ghat_{a, R\otimes_AE}^n, \Ghat_{a, R\otimes_AE}^m) = \Hom_{R \otimes_A E}((R\otimes_A E)^n, (R\otimes_A E)^m),$$
-    and the fact that $\Lie(\log_G \circ \phi \circ \exp_H) = \Lie(\phi).$
+    and the fact that $\Lie(\log_G \circ \phi \circ \exp_F) = \Lie(\phi).$
   \end{proof}
 \end{lem}
 
@@ -469,99 +497,119 @@ and satisfying
 \end{lem}
 % subsection Logarithms (end)
 
-\subsection{Formal DVR-Modules over Fields of Finite Characteristic} % (fold)
+\subsection{Formal Modules over Extensions of the Residue Field} % (fold)
 \label{sub:Formal DVR-Modules over Fields}
-As above, let $A$ be a discrete valuation ring with uniformizer $\varpi$ and finite 
-residue field $k$; write $q$ for the cardinality of $k$. Let $E$ denote the
-field of fractions of $A$, and let $R$ be a $A$-algebra. 
-
-We have seen in the previous section that if $R$ is a field extension of $E$,
+Let $R$ be a $\cO_E$-algebra, and let 
+$\FF_q$ be the residue field of $\cO_E$. We have seen in the previous section
+that if $R$ is a field extension of $E$,
 then any morphism of formal group laws $f\colon  F \to G$ over $R$ is either $0$
-or an isomorphism, which makes the theory of formal $A$-modules over $R$ rather
-simple. This situation changes if $R$ is a field extension of $k$: there are
+or an isomorphism, which makes the theory of formal $\cO_E$-modules over $R$ rather
+simple. This situation changes if $R$ is a field extension of $\FF_q$: there are
 homomorphisms of formal group laws $f\colon F \to G$ corresponding to power
 series $f(T) \in R \llbr T \rrbr$ with vanishing differential. The prototype of
-such homomorphisms are the relative Frobenii $f \colon F \to F^{(q)}$ corresponding
-to the monomial $f(T) = T^q$. Here, of course, $F^{(q)}$ is the formal group
-law obtained by raising each coefficient of $F(X,Y) \in R\llbr X, Y\rrbr$ to
-the $q$-th power.
+such homomorphisms is the relative Frobenius homomorphism $f \colon F \to
+F^{(q)}$ corresponding to the monomial $f(T) = T^q$. Here, $F^{(q)}$ is the
+formal group law obtained by raising each coefficient of $F(X,Y) \in R\llbr X,
+Y\rrbr$ to the $q$-th power.
 
 We introduce the concept of height, which is in a sense an attempt to quantify
 the disorder introduced by the Frobenius homomorphisms. This leads to
-interesting invariants of formal $A$-modules over local $A$-algebras $R$.
+interesting invariants of formal $\cO_E$-modules over local $\cO_E$-algebras $R$.
 
 \begin{defi}[Height of morphisms of group laws]
-  Assume that $R$ is a field extension of $k$ and $f\colon  F \to G$ is a morphism of 
-  formal groups laws over $R$, given by a formal series $f(T) \in R\llbr T \rrbr$. 
+  Assume that $k$ is a field extension of $\Fqbar$ and $f\colon  F \to G$ is a
+  morphism of 
+  formal groups laws over $k$, given by a formal series $f(T) \in k\llbr T \rrbr$. 
+  We define the height of $f$, denoted $\height(f)$, as follows.
   If $f = 0$, we say that $f$ has infinite height. 
   If $f \neq 0$, the height of $f$ is defined as the largest integer $h$ such that 
   $f = g(T^{q^h})$ for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in
   R\llbr T \rrbr$ with $c_1 \neq 0$. 
 \end{defi}
+
 One readily checks that if $f\colon  \cF \to \cG$ is a morphism of formal groups over
-a field extension $R$ of $k$, the height of $f$ does not depend on the choices
-of group laws on $\cF$ and $\cG$. This allows us to define the height function 
-attached to $f$. 
-\begin{defi}[Height function]
-  Let $f\colon  \cF \to \cG$ be a morphism of formal groups over a scheme $X$.
-  For a scheme-theoretic point $x \in \abs X$, let $f_x$ denote the base change of $f$ to the residue field of $x$. 
-  The height function attached to $f$ is the upper semicontinuous function.
-  \begin{equation} \label{eq:defheight}
-    \height(f) \colon  \abs X \to \Z_{\geq 0} \cup \{\infty\}, \quad x \mapsto 
-    \height(f_x).
-  \end{equation}
-\end{defi}
+a field extension $k$ of $\Fqbar$, the height of $f$ does not depend on the choices
+of group laws on $\cF$ and $\cG$. This allows us to define the height of $f$. 
+
+%\begin{defi}[Height function]
+%  Let $R$ be a $\cO_E$-algebra, and let $\cF$ and $\cG$ be formal
+%  $\cO_E$-modules over $R$. Let $f\colon  \cF \to \cG$ be a morphism of
+%  formal $\cO_E$-modules.
+%  For a primes ideal $x \in \abs X$, let $f_x$ denote the base change
+%  of $f$ to the residue field of $x$. 
+%  The height function attached to $f$ is the upper semicontinuous function.
+%  \begin{equation} \label{eq:defheight}
+%    \height(f) \colon  \abs X \to \Z_{\geq 0} \cup \{\infty\}, \quad x \mapsto 
+%    \height(f_x).
+%  \end{equation}
+%\end{defi}
+
 It is not hard to see that the height function is additive, that is, we have
 \begin{equation*}
   \height(f \circ g) = \height(f) + \height(g).
 \end{equation*}
 
 \begin{defi}[Isogeny]
-  A morphism $f\colon  \cF \to \cG$ of formal groups over a field $k$ is called an isogeny if
-  $\ker(f)$ is a represented by a finite free $k$-scheme. More generally, a
-  morphism of formal $A$-modules over a base scheme $X$ is an isogeny if and
-  only if $\ker(f)$ is finite and locally free over $X$. 
+  A morphism $f\colon  \cF \to \cG$ of formal groups over a field $k$ is called
+  an isogeny if $\ker(f)$ is a representable by a finite free $k$-scheme. 
 \end{defi}
 
-Isogenies can be described using the height function.
-
+It is not difficult to verify the following result. 
 \begin{lem}
-  A morphism $f\colon  \cF \to \cG$ is a isogeny if and only if the height 
-  function $\height(f)$ is locally constant with values in $\Z_{\geq 0}$. 
+  A morphism $f\colon  \cF \to \cG$ of formal groups over $k$
+  is an isogeny if and only if the height $\height(f)$ is finite. 
 \end{lem}
 
 \begin{defi}[$\varpi$-divisible $A$-module]
-  We say that a formal $A$-module $H$ over $X$ is $\varpi$-divisible if 
-  $[\varpi]_H$ is an isogeny. If $X$ is connected, the height of $H$ is the
-  (constant) height of the endomorphism $[\varpi]_H\colon  H \to H$. 
+  Let $R$ be a local $\cO_E$-algebra with maximal ideal containing the 
+  image of $\varpi$.
+  We say that a formal $\cO_E$-module $\cF$ over $R$ is $\varpi$-divisible if 
+  $[\varpi]_\cF$ is an isogeny. In this case, we define the height of $\cF$
+  as the height of the isogeny $[\varpi]_\cF$.
 \end{defi}
 
+The additivity of the height function quickly implies the following.
+
+\begin{lem}\label{lem:NoNonzeroHomsBetweenDiffHeight}
+  There are no non-zero homomorphisms between formal $\cO_E$-modules 
+  over $R$ of different height.
+\end{lem}
+
+\begin{prop}\label{prop:ReductionOfHomsIsInjective}
+  Let $F$ and $G$ be one-dimensional formal $\cO_E$-module laws over $R \in \cC$,
+  and suppose that $F$ is $\varpi$-divisible.
+  The $\cO_E$-module homomorphism
+  \begin{equation*}
+    \Hom_{\FMLOver {\cO_E}R} (F,G) \to \Hom_{\FMLOver{\cO_E}{\Fqbar}}(F \otimes \Fqbar
+    , G \otimes \Fqbar),
+  \end{equation*}
+  given by sending a polynomial $f \in R\llbr T \rrbr$ to its reduction modulo
+  $\fm_R$, is injective.
+\begin{proof}
+  This is \cite[Proposition 4.2]{hopkins1994equivariant}.
+\end{proof}
+\end{prop}
+
 We close this subsection with a discussion about the structure of 
-formal $\cO_E$-modules over separably closed field extensions $k'$ of
-$k$. 
+formal $\cO_E$-modules over an algebraic closure $\FF_q \inj \Fqbar$. 
+
 \begin{prop}\label{prop:classificationofmodulelawsbyheight}
-  Over $k'$, any two formal $\cO_E$-module laws of the same height are isomorphic.
+  Over $\Fqbar$, any two formal $\cO_E$-module laws of the same
+  height are isomorphic.
 \begin{proof}
-  \cite[Proposition 1.7]{drinfel1974elliptic}.
+  This is part of \cite[Proposition 1.7]{drinfel1974elliptic}.
 \end{proof}
 \end{prop}
+
 In particular, any formal $\cO_E$-module of height $h$ is isomorphic to 
-the normalized formal $\cO_E$-module $F_\mathrm{norm}$. Ths is the
-formal $\cO_E$-module with $[\varpi]_{F_\mathrm{norm}}(T) = T^{q^h}$. 
-\begin{prop}\label{prop:EndomorphismsOfFormalModulesOverksep}
-  Suppose that $F \in \FMLOver {\cO_E}{k'}$. Then $\End_{\FMOver A{k'}}(F)$ is 
-  isomorphic to the maximal order
-  of the central division algebra $D$ over $E$ of rank $h^2$ and invariant
-  $\frac 1h$.
-\begin{proof}
-  This is part of \cite[Proposition 1.7]{drinfel1974elliptic}
-  as well. 
-\end{proof}
-\end{prop}
+the normalized formal $\cO_E$-module $\XX$, defined as the
+reduction of the standard formal $\cO_E$-module law $H$ of height $h$, cf. 
+\cref{sub:Hazewinkels FuncEq and the Standard Formal Module}.
+For now, it is only important that $[\varpi]_\XX(T) = T^{q^h}$.
 
 \begin{lem}\label{lem:inverseqisog}
   Let $f\colon  F \to G$ be an isogeny of $\varpi$-divisible formal $\cO_E$-module laws
-  over $k'$. Then there is an 
+  over $\Fqbar$. Then there is an 
   integer $n \geq 0$ and an isogeny $g\colon  G \to F$ with 
   \begin{equation*}
     f \circ g = [\varpi^n]_\cG \quad \text{and} \quad g \circ f = [\varpi^n]_\cF.
@@ -571,16 +619,310 @@ formal $\cO_E$-module with $[\varpi]_{F_\mathrm{norm}}(T) = T^{q^h}$.
     $\height(F) = \height(G)$, thus by Lemma
     \ref{prop:classificationofmodulelawsbyheight}, we may assume that $F$ and
     $G$ are given by the normalized formal $\cO_E$-module
-    $F_\mathrm{norm}$.
+    $\XX$.
     Write $f(T) = g(T^{q^n})$ for some power series $h(T) = c_1 T + c_2T^2 +
-    \dots$, where $c_1 \neq 0$ is a unit in $k'$, and let $g(T) = h^{-1}(T)$ be the 
+    \dots$, where $c_1 \neq 0$ is a unit in $\XX$, and let $g(T) = h^{-1}(T)$ be the 
     formal inverse of $h$. Now $g$ is a morphism of formal $\cO_E$-module laws
     satisfying $f \circ g(T) = g\circ f(T) = T^{q^n}$. The claim follows.
   \end{proof}
 \end{lem}
 
+
+\begin{prop}\label{prop:EndomorphismsOfFormalModulesOverksep}
+  Suppose that $F \in \FMLOver {\cO_E}{\Fqbar}$ is $\varpi$-divisible
+  of height $h$. Then 
+  $\End_{\FMLOver {\cO_E}{\Fqbar}}(F)$ is isomorphic to the maximal order $\cO_D$
+  of the central division algebra $D$ over $E$ of rank $h^2$ and invariant
+  $\frac 1h$.
+\begin{proof}
+  This is part of \cite[Proposition 1.7]{drinfel1974elliptic}.
+\end{proof}
+\end{prop}
+
+We give a more explicit description of $\cO_D$ in the case that $F = \XX$. 
+Then $\cO_D = \End(\XX)$ admits the following description. Let 
+$E_h$ be the degree $h$ unramified extension of $\cO_E$, and denote
+the residue field of $\cO_{E_h}$ with $\FF_{q^h}$. Let 
+$\Phi\colon \cO_{E_h} \to \cO_{E_h}$ denote the lift of the 
+$q$-th power frobenius on $\FF_{q^h}$. Then 
+\begin{equation}\label{eq:DescripitionOfEnds}
+ \cO_D \cong \frac{\cO_{E_h}\{\Pi\}}{(\Pi^h = \varpi, \Pi a = \Phi(a) \Pi)}.
+\end{equation}
+Indeed, by \cref{prop:ReductionOfHomsIsInjective} and 
+\cref{lem:MultByROUForStandardModule}, we see that $\cO_{E_h}$ embedds into
+$\End(\XX)$. Furthermore, as $\XX$ is defined over $\FF_q$, the monomial
+$\Pi(T) = T^q$ furnishes an endomorphism of $\XX$, and one readily checks that
+$\Pi a = \Phi(a) \Pi$. The claim follows as the right-hand side
+of \eqref{eq:DescripitionOfEnds} is of rank $h^2$ over $\cO_{E}$. 
+In particular, the isomorphism \eqref{eq:DescripitionOfEnds} yields a 
+reduction map $\cO_D \to \FF_{q^h}$ by sending $a \in \cO_{E_h}$ to
+its residue modulo $\varpi$ and $\Pi$ to $0$. 
+
+
 % subsubsection Formal DVR-Modules over Fields of Characteristic 0 (end)
-% subsection over Fields (end)
+
+\subsection{Hazewinkel's Functional Equation Lemma and the Standard Formal Module Law} % (fold)
+\label{sub:Hazewinkels FuncEq and the Standard Formal Module}
+Let $R$ be a flat $\cO_E$-algebra. By the results of \cref{sub:Logarithms}, the
+structure of a formal 
+$\cO_E$-module law $F$ over $R$ is uniquely determined by its logarithm $\log_F
+\in R [\tfrac 1\varpi] \llbr T \rrbr$. Indeed, we find
+\begin{equation*}
+  F(X,Y) = \exp_F(\log_F(X)+\log_F(Y)), \quad [a]_F(X) = \exp_F(a \log_F(X)).
+\end{equation*}
+It is therefore natural to wonder if it is possible to reverse this process, that
+is, if it is possible to classify the power series arising as logarithms of 
+formal $\cO_E$-module laws.  Hazewinkel's 
+functional equation lemma is a result in this direction. It provides a
+sufficient condition on power series $f \in R[\tfrac 1 \varpi]\llbr T \rrbr$
+that ensures that $f$ arises as the logarithm of some formal $\cO_E$-module law.
+
+\begin{thm}[Hazewinkel's Functional Equation Lemma]\label{thm:HazewinkelIntegrality}
+  Let $f \in R[\tfrac 1\varpi]\llbr T \rrbr$ be a 
+  power series with $f'(0) \in R[\tfrac 1\varpi]^\times$. Let 
+  $\sigma\colon  R[\tfrac 1\varpi] \to R[\tfrac 1\varpi]$ be an endomorphism
+  of rings that restricts to an endomorphism of $R$ and suppose that 
+  there are elements $s_1, s_2, \dots \in R[\tfrac 1\varpi]$ such that
+  \begin{equation*}
+    f(X) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(X^{q^i}) \in R\llbr X \rrbr.
+  \end{equation*}
+  Let $\fa \subset R$ be an ideal and suppose that that the conditions
+  \begin{equation*}
+    \sigma(b) \equiv b^q \pmod \fa \text{ for all } b \in R \quad \text{and} \quad 
+    \sigma^r(s_i) \fa \subset R \text{ for all } r,i \geq 1
+  \end{equation*}
+  are satsified.
+  Then we have 
+  \begin{equation*}
+    F(X,Y) = f^{-1}(f(X) + f(Y)) \in R \llbr X,Y \rrbr,
+  \end{equation*}
+  where $f^{-1}$ is the inverse power series as in Lemma \ref{lem:IsosCheckOnLie}.
+  Also, if $g(Z) \in R[\tfrac 1\varpi]\llbr Z \rrbr$ is another power series
+  satisfying the same condition
+  \begin{equation*}
+    g(Z) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(Z^{q^i}) \in R\llbr Z \rrbr,
+  \end{equation*}
+  then $f^{-1}(g(Z)) \in R\llbr Z \rrbr$. 
+  Furthermore, if $\alpha(T) \in R\llbr T \rrbr$ and $\beta(T) \in R \llbr T \rrbr$, then
+  \begin{equation} \label{eq:funceqlemcongruence}
+    \alpha(T) \equiv \beta(T) \pmod {\fa^r} \iff f(\alpha(T)) \equiv f(\beta(T))
+    \pmod {\fa^r}
+  \end{equation}
+
+  \begin{proof}
+    A more general statement can be found in \cite[Section
+    2]{hazewinkel1979funceqexp}. Proofs can be found in \cite[Sections 2 and
+    10]{hazewinkel1978formal}.
+  \end{proof}
+\end{thm}
+Note that by construction, $F(X,Y)$ as defined above yields a (commutative)
+formal group law over $R$. 
+If $\sigma$ restricts to the identity on $\cO_E \subseteq R$, then 
+the second part of the Functional Equation Lemma implies that we even obtain
+formal $\cO_E$-modules with $[b]_F(T) = f^{-1}(b f(T))$. Indeed, $bf(T)$
+satisfies the same functional equation if $b \in \cO_E$. 
+
+We now consider a special family of 
+formal $\cO_E$-module laws, so called $\cO_E$-typical formal module laws.
+
+\begin{defi}[$\cO_E$-typical Formal Module Law]\label{def:ATypicFormalModuleLaw}
+  We say that a formal module law $F \in \FMLOver {\cO_E}{R}$ is 
+  $\cO_E$-typical, if its logarithm is of the form
+  \begin{equation*}
+    \log_F(T) = \sum_{i=0}^\infty b_i X^{q^i}
+  \end{equation*}
+  for elements $b_0, b_1, \dots \in R \otimes_A E$.
+\end{defi}
+
+The family of $\cO_E$-typical formal module laws is quite exhaustive.
+The result following is \cite[21.5.6]{hazewinkel1978formal}.
+
+\begin{lem}\label{lem:AnyOModuleIsIsomorphicToAtypic}
+  Any formal $\cO_E$-module law over $R \in \cC$ is isomorphic to an
+  $\cO_E$-typical one.
+\end{lem}
+
+The Functional Equation Lemma allows us to classify $\cO_E$-typical module
+laws. Let us write $\cO_E[\underline v] = \cO_E[v_1, v_2, \dots]$ and let
+$f_v(T) \in \cO_E[\underline v][\tfrac 1\varpi]\llbr T \rrbr$ be the unique power series
+satisfying the functional equation
+\begin{equation*}
+  f_v(T) = T + \sum_{i \geq 1} \frac{v_i}{\varpi} \sigma^i(f_v)(X^{q^i}),
+\end{equation*}
+where $\sigma$ is the endomorphism of $\cO_E[\underline v]$ obtained by
+sending $v_j$ to $v_j^q$ for all $j$. By the Functional Equation Lemma
+this gives rise to a $\cO_E$-module law $F_v$ over $\cO_E[\underline v]$.
+By \cite[Definition 21.5.5 and Criterion 21.5.9]{hazewinkel1978formal},
+we have the following.
+
+\begin{lem}\label{lem:ClassificationOfAtypicalOnes}
+  A formal $\cO_E$-module law $F$ over $R$ is $A$-typical if and only if there is
+  a homomorphism $\cO_E[\underline v] \to R$ such that $F = F_v \otimes R$. 
+\end{lem}
+
+A special role will play the $A$-typical formal module law $H$
+with logarithm given by the power series
+\begin{equation*}
+  f(T) = \sum_{i=1}^\infty \frac{T^{q^{in}}}{\varpi^i} \in E\llbr T \rrbr.
+\end{equation*}
+It satisfies the functional equation
+\begin{equation*}
+  f(T) = T + \frac 1\varpi f(T^{q^n})
+\end{equation*}
+and arises from $F_v$ via the homomorphism $\cO_E[\underline v] \to \cO_\br E$
+sending $v_n$ to $1$ and $v_j$ to $0$ for $j \neq n$. 
+
+The fact that $f^{-1}(X) = X - \frac 1\varpi X^{q^n} + \dots$ reveals
+$[\varpi]_H(T) \equiv \varpi T$ mod $(T^2)$. Additionally, note that 
+\begin{equation*}
+  f([\varpi]_H(T)) = \varpi f(T) = \varpi T + f(T^{q^n}) \equiv f(T^{q^n}) \pmod \varpi.
+\end{equation*}
+Hence, the equivalence in \eqref{eq:funceqlemcongruence} implies that 
+$[\varpi]_H(T) \equiv T^{q^n}$ mod $\varpi$. So $H$ is a Lubin--Tate formal
+$\cO_E$-module law of height $n$, we call it the standard Lubin--Tate formal
+module law of height $n$. Although the coefficients of $H$ lie inside $\cO_E$,
+we usually consider it as a formal $\cO_E$-module over $\cO_\br E$.
+
+We note the following. 
+\begin{lem}\label{lem:MultByROUForStandardModule}
+  Let $\zeta \in \br E$ be a $(q^n-1)$-th root of unity. Then 
+  $[\zeta]_H(T) = \zeta T$ is an automorphism of $H$. In particular,
+  $\End(H)$ naturally carries the structure of a $\cO_{E_n}$-algebra,
+  where $E_n$ is the unramified extension of $E$ with residue field
+  $\FF_{q^n}$. 
+\begin{proof}
+  This is an immediate consequence of the equality $\zeta \log_H(T)
+  = \log_H(\zeta T)$. We have
+  \begin{equation*}
+    \zeta T = \exp_H(\log_H(\zeta T)) = \exp_H(\zeta \log_H(T)) = \exp_H
+    ([\zeta]_{\Ghat_{a, \br E}}(\log_H(T))).
+  \end{equation*}
+  As $\exp_H\colon  \Ghat_{a, \br E} \to H \otimes_{\cO_\br E} \br E$ is an
+  isomorphism of 
+  formal modules, the claim follows.
+\end{proof}
+\end{lem}
+
+% subsubsection Deformations of Formal Modules and the Standard Formal Module (end)
+
+\subsection{Deformations of Formal Modules} % (fold)
+\label{sub:Deformations of Formal Modules}
+We shortly discuss deformations of formal $\cO_E$-modules.
+Let $\cC$ denote the category of complete, local, Noetherian
+$\cO_\br F$-algebras with residue field $\bar \FF_q$. Morphisms in $\cC$ are continuous
+homomorphisms, a homomorphism of rings $\phi: R \to S$ lies in 
+$\Hom_{\cC}(R,S)$ if and only if $\phi(\fm_R) \subset \fm_S$.
+
+Let $\XX = H \otimes \Fqbar$ be the formal $\cO_E$-module law of height $n$
+over $\Fqbar$ obtained by reduction of the standard formal $\cO_E$-module $H$ 
+and let 
+$R \in \cC$ be a $\cO_\br E$-algebra with maximal ideal $\fm_R$. A deformation
+of $\XX$ to $R$ is a pair $(\cF, \iota)$ consisting of a formal $\cO_\br
+E$-module $\cF$ over $R$ and an isomorphism $\iota\colon \FGG(\XX) \xto \sim
+\cF \otimes \Fqbar$. We say that two deformations $(\cF, \iota)$ and $(\cF',
+\iota')$ are isomorphic if there is an isomorphism $\cF \to \cF'$ whose
+reduction to $\Fqbar$ translates $\iota$ into $\iota'$. We define the 
+deformation functor
+
+\begin{equation*}
+  \cM^{(0)}_0 \colon \cC \to \Set, \quad R \mapsto \{\text{Deformations $(\cF,
+  \iota)$ of $\XX$ to $R$}\}/\sim.
+\end{equation*}
+
+In the literature one encounters a variant of this functor, defined on the
+level of formal
+module laws rather than formal modules. Let $F$ and $G$ be formal $\cO_E$-modules over
+$R \in \cC$. We say that $F$ and $G$ are $\star$-isomorphic if there exists a 
+$\star$-isomorphism $F \xto \sim G$, that is, an isomorphism given by a power series
+$f \in R\llbr T \rrbr$ satisfying $f(T) \equiv T$ modulo $\fm_R$.
+The functor in question is now defined as 
+\begin{equation*}
+  \cM^{(0)}_{0, \text{FML}} \colon \cC \to \Set, \quad R \mapsto \{F \in \FMLOver {\cO_E} \Fqbar \mid
+  F \otimes \Fqbar = \XX\} / \star\text{-isom.}
+\end{equation*}
+
+\begin{lem}\label{lem:FunctorsAreIsomorphic}
+  The functors $\cM^{(0)}_0$ and $\cM^{(0)}_{0, \textnormal{FML}}$ are
+  naturally isomorphic. 
+\begin{proof}
+  There is a natural map $\cM^{(0)}_{0, \text{FML}} \to \cM^{(0)}_0$, given on
+  any component
+  $R \in \cC$ by sending a formal 
+  $\cO_E$-module law $F \in \cM^{(0)}_{0, \text{FML}}(R)$ to its associated formal module
+  $(\FGG(F), \FGG(\id))$. We show that this map is bijective. 
+
+  \textit{Surjectivity.} Let $(\cF, \iota) \in \cM^{(0)}_0(R)$, and choose any coordinate 
+  on $\cF$ so that $\cF = \FGG(F)$ for some $\cO_E$-module law $F$. Then
+  $\iota$ gives rise to an isomorphism of formal laws $\XX \iso F \otimes
+  \Fqbar$ which we also denote by $\iota$. Let $\tilde \iota \in R\llbr T
+  \rrbr$ be an arbitrary power series reducing to $\iota$ modulo $\fm_R$. Now
+  the constant coefficient of $\tilde \iota$ is invertible, hence $\tilde
+  \iota$ has a formal inverse power series $\tilde \iota^{-1} \in R \llbr T
+  \rrbr$. Let $F'$ be the formal module law with addition given by 
+  $\tilde \iota^{-1} F(\tilde \iota(S), \tilde \iota(T)) \in R\llbr S,T \rrbr$
+  and similarly defined $\cO_E$-module structure.
+  Now by construction, $\tilde \iota^{-1}$ is an isomorphism of module laws $F \to F'$,
+  and we find that $F'$ satisfies $F' \otimes \Fqbar = \XX$. Hence, $F'$ 
+  maps to the isomorphism class of $(\cF, \iota)$. This shows surjectivity.
+
+  \textit{Injectivity.} Let $F$ and $G$ be formal $\cO_E$-module laws inside
+  $\cM^{(0)}_{0, \text{FML}}(R)$ with isomorphic associated deformations
+  $(\cF, \iota_\cF) \sim (\cG, \iota_\cG) \in \cM^{(0)}_0(R)$. 
+  This isomorphism yields an isomorphism of formal $\cO_E$-module laws
+  $\alpha\colon F \to G$ whose reduction modulo $\fm_R$ fits into the following
+  commutative triangle.
+  \begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	{F\otimes\Fqbar} \& {G\otimes\Fqbar} \\
+	{} \& {}
+	\arrow["{\alpha_0}", from=1-1, to=1-2]
+  \arrow[""{name=0, anchor=center, inner sep=0}, "{\text{$\XX$}}"{marking, allow upside down}, draw=none, from=2-1, to=2-2]
+	\arrow[shorten >=7pt, Rightarrow, no head, from=1-1, to=0]
+	\arrow[shorten >=7pt, Rightarrow, no head, from=1-2, to=0]
+\end{tikzcd}
+  \end{equation*}
+  Hence, $\alpha$ is a $\star$-isomorphism, implying that 
+  $F$ and $G$ lie in the same equivalence class. This proves injectivity.
+\end{proof}
+\end{lem}
+
+\begin{thm}[Representability of $\cM^{(0)}_0$]\label{thm:RepresentabilityOfDefSpaceWOLevel}
+  The functor $\cM_0^{(0)}$ is representable by a ring $A_0 \in \cC$, non-canonically 
+  isomorphic to
+  \begin{equation*}
+    \cO_\br E\llbr u_1, \dots, u_{n-1} \rrbr \in \cC.
+  \end{equation*}
+\begin{proof}
+  This statement is due to Lubin--Tate in the case $\cO_E = \Z_p$, cf.
+  \cite{LubinTate1966FormalModuli}. For the general case, cf. 
+  \cite[Proposition 4.2]{drinfel1974elliptic}.
+  \end{proof}
+\end{thm}
+
+We may use the universal $\cO_E$-typical formal module law
+$F_v$ over $\cO_E\llbr v_1, v_2, \dots \rrbr$ to construct an
+isomorphism $\Hom_\cC(\cO_\br E\llbr u_1, \dots, u_{n-1} \rrbr, R) \cong
+\cM_0^{(0)}(R)$. Any homomorphism $\alpha \in \Hom_\cC(\cO_\br E\llbr u_1,
+\dots, u_{n-1} \rrbr, R)$ gives rise to elements 
+$\alpha(u_1), \dots, \alpha(u_{n-1}) \in \fm_R$.
+Consider the homorphism of $\cO_E$-algebras
+\begin{equation*}
+  \tilde \alpha\colon \cO[v_1, v_2, \dots] \to \cO_\br E\llbr u_1, \dots, u_{n-1} \rrbr,
+  \quad v_i \mapsto \begin{cases}
+    \alpha(u_i), &\text{ if } 1 \leq i \leq n-1 \\
+    1, &\text{ if } i = n \\
+    0, &\text{ if } i \geq n+1.
+  \end{cases}
+\end{equation*}
+and let $F_\alpha = F_v \otimes R$ be the formal $\cO_E$-module law over
+$R$ obtained by applying $\tilde \alpha$ to the coefficients of $F_v$. 
+By the Functional Equation Lemma (\cref{thm:HazewinkelIntegrality}), we find
+that $F_\alpha$ is $\star$-isomorphic to $\XX$. Hence 
+$F_\alpha \in \cM_0^{(0)}(R)$, and the mapping $\alpha \mapsto F_\alpha$
+can be shown to be an isomorphism, cf. \cite[Section 12]{hopkins1994equivariant}. 
+
+
+% subsection Deformations of Formal Modules (end)
 
 \subsection{Explicit Dieudonné Theory} % (fold)
 \label{sub:Explicit Dieudonne Theory}
@@ -765,20 +1107,54 @@ uniformizing parameter $\varpi$ and finite residue field $k$.
 
 We admit the following facts from Section 9 of \cite{hopkins1994equivariant}.
 \begin{prop}\label{prop:InterestingSequenceStdMod}
-  Let $F$ be a formal $A$-module law of height $h$ over a local, adic
-  $A$-algebra $R$. Write $\cF$ for the formal $A$-module coming from 
-  $F$. Then $\Ext(\cF, \Ghat_a)$ is a free $R$-module of rank $n-1$, 
-  $\RigExt(\cF, \Ghat_a)$ is a free $R$-module of rank $n$. 
+  Let $\cF$ be a formal $A$-module of height $h$ over $R \in \cC$. 
+  Then $\Ext(\cF, \Ghat_a)$ is a free $R$-module of rank $n-1$, 
+  and $\RigExt(\cF, \Ghat_a)$ is a free $R$-module of rank $n$. 
 \begin{proof}
-  This is Proposition 9.8 in \cite{hopkins1994equivariant}. The authors make
-  use of a description of $\Ext(F, \Ghat_a)$ in terms of deformation theory
-  and combine it with a convenient normal form of formal $A$-modules, so called
-  $A$-typical modules (we touch upon the theory in Section \ref{sub:Hazewinkels
-  FuncEq and the Standard Formal Module}), to construct an explicit 
-  basis for the corresponding modules. 
-\end{proof}
+  This is Proposition 9.8 in \cite{hopkins1994equivariant}. \end{proof}
 \end{prop}
-As a corollary, the authors obtain
+
+In the case that $R$ is flat over $\cO_E$, and $\cF$ comes from a 
+$\cO_E$-typical formal module, \cite[Section 9]{hopkins1994equivariant} also
+gives an explicit description of a basis for the modules in question.
+If $\cF$ is isomorphic to the standard formal $\cO_E$-module $H$ of height $n$,
+which allows for an explicit
+description of the exact sequence in \cref{prop:InterestingES}.  
+There is no non-trivial map $H \to \Ghat_a$, so the sequence becomes
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&]
+	0 \& {\omega(H)} \& {\RigExt(H,\Ghat_a)} \& {\Ext(H,\Ghat_a)} \& 0 \\
+	0 \& \begin{array}{c} \left\{\begin{gathered} {g \in TE\llbr T \rrbr : \delta g = 0} \\          \text{ and $g'(T) \in \cO_E\llbr T \rrbr$}\end{gathered} \right\} \end{array} \& {\QLog(H)} \& {\frac{\SymCoc^2(H, \Ghat_a)}{\{\delta g \mid g \in T \cO_E\llbr T \rrbr\}}} \& 0.
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-4, to=2-4]
+	\arrow["", from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow["\delta", from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}   
+\end{equation*}
+Now \cite[Proposition 9.8]{hopkins1994equivariant} implies the following result.
+\begin{prop}
+  The $\cO_\br E$-module $\omega(H)$ is free of rank $1$, generated by 
+  $f(T) = \log_H(T)$. $\QLog(H)$ is free of rank $n$, generated by the classes of
+  $(f(T), \frac 1\varpi f(T^q), \dots, \frac 1\varpi f(T^{q^{n-1}}))$. Consequently,
+  the short exact sequence above is given by 
+  \begin{equation*}
+    0 \to \left \langle f(T) \right \rangle \to \left \langle f(T), \frac 1\varpi
+      f(T^q) , \dots,
+    \frac 1\varpi f(T^{q^{n-1}}) \right \rangle \xto \delta 
+    \left \langle \delta \left(\frac 1\varpi f(T^q)\right),\dots, \delta
+    \left(\frac 1\varpi f(T^{q^{n-1}})\right ) \right \rangle \to 0.
+  \end{equation*}
+\end{prop}
+
+We remark that the functors $\Ext_R(-,\Ghat_a)$ and $\RigExt_R(-,\Ghat_a)$ are
+also functorial in $R$.
 \begin{lem}
   If $R \to R'$ is a homomorphism of local $A$-algebras, the induced maps 
   of free $R'$-modules
@@ -813,164 +1189,6 @@ As a corollary, the authors obtain
 % subsubsection Explicit Dieudonne Theory (end)
 
 % subsection Exact Categories, Extensions of Formal Modules (end)
-
-\subsection{Hazewinkel's Functional Equation Lemma and the Standard Formal Module Law} % (fold)
-\label{sub:Hazewinkels FuncEq and the Standard Formal Module}
-If, $A$ is an integral domain and $R$ is a flat $A$-module, the structure of a formal
-$A$-module $F$ over $R$ is uniquely determined by its logarithm $\log_H
-\in R \otimes_A E \llbr T \rrbr$. Indeed, we find
-\begin{equation*}
-  F(X,Y) = \exp_H(X+Y), \quad [a]_F(X) = \exp_H(a X).
-\end{equation*}
-It is therefore natural to wonder about conditions on power series $f \in
-(R\otimes_A E) \llbr T \rrbr$ ensuring that $f$ is the logarithm of some
-formal group law. Hazewinkel found such a condition in his functional equation
-lemma.
-
-\begin{thm}[Hazewinkel's Functional Equation Lemma]\label{thm:HazewinkelIntegrality}
-  Let $p$ be a prime and $q = p^e$. Given an inclusion of rings $B \subseteq
-  L$, an ideal $\fa \subseteq B$ containing $p$, an endomorphism of rings
-  $\sigma\colon  L \to L$ and elements $s_1, s_2, \dots \in L$ subject to the conditions
-  that 
-  \begin{equation*}
-    \sigma(b) \equiv b^q \pmod \fa \text{ for all } b \in B \quad \text{and} \quad 
-    \sigma^r(s_i) \fa \subset B \text{ for all } r,s \geq 1.
-  \end{equation*}
-  Suppose now that $f \in L\llbr T \rrbr$ has $f'(0) \in L^\times$ and
-  satisfies the functional equation condition
-  \begin{equation*}
-    f(X) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(X^{q^i}) \in B\llbr X \rrbr.
-  \end{equation*}
-  Then we have 
-  \begin{equation*}
-    F(X,Y) = f^{-1}(f(X) + f(Y)) \in B \llbr X,Y \rrbr,
-  \end{equation*}
-  where $f^{-1}$ is the inverse power series as in Lemma \ref{lem:IsosCheckOnLie}.
-  Also, if $g(Z) \in L\llbr Z \rrbr$ is another power series satisfying the 
-  same condition
-  \begin{equation*}
-    g(Z) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(Z^{q^i}) \in B\llbr Z \rrbr,
-  \end{equation*}
-  then $f^{-1}(g(Z)) \in B\llbr Z \rrbr$. 
-  Furthermore, if $\alpha(T) \in B\llbr T \rrbr$ and $\beta(T) \in B \llbr T \rrbr$, then
-  \begin{equation} \label{eq:funceqlemcongruence}
-    \alpha(T) \equiv \beta(T) \pmod {\fa^r} \iff f(\alpha(T)) \equiv f(\beta(T))
-    \pmod {\fa^r}
-  \end{equation}
-
-  \begin{proof}
-    A more general statement can be found in \cite[Section
-    2]{hazewinkel1979funceqexp}. Proofs can be found in \cite[Sections 2 and
-    10]{hazewinkel1978formal}.
-  \end{proof}
-\end{thm}
-Note that by construction, $F(X,Y)$ as defined above yields a (commutative)
-formal group law over $B$. 
-Let $B^\sigma$ denote the subring of elements in $B$ fixed by $\sigma$. Then 
-the second part of the Functional Equation Lemma implies that we even obtain
-formal $B^\sigma$-modules with $[b]_F(T) = f^{-1}(b f(T))$, as $bf(T)$
-satisfies the same functional equation if $b \in B^\sigma$. 
-
-We now enter the situation where $E$ is a local field with ring of integers
-$\cO_E$ and uniformizer $\varpi$ and 
-use the Functional Equation Lemma to construct Lubin--Tate Formal Group Laws. 
-A special role will play the power series
-\begin{equation*}
-  f(T) = \sum_{i=1}^\infty \frac{T^{q^{in}}}{\varpi^i} \in E\llbr T \rrbr.
-\end{equation*}
-It satisfies the functional equation
-\begin{equation*}
-  f(T) = T + \frac 1\varpi f(T^{q^n}),
-\end{equation*}
-which is a functional equation of the form above, with 
-$B = \cO_E$, $\fa = (\varpi)$, $L = E$, $s_1 = \varpi^{-1}$, $s_2 = s_3 = \dots = 0$,
-$\sigma = \id_L$. 
-Hence $f$ arises as the logarithm of a formal $\cO_E$-module law $H$ over $\cO_E$.
-The fact that $f^{-1}(X) = X - \frac 1\varpi X^{q^n} + \dots$ reveals
-$[\varpi]_H(T) \equiv \varpi T$ mod $(T^2)$. Additionally, note that 
-\begin{equation*}
-  f([\varpi]_H(T)) = \varpi f(T) = \varpi T + f(T^{q^n}) \equiv f(T^{q^n}) \pmod \varpi.
-\end{equation*}
-Hence, the equivalence in \eqref{eq:funceqlemcongruence} implies that 
-$[\varpi]_H(T) \equiv T^{q^n}$ mod $\varpi$. So $H$ is a Lubin--Tate formal $\cO_E$-module
-law of height $n$, we call it the standard Lubin--Tate formal module law of
-height $n$. 
-\begin{rmk} 
-  The formal $\cO_E$-module $H$ is a member of the class of so called $A$-typical
-  formal modules - formal $A$-modules $F$ with logarithm of the 
-  form
-  \begin{equation*}
-    \log_F(T) = \sum_{i=0}^\infty b_i X^{q^i}
-  \end{equation*}
-  for elements $b_0, b_1, \dots \in R \otimes_A E$ (cf. \cite[Definition
-  21.5.5 and Criterion 21.5.9]{hazewinkel1978formal}). If $R$ is flat over $A$,
-  every formal $A$-module over $R$ is isomorphic to an $A$-typical one
-  (cf. \cite[21.5.6]{hazewinkel1978formal}). Most results about the standard
-  $\cO_E$-module $H$ remain true for general $\cO_E$-typical formal module laws.
-\end{rmk}
-
-We note the following. 
-\begin{lem}\label{lem:MultByROUForStandardModule}
-  Let $H$ be the standard formal $\cO_E$-module of height $n$ over 
-  $\cO_\br E$. 
-  Let $\zeta \in \br E$ be a $(q^n-1)$-th root of unity. Then 
-  $[\zeta]_H(T) = \zeta T$ is an automorphism of $H$. In particular,
-  $\End(H)$ naturally carries the structure of a $\cO_{E_n}$-algebra,
-  where $E_n$ is the unramified extension of $E$ with residue field
-  $\FF_{q^n}$. 
-\begin{proof}
-  This is an immediate consequence of the equality $\zeta \log_H(T)
-  = \log_H(\zeta T)$. We have
-  \begin{equation*}
-    \zeta T = \exp_H(\log_H(\zeta T)) = \exp_H(\zeta \log_H(T)) = \exp_H
-    ([\zeta]_{\Ghat_{a, \br E}}(\log_H(T))).
-  \end{equation*}
-  As $\exp_H\colon  \Ghat_{a, \br E} \to H \otimes_{\cO_\br E} \br E$ is an isomorphism of 
-  formal modules, the claim follows.
-\end{proof}
-\end{lem}
-
-It will be convenient to make the terms in the exact sequence of Proposition 
-\ref{prop:ExplicitInterestingES} explicit for $\cF = \FGG(H)$. As $H$ is of height $n>0$, 
-there is no non-trivial map $H \to \Ghat_a$ and the sequence becomes
-\begin{equation*}
-\begin{tikzcd}[ampersand replacement=\&]
-	0 \& {\omega(H)} \& {\RigExt(H,\Ghat_a)} \& {\Ext(H,\Ghat_a)} \& 0 \\
-	0 \& \begin{array}{c} \left\{\begin{gathered} {g \in TE\llbr T \rrbr : \delta g = 0} \\          \text{ and $g'(T) \in \cO_E\llbr T \rrbr$}\end{gathered} \right\} \end{array} \& {\QLog(H)} \& {\frac{\SymCoc^2(H, \Ghat_a)}{\{\delta g \mid g \in T \cO_E\llbr T \rrbr\}}} \& 0.
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-2, to=2-2]
-	\arrow[from=1-3, to=1-4]
-	\arrow[from=1-3, to=2-3]
-	\arrow[from=1-4, to=1-5]
-	\arrow[from=1-4, to=2-4]
-	\arrow["", from=2-1, to=2-2]
-	\arrow[from=2-2, to=2-3]
-	\arrow["\delta", from=2-3, to=2-4]
-	\arrow[from=2-4, to=2-5]
-\end{tikzcd}   
-\end{equation*}
-This allows us to formulate the following result.
-\begin{prop}
-  The $R$-module $\omega(H)$ is free of rank $1$, generated by 
-  $f(T) = \log_H(T)$. $\QLog(H)$ is free of rank $n$, generated by the classes of
-  $(f(T), \frac 1\varpi f(T^q), \dots, \frac 1\varpi f(T^{q^{n-1}}))$. Consequently,
-  the short exact sequence above is given by 
-  \begin{equation*}
-    0 \to \left \langle f(T) \right \rangle \to \left \langle f(T), \frac 1\varpi
-      f(T^q) , \dots,
-    \frac 1\varpi f(T^{q^{n-1}}) \right \rangle \xto \delta 
-    \left \langle \delta \left(\frac 1\varpi f(T^q)\right),\dots, \delta
-    \left(\frac 1\varpi f(T^{q^{n-1}})\right ) \right \rangle \to 0.
-  \end{equation*}
-\begin{proof}
-  A simple calculation shows that $\frac 1\varpi f(T^{q^k})$ is a quasi-logarithm for 
-  $1 \leq k \leq n-1$. As $\delta f = 0$, we have $f(T) \in \QLog(F)$ as well. 
-  The claim is \cite[Proposition 13.8]{hopkins1994equivariant} which is a 
-  special case of [ibid., Proposition 9.8].
-\end{proof}
-\end{prop}
-% subsubsection Deformations of Formal Modules and the Standard Formal Module (end)
 
 \subsection{The Universal Additive Extension} % (fold)
 \label{sub:The Universal Additive Extension}
