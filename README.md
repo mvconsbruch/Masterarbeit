@@ -1,4 +1,7 @@
 # Master's thesis
+## 06th of September
+[09_06_version.pdf](./compiled_versions/09_06_version.pdf) 
+
 ## 20th of August
 [08_20_version.pdf](./compiled_versions/08_20_version.pdf) 
 ## 09th of August
