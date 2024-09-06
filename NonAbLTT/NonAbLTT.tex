@@ -23,40 +23,47 @@ description by understanding (a part of) the Lubin-Tate tower explicitely.
 
 \subsection{Lubin--Tate Deformation Spaces} % (fold)
 \label{sub:Lubin-Tate Deformation Spaces}
-The aim of this section is to constuct, associated to a formal $\cO_K$-module
-$H_0 \in \FMOver Ak$ and an integer $m$, a certain moduli problem $\cM_{H_0, m}$,
-parametrizing "deformations of $H_0$ with Drinfeld level $\varpi^m$-structure".
+Let $\XX \in \FMLOver {\cO_E}\Fqbar$ be the reduction of the standard formal
+$\cO_E$-module $H$ of height $n$ (cf. \cref{sub:Hazewinkels FuncEq and the
+Standard Formal Module}).
+The aim of this section is to constuct a certain moduli problem $\cM_{H_0, m}$,
+parametrizing deformations of $\XX$ with Drinfeld level $\varpi^m$-structure.
 By results of Drinfeld \cite{drinfel1974elliptic}, these moduli problems turn
-out to be representable by formal schemes. 
+out to be representable by formal schemes.
 
 \subsubsection{The Tower of Deformation Spaces} % (fold)
 \label{ssub:The Tower of Deformation Spaces}
 We mostly follow \cite[Chapter 2]{Strauch2008DefSp} in the following
 exposition. 
-Let $H_0$ be a formal $\cO_F$-module law over $k$ and let $R$ be an element of 
-$\cC$.
+ We work with the following variant of the deformation 
+functor introduced in \cref{sub:Deformations of Formal Modules}.
 
-\begin{defi}[Deformation]
-  A deformation of $H_0$ to $R$ is a pair $(H, \iota)$ where
-  $H$ is a formal $\cO_K$-module over $R$ and $\iota$ is a quasi-isogeny
-  \begin{equation*}
-    \iota: H_0 \dashto H \otimes_R \Fqbar.
-  \end{equation*}
-  Two deformations $(H, \iota)$ and $(H', \iota')$ are isomorphic if there is
-  an isomorphism $\tau: H \to H'$ with $\iota' \circ \tau = \iota$. 
-\end{defi}
-The Lubin-Tate space without level structure is the moduli space of such deformations.
-More precisely, we define it as the functor
+We define a functor $\cM_0\colon \cC \to \Set$ on components $R \in \cC$ via
 \begin{equation*}
-  \cM_0: \cC \to \Set, \quad R \mapsto \{\text{deformations } (H, \iota) \text{
-  of $H_0$}\}/\simeq.
+  \cM_0(R) = \{(\cF, \iota) \mid \cF \in \FMOver {\cO_E}R \text { and }
+  \iota\colon \XX \to H \otimes_R \Fqbar \text{ a quasi-isogeny}\}/\sim,
 \end{equation*}
+where we say that two pairs $(\cF, \iota)$ and $(\cF', \iota')$ are isomorphic
+if and only if there is an isomorphism $\alpha \colon \cF \to \cF'$,
+such that $\iota' = \alpha_0 \circ \iota$, where $\alpha_0$ denotes the reduction
+of $\alpha$. 
 
 Note that we have a stratification
 \begin{equation*}
   \cM_0 = \coprod_{j \in \Z} \cM_0^{(j)},
 \end{equation*}
 where $\cM_0^{(j)}$ parametrizes deformations $(H, \iota)$ with $\height(\iota) = j$.
+Any quasi-isogeny $\tau\colon \XX \dashrightarrow \XX$ yields an isomorphism, 
+functorial in $R$,
+\begin{equation*}
+  \cM_0^{(j)}(R) \to \cM_0^{(j + \height(\tau))}(R), \quad
+  (\cF, \iota) \mapsto (\cF, \iota \circ \tau). 
+\end{equation*}
+In particular, for any two integers $j, j' \in \Z$, the two spaces
+$\cM_0^{(j)}$ and $\cM_0^{(j')}$ are isomorphic. Hence, by
+\cref{thm:RepresentabilityOfDefSpaceWOLevel}, $\cM_0^{(j)}$ is representable by 
+a local $\cO_\br E$-algebra $A^{(j)}_0 \in \cC$, non-canonically isomorphic 
+to $\cO_\br E \llbr u_1, \dots, u_{n-1} \rrbr$.
 
 We next introduce variants of this moduli problem with a certain level structure.
 
@@ -84,7 +91,17 @@ We next introduce variants of this moduli problem with a certain level structure
   \end{equation*}
 \end{defi}
 
-By results of Drinfeld, the functor $\cM_m$ is representable.
+Note that forgetting the level structure induces a map 
+$\cM_m(R) \to \cM_0(R)$, which yields a stratification 
+$\cM_m = \coprod_{j \in \Z} \cM_m^{(j)}$. The functors
+$\cM_m^{(j)}$ are, for varying $j \in \Z$, pairwise isomorphic.
+Furthermore, for non-negative integers $m' \leq m$, we have natural morphisms
+$\cM_m \to \cM_{m'}$ by restricting the level structure. Our main interest will
+not lie in the individual spaces $\cM_m$, but rather in the resulting tower
+$\{\cM_m\}_{m \geq 0}$, which we call the tower of Lubin--Tate deformation
+spaces.
+
+By results of Drinfeld, each functor $\cM_m^{(0)}$ is representable.
 
 \begin{thm}[Representability of the Lubin--Tate Deformation Space with Level Structure]\label{thm:RepresentabilityOfDefSpaceWithLevel}
   The functor $\cM_m^{(0)}$ is representable by a regular local ring $A_m \in \cC$ of 
@@ -94,9 +111,6 @@ By results of Drinfeld, the functor $\cM_m$ is representable.
 \end{proof}
 \end{thm}
 
-Note that for non-negative integers $m' \leq m$, we have natural morphisms $\cM_m
-\to \cM_{m'}$ by restricting the level structure. We obtain a tower
-$\{\cM_m\}_{m \geq 0}$ of Lubin--Tate deformation spaces.
 % subsubsection The Tower of Deformation Spaces (end)
 
 \subsubsection{Group Actions on the Tower of Lubin--Tate Deformation Spaces} % (fold)
@@ -121,7 +135,7 @@ The group $\GL_n(F)$ acts in a less simple matter. The idea is to have
 $\GL_n(F)$ act on the level structure of triples $(H, \iota, \phi) \in \cM_m(R)$.
 Akin to the action of $D^\times$, we would like to define the action as
 $(H, \iota, \phi).g = (H, \iota, \phi \circ g)$, but this only makes sense
-if $g \in \GL_n(\cO_F)$. To nonetheless define an 'action' of $\GL_n(F)$, we
+if $g \in \GL_n(\cO_F)$. To extend this action to all of $\GL_n(F)$, we
 allow ourselves to also change the underlying formal group.
 We need the following notion of quotients of formal $\cO_F$-modules.
 

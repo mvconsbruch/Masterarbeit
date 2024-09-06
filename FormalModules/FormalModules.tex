@@ -843,7 +843,8 @@ The functor in question is now defined as
 
 \begin{lem}\label{lem:FunctorsAreIsomorphic}
   The functors $\cM^{(0)}_0$ and $\cM^{(0)}_{0, \textnormal{FML}}$ are
-  naturally isomorphic. 
+  naturally isomorphic.
+\end{lem}
 \begin{proof}
   There is a natural map $\cM^{(0)}_{0, \text{FML}} \to \cM^{(0)}_0$, given on
   any component
@@ -884,7 +885,6 @@ The functor in question is now defined as
   Hence, $\alpha$ is a $\star$-isomorphism, implying that 
   $F$ and $G$ lie in the same equivalence class. This proves injectivity.
 \end{proof}
-\end{lem}
 
 \begin{thm}[Representability of $\cM^{(0)}_0$]\label{thm:RepresentabilityOfDefSpaceWOLevel}
   The functor $\cM_0^{(0)}$ is representable by a ring $A_0 \in \cC$, non-canonically 
@@ -923,6 +923,173 @@ can be shown to be an isomorphism, cf. \cite[Section 12]{hopkins1994equivariant}
 
 
 % subsection Deformations of Formal Modules (end)
+
+\subsection{Quotients of Formal Modules by Finite Submodules} % (fold)
+\label{sub:Quotients of Formal Modules by Finite Submodules}
+
+Let $R \in \cC$ be a regular, local $\cO_E$-algebra without zero-divisors and let $F \in
+\FMLArbOver {\cO_E}R$ be a formal $\cO_E$-module law over $R$. 
+Then $F$ equips $\fm_R$ with the structure
+of an $\cO_E$-module. Let $Q \subset \fm_R$ be a finite subset of cardinality
+$c \in \N$ that is a submodule with respect to this $\cO_E$-module structure. Note
+that $c$ is a power of $q$.
+We write
+\begin{equation*}
+  f_Q(T) = \prod_{a \in Q}\left(T -_F a\right),
+\end{equation*}
+where the subscript $F$ denotes subtraction with respect to $F$. 
+
+We now formulate the main result of this section. Let $\Frac(R)$ denote the field of 
+fractions of $R$, which contains $R$ as a subring as $R$ has no zero divisors.
+Note that $f_Q'(0) = \pm u(0) \prod_{a \in Q} a \neq 0$, so there exists
+a formal inverse power series $f_Q^{-1}(T) \in \Frac(R) \llbr T \rrbr$.
+Denote by $(F/Q)$ the formal $\cO_E$-module law over $\Frac(R)$ with 
+\begin{equation*}
+  (F/Q)(X,Y) = f_Q ( F( f_Q^{-1}(X), f_Q^{-1}(Y)))\quad \text{and} \quad
+  [a]_{(F/Q)}(T) = f_Q([a]_F(f_Q^{-1}(T)))\text{ for $a \in \cO_E$}.
+\end{equation*}
+The power series $f_Q$ yields a morphism $F \to F/Q$ of formal module
+laws over $\Frac(R)$.
+
+\begin{thm}[Quotients of Formal Module Laws]\label{thm:Quotients}\leavevmode
+  \begin{enumerate}
+    \item The power series constituting the formal $\cO_E$-module law $(F/Q)$
+      all have coefficients in $R$. That is, $(F/Q)$ is a formal module law over
+      $R$, and $f_Q\colon F \to (F/Q)$ is a morphism of formal module laws over $R$. 
+    \item Denote by $\cF$ the formal module corresponding to $F$. The finite group
+      $Q$ acts on the formal scheme $\cF = \Spf(R\llbr T \rrbr)$, and the 
+      map $\cF \xto{f_Q} (\cF/Q)$, where $(\cF/Q)$ denotes the formal module
+      corresponding to $(F/Q)$, is a categorical quotient 
+      (in the category of formal Lie-varieties of dimension $1$, 
+      i.e., formal schemes isomorphic to $\spf R\llbr T \rrbr$) for this
+      action. 
+    \item Furthermore, if $\cH$ is another formal $\cO_E$-module law over $R$ and
+      $g\colon \cF \to \cH$ is $Q$-invariant, the induced morphism
+      $\tilde g \colon (\cF/Q) \to \cH$ is a morphism of formal $\cO_E$-modules.
+  \end{enumerate}
+\end{thm}
+The proof is rather elementary and only uses commutative ring theory of 
+$R\llbr T \rrbr$ and $R\llbr X,Y \rrbr$. These are again noetherian regular
+local rings by \cite[Proposition 19.5]{matsumura1989commutative}, implying 
+that they are unique factorization domains by the theorem of
+Auslander--Buchsbaum, cf.
+\cite[\href{https://stacks.math.columbia.edu/tag/0AG0}{Tag 0AG0}]{stacks-project}.
+Furthermore, they are complete with respect to its maximal ideal.
+
+The first important observation is the following lemma.
+For the notion of Weierstraß degree and the Weierstraß Preparation Theorem, we refer
+to Appendix A.3 of \cite{hazewinkel1978formal}.
+\begin{lem}\label{lem:fQIsWeierstraß} \leavevmode
+  \begin{enumerate}
+    \item The power series $f_Q$ has Weierstraß degree $c$. That is, it is of
+      the form 
+      \begin{equation*} 
+        f_Q(T) = \sum_{i=0}^\infty a_i T^i
+      \end{equation*} 
+      with $a_i \in \fm_R$ for $i < c$ and $a_c \in R^\times$. 
+    \item There exists a unit $u(T) \in R\llbr T \rrbr$ such that $f_Q$ admits
+      the factorization
+      \begin{equation*}
+        f_Q(T) = u(T) g(T),\quad \text{where} \quad 
+        g_Q(T) = \prod_{a \in Q} \left(T - a \right).
+      \end{equation*}
+  \end{enumerate}
+  \end{lem}
+\begin{proof}
+  The first statement follows directly from the fact that for $a \in Q$, we have
+  \begin{equation*}
+    F(T, a) \in T + a + T \fm_R.
+  \end{equation*}
+  The second is an application of the Weierstraß Preparation Theorem. This theorem
+  implies a decomposition
+  \begin{equation*}
+    f_Q(T) = u(T)  g(T)
+  \end{equation*}
+  with $g(T) = a_0 + a_1T + \dots + a_{n-1}T^{n-1} + T^n \in R[T]$ of degree $n$
+  and $a_i \in \fm_R$. One quickly checks that for $a \in \fm_R$, the
+  elements $(T-a) \in R\llbr T \rrbr$ are irreducible. For $a \in Q$, we find 
+  $f_Q(a) = 0$, implying that each factor $(T-a)$ divides $f_Q(T)$. As 
+  $R\llbr T \rrbr$ is a unique factorization domain, this implies that 
+  each factor $(T-a)$ divides $g(T)$. For degree-reasons we obtain $g(T) =
+  \prod_{a \in Q}\left(T-a \right)$, as desired.
+\end{proof}
+
+We define an action of $Q$ on $R\llbr T \rrbr$ as follows. For 
+$a \in Q$ and $h(T) \in R\llbr T \rrbr$, we put
+\begin{equation*}
+  a.h(T) = h(T +_F a) \in R\llbr T \rrbr.
+\end{equation*}
+As $T +_F a$ is a topologically nilpotent element of $R\llbr T \rrbr$, this definition
+makes sense. The power series $f_Q(T)$ is $Q$-invariant, as
+\begin{equation*}
+  f_Q(T+_F a)  = \prod_{b \in Q}\left(T +_F a -_F b \right) 
+  = \prod_{b \in Q}\left(T -_F b \right) = f_Q(T).
+\end{equation*}
+Note that given any $h \in R\llbr T \rrbr$, the power series
+$h(f(T)) \in R\llbr T \rrbr$ is $Q$-invariant.
+The main observation in the proof of \cref{thm:Quotients} is
+the realization that every invariant power series arises this way.
+
+\begin{prop}\label{prop:DescriptionOfInvariantsUnderQAction}
+  Let $R\llbr T \rrbr^Q$ denote the invariants under the action of 
+  $Q$ on $R\llbr T \rrbr$. Then any element in $R\llbr T \rrbr^Q$ arises as a 
+  (unique) power series in $f_Q(T)$, i.e.,
+  \begin{equation*}
+    R\llbr T \rrbr^Q = R\llbr f_Q(T) \rrbr \subset R\llbr T \rrbr.
+  \end{equation*}
+\end{prop}
+\begin{proof}
+  By the short calculation above, only one inclusion remains. Let $h(T) \eqcolon
+  h_0(T) \in R\llbr T \rrbr^Q$ be an arbitrary $Q$-invariant power series. Put 
+  $c_0 = h_0(0)$ and write $v_0(T) = h_0(T) - c_0$. Then $v_0$ is $Q$-invariant,
+  hence we find $v_0(a) = v_0(a +_F 0) = 0$ for $a \in Q$. In particular
+  we find $g_Q(T) \mid v_0(T)$, where $g_Q(T)$ is the polynomial from 
+  Lemma \ref{lem:fQIsWeierstraß}. As $g_Q$ differs from $f_Q$ by a unit, 
+  we find $v_0(T) = f_Q(T) h_1(T)$ for some power series $h_1(T) \in R\llbr T \rrbr$.
+  As $R$ is a domain, $h_1(T)$ is again $Q$-invariant.
+
+  We can now iterate this process, writing $h_1(T) = c_1 + v_1(T)$, 
+  $v_1(T) = f_Q(T) h_2(T)$, $h_2(T) = c_2 + v_2(T)$, et cetera. This results
+  for any positive integer $m$ in a continued product
+  \begin{align*}
+    h(T) &= c_0 + f_Q(T) (c_1 + f_Q(T)(c_2 + \dots + f_Q(T)(c_m + v_m(T)) \dots ))\\
+         &= c_0 + c_1 f_Q(T) + c_2f_Q(T)^2 + \dots + f_Q(T)^m v_m(T).
+  \end{align*}
+  In the limit $m \to \infty$, we obtain the desired power series description
+  of $h(T)$.
+\end{proof}
+
+We remark that virtually the same argument yields the equality
+\begin{equation*}
+  R\llbr X,Y \rrbr^{Q \times Q} = R\llbr f(X), f(Y) \rrbr,
+\end{equation*}
+where $Q\times Q$ acts on $R\llbr X,Y \rrbr$ separately for each variable.
+
+\begin{proof}[Proof of \cref{thm:Quotients}]
+  \textit{Part 1}. One readily checks that the power series 
+  $f(F(X,Y)) \in R\llbr X,Y \rrbr$ is $Q\times Q$-invariant, and that 
+  $[a]_F(T) \in R\llbr T \rrbr$ is $Q$-invariant. Hence, 
+  by \cref{prop:DescriptionOfInvariantsUnderQAction}, there exist unique power
+  series
+  $F'(X,Y) \in R\llbr X,Y \rrbr$ and $[a]_{F'}(T) \in R\llbr T \rrbr$ such that 
+  \begin{equation*}
+    f_Q(F(X,Y)) = F'(f_Q(X),f_Q(Y)) \quad \text{and} \quad 
+    f_Q([a]_F(T)) = [a]_{F'}(f_Q(T)) \text{ for }a\in \cO_E.
+  \end{equation*}
+  But a set power series with coefficients in $\Frac(R)$ is uniquely determined
+  by these properties, namely, these power series have to be equal to those
+  defining the formal $\cO_E$-module law $(F/Q)$. As $R$ injects 
+  into $\Frac(R)$, we find $F' = (F/Q)$, and the first claim follows.
+
+  \textit{Part 2.} This is a reformulation of
+  \cref{prop:DescriptionOfInvariantsUnderQAction}.
+
+  \textit{Part 3.} This follows formally from the description the formal 
+  $\cO_E$-module law $(F/Q)$ in terms of $F$ and $f_Q$.
+\end{proof}
+
+
+% subsection Quotients of Formal Modules by Finite Submodules (end)
 
 \subsection{Explicit Dieudonné Theory} % (fold)
 \label{sub:Explicit Dieudonne Theory}
@@ -1188,8 +1355,6 @@ also functorial in $R$.
 \end{prop}
 % subsubsection Explicit Dieudonne Theory (end)
 
-% subsection Exact Categories, Extensions of Formal Modules (end)
-
 \subsection{The Universal Additive Extension} % (fold)
 \label{sub:The Universal Additive Extension}
 We follow \cite[Section 11]{hopkins1994equivariant}, 
@@ -1325,6 +1490,7 @@ $i$ by an element in $\Hom(F, V) = 0$.
 \end{proof}
 \end{lem}
 % subsection The Universal Additive Extension (end)
+
 \subsection{Determinants of Formal modules} % (fold)
 \label{sub:Determinants of Formal modules}
 In \cite{hedayatzadeh2015det}, Hedayatzadeh constructs determinants of 
@@ -1427,6 +1593,7 @@ formal $\cO_E$-module in the following example.
 \end{xpl}
 
 % subsubsection Determinants of Formal modules (end)
+
 \subsection{The Universal Cover} % (fold)
 \label{sub:Tate Modules and the Universal Cover} 
 
