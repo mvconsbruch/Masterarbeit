@@ -1,4 +1,11 @@
 # Master's thesis
+## 10th of September
+[09_10_version.pdf](./compiled_versions/09_10_version.pdf) 
+* Got quotients done, and Section 4.
+### To Dos:
+* Finish section 6
+* why are $\pi_\theta$, $\rho_\theta$ irreducible and $\pi_\theta$ supercuspidal?
+
 ## 06th of September
 [09_06_version.pdf](./compiled_versions/09_06_version.pdf) 
 
@@ -17,7 +24,6 @@
 * Change $A$ to ring of integers of $E$ throughout, $R$ to ring of integers of $\breve E$.
 * Replace admissible algebras by adic ones (more comfortable)
 * Minor fixes in DLTheory chapter
-* What is a supercuspidal representation?
 * Proof of Proposition 8.3.4 (Application of Mieda's results)
 
 
