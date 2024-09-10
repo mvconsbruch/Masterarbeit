@@ -4,8 +4,7 @@
 \begin{document}
 \section{Explicit Aspects of Abelian Lubin--Tate Theory} % (fold)
 \label{sec:Local Class Field Theory}
-We review the approach to local class field theory developed by Lubin and Tate in
-\cite{LubinTateFormalMult}. 
+We review the approach to local class field theory developed by Lubin and Tate in \cite{LubinTateFormalMult}. 
 
 Class field theory is, in general terms, concerned with the study of 
 abelian extensions of local or global fields. This area of number theory 
@@ -147,92 +146,6 @@ that an isomorphism satisfying properties (a) and (b) has to be unique.
   uniformizers, it follows that $\alpha$ is uniquely determined by the properties (a) and (b).
 \end{proof}
 
-\subsection{Lubin--Tate Formal Module Laws} % (fold)
-\label{sub:Lubin--Tate Formal Module Laws}
-Fix a uniformizer $\varpi \in E^\times$. In this section we explain the construction
-of Lubin--Tate module laws. As announced, these module laws will allow us to
-construct the totally ramified extension $E_\varpi$.
-
-We fix a positive integer $h$ and write $\cF_{\varpi,h}$ for the set of power series
-\begin{equation*}
-  \cF_{\varpi,h} \coloneqq \{f \in \cO_E \llbr T \rrbr \mid f \equiv \varpi T
-    \ (\text{mod } {T^2}) \ \text{ and } \ 
-    f \equiv T^{q^h} \ (\text{mod }\varpi)\}. 
-\end{equation*}
-
-The construction of the Lubin--Tate formal module laws is based on the following 
-lemma, which is Lemma 1 in \cite{LubinTateFormalMult}.
-\begin{lem}\label{lem:LTLemma1}
-  Let $f(T)$ and $g(T)$ be elements of $\cF_{\varpi,h}$ and let 
-  $L(X_1, \dots, X_n) = \sum_{i=1}^n a_i X_i$ be a linear form with coefficients in 
-  ${\cO_E}$. Then there exists a unique series $F(X_1, \dots, X_n)$ with coefficients 
-  in ${\cO_E}$ such that 
-  \begin{gather*}
-    F(X_1, \dots, X_n) \equiv L(X_1, \dots, X_n) \pmod {T^2}, \\ \text{and} \\
-    f(F(X_1, \dots, X_n)) = F(g(X_1), \dots, g(X_n)).
-  \end{gather*}
-\end{lem}
-
-As a direct consequence, we obtain the following useful result.
-\begin{lem}
-  Let $f \in \cF_{\varpi, h}$. Then there is a unique formal ${\cO_E}$-module law $F_f$ over ${\cO_E}$
-  with $[\varpi]_F(T) = f(T)$.
-\begin{proof}
-  In the above lemma, set $L(X,Y) = X+Y$ and $g=f$ to uniquely determine 
-  the power series $F_f$. The same Lemma yields unique power series
-  $[a]_{F_f}(T) \in R\llbr T \rrbr$ by setting $L(T) = a T$, $g=f$. It is
-  routine to check that $(F_f, ([a]_f)_{a \in {\cO_E}})$ is a formal ${\cO_E}$-module law, 
-  cf. \cite{LubinTateFormalMult}.
-\end{proof}
-\end{lem}
-
-\begin{defi}[Lubin--Tate Module Law]
-  We refer to module laws arising from the construction above as Lubin--Tate module laws.
-\end{defi}
-
-Furthermore, attached to each $a \in \cO_E$ and $f,g \in \cF_{\varpi,h}$, we find
-unique $[a]_{f,g}(T) \in \cO_E\llbr T \rrbr$ satisfying
-\begin{equation}\label{eq:LTMoLaScaCond}
-  [a]_{f,g}(T) \equiv aT \pmod {T^2} \quad \text{and} \quad
-  f([a]_{f,g}(T)) = [a]_{f,g}(g(T)).
-\end{equation}
-We now have the following theorem.
-\begin{thm}[Lubin--Tate Formal $\cO_E$-Module Laws]\label{thm:LTModLaw}
-  Let $E$ be a local field with ring of integers $\cO_E$. For any choice of 
-  uniformizer $\varpi \in \cO_E$ and any $f \in \cF_{\varpi,h}$, the family of power
-  series $(F_f, ([a]_{f,f})_{a \in \cO_E})$
-  gives rise to a formal $\cO_E$-module law over $\cO_E$. For 
-  $f,g \in \cF_{\varpi,h}$, the formal $\cO_E$-module laws $F_f$ and $F_g$ are
-  canonically isomorphic, via the morphism induced by $[1]_{f,g} \in \cO_E\llbr
-  T \rrbr$. 
-\begin{proof}
-  This is Theorem 1 of \cite{LubinTateFormalMult} and the subsequent discussion.
-\end{proof}
-\end{thm}
-In particular, up to canonical isomorphism, there is only one Lubin--Tate formal
-$\cO_E$-module law over $\cO_E$ attached to the choice of the uniformizer $\varpi \in
-\cO_E$. 
-
-\begin{xpl}
-  If $E = \Q_p$, this reconstructs the multiplicative formal 
-  $\Z_p$ module $\Ghat$ constructed above. Indeed, we have 
-  \begin{equation*}
-    \cF_{p,1} = \{f \in \Z_p\llbr T \rrbr \mid f(T) \equiv T^p \text{ mod } p
-    \text{ and } f(T) \equiv pT \text{ mod } (T)^2 \},
-  \end{equation*}
-  so that $f(T) = (1+T)^p-1$ lies in $\cF_{p,1}$.  
-  One quickly checks that 
-  \begin{equation*}
-    F_f(X,Y) = (1+X)(1+Y) - 1 = X + Y + XY \in \Z_p \llbr X,Y \rrbr
-  \end{equation*}
-  is the addition law associated to $f$, and that 
-  for $a \in \Z_p$, the power series
-  \begin{equation*}
-    [a]_{f,f} = (1+T)^{a} - 1 \in \Z_p \llbr T \rrbr
-  \end{equation*}
-  satisfies the condition of \eqref{eq:LTMoLaScaCond}. 
-\end{xpl}
-% subsubsection Lubin--Tate Formal Module Laws (end)
 
 \subsection{Construction of the Maximal Abelian Extension} % (fold)
 \label{sub:Construction of the Maximal Abelian Extension}
@@ -366,7 +279,8 @@ As $E_\varpi$ and $E^\nr$ have trivial intersection, we have
   \Gal(E^\nr /E) \cong \cO_E^\times \times \hat \Z.
 \end{equation*}
 Using \eqref{eq:WeilgroupInjectsIntoGalois}, this isomorphism
-identifies $\Weil_E^\ab$ with $\cO_E^\times \times \Z$. We obtain the Artin map
+identifies $\Weil_E^\ab$ with $\cO_E^\times \times \Z$, which we may identify 
+with $E^\times$ via $(u, m) \mapsto u \varpi^m$. We obtain the Artin map
 \begin{equation*}
   \Art_E\colon E^\times \cong \cO_E^\times \times \Z \to 
   \Gal(E_\varpi/E) \times \Phi^\Z \cong \Weil_E^\ab.
@@ -398,10 +312,11 @@ ramification filtration can be calculated explicitely (cf. \cite[Theorem
 2]{gold1981local}): we have
 \begin{equation}\label{eq:CalculationOfUpperRamificationFiltration}
   \Gal(E_{\varpi, m}/E)^v \cong \begin{cases}
-    \cO_E^\times/(1 + \varpi^m \cO_E) \quad &\text{if } -1 \leq v < 0 \\
-    \{0\} \quad &\text{if } v \geq m \\
-    (1 + \varpi^i \cO_E)/(1+\varpi^m \cO_E) \quad &\text{if } i \leq v < i+1
-    \quad \text{for } i \in \N_0.
+    \cO_E^\times/(1 + \varpi^m \cO_E) \quad &\text{if } -1 < v \leq 0 \\
+    (1 + \varpi^i \cO_E)/(1+\varpi^m \cO_E) \quad &\text{if } 0 \leq i < v \leq i+1
+    \leq m 
+    \quad \text{for } i \in \N_0 \\
+    \{0\} \quad &\text{if } m < v.
   \end{cases}
 \end{equation}
 In particular, this implies by Herbrand's theorem (cf. \cite[Ch. 4, Proposition
@@ -421,7 +336,8 @@ By the Hasse--Arf theorem, the same phenomenon occurs for any abelian extension
 We furthermore need the following variant of Herbrand's theorem (cf. \cite[Chapter IV,
 Proposition 14]{serre2013local}).
 \begin{thm}[Herbrand's theorem]\label{prop:HerbrandsThm}
-  Let $L$ be a Galois extension of $E$ and let $H \subseteq \Gal(L/K)$ be a normal subgroup
+  Let $L$ be a finite Galois extension of $E$ and let $H \subseteq \Gal(L/K)$ be a
+  normal subgroup
   corresponding to the subextension $L^H \subseteq L$. Then, for any real number $v \geq -1$, 
   we have
   \begin{equation*}

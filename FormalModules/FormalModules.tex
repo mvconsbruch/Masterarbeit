@@ -601,15 +601,19 @@ formal $\cO_E$-modules over an algebraic closure $\FF_q \inj \Fqbar$.
 \end{proof}
 \end{prop}
 
-In particular, any formal $\cO_E$-module of height $h$ is isomorphic to 
-the normalized formal $\cO_E$-module $\XX$, defined as the
-reduction of the standard formal $\cO_E$-module law $H$ of height $h$, cf. 
-\cref{sub:Hazewinkels FuncEq and the Standard Formal Module}.
-For now, it is only important that $[\varpi]_\XX(T) = T^{q^h}$.
+We call a formal module law $\XX$ over $\Fqbar$ normalized of height $n$ if it 
+is defined over $\FF_q$ and furthermore
+satisfies $[\varpi]_\XX(T) = T^{q^n}$ and $[\zeta]_\XX(T) = \bar \zeta T$
+for any $(q-1)$-th root of unity in $\cO_E$.
+Normalized formal modules of arbitrary height exist, for example as the
+reduction of the standard formal $\cO_E$-module $H$ over $\cO_\br E$ (cf.
+\cref{sub:Hazewinkels FuncEq and the Standard Formal Module}).
+In particular, any formal $\cO_E$-module law of height $n$ is isomorphic to 
+a normalized formal $\cO_E$-module law $\XX$.
 
 \begin{lem}\label{lem:inverseqisog}
-  Let $f\colon  F \to G$ be an isogeny of $\varpi$-divisible formal $\cO_E$-module laws
-  over $\Fqbar$. Then there is an 
+  Let $f\colon  F \to G$ be an isogeny of $\varpi$-divisible formal
+  $\cO_E$-module laws over $\Fqbar$. Then there is an 
   integer $n \geq 0$ and an isogeny $g\colon  G \to F$ with 
   \begin{equation*}
     f \circ g = [\varpi^n]_\cG \quad \text{and} \quad g \circ f = [\varpi^n]_\cF.
@@ -621,16 +625,17 @@ For now, it is only important that $[\varpi]_\XX(T) = T^{q^h}$.
     $G$ are given by the normalized formal $\cO_E$-module
     $\XX$.
     Write $f(T) = g(T^{q^n})$ for some power series $h(T) = c_1 T + c_2T^2 +
-    \dots$, where $c_1 \neq 0$ is a unit in $\XX$, and let $g(T) = h^{-1}(T)$ be the 
-    formal inverse of $h$. Now $g$ is a morphism of formal $\cO_E$-module laws
-    satisfying $f \circ g(T) = g\circ f(T) = T^{q^n}$. The claim follows.
+    \dots$, where $c_1 \neq 0$ is a unit in $\XX$, and let $g(T) = h^{-1}(T)$
+    be the formal inverse of $h$. Now $g$ is a morphism of formal
+    $\cO_E$-module laws satisfying $f \circ g(T) = g\circ f(T) = T^{q^n}$. The
+    claim follows.
   \end{proof}
 \end{lem}
 
 
 \begin{prop}\label{prop:EndomorphismsOfFormalModulesOverksep}
   Suppose that $F \in \FMLOver {\cO_E}{\Fqbar}$ is $\varpi$-divisible
-  of height $h$. Then 
+  of height $n$. Then 
   $\End_{\FMLOver {\cO_E}{\Fqbar}}(F)$ is isomorphic to the maximal order $\cO_D$
   of the central division algebra $D$ over $E$ of rank $h^2$ and invariant
   $\frac 1h$.
@@ -639,7 +644,8 @@ For now, it is only important that $[\varpi]_\XX(T) = T^{q^h}$.
 \end{proof}
 \end{prop}
 
-We give a more explicit description of $\cO_D$ in the case that $F = \XX$. 
+We give a more explicit description of $\cO_D$ in the case that $F = \XX$ 
+is normalized. 
 Then $\cO_D = \End(\XX)$ admits the following description. Let 
 $E_h$ be the degree $h$ unramified extension of $\cO_E$, and denote
 the residue field of $\cO_{E_h}$ with $\FF_{q^h}$. Let 
@@ -658,8 +664,90 @@ In particular, the isomorphism \eqref{eq:DescripitionOfEnds} yields a
 reduction map $\cO_D \to \FF_{q^h}$ by sending $a \in \cO_{E_h}$ to
 its residue modulo $\varpi$ and $\Pi$ to $0$. 
 
-
 % subsubsection Formal DVR-Modules over Fields of Characteristic 0 (end)
+
+\subsection{Lubin--Tate Formal Module Laws} % (fold)
+\label{sub:Lubin--Tate Formal Module Laws}
+Fix a uniformizer $\varpi \in E^\times$. In this section we explain the construction
+of Lubin--Tate module laws. These $\cO_E$-module laws were introduced by 
+Lubin and Tate in \cite{LubinTateFormalMult} in order to
+construct the totally ramified abelian extensions of $E$. We come back to this
+in \cref{sec:Local Class Field Theory}.
+
+We fix a positive integer $h$ and write $\cF_{\varpi,h}$ for the set of power series
+\begin{equation*}
+  \cF_{\varpi,h} \coloneqq \{f \in \cO_E \llbr T \rrbr \mid f \equiv \varpi T
+    \ (\text{mod } {T^2}) \ \text{ and } \ 
+    f \equiv T^{q^h} \ (\text{mod }\varpi)\}. 
+\end{equation*}
+
+The construction of the Lubin--Tate formal module laws is based on the following 
+lemma, which is Lemma 1 in \cite{LubinTateFormalMult}.
+\begin{lem}\label{lem:LTLemma1}
+  Let $f(T)$ and $g(T)$ be elements of $\cF_{\varpi,h}$ and let 
+  $L(X_1, \dots, X_n) = \sum_{i=1}^n a_i X_i$ be a linear form with coefficients in 
+  ${\cO_E}$. Then there exists a unique series $F(X_1, \dots, X_n)$ with coefficients 
+  in ${\cO_E}$ such that 
+  \begin{gather*}
+    F(X_1, \dots, X_n) \equiv L(X_1, \dots, X_n) \pmod {T^2}, \\ \text{and} \\
+    f(F(X_1, \dots, X_n)) = F(g(X_1), \dots, g(X_n)).
+  \end{gather*}
+\end{lem}
+
+As a direct consequence, we obtain the following useful result.
+\begin{deflem}[Lubin--Tate Module Laws] 
+  Let $f \in \cF_{\varpi, h}$. Then there is a unique formal ${\cO_E}$-module
+  law $F_f$ over ${\cO_E}$ with $[\varpi]_F(T) = f(T)$. 
+  If $f \in \cF_{f, h}$, we refer to $F_f$ as a Lubin--Tate module law of height $h$.
+\begin{proof}
+  In the above lemma, set $L(X,Y) = X+Y$ and $g=f$ to uniquely determine 
+  the power series $F_f$. The same Lemma yields unique power series
+  $[a]_{F_f}(T) \in R\llbr T \rrbr$ by setting $L(T) = a T$, $g=f$. It is
+  routine to check that $(F_f, ([a]_f)_{a \in {\cO_E}})$ is a formal
+  ${\cO_E}$-module law, cf. \cite{LubinTateFormalMult}.
+\end{proof}
+\end{deflem}
+
+Another application of \cref{lem:LTLemma1} shows that attached to each $a \in
+\cO_E$ and $f,g \in \cF_{\varpi,h}$, there are unique $[a]_{f,g}(T) \in
+\cO_E\llbr T \rrbr$ satisfying
+\begin{equation}\label{eq:LTMoLaScaCond}
+  [a]_{f,g}(T) \equiv aT \pmod {T^2} \quad \text{and} \quad
+  f([a]_{f,g}(T)) = [a]_{f,g}(g(T)).
+\end{equation}
+We now have the following theorem.
+\begin{thm}[Lubin--Tate Formal $\cO_E$-Module Laws]\label{thm:LTModLaw}
+  For $f,g \in \cF_{\varpi,h}$, the formal $\cO_E$-module laws $F_f$ and $F_g$ are
+  canonically isomorphic, via the morphism induced by $[1]_{f,g} \in \cO_E\llbr
+  T \rrbr$. 
+\begin{proof}
+  This is Theorem 1 of \cite{LubinTateFormalMult} and the subsequent discussion.
+\end{proof}
+\end{thm}
+In particular, up to canonical isomorphism, there is only one Lubin--Tate formal
+$\cO_E$-module law over $\cO_E$ attached to the choice of the uniformizer $\varpi \in
+\cO_E$. 
+
+\begin{xpl}
+  If $E = \Q_p$, this reconstructs the multiplicative formal 
+  $\Z_p$-module $\Ghat_m$ constructed above. Indeed, we have 
+  \begin{equation*}
+    \cF_{p,1} = \{f \in \Z_p\llbr T \rrbr \mid f(T) \equiv T^p \text{ mod } p
+    \text{ and } f(T) \equiv pT \text{ mod } (T)^2 \},
+  \end{equation*}
+  so that $f(T) = (1+T)^p-1$ lies in $\cF_{p,1}$.  
+  One quickly checks that 
+  \begin{equation*}
+    F_f(X,Y) = (1+X)(1+Y) - 1 = X + Y + XY \in \Z_p \llbr X,Y \rrbr
+  \end{equation*}
+  is the addition law associated to $f$, and that 
+  for $a \in \Z_p$, the power series
+  \begin{equation*}
+    [a]_{f,f} = (1+T)^{a} - 1 \in \Z_p \llbr T \rrbr
+  \end{equation*}
+  satisfies the condition of \eqref{eq:LTMoLaScaCond}. 
+\end{xpl}
+% subsubsection Lubin--Tate Formal Module Laws (end)
 
 \subsection{Hazewinkel's Functional Equation Lemma and the Standard Formal Module Law} % (fold)
 \label{sub:Hazewinkels FuncEq and the Standard Formal Module}
@@ -691,30 +779,31 @@ that ensures that $f$ arises as the logarithm of some formal $\cO_E$-module law.
     \sigma(b) \equiv b^q \pmod \fa \text{ for all } b \in R \quad \text{and} \quad 
     \sigma^r(s_i) \fa \subset R \text{ for all } r,i \geq 1
   \end{equation*}
-  are satsified.
-  Then we have 
-  \begin{equation*}
-    F(X,Y) = f^{-1}(f(X) + f(Y)) \in R \llbr X,Y \rrbr,
-  \end{equation*}
-  where $f^{-1}$ is the inverse power series as in Lemma \ref{lem:IsosCheckOnLie}.
-  Also, if $g(Z) \in R[\tfrac 1\varpi]\llbr Z \rrbr$ is another power series
-  satisfying the same condition
-  \begin{equation*}
-    g(Z) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(Z^{q^i}) \in R\llbr Z \rrbr,
-  \end{equation*}
-  then $f^{-1}(g(Z)) \in R\llbr Z \rrbr$. 
-  Furthermore, if $\alpha(T) \in R\llbr T \rrbr$ and $\beta(T) \in R \llbr T \rrbr$, then
-  \begin{equation} \label{eq:funceqlemcongruence}
-    \alpha(T) \equiv \beta(T) \pmod {\fa^r} \iff f(\alpha(T)) \equiv f(\beta(T))
-    \pmod {\fa^r}
-  \end{equation}
-
+  are satsified. Now the following statements hold.
+  \begin{enumerate}
+    \item We have 
+        \begin{equation*}
+          F(X,Y) = f^{-1}(f(X) + f(Y)) \in R \llbr X,Y \rrbr,
+        \end{equation*}
+        where $f^{-1}$ is the inverse power series as in Lemma \ref{lem:IsosCheckOnLie}.
+    \item If $g(Z) \in R[\tfrac 1\varpi]\llbr Z \rrbr$ is another power series
+        satisfying the same condition
+        \begin{equation*}
+          g(Z) - \sum_{i=1}^\infty s_i (\sigma^i_* f)(Z^{q^i}) \in R\llbr Z \rrbr,
+        \end{equation*}
+        then $f^{-1}(g(Z)) \in R\llbr Z \rrbr$. 
+    \item If $\alpha(T) \in R\llbr T \rrbr$ and $\beta(T) \in R \llbr T \rrbr$, then
+        \begin{equation} \label{eq:funceqlemcongruence}
+          \alpha(T) \equiv \beta(T) \pmod {\fa^r} \iff f(\alpha(T)) \equiv f(\beta(T))
+          \pmod {\fa^r}.
+        \end{equation}
+  \end{enumerate}
+\end{thm}
   \begin{proof}
-    A more general statement can be found in \cite[Section
-    2]{hazewinkel1979funceqexp}. Proofs can be found in \cite[Sections 2 and
+    A more general statement can be found in \cite[Sections 2 and
     10]{hazewinkel1978formal}.
   \end{proof}
-\end{thm}
+
 Note that by construction, $F(X,Y)$ as defined above yields a (commutative)
 formal group law over $R$. 
 If $\sigma$ restricts to the identity on $\cO_E \subseteq R$, then 
@@ -751,16 +840,17 @@ satisfying the functional equation
 \end{equation*}
 where $\sigma$ is the endomorphism of $\cO_E[\underline v]$ obtained by
 sending $v_j$ to $v_j^q$ for all $j$. By the Functional Equation Lemma
-this gives rise to a $\cO_E$-module law $F_v$ over $\cO_E[\underline v]$.
+this gives rise to a $\cO_E$-module law $F_v$ over $\cO_E[\underline v]$,
+which is clearly $\cO_E$-typical.
 By \cite[Definition 21.5.5 and Criterion 21.5.9]{hazewinkel1978formal},
 we have the following.
 
 \begin{lem}\label{lem:ClassificationOfAtypicalOnes}
-  A formal $\cO_E$-module law $F$ over $R$ is $A$-typical if and only if there is
+  A formal $\cO_E$-module law $F$ over $R$ is $\cO_E$-typical if and only if there is
   a homomorphism $\cO_E[\underline v] \to R$ such that $F = F_v \otimes R$. 
 \end{lem}
 
-A special role will play the $A$-typical formal module law $H$
+A special role will play the $\cO_E$-typical formal module law $H$
 with logarithm given by the power series
 \begin{equation*}
   f(T) = \sum_{i=1}^\infty \frac{T^{q^{in}}}{\varpi^i} \in E\llbr T \rrbr.
@@ -779,8 +869,9 @@ $[\varpi]_H(T) \equiv \varpi T$ mod $(T^2)$. Additionally, note that
 \end{equation*}
 Hence, the equivalence in \eqref{eq:funceqlemcongruence} implies that 
 $[\varpi]_H(T) \equiv T^{q^n}$ mod $\varpi$. So $H$ is a Lubin--Tate formal
-$\cO_E$-module law of height $n$, we call it the standard Lubin--Tate formal
-module law of height $n$. Although the coefficients of $H$ lie inside $\cO_E$,
+$\cO_E$-module law of height $n$, we call it the standard formal
+$\cO_E$-module law of height $n$. Although the coefficients of $H$ lie inside
+$\cO_E$,
 we usually consider it as a formal $\cO_E$-module over $\cO_\br E$.
 
 We note the following. 
@@ -814,9 +905,9 @@ homomorphisms, a homomorphism of rings $\phi: R \to S$ lies in
 $\Hom_{\cC}(R,S)$ if and only if $\phi(\fm_R) \subset \fm_S$.
 
 Let $\XX = H \otimes \Fqbar$ be the formal $\cO_E$-module law of height $n$
-over $\Fqbar$ obtained by reduction of the standard formal $\cO_E$-module $H$ 
-and let 
-$R \in \cC$ be a $\cO_\br E$-algebra with maximal ideal $\fm_R$. A deformation
+over $\Fqbar$ obtained by reduction of the standard formal $\cO_E$-module $H$
+and let $R \in \cC$ be a $\cO_\br E$-algebra with maximal ideal $\fm_R$. A
+deformation
 of $\XX$ to $R$ is a pair $(\cF, \iota)$ consisting of a formal $\cO_\br
 E$-module $\cF$ over $R$ and an isomorphism $\iota\colon \FGG(\XX) \xto \sim
 \cF \otimes \Fqbar$. We say that two deformations $(\cF, \iota)$ and $(\cF',
@@ -828,6 +919,8 @@ deformation functor
   \cM^{(0)}_0 \colon \cC \to \Set, \quad R \mapsto \{\text{Deformations $(\cF,
   \iota)$ of $\XX$ to $R$}\}/\sim.
 \end{equation*}
+We remark that, as all formal module laws of height $n$ over $\Fqbar$ are 
+isomorphic, this functor does not depend on the choice of $\XX$. 
 
 In the literature one encounters a variant of this functor, defined on the
 level of formal
@@ -917,7 +1010,7 @@ Consider the homorphism of $\cO_E$-algebras
 and let $F_\alpha = F_v \otimes R$ be the formal $\cO_E$-module law over
 $R$ obtained by applying $\tilde \alpha$ to the coefficients of $F_v$. 
 By the Functional Equation Lemma (\cref{thm:HazewinkelIntegrality}), we find
-that $F_\alpha$ is $\star$-isomorphic to $\XX$. Hence 
+that $F_\alpha \otimes \Fqbar$ is equal to $\XX$. Hence 
 $F_\alpha \in \cM_0^{(0)}(R)$, and the mapping $\alpha \mapsto F_\alpha$
 can be shown to be an isomorphism, cf. \cite[Section 12]{hopkins1994equivariant}. 
 
@@ -926,16 +1019,16 @@ can be shown to be an isomorphism, cf. \cite[Section 12]{hopkins1994equivariant}
 
 \subsection{Quotients of Formal Modules by Finite Submodules} % (fold)
 \label{sub:Quotients of Formal Modules by Finite Submodules}
-
-Let $R \in \cC$ be a regular, local $\cO_E$-algebra without zero-divisors and let $F \in
-\FMLArbOver {\cO_E}R$ be a formal $\cO_E$-module law over $R$. 
+Let $R$ be a noetherian, regular, local $\cO_\br E$-algebra 
+that is complete with respect to its maximal ideal and has residue field $\Fqbar$.
+Let $F \in \FMLArbOver {\cO_E}R$ be a formal $\cO_E$-module law over $R$. 
 Then $F$ equips $\fm_R$ with the structure
-of an $\cO_E$-module. Let $Q \subset \fm_R$ be a finite subset of cardinality
-$c \in \N$ that is a submodule with respect to this $\cO_E$-module structure. Note
-that $c$ is a power of $q$.
-We write
+of an $\cO_E$-module. Let $Q \subset \fm_R$ be a finite subset
+that is a submodule with respect to this $\cO_E$-module structure. Note
+that the cardinality of $Q$ is a power of $q$; we write $q^c = \# Q$.
+We define
 \begin{equation*}
-  f_Q(T) = \prod_{a \in Q}\left(T -_F a\right),
+  f_Q(T) \coloneq \prod_{a \in Q}\left(T -_F a\right),
 \end{equation*}
 where the subscript $F$ denotes subtraction with respect to $F$. 
 
@@ -956,12 +1049,14 @@ laws over $\Frac(R)$.
     \item The power series constituting the formal $\cO_E$-module law $(F/Q)$
       all have coefficients in $R$. That is, $(F/Q)$ is a formal module law over
       $R$, and $f_Q\colon F \to (F/Q)$ is a morphism of formal module laws over $R$. 
+    \item We have $f_Q(T) \equiv T^{q^c}$ modulo $\fm_R$. In particular,
+      $(F/Q)\otimes \Fqbar = (F \otimes \Fqbar)^{(\# Q)}$. 
     \item Denote by $\cF$ the formal module corresponding to $F$. The finite group
       $Q$ acts on the formal scheme $\cF = \Spf(R\llbr T \rrbr)$, and the 
       map $\cF \xto{f_Q} (\cF/Q)$, where $(\cF/Q)$ denotes the formal module
       corresponding to $(F/Q)$, is a categorical quotient 
-      (in the category of formal Lie-varieties of dimension $1$, 
-      i.e., formal schemes isomorphic to $\spf R\llbr T \rrbr$) for this
+      in the category of formal Lie-varieties of relative dimension $1$ over $R$  
+      (i.e., formal schemes isomorphic to $\spf R\llbr T \rrbr$) for this
       action. 
     \item Furthermore, if $\cH$ is another formal $\cO_E$-module law over $R$ and
       $g\colon \cF \to \cH$ is $Q$-invariant, the induced morphism
@@ -969,12 +1064,13 @@ laws over $\Frac(R)$.
   \end{enumerate}
 \end{thm}
 The proof is rather elementary and only uses commutative ring theory of 
-$R\llbr T \rrbr$ and $R\llbr X,Y \rrbr$. These are again noetherian regular
+$R\llbr T \rrbr$ and $R\llbr X,Y \rrbr$. These rings are noetherian regular
 local rings by \cite[Proposition 19.5]{matsumura1989commutative}, implying 
 that they are unique factorization domains by the theorem of
 Auslander--Buchsbaum, cf.
-\cite[\href{https://stacks.math.columbia.edu/tag/0AG0}{Tag 0AG0}]{stacks-project}.
-Furthermore, they are complete with respect to its maximal ideal.
+\cite[\href{https://stacks.math.columbia.edu/tag/0AG0}{Tag
+0AG0}]{stacks-project}. Furthermore, they are complete with respect to their
+maximal ideal.
 
 The first important observation is the following lemma.
 For the notion of Weierstraß degree and the Weierstraß Preparation Theorem, we refer
@@ -986,30 +1082,31 @@ to Appendix A.3 of \cite{hazewinkel1978formal}.
       \begin{equation*} 
         f_Q(T) = \sum_{i=0}^\infty a_i T^i
       \end{equation*} 
-      with $a_i \in \fm_R$ for $i < c$ and $a_c \in R^\times$. 
+      with $a_i \in \fm_R$ for $i < q^c$ and $a_{q^c} \in R^\times$. 
+      Furthermore, $f_Q(T) \equiv T^{q^c} \mod \fm_R$. 
     \item There exists a unit $u(T) \in R\llbr T \rrbr$ such that $f_Q$ admits
       the factorization
       \begin{equation*}
-        f_Q(T) = u(T) g(T),\quad \text{where} \quad 
-        g_Q(T) = \prod_{a \in Q} \left(T - a \right).
+        f_Q(T) = u(T) g_Q(T),\quad \text{where} \quad 
+        g_Q(T) \coloneqq \prod_{a \in Q} \left(T - a \right).
       \end{equation*}
   \end{enumerate}
-  \end{lem}
+\end{lem}
 \begin{proof}
   The first statement follows directly from the fact that for $a \in Q$, we have
   \begin{equation*}
     F(T, a) \in T + a + T \fm_R.
   \end{equation*}
-  The second is an application of the Weierstraß Preparation Theorem. This theorem
-  implies a decomposition
+  The second is an application of the Weierstraß Preparation Theorem. By part
+  1, this theorem provides a decomposition
   \begin{equation*}
     f_Q(T) = u(T)  g(T)
   \end{equation*}
-  with $g(T) = a_0 + a_1T + \dots + a_{n-1}T^{n-1} + T^n \in R[T]$ of degree $n$
-  and $a_i \in \fm_R$. One quickly checks that for $a \in \fm_R$, the
+  with $g(T) = a_0 + a_1T + \dots + a_{q^c-1}T^{q^c-1} + T^{q^c} \in R[T]$ and
+  $a_i \in \fm_R$. One quickly checks that for $a \in \fm_R$, the
   elements $(T-a) \in R\llbr T \rrbr$ are irreducible. For $a \in Q$, we find 
   $f_Q(a) = 0$, implying that each factor $(T-a)$ divides $f_Q(T)$. As 
-  $R\llbr T \rrbr$ is a unique factorization domain, this implies that 
+  $R\llbr T \rrbr$ is a unique factorization domain, 
   each factor $(T-a)$ divides $g(T)$. For degree-reasons we obtain $g(T) =
   \prod_{a \in Q}\left(T-a \right)$, as desired.
 \end{proof}
@@ -1019,20 +1116,20 @@ $a \in Q$ and $h(T) \in R\llbr T \rrbr$, we put
 \begin{equation*}
   a.h(T) = h(T +_F a) \in R\llbr T \rrbr.
 \end{equation*}
-As $T +_F a$ is a topologically nilpotent element of $R\llbr T \rrbr$, this definition
+As $T +_F a$ lies inside the maximal ideal of $R\llbr T \rrbr$, this definition
 makes sense. The power series $f_Q(T)$ is $Q$-invariant, as
 \begin{equation*}
   f_Q(T+_F a)  = \prod_{b \in Q}\left(T +_F a -_F b \right) 
   = \prod_{b \in Q}\left(T -_F b \right) = f_Q(T).
 \end{equation*}
-Note that given any $h \in R\llbr T \rrbr$, the power series
-$h(f(T)) \in R\llbr T \rrbr$ is $Q$-invariant.
+Furthermore, for any $w(T) \in R\llbr T \rrbr$, the power series
+$w(f_Q(T)) \in R\llbr T \rrbr$ is $Q$-invariant.
 The main observation in the proof of \cref{thm:Quotients} is
-the realization that every invariant power series arises this way.
+that every $Q$-invariant power series arises this way.
 
 \begin{prop}\label{prop:DescriptionOfInvariantsUnderQAction}
-  Let $R\llbr T \rrbr^Q$ denote the invariants under the action of 
-  $Q$ on $R\llbr T \rrbr$. Then any element in $R\llbr T \rrbr^Q$ arises as a 
+  Let $R\llbr T \rrbr^Q$ denote the subring of invariants under the action of 
+  $Q$ on $R\llbr T \rrbr$. Any element in $R\llbr T \rrbr^Q$ arises as a 
   (unique) power series in $f_Q(T)$, i.e.,
   \begin{equation*}
     R\llbr T \rrbr^Q = R\llbr f_Q(T) \rrbr \subset R\llbr T \rrbr.
@@ -1040,35 +1137,38 @@ the realization that every invariant power series arises this way.
 \end{prop}
 \begin{proof}
   By the short calculation above, only one inclusion remains. Let $h(T) \eqcolon
-  h_0(T) \in R\llbr T \rrbr^Q$ be an arbitrary $Q$-invariant power series. Put 
+  h_0(T) \in R\llbr T \rrbr^Q$ be an arbitrary $Q$-invariant power series. We want
+  to show that $h(T) = w(f_Q(T))$ for some $w \in R\llbr T \rrbr$. Put 
   $c_0 = h_0(0)$ and write $v_0(T) = h_0(T) - c_0$. Then $v_0$ is $Q$-invariant,
-  hence we find $v_0(a) = v_0(a +_F 0) = 0$ for $a \in Q$. In particular
-  we find $g_Q(T) \mid v_0(T)$, where $g_Q(T)$ is the polynomial from 
-  Lemma \ref{lem:fQIsWeierstraß}. As $g_Q$ differs from $f_Q$ by a unit, 
-  we find $v_0(T) = f_Q(T) h_1(T)$ for some power series $h_1(T) \in R\llbr T \rrbr$.
-  As $R$ is a domain, $h_1(T)$ is again $Q$-invariant.
+  hence we find $v_0(a) = v_0(a +_F 0) = 0$ for $a \in Q$. 
+  Ranging over $a \in Q$, this implies $g_Q(T) \mid v_0(T)$, where $g_Q(T)$ is
+  the polynomial from Lemma \ref{lem:fQIsWeierstraß}. As $g_Q$ differs from
+  $f_Q$ by a unit, we obtain $v_0(T) = f_Q(T) h_1(T)$ for some power series
+  $h_1(T) \in R\llbr T \rrbr$. As $R$ is a domain, $h_1(T)$ is again
+  $Q$-invariant.
 
   We can now iterate this process, writing $h_1(T) = c_1 + v_1(T)$, 
   $v_1(T) = f_Q(T) h_2(T)$, $h_2(T) = c_2 + v_2(T)$, et cetera. This results
   for any positive integer $m$ in a continued product
   \begin{align*}
     h(T) &= c_0 + f_Q(T) (c_1 + f_Q(T)(c_2 + \dots + f_Q(T)(c_m + v_m(T)) \dots ))\\
-         &= c_0 + c_1 f_Q(T) + c_2f_Q(T)^2 + \dots + f_Q(T)^m v_m(T).
+         &= c_0 + c_1 f_Q(T) + c_2f_Q(T)^2 + \dots + f_Q(T)^m v_m(T)\\
+         &\equiv c_0 + c_1 f_Q(T) + c_2f_Q(T)^2 + \dots + c_{m-1}f_Q(T)^{m-1}
+         \pmod {T^m}.
   \end{align*}
-  In the limit $m \to \infty$, we obtain the desired power series description
-  of $h(T)$.
+  In the limit $m\to \infty$, we obtain the desired representation of $h(T)$.
 \end{proof}
 
 We remark that virtually the same argument yields the equality
 \begin{equation*}
-  R\llbr X,Y \rrbr^{Q \times Q} = R\llbr f(X), f(Y) \rrbr,
+  R\llbr X,Y \rrbr^{Q \times Q} = R\llbr f_Q(X), f_Q(Y) \rrbr,
 \end{equation*}
-where $Q\times Q$ acts on $R\llbr X,Y \rrbr$ separately for each variable.
+where $Q\times Q$ acts on $R\llbr X,Y \rrbr$ separately on each variable.
 
 \begin{proof}[Proof of \cref{thm:Quotients}]
-  \textit{Part 1}. One readily checks that the power series 
-  $f(F(X,Y)) \in R\llbr X,Y \rrbr$ is $Q\times Q$-invariant, and that 
-  $[a]_F(T) \in R\llbr T \rrbr$ is $Q$-invariant. Hence, 
+  One readily checks that the power series 
+  $f_Q(F(X,Y)) \in R\llbr X,Y \rrbr$ is $Q\times Q$-invariant, and that 
+  $f_Q([a]_F(T)) \in R\llbr T \rrbr$ is $Q$-invariant. Hence, 
   by \cref{prop:DescriptionOfInvariantsUnderQAction}, there exist unique power
   series
   $F'(X,Y) \in R\llbr X,Y \rrbr$ and $[a]_{F'}(T) \in R\llbr T \rrbr$ such that 
@@ -1076,18 +1176,21 @@ where $Q\times Q$ acts on $R\llbr X,Y \rrbr$ separately for each variable.
     f_Q(F(X,Y)) = F'(f_Q(X),f_Q(Y)) \quad \text{and} \quad 
     f_Q([a]_F(T)) = [a]_{F'}(f_Q(T)) \text{ for }a\in \cO_E.
   \end{equation*}
-  But a set power series with coefficients in $\Frac(R)$ is uniquely determined
-  by these properties, namely, these power series have to be equal to those
-  defining the formal $\cO_E$-module law $(F/Q)$. As $R$ injects 
-  into $\Frac(R)$, we find $F' = (F/Q)$, and the first claim follows.
-
-  \textit{Part 2.} This is a reformulation of
-  \cref{prop:DescriptionOfInvariantsUnderQAction}.
-
-  \textit{Part 3.} This follows formally from the description the formal 
+  As $f_Q'(0) \neq 0$, a family of power series with coefficients in $\Frac(R)$
+  is uniquely determined by these equations. Namely, these power series have
+  to be equal to those defining the formal $\cO_E$-module law $(F/Q)$. As $R$
+  injects into $\Frac(R)$, we find $F' = (F/Q)$, and the first claim follows.
+  The second claim is \cref{lem:fQIsWeierstraß}.
+  The third claim is a reformulation of
+  \cref{prop:DescriptionOfInvariantsUnderQAction}. Indeed, any morphism of formal
+  Lie varieties $\cF \to \cV$ corresponds, after choosing coordinates, to a 
+  power series $g(T) \in R\llbr T \rrbr$. Invariance under $Q$ translates to 
+  $g(T) \in R\llbr T \rrbr^Q$, we obtain $g(T) = \tilde g (f_Q(T))$ for
+  some $\tilde g(T) \in R\llbr T \rrbr$, and 
+  $\tilde g(T)$ furnishes the morphsim $(\cF/Q)\to \cV$. The
+  fourth claim follows formally from the description the formal 
   $\cO_E$-module law $(F/Q)$ in terms of $F$ and $f_Q$.
 \end{proof}
-
 
 % subsection Quotients of Formal Modules by Finite Submodules (end)
 
