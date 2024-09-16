@@ -8,8 +8,8 @@ Representations} % (fold)
 
 In this final section, we explicitely calculate the representations
 arising in Theorem \ref{thm:NonAbLTT} for depth zero supercuspidal
-representations $\pi \in \Rep{\GL_n(F)}$, which essentially are representations
-of $\GL_n(F)$
+representations $\pi \in \Rep{\GL_n(E)}$, which essentially are representations
+of $\GL_n(E)$
 obtained by compact induction from Deligne--Lusztig theory. In
 particular, we give explicit descriptions of $\rec_E(\pi)$ and $\JL(\pi)$. 
 The main input is the construction of an affinoid in the Lubin--Tate perfectoid
@@ -207,7 +207,7 @@ $$M_{\infty, \C_p}^{(0)} = \cM_{\infty} \times_{\Spa(\hat E^\ab, \cO_{\hat
 E^\ab})} \Spa(\Cp, \cO_\Cp)$$ 
 admits a right action by the group
 \begin{equation*}
-  G^1 \subset G = \GL_n(E) \times D^\times \times W_E,
+  G^1 \subset G = \GL_n(E) \times D^\times \times \Weil_E,
 \end{equation*}
 given by those elements $(g,d,\sigma)$ satisfying $\det(g) \Nrd(d)^{-1} \Art_E^{-1}(\sigma|_\br E) = 1$.
 In this section, we construct a subgroup $J^1 \subset G^1$ stabilizing the
@@ -222,13 +222,13 @@ variety constructed in Section \ref{sub:An Explicit Example}. Recall that the gr
 \end{equation*}
 acts on $Y_b$, and in particular on 
 $Y_b^\perf$. We will show that the action of $J^1$ on $Y_b^\perf$
-factors through a certain homomorphism $\Theta: J^1 \to \bar J^1$. These
+factors through a certain homomorphism $\Theta\colon J^1 \to \bar J^1$. These
 results lay the representation-theoretic ground for the comparison between the
 representations $\HLT$ and $\HDL$.
 
 We set 
 \begin{equation} \label{eq:defJandJ1}
-  J \coloneqq F^\times \GL_n(\cO_F) \times \cO_D^\times \times \Weil_{F_n}
+  J \coloneqq E^\times \GL_n(\cO_E) \times \cO_D^\times \times \Weil_{E_n}
   \text{ and } J^1 = J \cap G^1.
 \end{equation}
 Also, we define a morphism $\Theta$ as follows. For $\sigma \in \Weil_{E_n}$ with
@@ -236,7 +236,7 @@ $\sigma|_\br E = \Phi^{n_\sigma}$ and $u_\sigma \coloneq \varpi^{-n_\sigma}
 \Art^{-1}_{E_n}(\sigma|_{\hat E_n^\ab}) \in \cO_{E_n}^\times$, we set
 \begin{equation*}
   \Theta \colon J \to \GL_n(\FF_q) \times \FF_{q^n}^\times \times {n\Z}, \quad
-  (\varpi^m g,d,\sigma) \mapsto (\bar g, \bar {d^{-1}u_\sigma^{-1}}, n_\sigma).
+  (\varpi^m g,d,\sigma) \mapsto (\bar g, \bar {d^{-1}u_\sigma^{-1}}, -n_\sigma).
 \end{equation*}
 
 It will be convenient to have a list of generators for the group $J^1$. 
@@ -247,7 +247,7 @@ It will be convenient to have a list of generators for the group $J^1$.
       elements we have $\Theta(g,1,1) = (\bar g, 1,0)$
     \item $(1,d,1)$ for $d \in \cO_D^\times$ with $\Nrd d = 1$; for those
       elements we have $\Theta(1,d,1) = (1 , \bar d,0)$
-    \item $(a,a,1)$ for $a \in F_n^\times$; for those
+    \item $(a,a,1)$ for $a \in E_n^\times$; for those
       elements we have $\Theta(a,a,1) = (\bar a, \bar a,0)$
     \item $(1, \alpha^{-1}, \sigma)$ for $\sigma \in I_{E_n}$ 
       and $\alpha \in \cO_{E_n}$ with $\Art_{E_n}(\alpha) = \sigma|_{\hat
@@ -255,7 +255,7 @@ It will be convenient to have a list of generators for the group $J^1$.
       elements we have $\Theta(1,\alpha,\sigma) = (1, 1,0)$.
     \item $(1, \varpi^{-1}, \sigma)$ for $\sigma \in W_{E_n}$ with
       $\Art^{-1}_{E_n}(\sigma|_{\hat E_n^\ab}) = \varpi$; for those
-      elements we have $\Theta(1,\varpi^{-1},\sigma) = (1, 1,n)$. 
+      elements we have $\Theta(1,\varpi^{-1},\sigma) = (1, 1, -n)$. 
   \end{itemize}
   \end{lem}
 In particular, the image of $J^1$ under the homomorphism $\Theta$ is 
@@ -309,7 +309,7 @@ $(1,d,1)$ & $X_i \mapsto \delta_{d^{-1}}(X_i)$ & $x_i \mapsto \xi^{-1}
  \hline
  $(1, \varpi, \sigma)$ & $a \mapsto \sigma(a)$& $a \mapsto \sigma(a)$, $x_i \mapsto
  \tfrac{\xi}{\sigma(\xi)} x_i$ & $a
- \mapsto a^{q^{-n}}$ \\ [1ex] 
+ \mapsto \Frob_q^n(a)$ \\ [1ex] 
  \hline
 \end{tabularx}
 \end{center}
@@ -318,7 +318,7 @@ $(1,d,1)$ & $X_i \mapsto \delta_{d^{-1}}(X_i)$ & $x_i \mapsto \xi^{-1}
 \end{figure}
 
 To show that the actions described above fulfill the desired properties, it suffices
-to show the following claims.
+to verify the following claims.
 \begin{enumerate}
   \item For $i = 1, \dots, n$, the power series 
     $$\xi^{-1}\gamma_{g,i}(\xi x_1, \dots, \xi x_n) \in \Cp\llbr x_1, \dots x_n \rrbr$$
@@ -347,77 +347,81 @@ Similarly one obtains the second claim.
 The third claim follows as $\sigma$ lies in the inertia subgroup,
 hence $\xi \equiv \sigma(\xi) \mod \fm_\Cp$.
 
-Finally, for the fourth statement, note that each component of $y$ lies inside the
-(totally ramified) Lubin--Tate extension $E_\varpi$ (cf. Section \ref{sec:Local
-Class Field Theory}). By construction of the Artin map, $\sigma|_{E_\varpi} = 
-\id_{E_\varpi}$, hence $\sigma$ acts trivially on the system
-$(y_k)_{k\in \N}$. As $\sigma$ is continuous, this implies $\sigma(\xi) = \xi$,
-concluding the proof.
+The fourth statement follows from classical Lubin--Tate theory and the construction
+of the Artin map in \cref{sec:Local Class Field Theory}. 
+Recall that $\xi = \lim_{k \to \infty} y_k^{q^{nk}}$, where $y =(y_1, y_2, \dots) 
+\in T_\varpi H(\cO_\Cp)$ is a primitive element.
+Thereby, each component of $y$ lies inside the (totally ramified) Lubin--Tate
+extension $E_{n,\varpi}$. By construction of the Artin map,
+$\sigma|_{E_{n,\varpi}} = \id_{E_{n,\varpi}}$,
+hence $\sigma$ acts trivially on
+the system $(y_k)_{k\in \N}$. As $\sigma$ is continuous, this implies
+$\sigma(\xi) = \xi$, concluding the proof.
 \end{proof}
 % subsubsection Proof of Proposition \ref{prop:J1EquivInjMor} (end)
 
 \subsection{The Explicit Correspondence} % (fold)
 \label{sub:The Explicit Correspondence}
 Fix, for the remainder of the section, an isomorphism $\bar \Q_l \cong \C$ and
-a regular character $\theta: \FF_{q^n}^\times \to \C^\times$. 
+a regular character $\theta\colon  \FF_{q^n}^\times \to \C^\times$. 
 The datum of $\theta$ can be used to construct representations 
-of $W_F$ and $D^\times$ and, making use of Deligne--Lusztig
-theory, a representation of $\GL_n(F)$. The construction is as follows.
+of $\Weil_E$ and $D^\times$ and, making use of Deligne--Lusztig
+theory, a representation of $\GL_n(E)$. The construction is as follows.
 \begin{itemize}
-  \item Let $\bar \tau_\theta$ be the character of $\Weil_{F_n}$ given by 
+  \item Let $\bar \tau_\theta$ be the character of $\Weil_{E_n}$ given by 
     the composition
     \begin{equation*}
-      \Weil_{F_n} \to \Weil_{E_n}^\ab \xto{\Art_{F_n}^{-1}} F_n^\times \cong
-      \Z \times \cO_{F_n}^\times \surj \FF_{q^n}^\times \xto \theta \C^\times
+      \Weil_{E_n} \to \Weil_{E_n}^\ab \xto{\Art_{E_n}^{-1}} E_n^\times \cong
+      \Z \times \cO_{E_n}^\times \surj \FF_{q^n}^\times \xto \theta \C^\times
     \end{equation*}
-  and put $\tau_\theta = \cInd_{\Weil_{F_n}}^{\Weil_F}(\bar \tau_\theta)$.
+  and put $\tau_\theta = \cInd_{\Weil_{E_n}}^{\Weil_E}(\bar \tau_\theta)$.
   \item Let $\bar \rho_\theta$ be the character on 
-    $F^\times \cO_D^\times$ given by the composition
+    $E^\times \cO_D^\times$ given by the composition
     \begin{equation*}
-      F^\times\cO_D^\times \cong \varpi^\Z \times \cO_D^\times \surj 
+      E^\times\cO_D^\times \cong \varpi^\Z \times \cO_D^\times \surj 
       \FF_{q^n} \xto \theta \C^\times
     \end{equation*}
-    and let $\rho_\theta = \cInd_{F^\times \cO_D^\times}^{D^\times}(\bar \rho_\theta)$.
-  \item Let $\bar \pi_\theta$ be the representation of $F^\times \GL_n(\cO_F)$
+    and let $\rho_\theta = \cInd_{E^\times \cO_D^\times}^{D^\times}(\bar \rho_\theta)$.
+  \item Let $\bar \pi_\theta$ be the representation of $E^\times \GL_n(\cO_E)$
     arising from post-composing $R_\theta$ (cf. Theorem
     \ref{thm:DLCorrespondenceForUs}) with the composition
     \begin{equation*}
-      F^\times \GL_n(\cO_F) \cong \varpi^\Z \times \GL_n(\cO_F)
-      \surj \GL_n(\cO_F) \surj \GL_n(\FF_q).
+      E^\times \GL_n(\cO_E) \cong \varpi^\Z \times \GL_n(\cO_E)
+      \surj \GL_n(\cO_E) \surj \GL_n(\FF_q).
     \end{equation*}
-    Let $\pi_\theta = \cInd_{F^\times \GL_n(\cO_F)}^{\GL_n(F)}(\bar \pi_\theta)$. 
+    Let $\pi_\theta = \cInd_{E^\times \GL_n(\cO_E)}^{\GL_n(E)}(\bar \pi_\theta)$. 
 \end{itemize}
 
 \begin{lem}\label{lem:BarRepsAreSmooth}
-  The representations $\bar \pi_\theta$, $\bar \rho_\theta$ and $\bar
-  \tau_\theta$ are smooth, in particular
-  $\pi_\theta$, $\rho_\theta$ and $\tau_\theta$ are smooth as well. Additionally, the
-  representations $\pi_\theta$ and $\rho_\theta$ are irreducible, and
+  The representations   $\pi_\theta$, $\rho_\theta$ and $\tau_\theta$ are smooth. 
+  Additionally, $\pi_\theta$ and $\rho_\theta$ are irreducible, and
   $\pi_\theta$ is supercuspidal.
-\begin{proof}
-  By design, $\bar \pi_\theta$ is trivial on the compact open subgroup $1 +
-  \varpi \Mat_{n \times n}(\cO_F)$ of $F^\times \GL_n(\cO_F)$. Similar
-  statements hold for $\bar \rho_\theta$
-  and $\bar \tau_\theta$. 
-  \red{why is $\rho_\theta$ irreducible? Why is $\pi_\theta$ supercuspidal and
-  irreducible?}
-\end{proof}
+  \begin{proof}
+    By design, $\bar \pi_\theta$ is trivial on the compact open subgroup $1 +
+    \varpi \Mat_{n \times n}(\cO_E)$ of $E^\times \GL_n(\cO_E)$. Similar
+    statements hold for $\bar \rho_\theta$ and $\bar \tau_\theta$. Hence,
+    $\pi_\theta$, $\rho_\theta$ and $\tau_\theta$ are smooth as well. 
+    In the case that $n=2$, the fact that $\pi_\theta$ is supercuspidal and
+    irreducible is laid out in detail in \cite[Section 11]{bushnell2006local}.
+    The general case should add no complication. 
+    Similarly, irreducibility of $\rho_\theta$ is shown, again in the case 
+    $n=2$, in \cite[Section 54]{bushnell2006local}. 
+  \end{proof}
 \end{lem}
 
 The aim of this section is to prove the following statement.
 \begin{thm}[Explicit Non-Abelian Lubin--Tate Theory for Depth Zero Supercuspidal
   Representations]\label{thm:MainRes1}
   The representation $\JL(\pi_\theta)$ of $D^\times$ and the representation
-  $\rec_F(\pi_\theta)$ of $\Weil_F$ take the form
+  $\rec_E(\pi_\theta)$ of $\Weil_E$ take the form
   \begin{equation*}
     \JL(\pi_\theta) = \rho_{\theta}
-    \quad \text{and} \quad \rec_F(\pi_\theta) = \Ind_{\Weil_{F_n}}^{\Weil_F} 
+    \quad \text{and} \quad \rec_E(\pi_\theta) = \Ind_{\Weil_{E_n}}^{\Weil_E} 
     (\tau_\theta \, \delta^{n-1}),
   \end{equation*}
-  where $\delta: \Weil_{F_n} \to \{\pm 1\}$ is the unramified quadratic
-  character. This is the character corresponding to $a \mapsto
-  (-1)^{\val_{F_n}(a)}$ under the isomorphism $\Art_{F_n}: F_n^\times \to
-  \Weil_{E_n}^\ab$. 
+  where $\delta\colon \Weil_{E_n} \to \{\pm 1\}$ the character corresponding to
+  $a \mapsto (-1)^{\val_{E_n}(a)}$ under the Artin map $\Art_{E_n}\colon
+  E_n^\times \to \Weil_{E_n}^\ab$. 
 \end{thm}
 
 
@@ -452,7 +456,7 @@ The input we get from Mieda's theory is the following.
     \cO_\Cp}^{(0)}$ (Section \ref{sub:Proof of Proposition}).
     We are therefore in the situation of Theorem \ref{thm:MiedaAppliedToLTT}, 
     which we want to apply with $V = \hH^{n-1}_c(Y_b, \Qlbar)_\theta$. 
-    By part 2 of Theorem \ref{thm:DLCorrespondenceForUs}, 
+    By part 3 of \cref{lem:ResultsAboutYb}, 
     the natural map $\hH_c^{n-1}(Y_b, \Qlbar)_\theta \to \hH^{n-1}(Y_b,
     \Qlbar)$ is an isomorphism. Hence the composition
     \begin{equation*}
@@ -464,42 +468,9 @@ The input we get from Mieda's theory is the following.
     \begin{equation*}
       \hH_c^{n-1}(Y_b, \Qlbar)_\theta \inj \hH'_\LT.
     \end{equation*}
-    We claim that there is a $J^1$-equivariant isomorphism $\hH_c^{n-1}(Y_b,
-    \Qlbar)_\theta \cong \hH_c^{n-1}(\DL_n, \Qlbar)_\theta$,
-    which suffices to prove the claim. Any $\zeta \in \FF_{q^n}^{\times}$
-    yields an isomorphism $Y_b \to Y_{b \Norm(\zeta)^{-1}}$ 
-    through the action of $\FF_{q^n}^\times$ on $\DL_n$. Writing
-    $(\FF_{q^n}^\times)^1 = \{\zeta \in \Fqbar \mid \Norm(\zeta) = 1\}$, 
-    this quickly implies
-    \begin{equation*}
-      \hH_c^{n-1}(\DL_n, \Qlbar) \cong
-      \Ind_{(\FF_{q^n}^\times)^1}^{\FF_{q^n}^\times}\hH_c^{n-1}(Y_b, \Qlbar)
-      = \bigoplus_{\zeta} \hH_c^{n-1}(Y_{b \Norm(\zeta)^{-1}}, \Qlbar),
-    \end{equation*}
-    where $\zeta$ runs over representatives of the quotient
-    $\FF_{q^n}^\times/(\FF_{q^n}^\times)^1$.
-    Frobenius reciprocity now yields an isomorphism of
-    $(\FF_{q^n}^\times)^1$-representations
-    \begin{multline*}
-      \hH^{n-1}_c(\DL_n, \Qlbar)_\theta \cong 
-      \Hom_{\Rep {\FF_{q^n}^\times}}(\theta, \hH^{n-1}_c(\DL_n, \Qlbar)) 
-      \cong 
-      \Hom_{\Rep {\FF_{q^n}^\times}}\left(\theta,
-      \Ind_{(\FF_{q^n}^\times)^1}^{\FF_{q^n}^\times}\hH_c^{n-1}(Y_b, \Qlbar) \right) \\
-      = 
-      \Hom_{\Rep {(\FF_{q^n}^\times)^1}}
-      \left(\Res^{\FF_{q^n}^\times}_{(\FF_{q^n}^\times)^1} \theta,
-        \hH_c^{n-1}(Y_b, \Qlbar) \right) = \hH_c^{n-1}(Y_b, \Qlbar)_\theta.
-    \end{multline*}
-    Explicitely, this isomorphism is given by the projection
-    \begin{equation*}
-      \hH^{n-1}_c(\DL_n, \Qlbar)_\theta \to \hH^{n-1}_c(Y_b, \Qlbar)_\theta ,
-      \quad x \mapsto \begin{cases}
-        x, &\text{ if }x \in \hH_c^{n-1}(Y_b, \Qlbar)_\theta \\
-        0, &\text{ otherwise}
-      \end{cases}
-    \end{equation*}
-    and thereby clearly $J^1$-equivariant.
+    By part 2 of \cref{lem:ResultsAboutYb}, the left-hand side
+    $J^1$-equivariantly isomorphic to $\hH_c^{n-1}(\DL_n, \Qlbar)_\theta$. The
+    claim follows.
   \end{proof}
 \end{prop}
 
@@ -557,16 +528,16 @@ reciprocity, a non-zero map of $G$-representations
   \boxtimes (\tau_\theta \, \delta^{n-1})^{-1}(\tfrac{1-n}2) \to \hH_\LT.
 \end{equation}
 As $\pi_\theta$ is supercuspidal and its central character is trivial on 
-$\varpi^\Z$, Theorem \ref{thm:NonAbLTT} yields a non-zero map
+$\varpi^\Z$, non-Abelian Lubin--Tate theory (Theorem \ref{thm:NonAbLTT}) yields a non-zero map
 \begin{equation*}
   \rho_{\theta^{-1}} \boxtimes (\tau_\theta \, \delta^{n-1}) \to
-  \JL(\pi_\theta)^\vee \boxtimes \rec_F(\pi_\theta)^\vee.
+  \JL(\pi_\theta)^\vee \boxtimes \rec_E(\pi_\theta)^\vee.
 \end{equation*}
 As $\rho_{\theta^{-1}}$ and $\JL(\pi_\theta)^\vee$ are irreducible, this implies
 $\JL(\pi_\theta) = \rho_{\theta^{-1}}^\vee = \rho_\theta$. As 
-$\rec_F(\pi_\theta)$ is irreducible and $\dim(\tau_\theta) = n = \dim
-(\rec_F(\pi_\theta))$, this also implies $\tau_\theta \, \delta^{n-1} =
-\rec_F(\pi_\theta)$, concluding the proof of Theorem \ref{thm:MainRes1}.
+$\rec_E(\pi_\theta)$ is irreducible and $\dim(\tau_\theta) = n = \dim
+(\rec_E(\pi_\theta))$, this also implies $\tau_\theta \, \delta^{n-1} =
+\rec_E(\pi_\theta)$, concluding the proof of Theorem \ref{thm:MainRes1}.
 
 % subsection (end)
 

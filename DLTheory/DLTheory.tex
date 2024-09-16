@@ -764,6 +764,76 @@ $\hH_\DL$.
   $\gamma$ is the character defined in the previous proposition.
 \end{thm}
 
+Recall the definition of $Y_b$ from \cref{sub:An Explicit Example} the definition
+of the component $Y_b \subset \DL_n$. As above, we put
+\begin{equation*}
+  (\GL_n(\FF_q) \times \FF_{q^n}^\times)^1 \times n\Z 
+  \coloneq \{(g,d,n) \in \GL_n(\FF_q) \times \FF_{q^n}^\times \times n\Z 
+  \mid \det(g) \Norm(d) = 1\}.
+\end{equation*}
+This group stabilizes $Y_b$ for every choice of $b$. 
+We also write $(\FF_{q^n}^\times)^1 = \{\zeta \in \Fqbar \mid \Norm(\zeta) =
+1\}$. We end this section with a remark on its \'etale cohomology of $Y_b$.
+
+\begin{lem}\label{lem:ResultsAboutYb}\leavevmode
+  \begin{enumerate}
+    \item There is a natural isomorphism of $\FF_{q^n}^\times$-representations
+      \begin{equation*}
+         \hH^{n-1}(\DL_n, \Qlbar) \cong
+         \Ind_{(\FF_{q^n}^\times)^1}^{\FF_{q^n}^\times}\hH^{n-1}(Y_b,
+         \Qlbar) = \bigoplus_{\zeta} \hH^{n-1}(Y_{b
+         \Norm(\zeta)^{-1}}, \Qlbar),
+      \end{equation*}
+      where $\zeta$ runs over representatives of the quotient
+      $\FF_{q^n}^\times/(\FF_{q^n}^\times)^1$. The same
+      statement holds with \'etale cohomology replaced by
+      compactly supported \'etale cohomology.
+    \item Let $\theta$ be a character of $\FF_{q^n}^\times$.
+      Then there is a natural $(\GL_n(\FF_q) \times
+      \FF_{q^n}^\times)^1 \times n\Z$-equivariant isomorphism 
+      \begin{equation*}
+        \hH^{n-1}(\DL_n, \Qlbar)_\theta \cong 
+        \hH^{n-1}(Y_b, \Qlbar)_\theta.
+      \end{equation*}
+      The same statement holds with \'etale replaced by compactly supported
+      \'etale cohomology.
+    \item Let $\theta$ be a regular character of $\FF_{q^n}^\times$. Then 
+      the natural morphism $\hH_c^{n-1}(Y_b, \Qlbar)_\theta \to \hH^{n-1}(Y_b,
+      \Qlbar)_\theta$
+      is an isomorphism.
+  \end{enumerate}
+\begin{proof}
+  The first statement is a direct consequence of the fact that any $\zeta \in
+  \FF_{q^n}^{\times}$ yields an isomorphism $Y_b \to Y_{b \Norm(\zeta)^{-1}}$
+  through the action of $\FF_{q^n}^\times$ on $\DL_n$. 
+  By Frobenius reciprocity, this implies
+\begin{multline*}
+      \hH^{n-1}(\DL_n, \Qlbar)_\theta \cong 
+      \Hom_{\Rep {\FF_{q^n}^\times}}\left(\theta,
+      \Ind_{(\FF_{q^n}^\times)^1}^{\FF_{q^n}^\times}\hH^{n-1}(Y_b, \Qlbar) \right) \\
+      = 
+      \Hom_{\Rep {(\FF_{q^n}^\times)^1}}
+      \left(\Res^{\FF_{q^n}^\times}_{(\FF_{q^n}^\times)^1} \theta,
+        \hH^{n-1}(Y_b, \Qlbar) \right) = \hH^{n-1}(Y_b, \Qlbar)_\theta,
+\end{multline*}
+  and the same statement for compactly supported \'etale cohomology. 
+  Explicitely, the isomorphism above is given by the projection
+    \begin{equation*}
+      \hH^{n-1}(\DL_n, \Qlbar)_\theta \to \hH^{n-1}(Y_b, \Qlbar)_\theta ,
+      \quad x \mapsto \begin{cases}
+        x, &\text{ if }x \in \hH^{n-1}(Y_b, \Qlbar)_\theta \\
+        0, &\text{ otherwise}
+      \end{cases}
+    \end{equation*}
+    and thereby clearly $(\GL_n(\FF_q) \times \FF_{q^n}^\times)^1 \times
+    n\Z$-equivariant. This shows the second statement.
+    The final statement is now a direct consequence of part two in 
+    \cref{thm:DLCorrespondenceForUs}. Alternatively, one can obtain a prove by
+    part 5 of \cref{thm:DLTheoryGeneralResults} and the fact that $Y_b$ is isomorphic
+    to a Deligne--Lusztig variety for $\SL_n(\FF_q)$.
+\end{proof}
+\end{lem}
+
 
 % subsection The Deligne--Lusztig Correspondence for the Explicit Example (end)
 % section Deligne-Lusztig Theory for Depth Zero Representations (end)

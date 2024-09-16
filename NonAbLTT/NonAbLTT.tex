@@ -95,7 +95,8 @@ We next introduce variants of this moduli problem with a certain level structure
 
 Just as in the case without level, any two functors $\cM_m^{(j)}$ and
 $\cM_m^{(j')}$ (non-canonically) isomorphic.
-Furthermore, for non-negative integers $m' \leq m$, we have natural morphisms
+Furthermore, for non-negative integers $m' \leq m$, we have
+natural morphisms
 $\cM_m \to \cM_{m'}$ by restricting the level structure. 
 By results of Drinfeld, each functor $\cM_m^{(0)}$ is representable.
 
@@ -112,25 +113,6 @@ not lie in the individual spaces $\cM_m$, but rather in the resulting tower
 $\{\cM_m\}_{m \geq 0}$, which we call the tower of Lubin--Tate deformation
 spaces.
 
-We will need to consider a refinement of this space. We define the 
-$m$-th congruence subgroups
-\begin{equation*}
-  K_m = \ker(\GL_n(\cO_E) \to \GL_n(\cO_E/(\varpi^m))).
-\end{equation*}
-For any compact open subgroup $K \subset \GL_n(\cO_E)$, we may choose integers
-$m > m'$ such that $K_m \subseteq K \subseteq K_{m'}$. We define 
-\begin{equation*}
-  A_K^{(j)} \coloneq (A^{(j)}_m)^K, \quad \cM_K^{(j)} \coloneq \Spf(A_K^{(j)}), \quad
-  \cM_K = \coprod_{j \in \Z} \cM_K^{(j)}.
-\end{equation*}
-By \cite[Proposition 2.2.5]{Strauch2008DefSp}, these constructions are well-defined
-and yields a tower $\{\cM_K\}_{K \subset \GL_n(\cO_E}$. Any ring
-$A_K^{(j)}$ is local, noetherian, integrally closed and finite over
-$A_{m'}^{(j)}$ for any $m'$ for which $K \subseteq K_{m'}$. Furthermore for 
-$A_{K}^{(j)[\tfrac 1 \varpi]}$ is etale over $A_{m}^{(j)[\tfrac 1 \varpi]}$, 
-and it is Galois with Galois group $K/K_m$. Conversely, $A_{m}^{(j)[\tfrac 1 \varpi]}$
-is \'etale over $A_K^{(j)}$, if $K$ is normal in $K_{m'}$ then it is also Galois with
-Galois group $K_{m'}/K$. 
 
 % subsubsection The Tower of Deformation Spaces (end)
 
@@ -275,6 +257,31 @@ $d, d'$, we obtain a commutative triangle
 \end{equation*}
 This finishes the construction of the $\GL_n(E)$-action.
 
+
+We will need to consider a refinement of the tower $\{\cM_m\}_{m \in \N}$. We
+define the 
+$m$-th congruence subgroups
+\begin{equation*}
+  K_m = \ker(\GL_n(\cO_E) \to \GL_n(\cO_E/(\varpi^m))).
+\end{equation*}
+For any compact open subgroup $K \subset \GL_n(\cO_E)$, we may choose integers
+$m > m'$ such that $K_m \subseteq K \subseteq K_{m'}$. We define 
+\begin{equation*}
+  A_K^{(j)} \coloneq (A^{(j)}_m)^K, \quad \cM_K^{(j)} \coloneq \Spf(A_K^{(j)}), \quad
+  \cM_K = \coprod_{j \in \Z} \cM_K^{(j)}.
+\end{equation*}
+By \cite[Proposition 2.2.5]{Strauch2008DefSp}, these constructions are well-defined
+and yield the refined tower of deformation spaces 
+$\{\cM_K\}_{K \subset \GL_n(\cO_E)}$, where $K$ ranges over 
+the compact open subgroups of $\GL_n(\cO_E)$. Any ring
+$A_K^{(j)}$ is local, noetherian, integrally closed and finite over
+$A_{m'}^{(j)}$.
+Furthermore,
+$A_{K}^{(j)}[\tfrac 1 \varpi]$ is \'etale over $A_{m}^{(j)}[\tfrac 1 \varpi]$, 
+and it is Galois with Galois group $K/K_m$. Conversely, $A_{m}^{(j)}[\tfrac 1 \varpi]$
+is \'etale over $A_K^{(j)}$, and if $K$ is normal in $K_{m'}$ then it is also
+Galois with Galois group $K_{m'}/K$. 
+
 % subsubsection Group Actions on the Tower of Lubin--Tate Deformation Spaces (end)
 
 \subsubsection{The Weil Descent Datum on the Deformation Space} % (fold)
@@ -289,8 +296,8 @@ limit over all finite extensions of $E$, this yields an action of $\Weil_E$ on t
 formal scheme $\cM_{m, \cO_{{\Cp}}}$, where $\Cp = \hat{\bar E}$  is the completion
 of $\bar E$.
 
-Let $\Phi \in \Gal(\br E / E)$ be the automorphism corresponding to the
-$q$-th power Frobenius automorphism of the residue field $\FF_q$ of $E$. Given
+Let $\Phi \in \Gal(E^\nr / E)$ be the automorphism corresponding to the
+$q$-th power Frobenius automorphism on the residue field $\Fqbar$ of $E^\nr$. Given
 an $\cO_\br E$-algebra $\cO_\br E \xto i R$, we write $\Phi^*R$ for the 
 $\cO_\br E$-algebra with structure morphism $\cO_\br E \xto \Phi \cO_\br E \xto i R$.
 The identity on $R$ yields a morphism $R \to \Phi^* R$, which preserves only the 
@@ -526,7 +533,7 @@ the compactly supported \'etale cohomology groups
 The right-action of $G \coloneqq \GL_n(E) \times D^\times \times \Weil_E$ on the tower
 $\{\cM_{K, \cO_\Cp}\}_{K \subset \GL_n(\cO_E)}$ induce the structure of a
 $G$-representation on this vector space. 
-In this section we will see that the supercuspidal part of this representation
+In this section we recall that the supercuspidal part of this representation
 realizes the local Langlands correspondence. 
 
 \begin{defi}[Supercuspidal Representation]\label{def:SuperCusp}
@@ -547,7 +554,7 @@ The local Langlands correspondence gives a bijection
 \begin{gathered}\text{supercuspidal representations} \\
 \text{of $\GL_n(E)$}\end{gathered}\middle\}\right / \cong \ \ 
 \xto{1:1} \  \left\{\begin{gathered}\text{irreducible representations} \\
-\text{of $\Weil_E$} \end{gathered}\middle\}\right/\cong
+\text{of $\Weil_E$} \end{gathered}\middle\}\right/\cong.
 \end{equation*}
 Of course not any such bijection is interesting, the local Langlands correspondence
 predicts the existence of a unique bijection $\rec_E$ compatible with various
@@ -564,18 +571,18 @@ The local Jacquet--Langlands correspondence gives a bijection
 \xto{1:1} \  \left\{\begin{gathered}\text{irreducible representations} \\
 \text{of $D^\times$}. \end{gathered}\middle\}\right/\cong
 \end{equation*}
-Of course, this bijection is again supposed to preserve certain structures, cf. 
+This bijection is again supposed to preserve certain structures, cf. 
 \red{I was not able to find a good reference. For $E$ $p$-adic,
 \cite{mieda2014jacquetlanglands} works.}. Here the definition of 
 discrete series representations is of minor importance for us, we simply 
 recall that all supercuspidal representations of $\GL_n(E)$ are discrete series. 
 
-By results of Laumon--Rapoport--Stuhler \cite{laumon1993elliptic} 
-in the equal characteristic case and Harris--Taylor \cite{HTShimura} in the 
+By results of Laumon--Rapoport--Stuhler (cf. \cite{laumon1993elliptic})
+in the equal characteristic case and Harris--Taylor (cf. \cite{HTShimura}) in the 
 mixed characteristic case, both $\rec_F(\varpi)$ and $\JL(\varpi)$ occur
 (up to duals and twists) in the $\pi$-isotypic component of 
-$\colim_K H^{n-1}_c (M_{K} \otimes_{\br E} \Cp, \bar \Q_l)$. We state a
-precise results below.
+$\colim_K \hH^{n-1}_c (M_{K} \otimes_{\br E} \Cp, \bar \Q_l)$. We state a
+precise result below.
 For our purposes, it will be convenient to consider the cohomology of the 
 quotients $M_{K, \varpi^\Z} \coloneqq M_K/\varpi^\Z$ by the action of the
 subgroup $\varpi^\Z \subseteq D^\times$. Recall that the action of 
