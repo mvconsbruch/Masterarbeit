@@ -27,10 +27,20 @@ $i = 1, \dots, n$. We construct formal model $\cX \in \FSchOver {\cO_{\C_p}}$
 of $U$ whose special fiber $\cX_s = 
 \cX \times_{\spf(\cO_{\C_p})}\spec(\bar \FF_q)$ is isomorphic to the perfection of the
 Deligne--Lusztig variety $\DL_n$ constructed in Section \ref{sub:An Explicit Example}.
+Furthermore, the formal model $\cX$ needs to be compatible with the group actions
+coming both from $\DL_n$ and $M_{\infty, \cO_\Cp}^{(0)}$. 
 
-The formal model $\cX = \spf C_n$ is defined as follows. Let $H$ be the
-standard formal $\cO_E$-module over $\cO_\br E$ and let 
-$$y = (y_1, y_2, \dots) \in T_\varpi H(\cO_\Cp)$$ be a primitive element, that is,
+Let $H$ be the standard formal $\cO_E$-module over $\cO_\br E$ and write
+$E_n$ for the degree $n$ unramified extension of $E$. 
+The construction of such a formal model $\cX$ requires a few choices. 
+First, we fix a choice of basis $(\alpha_1, \dots, \alpha_n)$ of $E_n$ over $E$, 
+which in particular allows us to view $E_n$ as a subfield of $\Mat_{n \times n}(E)$. 
+By \cref{lem:MultByROUForStandardModule} and 
+\cref{prop:ReductionOfHomsIsInjective}, $E_n$ is also naturally a subfield of
+$D$.
+
+Furthermore, we'll have to make the choice of a primitive element 
+$$y = (y_1, y_2, \dots) \in T_\varpi H(\cO_\Cp),$$ that is,
 an element with $y_1 \neq 0$ and $[\varpi]_H(y_1) = 0$. Write $\xi = \lambda(y)$ 
 for the corresponding element of $\Nilp^\flat(\cO_\Cp)$. 
 
@@ -52,12 +62,9 @@ for the corresponding element of $\Nilp^\flat(\cO_\Cp)$.
 \end{proof}
 \end{lem}
 
-Let $E_n$ be the degree $n$ unramified extension of $E$, and let 
-$(\alpha_1, \dots, \alpha_n)$ be a basis of $\cO_{E_n}$ over $\cO_E$. 
 Let $t \coloneq \delta(\alpha_1 y, \dots, \alpha_n y) \in (T_\varpi {\wedge H})(\cO_\Cp)$
 and write $\tau \in \Nilp^\flat(\cO_\Cp)$ for the corresponding system of $q$-th 
-power roots. Also, the choice of $(\alpha_1, \dots, \alpha_n)$ lets us 
-identify $E_n$ as a subfield of $\GL_n(E)$ and $D^\times$. 
+power roots.
 
 \begin{lem}\label{lem:PropertiesOfTau}
   We have 
@@ -83,21 +90,22 @@ identify $E_n$ as a subfield of $\GL_n(E)$ and $D^\times$.
 We now define the formal model $\cX$. We abbreviate with $(x_i^{q^{-m}})_{m \in
 \N_0}$ the system of 
 $q$-th power roots $(X_i^{q^{-m}}/\xi^{q^{-m}})_{m \in \N_0}$ of elements in
-$\cO_\Cp \llbr X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}}\rrbr$, and define
+$\Cp \llbr X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}}\rrbr$, and define
 systems of $q$-th power roots $\Delta'$ and $\tau'$ as
 \begin{equation*}
   \begin{array}c
   \Delta'(x_1, \dots, x_n)^{q^{-m}} \coloneq (\xi^{q^{-m}})^{-(1 + q + \dots +
-  q^{n-1})} \Delta(\xi x_1, \dots, \xi x_n) \in \cO_\Cp \llbr x_1^{q^{-\infty}}, \dots
+  q^{n-1})} \Delta^{q^{-m}}(\xi x_1, \dots, \xi x_n) \in \Cp \llbr x_1^{q^{-\infty}}, \dots
   , x_n^{q^{-\infty}}\rrbr  \\
   \text{and} \\
   \tau'^{q^{-m}} \coloneq (\xi^{q^{-m}})^{-(1 + q + \dots + q^{n-1})} \tau^{q^{-m}} \in
-  \cO_\Cp^\times.
+  \Cp^\times.
   \end{array}
 \end{equation*}
 
 \begin{lem}\label{lem:PropsOfDeltaPrAndTauPr}
-  Let $\fm_\Cp$ denote the maximal ideal of $\cO_\Cp$. We have
+  Let $\fm_\Cp$ denote the maximal ideal of $\cO_\Cp$. The coefficients of $\Delta'$ are 
+  integral, and we have
   \begin{equation*}
     \Delta'(x_1, \dots, x_n)^{q^{-m}} \equiv (\det(x_i^{q^j})_{1 \leq i,j \leq
     n})^{q^{-m}} \mod \fm_\Cp.
@@ -108,7 +116,7 @@ systems of $q$-th power roots $\Delta'$ and $\tau'$ as
   Also, $\tau'^{q^{-m}} \in \cO_\Cp^\times$. 
 \begin{proof}
   The statement about $\Delta'$ follows directly from the approximation in Lemma
-  \ref{lem:DeltaApprox}. One easily checks $\abs \tau = 1$, implying the second
+  \ref{lem:DeltaApprox}. One easily checks $\abs {\tau'} = 1$, implying the second
   statement.
 \end{proof}
 \end{lem}
@@ -120,16 +128,15 @@ We define
     {\cO_\Cp \langle x_1^{q^{-\infty}}, \dots , x_n^{q^{-\infty}}
       \rangle}
     {(\Delta'(x_1, \dots, x_n)^{q^{-m}} - \tau'^{q^{-m}} \mid m \in \N_0)^-
-      }\right)
+      }\right).
 \end{equation*}
 
 \begin{prop}\label{prop:AffinoidIsFormalModel}
   The formal scheme $\cX$ is a formal model for $U$. 
 \end{prop}
 \begin{proof} 
-  By definition, $U$ is isomorphic to the affinoid adic space
+  By definition, $U$ is isomorphic to the affinoid adic space $\Spa(B_n[\tfrac 1\varpi], \tilde B_n),$ where
   \begin{equation*}
-    \Spa(B_n[\tfrac 1\varpi], \tilde B_n) \quad \text{where} \quad 
     B_n \coloneqq \frac{\cO_\Cp \langle x_1^{q^{-\infty}}, \dots,
     x_n^{q^{-\infty}} \rangle}
     {(\Delta^{q^{-m}}(\xi x_1, \dots, \xi x_n) - \tau^{q^{-m}} \mid m \in \N)^-}
