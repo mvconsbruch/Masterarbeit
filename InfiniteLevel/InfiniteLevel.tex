@@ -234,6 +234,34 @@ By definition of the Artin map, the element $\tau' \in \Nilp^\flat(\cO_{\hat
 E^\ab})$ corresponding to $t' \in \tilde F(\cO_{\hat E^\ab})$ is given by
 $\Art_E(\alpha)(\tau)$.
 
+Let $M'_{\infty, \Cp}$ be the generic fiber of $\cM'_{\infty,\cO_\Cp}$, it 
+is an adic space over $\spa(\Cp, \cO_\Cp)$. 
+\begin{thm}[The Lubin--Tate Perfectoid Space]\label{thm:LTPerfSpace}
+  The adic space $M'_{\infty, \Cp}$ can be covered by perfectoid affinoids,
+  hence it is a perfectoid space.
+  \begin{proof}[Sketch of Proof] 
+    We sketch the proof in \cite[Lemma 2.32]{weinstein2016semistable}. 
+    Let $I$ denote a finitely generated ideal of definition for $A_{\cO_\Cp}
+    \coloneqq A_\infty \cotimes_{\cO_{\hat E^\ab}} \cO_\Cp$ and let $(f_1,
+    \dots, f_k)$ be a tuple of generators for $I$. 
+
+    Let $x \in M'_{\infty, \Cp}$ be an arbitrary point. We have
+    $\abs{\varpi(x)} \neq 0$ by definition of the generic fiber. As for all
+    $i$, the element $f_i$ is topologically nilpotent in $A_{\infty,\cO_\Cp}$,
+    it follows that there is some $r \in \N$ with $\abs{f_i(x)}^r <
+    \abs{\varpi(x)}$ for all $i$. We may now define the subspace 
+    $U_r = \spa(R_r, R_r^+)$, where $R_r$ is defined as
+    $$R_r \coloneqq A_{\cO_\Cp}\left\langle \tfrac{f_1^r}\varpi, \dots, \tfrac
+    {f_k^r}\varpi \right\rangle [\tfrac 1\varpi],$$
+    and $R_r^+$ is defined as the integral closure of $A_{\cO_\Cp}\left\langle
+    \tfrac{f_1^r}\varpi, \dots, \tfrac {f_k^r}\varpi \right\rangle$ inside
+    $R_r$. Now $R_r^+ = R_r^\circ$. As the Frobenius map is surjective on
+    $A_{\cO_\Cp}/\varpi$, it is surjective on $R_r^+/\varpi$. The valuation
+    belonging to $x$ extends uniquely to $R_r$ and satisfies $\abs{R_r^+} \leq 1$,
+    so it is point in $\spa(R_r, R_r^+)$. The claim follows.
+  \end{proof}
+\end{thm}
+
 % subsubsection Relation to the Deformation Space at Infinite Level (end)
 
 \subsection{Reviewing the Group Actions} % (fold)
@@ -491,7 +519,7 @@ As a direct corollary from the three previous lemmas, we obtain the following re
 \subsection{Description of the Group Actions in Coordinates} % (fold)
 \label{ssub:Making the Group Actions Explicit}
 
-We now choose a coordinates for $\cM_{\infty}^{(0)}$ and make the group action
+We now choose coordinates for $\cM_{\infty}^{(0)}$ and make the group action
 of $G^{\mathrm u}$ explicit in terms of these coordinates. Let $H$ be the standard formal
 $\cO_E$-module over $\br E$ of height $n$. By the monomorphism constructed in
 \eqref{eq:MapFromMtoTildeF} and Proposition \ref{lem:MapToUnivCovIsEquivariant},
@@ -656,7 +684,7 @@ We obtain the following description of the left action of $G$ on $\Xi_n$.
       by $X_i \mapsto \sum_{j=1}^n \sumH {a_{ji}}_H(X_j)$. Writing
       $a_{ij} = \sum_{k=l}^\infty a_{ij}^{(k)} \varpi^k$ for  $a_{ij}^{(k)}$
       either vanishing or a $(q-1)$th root of unity and a sufficiently chosen integer
-      $k$, we obtain, by Corollary
+      $l$, we obtain, by Corollary
       \ref{cor:ExplicitDescriptionOfActionOnUnivCov}, the description
       \begin{equation*}
         g^*(X_i) = \sum_{k=l}^\infty {\hspace{-3pt}}_H\hspace{3pt}
@@ -667,15 +695,13 @@ We obtain the following description of the left action of $G$ on $\Xi_n$.
     \item $d^{-1,*} \colon \Xi_n \to \Xi_n$ is the isomorphism of 
       $\cO_\Cp$-algebras given by $X_i \mapsto d_H(X_i)$. 
       Writing $d^{-1} = \sum_{k=l}^\infty d_i \vartheta^k$ for
-       a sufficiently small integer $k$, and $\vartheta$ and $d_i$ as in
+       a sufficiently small integer $l$, and $\vartheta$ and $d_i$ as in
        Corollary \ref{cor:ExplicitDescriptionOfActionOnUnivCov}, we obtain the
        description
       \begin{equation*}
         d^{-1, *}(X_i) =  \sum_{k=l}^\infty {\hspace{-3pt}}_H\hspace{3pt}
-        d_k X_i^{1/q^k}
-        \eqqcolon \delta_{d, i}(X_i).
+        d_k X_i^{q^{-k}} \eqqcolon \delta_{d, i}(X_i).
       \end{equation*}
-
     \item $\sigma^*: \Xi_n \to \Xi_n$ is the isomorphism of 
       $\cO_E$-algebras given by $X_i \mapsto X_i^{q^{-m}}$ and 
       $a \mapsto \sigma(a)$ for $a \in \cO_\Cp$. 
@@ -707,7 +733,7 @@ For $\alpha \in \cO_{E}^\times$, we define
 Note that for any admissible $\cO_\Cp$-algebra $R$, we have
 \begin{equation*}
   \Hom(A_\infty \cotimes_{\cO_\br E} \cO_\Cp, R) 
-  = \coprod_{\alpha \in \cO_E^\times} \Hom(A_{\infty,\cO_\Cp}^{\alpha}, R)
+  \cong \coprod_{\alpha \in \cO_E^\times} \Hom(A_{\infty,\cO_\Cp}^{\alpha}, R)
 \end{equation*}
 as sets. We obtain the following description of the $G^{\mathrm u}$ action on
 $A_{\infty}\cotimes_{\cO_\br E} \cO_\Cp$.
@@ -741,6 +767,10 @@ $A_{\infty}\cotimes_{\cO_\br E} \cO_\Cp$.
   of $q$-th power roots is $\Delta(X_1, \dots, X_n) =
   \Art_E(\det(g)^{-1}\Nrd(d))(\tau)$. The remaining statements are immediate.
 \end{proof}
+
+In particular, this gives an explicit description of the action of 
+the group $G^1 = \{(g,d,\sigma) \in G \mid \theta(g,d,\sigma) = 1\}$ on 
+$A^1_{\infty, \cO_\Cp}$. 
 
 % subsubsection Making the Group Actions Explicit (end)
 

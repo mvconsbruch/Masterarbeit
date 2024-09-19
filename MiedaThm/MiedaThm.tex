@@ -306,14 +306,14 @@ the following result.
 We now explain how the results of the previous subsection apply to the 
 cohomology of the Lubin--Tate tower. In order to set the stage, recall the 
 definition of the Lubin--Tate perfectoid space $M'_{\infty, C}$ and its
-right-action by the group $G^1$, as defined in the previous two sections.
+right action by the group $G^1$, as defined in the previous two sections.
 Suppose we are given
 \begin{itemize}
   \item a rational subset $U\subset M'_{\infty, \Cp}$ and an open
     subgroup $K_U \subset \SL_n(\cO_E)$ stabilizing $U$,
   \item a $\varpi$-adically complete, flat $\cO_\Cp$-algebra
     $Q$ such that $\spf(Q) \eqqcolon \cX$ is a formal model of $U$ and the action of 
-    $K_U$ extends to $\cX$ (which is to say, the induced action of $K_U$ on $A[\tfrac 1\varpi]$ stabilizes $A$),
+    $K_U$ extends to $\cX$ (which is to say, the induced action of $K_U$ on $Q[\tfrac 1\varpi]$ stabilizes $Q$),
   \item an affine scheme $Y=\spec(R)$, pure-dimensional, smooth and 
     of finite type over $\Fqbar$,
   \item an isomorphism
@@ -350,7 +350,7 @@ and $\{B_K\}_{K \subseteq K_0}$ becomes an inductive system (with $K$ running ov
 open normal subgroups). Furthermore, for each such $K$, we have $K_0$-equvariant morphisms
 of Huber pairs $(B_K, B_K^\circ) \to (Q[\tfrac 1\varpi], \tilde Q)$.
 
-It can be shown that the morphism $B \to Q[\tfrac 1\varpi]$ is injective
+It can be shown that the morphism $B_K \to Q[\tfrac 1\varpi]$ is injective
 (cf. \cite[Lemma 3.4]{mieda2016geometric}), and we define $B' =
 \bigcup_{K\subseteq K_0} B_K \subseteq Q[\tfrac 1\varpi]$ as the union
 of the images of $\{B_K\}_K$ inside $Q[\tfrac 1\varpi]$. Now $B'$ 
@@ -436,15 +436,20 @@ $J^1$-action on both sides.
   preserves $Q' = (\bigcup_K B_K)\cap Q$. 
 \end{defi}
 
-By \cite[Lemma 3.20]{mieda2016geometric}, any automorphism of finite level
-induces an automorphism of $\colim_K \hH^i_c(X_K, \Qlbar)$. The crucial point 
-is that for each open normal subgroup $K \subset K_0$, and any 
-$(K, Q_0, \pi) \in \cC$, there is a open subgroup $K' \subset K$ fixing the 
-finitely many topological generators of $Q_0$. Now it can be shown that 
-$\sigma(B_K) \subset B_{K'}$, and that the resulting morphism
-$\sigma\colon B_K \to B_{K'}$ is finite. This induces finite morphisms
-$U_{K'} \to U_K$, and we obtain the desired automorphism after taking 
-compactly supported cohomology and colimit over $K$. 
+\begin{lem}\label{lem:FinLevelAutoYIeldAutOfColim}
+  Any automorphism of finite level
+  induces a natural automorphism of the vector space $\colim_K \hH^i_c(U_K, \Qlbar)$.
+  \begin{proof}[Sketch of Proof] 
+    This is \cite[Lemma 3.20]{mieda2016geometric}.  The crucial point 
+    is that for each open normal subgroup $K \subset K_0$, and any 
+    $(K, Q_0, \pi) \in \cC$, there is a open subgroup $K' \subset K$ fixing the 
+    finitely many topological generators of $Q_0$. Now it can be shown that 
+    $\sigma(B_K) \subset B_{K'}$, and that the resulting morphism
+    $\sigma\colon B_K \to B_{K'}$ is finite. This induces finite morphisms
+    $U_{K'} \to U_K$, and we obtain the desired automorphism after taking 
+    compactly supported cohomology and colimit over $K$. 
+\end{proof}
+\end{lem}
 By \cite[Proposition 3.21]{mieda2016geometric}, the specialization map respects
 automorphisms of finite level.
 
@@ -461,44 +466,55 @@ automorphisms of finite level.
 \end{prop}
 
 \begin{prop}\label{prop:ActinOfJ1IsFinLevel}
-  The group $J^1$ acts on $Q$ through automorphisms of finite level.
+  The group $J^1$ acts on $Q$ through automorphisms of finite level. 
+  By \cref{lem:FinLevelAutoYIeldAutOfColim}, this endows $\colim_K \hH^i_c(U_K, \Qlbar)$
+  with the structure of a $J^1$-representation. The natural morphism $\colim_K
+  \hH^i_c(U_K, \Qlbar) \to \colim_K \hH^i_c(M'_{K,C}, \Qlbar)$ is equivariant
+  for the $J^1$-action on both sides.
 \begin{proof}
   This is \cite[Propsition 4.5]{mieda2016geometric}.
 \end{proof}
 \end{prop}
 
-We are now in a position to apply \cref{thm:MiedaInjectivityAtFiniteLevel} and
-reep rewards.
+We are now in a position to apply \cref{thm:MiedaInjectivityAtFiniteLevel}.
 
-\begin{thm}[Mieda's Injectivity Result at Infinite Level]\label{thm:MiedaAppliedToLTT}
+\begin{thm}[Mieda's Injectivity Theorem for the Lubin--Tate
+  Tower]\label{thm:MiedaAppliedToLTT}
   Let $V \subset \hH^i_c(Y, \Qlbar)$ be a subspace such that the composition 
   $V \inj \hH^i_c(Y, \Qlbar) \to \hH^i(Y, \Qlbar)$ is injective. Then, the composition
-  $$V \inj \hH_c^i(Y, \Qlbar) \xto{\specmap^*} \colim_K \hH_c^{i}(U_K, \Qlbar)
-  \to \colim_K \hH_c^i(M'_{K,C}, \Qlbar) = \HLT'$$
-  is injective as well. If $V$ is $J^1$-stable, then this injection is equivariant 
+  \begin{equation}\label{eq:MiedaInfLevelMap}
+  V \inj \hH_c^i(Y, \Qlbar) \xto{\specmap^*} \colim_K \hH_c^{i}(U_K, \Qlbar)
+  \to \colim_K \hH_c^i(M'_{K,C}, \Qlbar) = \HLT'
+  \end{equation}
+  is injective as well. If $V$ is $J^1$-stable, this injection is equivariant 
   for the action of $J^1$ on both sides.
 \begin{proof}
   Fix a triple $(K, Q_0, \pi) \in \cD$, let $K'$ be an open normal subgroup 
   of $K_0$ contained in $K$. Then there is a triple 
   $(K, Q_0, \pi) \leq (K', Q_0', \pi') \in \cD$. We write $\cY' = \Spf(Q_0')$,
-  which is a flat and topologically of finite type over $\spf(\cO_\Cp)$. 
-  Furthermore, it has generic fiber $U_{K'}$, which is smooth, 
-  and $\pi'\colon Y \to \cY_s$ is a finite surjective morphism.
+  which is flat and topologically of finite type over $\spf(\cO_\Cp)$. 
+  Furthermore, it has generic fiber $U_{K'}$, which is smooth over 
+  $\spa(\Cp, \cO_\Cp)$, and $\pi'\colon Y \to \cY_s$ is a finite surjective
+  morphism.
   Thereby, \cref{thm:MiedaInjectivityAtFiniteLevel} yields an injection
   \begin{equation*}
     V \inj \hH^i_c(Y, \Qlbar) \xto{\specmap^* \circ \pi'^*} 
-    \hH_c^i(d(\cY), \Qlbar) = \hH_c^i(U_{K'}, \Qlbar) \to \hH_c^i(M'_{K', C}, \Qlbar).
+    \hH_c^i(d(\cY'), \Qlbar) = \hH_c^i(U_{K'}, \Qlbar) \to \hH_c^i(M'_{K', C}, \Qlbar).
   \end{equation*}
-  Now, the induced map 
+  Taking colimit over $K'$, we find that the induced map 
   \begin{equation*}
     V \inj \hH_c^i(Y, \Qlbar) \xto{\specmap^*} \colim_K \hH_c^{i}(U_K, \Qlbar)
     \to \colim_K \hH_c^i(M'_{K,C}, \Qlbar) = \HLT'
   \end{equation*}
-  is injective as well since we take colimit over a filtered category. It is readily
-  seen to be equal to the morphism constructed in the statement of the Theorem.
+  is injective as well, since we take the colimit over a filtered index
+  category. This map is readily seen to be equal to the map
+  \eqref{eq:MiedaInfLevelMap}.
 
   The map $\colim_K \hH_c^{i}(U_K, \Qlbar) \to \colim_K \hH_c^i(M'_{K,C}, \Qlbar)$
-  is $J^1$-equivariant by definition. This finishes the proof.
+  is $J^1$-equivariant by \cref{prop:ActinOfJ1IsFinLevel}, and together with 
+  \cref{prop:SpecMapIsEquivariantWithFinLev} it follows that
+  \eqref{eq:MiedaInfLevelMap} is $J^1$-equivariant if $V$ is $J^1$-stable. This
+  finishes the proof.
 \end{proof}
 \end{thm}
 
