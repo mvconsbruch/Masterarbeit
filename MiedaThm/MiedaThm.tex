@@ -304,39 +304,202 @@ the following result.
 \label{sub:Application to the Lubin--Tate Tower}
 
 We now explain how the results of the previous subsection apply to the 
-cohomology of the Lubin--Tate tower.
+cohomology of the Lubin--Tate tower. In order to set the stage, recall the 
+definition of the Lubin--Tate perfectoid space $M'_{\infty, C}$ and its
+right-action by the group $G^1$, as defined in the previous two sections.
+Suppose we are given
+\begin{itemize}
+  \item a rational subset $U\subset M'_{\infty, \Cp}$ and an open
+    subgroup $K_U \subset \SL_n(\cO_E)$ stabilizing $U$,
+  \item a $\varpi$-adically complete, flat $\cO_\Cp$-algebra
+    $Q$ such that $\spf(Q) \eqqcolon \cX$ is a formal model of $U$ and the action of 
+    $K_U$ extends to $\cX$ (which is to say, the induced action of $K_U$ on $A[\tfrac 1\varpi]$ stabilizes $A$),
+  \item an affine scheme $Y=\spec(R)$, pure-dimensional, smooth and 
+    of finite type over $\Fqbar$,
+  \item an isomorphism
+    \begin{equation}\label{eq:isoofreductionwithperfection}
+      R^\perf \coloneq \colim_{x \mapsto x^p} R \cong Q \otimes \Fqbar,
+    \end{equation}
+  \item a subgroup $J^1$ of $G^1$ whose action on $M_{\infty, C}^{(0)}$ stabilizes
+    $U$ and extends to $\cX \coloneq \spf(Q)$, 
+  \item and a left action of $J^1$ on $R$ such that the isomorphism
+    \eqref{eq:isoofreductionwithperfection} is compatible with respect to the
+    induced $J^1$-actions on both sides.
+\end{itemize}
+In this situation, we want to use
+the ideas of \cref{sub:The Injectivity FinLevel} to compare the $J^1$-representations
+$\hH_c^{n-1}(Y, \Qlbar)$ and $\colim_K \hH_c^{n-1}(M'_{K,C}, \Qlbar) = \hH'_\LT$. 
+We will need to construct finite level versions of the rational subset $U$. 
+For $m \in \N$, recall the definition of the $m$-th congruence subgroup $K_m$ from 
+\eqref{eq:defCongruenceSubgroup} and denote $K'_m \coloneq K_m \cap \SL_n(\cO_E)$. 
+The following is part of \cite[Proposition 4.5]{mieda2016geometric}.
 
-Suppose we are given a rational subset $U$ of the Lubin--Tate perfectoid space
-$M_{\infty, \cO_\Cp}^{(0)}$ and a $\varpi$-adically complete, flat $\cO_\Cp$-algebra
-$A$ such that $\cX = \spf(A)$ is a formal model of $U$. 
+\begin{prop}\label{prop:FiniteLevelU}
+  There exists an integer $m \geq 0$ such that $K'_m \subset K_U$ and an open affinoid
+  $U_m$ in $M'_{m, C}$ such that the inverse image of $U_m$ under the projection
+  $M'_{\infty, C} \to M'_{m, C}$ is equal to $U$. 
+\end{prop}
+With $m$ as in the proposition above, we write $K_0 = K'_m$ and $U_{K_0} = 
+U_m$. For an open normal subgroup $K \subseteq K_0$, we write $U_K = \spa(B_K,
+B^\circ_K) \subset M'_{K, C}$ for the preimage of $U_{K_0}$ under 
+$M_{K,C}' \to M'_{K_0, C}$. For any such $K$, we find
+that $B_K$ is a complete Huber $\Cp$-algebra, 
+topologically of finite type and endowed with an action of $K_0/K$. Furthermore,
+for $K' \subseteq K$ we have $K_0$-equivariant transition maps $B_{K} \to B_{K'}$,
+and $\{B_K\}_{K \subseteq K_0}$ becomes an inductive system (with $K$ running over 
+open normal subgroups). Furthermore, for each such $K$, we have $K_0$-equvariant morphisms
+of Huber pairs $(B_K, B_K^\circ) \to (Q[\tfrac 1\varpi], \tilde Q)$.
 
-For our purposes the following results, taken from \cite[Corollary
-4.6]{mieda2016geometric}, suffice.
-\begin{thm}[Mieda's Result for the Lubin--Tate Tower]\label{thm:MiedaAppliedToLTT}
-  Let $J$ be a subgroup of $G^1$ whose action on $M_{\infty, \Cp}^{(0)}$ 
-  stabilizes $U$ and extends to an action on $\cY$. Assume that there exists an
-  affine scheme $Y$ of finite type over $\Fqbar$ equipped with a right action of 
-  $J$ such that there is an isomorphism
+It can be shown that the morphism $B \to Q[\tfrac 1\varpi]$ is injective
+(cf. \cite[Lemma 3.4]{mieda2016geometric}), and we define $B' =
+\bigcup_{K\subseteq K_0} B_K \subseteq Q[\tfrac 1\varpi]$ as the union
+of the images of $\{B_K\}_K$ inside $Q[\tfrac 1\varpi]$. Now $B'$ 
+is a dense, $K_0$-stable subgalgebra of $Q[\tfrac 1\varpi]$, cf.
+\cite[Proposition 4.5]{mieda2016geometric}. We furthermore define
+$Q' = Q \cap B'$ and $Q_K = (Q')^K \subset Q$ for any open normal subgroup $K
+\subseteq K_0$. 
+
+\begin{lem}\label{lem:BKisIntegralOverQK}
+  Inside $Q[\tfrac 1\varpi]$, the algebra $Q_K$ is a subset of $B_K^\circ$,
+  and $B_K^\circ$ is integral over $Q_K$. 
+\begin{proof}
+  This follows from Definition 3.5, Lemma 3.7 and Lemma 3.8 of \cite{mieda2016geometric}. 
+\end{proof}
+\end{lem}
+
+By \cite[Lemma 3.16]{mieda2016geometric}, it is possible to find a normal
+subgroup $K \subseteq K_0$,
+an $\cO_\Cp$-subalgebra $Q_0$ which is topologically finitely generated (that is,
+admitting a surjection from $\cO_\Cp \langle T_1, \dots, T_r \rangle$ for some $r
+\in \N$) and a ring of definition for $B_K$, and a finite surjective
+morphism $\pi\colon \spec(Q_0 \otimes \Fqbar) \to \spec(R) = Y$ that fits into
+a commutative square
+\begin{equation}\label{eq:PiFitsDiag}
+\begin{tikzcd}[ampersand replacement=\&]
+  {\spec(Q \otimes_{\cO_\Cp} \Fqbar)} \& {\spec(Q_0 \otimes_{\cO_\Cp}\Fqbar)} \\
+	{Y^\perf} \& {Y.}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\sim", from=1-1, to=2-1]
+	\arrow["\pi", from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation}
+We set $\cY \coloneqq \spf(Q_0)$ and note that $d(\cY) = U_K$. Using the
+specialization map introduced in \cref{sub:The Injectivity FinLevel}, we define
+the specialization map at infinite level as the composition
+\begin{equation} \label{eq:DefSpecMapAtInfLevel}
+  \specmap^*\colon \hH^i_c(Y, \Qlbar) \xto{\pi^*} \hH^i_c(\cY_s, \Qlbar) 
+  \xto{\specmap^*} \hH^i_c(d(\cY), \Qlbar) = \hH^i_c(U_K, \Qlbar)
+  \to \colim_K \hH^i_c(U_K, \Qlbar).
+\end{equation}
+A priori, it is not clear that this definition is independent of the choices made 
+above. In order to get a hold of these choices, we introduce the set
+\begin{equation*}
+  \cD \coloneqq \left\{ (K, Q_0, \pi) \, \middle \vert \begin{array}c
+      K \subseteq K_0 \text{ is a normal open subgroup} \\
+      Q_0 \subset Q \text{ is a topologically finitely generated ring of definition 
+      for $B_K$} \\
+      \pi\colon \spec(Q_0 \otimes_{\cO_\Cp} \Fqbar) \to Y \text{ is finite
+        surjective and fits into \eqref{eq:PiFitsDiag}}
+  \end{array}\right\}.
+\end{equation*}
+This set comes equipped with a natural partial order, we say that 
+$(K, Q_0, \pi) \leq (K', Q_0', \pi')$ if $K' \subseteq K$ and $Q_0 \subseteq Q_0'$,
+and moreover $\pi'$ arises as the composition of $\pi$ with the induced morphism 
+$\spec(Q_0' \otimes_{\cO_\Cp} \Fqbar) \to \spec(Q_0 \otimes_{\cO_\Cp} \Fqbar)$. 
+
+\begin{lem}\label{lem:MiedaCategoryOfChoicesIsFiltered}
+  This partial order turns $\cD$ into a filtered category. Moreover, for any
+  triple $(K, Q_0, \pi) \in \cD$ and any open normal subgroup $K' \subset K_0$ 
+  contained in $K$, there is a triple $(K', Q_0', \pi') \in \cD$ with $(K, Q_0,
+  \pi) \leq (K', Q_0', \pi')$. 
+\begin{proof}
+  This is a combination of Lemma 3.11, Corollaries 3.12 and 3.13 and 
+  Lemma 3.14 in \cite{mieda2016geometric}.
+\end{proof}
+\end{lem}
+
+\begin{lem}\label{lem:specmapisindependentofchoice}
+  The specialization map as defined in \eqref{eq:DefSpecMapAtInfLevel} is
+  independent of the choice of triple $(K, Q_0, \pi) \in \cD$. 
+  \begin{proof}
+    This is Lemma 3.18 in \cite{mieda2016geometric}.
+  \end{proof}
+\end{lem}
+
+The condition that $Q_0$ must be topologically finitely generated is imposed 
+because it allows to show that the specialization map is equivariant for the 
+$J^1$-action on both sides. 
+
+\begin{defi}[Morphism of Finite Level]\label{def:MorphismOfFinLevel}
+  An automorphism $\sigma\colon Q \to Q$ is said to be of finite level if it 
+  preserves $Q' = (\bigcup_K B_K)\cap Q$. 
+\end{defi}
+
+By \cite[Lemma 3.20]{mieda2016geometric}, any automorphism of finite level
+induces an automorphism of $\colim_K \hH^i_c(X_K, \Qlbar)$. The crucial point 
+is that for each open normal subgroup $K \subset K_0$, and any 
+$(K, Q_0, \pi) \in \cC$, there is a open subgroup $K' \subset K$ fixing the 
+finitely many topological generators of $Q_0$. Now it can be shown that 
+$\sigma(B_K) \subset B_{K'}$, and that the resulting morphism
+$\sigma\colon B_K \to B_{K'}$ is finite. This induces finite morphisms
+$U_{K'} \to U_K$, and we obtain the desired automorphism after taking 
+compactly supported cohomology and colimit over $K$. 
+By \cite[Proposition 3.21]{mieda2016geometric}, the specialization map respects
+automorphisms of finite level.
+
+\begin{prop}\label{prop:SpecMapIsEquivariantWithFinLev}
+  Let $\sigma$ be an automorphism of finite level of $Q$ and let 
+  $\bar \sigma$ be an automorphism of $R$. Assume that the isomorphism
+  \eqref{eq:isoofreductionwithperfection} is compatible with the automorphisms
+  induced by $\bar \sigma$ and $\sigma$. Then, the specialization map
   \begin{equation*}
-    \cY_s = \spec(A \otimes_{R} \Fqbar) \xto \sim Y^\perf
+    \specmap^* \colon \hH^i_c(Y, \Qlbar) \to \colim_K \hH^i_c(U_K, \Qlbar)
   \end{equation*}
-  of schemes over $\spec \Fqbar$, equivariant for the action of $J$ on both sides.
-  \begin{enumerate}
-    \item There is a $J$-equivariant homomorphism
-      \begin{equation*}
-        \specmap^*\colon \hH_c^{n-1}(Y, \bar \Q_\ell) \to \colim_K \hH_c^{n-1}
-        (M_{K, E}^{(0)}, \bar \Q_\ell) \eqcolon \HLT'.
-      \end{equation*}
-    \item If $Y$ is pure-dimensional and smooth over $\spec(\Fqbar)$
-      and $V$ is a subspace of $\hH^{n-1}_c(Y, \bar \Q_\ell)$ such that the
-      composite 
-      $$V \inj H^{n-1}_c(Y, \bar \Q_\ell) \inj \hH^{n-1}_c(Y, \bar \Q_\ell)$$
-      is injective, the composite
-      \begin{equation*}
-        V \inj \hH^{n-1}_c(Y, \bar \Q_\ell) \xto {\specmap^*} \HLT'
-      \end{equation*}
-      is injective as well.
-  \end{enumerate}
+  is compatible with the automorphisms induced by $\bar \sigma$ and 
+  $\sigma$. 
+\end{prop}
+
+\begin{prop}\label{prop:ActinOfJ1IsFinLevel}
+  The group $J^1$ acts on $Q$ through automorphisms of finite level.
+\begin{proof}
+  This is \cite[Propsition 4.5]{mieda2016geometric}.
+\end{proof}
+\end{prop}
+
+We are now in a position to apply \cref{thm:MiedaInjectivityAtFiniteLevel} and
+reep rewards.
+
+\begin{thm}[Mieda's Injectivity Result at Infinite Level]\label{thm:MiedaAppliedToLTT}
+  Let $V \subset \hH^i_c(Y, \Qlbar)$ be a subspace such that the composition 
+  $V \inj \hH^i_c(Y, \Qlbar) \to \hH^i(Y, \Qlbar)$ is injective. Then, the composition
+  $$V \inj \hH_c^i(Y, \Qlbar) \xto{\specmap^*} \colim_K \hH_c^{i}(U_K, \Qlbar)
+  \to \colim_K \hH_c^i(M'_{K,C}, \Qlbar) = \HLT'$$
+  is injective as well. If $V$ is $J^1$-stable, then this injection is equivariant 
+  for the action of $J^1$ on both sides.
+\begin{proof}
+  Fix a triple $(K, Q_0, \pi) \in \cD$, let $K'$ be an open normal subgroup 
+  of $K_0$ contained in $K$. Then there is a triple 
+  $(K, Q_0, \pi) \leq (K', Q_0', \pi') \in \cD$. We write $\cY' = \Spf(Q_0')$,
+  which is a flat and topologically of finite type over $\spf(\cO_\Cp)$. 
+  Furthermore, it has generic fiber $U_{K'}$, which is smooth, 
+  and $\pi'\colon Y \to \cY_s$ is a finite surjective morphism.
+  Thereby, \cref{thm:MiedaInjectivityAtFiniteLevel} yields an injection
+  \begin{equation*}
+    V \inj \hH^i_c(Y, \Qlbar) \xto{\specmap^* \circ \pi'^*} 
+    \hH_c^i(d(\cY), \Qlbar) = \hH_c^i(U_{K'}, \Qlbar) \to \hH_c^i(M'_{K', C}, \Qlbar).
+  \end{equation*}
+  Now, the induced map 
+  \begin{equation*}
+    V \inj \hH_c^i(Y, \Qlbar) \xto{\specmap^*} \colim_K \hH_c^{i}(U_K, \Qlbar)
+    \to \colim_K \hH_c^i(M'_{K,C}, \Qlbar) = \HLT'
+  \end{equation*}
+  is injective as well since we take colimit over a filtered category. It is readily
+  seen to be equal to the morphism constructed in the statement of the Theorem.
+
+  The map $\colim_K \hH_c^{i}(U_K, \Qlbar) \to \colim_K \hH_c^i(M'_{K,C}, \Qlbar)$
+  is $J^1$-equivariant by definition. This finishes the proof.
+\end{proof}
 \end{thm}
 
 % subsubsection Injectivity of the Specialization Map at Infinite Level (end)

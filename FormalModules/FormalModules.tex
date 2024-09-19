@@ -346,6 +346,11 @@ law over $R$. We abbreviate $\bX = (X_1, \dots, X_n)$, $\bY = (Y_1,
   for all $a \in A$. 
 \end{defi}
 
+This construction is functorial in $F$. Any morphism $f\colon F \to G$ 
+of formal $A$-module laws yields a morphism 
+$$ f^*\colon \omega(G) \to \omega(F), \quad \sum_{1 \leq i \leq \dim(G)} g_i(\mathbf T)
+\dc T_i  \mapsto \sum_{1 \leq i \leq \dim(F)} g_i(f(\mathbf T)) \dc f_i(\mathbf T).$$
+
 It is possible to explicitly calculate a basis for the $R$-module
 $\omega(\bF)$, which we now explain. Let 
 $$A(\bX, \bY) \in \Mat_{n \times n} (R\llbr \bX, \bY \rrbr)$$ 
@@ -494,66 +499,76 @@ or an isomorphism, which makes the theory of formal $\cO_E$-modules over $R$ rat
 simple. This situation changes if $R$ is a field extension of $\FF_q$: there are
 homomorphisms of formal group laws $f\colon F \to G$ corresponding to power
 series $f(T) \in R \llbr T \rrbr$ with vanishing differential. The prototype of
-such homomorphisms is the relative Frobenius homomorphism $f \colon F \to
-F^{(q)}$ corresponding to the monomial $f(T) = T^q$. Here, $F^{(q)}$ is the
-formal group law obtained by raising each coefficient of $F(X,Y) \in R\llbr X,
-Y\rrbr$ to the $q$-th power.
+such homomorphisms is the relative Frobenius homomorphism $\Pi \colon F \to
+F^{(q)}$ corresponding to the monomial $\Pi(T) = T^q$. Here, $F^{(q)}$ is the
+formal $\cO_E$-module law obtained by raising each coefficient of the power series
+belonging to $F$ to the $q$-th power.
 
 We introduce the concept of height, which is in a sense an attempt to quantify
 the disorder introduced by the Frobenius homomorphisms. This leads to
 interesting invariants of formal $\cO_E$-modules over local $\cO_E$-algebras $R$.
 
-\begin{defi}[Height of morphisms of group laws]
-  Assume that $k$ is a field extension of $\Fqbar$ and $f\colon  F \to G$ is a
+\begin{lem}\label{lem:LemmaForDefOfHeight}
+  Assume that $k$ is a field extension of $\FF_q$ and let $f\colon  F \to G$ be a
   morphism of 
-  formal groups laws over $k$, given by a formal series $f(T) \in k\llbr T \rrbr$. 
-  We define the height of $f$, denoted $\height(f)$, as follows.
+  formal $\cO_E$-module laws over $k$, given by a formal series $f(T) \in
+  k\llbr T \rrbr$. Then either $f'(0) \neq 0$, or 
+  $f(T) = g(T^q)$ for some power series $g(T) \in k \llbr T \rrbr$.
+\begin{proof}
+  Upon differentiating the equation $f(F(X,Y)) = G(f(X), f(Y))$ with respect to 
+  $Y$, we find
+  \begin{equation*}
+    f'(X) \left(\frac{\partial}{\partial Y}F\right)(X,0)
+    =\left( \frac{\partial}{\partial Y}G(f(X), 0)\right) f'(0).
+  \end{equation*}
+  As $\left(\frac{\partial}{\partial Y}F \right)(X,0) \in 
+  k\llbr X \rrbr$ is a unit, we find that $f'(0) = 0$ implies $f'(X) = 0$. 
+  Now the argument is the same as in \cite[Lemma 4.1]{hopkins1994equivariant}.
+\end{proof}
+\end{lem}
+
+This allows us to define the height of $f\colon F \to G$, denoted $\height(f)$,
+as follows.
+\begin{defi}[Height of morphisms of group laws]
   If $f = 0$, we say that $f$ has infinite height. 
-  If $f \neq 0$, the height of $f$ is defined as the largest integer $h$ such that 
+  If $f \neq 0$, the height of $f$ is defined as the unique integer $h$ such that 
   $f = g(T^{q^h})$ for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in
   R\llbr T \rrbr$ with $c_1 \neq 0$. 
 \end{defi}
 
-One readily checks that if $f\colon  \cF \to \cG$ is a morphism of formal groups over
-a field extension $k$ of $\Fqbar$, the height of $f$ does not depend on the choices
-of group laws on $\cF$ and $\cG$. This allows us to define the height of $f$. 
-
-%\begin{defi}[Height function]
-%  Let $R$ be a $\cO_E$-algebra, and let $\cF$ and $\cG$ be formal
-%  $\cO_E$-modules over $R$. Let $f\colon  \cF \to \cG$ be a morphism of
-%  formal $\cO_E$-modules.
-%  For a primes ideal $x \in \abs X$, let $f_x$ denote the base change
-%  of $f$ to the residue field of $x$. 
-%  The height function attached to $f$ is the upper semicontinuous function.
-%  \begin{equation} \label{eq:defheight}
-%    \height(f) \colon  \abs X \to \Z_{\geq 0} \cup \{\infty\}, \quad x \mapsto 
-%    \height(f_x).
-%  \end{equation}
-%\end{defi}
+One readily checks that if $f\colon  \cF \to \cG$ is a morphism of formal
+$\cO_E$-module laws over a field extension $k$ of $\FF_q$, the height of $f$
+does not depend on the choices of coordinates on $\cF$ and $\cG$. 
 
 It is not hard to see that the height function is additive, that is, we have
 \begin{equation*}
   \height(f \circ g) = \height(f) + \height(g).
 \end{equation*}
 
-\begin{defi}[Isogeny]
+\begin{defi}[Isogeny and Quasi-Isogeny]
   A morphism $f\colon  \cF \to \cG$ of formal groups over a field $k$ is called
   an isogeny if $\ker(f)$ is a representable by a finite free $k$-scheme. 
+
+  By \cref{prop:pHTcalc}, the set $\Hom_{\FMLOver {\cO_E}{k'}}(\cF, \cG)$ is an 
+  $\cO_E$-module. A quasi-isogeny is an element $\iota \in \Hom_{\FMLOver
+  {\cO_E}{k'}}(\cF, \cG) \otimes_{\cO_E} E$ such that 
+  $\varpi^n \cdot \iota$ is an isogeny for some $n \geq 1$. 
 \end{defi}
 
 It is not difficult to verify the following result. 
 \begin{lem}
   A morphism $f\colon  \cF \to \cG$ of formal groups over $k$
-  is an isogeny if and only if the height $\height(f)$ is finite. 
+  is an isogeny if and only if the height of $f$ is finite. 
 \end{lem}
 
 \begin{defi}[$\varpi$-divisible $A$-module]
   Let $R$ be a local $\cO_E$-algebra with maximal ideal containing the 
   image of $\varpi$.
   Then the residue field of $R$ is an extension of 
-  $\Fqbar$, and we say that a formal $\cO_E$-module $\cF$ over $R$ is
+  $\FF_q$, and we say that a formal $\cO_E$-module $\cF$ over $R$ is
   $\varpi$-divisible if 
-  $[\varpi]_{\cF \otimes R/\fm_R}$ is an isogeny. In this case, we define the height of $\cF$
+  $[\varpi]_{\cF \otimes R/\fm_R}$ is an isogeny. In this case, we define the
+  height of $\cF$
   as the height of the isogeny $[\varpi]_{\cF \otimes R/\fm_R}$.
 \end{defi}
 
@@ -579,6 +594,7 @@ The additivity of the height function quickly implies the following.
 \end{proof}
 \end{prop}
 
+
 We close this subsection with a discussion about the structure of 
 formal $\cO_E$-modules over an algebraic closure $\FF_q \inj \Fqbar$. 
 
@@ -589,37 +605,6 @@ formal $\cO_E$-modules over an algebraic closure $\FF_q \inj \Fqbar$.
   This is part of \cite[Proposition 1.7]{drinfel1974elliptic}.
 \end{proof}
 \end{prop}
-
-We call a formal module law $\XX$ over $\Fqbar$ normalized of height $n$ if it 
-is defined over $\FF_q$ and furthermore
-satisfies $[\varpi]_\XX(T) = T^{q^n}$ and $[\zeta]_\XX(T) = \bar \zeta T$
-for any $(q-1)$-th root of unity in $\cO_E$.
-Normalized formal modules of arbitrary height exist, for example as the
-reduction of the standard formal $\cO_E$-module $H$ over $\cO_\br E$ (cf.
-\cref{sub:Hazewinkels FuncEq and the Standard Formal Module}).
-In particular, any formal $\cO_E$-module law of height $n$ is isomorphic to 
-a normalized formal $\cO_E$-module law $\XX$.
-
-\begin{lem}\label{lem:inverseqisog}
-  Let $f\colon  F \to G$ be an isogeny of $\varpi$-divisible formal
-  $\cO_E$-module laws over $\Fqbar$. Then there is an 
-  integer $n \geq 0$ and an isogeny $g\colon  G \to F$ with 
-  \begin{equation*}
-    f \circ g = [\varpi^n]_\cG \quad \text{and} \quad g \circ f = [\varpi^n]_\cF.
-  \end{equation*}
-  \begin{proof}[Proof]
-    As the height is additive, we necessarily have 
-    $\height(F) = \height(G)$, thus by Lemma
-    \ref{prop:classificationofmodulelawsbyheight}, we may assume that $F$ and
-    $G$ are given by the normalized formal $\cO_E$-module
-    $\XX$.
-    Write $f(T) = g(T^{q^n})$ for some power series $h(T) = c_1 T + c_2T^2 +
-    \dots$, where $c_1 \neq 0$ is a unit in $\XX$, and let $g(T) = h^{-1}(T)$
-    be the formal inverse of $h$. Now $g$ is a morphism of formal
-    $\cO_E$-module laws satisfying $f \circ g(T) = g\circ f(T) = T^{q^n}$. The
-    claim follows.
-  \end{proof}
-\end{lem}
 
 
 \begin{prop}\label{prop:EndomorphismsOfFormalModulesOverksep}
@@ -633,21 +618,32 @@ a normalized formal $\cO_E$-module law $\XX$.
 \end{proof}
 \end{prop}
 
+We call a formal $\cO_E$-module law $\XX$ over $\Fqbar$ normalized of height
+$n$ if it is defined over $\FF_q$ and furthermore
+satisfies $[\varpi]_\XX(T) = T^{q^n}$ and $[\zeta]_\XX(T) = \bar \zeta T$
+for every $(q-1)$-th root of unity in $\cO_E$.
+Normalized formal modules of arbitrary height exist, for example as the
+reduction of the standard formal $\cO_E$-module $H$ over $\cO_\br E$ (cf.
+\cref{sub:Hazewinkels FuncEq and the Standard Formal Module}).
+In particular, any formal $\cO_E$-module law of height $n$ is isomorphic to 
+a normalized formal $\cO_E$-module law $\XX$.
+
 We give a more explicit description of $\cO_D$ in the case that $F = \XX$ 
 is normalized. 
 Then $\cO_D = \End(\XX)$ admits the following description. Let 
 $E_n$ be the degree $n$ unramified extension of $\cO_E$, and identify
 the residue field of $\cO_{E_n}$ with $\FF_{q^n} \subset \Fqbar$. Let 
 $\Phi\colon \cO_{E_n} \to \cO_{E_n}$ denote the lift of the 
-$q$-th power frobenius on $\FF_{q^n}$. We shortly show that
+$q$-th power frobenius on $\FF_{q^n}$. We show that
 \begin{equation}\label{eq:DescripitionOfEnds}
- \cO_D \cong \frac{\cO_{E_h}\{\Pi\}}{(\Pi^h = \varpi, \Pi a = \Phi(a) \Pi)}.
+ \cO_D \cong \frac{\cO_{E_h}\{\Pi\}}{(\Pi^n = \varpi, \Pi a = \Phi(a) \Pi)}.
 \end{equation}
-By \cref{prop:ReductionOfHomsIsInjective} and 
-\cref{lem:MultByROUForStandardModule}, we see that $\cO_{E_n}$ embedds into
-$\End(\XX)$. Furthermore, as $\XX$ is defined over $\FF_q$, the monomial
-$\Pi(T) = T^q$ furnishes an endomorphism of $\XX$, and one readily checks that
-$\Pi a = \Phi(a) \Pi$. As any power series $f(T) \in \Fqbar \llbr T \rrbr$
+There is an embedding of $\cO_{E_n}$ into $\End(\XX)$, uniquely determined by
+$[\zeta]_\XX(T) = \bar \zeta T$ for any $(q^n-1)$-th root of unity $\zeta$.
+Furthermore, as $\XX$ is defined over $\FF_q$, the monomial
+$\Pi(T) = T^q$ is an endomorphism of $\XX$, and one readily checks that
+$\Pi a = \Phi(a) \Pi$ for $a \in \cO_{E_n}$. As any power series $f(T) \in
+\Fqbar \llbr T \rrbr$
 that furnishes an endomorphisms of $\XX$ has to satisfy $f(T^{q^n}) = f(T)^{q^n}$,
 we find that $f(T)$ is defined over $\FF_{q^n}$. But now 
 $f(T) = f_1(T^q) +_{\XX} [\zeta](T)$ for some suitable $\zeta \in \cO_{E_n}$,
@@ -656,6 +652,24 @@ given above.
 In particular, the isomorphism \eqref{eq:DescripitionOfEnds} yields a 
 reduction map $\cO_D \to \FF_{q^h}$ by sending $a \in \cO_{E_h}$ to
 its residue modulo $\varpi$ and $\Pi$ to $0$. 
+
+\begin{lem}\label{lem:inverseqisog}
+  Let $f\colon  F \to G$ be an isogeny of $\varpi$-divisible formal
+  $\cO_E$-module laws over $\Fqbar$. Then there is an 
+  integer $c \geq 0$ and an isogeny $g\colon  G \to F$ with 
+  \begin{equation*}
+    f \circ g = [\varpi^c]_G \quad \text{and} \quad g \circ f = [\varpi^c]_F.
+  \end{equation*}
+  In particular, any quasi-isogeny has an inverse. 
+  \begin{proof}[Proof]
+    As the height is additive, we necessarily have 
+    $\height(F) = \height(G) \eqcolon h$, thus by Lemma
+    \ref{prop:classificationofmodulelawsbyheight}, we may assume that $F$ and
+    $G$ are given by the normalized formal $\cO_E$-module
+    $\XX$ of height $h$. Now the claim follows from the description of 
+    $\End(\XX)$ given above. 
+  \end{proof}
+\end{lem}
 
 % subsubsection Formal DVR-Modules over Fields of Characteristic 0 (end)
 
@@ -941,7 +955,8 @@ level of formal
 module laws rather than formal modules. Let $F$ and $G$ be formal $\cO_E$-modules over
 $R \in \cC$. We say that $F$ and $G$ are $\star$-isomorphic if there exists a 
 $\star$-isomorphism $F \xto \sim G$, that is, an isomorphism given by a power series
-$f \in R\llbr T \rrbr$ satisfying $f(T) \equiv T$ modulo $\fm_R$.
+$f \in R\llbr T \rrbr$ satisfying $f(T) \equiv T$ modulo $\fm_R$ (by
+\cref{prop:ReductionOfHomsIsInjective}, there is at most one such $f$).
 The functor in question is now defined as 
 \begin{equation*}
   \cM^{(0)}_{0, \text{FML}} \colon \cC \to \Set, \quad R \mapsto \{F \in \FMLOver {\cO_E} \Fqbar \mid
@@ -993,6 +1008,9 @@ The functor in question is now defined as
   $F$ and $G$ lie in the same equivalence class. This proves injectivity.
 \end{proof}
 
+By \cref{prop:ReductionOfHomsIsInjective}, every automorphism of objects in
+$\cM_{0}^{(0)}(R)$ is trivial. This allows for representability of $\cM_{0}^{(0)}$.
+
 \begin{thm}[Representability of $\cM^{(0)}_0$]\label{thm:RepresentabilityOfDefSpaceWOLevel}
   The functor $\cM_0^{(0)}$ is representable by a ring $A_0 \in \cC$, non-canonically 
   isomorphic to
@@ -1014,7 +1032,7 @@ isomorphism $\Hom_\cC(\cO_\br E\llbr u_1, \dots, u_{n-1} \rrbr, R) \cong
 $\alpha(u_1), \dots, \alpha(u_{n-1}) \in \fm_R$.
 Consider the homorphism of $\cO_E$-algebras
 \begin{equation*}
-  \tilde \alpha\colon \cO[v_1, v_2, \dots] \to \cO_\br E\llbr u_1, \dots, u_{n-1} \rrbr,
+  \tilde \alpha\colon \cO[v_1, v_2, \dots] \to R,
   \quad v_i \mapsto \begin{cases}
     \alpha(u_i), &\text{ if } 1 \leq i \leq n-1 \\
     1, &\text{ if } i = n \\
@@ -1025,15 +1043,14 @@ and let $F_\alpha = F_v \otimes R$ be the formal $\cO_E$-module law over
 $R$ obtained by applying $\tilde \alpha$ to the coefficients of $F_v$. 
 By the Functional Equation Lemma (\cref{thm:HazewinkelIntegrality}), we find
 that $F_\alpha \otimes \Fqbar$ is equal to $\XX$. Hence 
-$F_\alpha \in \cM_0^{(0)}(R)$, and the mapping $\alpha \mapsto F_\alpha$
+$F_\alpha \in \cM_{0, \text{FML}}^{(0)}(R)$, and the mapping $\alpha \mapsto F_\alpha$
 can be shown to be an isomorphism, cf. \cite[Section 12]{hopkins1994equivariant}. 
-
 
 % subsection Deformations of Formal Modules (end)
 
 \subsection{Quotients of Formal Modules by Finite Submodules} % (fold)
 \label{sub:Quotients of Formal Modules by Finite Submodules}
-Let $R$ be a noetherian, regular, local $\cO_\br E$-algebra 
+Let $R$ be a Noetherian, regular, local $\cO_\br E$-algebra 
 that is complete with respect to its maximal ideal and has residue field $\Fqbar$.
 Let $F \in \FMLArbOver {\cO_E}R$ be a formal $\cO_E$-module law over $R$. 
 Then $F$ equips $\fm_R$ with the structure
@@ -1078,7 +1095,7 @@ laws over $\Frac(R)$.
   \end{enumerate}
 \end{thm}
 The proof is rather elementary and only uses commutative ring theory of 
-$R\llbr T \rrbr$ and $R\llbr X,Y \rrbr$. These rings are noetherian regular
+$R\llbr T \rrbr$ and $R\llbr X,Y \rrbr$. These rings are Noetherian regular
 local rings by \cite[Proposition 19.5]{matsumura1989commutative}, implying 
 that they are unique factorization domains by the theorem of
 Auslander--Buchsbaum, cf.
@@ -1091,14 +1108,14 @@ For the notion of Weierstraß degree and the Weierstraß Preparation Theorem, we
 to Appendix A.3 of \cite{hazewinkel1978formal}.
 \begin{lem}\label{lem:fQIsWeierstraß} \leavevmode
   \begin{enumerate}
-    \item The power series $f_Q$ has Weierstraß degree $c$. That is, it is of
+    \item The power series $f_Q$ has Weierstraß degree $q^c$. That is, it is of
       the form 
       \begin{equation*} 
         f_Q(T) = \sum_{i=0}^\infty a_i T^i
       \end{equation*} 
       with $a_i \in \fm_R$ for $i < q^c$ and $a_{q^c} \in R^\times$. 
       Furthermore, $f_Q(T) \equiv T^{q^c} \mod \fm_R$. 
-    \item There exists a unit $u(T) \in R\llbr T \rrbr$ such that $f_Q$ admits
+    \item There exists a unit $u(T) \in R\llbr T \rrbr^\times$ such that $f_Q$ admits
       the factorization
       \begin{equation*}
         f_Q(T) = u(T) g_Q(T),\quad \text{where} \quad 
@@ -1173,7 +1190,7 @@ that every $Q$-invariant power series arises this way.
   In the limit $m\to \infty$, we obtain the desired representation of $h(T)$.
 \end{proof}
 
-As $R\llbr f_Q(T) \rrbr$ is again a noetherian, regular, local 
+As $R\llbr f_Q(T) \rrbr$ is again a Noetherian, regular, local 
 $\cO_\br E$-algebra, we also obtain the equality
 \begin{equation*}
   R\llbr X,Y \rrbr^{Q \times Q} = R\llbr f_Q(X), f_Q(Y) \rrbr,
@@ -1620,43 +1637,13 @@ We cite the result of main importance for us.
 \end{proof}
 \end{thm}
 
-Let $\cF_0 \in \FMOver {\cO_E}{\Fqbar}$ be a formal module of height $n$ and 
-write $\wedge^n\cF_0$ for the associated determinant module, that is, the 
-formal $\cO_E$ module with $\Dio(\wedge^n\cF_0) = \wedge^n\Dio(\cF_0)$. Write
-$\cM_m$ for the Deformation space of $\cF_0$ with Drinfeld level
-$\varpi^m$-structure, and write $\cM_{m, \wedge}$ for the deformation space of
-$\wedge^n\cF$. 
-Following \cite{weinstein2016semistable}, we sketch how this result can be
-used to construct a functor $\cM_{m} \to \cM_{m, \wedge}$. 
-
-For $R\in\cC$ and $(\cF, \iota) \in \cM_{0}(R)$, we write $\delta_m$ for the
+For $R\in\cC$ and $\cF \in \FMLOver {\cO_E}R$, we write $\delta_m$ for the
 induced universal multilinear and alternating morphisms
 \begin{equation}\label{eq:determinantontorsionpoints}
   \delta_m \colon \cF[\varpi^m]^n \to \wedge^n\cF[\varpi^m].
 \end{equation}
 
-We now have the following result.
-
-\begin{lem}\label{lem:DeterminantOfDrinfeldStructure}
-  Let $(x_1, \dots, x_n) \in \cF[\varpi^{m}]^n(R)$ be a Drinfeld level
-  $\varpi^m$ structure. Then 
-  \begin{equation*}
-    \delta_m(x_1, \dots, x_n) \in \wedge^n\cF[\varpi^m](R) 
-  \end{equation*}
-  is a Drinfeld level $\varpi^m$ structure.
-\begin{proof}
-  This is \cite[Proposition 2.11]{weinstein2016semistable}.
-\end{proof}
-\end{lem}
-
-In particular, we obtain the desired map
-
-\begin{equation*}
-  \cM_m^{(0)}(R) \to \cM^{(0)}_{m, \wedge}(R), \quad (\cF, \iota, \phi)
-  \mapsto (\wedge^n \cF, \wedge^n \iota, \delta_m \circ \phi).
-\end{equation*}
-
-We also need the following result.
+We will need the following result.
 
 \begin{lem}\label{lem:WeinsteinDeterminantAndNorm}
   Let $L/E$ be a separable extension of degree $n$ and suppose that there 

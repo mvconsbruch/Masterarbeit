@@ -113,8 +113,76 @@ not lie in the individual spaces $\cM_m$, but rather in the resulting tower
 $\{\cM_m\}_{m \geq 0}$, which we call the tower of Lubin--Tate deformation
 spaces.
 
-
 % subsubsection The Tower of Deformation Spaces (end)
+
+\subsubsection{The Case of Height One} % (fold)
+\label{ssub:The Case of Height One}
+Let $\hat E^\ab$ denote the closure of the maximal abelian extension of $E$ inside
+$\Cp$, and let $E_m^\LT \coloneq E_{\varpi, m}\br E \subset E^\ab$ be the compositum
+of $\br E$ with the totally ramified extension constructed in \cref{sec:Local
+Class Field Theory}. 
+
+Suppose that $\XX \in \FMLOver {\cO_E}\Fqbar$ is the reduction of the standard
+$\cO_E$-module law $H$ over $\Fqbar$ of height one. 
+By \cref{thm:RepresentabilityOfDefSpaceWOLevel}, the corresponding deformation functor
+$\cM_0^{(0)}$ is isomorphic to $\cO_\br E$, so for any $R \in \cC$, all deformations
+$(\cF, \iota)$ of $\XX$ to $R$ differ by a (unique) isomorphism. We may therefore
+choose a coordinate on
+$\cF$ that gives rise to the unique Lubin--Tate module law $F$ with
+$[\varpi]_F(T) = \varpi T + T^q$. Now, a morphism 
+\begin{equation*}
+  \phi \colon \varpi^{-m}\cO_E / \cO_E \to \fm_R = F(R)
+\end{equation*}
+constitutes a Drinfeld $\varpi^m$ level structure if and only if 
+$\phi$ maps the generator $e = \varpi^{-m} \in \varpi^{-m} \cO_E/\cO_E$ 
+to a root of the Eisenstein polyonomial 
+\begin{equation*}
+  \eta_1([\varpi^{m-1}](T)) = \frac{[\varpi^m](T)}{[\varpi^{m-1}](T)} = \eta_m(T)
+\end{equation*}
+(cf. \cref{sec:Local Class Field Theory}). 
+Hence, we find that 
+\begin{equation}\label{eq:HeightOneDefSpaceIsOEm}
+  \cM_{m}^{(0)} = \frac{\cO_\br E[T]}{\eta_m(T)} \cong \cO_{E_m^\LT},
+\end{equation}
+where the choice of an isomorphism is equivalent to the choice of a level structure 
+on $F(\cO_{E_m^\LT})$ by \cref{lem:PropertiesOfFiniteLTExt}. 
+
+Now let $n \geq 1$ and let $\XX$ be the reduction of the standard formal 
+$\cO_E$-module of height $n$. Let $\wedge \XX$ be the determinant of $\XX$,
+that is, the formal $\cO_E$-module with $\Dio(\XX) = \wedge^n \Dio(\XX)$, where
+$\Dio$ denotes the Dieudonn\'e-module, cf. \cref{sub:Explicit Dieudonne Theory}.
+Write $\cM_m^{(0)}$ for the deformation space of $\XX$ with Drinfeld $\varpi^m$
+level structure
+and $\cM_{m, \wedge}^{(0)}$ for the deformation space of $\wedge \XX$. 
+
+Let $R \in \cC$ be arbitrary and let $(\cF, \iota) \in \cM_0^{(0)}(R)$. 
+Recall the construction of determinants of formal $\cO_E$-modules
+from \cref{sub:Determinants}. We have the following result.
+
+\begin{lem}\label{lem:DeterminantOfDrinfeldStructure}
+  We have $(\wedge^n \cF, \wedge^n \iota) \in \cM_{0, \wedge}^{(0)}(R)$.
+  Moreover,
+  let $\phi\colon \varpi^{-m} \cO_E^n/\cO_E^n \to  \cF^n(R)$ be a Drinfeld level
+  $\varpi^m$ structure on $\cF$. Then 
+  \begin{equation*}
+    \wedge^n \phi \colon \varpi^{-m} \cO_E/\cO_E \to \wedge^n\cF(R), \quad 
+  \varpi^{-m} \mapsto \delta_m(\varpi^{-m} e_1, \dots, \varpi^{-m} e_n)
+  \end{equation*}
+  is a Drinfeld level $\varpi^m$ structure on $\wedge^n \cF$.
+\begin{proof}
+  This is \cite[Proposition 2.11]{weinstein2016semistable}.
+\end{proof}
+\end{lem}
+
+In particular, we obtain a natural map
+\begin{equation*}
+  \cM_m^{(0)}(R) \to \cM^{(0)}_{m, \wedge}(R), \quad (\cF, \iota, \phi)
+  \mapsto (\wedge^n \cF, \wedge^n \iota, \wedge^n \phi).
+\end{equation*}
+In particular, upon choosing a Drinfeld level $\varpi^m$ structure on 
+$F(\cO_{E^\LT_m})$, this provides a morphism $\cM_m^{(0)} \to \cO_{E^{\LT}_m}$. 
+
+% subsubsection The Case of Height One (end)
 
 \subsubsection{Group Actions on the Tower of Lubin--Tate Deformation Spaces} % (fold)
 \label{ssub:Group Actions on the Tower of Lubin--Tate Deformation Spaces}
@@ -261,9 +329,9 @@ This finishes the construction of the $\GL_n(E)$-action.
 We will need to consider a refinement of the tower $\{\cM_m\}_{m \in \N}$. We
 define the 
 $m$-th congruence subgroups
-\begin{equation*}
+\begin{equation}\label{eq:defCongruenceSubgroup}
   K_m = \ker(\GL_n(\cO_E) \to \GL_n(\cO_E/(\varpi^m))).
-\end{equation*}
+\end{equation}
 For any compact open subgroup $K \subset \GL_n(\cO_E)$, we may choose integers
 $m > m'$ such that $K_m \subseteq K \subseteq K_{m'}$. We define 
 \begin{equation*}
@@ -528,7 +596,7 @@ Now, let us fix an algebraic closure $\Cp$ of $E$ and a prime number $\ell
 \neq p$. This section is concerned with the representation-theoretic aspects of
 the compactly supported \'etale cohomology groups
 \begin{equation*}
-  \colim_K H^{n-1}_c (M_{K} \otimes_{\br E} \Cp, \bar \Q_l).
+  \colim_K H^{n-1}_c (M_{K} \times_{\spa{\br E,\cO_\br E}} \Spa(\Cp, \cO_\Cp), \bar \Q_l).
 \end{equation*}
 The right-action of $G \coloneqq \GL_n(E) \times D^\times \times \Weil_E$ on the tower
 $\{\cM_{K, \cO_\Cp}\}_{K \subset \GL_n(\cO_E)}$ induce the structure of a
@@ -604,44 +672,69 @@ The precise statement of Non-Abelian Lubin--Tate Theory is the following.
   as representations of $\GL_n(E) \times D^\times \times W_F$. 
 \end{thm}
 
-Much of our study of the Lubin--Tate tower will evolve around
-the affinoid components $M_{K}^{(j)}$ for $j \in \Z$. It will be convenient to define 
-\begin{equation*}
-  \HLT' \coloneqq \lim_K H^{n-1}_c(M_{K}^{(0)} \otimes_{\br E} C, \bar Q_l).
-\end{equation*}
-By construction $\HLT'$ is a representation of the group
+Let $\wedge \XX$ denote the determinant of $\XX$ as defined in 
+\cref{sub:Determinants} (it is a normalized formal $\cO_E$-module law of height
+$1$) and denote by $\cM_{m, \wedge}^{(0)}$ the corresponding deformation
+functors of $\wedge \XX$. 
+By \cref{ssub:The Case of Height One}, we have a natural
+determinant map $\cM_{m}^{(0)} \to \cM_{m ,\wedge}^{(0)}$, and we may choose compatible
+isomorphisms $\cM_{m, \wedge}^{(0)} \cong \cO_{E^\LT_m}$, where $E^\LT_m = \br E 
+E_{\varpi, m}$ is the Lubin--Tate extension of degree $m$. 
+We define $\cM'_{m,\cO_\Cp} = \cM_{m}^{(0)} \cotimes_{\cO_{E^\LT_m}} \cO_\Cp$.
+As the determinant map is multilinear and alternating, we obtain an action of 
+$\SL_n(\cO_E)$ on each space $\cM'_{m,\cO_\Cp}$, and this allows us to construct a tower
+$\{\cM'_{K, \cO_\Cp}\}_{K \subset \SL_n(\cO_E)}$, where $K$ ranges over the 
+open subgroups of $\SL_n(\cO_E)$, by the same method as sketched 
+at the end of \cref{ssub:Group Actions on the Tower of Lubin--Tate Deformation
+Spaces}. Furthermore, it is a consequence of \cref{lem:WeinsteinDeterminantAndNorm}
+that the group 
 \begin{equation}\label{eq:DefGandG1}
   G^1 \coloneqq \{(g,d,\sigma) \in \GL_n(E) \times D^\times \times W_F \mid 
-  \det(g)^{-1} \Nrd(d) \Art_F^{-1}(\sigma) = 1\}.
+  \det(g)^{-1} \Nrd(d) \Art_F^{-1}(\sigma) = 1\}
 \end{equation}
-As $\varpi^\Z$ acts trivially on $\HLT$, it will also be convenient to define
-\begin{equation*}
-  G' \coloneqq \GL_n(E) \times (D^\times/\varpi^\Z) \times \Weil_E.
-\end{equation*}
+acts on this tower.
 
-We note the following relation between $G^1$ and $G'$.
+We define $M'_{K, C}$ as the generic fiber of $\cM'_{K, \cO_\Cp}$, which is 
+an analytic adic space over $\spa(\Cp, \cO_\Cp)$. We obtain a tower of adic spaces
+$\{M'_{K, \Cp}\}_{K \subset \SL_n(\cO_E)}$ with finite \'etale transition maps. 
+
+Much of our study of the Lubin--Tate tower will evolve around
+this tower. It will therefore be convenient to define 
+\begin{equation*}
+  \HLT' \coloneqq \lim_K H^{n-1}_c(M_{K,C}', \Qlbar).
+\end{equation*}
+By construction, $\HLT'$ is a representation of the group $G^1$. 
+The vector spaces $\HLT$ and $\HLT'$ are closely related. 
+As $\varpi^\Z$ acts trivially on $\HLT$, it is really a representation of the group
+\begin{equation*}
+  \bar G \coloneqq \GL_n(E) \times (D^\times/\varpi^\Z) \times \Weil_E.
+\end{equation*}
+We note the following relation between $G^1$ and $\bar G$.
 \begin{lem}\label{lem:G1subG}
-  The natural map $G^1 \to G'$ is injective and realizes $G^1$ as a co-compact closed
-  normal subgroup of $G'$.
+  The natural map $G^1 \to \bar G$ is injective and realizes $G^1$ as a co-compact closed
+  normal subgroup of $\bar G$.
 \begin{proof}
-  The morphism $G^1 \to G'$ is clearly injective. Further, the image of the natural
+  The morphism $G^1 \to \bar G$ is clearly injective. Further, the image of the natural
   homomorphism is isomorphic to the kernel of the map 
   \begin{equation*}
-   \theta \colon G' \to F^\times/\varpi^{n\Z}, \quad \nu(g, \bar d, \sigma) \mapsto 
+   \theta \colon \bar G \to F^\times/\varpi^{n\Z}, \quad \nu(g, \bar d, \sigma) \mapsto 
  \bar{\det(g)\Nrd(d)^{-1}\Art_F^{-1}(\sigma)}.
   \end{equation*}
   The claim follows.
 \end{proof}
 \end{lem}
 
-We take the following results for granted, cf. \cite[Section 4]{mieda2016geometric}.
+We have the following crucial result, cf. \cite[Section 4]{mieda2016geometric}.
+\begin{prop}\label{lem:InductionStatementOnHLT}
+  The $\bar G$-representation $\cInd_{G^1}^{\bar G} (H'_\LT)$ is isomorphic to $H_\LT$. 
+\end{prop}
+
+Finally, we need the following result, which is also in Section 4 of
+\cite{mieda2016geometric}.
 \begin{lem}\label{lem:GActsSmoothlyOnHLT}
   The action of $\Weil_E$ on $\HLT$ is smooth.
 \end{lem}
 
-\begin{lem}\label{lem:InductionStatementOnHLT}
-  The $G'$-representation $\cInd_{G^1}^{G'} (H'_\LT)$ is isomorphic to $H_\LT$. 
-\end{lem}
 
 % subsection The Local Langlands Correspondence for the General Linear Group (end)
 
