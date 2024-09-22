@@ -4,21 +4,94 @@
 \begin{document}
 \section*{Introduction} % (fold)
 
-\subsection*{Notation} % (fold)
-\addcontentsline{toc}{subsection}{Notation}
-We denote the category of sets with $\Set$ and the category of (unital,
-commututative) rings with $\Ring$. If $A$ is a ring, we write $\Alg A$ for the
-category of $A$-algebras, and $\Mod A$ for the category of $A$-modules. 
+Lubin--Tate 
 
-If $f(T) = c_1 T + c_2 T^2 + \dots \in A\llbr T \rrbr$, we write 
-$f^k(T)$ for the $k$-fold self composite of $f$, that is
+\subsection*{Notation and Conventions} % (fold)
+\addcontentsline{toc}{subsection}{Notation and Conventions}
+Throughout the text, we fix a positive integer $n \in \N$.
+
+\textbf{Fields.} Additionally, we fix a non-Archimedian local field $E$
+and a choice of uniformizer $\varpi \in E$. We denote by $\FF_q$ the residue
+field of $E$, whose characteristic we denote by $p \in \N$. We furthermore fix
+an algebraic closure $\bar E$ of $E$. The $\varpi$-adic absolute value $\abs
+-_\varpi$ on $E$ (normalized with $\abs \varpi_\varpi = 1/q$) extends uniquely
+to $\bar E$, and we denote the completion of $\bar E$ with respect to $\abs
+-_\varpi$ by $\Cp$. If $E \subseteq E' \subseteq \Cp$ is any
+field extension, we denote by $\cO_{E'} = \{x \in E' : \abs x_\varpi \leq 1\}$
+its ring of integers and by $\fm_{E'} = \{x \in E' : \abs x_{\varpi} < 1\}$ its
+maximal ideal. Inside $\Cp$, we have for $m\in \N$ the degree $m$ unramified
+extension $E_m$ of $E$ with residue field $\FF_{q^m}$, and the maximal unramified extension
+$E^\nr$ of $E$, whose residue field we denote by $\Fqbar$ and whose closure
+inside $\Cp$ we denote by $\br E$. We have the maximal abelian extension $E^\ab$ of 
+$E$ with closure $\hat E^\ab \subset \Cp$. In \cref{sec:Local Class Field Theory} we 
+introduce the field extensions $E_{\varpi, m}$ and $E^\LT_m$ of $E$.
+
+\textbf{Categories.} 
+We denote the category of sets by $\Set$ and the category of (unital,
+commututative) rings by $\Ring$. If $A$ is a ring, we write $\Alg A$ for the
+category of $A$-algebras, and $\Mod A$ for the category of $A$-modules.
+In \cref{def:admring} we introduce the categories $\Adm A$ and $\Adic A$ of 
+admissible and adic $A$-algebras, and in \cref{sub:Basic Notions} we introduce 
+for $R \in \Alg A$ the categories $\FMLOver AR$ of formal $A$-modules over $R$
+(with various alterations). We follow this style of notation for almost all categories
+that occur, and their meaning should be clear from the context, with one exception:
+inspired by \cite{drinfel1974elliptic}, we define $\cC$ as the category of
+local, Noetherian, complete $\cO_\br E$-algebras with residue field $\Fqbar$,
+and continuous homomorphisms.
+
+
+\textbf{Formal Composition.}
+For $A \in \Ring$ and $f(T) = c_1 T + c_2 T^2 + \dots \in A\llbr T \rrbr$, we
+write $f^k(T)$ for the $k$-fold self composite of $f$, that is
 \begin{equation*}
-  f^k(T) = \underbrace{f(f( \cdots (f}_{k-\text{fold}}(T)) \cdots).
+  f^k(T) = \underbrace{f(f( \cdots (f}_{k-\text{fold}}(T)) \cdots) \quad \text{not to be confused with}
+  \quad f(T)^k = \underbrace{f(T) f(T) \cdots f(T)}_{k-\text{fold}}.
 \end{equation*}
-In order to not confuse this with taking multiplicative powers, we write
-\begin{equation*}
-  f(T)^k = \underbrace{f(T) f(T) \cdots f(T)}_{k-\text{fold}}.
-\end{equation*}
+We call $f^k(T)$ the $k$-fold self-composite of $f$. If $f^{-1}(T) \in A\llbr T \rrbr$
+is a power series such that $f(f^{-1}(T)) = f^{-1}(f(T)) = T$, we call
+$f^{-1}(T)$ a formal inverse to $f$.
+
+\textbf{Cohomology.} 
+Throughout the text, we also fix a prime number $\ell \neq p$.
+Assume that $X$ is either 
+\begin{itemize}
+  \item a scheme; separated and of finite type over $\spec(\Fqbar)$, or
+  \item an analytic adic space; locally of finite type, separated and taut over
+    $\spa(\Cp, \cO_\Cp)$. 
+\end{itemize}
+Then we denote the \'etale site of $X$ (cf. \cite{LeiFuEtale} for schemes and
+\cite{huber2013etale} for analytic adic spaces) by $X_\et$. For an
+$\ell$-torsion ring $\Lambda = \Z/\ell^m \Z$ (for some integer $m>0$) we denote
+by $\underline \Lambda_X$ the associated constant sheaf on $X_\et$. This gives
+rise to the Grothendieck Abelian category $\Mod {\underline \Lambda_X}$ of
+$\underline \Lambda_X$-module objects in $\Sh(X_\et)$, whose derived category
+we denote by $\derD(X_\et, \underline \Lambda_X)$. 
+Denoting the structure morphism of $X$ by $f$, we write 
+$\derR \Gamma = \derR f_*$ and $\derR \Gammac = \derR f_!$ (interpreted as functors
+$\derD^+(X_\et, \underline \Lambda_X) \to \derD^+\Mod \Lambda$).
+For any $\cF \in \derD^+(X_\et, \underline \Lambda_X)$, we denote 
+by $\derR^i\Gamma\cF = \hH^i(X, \cF) \in \Mod \Lambda$ (resp. $\derR^i \Gammac \cF = 
+\hHc^i(X, \cF) \in \Mod \Lambda$) its $i$-th cohomology group (resp, its
+$i$-th cohomology with compact support).
+We will also require the $\ell$-adic cohomology groups $\hH^i(X, \Qlbar)$ 
+and $\hHc^i(X, \Qlbar)$. The classical $\ell$-adic formalism (cf. \cite{LeiFuEtale},
+\cite{jannsen1988continuous} for schemes and \cite{huber1998comparison} for
+analytic adic spaces) defines these groups via a limiting procedure in the 
+\'etale topos. Recent developements by Scholze and Bhatt--Scholze (cf.
+\cite{scholze2017etale} and \cite{bhattscholze2013pro}) allow for a definition
+as honest sheaf cohomology groups over the pro-\'etale site.
+
+\textbf{Other.}\vspace{-1em}
+\begin{itemize}
+  \item If $R$ is a local ring, we write $\fm_R$ for its maximal ideal and 
+    $k_R = R/\fm_R$ for its residue field. 
+  \item If $S$ is a topological ring, we write $S^\circ$ for the set of power-bounded
+    elements and $S^\cici$ for the set of topologically nilpotent elements.
+  \item If $\cF$ is a set (or a presheaf), and $\sigma\colon \cF \to \cF$ is an
+    automorphism, we denote by $\cF^\sigma$ the set (or presheaf) of 
+    $\sigma$-invariants.
+\end{itemize}
+
 % subsection Notation (end)
 
 \subsection*{Acknowledgements} % (fold)

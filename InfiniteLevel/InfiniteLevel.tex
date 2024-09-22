@@ -247,17 +247,18 @@ Lubin--Tate perfectoid space. This name is justified by the following result.
     \dots, f_k)$ be a tuple of generators for $I$. 
 
     Let $x \in M'_{\infty, \Cp}$ be an arbitrary point. We have
-    $\abs{\varpi(x)} \neq 0$ by definition of the generic fiber. As for all
-    $i$, the element $f_i$ is topologically nilpotent in $A_{\infty,\cO_\Cp}$,
-    it follows that there is some $r \in \N$ with $\abs{f_i(x)}^r <
-    \abs{\varpi(x)}$ for all $i$. We may now define the subspace 
+    $\abs{\varpi(x)} \neq 0$ by definition of the generic fiber. The element
+    $f_i$ is topologically nilpotent in $A_{\infty,\cO_\Cp}$,
+    and it follows that there is some $r \in \N$ with $\abs{f_i(x)}^r <
+    \abs{\varpi(x)}$ for all $i = 1, \dots, k$. We may now define the subspace 
     $U_r = \spa(R_r, R_r^+)$, where $R_r$ is defined as
     $$R_r \coloneqq A_{\cO_\Cp}\left\langle \tfrac{f_1^r}\varpi, \dots, \tfrac
     {f_k^r}\varpi \right\rangle [\tfrac 1\varpi],$$
     and $R_r^+$ is defined as the integral closure of $A_{\cO_\Cp}\left\langle
     \tfrac{f_1^r}\varpi, \dots, \tfrac {f_k^r}\varpi \right\rangle$ inside
     $R_r$. Now $R_r^+ = R_r^\circ$. As the Frobenius map is surjective on
-    $A_{\cO_\Cp}/\varpi$, it is surjective on $R_r^+/\varpi$. The valuation
+    $A_{\cO_\Cp}/\varpi$, it is surjective on $R_r^+/\varpi$, and we find
+    that $R_r$ is perfectoid. The valuation
     belonging to $x$ extends uniquely to $R_r$ and satisfies $\abs{R_r^+} \leq 1$,
     so it is point in $\spa(R_r, R_r^+)$. The claim follows.
   \end{proof}
@@ -279,9 +280,9 @@ and define a homomorphism
 
 Let $G^{\mathrm u}$ be the preimage of $\cO_E^\times$ under $\theta$, so that 
 $G^{\mathrm u}$ acts on $\cM_{\infty}^{(0)} \times_{\Spf \br E} \Spf(\cO_\Cp)$. 
-Given a $\varpi$-divisible formal $A$-module $\cF \in \FMOver {\cO_E}{\cO_{\br E}}$ of height
-$n$, we write $\cF_{\cO_\Cp} = \cF \otimes \cO_\Cp$ and describe a natural right
-action on $\tilde \cF_{\cO_\Cp}^n$ by $G$ 
+Given a $\varpi$-divisible formal $\cO_E$-module $\cF \in \FMOver
+{\cO_E}{\cO_{\br E}}$ of height $n$, we write $\cF_{\cO_\Cp} = \cF \otimes_{\cO_\br E}
+\cO_\Cp$ and describe a natural right action on $\tilde \cF_{\cO_\Cp}^n$ by $G$ 
 such that the map $\cM_{\infty}^{(0)} \times_{\spf \br E} \Spf(\cO_\Cp) \to
 \tilde \cF_{\cO_\Cp}^n$,
 induced by the map constructed above is equivariant for the respective

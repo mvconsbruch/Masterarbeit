@@ -34,10 +34,8 @@ description of the decomposition behavior of unramified primes inside abelian ex
 of number fields, cf. \cite[Theorem 7.3]{neukirch2006algebraische}. 
 The appearence of cyclotomic fields above is also no coincidence.
 
-\begin{thm}[Kronecker--Weber\footnote{despite the name, the Kronecker--Weber Theorem
-wasn't (completely) proven by either Kronecker or Weber; the first correct
-prove was found by Hilbert. For more on the history of class field theory, see 
-\cite{Conrad2009HISTORYOC}.}] \label{thm:KroneckerWeber}
+\begin{thm}[Kronecker--Weber\footnote{Despite the name, the first complete
+  proof of this theorem is (appearently) due to Hilbert, cf. \cite{hilbert1896neuer}.}] \label{thm:KroneckerWeber}
   Every finite extension of $\Q$ embeds into $\Q(\zeta_m)$ for some $m \in \Z$.
   That is, after choosing an algebraic closure $\Q \inj \bar \Q$, the maximal abelian
   subextension is given by 
@@ -53,14 +51,11 @@ of Abelian extensions of imaginary quadratic fields (cf. \cite[Chapter II,
 by the so-called Weber function at the torion points of an elliptic curve with complex
 multiplication by the field in question), but in general this problem seems to be open.
 
-The situation simplifies a lot for non-Archimedian local fields. 
-The aim of this section is to discuss the analogues of the 
-Kronecker--Weber theorem and the Artin map for these fields. We shortly set the
-stage. Let $E$ be a non-Archimedian local field with residue field $\FF_q$ of
-characteristic $p$, and choose an embedding $E \inj \bar E$ into an algebraic
-closure $\bar E$ of $E$. Let $E^\nr$ be maximal unramified subextension, with
-residue field identified with $\Fqbar$.
-In this situation, we have the short exact sequence
+The situation simplifies a lot for non-Archimedian local fields, and
+the aim of this section is to discuss the analogues of the Kronecker--Weber
+theorem and the Artin map for a non-Archimedian local field $E$.
+By definition of the intertia subgroup $I_E$ (cf. \cite[Kapitel
+2]{neukirch2006algebraische}), we have the short exact sequence
 \begin{equation*}
   0 \to I_E = \Gal(\bar E/ E^\nr) \to \Gal(\bar E/E) \to \Gal(E^\nr /E) =
   \Gal(\bar \FF_q /\FF_q) \to 0.
@@ -85,9 +80,7 @@ The natural map $\Weil_E^\ab \to \Gal(\bar E/E)^\ab = \Gal(E^\ab/E)$ induced by 
   \Weil_E^\ab \xto \sim \{\sigma \in \Gal(E^\ab/E) : \sigma|_{E^\nr} \in \Phi^\Z\}.
 \end{equation}
 We use this bijection to identify elements of $\Weil_E^\ab$ with the corresponding field
-automorphism of $E^\ab$. 
-
-In this section, we work towards the following Theorem.
+automorphism of $E^\ab$. In this section, we work towards the following Theorem.
 
 \begin{thm}[Local Class Field Theory]\label{thm:LocalKroneckerWeber} \leavevmode
   \vspace{-0.5em}
@@ -119,15 +112,13 @@ obtained from $E$ by adjoining $\varpi$-torsion points of so-called Lubin--Tate
 formal module laws. 
 We sketch a proof of the equality $E^\ab = E_\varpi E^\nr$. Lubin and Tate
 showed the latter
-making use of previously known results in local class field theory, which ultimately
-rested on results from global class field theory. 
-In order to sell the theorem as a
-local version of the Kronecker--Weber theorem,
-we avoid arguments resting on results of local class field theory
+making use of previously known results in local class field theory.
+We avoid arguments resting on results of local class field theory
 by referring to a proof found by Gold\footnote{Appearently, a similar
-(unpublished) proof was found by Leopoldt.} (cf. \cite{gold1981local}), the
-essential insight is that the theorem of Hasse--Arf
-suffices to deduce this equality. 
+(unpublished) proof was found by Leopoldt.} (cf. \cite{gold1981local}).
+Similarly to Hilbert's proof of the classical Kronecker--Weber theorem,
+the proof makes essential use of the theory of higher ramification groups,
+in particular the theorem of Hasse--Arf. 
 Once all of this is known, the isomorphism $\Art_E$ and property
 (a) arise naturally. We do not prove property (b), but we shortly note how to see
 that an isomorphism satisfying properties (a) and (b) has to be unique.
@@ -136,19 +127,18 @@ that an isomorphism satisfying properties (a) and (b) has to be unique.
 \subsection{Construction of the Maximal Abelian Extension} % (fold)
 \label{sub:Construction of the Maximal Abelian Extension}
 We now explain the interplay of Lubin--Tate formal module laws with 
-local class field theory. Let us fix a uniformizer $\varpi \in E$. The main
-focus will lay on the construction of the totally ramified abelian extension
-$E_\varpi$ from \cref{thm:LocalKroneckerWeber}. As announced, it 
+local class field theory. The main focus will lay on the construction of the
+totally ramified abelian extension $E_\varpi$ from
+\cref{thm:LocalKroneckerWeber}. As announced, it 
 arises as an infinite union of finite extensions $E_{\varpi, m}$, which
 are constructed as follows. Let $f \in \cO_E\llbr T \rrbr$ be a power series
-in $\cF_{\varpi,1}$, giving rise to a
+in $\cF_{\varpi,1}$ (cf. \cref{sub:Lubin--Tate Formal Module Laws}), giving rise to a
 Lubin--Tate formal module law $F$. We define
 \begin{equation*}
   \Lambda_{f,m} \coloneqq \{x \in \fm_{\bar E} \mid [\varpi^m]_F(x) = 0\}.
 \end{equation*}
-Here, we equip $\bar E$ with the canonical topology coming from $E$ by extending the
-$\varpi$-adic valuation to finite subextensions. With this topology, $\bar E$
-is not complete, but any $x \in \fm_{\bar E}$ lies inside some finite (hence
+Note that $\bar E$ is not complete, but any $x \in \fm_{\bar E}$ lies inside
+some finite (hence
 complete) subextension, so the power series $[\varpi]_F(x)$ converges, and the 
 definition of $\Lambda_{f,m}$ makes sense.
 

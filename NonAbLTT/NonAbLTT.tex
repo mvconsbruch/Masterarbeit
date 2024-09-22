@@ -12,7 +12,7 @@ More precisely, attached to a formal $\cO_E$-module $H_0$ over $\Fqbar$
 (determined
 up to isomorphism by its height $n$), we attach a system of rigid spaces 
 $\{M_K\}_{K \subset \GL_n(\cO_E)}$, the so called Lubin-Tate Tower. For $l \neq p$, 
-the system of $l$-adic compactly supported cohomology groups $\{\hH_c^{i}(M_K,
+the system of $l$-adic compactly supported cohomology groups $\{\hHc^{i}(M_K,
 \bar \Q_l)\}_K$ admits commuting actions by $\GL_n(E)$, $\Weil_E$ and $D^\times$,
 where the latter denotes the units of the central divison algebra $D =
 \End_{\FMOver {\cO_E}{\Fqbar}}(H_0) \otimes \Q$. This yields a correspondence of 
@@ -118,9 +118,12 @@ spaces.
 \subsubsection{The Case of Height One} % (fold)
 \label{ssub:The Case of Height One}
 Let $\hat E^\ab$ denote the closure of the maximal abelian extension of $E$ inside
-$\Cp$, and let $E_m^\LT \coloneq E_{\varpi, m}\br E \subset E^\ab$ be the compositum
+$\Cp$, and let $E_m^\LT \coloneq E_{\varpi, m}\br E \subset E^\ab$ be the composition
 of $\br E$ with the totally ramified extension constructed in \cref{sec:Local
-Class Field Theory}. 
+Class Field Theory}. As all Lubin--Tate formal $\cO_E$-modules of height one
+are isomorphic (this follows either by \cref{thm:RepresentabilityOfDefSpaceWOLevel} 
+or directly by \cite[Lemma 2]{LubinTateFormalMult}), this extension is independent
+of $\varpi$. 
 
 Suppose that $\XX \in \FMLOver {\cO_E}\Fqbar$ is the reduction of the standard
 $\cO_E$-module law $H$ over $\Fqbar$ of height one. 
@@ -592,23 +595,24 @@ Ranging over $m$, this yields a tower of spaces $\{M_{K}\}_{K \subset
 component admits a Weil descent datum and an action by $D^\times$, and $\GL_n(E)$
 acts on the tower as a pro-object. 
 
-Now, let us fix an algebraic closure $\Cp$ of $E$ and a prime number $\ell
-\neq p$. This section is concerned with the representation-theoretic aspects of
+This section is concerned with the representation-theoretic aspects of
 the compactly supported \'etale cohomology groups
 \begin{equation*}
-  \colim_K H^{n-1}_c (M_{K} \times_{\spa{\br E,\cO_\br E}} \Spa(\Cp, \cO_\Cp), \bar \Q_l).
+  \colim_K \hHc^{n-1} (M_{K} \times_{\spa{\br E,\cO_\br E}} \Spa(\Cp, \cO_\Cp),
+  \bar \Q_l).
 \end{equation*}
 The right-action of $G \coloneqq \GL_n(E) \times D^\times \times \Weil_E$ on the tower
-$\{\cM_{K, \cO_\Cp}\}_{K \subset \GL_n(\cO_E)}$ induce the structure of a
+$\{\cM_{K, \cO_\Cp}\}_{K \subset \GL_n(\cO_E)}$ induces the structure of a
 $G$-representation on this vector space. 
-In this section we recall that the supercuspidal part of this representation
-realizes the local Langlands correspondence. 
+The supercuspidal part of this representation realizes the local Langlands
+correspondence. 
 
 \begin{defi}[Supercuspidal Representation]\label{def:SuperCusp}
-  A representation $(\pi,V) \in \Rep{\GL_n(E)}$ is called supercuspidal if all
-  of its matrix coefficients are constant modulo the center $E^\times \subseteq
-  \GL_n(E)$.
+  An admissible (cf. \cref{def:SmoothAndAdmRep}) representation $(\pi,V) \in
+  \Rep{\GL_n(E)}$ is called supercuspidal if all of its matrix coefficients are
+  constant modulo the center $E^\times \subseteq \GL_n(E)$.
 \end{defi}
+
 Here, a matrix coefficient is a function of the form $m(g) = \langle \pi(g)
 \phi, \phi^\vee\rangle$, where $(\phi, \phi^\vee)$ ranges over the elements of
 $V \times V^\vee$ (where $\vee$ denotes the contragradient). For details, and
@@ -628,7 +632,7 @@ Of course not any such bijection is interesting, the local Langlands corresponde
 predicts the existence of a unique bijection $\rec_E$ compatible with various
 structures on both sides. See \cite[Section 12.4]{getz2023introduction} for a
 detailed account of the axioms $\rec_E$ should satisfy.
-In particular, the $n=1$ case recovers local class field theory: 
+In particular, the case $n=1$ recovers local class field theory: 
 $\rec_E(\pi) = \pi \circ \Art_E^{-1}$. 
 
 The local Jacquet--Langlands correspondence gives a bijection 
@@ -649,15 +653,17 @@ By results of Laumon--Rapoport--Stuhler (cf. \cite{laumon1993elliptic})
 in the equal characteristic case and Harris--Taylor (cf. \cite{HTShimura}) in the 
 mixed characteristic case, both $\rec_F(\varpi)$ and $\JL(\varpi)$ occur
 (up to duals and twists) in the $\pi$-isotypic component of 
-$\colim_K \hH^{n-1}_c (M_{K} \otimes_{\br E} \Cp, \bar \Q_l)$. We state a
+$\colim_K \hHc^{n-1} (M_{K} \otimes_{\br E} \Cp, \bar \Q_l)$. We state a
 precise result below.
-For our purposes, it will be convenient to consider the cohomology of the 
+For our purposes, it will be sufficient to consider supercuspidal representations
+whose central character is trivial on $\varpi^\Z$. For those representations,
+the correspondence already takes place in the cohomology of the 
 quotients $M_{K, \varpi^\Z} \coloneqq M_K/\varpi^\Z$ by the action of the
 subgroup $\varpi^\Z \subseteq D^\times$. Recall that the action of 
 $\varpi$ restricts to an isomorphism $\cM_K^{(j)} \to \cM_K^{(j+n)}$, so we find
 $M_{K, \varpi^\Z} \cong \coprod_{0 \leq j < n} M_{K}^{(j)}$. We now define
 \begin{equation} \label{eq:defHLT}
-  \HLT = \lim_{K} H^{n-1}_c (M_{K, \varpi^\Z} \otimes_{\br E} C, \bar \Q_l).
+  \HLT = \lim_{K} \hHc^{n-1} (M_{K, \varpi^\Z} \otimes_{\br E} C, \bar \Q_l).
 \end{equation}
 For an irreducible representation $\pi$ of $\GL_n$, we denote by ${\HLT}_{,\pi}$ the 
 $\pi$-isotypical component of $\HLT$.
@@ -673,13 +679,13 @@ The precise statement of Non-Abelian Lubin--Tate Theory is the following.
 \end{thm}
 
 Let $\wedge \XX$ denote the determinant of $\XX$ as defined in 
-\cref{sub:Determinants} (it is a normalized formal $\cO_E$-module law of height
-$1$) and denote by $\cM_{m, \wedge}^{(0)}$ the corresponding deformation
-functors of $\wedge \XX$. 
+\cref{sub:Determinants} (it is a normalized formal $\cO_E$-module law over
+$\Fqbar$ of height $1$) 
+and denote by $\cM_{m, \wedge}^{(0)}$ the corresponding deformation functors of
+$\wedge \XX$. 
 By \cref{ssub:The Case of Height One}, we have a natural
 determinant map $\cM_{m}^{(0)} \to \cM_{m ,\wedge}^{(0)}$, and we may choose compatible
-isomorphisms $\cM_{m, \wedge}^{(0)} \cong \cO_{E^\LT_m}$, where $E^\LT_m = \br E 
-E_{\varpi, m}$ is the Lubin--Tate extension of degree $m$. 
+isomorphisms $\cM_{m, \wedge}^{(0)} \cong \cO_{E^\LT_m}$. 
 We define $\cM'_{m,\cO_\Cp} = \cM_{m}^{(0)} \cotimes_{\cO_{E^\LT_m}} \cO_\Cp$.
 As the determinant map is multilinear and alternating, we obtain an action of 
 $\SL_n(\cO_E)$ on each space $\cM'_{m,\cO_\Cp}$, and this allows us to construct a tower
@@ -701,7 +707,7 @@ $\{M'_{K, \Cp}\}_{K \subset \SL_n(\cO_E)}$ with finite \'etale transition maps.
 Much of our study of the Lubin--Tate tower will evolve around
 this tower. It will therefore be convenient to define 
 \begin{equation*}
-  \HLT' \coloneqq \lim_K H^{n-1}_c(M_{K,C}', \Qlbar).
+  \HLT' \coloneqq \lim_K \hHc^{n-1}(M_{K,C}', \Qlbar).
 \end{equation*}
 By construction, $\HLT'$ is a representation of the group $G^1$. 
 The vector spaces $\HLT$ and $\HLT'$ are closely related. 

@@ -9,19 +9,17 @@ We give a brief summary of the content of results in \cite{mieda2016geometric}.
 
 \subsection{The Specialization Map} % (fold)
 \label{sub:The Injectivity FinLevel}
-Let $R$ be a complete discrete valuation ring with residue field $\Fqbar$ and
-write $K$ for the field of fractions of $R$.
-Let $\cY$ be a flat and topologically of finite type formal scheme over $\Spf R$.
+Let $\cY$ be a flat and topologically of finite type formal scheme over $\Spf(\cO_\Cp)$.
 Utilizing a classical construction of Raynauld \cite{raynaud1974geometrie}, we 
 can consider the corresponding rigid generic fiber $d(\cY)$, which we may
-consider as an analytic adic space over $\Spa(K,R)$ by \cite[Section
-1.9]{huber2013etale}. We denote by $\cY_s = \cY \times_{\Spf(R)} \spec
-\Fqbar$ the special fiber of $\cY$, which is of finite type over $\spec
-\Fqbar$. Recall that we may identify the \'etale sites $(\cY_\reduc)_\et$ and
-$\cY_{s,\et}$ via the isomorphism induced by the closed immersion of formal schemes
-$\cY_s \inj \cY_\reduc$.
-
-By \cite[Lemma 3.5.1]{huber2013etale} we have a morphism of sites
+consider as an analytic adic space over $\Spa(\Cp,\cO_\Cp)$ by \cite[Section
+1.9]{huber2013etale}. We denote by $\cY_s = \cY \times_{\Spf(\cO_\Cp)} \spec
+(\Fqbar)$ the special fiber of $\cY$, which is a scheme of finite type over $\spec(
+\Fqbar)$. By the assumptions on $\cY$, the \'etale sites $(\cY_\reduc)_\et$ and
+$\cY_{s,\et}$ agree, they may be identified via the natural isomorphism induced
+by the closed immersion of schemes $\cY_s \inj \cY_\reduc$. Thus, by the
+disussion at the beggining of \cite[Section 3.5]{huber2013etale}, we have a
+morphism of sites
 \begin{equation*}
   \lambda_\cY \colon d(\cY)_\et \to (\cY_\reduc)_\et = \cY_{s, \et}.
 \end{equation*}
@@ -158,11 +156,11 @@ finite surjective morphism
 As a corollary to the theorem above, Mieda constructs a commutative diagram
 \begin{equation}\label{eq:MiedasCommutingDiagram}
 \begin{tikzcd}[ampersand replacement=\&]
-  {\hH_c^i(X, \underline \Lambda_X)} \& {\hH^i_c(\cY_s, \underline
-  \Lambda_{\cY_s})} \& {\hH^i_c(\cY_s, \derR \Psi_\cY \underline
+  {\hHc^i(X, \underline \Lambda_X)} \& {\hHc^i(\cY_s, \underline
+  \Lambda_{\cY_s})} \& {\hHc^i(\cY_s, \derR \Psi_\cY \underline
     \Lambda_{d(\cY)})} \\
-  {\hH^i_c(X, \underline \Lambda_{X})} \& {\hH^i_c(\cY_s, f^! \underline
-  \Lambda_{\spec(\Fqbar)}(-d)[-2d])} \& {\hH^i_c(\cY_s, \derR \Psi_\cY
+  {\hHc^i(X, \underline \Lambda_{X})} \& {\hHc^i(\cY_s, f^! \underline
+  \Lambda_{\spec(\Fqbar)}(-d)[-2d])} \& {\hHc^i(\cY_s, \derR \Psi_\cY
   \underline \Lambda_{d(\cY)})} \\
   {\hH^i(X, \underline \Lambda_{X})} \& {\hH^i(\cY_s, f^! \underline
   \Lambda_{\spec(\Fqbar)}(-d)[-2d])} \& {\hH^i(\cY_s, \derR \Psi_\cY \underline
@@ -216,8 +214,8 @@ upper left is essentially a consequence of the naturality of the trace map.
 Furthermore, Mieda shows that the square
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
-	{\hH_c^i(\cY_s, \derR \Psi_\cY \underline \Lambda_{d(\cY)})} \& 
-  {\hH_c^i(d(\cY), \underline \Lambda_{d(\cY)})} \\
+	{\hHc^i(\cY_s, \derR \Psi_\cY \underline \Lambda_{d(\cY)})} \& 
+  {\hHc^i(d(\cY), \underline \Lambda_{d(\cY)})} \\
 	{\hH^i(\cY_s, \derR \Psi_\cY \underline \Lambda_{d(\cY)})} \& 
   {\hH^i(d(\cY), \underline \Lambda_{d(\cY)})} 
 	\arrow["\sim", from=1-1, to=1-2]
@@ -233,25 +231,23 @@ is commutative. The following statement is a direct consequence.
   separated smooth scheme of finite type over $\Fqbar$, and let 
   $\cY$ be a flat and topologically of finite type formal scheme over
   $\Spf(\cO_\Cp)$ with generic fiber $d(\cY)$ smooth over $\spa(\Cp,\cO_\Cp)$.
-  \todo{replace everything with $(\Cp,\cO_\Cp)$}
   Let $\pi\colon \cY_s \to X$ be a finite surjective morphism.
-  Furthermore, assume that 
+  Furthermore, assume that there is an open immersion
+  $d(\cY) \inj Z$, where
   $Z$ is an adic space that is locally of finite type, separated and taut
-  over $\spa(\Cp, \cO_\Cp)$, and suppose that there is an open immersion
-  $d(\cY) \inj Z$.
-
+  over $\spa(\Cp, \cO_\Cp)$.
   Then, the map 
   \begin{equation*}
-    \hH_c^i(X, \underline \Lambda_X) \xto {\times \deg \pi} 
-    \hH_c^i(X, \underline \Lambda_X) \to 
+    \hHc^i(X, \underline \Lambda_X) \xto {\times \deg \pi} 
+    \hHc^i(X, \underline \Lambda_X) \to 
     \hH^i(X,   \underline \Lambda_X)
   \end{equation*}
   factors through the composition
   \begin{equation*}
-    \hH_c^i(X,      \underline \Lambda_X) \xto {\pi^*}
-    \hH_c^i(\cY_s,  \underline \Lambda_{\cY_s}) \xto {\specmap^*}
-    \hH_c^i(d(\cY), \underline \Lambda_{d(\cY)}) \to 
-    \hH_c^i(Z,      \underline \Lambda_Z).
+    \hHc^i(X,      \underline \Lambda_X) \xto {\pi^*}
+    \hHc^i(\cY_s,  \underline \Lambda_{\cY_s}) \xto {\specmap^*}
+    \hHc^i(d(\cY), \underline \Lambda_{d(\cY)}) \to 
+    \hHc^i(Z,      \underline \Lambda_Z).
   \end{equation*}
 \begin{proof}
   By construction of the lower shriek for taut morphisms (cf. \cite[Section 0.4
@@ -259,8 +255,8 @@ is commutative. The following statement is a direct consequence.
   respect open embeddings, and we have the commutative square
   \begin{equation*}
     \begin{tikzcd}[ampersand replacement=\&]
-      {\hH^i_c(d(\cY), \underline \Lambda_{d(\cY)})} \& 
-      {\hH^i_c(Z, \underline \Lambda_{Z})} \\
+      {\hHc^i(d(\cY), \underline \Lambda_{d(\cY)})} \& 
+      {\hHc^i(Z, \underline \Lambda_{Z})} \\
     	{\hH^i(d(\cY), \underline \Lambda_{d(\cY)})} \& 
       {\hH^i(Z, \underline \Lambda_{Z})}.
     	\arrow[from=1-1, to=1-2]
@@ -280,23 +276,42 @@ the following result.
 \begin{thm}[Mieda's Injectivity Result at Finite
   Level]\label{thm:MiedaInjectivityAtFiniteLevel}
   Let $X$ and $Z$ be as in Proposition \ref{thm:SubspaceInjectionFiniteLevel}.
-  If $V \subseteq \hH^i_c(X, \Qlbar)$ is a subspace such that the 
-  composition $V \inj \hH^i_c(X, \Qlbar) \to \hH^i(X, \Qlbar)$ is injective,
+  If $V \subseteq \hHc^i(X, \Qlbar)$ is a subspace such that the 
+  composition $V \inj \hHc^i(X, \Qlbar) \to \hH^i(X, \Qlbar)$ is injective,
   the map 
   \begin{equation*}
-    V \inj \hH^i_c(X, \Qlbar) \xto {\specmap^* \circ \pi^*}
-    \hH^i_c(d(\cY), \Qlbar) \to \hH^i_c(Z, \Qlbar)
+    V \inj \hHc^i(X, \Qlbar) \xto {\specmap^* \circ \pi^*}
+    \hHc^i(d(\cY), \Qlbar) \to \hHc^i(Z, \Qlbar)
   \end{equation*}
   is injective as well.
-\begin{proof}
-  Up to concerns about the formation of $\ell$-adic cohomology, this is a
-  direct consequence of Proposition \ref{thm:SubspaceInjectionFiniteLevel}
-  above. We refer to \cite[Theorem 2.8]{mieda2016geometric} for details.
+  \begin{proof}[Sketch of Proof] 
+  We have 
+  \begin{equation*}
+    \hHc^i(X, \Z_\ell) = \lim_{m \in \N} \hHc^i(X, \underline{\Z/\ell^m\Z}) 
+    \quad \text{and} \quad \hHc^i(d(\cY), \Z_\ell) = \lim_{m \in \N}
+    \hHc^i(d(\cY), \underline{\Z/\ell^m\Z})
+  \end{equation*}
+  by \cite[Corollary 9.3.3 and Proposition 10.1.15]{LeiFuEtale} and 
+  \cite[Theorem 3.1]{huber1998comparison}. The corresponding statement for
+  $Z$ is wrong in general. In the limit over $m \in \N$,
+  \cref{thm:SubspaceInjectionFiniteLevel} thus yields that the map
+  \begin{equation*}
+    \hHc^i(X, \Qlbar) \xto{\times \deg \pi} \hHc^i(X, \Qlbar) \to \hH^i(X, \Qlbar)
+  \end{equation*}
+  factors over the composition
+  \begin{equation*}
+    \hHc^i(X,      \Qlbar) \xto {\pi^*}
+    \hHc^i(\cY_s,  \Qlbar) \xto {\specmap^*}
+    \hHc^i(d(\cY), \Qlbar) \to 
+    \left(\lim_{m \in \N} \hHc^i(Z, \underline{\Z/\ell^m\Z}_Z) \right) \otimes_{\Z_\ell}
+    \Qlbar.
+  \end{equation*}
+  The right-most map above factors over the natural homomorphism
+  $$\hHc^i(Z, \Qlbar) \to \left(\lim_{m \in \N} \hHc^i(Z,
+  \underline{\Z/\ell^m\Z}_Z) \right) \otimes_{\Z_\ell} \Qlbar.$$ 
+  The claim follows.
 \end{proof}
 \end{thm}
-
-
-
 
 % subsection The Injectivity Result (end)
 
@@ -307,7 +322,10 @@ We now explain how the results of the previous subsection apply to the
 cohomology of the Lubin--Tate tower. In order to set the stage, recall the 
 definition of the Lubin--Tate perfectoid space $M'_{\infty, C}$ and its
 right action by the group $G^1$, as defined in the previous two sections.
-Suppose we are given
+Assume that we are in the following situation.
+
+\begin{sit}\label{sit:MiedaLTTSit}
+  We are given
 \begin{itemize}
   \item a rational subset $U\subset M'_{\infty, \Cp}$ and an open
     subgroup $K_U \subset \SL_n(\cO_E)$ stabilizing $U$,
@@ -320,15 +338,17 @@ Suppose we are given
     \begin{equation}\label{eq:isoofreductionwithperfection}
       R^\perf \coloneq \colim_{x \mapsto x^p} R \cong Q \otimes \Fqbar,
     \end{equation}
-  \item a subgroup $J^1$ of $G^1$ whose action on $M_{\infty, C}^{(0)}$ stabilizes
+  \item a subgroup $J^1$ of $G^1$ whose action on $M'_{\infty, C}$ stabilizes
     $U$ and extends to $\cX \coloneq \spf(Q)$, 
   \item and a left action of $J^1$ on $R$ such that the isomorphism
     \eqref{eq:isoofreductionwithperfection} is compatible with respect to the
     induced $J^1$-actions on both sides.
 \end{itemize}
-In this situation, we want to use
-the ideas of \cref{sub:The Injectivity FinLevel} to compare the $J^1$-representations
-$\hH_c^{n-1}(Y, \Qlbar)$ and $\colim_K \hH_c^{n-1}(M'_{K,C}, \Qlbar) = \hH'_\LT$. 
+\end{sit}
+
+We want to use the ideas of \cref{sub:The Injectivity FinLevel} to compare the
+$J^1$-representations
+$\hHc^{n-1}(Y, \Qlbar)$ and $\colim_K \hHc^{n-1}(M'_{K,C}, \Qlbar) = \hH'_\LT$. 
 We will need to construct finite level versions of the rational subset $U$. 
 For $m \in \N$, recall the definition of the $m$-th congruence subgroup $K_m$ from 
 \eqref{eq:defCongruenceSubgroup} and denote $K'_m \coloneq K_m \cap \SL_n(\cO_E)$. 
@@ -347,7 +367,7 @@ that $B_K$ is a complete Huber $\Cp$-algebra,
 topologically of finite type and endowed with an action of $K_0/K$. Furthermore,
 for $K' \subseteq K$ we have $K_0$-equivariant transition maps $B_{K} \to B_{K'}$,
 and $\{B_K\}_{K \subseteq K_0}$ becomes an inductive system (with $K$ running over 
-open normal subgroups). Furthermore, for each such $K$, we have $K_0$-equvariant morphisms
+open normal subgroups). For each such $K$, we have $K_0$-equvariant morphisms
 of Huber pairs $(B_K, B_K^\circ) \to (Q[\tfrac 1\varpi], \tilde Q)$.
 
 It can be shown that the morphism $B_K \to Q[\tfrac 1\varpi]$ is injective
@@ -388,9 +408,9 @@ We set $\cY \coloneqq \spf(Q_0)$ and note that $d(\cY) = U_K$. Using the
 specialization map introduced in \cref{sub:The Injectivity FinLevel}, we define
 the specialization map at infinite level as the composition
 \begin{equation} \label{eq:DefSpecMapAtInfLevel}
-  \specmap^*\colon \hH^i_c(Y, \Qlbar) \xto{\pi^*} \hH^i_c(\cY_s, \Qlbar) 
-  \xto{\specmap^*} \hH^i_c(d(\cY), \Qlbar) = \hH^i_c(U_K, \Qlbar)
-  \to \colim_K \hH^i_c(U_K, \Qlbar).
+  \specmap^*\colon \hHc^i(Y, \Qlbar) \xto{\pi^*} \hHc^i(\cY_s, \Qlbar) 
+  \xto{\specmap^*} \hHc^i(d(\cY), \Qlbar) = \hHc^i(U_K, \Qlbar)
+  \to \colim_K \hHc^i(U_K, \Qlbar).
 \end{equation}
 A priori, it is not clear that this definition is independent of the choices made 
 above. In order to get a hold of these choices, we introduce the set
@@ -438,13 +458,13 @@ $J^1$-action on both sides.
 
 \begin{lem}\label{lem:FinLevelAutoYIeldAutOfColim}
   Any automorphism of finite level
-  induces a natural automorphism of the vector space $\colim_K \hH^i_c(U_K, \Qlbar)$.
+  induces a natural automorphism of the vector space $\colim_K \hHc^i(U_K, \Qlbar)$.
   \begin{proof}[Sketch of Proof] 
     This is \cite[Lemma 3.20]{mieda2016geometric}.  The crucial point 
     is that for each open normal subgroup $K \subset K_0$, and any 
     $(K, Q_0, \pi) \in \cC$, there is a open subgroup $K' \subset K$ fixing the 
     finitely many topological generators of $Q_0$. Now it can be shown that 
-    $\sigma(B_K) \subset B_{K'}$, and that the resulting morphism
+    $\sigma(B_K) \subset B_{K'}$, and the resulting morphism
     $\sigma\colon B_K \to B_{K'}$ is finite. This induces finite morphisms
     $U_{K'} \to U_K$, and we obtain the desired automorphism after taking 
     compactly supported cohomology and colimit over $K$. 
@@ -459,7 +479,7 @@ automorphisms of finite level.
   \eqref{eq:isoofreductionwithperfection} is compatible with the automorphisms
   induced by $\bar \sigma$ and $\sigma$. Then, the specialization map
   \begin{equation*}
-    \specmap^* \colon \hH^i_c(Y, \Qlbar) \to \colim_K \hH^i_c(U_K, \Qlbar)
+    \specmap^* \colon \hHc^i(Y, \Qlbar) \to \colim_K \hHc^i(U_K, \Qlbar)
   \end{equation*}
   is compatible with the automorphisms induced by $\bar \sigma$ and 
   $\sigma$. 
@@ -467,9 +487,9 @@ automorphisms of finite level.
 
 \begin{prop}\label{prop:ActinOfJ1IsFinLevel}
   The group $J^1$ acts on $Q$ through automorphisms of finite level. 
-  By \cref{lem:FinLevelAutoYIeldAutOfColim}, this endows $\colim_K \hH^i_c(U_K, \Qlbar)$
+  By \cref{lem:FinLevelAutoYIeldAutOfColim}, this endows $\colim_K \hHc^i(U_K, \Qlbar)$
   with the structure of a $J^1$-representation. The natural morphism $\colim_K
-  \hH^i_c(U_K, \Qlbar) \to \colim_K \hH^i_c(M'_{K,C}, \Qlbar)$ is equivariant
+  \hHc^i(U_K, \Qlbar) \to \colim_K \hHc^i(M'_{K,C}, \Qlbar)$ is equivariant
   for the $J^1$-action on both sides.
 \begin{proof}
   This is \cite[Propsition 4.5]{mieda2016geometric}.
@@ -480,11 +500,12 @@ We are now in a position to apply \cref{thm:MiedaInjectivityAtFiniteLevel}.
 
 \begin{thm}[Mieda's Injectivity Theorem for the Lubin--Tate
   Tower]\label{thm:MiedaAppliedToLTT}
-  Let $V \subset \hH^i_c(Y, \Qlbar)$ be a subspace such that the composition 
-  $V \inj \hH^i_c(Y, \Qlbar) \to \hH^i(Y, \Qlbar)$ is injective. Then, the composition
+  Assume that we are in \cref{sit:MiedaLTTSit}.
+  Let $V \subset \hHc^i(Y, \Qlbar)$ be a subspace such that the composition 
+  $V \inj \hHc^i(Y, \Qlbar) \to \hH^i(Y, \Qlbar)$ is injective. Then, the composition
   \begin{equation}\label{eq:MiedaInfLevelMap}
-  V \inj \hH_c^i(Y, \Qlbar) \xto{\specmap^*} \colim_K \hH_c^{i}(U_K, \Qlbar)
-  \to \colim_K \hH_c^i(M'_{K,C}, \Qlbar) = \HLT'
+  V \inj \hHc^i(Y, \Qlbar) \xto{\specmap^*} \colim_K \hHc^{i}(U_K, \Qlbar)
+  \to \colim_K \hHc^i(M'_{K,C}, \Qlbar) = \HLT'
   \end{equation}
   is injective as well. If $V$ is $J^1$-stable, this injection is equivariant 
   for the action of $J^1$ on both sides.
@@ -498,19 +519,19 @@ We are now in a position to apply \cref{thm:MiedaInjectivityAtFiniteLevel}.
   morphism.
   Thereby, \cref{thm:MiedaInjectivityAtFiniteLevel} yields an injection
   \begin{equation*}
-    V \inj \hH^i_c(Y, \Qlbar) \xto{\specmap^* \circ \pi'^*} 
-    \hH_c^i(d(\cY'), \Qlbar) = \hH_c^i(U_{K'}, \Qlbar) \to \hH_c^i(M'_{K', C}, \Qlbar).
+    V \inj \hHc^i(Y, \Qlbar) \xto{\specmap^* \circ \pi'^*} 
+    \hHc^i(d(\cY'), \Qlbar) = \hHc^i(U_{K'}, \Qlbar) \to \hHc^i(M'_{K', C}, \Qlbar).
   \end{equation*}
   Taking colimit over $K'$, we find that the induced map 
   \begin{equation*}
-    V \inj \hH_c^i(Y, \Qlbar) \xto{\specmap^*} \colim_K \hH_c^{i}(U_K, \Qlbar)
-    \to \colim_K \hH_c^i(M'_{K,C}, \Qlbar) = \HLT'
+    V \inj \hHc^i(Y, \Qlbar) \xto{\specmap^*} \colim_K \hHc^{i}(U_K, \Qlbar)
+    \to \colim_K \hHc^i(M'_{K,C}, \Qlbar) = \HLT'
   \end{equation*}
   is injective as well, since we take the colimit over a filtered index
   category. This map is readily seen to be equal to the map
   \eqref{eq:MiedaInfLevelMap}.
 
-  The map $\colim_K \hH_c^{i}(U_K, \Qlbar) \to \colim_K \hH_c^i(M'_{K,C}, \Qlbar)$
+  The map $\colim_K \hHc^{i}(U_K, \Qlbar) \to \colim_K \hHc^i(M'_{K,C}, \Qlbar)$
   is $J^1$-equivariant by \cref{prop:ActinOfJ1IsFinLevel}, and together with 
   \cref{prop:SpecMapIsEquivariantWithFinLev} it follows that
   \eqref{eq:MiedaInfLevelMap} is $J^1$-equivariant if $V$ is $J^1$-stable. This

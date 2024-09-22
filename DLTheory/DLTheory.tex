@@ -524,7 +524,7 @@ stabilizes $Y_b$ for every choice of $b$.
 
 We write $\hH_\DL$ for the $\bar \Q_l$-vector space
 \begin{equation*}
-  \hH_\DL = \hH_c^{n-1}(\DL_n, \bar \Q_l).
+  \hH_\DL = \hHc^{n-1}(\DL_n, \bar \Q_l).
 \end{equation*}
 By the above, this is a representation of $\GL_n(\FF_q) \times \FF_{q^n}^\times
 \times n\Z$. The following subsection is concerned with the study of this
@@ -554,10 +554,10 @@ commuting actions of $G^\Frob$ and $T^\Frob$, and for characters $\theta$ of $T^
 the main concern of \cite{delignelusztig1976} is the study of the resulting
 virtual representations
 \begin{equation} \label{eq:DLRepresentation}
-  R_{T}^\theta = \sum_{i} (-1)^i \hH_c^i(\tilde X_{T \subset B}, \bar
+  R_{T}^\theta = \sum_{i} (-1)^i \hHc^i(\tilde X_{T \subset B}, \bar
   \Q_l)_\theta \in \cR(T^\Frob(k) \times G^\Frob(k)).
 \end{equation}
-Here, the subscript $\theta$ denotes the direct summand of $\hH^i_c(\tilde X_{T
+Here, the subscript $\theta$ denotes the direct summand of $\hHc^i(\tilde X_{T
 \subset B}, \bar \Q_l)$ where $T^\Frob(k)$ acts by $\theta$.
 These representations do only depend on the choice of the torus, not on the
 choice of the Borel sugroup
@@ -594,7 +594,7 @@ The following results of Deligne-Lusztig theory are important for our purposes.
   \leavevmode
   \begin{enumerate}
       \item \textnormal{\cite[Corollary 1.22]{delignelusztig1976}} Let $Z \subset G$
-        denote the center of $G$. Then $Z^\Frob$ acts on $\hH^{n-1}_c(\tilde
+        denote the center of $G$. Then $Z^\Frob$ acts on $\hHc^{n-1}(\tilde
         X_{T \subset B}, \bar \Q_l)_{\theta}$ through $\theta|_{Z^\Frob}$.
       \item \textnormal{\cite[Corollary 7.3]{delignelusztig1976}} If 
         $(T, \theta)$ is in general position, one of $\pm R_T^\theta$ is an 
@@ -606,13 +606,13 @@ The following results of Deligne-Lusztig theory are important for our purposes.
         $\tilde X_{T \subset G}$ (or equivalently, $X_{T \subset G}$) is affine, 
         and we denote by $w \in \Weyl_G(T)$ the relative position of $B$ and
         $\Frob(B)$ (given by the Bruhat decomposition for $G$),
-        we have $$\hH_c^i(\tilde X_{T \subset G}, \bar \Q_l)_\theta = 0 \quad \text{if}
+        we have $$\hHc^i(\tilde X_{T \subset G}, \bar \Q_l)_\theta = 0 \quad \text{if}
         \quad i \neq l(w).$$
         Here, $l(w)$ denotes the Coxeter-length of $w$.
       \item \textnormal{\cite[Theorem 9.8]{delignelusztig1976}} For a character 
         $\theta$ in general position, the natural map
         \begin{equation*}
-          \hH^i_c(Y_{T \subset B},\bar \Q_l)_\theta \to \hH^i(Y_{T \subset
+          \hHc^i(Y_{T \subset B},\bar \Q_l)_\theta \to \hH^i(Y_{T \subset
           B}, \bar \Q_l)_\theta
         \end{equation*}
         is an isomorphism.
@@ -673,7 +673,7 @@ gives an isomorphism of $\GL_n^\Frob$-equivariant torsors
 
 Given any representation $\theta$ of $\TT^\Frob_w(k)$, we write
 \begin{equation*}
-  R_\theta = \sum_i (-1)^i \hH_c^i(\DL_n, \bar \Q_l)_\theta.
+  R_\theta = \sum_i (-1)^i \hHc^i(\DL_n, \bar \Q_l)_\theta.
 \end{equation*}
 
 By definition, we have $R_{\theta \circ \ad h} \cong R^\theta_{T\subset B}$,
@@ -695,7 +695,7 @@ the following.
 
 \begin{thm}[Deligne--Lusztig Correspondence]\label{thm:DLCorrespondenceForUs}
   Let $\theta$ be a regular character of $\FF_{q^n}^\times$, and let
-  $\hH_{\DL,\theta} = \hH^{n-1}_c(\DL_n, \bar \Q_l)_\theta$ denote the direct
+  $\hH_{\DL,\theta} = \hHc^{n-1}(\DL_n, \bar \Q_l)_\theta$ denote the direct
   summand of $\HDL$ on which $\FF_{q^n}^\times$
   acts through $\theta$. 
   \begin{enumerate}
@@ -710,7 +710,7 @@ the following.
       $\FF_q^\times \cong Z_{\GL_n}$.
     \item The natural map 
       \begin{equation*}
-        \hH^{n-1}_c(\DL_n, \bar \Q_l)_\theta \to
+        \hHc^{n-1}(\DL_n, \bar \Q_l)_\theta \to
         \hH^{n-1}(\DL_n, \bar \Q_l)_\theta
       \end{equation*}
       is an isomorphism.
@@ -740,7 +740,7 @@ following partial description.
       x_i \mapsto x_i^q,\quad a \mapsto a \quad (a \in \bar \FF_q)
     \end{equation*}
     induces multiplication of $(-1)^{n-1}q^{\frac{n(n-1)}2}$
-    on $\hH^{n-1}_c(\DL_n, \bar \Q_\ell)_\theta$. 
+    on $\hHc^{n-1}(\DL_n, \bar \Q_\ell)_\theta$. 
     This result is essentially due to Digne--Michel, cf. \cite[Remarque
     3.14]{digne1985fonctions}, but their proof appears to contain a sign error.
     This mistake was identified and corrected by Wang in \cite[Théorème
@@ -801,7 +801,7 @@ We also write $(\FF_{q^n}^\times)^1 = \{\zeta \in \Fqbar \mid \Norm(\zeta) =
       The same statement holds with \'etale replaced by compactly supported
       \'etale cohomology.
     \item Let $\theta$ be a regular character of $\FF_{q^n}^\times$. Then 
-      the natural morphism $\hH_c^{n-1}(Y_b, \Qlbar)_\theta \to \hH^{n-1}(Y_b,
+      the natural morphism $\hHc^{n-1}(Y_b, \Qlbar)_\theta \to \hH^{n-1}(Y_b,
       \Qlbar)_\theta$
       is an isomorphism.
   \end{enumerate}

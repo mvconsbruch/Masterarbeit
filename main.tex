@@ -9,22 +9,52 @@
 \addbibresource{library.bib}
 %\usepackage{showkeys}
 
-\title{Explicit Aspects of Non-Abelian Lubin-Tate Theory}
-\author{Maximilian Georg von Consbruch}
+% DECKBLATT
+\usepackage{MA_Titlepage}
+%Name of the author of the thesis 
+\authornew{Maximilan Georg von Consbruch}
+%Date of birth of the Author
+\geburtsdatum{11th January 1998}
+%Place of Birth
+\geburtsort{Hanover, Germany}
+%Date of submission of the thesis
 \date{\today}
+
+%Name of the Advisor
+% z.B.: Prof. Dr. Peter Koepke
+\betreuer{Advisor: Prof. Dr. Peter Scholze}
+%name of the second advisor of the thesis
+\zweitgutachter{Second Advisor: Dr. Hiroki Kato}
+
+%Name of the Insitute of the advisor
+%z.B.: Mathematisches Institut
+\institut{Mathematisches Institut}
+%\institut{Mathematisches Institut}
+%\institut{Institut f\"ur Angewandte Mathematik}
+%\institut{Institut f\"ur Numerische Simulation}
+%\institut{Forschungsinstitut f\"ur Diskrete Mathematik}
+%Title of the thesis 
+\title{Explicit Aspects of Non-Abelian Lubin-Tate Theory}
+
+%Do not change!
+\ausarbeitungstyp{Master's Thesis  Mathematics}
+
+\author{Maximilian Georg von Consbruch}
 
 \begin{document}
 
-
+\pagenumbering{gobble}
 \maketitle
 
+\tableofcontents
+\newpage
 
-
+\pagenumbering{roman}
 \addcontentsline{toc}{section}{Introduction}
 \subfile{Introduction/Introduction.tex}
+\newpage
 
-\tableofcontents
-
+\pagenumbering{arabic}
 \subfile{FormalModules/FormalModules.tex}
 \subfile{LocalCFT/LocalCFT.tex}
 \subfile{NonAbLTT/NonAbLTT.tex}
@@ -32,6 +62,8 @@
 \subfile{MiedaThm/MiedaThm.tex}
 \subfile{DLTheory/DLTheory.tex}
 \subfile{Depth0SuCu/Depth0SuCu.tex}
+
+\newpage
 \appendix
 \section*{Appendix}
 \addcontentsline{toc}{section}{Appendix}
@@ -40,7 +72,7 @@
 \subfile{Appendix/Extensions.tex}
 \subfile{Appendix/SmoothRep.tex}
 
-
+\newpage
 \printbibliography
 
 \end{document}

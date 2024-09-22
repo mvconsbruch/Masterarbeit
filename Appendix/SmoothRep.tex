@@ -22,12 +22,15 @@ subgroups of locally profinite groups are again locally profinite.
 Throughout this section, if not stated otherwise, $G$ is a locally profinite
 group and $H \subset G$ is a closed subgroup of $G$.
 
-\begin{defi}[Smooth Representation]
-  A smooth representation of $G$ is a
-  representation $\pi\colon G \to \GL(V) \in \Rep G$,
-  such that for any $v \in V$, the stabilizer $G_v$ of $v$ is an open subgroup
+\begin{defi}[Smooth and Admissible Representations]\label{def:SmoothAndAdmRep}
+  A representation $\pi\colon G \to \GL(V) \in \Rep G$ is called smooth
+  if for any $v \in V$, the stabilizer $G_v$ of $v$ is an open subgroup
   of $G$. We define $\RepSm G$, the category of smooth $G$-representations, as
   the full subcategory of $\Rep G$ with objects given by smooth $G$-representations.
+
+  A smooth representation $(\pi, V)$ is called admissible if it is smooth and for every
+  open compact subgroup $H \subseteq G$, the space $V^H$ of $H$-invariants 
+  is finite-dimensional.
 \end{defi}
 
 The forgetful functor $\RepSm G \to \Rep G$ has a left adjoint, given by taking
