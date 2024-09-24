@@ -1,5 +1,12 @@
 # Master's thesis
 ## 10th of September
+[09_24_version.pdf](./compiled_versions/09_24_version.pdf) 
+### To Dos:
+* Work over the later parts of section 1 and DL-Theory
+* Maybe flatness of formal model
+* shorten
+
+## 10th of September
 [09_10_version.pdf](./compiled_versions/09_10_version.pdf) 
 * Got quotients done, and Section 4.
 ### To Dos:
