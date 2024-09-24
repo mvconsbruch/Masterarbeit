@@ -1,5 +1,5 @@
 # Master's thesis
-## 10th of September
+## 24th of September
 [09_24_version.pdf](./compiled_versions/09_24_version.pdf) 
 ### To Dos:
 * Work over the later parts of section 1 and DL-Theory
