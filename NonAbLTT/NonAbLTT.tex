@@ -364,8 +364,7 @@ For integers $m \geq 0$, we consider the base change $\cM_{m, \cO_{{E'}}} = \cM
 We recall the notion of Weil descent data and make use of this notion to describe
 an action of the Weil group $\Weil_E$ on $\cM_{m, \cO_{{E'}}}$. In the 
 limit over all finite extensions of $E$, this yields an action of $\Weil_E$ on the
-formal scheme $\cM_{m, \cO_{{\Cp}}}$, where $\Cp = \hat{\bar E}$  is the completion
-of $\bar E$.
+formal scheme $\cM_{m, \cO_{{\Cp}}}$.
 
 Let $\Phi \in \Gal(E^\nr / E)$ be the automorphism corresponding to the
 $q$-th power Frobenius automorphism on the residue field $\Fqbar$ of $E^\nr$. Given
@@ -404,7 +403,7 @@ In this situation, we have the notion of Weil descent data
 \end{defi}
 
 To make this definition a bit more tangible, we give the following example.
-\red{Is this example too boring?}
+
 \begin{xpl}
   \begin{enumerate}
     \item Suppose that $p \neq 2$ and let $\ell \neq p$ be a prime number. Write 
@@ -521,10 +520,9 @@ One quickly verifies the following.
 \end{lem}
 As a direct consequence, we obtain an action of $\Weil_E$ on
 $$\lim_{E'/E \text{ finite}} \cG \times_{\spf \cO_\br E} \spf(\cO_{E'}) = 
-\cG \times_{\spf \cO_\br E} \spf(\cO_{\Cp}),$$ where
-$\Cp$ dentoes the completion of $\bar E$. 
+\cG \times_{\spf \cO_\br E} \spf(\cO_{\Cp}).$$
 
-We define a Weil descent datum $\alpha$ on $\cM_m$. As $\cM_m$ is representable
+We now define a Weil descent datum $\alpha$ on $\cM_m$. As $\cM_m$ is representable
 in $\cC$, it suffices to construct the isomorphism
 $\cM_m \to \Phi^* \cM_m$ on objects $R \in \cC$. 
 Given $R\in \cC$ and $(\cF, \iota, \phi) \in \cM_m(R)$, we put
@@ -641,15 +639,16 @@ The local Jacquet--Langlands correspondence gives a bijection
 \begin{gathered}\text{irreducible discrete series} \\
 \text{representations of $\GL_n(E)$}\end{gathered}\middle\}\right / \cong \ \ 
 \xto{1:1} \  \left\{\begin{gathered}\text{irreducible representations} \\
-\text{of $D^\times$}. \end{gathered}\middle\}\right/\cong
+\text{of $D^\times$}. \end{gathered}\middle\}\right/\cong,
 \end{equation*}
-This bijection is again supposed to preserve certain structures, cf. 
-\red{I was not able to find a good reference. For $E$ $p$-adic,
-\cite{mieda2014jacquetlanglands} works.}. Here the definition of 
-discrete series representations is of minor importance for us, we simply 
-recall that all supercuspidal representations of $\GL_n(E)$ are discrete series. 
+characterized by a natural character identity. This result is due to
+Deligne--Bernstein--Kazhdan--Vigneras cf. \cite{deligne1984representations} and 
+Rogawski \cite{rogawski1983representations}. Here, neither the definition of discrete
+series representations or the precise statement is of major importance for us,
+we only need the fact that all supercuspidal representations of $\GL_n(E)$ are
+discrete series representations. 
 
-By results of Laumon--Rapoport--Stuhler (cf. \cite{laumon1993elliptic})
+By results of Boyer (cf. \cite{boyer1999mauvaise})
 in the equal characteristic case and Harris--Taylor (cf. \cite{HTShimura}) in the 
 mixed characteristic case, both $\rec_F(\varpi)$ and $\JL(\varpi)$ occur
 (up to duals and twists) in the $\pi$-isotypic component of 
@@ -663,8 +662,9 @@ subgroup $\varpi^\Z \subseteq D^\times$. Recall that the action of
 $\varpi$ restricts to an isomorphism $\cM_K^{(j)} \to \cM_K^{(j+n)}$, so we find
 $M_{K, \varpi^\Z} \cong \coprod_{0 \leq j < n} M_{K}^{(j)}$. We now define
 \begin{equation} \label{eq:defHLT}
-  \HLT = \lim_{K} \hHc^{n-1} (M_{K, \varpi^\Z} \otimes_{\br E} C, \bar \Q_l).
+  \HLT \coloneq \colim_{K} \hHc^{n-1} (M_{K, \varpi^\Z} \otimes_{\br E} C, \bar \Q_l),
 \end{equation}
+where $K$ ranges over the compact open subgroups of $\GL_n(\cO_E)$. 
 For an irreducible representation $\pi$ of $\GL_n$, we denote by ${\HLT}_{,\pi}$ the 
 $\pi$-isotypical component of $\HLT$.
 The precise statement of Non-Abelian Lubin--Tate Theory is the following.
@@ -686,9 +686,9 @@ $\wedge \XX$.
 By \cref{ssub:The Case of Height One}, we have a natural
 determinant map $\cM_{m}^{(0)} \to \cM_{m ,\wedge}^{(0)}$, and we may choose compatible
 isomorphisms $\cM_{m, \wedge}^{(0)} \cong \cO_{E^\LT_m}$. 
-We define $\cM'_{m,\cO_\Cp} = \cM_{m}^{(0)} \cotimes_{\cO_{E^\LT_m}} \cO_\Cp$.
+We define $\cM'_{m,\cO_\Cp} \coloneq \cM_{m}^{(0)} \cotimes_{\cO_{E^\LT_m}} \cO_\Cp$.
 As the determinant map is multilinear and alternating, we obtain an action of 
-$\SL_n(\cO_E)$ on each space $\cM'_{m,\cO_\Cp}$, and this allows us to construct a tower
+$\SL_n(\cO_E)$ on each space $\cM'_{m,\cO_\Cp}$. This allows us to construct a tower
 $\{\cM'_{K, \cO_\Cp}\}_{K \subset \SL_n(\cO_E)}$, where $K$ ranges over the 
 open subgroups of $\SL_n(\cO_E)$, by the same method as sketched 
 at the end of \cref{ssub:Group Actions on the Tower of Lubin--Tate Deformation
@@ -701,13 +701,14 @@ that the group
 acts on this tower.
 
 We define $M'_{K, C}$ as the generic fiber of $\cM'_{K, \cO_\Cp}$, which is 
-an analytic adic space over $\spa(\Cp, \cO_\Cp)$. We obtain a tower of adic spaces
+an analytic adic space over $\spa(\Cp,\allowbreak \cO_\Cp)$. We obtain a tower
+of adic spaces
 $\{M'_{K, \Cp}\}_{K \subset \SL_n(\cO_E)}$ with finite \'etale transition maps. 
 
 Much of our study of the Lubin--Tate tower will evolve around
 this tower. It will therefore be convenient to define 
 \begin{equation*}
-  \HLT' \coloneqq \lim_K \hHc^{n-1}(M_{K,C}', \Qlbar).
+  \HLT' \coloneqq \colim_K \hHc^{n-1}(M_{K,C}', \Qlbar).
 \end{equation*}
 By construction, $\HLT'$ is a representation of the group $G^1$. 
 The vector spaces $\HLT$ and $\HLT'$ are closely related. 

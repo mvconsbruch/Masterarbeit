@@ -9,7 +9,7 @@
 \addbibresource{library.bib}
 %\usepackage{showkeys}
 
-% DECKBLATT
+% DECKBLATT (fold)
 \usepackage{MA_Titlepage}
 %Name of the author of the thesis 
 \authornew{Maximilan Georg von Consbruch}
@@ -40,16 +40,20 @@
 \ausarbeitungstyp{Master's Thesis  Mathematics}
 
 \author{Maximilian Georg von Consbruch}
+% preamble (end)
 
 \begin{document}
 
-\pagenumbering{gobble}
 \maketitle
 
+
+\pagenumbering{gobble}
 \tableofcontents
 \newpage
 
 \pagenumbering{roman}
+\setcounter{page}{3}
+
 \addcontentsline{toc}{section}{Introduction}
 \subfile{Introduction/Introduction.tex}
 \newpage

@@ -15,13 +15,10 @@ can consider the corresponding rigid generic fiber $d(\cY)$, which we may
 consider as an analytic adic space over $\Spa(\Cp,\cO_\Cp)$ by \cite[Section
 1.9]{huber2013etale}. We denote by $\cY_s = \cY \times_{\Spf(\cO_\Cp)} \spec
 (\Fqbar)$ the special fiber of $\cY$, which is a scheme of finite type over $\spec(
-\Fqbar)$. By the assumptions on $\cY$, the \'etale sites $(\cY_\reduc)_\et$ and
-$\cY_{s,\et}$ agree, they may be identified via the natural isomorphism induced
-by the closed immersion of schemes $\cY_s \inj \cY_\reduc$. Thus, by the
-disussion at the beggining of \cite[Section 3.5]{huber2013etale}, we have a
-morphism of sites
+\Fqbar)$. By the disussion at the beggining of \cite[Section
+3.5]{huber2013etale}, we have a morphism of sites
 \begin{equation*}
-  \lambda_\cY \colon d(\cY)_\et \to (\cY_\reduc)_\et = \cY_{s, \et}.
+  \lambda_\cY \colon d(\cY)_\et \to (\cY_\reduc)_\et \cong \cY_{s, \et}.
 \end{equation*}
 For a positive integer $m$, let us fix the torsion ring $\Lambda = \Z/\ell^m
 \Z$ and write $\underline \Lambda_{d(\cY)}$ (respectively $\underline
@@ -53,7 +50,8 @@ This allows for the following definitions.
   which we shall call the specialization map.
 \end{defi}
 
-Our goal is to compare the compact supported cohomologies of $\cY_s$ and $d(\cY)$.
+Our goal is to compare the compactly supported \'etale cohomology of $\cY_s$
+and $d(\cY)$.
 From classical results (cf. for example \cite[Corollary 0.7.9]{huber2013etale}, which
 essentially deals with the case where $\cY$ is algebraizable),
 we might hope that under mild assumptions, there is an isomorphism
@@ -129,7 +127,7 @@ does not depend on the choice of $U$.
 
 With the trace map defined, we can formulate Mieda's main result about the
 specializazion map.
-\begin{prop}[Mieda's theorem about the Specialization Map]\label{prop:MiedaFirstStepSpecMap}
+\begin{prop}[Mieda's Result about the Specialization Map]\label{prop:MiedaFirstStepSpecMap}
   The composite 
   \begin{equation*}
     \underline{\Lambda}_{\cY_s} \xto {\specmap^*} \derR \Psi_\cY \underline
@@ -210,8 +208,8 @@ In this diagram, the maps $\pi_*$ and $\times \deg \pi$ are given as follows.
 \end{itemize}
 Commutativity of the square in the upper right hand side is the content of
 Theorem \ref{prop:MiedaFirstStepSpecMap}, and commutativity of the square in the
-upper left is essentially a consequence of the naturality of the trace map.
-Furthermore, Mieda shows that the square
+upper left is essentially a consequence of the naturality of the trace map. The
+lower two squares commute by definition. Furthermore, Mieda shows that the square
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
 	{\hHc^i(\cY_s, \derR \Psi_\cY \underline \Lambda_{d(\cY)})} \& 

@@ -4,7 +4,151 @@
 \begin{document}
 \section*{Introduction} % (fold)
 
-Lubin--Tate 
+When \textsc{Jonathan Lubin} and \textsc{John T. Tate} published their
+paper \textit{Formal Complex Multiplication in Local Fields} in 1965 (cf.
+\cite{LubinTateFormalMult}), they achieved one of the last major breakthroughs
+in Class Field Theory. Perhaps inpsired by the theory of complex multiplication
+of elliptic curves, they show that formal group laws, which can be seen as local
+analogues of algebraic groups, may be used to construct abelian extensions of
+arbitrary non-Archimedian local fields $E$. This approach, colloqually
+reguarded to as Lubin--Tate Theory, provides a strikingly simple solution to a
+complicated problem, that of finding generators for the maximal abelian
+extension of $E$ and describing how the Galois group acts on them. 
+
+Two years later, in 1967, \textsc{Robert Langlands} wrote his famous letter 
+to \textsc{André Weil}, introducing the web of conjectures that 
+is now known as the Langlands Program. A special case of these conjectures 
+predicts, in vague terms, a correspondence between automorphic representations
+of $\GL_n(E)$ and representations of the absolute Galois group of $E$, thus
+conjecturing an analogue of local class field theory for non-Abelian extensions. 
+Inspired by results of \textsc{Pierre Deligne} on the cohomology of certain
+modular curves with bad reduction at $p$ (where $p$ denotes the residue
+characteristic of $E$), \textsc{Henri Carayol} predicted in his 1990 paper
+\textit{Non-Abelian Lubin--Tate Theory} that this (at the time conjectural)
+correspondence appears, along with the Jacquet--Langlands Correspondence, in
+the $\ell$-adic cohomology of the Lubin--Tate tower, which is a certain projective
+system related to deformation spaces of formal $\cO_E$-modules.
+% The latter is a certain projective system of rigid analytic
+% spaces arising from moduli of deformations of formal $\cO_E$-modules with
+% Drinfeld level $\varpi^m$
+% structure $\{\cM_m\}_{m \in \N}$. The latter are formal schemes admitting a
+% natural right action by the group $\GL_n(E) \times D^\times \times \Weil_E$,
+% where $D$ is a division algebra over $E$ with invariant $1/n$ and $\Weil_E$ is
+% the Weil group attached to $E$. 
+This cohomology group, denoted $\HLT$, carries the structure of a
+representation of $\GL_n(E) \times D^\times \times \Weil_E$, where $D$ is a
+division algebra over $E$ with invariant $1/n$ and $\Weil_E$ is the Weil group
+attached to $E$. Carayol's conjecture predicts that for supercuspidal
+representations $\pi$ of $\GL_n(E)$, the $\pi$-isotypic component of $\HLT$
+decomposes (up to duals and twists) as
+\begin{equation*}
+  \hH_{\LT,\pi} = \pi \boxtimes \JL(\pi) \boxtimes \rec_E(\pi),
+\end{equation*}
+where $\JL(\pi)$ and $\rec_E(\pi)$ denote the representations 
+of $D^\times$ and $\Weil_E$ corresponding to $\pi$ under the Jacquet--Langlands and 
+local Langlands correspondences.
+
+Roughly a decade later, this approach was used by \textsc{Michael Harris} and
+\textsc{Richard Taylor} to define the local Langlands correspondence for
+$\GL_n$ over $p$-adic fields, verifying (a slight modification of)
+Carayol's conjectures along the way (cf. \cite{HTShimura}). 
+Around the same time, \textsc{Pierre Boyer} 
+proved Carayol's conjectures for local function fields (cf. \cite{boyer1999mauvaise}). 
+
+While pioneering, their results leave questions unanswered, two of which we aim
+to address in the present text. First, they prove the local Langlands correspondence
+as a pure existence theorem, shedding no light on the question of an explicit description
+of the correspondence. Secondly, and this point is of rather conceptual nature, 
+their proof makes essential use of global arguments, ultimately requiring to 
+realize $E$ as the completion of some global field at one of its places.
+
+In order to have any hope of attacking the latter issue, it appears essential
+to gain a deeper understanding of the geometry of the Lubin--Tate tower. 
+A first step in this direction was taken by \textsc{Teruyoshi Yoshida} in his
+2004 paper \textit{On non-abelian Lubin--Tate theory via vanishing cycles}
+(cf. \cite{yoshida2010non}).
+Yoshida uses a series of blow-ups to construct a
+semistable model of the generic fiber of the first layer of the Lubin--Tate space,
+whose reduction contains a Deligne--Lusztig variety for $\GL_n(\FF_q)$ (where
+$\FF_q$ is the residue field of $E$) as an affine open subscheme. This allowed
+him to prove, purely locally, that a part of non-Abelian Lubin--Tate theory
+boils down to Deligne--Lusztig theory. 
+Building on this work, \textsc{Jared Weinstein} initiated a program
+to obtain similar results in 2010. 
+
+Around the same time, \textsc{Peter Scholze} developed the theory of perfectoid spaces,
+providing a framework that allows to analyze the geometry of the projective limit 
+$M_\infty$ of the spaces in the Lubin--Tate tower. 
+While no longer a locally finite-type analytic space, the
+Lubin--Tate perfectoid space $M_\infty$ turns out to be easier to work with than 
+its individual layers. For example, it admits a coordinate that is not
+available at finite level.
+Recent results along the lines of Weinstein's program
+(cf., for example, \cite{weinstein2016semistable},
+\cite{BoyarchenkoWeinstein2011MaxVar}, \cite{imaitsushima2020affinoids} and 
+\cite{tokimoto2020affinoids}) make use of this developement to constrcut
+certain formal models of rational subsets of the Lubin--Tate perfectoid space
+$M_{\infty}$ and observe parts of the local Langlands correspondence
+inside the $\ell$-adic cohomology of their reduction. This approach relies on
+previously known on explicit descriptions of the local Langlands
+correspondence.
+
+Mieda's 2016 paper \textit{Geometric
+  approach to the explicit local Langlands correspondence} (cf.
+  \cite{mieda2016geometric}) this idea. Given a formal model $\cX$ of a
+  rational subset $U \subset M_\infty$, his results show that, under
+mild assumptions, there is an injective map
+from certain subspaces $V$ of the cohomology of the 
+special fiber of $\cX$ into $\HLT$. Using the results non-Abelian
+Lubin--Tate theory, this allows, together with the zoo of formal models
+constructed in the works cited above and the descriptions of the cohomology of their
+reduction, for an explicit description of certain parts of the local Langlands
+correspondence.
+
+The aim of this thesis is to give a (mostly) self-contained proof of
+the following results.
+\begin{thm*}[Main Results of this Thesis]
+  \leavevmode \begin{enumerate}
+    \item There is an affinoid $U \subset M_\infty$ inside the Lubin--Tate perfectoid
+      space admitting a formal $\cX$ whose reduction is isomorphic to the
+      perfection of a Deligne--Lusztig variety for $\GL_n(\FF_q)$.
+    \item If $\pi$ is a depth zero supercuspidal representation of $\GL_n(E)$, 
+      we can calculate $\rec_E(\pi)$ and $\JL(\pi)$ explicitly via purely geometric
+      arguments.
+  \end{enumerate}
+\end{thm*}
+For precise statements, see \cref{prop:SpecialFiberOfAffinoidIsLusztig}
+and \cref{thm:MainRes1} below. 
+
+The structure of the thesis is as follows.
+
+\textbf{Section 1} reviews the theory of formal $\cO_E$-modules, which
+will play a large role in the analysis of the Lubin--Tate tower. It encompasses
+all results we need in later parts of the text.
+
+\textbf{Sections 2 and 3} review classical Lubin--Tate theory, and the theorems
+of non-Abelian Lubin--Tate theory due to Boyer and Harris--Taylor. In particular,
+we introduce the Lubin--Tate tower $\{\cM_m\}_{m \in \N}$ and describe the
+relevant group actions.
+
+\textbf{Section 4} introduces the Lubin--Tate space at infinite level. 
+We follow ideas of Weinstein to define a certain coordinate on $\cM_\infty = 
+\lim_{m \in \N} \cM_m$. The main result of this section is an description of
+the group actions on $\cM_\infty$ in terms of this coordinate. 
+
+\textbf{Section 5} reviews results of Mieda's paper \cite{mieda2016geometric}.
+We do not go into details, but hope to provide some insight into his methods. 
+
+\textbf{Section 6} deals with Deligne--Lusztig theory for $\GL_n(\FF_q)$. 
+We develope the theory exclusively for $\GL_n$, describing in detail the 
+geometry of the moduli of flags and the related spaces that occur as 
+special cases of the varieties considered by 
+\textsc{Pierre Deligne} and \textsc{George Lusztig} in
+\cite{delignelusztig1976}. The cohomological results of their paper are 
+stated as facts and applied to our situation.
+
+\textbf{Section 7} serves as the grand finale. We collect the results of the
+previous sections and give proves of the results announced above. 
 
 \subsection*{Notation and Conventions} % (fold)
 \addcontentsline{toc}{subsection}{Notation and Conventions}
@@ -39,18 +183,6 @@ inspired by \cite{drinfel1974elliptic}, we define $\cC$ as the category of
 local, Noetherian, complete $\cO_\br E$-algebras with residue field $\Fqbar$,
 and continuous homomorphisms.
 
-
-\textbf{Formal Composition.}
-For $A \in \Ring$ and $f(T) = c_1 T + c_2 T^2 + \dots \in A\llbr T \rrbr$, we
-write $f^k(T)$ for the $k$-fold self composite of $f$, that is
-\begin{equation*}
-  f^k(T) = \underbrace{f(f( \cdots (f}_{k-\text{fold}}(T)) \cdots) \quad \text{not to be confused with}
-  \quad f(T)^k = \underbrace{f(T) f(T) \cdots f(T)}_{k-\text{fold}}.
-\end{equation*}
-We call $f^k(T)$ the $k$-fold self-composite of $f$. If $f^{-1}(T) \in A\llbr T \rrbr$
-is a power series such that $f(f^{-1}(T)) = f^{-1}(f(T)) = T$, we call
-$f^{-1}(T)$ a formal inverse to $f$.
-
 \textbf{Cohomology.} 
 Throughout the text, we also fix a prime number $\ell \neq p$.
 Assume that $X$ is either 
@@ -73,13 +205,25 @@ For any $\cF \in \derD^+(X_\et, \underline \Lambda_X)$, we denote
 by $\derR^i\Gamma\cF = \hH^i(X, \cF) \in \Mod \Lambda$ (resp. $\derR^i \Gammac \cF = 
 \hHc^i(X, \cF) \in \Mod \Lambda$) its $i$-th cohomology group (resp, its
 $i$-th cohomology with compact support).
-We will also require the $\ell$-adic cohomology groups $\hH^i(X, \Qlbar)$ 
+We also need the $\ell$-adic cohomology groups $\hH^i(X, \Qlbar)$ 
 and $\hHc^i(X, \Qlbar)$. The classical $\ell$-adic formalism (cf. \cite{LeiFuEtale},
 \cite{jannsen1988continuous} for schemes and \cite{huber1998comparison} for
 analytic adic spaces) defines these groups via a limiting procedure in the 
 \'etale topos. Recent developements by Scholze and Bhatt--Scholze (cf.
 \cite{scholze2017etale} and \cite{bhattscholze2013pro}) allow for a definition
 as honest sheaf cohomology groups over the pro-\'etale site.
+
+\textbf{Formal Composition.}
+For a ring $A$ and a formal power series $f(T) = c_1 T + c_2 T^2 + \dots \in
+A\llbr T \rrbr$, we write $f^k(T)$ for the $k$-fold self composite of $f$, that is
+\begin{equation*}
+  f^k(T) = \underbrace{f(f( \cdots (f}_{k-\text{fold}}(T)) \cdots) \quad \text{not to be confused with}
+  \quad f(T)^k = \underbrace{f(T) f(T) \cdots f(T)}_{k-\text{fold}}.
+\end{equation*}
+We call $f^k(T)$ the $k$-fold self-composite of $f$. If $f^{-1}(T) \in A\llbr T \rrbr$
+is a power series such that $f(f^{-1}(T)) = f^{-1}(f(T)) = T$, we call
+$f^{-1}(T)$ a formal inverse to $f$.
+
 
 \textbf{Other.}\vspace{-1em}
 \begin{itemize}
