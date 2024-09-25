@@ -58,9 +58,11 @@ notion and its relation with the moduli problem $\cM_{\infty,
   (\Delta(X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}})^{q^{-m}} - \tau^{q^{-m}} \mid 
   m \in \N)^- ,
 \end{equation}
-for certain elements $\Delta \in \cO_{\br E} \llbr X_1^{q^{-\infty}}, \dots,
-X_n^{q^{-\infty}}\rrbr$ and $\tau \in \cO_\Cp$. The superscript minus denotes
-the completion of the ideal.
+where $\Delta \in \cO_{\br E} \llbr X_1^{q^{-\infty}}, \dots,
+X_n^{q^{-\infty}}\rrbr$ denotes the power series constructed in 
+\cref{sub:Determinants}, and a certain element $\tau \in \Nilp^\flat(\cO_\Cp)$
+(suspect to some choice). The superscript minus denotes the completion of the
+ideal.
 
 The main effort is taken in an description of the various group actions on
 $\cM_\infty \times_{\Spf(\cO_\br E)} \Spf(\cO_\Cp)$ in terms of this
@@ -162,26 +164,6 @@ of the $i$-th basis vector in the composition
 \end{equation*}
 
 
-In order to formulate the main result of this subsection, we also need a 
-version of the determinant mapping for the universal cover. 
-Taking the inverse limit with respect to $m$, the morphsims $\delta_m$ from
-\eqref{eq:determinantontorsionpoints} yield, for any 
-admissible $\cO_\br E$-algebra $R$, a determinant map on Tate modules
-\begin{equation*}
-  \delta \colon T_\varpi \cF (R)^n \to T_\varpi {\wedge \cF} (R) \quad \text{and} \quad
-  \delta \colon V_\varpi \cF (R)^n \to V_\varpi {\wedge \cF} (R),
-\end{equation*}
-as $V_\varpi \cF(R) = (T_\varpi \cF(R))\otimes_{\cO_E} E$. This allows us to define a 
-determinant map on the universal cover as follows. Let $I \subset R$ be an ideal
-of definition containing $\varpi$. Then
-$R/I$ is discrete, and by Lemma \ref{lem:UnivCoverIsRatTateifDiscrete}, we may
-define $\delta \colon \tilde \cF^n(R) \to \widetilde {\wedge \cF}(R)$
-as the composite
-\begin{equation*}
-  \tilde \cF^n(S) \xto \sim \tilde \cF(R/I)^n = V_\varpi \cF^n(R/I) 
-  \xto \delta V_\varpi {\wedge \cF}\, (R/I) = \widetilde {\wedge \cF}(R/I) 
-  \cong \widetilde {\wedge \cF}(R).
-\end{equation*}
 
 By naturality of the determinant map, this yields, for
 $j \in \Z$, a commutative square 
@@ -457,7 +439,7 @@ tedious.
     commutes.
 \end{lem}
 \begin{proof}
-    As in the proof of Lemma \ref{lem:EquivarianceForGLn}, we denote by $(X_1, \dots, X_n) \in \tilde \cF^n(A_\infty^{(j)})$
+    As in the proof of \cref{lem:EquivarianceForGLn}, we denote by $(X_1, \dots, X_n) \in \tilde \cF^n(A_\infty^{(j)})$
     the elements corresponding to the morphism
     $\cM_\infty^{(j)} \to \tilde \cF^n$ and denote by 
     $(Z_1, \dots, Z_n)$ the elements corresponding to the composition
@@ -554,12 +536,12 @@ of Proposition \ref{prop:UnivCoverReductionIso}.
 \end{proof}
 \end{lem}
 
-This Lemma allows us to make the $\cO_E$-module structure on $\Nilp^\flat$
+This lemma allows us to make the $\cO_E$-module structure on $\Nilp^\flat$
 explicit. Let $S$ be an adic $\cO_\br E$-algebra admitting an ideal of definition $J$ 
 containing $\varpi$. 
 
 \begin{lem}\label{lem:GroupStructureOnNilp}
-  The $K$-vector space structure on $\Nilp^\flat(S)$ takes on the following form.
+  The $E$-vector space structure on $\Nilp^\flat(S)$ takes on the following form.
   \begin{itemize}
     \item Given two $q$-th power compatible systems $y_1, y_2
       \in \Nilp^\flat(S)$ corresponding to compatible systems
@@ -575,7 +557,8 @@ containing $\varpi$.
     \item Similarly, given $a \in \cO_E$ and $y \in \Nilp^\flat(S)$ with
       $\mu(y) = x \in \Tilde H(S)$, we have 
       \begin{equation*}
-        a_H y = \lambda([a]_H(x)) = \lim_{r \to \infty} [a]_H(y^{q^{-r}})^{q^{r-j}}.
+        (a_H y)^{1/q^j} = \lambda([a]_H(x)) = \lim_{r \to \infty}
+        [a]_H(y^{q^{-r}})^{q^{r-j}}.
       \end{equation*}
       For $G$ as above, we have $[a]_H(x) = [a]_G(x)$. 
   \end{itemize}
@@ -600,7 +583,7 @@ containing $\varpi$.
 \end{proof}
 \end{lem}
 
-We obtain the following description of the $K^\times \times D^\times$-action.
+We obtain the following description of the $E^\times \times D^\times$-action.
 
 \begin{cor}\label{cor:ExplicitDescriptionOfActionOnUnivCov}
   Let $a \in E$ and $d \in D^\times$ be elements so that
@@ -633,8 +616,8 @@ We obtain the following description of the $K^\times \times D^\times$-action.
   root systems with
   respect to the addition in $H$, as defined in the previous lemma.
   \begin{proof}
-    This is an immediate corollary of the Lemma above, Lemma
-    \ref{lem:MultByROUForStandardModule} and the fact that 
+    This is an immediate corollary of the lemma above, 
+    \cref{lem:MultByROUForStandardModule} and the fact that 
     $[\varpi]_H(T) \equiv T^{q^n} \pmod \varpi$. 
   \end{proof}
 \end{cor}
@@ -674,7 +657,8 @@ of $\Nilp^\flat \times_{\spf \cO_\br E} \Spf(\cO_\Cp) \eqcolon \Nilp^\flat_{\cO_
   compatible with the Weil group action on $\cM_{\infty, \cO_\Cp}^{(0)}$.
 \end{rmk}
 
-We obtain the following description of the left action of $G$ on $\Xi_n$.
+We obtain the following description of the left action of $G$ on $\Xi_n = 
+\cO_\Cp\llbr X_1^{q^{-\infty}}, \dots, X_n^{q^{-\infty}}\rrbr$.
 
 \begin{lem}\label{lem:ExplicitActionOnQthPowerRootSystems}
   Let $g = (a_{ij})_{i,j} \in \GL_n(E)$, $d \in D^\times$ and $\sigma \in
@@ -689,9 +673,9 @@ We obtain the following description of the left action of $G$ on $\Xi_n$.
       $l$, we obtain, by Corollary
       \ref{cor:ExplicitDescriptionOfActionOnUnivCov}, the description
       \begin{equation*}
-        g^*(X_i) = \sum_{k=l}^\infty {\hspace{-3pt}}_H\hspace{3pt}
-        \sum_{j=1}^n{\hspace{-3pt}}_H\hspace{3pt} a_{ji}^{(k)} X_j^{q^{nk}}
-        \eqqcolon \gamma_{g,i}(X_1, \dots, X_n).
+        g^*(X_i^{1/q^r}) = \gamma_{g,i}(X_1, \dots, X_n)^{1/q^r} \coloneqq 
+        \sum_{k=l}^\infty {\hspace{-3pt}}_H\hspace{3pt}
+        \sum_{j=1}^n{\hspace{-3pt}}_H\hspace{3pt} a_{ji}^{(k)} X_j^{q^{nk-r}}.
       \end{equation*}
       
     \item $d^{-1,*} \colon \Xi_n \to \Xi_n$ is the isomorphism of 
@@ -701,8 +685,8 @@ We obtain the following description of the left action of $G$ on $\Xi_n$.
        Corollary \ref{cor:ExplicitDescriptionOfActionOnUnivCov}, we obtain the
        description
       \begin{equation*}
-        d^{-1, *}(X_i) =  \sum_{k=l}^\infty {\hspace{-3pt}}_H\hspace{3pt}
-        d_k X_i^{q^{-k}} \eqqcolon \delta_{d, i}(X_i).
+        d^{-1, *}(X_i) =   \delta_{d, i}(X_i) \coloneqq \sum_{k=l}^\infty
+        {\hspace{-3pt}}_H\hspace{3pt} d_k X_i^{q^{k-j}}.
       \end{equation*}
     \item $\sigma^*: \Xi_n \to \Xi_n$ is the isomorphism of 
       $\cO_E$-algebras given by $X_i \mapsto X_i^{q^{-m}}$ and 

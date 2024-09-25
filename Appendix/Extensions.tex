@@ -67,7 +67,7 @@ exact categories, following \cite[Appendix A]{keller1990chain}.
 As above, suppose that $A$ is any ring and $S$ is an $A$-scheme. Let $\cF$, $\cE$ and $\cF'$ be formal $A$-modules
 over $S$. The category $\FMArbOver AS$ is additive by Lemma \ref{lem:FGLAdditive}.
 
-\begin{defi}[Short Exact Sequence]\label{def:SESofFormalModules}
+\begin{defi}[Short Exact Sequence]
   A pair of composable morphisms $\cF' \to \cE \to \cF$ in 
   $\FMArbOver A S$ is called 
   a short exact sequence if the induced sequence 
@@ -83,7 +83,7 @@ over $S$. The category $\FMArbOver AS$ is additive by Lemma \ref{lem:FGLAdditive
   the respective formal modules. 
 \end{defi}
 
-\begin{lem}\label{lem:SESStandardForm}
+\begin{lem}%\label{lem:SESStandardForm}
   Let $R$ be an $A$-algebra and let $F, F' \in \FMLArbOver AR$ be 
   formal $A$-module laws of dimensions $m$ and $n$, respectively. Write 
   $\cF', \cF \in \FMArbOver AR$ for the associated formal $A$-modules,
@@ -97,7 +97,7 @@ over $S$. The category $\FMArbOver AS$ is additive by Lemma \ref{lem:FGLAdditive
   of formal module laws are of the form 
   $\alpha(\bX) = (\bX, 0)$, $\beta(\bX, \bZ) = \bZ$. Furthermore, 
   the formal $A$-module law $E$ is of the form
-  \begin{equation}\label{eq:SESStandardFormModuleLaw}
+  \begin{equation}%\label{eq:SESStandardFormModuleLaw}
   \begin{gathered}
     E((\bX_1, \bZ_1), (\bX_2, \bZ_2)) = (F'(\bX_1, \bX_2) +_{F'} \Delta(\bZ_1,
     \bZ_2) , F(\bZ_1, \bZ_2)) \\
@@ -130,23 +130,27 @@ over $S$. The category $\FMArbOver AS$ is additive by Lemma \ref{lem:FGLAdditive
   $\alpha$ and $\beta$ are morphisms of formal $A$-module laws. 
 \end{proof}
 \end{lem}
+
 Let's turn our attention to the power series $(\Delta, (\delta_a)_{a\in A})$
 appearing in the above Lemma. They satisfy certain conditions.
-\begin{defi}[Symmetric 2-cocycles]\label{def:SymCoc2}
+\begin{defi}[Symmetric 2-cocycles]%\label{def:SymCoc2}
   Let $\SymCoc^2(F, F')$ be the set of collections of power series $(\Delta,
   (\delta_a)_{a \in A})$ satisfying the following properties
   \begin{itemize}
     \item $\Delta(\bZ_1,\bZ_2) = \Delta(\bZ_2,\bZ_1)$
-    \item $\Delta(\bZ_2,\bZ_3) +_{F'} \Delta(\bZ_1, F(\bZ_2,\bZ_3)) = \Delta(F(\bZ_1,\bZ_2), \bZ_3) +_{F'} \Delta(\bZ_1,\bZ_2)$
-    \item $\delta_a(\bZ_1) +_{F'} \delta_a(\bZ_2) +_{F'} \Delta([a]_F(\bZ_1), [a]_F(\bZ_2)) = 
+    \item $\Delta(\bZ_2,\bZ_3) +_{F'} \Delta(\bZ_1, F(\bZ_2,\bZ_3)) =
+      \Delta(F(\bZ_1,\bZ_2), \bZ_3) +_{F'} \Delta(\bZ_1,\bZ_2)$
+    \item $\delta_a(\bZ_1) +_{F'} \delta_a(\bZ_2) +_{F'} \Delta([a]_F(\bZ_1),
+      [a]_F(\bZ_2)) = 
       [a]_{F'}\Delta(\bZ_1,\bZ_2) +_{F'} \delta_a(F(\bZ_1,\bZ_2))$
-    \item $\delta_a(\bZ_1) +_{F'} \delta_b(\bZ_1) +_{F'} \Delta([a]_F(\bZ_1), [b]_F(\bZ_1)) =
+    \item $\delta_a(\bZ_1) +_{F'} \delta_b(\bZ_1) +_{F'} \Delta([a]_F(\bZ_1),
+      [b]_F(\bZ_1)) =
       \delta_{a+b}(\bZ_1)$
     \item $[a]_{F'}\delta_b(\bZ_1) +_{F'} \delta_a([b]_F(\bZ_1)) = \delta_{ab}(\bZ_1)$.
   \end{itemize}
   These objects are called symmetric $2$-cocycles. 
 \end{defi}
-\begin{prop}\label{prop:ClassOfFGLitoSymCoc}
+\begin{prop}%\label{prop:ClassOfFGLitoSymCoc}
   There is a bijection 
   \begin{equation*}
     \SymCoc^2(F, F') \xto \sim \left\{
@@ -205,6 +209,26 @@ appearing in the above Lemma. They satisfy certain conditions.
   Similar ideas show that $\beta$ is a cokernel of $\alpha$. 
 \end{proof}
 
+\end{lem}
+
+Similar ideas lead to the following result.
+
+\begin{lem}\label{lem:ClassificationOfInflAndDefl}
+  A morphism $\psi\colon \cF \to \cG$ of formal module laws is a  deflation
+  if and only if $\Lie(\psi)$ is surjective. It is an inflation if and only
+  if $\Lie(\psi)$ is injective with free cokernel.
+  \begin{proof}[Proof]
+    We prove the deflation result, the result about inflations follows along the
+    same lines but is a bit more tedious. We may choose 
+    coordinates on $\cF$ and $\cG$ such that $G$ is a formal $\cO_E$-module law
+    in variables $\bX$ and $F$ is a formal $\cO_E$-module law in variables
+    $(\bX, \bZ)$, and the morphism $F \to G$ is given by $(\bX, \bZ) \mapsto
+    \bZ$. Now, writing $F = (F_1, F_2)$ and $[a]_F = ([a]_{F,1}, [a]_{F,2})$, we find
+    that $(F_1(\bX, 0), ([a]_{F,1}(\bX, 0))_{a \in \cO_E})$ yields a formal
+    $\cO_E$-module law $F'$ in the variables $\bX$, and that the map
+    $\bX \mapsto (\bX, 0)$ gives a morphism $F' \to F$ that fits into an exact sequence
+      $0 \to F' \to F \to G \to 0$. This is what we wanted to show.
+  \end{proof}
 \end{lem}
 
 \begin{lem}
@@ -332,7 +356,7 @@ As a consequence of the previous lemmas, we obtain the following result.
 \end{prop}
 
 The following calculation is convenient.
-\begin{lem}\label{lem:LieAlgebrasOfPBandPFW}
+\begin{lem}%\label{lem:LieAlgebrasOfPBandPFW}
   We have natural isomorpisms 
   \begin{equation*}
     \Lie(f^* \cE) \cong \Lie(\cE) \times_{\Lie(\cF)} \Lie(\cG) \quad \text{and}
@@ -436,7 +460,7 @@ inclusion.
 Of course there is a natural transformation $\RigExt(-,-) \to \Ext(-,-)$,
 forgetting the splitting. It appears as the right-most
 term of an interesting exact sequence.
-\begin{prop}\label{prop:InterestingES}
+\begin{prop}%\label{prop:InterestingES}
   There is an exact sequence of Abelian groups, functorial in
   $\cF$ and $\cF'$
   \begin{equation*}

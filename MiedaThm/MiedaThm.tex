@@ -11,11 +11,11 @@ We give a brief summary of the content of results in \cite{mieda2016geometric}.
 \label{sub:The Injectivity FinLevel}
 Let $\cY$ be a flat and topologically of finite type formal scheme over $\Spf(\cO_\Cp)$.
 Utilizing a classical construction of Raynauld \cite{raynaud1974geometrie}, we 
-can consider the corresponding rigid generic fiber $d(\cY)$, which we may
+have the corresponding rigid generic fiber $d(\cY)$, which we may
 consider as an analytic adic space over $\Spa(\Cp,\cO_\Cp)$ by \cite[Section
 1.9]{huber2013etale}. We denote by $\cY_s = \cY \times_{\Spf(\cO_\Cp)} \spec
 (\Fqbar)$ the special fiber of $\cY$, which is a scheme of finite type over $\spec(
-\Fqbar)$. By the disussion at the beggining of \cite[Section
+\Fqbar)$. By the disussion at the begining of \cite[Section
 3.5]{huber2013etale}, we have a morphism of sites
 \begin{equation*}
   \lambda_\cY \colon d(\cY)_\et \to (\cY_\reduc)_\et \cong \cY_{s, \et}.
@@ -78,7 +78,7 @@ Let us assume that $d(\cY)$ is smooth over $\Spa(\Cp, \cO_\Cp)$. Then, by
   \Tr_{d(\cY)} \colon \derR  \Gamma_c( d(\cY), \underline \Lambda_{d(\cY)} ) \to 
   \Lambda (-d)[-2d].
 \end{equation*}
-Let us write $f \colon \cY_s \to \spec\Fqbar$ for the structure map. Then by the 
+Let us write $f \colon \cY_s \to \spec\Fqbar$ for the structure morphism. Then by the 
 adjunction $\derR f_! \ladj f^!$ and the isomorphism in \eqref{eq:NearbyCycleIsomorphism},
 we obtain a map
 \begin{equation*}
@@ -146,7 +146,7 @@ specializazion map.
 \end{prop}
 
 Now, let $X$ be a purely $d$-dimensional separated smooth scheme of finite type
-over $\spec(\Fqbar)$, with structure map denoted by $g$. Assume that there is a
+over $\spec(\Fqbar)$, with structure morphism denoted by $g$. Assume that there is a
 finite surjective morphism
 \begin{equation*}
   \pi: \cY_s \to X.
@@ -247,7 +247,7 @@ is commutative. The following statement is a direct consequence.
     \hHc^i(d(\cY), \underline \Lambda_{d(\cY)}) \to 
     \hHc^i(Z,      \underline \Lambda_Z).
   \end{equation*}
-\begin{proof}
+\begin{proof}[Sketch of Proof]
   By construction of the lower shriek for taut morphisms (cf. \cite[Section 0.4
   D)]{huber2013etale}), formation of the lower shriek functor is covariant with
   respect open embeddings, and we have the commutative square
@@ -387,11 +387,10 @@ $Q' = Q \cap B'$ and $Q_K = (Q')^K \subset Q$ for any open normal subgroup $K
 
 By \cite[Lemma 3.16]{mieda2016geometric}, it is possible to find a normal
 subgroup $K \subseteq K_0$,
-an $\cO_\Cp$-subalgebra $Q_0$ which is topologically finitely generated (that is,
+an $\cO_\Cp$-subalgebra $Q_0$ which is a ring of definition for $B_K$ and topologically finitely generated (that is,
 admitting a surjection from $\cO_\Cp \langle T_1, \dots, T_r \rangle$ for some $r
-\in \N$) and a ring of definition for $B_K$, and a finite surjective
-morphism $\pi\colon \spec(Q_0 \otimes \Fqbar) \to \spec(R) = Y$ that fits into
-a commutative square
+\in \N$), and a finite surjective morphism $\pi\colon \spec(Q_0 \otimes \Fqbar)
+\to \spec(R) = Y$ that fits into a commutative square
 \begin{equation}\label{eq:PiFitsDiag}
 \begin{tikzcd}[ampersand replacement=\&]
   {\spec(Q \otimes_{\cO_\Cp} \Fqbar)} \& {\spec(Q_0 \otimes_{\cO_\Cp}\Fqbar)} \\
@@ -437,13 +436,13 @@ $\spec(Q_0' \otimes_{\cO_\Cp} \Fqbar) \to \spec(Q_0 \otimes_{\cO_\Cp} \Fqbar)$.
 \end{proof}
 \end{lem}
 
-\begin{lem}\label{lem:specmapisindependentofchoice}
+\begin{prop}\label{lem:specmapisindependentofchoice}
   The specialization map as defined in \eqref{eq:DefSpecMapAtInfLevel} is
   independent of the choice of triple $(K, Q_0, \pi) \in \cD$. 
   \begin{proof}
     This is Lemma 3.18 in \cite{mieda2016geometric}.
   \end{proof}
-\end{lem}
+\end{prop}
 
 The condition that $Q_0$ must be topologically finitely generated is imposed 
 because it allows to show that the specialization map is equivariant for the 
@@ -462,7 +461,7 @@ $J^1$-action on both sides.
     is that for each open normal subgroup $K \subset K_0$, and any 
     $(K, Q_0, \pi) \in \cC$, there is a open subgroup $K' \subset K$ fixing the 
     finitely many topological generators of $Q_0$. Now it can be shown that 
-    $\sigma(B_K) \subset B_{K'}$, and the resulting morphism
+    $\sigma(B_K) \subset B_{K'}$, and the that resulting morphism
     $\sigma\colon B_K \to B_{K'}$ is finite. This induces finite morphisms
     $U_{K'} \to U_K$, and we obtain the desired automorphism after taking 
     compactly supported cohomology and colimit over $K$. 

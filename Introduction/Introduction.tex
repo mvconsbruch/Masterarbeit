@@ -26,8 +26,9 @@ modular curves with bad reduction at $p$ (where $p$ denotes the residue
 characteristic of $E$), \textsc{Henri Carayol} predicted in his 1990 paper
 \textit{Non-Abelian Lubin--Tate Theory} that this (at the time conjectural)
 correspondence appears, along with the Jacquet--Langlands Correspondence, in
-the $\ell$-adic cohomology of the Lubin--Tate tower, which is a certain projective
-system related to deformation spaces of formal $\cO_E$-modules.
+the $\ell$-adic cohomology of the Lubin--Tate tower (cf. \cite{carayol1990non}),
+which is a certain projective system of rigid analytic spaces related to
+deformation spaces of formal $\cO_E$-modules.
 % The latter is a certain projective system of rigid analytic
 % spaces arising from moduli of deformations of formal $\cO_E$-modules with
 % Drinfeld level $\varpi^m$
@@ -35,7 +36,7 @@ system related to deformation spaces of formal $\cO_E$-modules.
 % natural right action by the group $\GL_n(E) \times D^\times \times \Weil_E$,
 % where $D$ is a division algebra over $E$ with invariant $1/n$ and $\Weil_E$ is
 % the Weil group attached to $E$. 
-This cohomology group, denoted $\HLT$, carries the structure of a
+The cohomology group in question, denoted $\HLT$, carries the structure of a
 representation of $\GL_n(E) \times D^\times \times \Weil_E$, where $D$ is a
 division algebra over $E$ with invariant $1/n$ and $\Weil_E$ is the Weil group
 attached to $E$. Carayol's conjecture predicts that for supercuspidal
@@ -46,25 +47,29 @@ decomposes (up to duals and twists) as
 \end{equation*}
 where $\JL(\pi)$ and $\rec_E(\pi)$ denote the representations 
 of $D^\times$ and $\Weil_E$ corresponding to $\pi$ under the Jacquet--Langlands and 
-local Langlands correspondences.
+local Langlands correspondences. The study of the representation
+$\HLT$ is colloqually regarded to as Non-Abelian Lubin--Tate Theory.
 
 Roughly a decade later, this approach was used by \textsc{Michael Harris} and
 \textsc{Richard Taylor} to define the local Langlands correspondence for
 $\GL_n$ over $p$-adic fields, verifying (a slight modification of)
 Carayol's conjectures along the way (cf. \cite{HTShimura}). 
 Around the same time, \textsc{Pierre Boyer} 
-proved Carayol's conjectures for local function fields (cf. \cite{boyer1999mauvaise}). 
+proved Carayol's conjectures for local function fields (cf.
+\cite{boyer1999mauvaise}). 
 
-While pioneering, their results leave questions unanswered, two of which we aim
-to address in the present text. First, they prove the local Langlands correspondence
-as a pure existence theorem, shedding no light on the question of an explicit description
-of the correspondence. Secondly, and this point is of rather conceptual nature, 
-their proof makes essential use of global arguments, ultimately requiring to 
-realize $E$ as the completion of some global field at one of its places.
+Whilst these results are milestone accomplishments, they leave a few questions
+unanswered, two of which we aim to address in the present text. First, 
+Harris--Taylor prove the local Langlands correspondence
+as a pure existence theorem, shedding no light on the question of an explicit
+description of the correspondence. Secondly, and this point is of rather
+conceptual nature, their proof makes essential use of global arguments,
+ultimately requiring to realize $E$ as the completion of some global field at
+one of its places.
 
 In order to have any hope of attacking the latter issue, it appears essential
 to gain a deeper understanding of the geometry of the Lubin--Tate tower. 
-A first step in this direction was taken by \textsc{Teruyoshi Yoshida} in his
+A step in this direction was taken by \textsc{Teruyoshi Yoshida} in his
 2004 paper \textit{On non-abelian Lubin--Tate theory via vanishing cycles}
 (cf. \cite{yoshida2010non}).
 Yoshida uses a series of blow-ups to construct a
@@ -81,7 +86,8 @@ providing a framework that allows to analyze the geometry of the projective limi
 $M_\infty$ of the spaces in the Lubin--Tate tower. 
 While no longer a locally finite-type analytic space, the
 Lubin--Tate perfectoid space $M_\infty$ turns out to be easier to work with than 
-its individual layers. For example, it admits a coordinate that is not
+the individual layers of the Lubin--Tate tower. For example, it admits a
+coordinate that is not
 available at finite level.
 Recent results along the lines of Weinstein's program
 (cf., for example, \cite{weinstein2016semistable},
@@ -93,13 +99,10 @@ inside the $\ell$-adic cohomology of their reduction. This approach relies on
 previously known explicit descriptions of the local Langlands
 correspondence.
 
-Mieda's 2016 paper \textit{Geometric
-  approach to the explicit local Langlands correspondence} (cf.
-  \cite{mieda2016geometric}) reverses this approach. Given a formal model $\cX$ of a
-  rational subset $U \subset M_\infty$, his results show that, under
-certain assumptions, there is an injective map
-from certain subspaces $V$ of the cohomology of the 
-special fiber of $\cX$ into $\HLT$. Using the results of non-Abelian
+Work of \textsc{Yoichi Mieda} (cf. \cite{mieda2016geometric}) reverses this
+approach. Given a formal model $\cX$ of a rational subset $U \subset M_\infty$,
+his results show that parts of the cohomology of the
+special fiber of $\cX$ appear inside $\HLT$. Using the results of non-Abelian
 Lubin--Tate theory, this allows, together with the zoo of formal models
 constructed in the works referenced above, for an explicit description of
 certain parts of the local Langlands correspondence.
@@ -112,9 +115,10 @@ the following results.
       space admitting a formal $\cX$ whose reduction is isomorphic to the
       perfection of a Deligne--Lusztig variety for $\GL_n(\FF_q)$. Furthermore,
       this isomorphism is compatible for certain group actions on both sides.
-    \item If $\pi$ is a depth zero supercuspidal representation of $\GL_n(E)$, 
-      we can calculate $\rec_E(\pi)$ and $\JL(\pi)$ explicitly via purely geometric
-      arguments.
+    \item Let $\pi$ be a depth zero supercuspidal representation of $\GL_n(E)$.
+      Admitting the results of non-Abelian Lubin--Tate theory, we can
+      calculate $\rec_E(\pi)$ and $\JL(\pi)$ explicitly using arguments that
+      purely rely on the geometry of the Lubin--Tate tower.
   \end{enumerate}
 \end{thm*}
 The first part is an infinite level analogue of the construction by Yoshida,
@@ -136,7 +140,7 @@ relevant group actions.
 
 \textbf{Section 4} introduces the Lubin--Tate space at infinite level. 
 We follow ideas of Weinstein to define a certain coordinate on $\cM_\infty = 
-\lim_{m \in \N} \cM_m$. The main result of this section is an description of
+\lim_{m \in \N} \cM_m$. The main result of this section is a description of
 the group actions on $\cM_\infty$ in terms of this coordinate. 
 
 \textbf{Section 5} reviews the results of Mieda's paper \cite{mieda2016geometric}.
@@ -155,9 +159,8 @@ previous sections to prove the results announced above.
 
 \subsection*{Notation and Conventions} % (fold)
 \addcontentsline{toc}{subsection}{Notation and Conventions}
-Throughout the text, we fix a positive integer $n \in \N$.
 
-\textbf{Fields.} Additionally, we fix a non-Archimedian local field $E$
+\textbf{Fields.} Throughout the text, we fix a non-Archimedian local field $E$
 and a choice of uniformizer $\varpi \in E$. We denote by $\FF_q$ the residue
 field of $E$, whose characteristic we denote by $p \in \N$. We furthermore fix
 an algebraic closure $\bar E$ of $E$. The $\varpi$-adic absolute value $\abs
@@ -237,6 +240,8 @@ $f^{-1}(T)$ a formal inverse to $f$.
   \item If $\cF$ is a set (or a presheaf), and $\sigma\colon \cF \to \cF$ is an
     automorphism, we denote by $\cF^\sigma$ the set (or presheaf) of 
     $\sigma$-invariants.
+  \item Starting in \cref{sec:Local Class Field Theory}, we fix a positive
+    integer $n \in \N$, along with a Division algebra $D$ over $E$ of invariant $1/n$. 
 \end{itemize}
 
 % subsection Notation (end)
