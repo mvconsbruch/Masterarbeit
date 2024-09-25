@@ -14,7 +14,7 @@ obtained by compact induction from Deligne--Lusztig theory. In
 particular, we give explicit descriptions of $\rec_E(\pi)$ and $\JL(\pi)$. 
 The main input is the construction of an affinoid in the Lubin--Tate perfectoid
 space whose special fiber is isomorphic to the perfection of the 
-Deligne--Lusztig variety constructed in Section \ref{sub:An Explicit Example}.
+Deligne--Lusztig variety constructed in  \ref{sub:An Explicit Example}.
 Mieda's results give a relation between the $\ell$-adic cohomology of $\DL_n$
 and the representation $\HLT$, which allows to make some parts of $\HLT$
 explicit.
@@ -26,7 +26,7 @@ subset cut out by the inequalities $\abs{X_i(x)} \leq \abs{\varpi(x)}^{1/q^n-1}$
 $i = 1, \dots, n$. We construct formal model $\cX \in \FSchOver {\cO_{\Cp}}$
 of $U$ whose special fiber $\cX_s = 
 \cX \times_{\spf(\cO_{\Cp})}\spec(\bar \FF_q)$ is isomorphic to the perfection of the
-Deligne--Lusztig variety $\DL_n$ constructed in Section \ref{sub:An Explicit Example}.
+Deligne--Lusztig variety $\DL_n$ constructed in  \ref{sub:An Explicit Example}.
 Furthermore, the formal model $\cX$ is compatible with the group actions
 defined on $\DL_n$ and $M_{\infty, \cO_\Cp}^{(0)}$. 
 
@@ -204,7 +204,7 @@ The last result we need is the following.
 
 \subsection{Comparison of the Group Actions} % (fold)
 \label{sub:Proof of Proposition}
-In Section \ref{sec:Non-Abelian Lubin-Tate Theory: An Overview}, we saw that
+In  \ref{sec:Non-Abelian Lubin-Tate Theory: An Overview}, we saw that
 the Lubin--Tate perfectoid space 
 $$M_{\infty, \Cp}^{(0)} = \cM_{\infty} \times_{\Spa(\hat E^\ab, \cO_{\hat
 E^\ab})} \Spa(\Cp, \cO_\Cp)$$ 
@@ -219,7 +219,7 @@ the action of $J^1$ on $U$ extends to an action of $J^1$ on the formal model
 $\cX$. This induces a right action on the special fiber
 $\cX_s$ of $\cX$, and as $\cX_s \cong Y_b^\perf \subset \DL_n^\perf$, this
 yields an action of $J^1$ on the perfection of a part of the Deligne--Lusztig
-variety constructed in Section \ref{sub:An Explicit Example}. Recall that the group 
+variety constructed in  \ref{sub:An Explicit Example}. Recall that the group 
 \begin{equation*}
   \bar J^1 = (\GL_n(\FF_q) \times \FF_{q^n}^\times)^1 \times n\Z
 \end{equation*}
@@ -407,10 +407,10 @@ theory, a representation of $\GL_n(E)$. The construction is as follows.
     statements hold for $\bar \rho_\theta$ and $\bar \tau_\theta$. Hence,
     $\pi_\theta$, $\rho_\theta$ and $\tau_\theta$ are smooth as well. 
     In the case that $n=2$, the fact that $\pi_\theta$ is supercuspidal and
-    irreducible is laid out in detail in \cite[Section 11]{bushnell2006local}.
+    irreducible is laid out in detail in \cite[ 11]{bushnell2006local}.
     The general case should add no complication. 
     Similarly, irreducibility of $\rho_\theta$ is shown, again in the case 
-    $n=2$, in \cite[Section 54]{bushnell2006local}. 
+    $n=2$, in \cite[ 54]{bushnell2006local}. 
   \end{proof}
 \end{lem}
 
@@ -431,7 +431,7 @@ The aim of this section is to prove the following statement.
 
 
 Recall that $H_\DL$ denotes the middle $l$-adic cohomology of 
-$\DL_n$, cf. Section \ref{sub:The Deligne--Lusztig Correspondence for the
+$\DL_n$, cf.  \ref{sub:The Deligne--Lusztig Correspondence for the
 Explicit Example}.
 \begin{lem}
   The morphism $\Theta$ makes $J$ act on ${\hH}_{\DL,\theta}$. This representation is 
@@ -460,7 +460,7 @@ following.
     $Q$ is flat over $\cO_\Cp$ (\cref{prop:FlatnessOfFormalModel}),
     and there is group action of $J^1$ on $Y_b$, which is compatible with the group
     action on $\cX_s$ obtained from the group action of $J^1$ on $M_{\infty,
-    \cO_\Cp}^{(0)}$ (Section \ref{sub:Proof of Proposition}).
+    \cO_\Cp}^{(0)}$ ( \ref{sub:Proof of Proposition}).
     We are therefore in the situation of Mieda's Injectivity 
     \cref{thm:MiedaAppliedToLTT}, 
     which we want to apply with $V = \hH^{n-1}_c(Y_b, \Qlbar)_\theta$. 
@@ -482,11 +482,18 @@ following.
   \end{proof}
 \end{prop}
 
+Recall that 
+\begin{equation*}
+  \bar G = \GL_n(E) \times (D^\times/\varpi^\Z) \times \Weil_E,
+\end{equation*}
+and that $G^1$ is naturally a co-compact and closed normal subgroup of $\bar G$
+(\cref{lem:G1subG}). 
+
 \begin{lem} \label{lem:JEquivInjMor}
   The injection from \cref{prop:J1EquivInjMor} naturally gives rise to
   an injective $J$-equivariant morphism
   \begin{equation*}
-    \hH_{\DL,\theta} \inj \Res_J^G \hH_\LT.
+    \hH_{\DL,\theta} \inj \Res_J^{\bar G} \hH_\LT.
   \end{equation*}
 \begin{proof}
   We construct a sequence of $J$-equivariant injections
@@ -494,7 +501,7 @@ following.
     \hH_{\DL,\theta} \inj \Ind_{J^1}^J ( \Res_{J^1}^J \hH_{\DL,\theta}) \inj
     \Ind_{J^1}^J (\Res_{J^1}^{G^1} \hH'_{\LT}) \\ \xto \sim \Res_J^{G^1J}(
     \Ind_{G^1}^{G^1J} \hH'_\LT) 
- \inj \Res_J^G \hH_\LT.
+    \inj \Res_J^{\bar G} \hH_\LT.
   \end{equation*}
   \textit{The first morphism.}
   This is the unit of the adjunction $\Res_{J^1}^J \ladj \Ind_{J^1}^J$ 
@@ -510,42 +517,44 @@ following.
   \textit{The third morphism.} 
   The morphism is given by the inverse of the base-change morphism constructed in
   \cref{lem:BaseChangeForResInd}, which is applied with $H = G^1$, $N = J$. 
-  Note that $G^1$ is normal in $G$, so the assumptions of the lemma are
-  satisfied. As $J$ is open in $G$, the map is an isomorphism. 
+  Note that $G^1$ is normal in ${\bar G}$, so the assumptions of the lemma are
+  satisfied. As $J$ is open in ${\bar G}$, the map is an isomorphism. 
   
   \textit{The fourth morphism.}
-  Since $G^1J$ is open in $G$, the unit of the adjunction $\cInd_{G^1J}^G \ladj
-  \Res_{G^1J}^G$ yields a monomorphism of $G^1J$-representations 
+  Since $G^1J$ is open in ${\bar G}$, the unit of the adjunction $\cInd_{G^1J}^{\bar G} \ladj
+  \Res_{G^1J}^{\bar G}$ yields a monomorphism of $G^1J$-representations 
   \begin{equation}\label{eq:MiedaEx1Morph1}
-    \Ind_{G^1}^{G^1J} \hH_\LT' \to \Res_{G^1J}^G
-    (\cInd_{G^1J}^G(\Ind_{G^1}^{G^1J} \hH'_\LT)).
+    \Ind_{G^1}^{G^1J} \hH_\LT' \to \Res_{G^1J}^{\bar G}
+    (\cInd_{G^1J}^{\bar G}(\Ind_{G^1}^{G^1J} \hH'_\LT)).
   \end{equation}
-  As $G^1J$ co-compact in $G$, we have $\cInd_{G^1J}^G =
-  \Ind_{G^1J}^G$, so the right-hand
-  side is isomorphic to $\Res_{G^1J}^G(\Ind_{G^1}^G \hH'_\LT) \cong
-  \Res_{G^1J}^G(\hH_\LT)$ by \cref{prop:InductionOnTower} and 
+  As $G^1J$ co-compact in ${\bar G}$, we have $\cInd_{G^1J}^{\bar G} =
+  \Ind_{G^1J}^{\bar G}$, so the right-hand
+  side is isomorphic to $\Res_{G^1J}^{\bar G}(\Ind_{G^1}^{\bar G} \hH'_\LT) \cong
+  \Res_{G^1J}^{\bar G}(\hH_\LT)$ by \cref{prop:InductionOnTower} and 
   \cref{lem:InductionStatementOnHLT}. Hence, applying $\Res_J^{G^1J}$ to the
   morphism in \eqref{eq:MiedaEx1Morph1} yields the desired map.
 \end{proof}
 \end{lem}
 
 The morphism constructed in \cref{lem:JEquivInjMor} yields, by Frobenius
-reciprocity, a non-zero map of $G$-representations
+reciprocity, a non-zero map of ${\bar G}$-representations
 \begin{equation} \label{eq:WantedMap}
-  \Ind_{J}^G (\hH_{\DL,\theta}) \cong \pi_\theta \boxtimes \rho_{\theta^{-1}}
-  \boxtimes (\tau_\theta \, \delta^{n-1})^{-1}(\tfrac{1-n}2) \to \hH_\LT.
+  \Ind_{J}^{\bar G} (\hH_{\DL,\theta}) \cong \pi_\theta \boxtimes \rho_{\theta^{-1}}
+  \boxtimes \Ind_{\Weil_{E_n}}^{\Weil_E} (\tau_\theta \,
+  \delta^{n-1})^{-1}(\tfrac{1-n}2) \to \hH_\LT.
 \end{equation}
 As $\pi_\theta$ is supercuspidal and its central character is trivial on 
 $\varpi^\Z$, non-Abelian Lubin--Tate theory (\cref{thm:NonAbLTT}) yields a non-zero map
 \begin{equation*}
-  \rho_{\theta^{-1}} \boxtimes (\tau_\theta \, \delta^{n-1}) \to
+  \rho_{\theta^{-1}} \boxtimes \Ind_{\Weil_{E_n}}^{\Weil_E} (\tau_\theta \, \delta^{n-1}) \to
   \JL(\pi_\theta)^\vee \boxtimes \rec_E(\pi_\theta)^\vee.
 \end{equation*}
 As $\rho_{\theta^{-1}}$ and $\JL(\pi_\theta)^\vee$ are irreducible, this implies
 $\JL(\pi_\theta) = \rho_{\theta^{-1}}^\vee = \rho_\theta$. As 
 $\rec_E(\pi_\theta)$ is irreducible and $\dim(\tau_\theta) = n = \dim
-(\rec_E(\pi_\theta))$, this also implies $\tau_\theta \, \delta^{n-1} =
-\rec_E(\pi_\theta)$, concluding the proof of \cref{thm:MainRes1}.
+(\rec_E(\pi_\theta))$, this also implies $\Ind_{\Weil_{E_n}}^{\Weil_E}
+(\tau_\theta \, \delta^{n-1}) = \rec_E(\pi_\theta)$, concluding the proof of
+\cref{thm:MainRes1}.
 
 % subsection (end)
 

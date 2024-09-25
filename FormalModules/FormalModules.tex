@@ -32,7 +32,7 @@ For now, let $R$ be any ring, and let $n$ and $m$ be arbitrary integers.
   \end{enumerate}
   Here, and in the sequel, we abbreviate $\mathbf X =
   (X_1, \dots, X_n)$, et cetera. From the axioms two and three, it follows that 
-  $F_i(\bX, \bY) \equiv X_i + Y_i$ modulo terms of degree $2$.
+  $F_i(\bX, \bY) \equiv X_i + Y_i$ modulo terms of degree $\geq 2$.
   Given a formal group $F$ of dimension $n$ and a formal group law
   $G$ of dimension $m$,
   a morphism $F \to G$ is an $m$-tuple $f = (f_1, \dots, f_m)$ 
@@ -245,7 +245,7 @@ The functor
   \FGG\colon  \FMLArbOver AR \to \FMArbOver AR,
 \end{equation*}
 essentially forgets the choice of module law. Given a formal $A$-module
-$\cF$ over $R$, any isomorphism $\cF \cong \FGG(F)$, with $F$ a formal $A$ module
+$\cF$ over $R$, any isomorphism $\cF \cong \FGG(F)$, with $F$ a formal $A$-module
 law, will be referred to as a Coordinate for $\cF$.
 
 
@@ -282,9 +282,9 @@ law, will be referred to as a Coordinate for $\cF$.
   Using the evident coordinate, we may equip
   $\Ghat_{m,\Z_p}$ the structure of a formal $\Z_p$-module law, with
   $[a]_{\Ghat_m}(T) = (1+T)^a -1$ for $a \in \Z_p$. 
-  This is a simple example of a whole family of formal modules constructed by 
-  Lubin and Tate, we recall their construction in 
-  \cref{sub:Lubin--Tate Formal Module Laws}. In Section \ref{sec:Local Class
+  Lubin and Tate found analogues of this construction for the rings of integers 
+  over arbitrary non-Archimedia local fields $E$. We recall their construction in 
+  \cref{sub:Lubin--Tate Formal Module Laws}. In  \ref{sec:Local Class
   Field Theory} we explain applications of these formal modules to local class
   field theory.
 \end{xpl}
@@ -323,10 +323,10 @@ $R$ -algebra, the above definition overloads the expression $\Ghat_a \otimes_R R
 
 \subsection{Invariant Differentials and Logarithms} % (fold)
 \label{sub:Logarithms}
-We now let $A = {\cO_E}$. Let $R$ be a local,
-admissible ${\cO_E}$-algebra with structure map $i\colon  {\cO_E} \to R$.
+We now let $A = {\cO_E}$. Let $R$ be a local ${\cO_E}$-algebra with structure
+map $i\colon  {\cO_E} \to R$.
 
-We review results from Sections
+We review results from s
 2 and 3 of \cite{hopkins1994equivariant}. 
 Suppose that $\bF = (F_1, \dots, F_n)$ is an $n$-dimensional formal ${\cO_E}$-module
 law over $R$. We abbreviate $\bX = (X_1, \dots, X_n)$, $\bY = (Y_1,
@@ -497,7 +497,7 @@ and satisfying
 Let $R$ be an $\cO_E$-algebra, and let 
 $\FF_q$ be the residue field of $\cO_E$. We have seen in the previous section
 that if $R$ is a field extension of $E$,
-then any morphism of formal group laws $f\colon  F \to G$ over $R$ is either $0$
+then any morphism of formal group laws $f\colon  F \to G$ over $R$ is either trivial
 or an isomorphism, which makes the theory of formal $\cO_E$-modules over $R$ rather
 simple. This situation changes if $R$ is a field extension of $\FF_q$: there are
 homomorphisms of formal group laws $f\colon F \to G$ corresponding to power
@@ -651,8 +651,10 @@ $q$-th power frobenius on $\FF_{q^n}$.
   \Fqbar \llbr T \rrbr$
   that furnishes an endomorphisms of $\XX$ has to satisfy $f(T^{q^n}) = f(T)^{q^n}$,
   we find that $f(T)$ is defined over $\FF_{q^n}$. But now 
-  $f(T) = f_1(T^q) +_{\XX} [\zeta](T)$ for some suitable $\zeta \in \cO_{E_n}$,
-  and iterating this process we find that indeed, $\End(\XX)$ is of the form
+  $g(T) = f(T) -_{\XX} [\zeta](T)$ has trivial derivative for some suitable
+  $\zeta \in \cO_{E_n}$, so $g(T) = f_1(T^q) = f_1 \circ \Pi(T)$ by
+  \cref{lem:LemmaForDefOfHeight}.
+  Iterating this process, we find that $\End(\XX)$ is indeed of the form
   given above. The second part follows immediately by
   \cref{prop:classificationofmodulelawsbyheight}. Also cf.
   \cite[Proposition 1.7]{drinfel1974elliptic}.
@@ -845,7 +847,7 @@ that ensures that $f$ arises as the logarithm of some formal $\cO_E$-module law.
   \end{enumerate}
 \end{thm}
   \begin{proof}
-    A more general statement can be found in \cite[Sections 2 and
+    A more general statement can be found in \cite[s 2 and
     10]{hazewinkel1978formal}.
   \end{proof}
 
@@ -1060,7 +1062,7 @@ $R$ obtained by applying $\tilde \alpha$ to the coefficients of $F_v$.
 By the Functional Equation Lemma (\cref{thm:HazewinkelIntegrality}), we find
 that $F_\alpha \otimes \Fqbar$ is equal to $\XX$. Hence 
 $F_\alpha \in \cM_{0, \text{FML}}^{(0)}(R)$, and the mapping $\alpha \mapsto F_\alpha$
-can be shown to be an isomorphism, cf. \cite[Section 12]{hopkins1994equivariant}. 
+can be shown to be an isomorphism, cf. \cite[ 12]{hopkins1994equivariant}. 
 
 % subsection Deformations of Formal Modules (end)
 
@@ -1068,7 +1070,7 @@ can be shown to be an isomorphism, cf. \cite[Section 12]{hopkins1994equivariant}
 \label{sub:Quotients of Formal Modules by Finite Submodules}
 Let $R$ be a Noetherian, regular, local $\cO_\br E$-algebra 
 that is complete with respect to its maximal ideal and has residue field $\Fqbar$.
-Let $F \in \FMLArbOver {\cO_E}R$ be a formal $\cO_E$-module law over $R$. 
+Let $F \in \FMLOver {\cO_E}R$ be a formal $\cO_E$-module law over $R$. 
 Then $F$ equips $\fm_R$ with the structure
 of an $\cO_E$-module. Let $Q \subset \fm_R$ be a finite subset
 that is a submodule with respect to this $\cO_E$-module structure. Note
@@ -1336,22 +1338,21 @@ We summarize the main results of this section.
     \item The natural map $\RigExt(\cF, \cF') \to \Ext(\cF, \cF')$ fits into an 
       exact sequence of Abelian groups, functorial in $\cF$ and $\cF'$
   \begin{equation*}
-    \Hom(\cF, \cF') \xto{\Lie} \Hom_{\Mod
-    {R}}(\Lie(\cF), \Lie(\cF')) \to \RigExt(\cF, \cF') \twoheadrightarrow
+    \Hom(\cF, \cF') \xto{\Lie} \Hom_{\Mod {R}}(\Lie(\cF), \Lie(\cF')) \to \RigExt(\cF, \cF') \twoheadrightarrow
     \Ext(\cF, \cF'). 
   \end{equation*}
   \end{enumerate}
 \end{thm}
-We remark that the methods developed in this section can be used to prove 
+We remark that the methods developed in this section can also be used to prove 
 that the category $\FMArbOver {\cO_E}R$, together with the definition of 
 exact sequences, is an exact category (in the sense of Quillen, cf.
-\cite{keller1990chain}), although we do not prove this. 
+\cite{keller1990chain}). 
 
 The main tool for studying extensions is the following Lemma.
 \begin{lem}\label{lem:SESStandardForm}
   Let $F, F' \in \FMLArbOver AR$ be 
   formal $A$-module laws of dimensions $m$ and $n$, respectively. Write 
-  $\cF', \cF \in \FMArbOver {\cO_E}R$ for the associated formal $\cO_E$-modules,
+  $\cF'$ and $\cF$ for their associated formal $\cO_E$-modules,
   and suppose that they fit into a exact sequence
   \begin{equation*}
     0 \to \cF' \xto \alpha \cG \xto \beta \cF \to 0.
@@ -1431,7 +1432,7 @@ appearing in the Lemma \ref{lem:SESStandardForm}. They satisfy certain condition
   The map sends a pair $\{\Delta, (\delta_a)_a\}$ to the $\cO_E$-module law with
   structure defined following \eqref{eq:SESStandardFormModuleLaw}. 
   \begin{proof}[Proof]
-    This is only a matter of calculation, cf. \cite[Section
+    This is only a matter of calculation, cf. \cite[
     6]{hopkins1994equivariant}.
   \end{proof}
 \end{prop}
@@ -1755,7 +1756,7 @@ This bijection is an isomorphism of $R$-modules.
   we find $\delta_a g = \delta_a \in R\llbr T \rrbr$. Hence, $g(T)$ is a
   quasi-logarithm with $\delta g = (\Delta, (\delta_a)_a)$. 
   This construction yields the desired inverse.
-  The remaining statements are verified directly, also cf. \cite[Section
+  The remaining statements are verified directly, also cf. \cite[
   8]{hopkins1994equivariant}.
 \end{proof}
 \end{thm}
@@ -1808,7 +1809,7 @@ This bijection is an isomorphism of $R$-modules.
 \end{proof}
 \end{prop}
 
-We admit the following facts from Section 9 of \cite{hopkins1994equivariant}.
+We admit the following facts from  9 of \cite{hopkins1994equivariant}.
 \begin{prop}\label{prop:InterestingSequenceStdMod}
   Let $\cF$ be a formal ${\cO_E}$-module of height $h$ over $R \in \cC$. 
   Then $\Ext(\cF, \Ghat_a)$ is a free $R$-module of rank $n-1$, 
@@ -1818,7 +1819,7 @@ We admit the following facts from Section 9 of \cite{hopkins1994equivariant}.
 \end{prop}
 
 In the case that $R$ is flat over $\cO_E$, and $\cF$ comes from a 
-$\cO_E$-typical formal module, \cite[Section 9]{hopkins1994equivariant} also
+$\cO_E$-typical formal module, \cite[ 9]{hopkins1994equivariant} also
 gives an explicit description of a basis for the modules in question.
 If $\cF$ is isomorphic to the standard formal $\cO_E$-module $H$ of height $n$,
 which allows for an explicit
@@ -1890,7 +1891,7 @@ also functorial in $R$.
 
 \subsection{The Universal Additive Extension} % (fold)
 \label{sub:The Universal Additive Extension}
-We follow \cite[Section 11]{hopkins1994equivariant}.
+We follow \cite[ 11]{hopkins1994equivariant}.
 Let $R \in \cC$ be a local $\cO_E$-algebra.
 
 \begin{lem}
@@ -2378,15 +2379,14 @@ We remark that the Lemma above in particular applies to the standard formal
 $\cO_E$-module $H$ over $\cO_\br E$. We turn our attention to the determinant of the standard
 formal $\cO_E$-module in the following example.
 
-\begin{xpl}
+\begin{xpl*}\label{xpl:DeterminantOfH}
   The determinant $\wedge^n H$ is the formal $\cO_E$-module law over 
   $\cO_\br E$ with logarithm given by the power series
   \begin{equation*}
     f_\wedge(T) = \sum_{i=0}^\infty (-1)^{(n-1)i} \frac{T^{q^i}}{\varpi^i}.
   \end{equation*}
   This is to be understood in the following way. If $\cH$ is a formal module
-  equipped with a coordinate $\cH \cong \spf(\cO_\br E \llbr T \rrbr)$ inducing an 
-  isomorphism $\cH \cong \FGG(H)$, then the same coordinate yields 
+  equipped with a coordinate $\cH \cong \FGG(H)$, then the same coordinate yields 
   an isomorphism $\wedge^n \cH \cong \FGG(\wedge H)$. We do not prove this,
   but we note that it can be witnessed on the
   corresponding Dieuodonn\'e-modules: $\Dio(\wedge^n H)$ and 
@@ -2410,7 +2410,7 @@ formal $\cO_E$-module in the following example.
   \begin{equation} \label{eq:detformalmodulevarpiexpl}
     [\varpi]_{(\wedge^n H)_0}(T) = (-1)^{n-1} T^q.
   \end{equation}
-\end{xpl}
+\end{xpl*}
 
 We also need a version of the determinant mapping for the universal cover. 
 Taking the inverse limit with respect to $m$, the morphsims $\delta_m$ from
@@ -2603,7 +2603,7 @@ commute.
 
 Let $(s_1, \dots, s_n) \in \Tilde H(S)^n$, and write $x_i = \lambda(s_i) \in
 \Nilp^\flat(S)$, which are elements in $S^\cici$ with distinguished $q$-power
-roots. Here $\lambda\colon \Tilde H \to \Nilp^\flat$ is the isomorphism from Section
+roots. Here $\lambda\colon \Tilde H \to \Nilp^\flat$ is the isomorphism from 
 \ref{sub:Tate Modules and the Universal Cover} with inverse $\mu = (\mu_0,
 \mu_1, \dots)$. 
 We set
