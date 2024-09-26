@@ -23,7 +23,7 @@ explicit.
 \label{sub:The Special Affinoid}
 We define the subspace $U \subset M'_{\infty,\Cp}$ as the rational
 subset cut out by the inequalities $\abs{X_i(x)} \leq \abs{\varpi(x)}^{1/q^n-1}$ for
-$i = 1, \dots, n$. We construct formal model $\cX \in \FSchOver {\cO_{\Cp}}$
+$i = 1, \dots, n$. We construct a formal model $\cX \in \FSchOver {\cO_{\Cp}}$
 of $U$ whose special fiber $\cX_s = 
 \cX \times_{\spf(\cO_{\Cp})}\spec(\bar \FF_q)$ is isomorphic to the perfection of the
 Deligne--Lusztig variety $\DL_n$ constructed in  \ref{sub:An Explicit Example}.
@@ -204,7 +204,7 @@ The last result we need is the following.
 
 \subsection{Comparison of the Group Actions} % (fold)
 \label{sub:Proof of Proposition}
-In  \ref{sec:Non-Abelian Lubin-Tate Theory: An Overview}, we saw that
+In  \cref{sec:Non-Abelian Lubin-Tate Theory: An Overview}, we saw that
 the Lubin--Tate perfectoid space 
 $$M_{\infty, \Cp}^{(0)} = \cM_{\infty} \times_{\Spa(\hat E^\ab, \cO_{\hat
 E^\ab})} \Spa(\Cp, \cO_\Cp)$$ 
@@ -238,10 +238,10 @@ We set
 Also, we define the morphism $\Theta$ as follows. For $\sigma \in \Weil_{E_n}$ with
 $\sigma|_\br E = \Phi^{n_\sigma}$ and $u_\sigma \coloneq \varpi^{-n_\sigma}
 \Art^{-1}_{E_n}(\sigma|_{\hat E_n^\ab}) \in \cO_{E_n}^\times$, we set
-\begin{equation*}
+\begin{equation}\label{eq:ThetaMorDef}
   \Theta \colon J \to \GL_n(\FF_q) \times \FF_{q^n}^\times \times {n\Z}, \quad
   (\varpi^m g,d,\sigma) \mapsto (\bar g, \bar {d^{-1}u_\sigma^{-1}}, -n_\sigma).
-\end{equation*}
+\end{equation}
 
 It will be convenient to have a list of generators for the group $J^1$. 
 \begin{lem}\label{lem:GeneratorsForJ1}
@@ -366,7 +366,7 @@ $\sigma(\xi) = \xi$, concluding the proof.
 
 \subsection{The Explicit Correspondence} % (fold)
 \label{sub:The Explicit Correspondence}
-Fix, for the remainder of the section, an isomorphism $\Cp \cong \C$ and
+Fix, for the remainder of the section, an embedding $\Qlbar \inj \C$ and
 a regular character $\theta\colon  \FF_{q^n}^\times \to \C^\times$ (neccessarily
 factoring through $\Qlbar$). 
 The datum of $\theta$ can be used to construct representations 
@@ -407,16 +407,15 @@ theory, a representation of $\GL_n(E)$. The construction is as follows.
     statements hold for $\bar \rho_\theta$ and $\bar \tau_\theta$. Hence,
     $\pi_\theta$, $\rho_\theta$ and $\tau_\theta$ are smooth as well. 
     In the case that $n=2$, the fact that $\pi_\theta$ is supercuspidal and
-    irreducible is laid out in detail in \cite[ 11]{bushnell2006local}.
+    irreducible is laid out in detail in \cite[Section 11]{bushnell2006local}.
     The general case should add no complication. 
     Similarly, irreducibility of $\rho_\theta$ is shown, again in the case 
-    $n=2$, in \cite[ 54]{bushnell2006local}. 
+    $n=2$, in \cite[Section 54]{bushnell2006local}. 
   \end{proof}
 \end{lem}
 
 The aim of this section is to prove the following statement.
-\begin{thm}[Explicit Non-Abelian Lubin--Tate Theory for Depth Zero Supercuspidal
-  Representations]\label{thm:MainRes1}
+\begin{thm}\label{thm:MainRes1}
   The representation $\JL(\pi_\theta)$ of $D^\times$ and the representation
   $\rec_E(\pi_\theta)$ of $\Weil_E$ take the form
   \begin{equation*}
@@ -434,15 +433,15 @@ Recall that $H_\DL$ denotes the middle $l$-adic cohomology of
 $\DL_n$, cf.  \ref{sub:The Deligne--Lusztig Correspondence for the
 Explicit Example}.
 \begin{lem}
-  The morphism $\Theta$ makes $J$ act on ${\hH}_{\DL,\theta}$. This representation is 
-  of the form 
+  The morphism $\Theta$ from \eqref{eq:ThetaMorDef} makes $J$ act on
+  ${\hH}_{\DL,\theta}$. This representation is of the form 
   \begin{equation*}
     (g,d,\sigma) \mapsto \bar \pi_\theta(g) \otimes \bar \rho_{\theta^{-1}}(d)
     \otimes \left(\bar \tau_\theta \, \delta^{n-1}\right)^{-1}(\tfrac{1-n}2)(\sigma).
   \end{equation*}
   This representation is smooth.
 \begin{proof}
-  This is a direct calculation.
+  This follows directly from \cref{thm:MainThmHDlStructure}.
 \end{proof}
 \end{lem}
 
@@ -498,29 +497,22 @@ and that $G^1$ is naturally a co-compact and closed normal subgroup of $\bar G$
 \begin{proof}
   We construct a sequence of $J$-equivariant injections
   \begin{equation*}
-    \hH_{\DL,\theta} \inj \Ind_{J^1}^J ( \Res_{J^1}^J \hH_{\DL,\theta}) \inj
-    \Ind_{J^1}^J (\Res_{J^1}^{G^1} \hH'_{\LT}) \\ \xto \sim \Res_J^{G^1J}(
-    \Ind_{G^1}^{G^1J} \hH'_\LT) 
-    \inj \Res_J^{\bar G} \hH_\LT.
+    \hH_{\DL,\theta} \inj \Ind_{J^1}^J (\Res_{J^1}^{G^1} \hH'_{\LT}) \\ \xto
+    \sim \Res_J^{G^1J}( \Ind_{G^1}^{G^1J} \hH'_\LT) \inj \Res_J^{\bar G}
+    \hH_\LT.
   \end{equation*}
   \textit{The first morphism.}
-  This is the unit of the adjunction $\Res_{J^1}^J \ladj \Ind_{J^1}^J$ 
-  applied at $\hH_{\DL,\theta}$, which is injective by 
-  \cref{lem:FrobRecUnitsAreInjective}.
-
-  \textit{The second morphism.}
-  This is $\Ind_{J^1}^J$ applied to the injective morphism in 
-  \cref{prop:J1EquivInjMor}. The resulting morphism is injective because
-  $\Ind_{J^1}^J$ is exact, cf. 
-  \cref{prop:InducedRepresentationExact}. 
-
-  \textit{The third morphism.} 
+  This morphism arises by adjunction from the morphism in 
+  \cref{prop:J1EquivInjMor}, which is injective by 
+  \cref{prop:InducedRepresentationExact} and \cref{lem:FrobRecUnitsAreInjective}.
+  
+  \textit{The second morphism.} 
   The morphism is given by the inverse of the base-change morphism constructed in
   \cref{lem:BaseChangeForResInd}, which is applied with $H = G^1$, $N = J$. 
   Note that $G^1$ is normal in ${\bar G}$, so the assumptions of the lemma are
   satisfied. As $J$ is open in ${\bar G}$, the map is an isomorphism. 
   
-  \textit{The fourth morphism.}
+  \textit{The third morphism.}
   Since $G^1J$ is open in ${\bar G}$, the unit of the adjunction $\cInd_{G^1J}^{\bar G} \ladj
   \Res_{G^1J}^{\bar G}$ yields a monomorphism of $G^1J$-representations 
   \begin{equation}\label{eq:MiedaEx1Morph1}
@@ -536,6 +528,7 @@ and that $G^1$ is naturally a co-compact and closed normal subgroup of $\bar G$
 \end{proof}
 \end{lem}
 
+\begin{proof}[Proof of \cref{thm:MainRes1}]
 The morphism constructed in \cref{lem:JEquivInjMor} yields, by Frobenius
 reciprocity, a non-zero map of ${\bar G}$-representations
 \begin{equation} \label{eq:WantedMap}
@@ -555,7 +548,7 @@ $\rec_E(\pi_\theta)$ is irreducible and $\dim(\tau_\theta) = n = \dim
 (\rec_E(\pi_\theta))$, this also implies $\Ind_{\Weil_{E_n}}^{\Weil_E}
 (\tau_\theta \, \delta^{n-1}) = \rec_E(\pi_\theta)$, concluding the proof of
 \cref{thm:MainRes1}.
-
+\end{proof}
 % subsection (end)
 
 % section The Explicit Local Langlands Correspondence for Depth Zero Supercuspidal Representations (end)

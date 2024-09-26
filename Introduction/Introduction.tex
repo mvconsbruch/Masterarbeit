@@ -9,7 +9,7 @@ paper \textit{Formal Complex Multiplication in Local Fields} in 1965 (cf.
 \cite{LubinTateFormalMult}), they achieved one of the last major breakthroughs
 in Class Field Theory. Perhaps inpsired by the theory of complex multiplication
 of elliptic curves, they show that formal group laws, which can be seen as local
-analogues of algebraic groups, may be used to construct abelian extensions of
+analogues of abelian varieties, may be used to construct abelian extensions of
 arbitrary non-Archimedian local fields $E$. This approach, colloqually
 reguarded to as Lubin--Tate Theory, provides a strikingly simple solution to a
 complicated problem, that of finding generators for the maximal abelian
@@ -17,8 +17,8 @@ extension of $E$ and describing how the Galois group acts on them.
 
 Two years later, in 1967, \textsc{Robert Langlands} wrote his famous letter 
 to \textsc{André Weil}, introducing the web of conjectures that 
-is now known as the Langlands Program. A special case of these conjectures 
-predicts, in vague terms, a correspondence between automorphic representations
+is now known as the Langlands Program. The ‘‘local part’’ of these conjectures 
+predicts, in vague terms, a correspondence between smooth representations
 of $\GL_n(E)$ and representations of the absolute Galois group of $E$, thus
 conjecturing an analogue of local class field theory for non-Abelian extensions. 
 Inspired by results of \textsc{Pierre Deligne} on the cohomology of certain
@@ -52,7 +52,7 @@ $\HLT$ is colloqually regarded to as Non-Abelian Lubin--Tate Theory.
 
 Roughly a decade later, this approach was used by \textsc{Michael Harris} and
 \textsc{Richard Taylor} to define the local Langlands correspondence for
-$\GL_n$ over $p$-adic fields, verifying (a slight modification of)
+$\GL_n$ over $p$-adic fields, verifying (a part of)
 Carayol's conjectures along the way (cf. \cite{HTShimura}). 
 Around the same time, \textsc{Pierre Boyer} 
 proved Carayol's conjectures for local function fields (cf.
@@ -111,13 +111,13 @@ the following results.
 \begin{thm*}[Main Results of this Thesis]
   \leavevmode \begin{enumerate}
     \item There is an affinoid $U \subset M_\infty$ inside the Lubin--Tate perfectoid
-      space admitting a formal $\cX$ whose reduction is isomorphic to the
+      space admitting a formal model $\cX$ whose reduction is isomorphic to the
       perfection of a Deligne--Lusztig variety for $\GL_n(\FF_q)$. Furthermore,
       this isomorphism is compatible for certain group actions on both sides.
-    \item Let $\pi$ be a depth zero supercuspidal representation of $\GL_n(E)$.
-      Admitting the results of non-Abelian Lubin--Tate theory, one can
-      calculate $\rec_E(\pi)$ and $\JL(\pi)$ explicitly only using the geometry
-      of the Lubin--Tate tower.
+    \item For certain (so-called depth zero supercuspidal) representations
+      $\pi$ of $\GL_n(E)$, one can calculate $\rec_E(\pi)$ and $\JL(\pi)$
+      explicitly, using only the geometry of the Lubin--Tate tower, and the
+      fact that these representations appear inside its cohomology.
   \end{enumerate}
 \end{thm*}
 The first part is an infinite level analogue of the construction by Yoshida,
@@ -127,25 +127,29 @@ and \cref{thm:MainRes1} below.
 
 The structure of the thesis is as follows.
 
-\textbf{ 1} reviews the theory of formal $\cO_E$-modules, which
+\textbf{\cref{sec:FormalModules}} reviews the theory of formal $\cO_E$-modules, which
 will play a large role in the analysis of the Lubin--Tate tower. It encompasses
 all results we need in later parts of the text.
 
-In \textbf{s 2 and 3}, we review classical Lubin--Tate theory as in
+In \textbf{Sections \ref{sec:Local Class Field Theory}  and \ref{sec:Non-Abelian Lubin-Tate Theory: An Overview}}, we review classical Lubin--Tate theory as in
 \cite{LubinTateFormalMult}, and the theorems of non-Abelian Lubin--Tate theory
 due to Boyer and Harris--Taylor. In particular,
 we introduce the Lubin--Tate tower $\{\cM_m\}_{m \in \N}$ and describe the
 relevant group actions.
 
-\textbf{ 4} introduces the Lubin--Tate space at infinite level. 
+\textbf{\cref{sec:The Lubin--Tate Space at Infinite Level}} introduces the
+Lubin--Tate space at infinite level. 
 We follow ideas of Weinstein to define a certain coordinate on $\cM_\infty = 
 \lim_{m \in \N} \cM_m$. The main result of this section is a description of
 the group actions on $\cM_\infty$ in terms of this coordinate. 
 
-\textbf{ 5} reviews the results of Mieda's paper \cite{mieda2016geometric}.
-We do not go into details, but hope to provide some insight into his methods. 
+\textbf{\cref{sec:Mieda's Approach to the Explicit Local Langlands
+Correspondence}} reviews the results of Mieda's paper
+\cite{mieda2016geometric}. We do not go into details, but hope to provide some
+insight into his methods. 
 
-\textbf{ 6} deals with Deligne--Lusztig theory for $\GL_n(\FF_q)$. 
+\textbf{\cref{sec:Deligne--Lusztig Theory}} deals with Deligne--Lusztig theory
+for $\GL_n(\FF_q)$. 
 We develop the theory exclusively for $\GL_n$, describing in detail the 
 geometry of the moduli of flags and the related spaces that occur as 
 special cases of the varieties considered by 
@@ -153,7 +157,8 @@ special cases of the varieties considered by
 \cite{delignelusztig1976}. The cohomological results of their paper are 
 stated as facts and applied to our situation.
 
-Finally, in \textbf{ 7}, we collect the results of the 
+Finally, in \textbf{\cref{sec:Explicit Non-Abelian Lubin-Tate Theory for Depth
+Zero Supercuspidal Representations}}, we collect the results of the 
 previous sections to prove the results announced above. 
 
 \subsection*{Notation and Conventions} % (fold)
