@@ -1,4 +1,11 @@
 # Master's thesis
+## 26th of September
+[09_26_version.pdf](./compiled_versions/09_26_version.pdf) 
+### To Dos:
+* Rework 7.3 to include supercuspidal reps
+* Maybe flatness of formal model
+* shorten
+
 ## 24th of September
 [09_24_version.pdf](./compiled_versions/09_24_version.pdf) 
 ### To Dos:
