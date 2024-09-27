@@ -13,7 +13,7 @@ between certain characters of $\FF_{q^n}^\times$ (with values in $\C^\times$) an
 cuspidal representations of $\GL_n(\FF_q)$. The correspondence we construct here
 is an instance of a more general theory developed by Deligne--Lusztig. 
 In \cite{delignelusztig1976}, they construct
-for any connected reductive algebraic group $G = G_0 \times_{\spec \FF_q}
+for any connected reductive algebraic group $G = G_0 \times_{\spec(\FF_q)}
 \spec(\bar \FF_q)$ and any
 Frobenius-stable maximal torus $T \subseteq G$ a correspondence associating to
 certain characters $\theta$ of $T^\Frob(\Fqbar)$ a virtual representation $R_{T,\theta}$ of 
@@ -31,11 +31,11 @@ The main theorems of the theory are stated as facts, proofs are omitted.
 We begin by introducing (full) flags and their moduli spaces, flag
 varieties. Let $k$ be a field and let $V$ be a finite dimensional $k$-vector space
 of dimension $n$. We write $\tilde V$ for the corresponding quasi-coherent sheaf
-on $\spec k$, and $\GL_V$ for the general linear group scheme of $\tilde V$.
+on $\spec(k)$, and $\GL_V$ for the general linear group scheme of $\tilde V$.
 
 \begin{defi}[Flag Variety]\label{def:FlagVariety}
   Let $X\colon  \SchOver k^\op \to \Set$ be the functor assigning to each $k$-scheme 
-  $f\colon S \to \spec k$
+  $f\colon S \to \spec(k)$
   the set 
   \begin{equation*}
     X(S) = \\ \left\{\cF_1 \subset \cF_2 \subset \dots \subset \cF_{n-1} \subset
@@ -68,7 +68,7 @@ $$\Flag = (F_1 \subsetneq F_2 \subsetneq \dots F_{n-1} \subsetneq V) \in X(k).$$
 \begin{prop}\label{prop:FlagVarisProjective}
   The induced morphism of functors
   \begin{equation*}
-    X \to \Grass_{V,1} \times_{\spec k} \dots \times_{\spec k}
+    X \to \Grass_{V,1} \times_{\spec(k)} \dots \times_{\spec(k)}
     \Grass_{V,n-1}
   \end{equation*}
   is representable by a closed embedding. In particular, as for integers $1 \leq d \leq n-1$
@@ -100,7 +100,7 @@ $\GL_V/B_{\Flag}$.
   Let $(v_1, v_2, \dots, v_n)$ be a basis of $V$ such that each $F_i$ is generated
   by the first $i$ basis vectors. 
   Given any $k$-scheme $S$ and a family of flags $\Flag' \in X(S)$, 
-  there is a Zariski-cover $\phi\colon  S' \to S$ (with structure map to $\spec k$ denoted
+  there is a Zariski-cover $\phi\colon  S' \to S$ (with structure map to $\spec(k)$ denoted
   by $f'$) trivializing all of the quotients $F_i'/F_{i-1}'$ for $i = 1, \dots,
   n$. Hence we may choose generators $w_i \in \Gamma(S', \phi^*(F_i'/F_{i-1}'))$,
   and lift them to elements $\tilde w_i \in \Gamma(S', f'^* \tilde V)$. The 
@@ -203,7 +203,7 @@ Let $(\Flag, \Flag') \in (X \times X)(S)$ be a pair of flags over a $k$-scheme
 $S$. We say that $(\Flag,\Flag')$ is in relative position 
 $w \in \Sigma_n$ if it lies inside the subset $O_w(S) \subset (X \times X)(S)$. 
 
-Similarly, we can characterize the $\GL_V$-orbits in $Y \times_{\spec k} Y$.
+Similarly, we can characterize the $\GL_V$-orbits in $Y \times_{\spec(k)} Y$.
 For any choice of elements $w \in \Sigma_n \subset \GL_V(k)$ and $t \in
 \TT_X(k)$, we define $\tilde O_{w,t}$ as the $\GL_V$-orbit of the element
 $$((\Flag^\std, e_\bullet^\std), (w.\Flag^\std, w.te_\bullet^\std)) \in (Y
@@ -265,14 +265,14 @@ subspaces, we obtain automorphisms
 \end{equation*}
 Note that $X$ and $Y$ are defined over $\FF_q$, and these automorphisms are 
 the same as the respective (relative) frobenii of $X$ and $Y$ over $k$. We write
-$\gamma_\Frob$ for the corresponding graph-morphisms $X \to X \times_{\spec k} X$ and 
-$Y \to Y\times_{\spec k} Y$.
+$\gamma_\Frob$ for the corresponding graph-morphisms $X \to X \times_{\spec(k)} X$ and 
+$Y \to Y\times_{\spec(k)} Y$.
 
 For $w \in \Sigma_n$ and $t \in \TT_X$, we define the spaces
 \begin{equation}\label{eq:defXYsigma}
-  X_w \coloneqq O_w \times_{X \times_{\spec k}X, \gamma_\Frob} X
+  X_w \coloneqq O_w \times_{X \times_{\spec(k)}X, \gamma_\Frob} X
   \quad \text{and} \quad
-  Y_{w,t} \coloneqq \tilde O_{w,t} \times_{Y \times_{\spec k}Y,
+  Y_{w,t} \coloneqq \tilde O_{w,t} \times_{Y \times_{\spec(k)}Y,
   \gamma_\Frob} Y.
 \end{equation}
 As $\gamma_\Frob$ admits a section, $X_w$ is naturally a subscheme of $X$,
@@ -381,13 +381,13 @@ lines in $V$ that do not lie in the hyperplane defined by the equation $\mu(v) =
   of $V_0$ and take any section $\cL \in \cap_{\mu \in
   V_0^\vee}D^+(\mu)(S)$, interpreted as a locally direct summand of $f^* \tilde V$. 
   It suffices to work locally on $S$, and we may pick for any $s \in \abs S$
-  some open affine $\spec R \subset S$ containing $s$ and trivializing $\cL$.
+  some open affine $\spec(R) \subset S$ containing $s$ and trivializing $\cL$.
   Write $L$ for the corresponding free rank $1$ direct summand of $R^n$. Then
   $L = \langle v \rangle$ for some $v = (v_1, \dots, v_n) \in R^n$. Now 
   $L$ constitutes a flag if and only if $(v, \Frob(v), \dots, \Frob^{n-1}(v))$
   is a basis for $R^n$ if and only if $\det(\Frob^{j-1}(v_i))_{i,j} \in R^\times$.
   The last condition is satisfied. Indeed, if not, we may 
-  choose a maximal ideal $\fm \in \spec R$ containing
+  choose a maximal ideal $\fm \in \spec(R)$ containing
   $\det(\Frob^{j-1}(v_i))_{i,j}$. Let $\bar v$ denote the residue of $v$ in
   $(R/\fm)^n$. Now, the subspace
   $$\langle \bar v, \Frob(\bar v), \dots, \Frob^{n-1}(\bar v)\rangle \subset (R/\fm)^n$$ 
@@ -405,12 +405,12 @@ to the $k$-linear morphism
 \end{equation*}
 
 \begin{prop}\label{prop:prop_YwExplicitely}
-  The map of functors $\DL_V \to \spec \Sym(V^\vee)$ given by 
+  The map of functors $\DL_V \to \spec(\Sym(V^\vee))$ given by 
   $(\Flag, e_\bullet) \mapsto e_1$ 
-  yields an isomorphism of $\DL_V$ and the subfunctor of $\spec \Sym(V^\vee)$ given on
+  yields an isomorphism of $\DL_V$ and the subfunctor of $\spec(\Sym(V^\vee))$ given on
   affine schemes by
   \begin{equation*}
-    \spec R \mapsto \left\{v \in R \otimes_k V \, \bigg \vert
+    \spec(R) \mapsto \left\{v \in R \otimes_k V \, \bigg \vert
       \begin{array}c 
         (v, \Frob\, v, \dots, \Frob^{n-1} v) \text{ is a basis and } \\ 
         v \wedge \dots \wedge \Frob^{n-1} v = (-1)^{n-1} \Frob( v \wedge \dots
@@ -435,7 +435,7 @@ to the $k$-linear morphism
           \end{pmatrix}.
   \end{equation*}
 \begin{proof}
-  Let $S = \spec R$ be an affine $k$-scheme and let $(\Flag, e_\bullet) \in \DL_V(S)$. 
+  Let $S = \spec(R)$ be an affine $k$-scheme and let $(\Flag, e_\bullet) \in \DL_V(S)$. 
   By Lemma \ref{lem:RelativePositionVecCrit}, there is a basis 
   $(v_1, \dots, v_n)$ of $R \otimes_k V$ such that 
   \begin{equation}\label{eq:conditionsonvecs}
@@ -822,14 +822,12 @@ We also write $(\FF_{q^n}^\times)^1 = \{\zeta \in \Fqbar \mid \Norm(\zeta) =
         \hH^{n-1}(Y_b, \Qlbar) \right) = \hH^{n-1}(Y_b, \Qlbar)_\theta,
 \end{multline*}
   and the same statement for compactly supported \'etale cohomology. 
-  Explicitely, the isomorphism above is given by the projection
+  Explicitely, the isomorphism above is given by the restriction of the natural
+  projection (given by the pull-back map)
     \begin{equation*}
-      \hH^{n-1}(\DL_n, \Qlbar)_\theta \to \hH^{n-1}(Y_b, \Qlbar)_\theta ,
-      \quad x \mapsto \begin{cases}
-        x, &\text{ if }x \in \hH^{n-1}(Y_b, \Qlbar)_\theta \\
-        0, &\text{ otherwise}
-      \end{cases}
+      \hH^{n-1}(\DL_n, \Qlbar) \to \hH^{n-1}(Y_b, \Qlbar)
     \end{equation*}
+    to $\hH^{n-1}(\DL_n, \Qlbar)_\theta$,
     and thereby clearly $(\GL_n(\FF_q) \times \FF_{q^n}^\times)^1 \times
     n\Z$-equivariant. This shows the second statement.
     The final statement is now a direct consequence of part two in 

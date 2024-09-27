@@ -66,7 +66,7 @@ inducing the morphism (which we also call specialization map)
 \end{equation*}
 And indeed, in \cite[Corollary 4.29]{mieda2014variants}, Mieda constructs an
 isomorphism as in \eqref{eq:NearbyCycleIsomorphism}
-if $\cY$ is pseudo-compactifiable over $\Spf A$ in the sense of \cite[Definition
+if $\cY$ is pseudo-compactifiable over $\Spf(A)$ in the sense of \cite[Definition
 4.24]{mieda2014variants}. We do not explain this notion here, but we remark that
 all affine formal schemes that are topologically of finite type are
 pseudo-compactifiable (cf. \cite[Example 4.25]{mieda2014variants}), which is
@@ -78,7 +78,7 @@ Let us assume that $d(\cY)$ is smooth over $\Spa(\Cp, \cO_\Cp)$. Then, by
   \Tr_{d(\cY)} \colon \derR  \Gamma_c( d(\cY), \underline \Lambda_{d(\cY)} ) \to 
   \Lambda (-d)[-2d].
 \end{equation*}
-Let us write $f \colon \cY_s \to \spec\Fqbar$ for the structure morphism. Then by the 
+Let us write $f \colon \cY_s \to \spec(\Fqbar)$ for the structure morphism. Then by the 
 adjunction $\derR f_! \ladj f^!$ and the isomorphism in \eqref{eq:NearbyCycleIsomorphism},
 we obtain a map
 \begin{equation*}
@@ -94,7 +94,8 @@ Together with the specialization map, we obtain a morphism
 There is another natural map with the same source and target, namely the 
 Gysin map, which we define as the map obtained by adjunction from the trace map
 \begin{equation*}
-  \Tr_f\colon \derR f_! \underline \Lambda_{\cY_s} \to \underline \Lambda_{\spec \Fqbar}(-d)[-2d].
+  \Tr_f\colon \derR f_! \underline \Lambda_{\cY_s} \to \underline
+  \Lambda_{\spec(\Fqbar)}(-d)[-2d].
 \end{equation*}
 As $f$ is not necessarily smooth, this is not
 simply the trace map from Poincar\'e duality. The trace map exists
@@ -459,9 +460,9 @@ $J^1$-action on both sides.
   \begin{proof}[Sketch of Proof] 
     This is \cite[Lemma 3.20]{mieda2016geometric}.  The crucial point 
     is that for each open normal subgroup $K \subset K_0$, and any 
-    $(K, Q_0, \pi) \in \cC$, there is a open subgroup $K' \subset K$ fixing the 
+    $(K, Q_0, \pi) \in \cC$, there is an open subgroup $K' \subset K$ fixing the 
     finitely many topological generators of $Q_0$. Now it can be shown that 
-    $\sigma(B_K) \subset B_{K'}$, and the that resulting morphism
+    $\sigma(B_K) \subset B_{K'}$, and that the resulting morphism
     $\sigma\colon B_K \to B_{K'}$ is finite. This induces finite morphisms
     $U_{K'} \to U_K$, and we obtain the desired automorphism after taking 
     compactly supported cohomology and colimit over $K$. 
