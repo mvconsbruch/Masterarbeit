@@ -2,7 +2,7 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\section{Explicit Aspects of Abelian Lubin--Tate Theory} % (fold)
+\section{Lubin--Tate Theory} % (fold)
 \label{sec:Local Class Field Theory}
 We review the approach to local class field theory developed by Lubin and Tate in \cite{LubinTateFormalMult}. 
 
@@ -34,7 +34,7 @@ description of the decomposition behavior of unramified primes inside abelian ex
 of number fields, cf. \cite[Theorem 7.3]{neukirch2006algebraische}. 
 The appearence of cyclotomic fields above is also no coincidence.
 
-\begin{thm}[Kronecker--Weber\footnote{Despite the name, the first complete
+\begin{thm*}[Kronecker--Weber\footnote{Despite the name, the first complete
   proof of this theorem is (appearently) due to Hilbert, cf. \cite{hilbert1896neuer}.}] \label{thm:KroneckerWeber}
   Every finite extension of $\Q$ embeds into $\Q(\zeta_m)$ for some $m \in \Z$.
   That is, after choosing an algebraic closure $\Q \inj \bar \Q$, the maximal abelian
@@ -42,7 +42,7 @@ The appearence of cyclotomic fields above is also no coincidence.
   \begin{equation*}
     \Q^\ab = \bigcup_{m \in \N} \Q(\zeta_m) \subset \bar \Q.
   \end{equation*}
-\end{thm}
+\end{thm*}
 
 The problem of finding similar descriptions for the maximal abelian extension of
 general number fields seems to be very difficult. There is a similar description 
@@ -51,11 +51,14 @@ of Abelian extensions of imaginary quadratic fields (cf. \cite[Chapter II,
 by the so-called Weber function at the torion points of an elliptic curve with complex
 multiplication by the field in question), but in general this problem seems to be open.
 
+\subsection{The Statements of Local Class Field Theory} % (fold)
+\label{sub:The Statements of Local Class Field Theory}
+
 The situation simplifies a lot for non-Archimedian local fields, and
 the aim of this section is to discuss the analogues of the Kronecker--Weber
 theorem and the Artin map for a non-Archimedian local field $E$.
-By definition of the intertia subgroup $I_E$ (cf. \cite[Kapitel
-2]{neukirch2006algebraische}), we have the short exact sequence
+By definition of the intertia subgroup $I_E$ (cf. \cite[§1]{serre2013local}),
+we have the short exact sequence
 \begin{equation*}
   0 \to I_E = \Gal(\bar E/ E^\nr) \to \Gal(\bar E/E) \to \Gal(E^\nr /E) =
   \Gal(\bar \FF_q /\FF_q) \to 0.
@@ -106,6 +109,26 @@ automorphism of $E^\ab$. In this section, we work towards the following Theorem.
   \end{enumerate}
 \end{thm}
 
+The construction of the Artin map is functorial in $E$, in the following sense.
+
+\begin{thm}[Functoriality of Artin Map]\label{thm:ArtinMapFunc}
+  Let $L/E$ be a finite extension of local fields. Then there is a
+  commutative diagram
+  \begin{equation*}
+  \begin{tikzcd}[ampersand replacement=\&]
+  	{L^\times} \& {\Weil_L^\ab} \\
+  	{E^\times} \& {\Weil_E^\ab}
+  	\arrow["{\Art_L}", from=1-1, to=1-2]
+  	\arrow["{\Norm_{L/E}}"', from=1-1, to=2-1]
+    \arrow["{\mathrm{res}}", from=1-2, to=2-2]
+  	\arrow["{\Art_E}", from=2-1, to=2-2]
+  \end{tikzcd}
+  \end{equation*}
+  where $\mathrm{res}$ denotes the morphism induced by the natural 
+  morphism $\Weil_L \inj \Weil_E$ (in light of \eqref{eq:WeilgroupInjectsIntoGalois}, 
+  we have $\res(\sigma) = \sigma|_{E^\ab}$).
+\end{thm}
+
 We follow the construction of $E_\varpi$ in \cite{LubinTateFormalMult}.
 The construction resembles the case of imaginary quadratic fields; $E_\varpi$ is
 obtained from $E$ by adjoining $\varpi$-torsion points of so-called Lubin--Tate
@@ -124,6 +147,7 @@ Once all of this is known, the isomorphism $\Art_E$ and property
 (b), but we do shortly note how to see that an isomorphism satisfying properties
 (a) and (b) has to be unique.
 
+% subsection The Statements of Local Class Field Theory (end)
 
 \subsection{Construction of the Maximal Abelian Extension} % (fold)
 \label{sub:Construction of the Maximal Abelian Extension}
@@ -282,18 +306,15 @@ Theorem \ref{thm:KroneckerWeber}.
 The construction of the extensions $E_{\varpi, m}$ also allows us to show uniqueness 
 of the Artin map.
 
-\begin{lem}[Uniqueness of the Artin map]\label{lem:UniquenessOfArtinMap}
-  The Artin map is uniquely determined by properties (a) and (b) in
-  \cref{thm:LocalKroneckerWeber}.
-\end{lem}
-\begin{proof}
+\begin{proof}[Proof of uniqueness of the Artin Map]
   Let $\alpha\colon E^\times \to \Weil_E^\ab$ be
   an isomorphism satisfying properties (a) and (b). Let ${\varpi'} \in E^\times$
   be an arbitrary
   uniformizer. We show that properties (a) and (b) determine $\alpha({\varpi'})$ uniquely.
   Let $E \subset E_{{\varpi'}, m} \subset E_{\varpi'}$ be the finite subextension 
   defined above. The field $E_{{\varpi'}, m}$ is the splitting field of the polynomial
-  $\eta_m$ (as defined above, but with $\varpi'$ in place of $\varpi$), whose
+  $\eta_m$ (as defined above, but with $\varpi'$ in place of $\varpi$), which
+  is irreducible and of even degree, and whose
   constant term is ${\varpi'}$. Hence ${\varpi'} \in
   \Norm_{E_{{\varpi'}, m}/E}(E_{{\varpi'}, m}^\times)$, so $\alpha({\varpi'})|_{E_{{\varpi'}, m}}$ is
   equal to the identity on $E_{{\varpi'}, m}$
@@ -301,9 +322,28 @@ of the Artin map.
   \id_{E_{\varpi'}}$. Using property (a), we find that $\alpha({\varpi'})$ is the unique
   automorphism of $E^\ab$ with $\alpha({\varpi'})|_{E_{\varpi'}} = \id_{E_{\varpi'}}$ and
   $\alpha({\varpi'})|_{E^\nr} = \Phi$. As $E^\times$ is generated by the set of its
-  uniformizers, it follows that $\alpha$ is uniquely determined by the properties (a) and (b).
+  uniformizers, it follows that $\alpha$ is uniquely determined by the
+  properties (a) and (b).
 \end{proof}
 
+Along the same lines, we can obtain a proof for \cref{thm:ArtinMapFunc}. 
+
+\begin{proof}[Proof of \cref{thm:ArtinMapFunc}]
+It suffices to prove the theorem for unramified and totally ramified extensions
+$L/E$ seperately, and then point-wise for each uniformizer $\varpi \in
+L^\times$. If $L/E$ is unramified, the statement just says that the Frobenius
+element of $L$ is the $[L:E]$-th power of the Forbenius element of $E$, which
+is true. If $L/E$ is totally ramified, we have to show that 
+if $\varpi \in L^\times$ is a uniformizer mapping
+to the uniformizer $\varpi' = \Norm_{L/E}(\varpi)$ of $E^\times$, then 
+$\Art_E(\varpi') = \Art_L(\varpi)|_{E^\ab} = \id$. As $L/E$ is totally ramified, we
+have $\Art_L(\varpi)|_{E^\nr} = \Phi$. Hence, we have 
+$\Art_L(\varpi)|_{E^\ab} = \Art_E(\varpi'')$ for some uniformizer $\varpi'' \in
+E^\times$. By definition of $\varpi'$, we have $(\varpi')^\Z =
+\Norm_{L_{\varpi}/E}(L_\varpi^\times)$. By definition of $\varpi''$ we have
+$E_{\varpi''} \subseteq L_{\varpi}$, so that $\Norm_{L_{\varpi}/E}(L_\varpi^\times) 
+= (\varpi'')^\Z$. This implies $\varpi'' = \varpi'$. The claim follows.
+\end{proof}
 
 The remainder of this section is devoted to the proof of the local Kronecker--Weber 
 Theorem \ref{thm:LocalKW}.

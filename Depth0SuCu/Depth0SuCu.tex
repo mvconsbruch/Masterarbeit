@@ -221,10 +221,10 @@ Finally, we need to show that $\cX$ is flat over $\spf(\cO_\Cp)$.
     x_n^{q^{-\infty}}]}{(\det(x_i^{q^{j-1}})^{q^{-m}}- b^{q^{-m}} | m \in \N)}$$
   is not isomorphic to $A \otimes_{\cO_\Cp} \Fqbar$, the reduction of $I$ modulo
   $\fm_\Cp$ cannot be trivial and there must be some 
-  $m \in \N$ such that $\Delta'^{q^{-m}} - \tau'^{q^{-m}} \not \in \fm_\Cp A$. 
-  By taking $q^{m-1}$-th powers, this readily implies $\Delta' - \tau' \not \in
+  $m \in \N$ such that $(\Delta'^{q^{-m}} - \tau'^{q^{-m}}) \not \in \fm_\Cp A$. 
+  By taking $q^{m-1}$-th powers, this readily implies $(\Delta' - \tau') \not \in
   \fm_\Cp A$, which, by the factorization in \eqref{eq:FlatnessFactorization},
-  implies that $\Delta'^{q^{-m}} - \tau'^{q^{-m}} \not \in \fm_\Cp A$ for every $m$. 
+  implies that $(\Delta'^{q^{-m}} - \tau'^{q^{-m}}) \not \in \fm_\Cp A$ for every $m$. 
   Hence, $A/I$ is flat over $\cO_\Cp$. 
 
   The ultra-metric inequality for the $\varpi$-adic metric on $A$ implies that 
@@ -236,14 +236,13 @@ Finally, we need to show that $\cX$ is flat over $\spf(\cO_\Cp)$.
 \end{proof}
 \end{prop}
 
-
 % subsection The Special Affinoid (end)
 
 \subsection{Comparison of the Group Actions} % (fold)
 \label{sub:Proof of Proposition}
 In \cref{sec:Non-Abelian Lubin-Tate Theory: An Overview}, we saw that
 the Lubin--Tate perfectoid space 
-$$M_{\infty, \Cp}^{(0)} = \cM_{\infty} \times_{\Spa(\hat E^\ab, \cO_{\hat
+$$M'_{\infty, \Cp} = \cM_{\infty} \times_{\Spa(\hat E^\ab, \cO_{\hat
 E^\ab})} \Spa(\Cp, \cO_\Cp)$$ 
 admits a right action by the group
 \begin{equation*}
@@ -403,9 +402,23 @@ $\sigma(\xi) = \xi$, concluding the proof.
 
 \subsection{The Explicit Correspondence} % (fold)
 \label{sub:The Explicit Correspondence}
-Fix, for the remainder of the section, an embedding $\Qlbar \inj \C$ and
-a regular character $\theta\colon  \FF_{q^n}^\times \to \C^\times$ (neccessarily
-factoring through $\Qlbar$). 
+In this chapter we apply Mieda's \cref{thm:MiedaAppliedToLTT} to the rational subspace
+$U$ and its formal model $\cX$. We show how this allows us to explicitly
+calculate certain parts of the local Langlands correspondence for $\GL_n$ over
+$E$. Fix, for the remainder of the section, an isomorphism $\Qlbar \cong \C$.
+
+As usual, we let $E_n$ be the degree $n$ unramified extension of $E$. 
+We need the following definitions.
+\begin{defi}[Regular Tame Character]\label{def:TameCharacter}
+  We say that a character $\theta\colon E_n^\times \to \C^\times$ is \emph{tame} if it is
+  trivial on the subgroup $1 + \varpi \cO_{E_n} \subset E_n^\times$. 
+  If $\theta$ is tame, then its restriction to $\cO_{E_n}^\times$ factors as
+  $$\cO_{E_n}^\times \to \FF_{q^n}^\times \xto {\bar \theta} \C^\times.$$ 
+  In this case, we say that $\theta$ is \emph{regular} if $\bar \theta$ is
+  regular in the sense of \cref{def:RegChar}. 
+\end{defi}
+
+Fix a regular tame character $\theta\colon  E_n^\times \to \C^\times$. 
 The datum of $\theta$ can be used to construct representations 
 of $\Weil_E$ and $D^\times$ and, making use of Deligne--Lusztig
 theory, a representation of $\GL_n(E)$. The construction is as follows.
@@ -413,25 +426,36 @@ theory, a representation of $\GL_n(E)$. The construction is as follows.
   \item Let $\bar \tau_\theta$ be the character of $\Weil_{E_n}$ given by 
     the composition
     \begin{equation*}
-      \Weil_{E_n} \to \Weil_{E_n}^\ab \xto{\Art_{E_n}^{-1}} E_n^\times \cong
-      \Z \times \cO_{E_n}^\times \surj \FF_{q^n}^\times \xto \theta \C^\times
+      \Weil_{E_n} \surj \Weil_{E_n}^\ab \xto{\Art_{E_n}^{-1}} E_n^\times \xto
+      {\theta \delta^{n-1}} \C^\times
     \end{equation*}
-  and put $\tau_\theta = \cInd_{\Weil_{E_n}}^{\Weil_E}(\bar \tau_\theta)$.
+    where $\delta\colon \Weil_{E_n} \to \{\pm 1\}$ the character corresponding to
+    $a \mapsto (-1)^{\val_{E_n}(a)}$ under the Artin map $\Art_{E_n}\colon
+    E_n^\times \to \Weil_{E_n}^\ab$,
+    and define $\tau_\theta \coloneqq \cInd_{\Weil_{E_n}}^{\Weil_E}(\bar \tau_\theta)$.
+
   \item Let $\bar \rho_\theta$ be the character on 
     $E^\times \cO_D^\times$ given by the composition
     \begin{equation*}
       E^\times\cO_D^\times \cong \varpi^\Z \times \cO_D^\times \surj 
-      \FF_{q^n} \xto \theta \C^\times
+      \cO_D^\times \times \FF_{q^n} \xto {\theta|_{E^\times} \boxtimes \,
+      \bar \theta} \C^\times
     \end{equation*}
-    and let $\rho_\theta = \cInd_{E^\times \cO_D^\times}^{D^\times}(\bar \rho_\theta)$.
+    and define $\rho_\theta \coloneqq \cInd_{E^\times
+    \cO_D^\times}^{D^\times}(\bar \rho_\theta)$.
+
   \item Let $\bar \pi_\theta$ be the representation of $E^\times \GL_n(\cO_E)$
-    arising from post-composing $R_\theta$ (cf. 
-    \cref{thm:DLCorrespondenceForUs}) with the composition
+    given by the composition
     \begin{equation*}
       E^\times \GL_n(\cO_E) \cong \varpi^\Z \times \GL_n(\cO_E)
-      \surj \GL_n(\cO_E) \surj \GL_n(\FF_q).
+      \surj \varpi^\Z \times \GL_n(\FF_q) \xto{\theta|_{E^\times} \boxtimes \, 
+      R_{\bar\theta}} \GL(V_{\bar \theta}),
     \end{equation*}
-    Let $\pi_\theta = \cInd_{E^\times \GL_n(\cO_E)}^{\GL_n(E)}(\bar \pi_\theta)$. 
+    where $(R_{\bar \theta}, V_{\bar \theta})$ is the cuspidal representation 
+    corresponding to $\bar \theta$ under the Deligne--Lusztig correspondence laid out
+    in \cref{thm:DLCorrespondenceForUs}.
+    Define $\pi_\theta \coloneqq \cInd_{E^\times \GL_n(\cO_E)}^{\GL_n(E)}(\bar
+    \pi_\theta)$. 
 \end{itemize}
 
 \begin{lem}\label{lem:BarRepsAreSmooth}
@@ -451,34 +475,41 @@ theory, a representation of $\GL_n(E)$. The construction is as follows.
   \end{proof}
 \end{lem}
 
+We call a representation $\pi$ \emph{depth zero supercuspidal} if it is equal
+to $\pi_\theta$ for some regular tame character $\theta \colon E_n \to \C^\times$. 
 The aim of this section is to prove the following statement.
-\begin{thm}\label{thm:MainRes1}
+\begin{thm}[Explicit Jacquet--Langlands and Local Langlands Correspondence for
+  Depth Zero Supercuspidal Representations]\label{thm:MainRes1}
+  Let $\theta\colon E_n \to \C^\times$ be a regular tame character.
   The representation $\JL(\pi_\theta)$ of $D^\times$ and the representation
-  $\rec_E(\pi_\theta)$ of $\Weil_E$ take the form
+  $\rec_E(\pi_\theta)$ of $\Weil_E$ corresponding to $\pi_\theta$ under the
+  Jacquet--Langlands and local Langlands correspondence take the form
   \begin{equation*}
     \JL(\pi_\theta) = \rho_{\theta}
-    \quad \text{and} \quad \rec_E(\pi_\theta) = \Ind_{\Weil_{E_n}}^{\Weil_E} 
-    (\tau_\theta \, \delta^{n-1}),
+    \quad \text{and} \quad \rec_E(\pi_\theta) = \tau_\theta.
   \end{equation*}
-  where $\delta\colon \Weil_{E_n} \to \{\pm 1\}$ the character corresponding to
-  $a \mapsto (-1)^{\val_{E_n}(a)}$ under the Artin map $\Art_{E_n}\colon
-  E_n^\times \to \Weil_{E_n}^\ab$. 
 \end{thm}
 
-
-Recall that $H_\DL$ denotes the middle $l$-adic cohomology of 
+The rest of this section will be devoted to the proof of this theorem. 
+Recall that $H_\DL$ denotes the middle degree $\ell$-adic cohomology of 
 $\DL_n$, cf. \cref{sub:The Deligne--Lusztig Correspondence for the
-Explicit Example}.
+Explicit Example}. Let us fix a regular tame character
+$$\theta\colon E_n \to \C^\times.$$ For now, we assume that $\theta$ is
+trivial on $\varpi^\Z$. 
+
 \begin{lem}
   The morphism $\Theta$ from \eqref{eq:ThetaMorDef} makes $J$ act on
-  ${\hH}_{\DL,\theta}$. This representation is of the form 
+  ${\hH}_{\DL,\theta}$. If $\theta$ is trivial on $\varpi^\Z$, this
+  representation is of the form 
   \begin{equation*}
     (g,d,\sigma) \mapsto \bar \pi_\theta(g) \otimes \bar \rho_{\theta^{-1}}(d)
-    \otimes \left(\bar \tau_\theta \, \delta^{n-1}\right)^{-1}(\tfrac{1-n}2)(\sigma).
+    \otimes \bar \tau_\theta^{-1}(\tfrac{1-n}2)(\sigma).
   \end{equation*}
   This representation is smooth.
 \begin{proof}
-  This follows directly from \cref{thm:MainThmHDlStructure}.
+  This follows directly from \cref{thm:MainThmHDlStructure}, and the fact that 
+  if $\theta$ is trivial on $\varpi^\Z$, the central characters of $\rho_\theta$
+  and $\varpi_\theta$ are trivial on $\varpi^\Z$ as well. 
 \end{proof}
 \end{lem}
 
@@ -486,13 +517,15 @@ The input we get from Mieda's theory (\cref{sec:Mieda's Approach
 to the Explicit Local Langlands Correspondence}) is the
 following.
 \begin{prop}\label{prop:J1EquivInjMor}
-  There is an injective morphism of $J^1$-representations
+  If $\theta$ is trival on $\varpi^\Z$, then there is an injective morphism of
+  $J^1$-representations
   \begin{equation*} 
     \Res_{J^1}^J( \hH_{\DL,\theta} ) \inj \Res_{J^1}^{G^1}( \hH'_{\LT}).
   \end{equation*}
   \begin{proof}
     By the results of the previous two sections, $\cX = \Spf(Q)$ is a formal
-    model of $U$ (\cref{prop:AffinoidIsFormalModel}), 
+    model of the rational subset $U \subset M'_{\infty, \Cp}$
+    (\cref{prop:AffinoidIsFormalModel}), 
     $Q$ is flat over $\cO_\Cp$ (\cref{prop:FlatnessOfFormalModel}),
     and there is group action of $J^1$ on $Y_b$, which is compatible with the group
     action on $\cX_s$ obtained from the group action of $J^1$ on $M_{\infty,
@@ -526,12 +559,13 @@ and that $G^1$ is naturally a co-compact and closed normal subgroup of $\bar G$
 (\cref{lem:G1subG}). 
 
 \begin{lem} \label{lem:JEquivInjMor}
-  The injection from \cref{prop:J1EquivInjMor} naturally gives rise to
-  an injective $J$-equivariant morphism
+  Assume that $\theta$ is trivial on $\varpi^\Z$. Then, the injection from
+  \cref{prop:J1EquivInjMor} naturally gives rise to an injective
+  $J$-equivariant morphism
   \begin{equation*}
     \hH_{\DL,\theta} \inj \Res_J^{\bar G} \hH_\LT.
   \end{equation*}
-\begin{proof}
+\begin{proof} % PROOF (fold)
   We construct a sequence of $J$-equivariant injections
   \begin{equation*}
     \hH_{\DL,\theta} \inj \Ind_{J^1}^J (\Res_{J^1}^{G^1} \hH'_{\LT}) \\ \xto
@@ -562,29 +596,78 @@ and that $G^1$ is naturally a co-compact and closed normal subgroup of $\bar G$
   \Res_{G^1J}^{\bar G}(\hH_\LT)$ by \cref{prop:InductionOnTower} and 
   \cref{lem:InductionStatementOnHLT}. Hence, applying $\Res_J^{G^1J}$ to the
   morphism in \eqref{eq:MiedaEx1Morph1} yields the desired map.
+\end{proof} % PROOF (end)
+\end{lem}
+
+\begin{lem}\label{lem:FirstCaseOfMainRes1}
+  If $\theta$ is trivial on $\varpi^\Z$, the statements of 
+  \cref{thm:MainRes1} hold.
+\begin{proof}
+  We show that $\hH_{\LT,\pi_\theta} = \pi_\theta \boxtimes \rho_\theta^\vee 
+  \boxtimes \tau_\theta^{\vee}(\tfrac{1-n}2)$. 
+  The morphism constructed in \cref{lem:JEquivInjMor} yields, by Frobenius
+  reciprocity, a non-zero map of ${\bar G}$-representations
+  \begin{equation} \label{eq:WantedMap}
+    \Ind_{J}^{\bar G} (\hH_{\DL,\theta}) \cong \pi_\theta \boxtimes \rho_{\theta^{-1}}
+    \boxtimes \tau_\theta^\vee (\tfrac{1-n}2) \to \hH_\LT,
+  \end{equation}
+  where we use that $\tau_{\theta^{-1}} = \tau_\theta^\vee$, which follows from 
+  Frobenius reciprocity. The image of this morphism lies inside $\hH_{\LT,
+  \pi_\theta}$, the $\pi_\theta$-isotypic component of $\HLT$. 
+  As $\pi_\theta$ is supercuspidal and its central character is trivial on 
+  $\varpi^\Z$, non-Abelian Lubin--Tate theory (\cref{thm:NonAbLTT}) gives 
+  a map 
+  \begin{equation*}
+    \pi_\theta \boxtimes \rho_{\theta^{-1}} \boxtimes \tau_\theta^{\vee} \to
+    \pi_\theta \boxtimes \JL(\pi_\theta)^\vee \boxtimes
+    \rec_E(\pi_\theta)^\vee.
+  \end{equation*}
+  Applying $\Hom(\pi_\theta, -)$, we obtain a non-zero map 
+  $\rho_{\theta^{-1}} \boxtimes \tau_\theta^{\vee} \to \JL(\pi_\theta)^\vee
+  \boxtimes \rec_E(\pi_\theta)^\vee$.
+  As $\rho_{\theta^{-1}}$ and $\JL(\pi_\theta)^\vee$ are irreducible, this 
+  implies $\rho_\theta \cong \JL(\pi_\theta)$.
+  As $\rec_E(\pi_\theta)$ is irreducible and $\dim(\tau_\theta) = n = \dim
+  (\rec_E(\pi_\theta))$, this also implies $\tau_\theta = \rec_E(\pi_\theta)$,
+  concluding the proof.
 \end{proof}
 \end{lem}
 
 \begin{proof}[Proof of \cref{thm:MainRes1}]
-The morphism constructed in \cref{lem:JEquivInjMor} yields, by Frobenius
-reciprocity, a non-zero map of ${\bar G}$-representations
-\begin{equation} \label{eq:WantedMap}
-  \Ind_{J}^{\bar G} (\hH_{\DL,\theta}) \cong \pi_\theta \boxtimes \rho_{\theta^{-1}}
-  \boxtimes \Ind_{\Weil_{E_n}}^{\Weil_E} (\tau_\theta \,
-  \delta^{n-1})^{-1}(\tfrac{1-n}2) \to \hH_\LT.
-\end{equation}
-As $\pi_\theta$ is supercuspidal and its central character is trivial on 
-$\varpi^\Z$, non-Abelian Lubin--Tate theory (\cref{thm:NonAbLTT}) yields a non-zero map
-\begin{equation*}
-  \rho_{\theta^{-1}} \boxtimes \Ind_{\Weil_{E_n}}^{\Weil_E} (\tau_\theta \,
-  \delta^{n-1}) \to \JL(\pi_\theta)^\vee \boxtimes \rec_E(\pi_\theta)^\vee.
-\end{equation*}
-As $\rho_{\theta^{-1}}$ and $\JL(\pi_\theta)^\vee$ are irreducible, this implies
-$\JL(\pi_\theta) = \rho_{\theta^{-1}}^\vee = \rho_\theta$. As 
-$\rec_E(\pi_\theta)$ is irreducible and $\dim(\tau_\theta) = n = \dim
-(\rec_E(\pi_\theta))$, this also implies $\Ind_{\Weil_{E_n}}^{\Weil_E}
-(\tau_\theta \, \delta^{n-1}) = \rec_E(\pi_\theta)$, concluding the proof of
-\cref{thm:MainRes1}.
+  By the lemma above, all that is left to do is to check that the 
+  assumption on $\theta$ to be trivial on $\varpi^\Z$ can be removed.   
+  Let $\theta\colon E_n^\times \to \C^\times$ be an arbitrary regular
+  tame character. Let $\xi\colon E^\times \to \C^\times$ be unramified character 
+  (i.e., trivial on $\cO_E^\times$) with $\xi(\varpi)^n = \theta(\varpi)$, and
+  put $\theta_0 \coloneqq \theta \cdot (\xi \circ \Norm_{E_n/E})^{-1}$. Now
+  $\theta_0$ is tame and we have $\bar \theta_0 = \bar \theta$, so $\theta_0$
+  is regular as well. By construction, we have $\theta_0(\varpi) = 1$, so
+  $\theta_0$ is trivial on $\varpi^\Z$ and \cref{lem:FirstCaseOfMainRes1}
+  implies that $\JL(\pi_{\theta_0}) = \rho_{\theta_0}$ and
+  $\rec_E(\pi_{\theta_0}) = \tau_{\theta_0}$. 
+  One the other hand, one quickly verifies
+  \begin{equation*}
+    \rho_{\theta} = \rho_{\theta_0} \otimes (\xi \circ \Nrd_{D/E}) 
+      \quad \text{and} \quad
+    \pi_{\theta} = \pi_{\theta_0} \otimes (\xi \circ \det).
+  \end{equation*}
+  As the Jacquet-Langlands and local Langlands correspondences are compatible
+  with character twist, this gives
+  \begin{equation*}
+    \JL(\pi_\theta) = \rho_{\theta_0} \otimes (\xi \circ \Nrd_{D/E}) 
+    \quad \text{and} \quad
+    \rec_E(\pi_{\theta}) = \tau_{\theta_0} \otimes (\xi \circ \Art_E^{-1}).
+  \end{equation*}
+
+  This shows the statement for the Jacquet--Langlands correspondence. For the
+  statement about local Langlands correspondence, recall that from 
+  \cref{thm:ArtinMapFunc}, we have the identity
+  $\Art_{E} \circ \Norm_{E_n/E} = \operatorname{res} \circ \Art_{E_n}$, where
+  $\mathrm{res} \colon \Weil_{E_n}^\ab \to \Weil_E^\ab$ denotes the natural
+  restrction morphism. 
+  From the definition of $\tau_\theta$, we may deduce that 
+  $\tau_{\theta} = \tau_{\theta_0} \otimes (\xi \circ \Art_E^{-1})$. 
+  Together with the identites laid out above, this completes the proof.
 \end{proof}
 % subsection (end)
 

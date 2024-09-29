@@ -9,15 +9,16 @@ This section will serve as an introduction to formal groups and
 formal modules. Formal groups (or rather, formal group laws) were first
 introduced by \textsc{Salomon Bochner} in 1946 as a natural means of studying Lie
 Groups, cf. \cite{Bochner1946FGrps}. The study of formal groups later became
-interesting for its own right, with pioneering work of \textsc{Michel Lazard}, who 
-showed, that the universal formal group law
-lives over a ring with miraculously simple structure, cf. \cite{Lazard1955FGrps}. 
+interesting for its own right, with pioneering work of \textsc{Michel Lazard}. 
+One of Lazard's most notable achievements is the observation that the universal
+(one-dimensional, commutative) formal group law lives over a ring with
+miraculously simple structure, cf. \cite{Lazard1955FGrps}. 
 Lazard's work inspired Lubin to study formal groups, which ultimately led 
 him, in joint work with Tate, to develope Lubin--Tate theory.\footnote{Lubin wrote
 about his experience of the developement of the theory in an online forum, cf.
 \cite{mathoverflowLUBIN}.}
 We are mostly interested in formal $\cO_E$-modules, which are formal groups
-over $\cO_E$-algebras admitting endomorphisms by $\cO_E$.
+admitting endomorphisms by $\cO_E$.
 
 \subsection{Fundamentals} % (fold)
 \label{sub:Basic Notions}
@@ -36,9 +37,9 @@ For now, let $R$ be any ring, and let $n$ and $m$ be arbitrary integers.
     \item $F( \mathbf X, \mathbf Y) = F(\mathbf Y, \mathbf X).$
   \end{enumerate}
   Here, and in the sequel, we abbreviate $\mathbf X =
-  (X_1, \dots, X_n)$, et cetera. From the axioms two and three, it follows that 
+  (X_1, \dots, X_n)$, et cetera. From axioms two and three, it follows that 
   $F_i(\bX, \bY) \equiv X_i + Y_i$ modulo terms of degree $\geq 2$.
-  Given a formal group $F$ of dimension $n$ and a formal group law
+  Given a formal group law $F$ of dimension $n$ and a formal group law
   $G$ of dimension $m$,
   a morphism $F \to G$ is an $m$-tuple $f = (f_1, \dots, f_m)$ 
   of power series $f_i \in R\llbr X_1, \dots, X_n \rrbr$ such that $\bff(0)=0$ and
@@ -104,7 +105,7 @@ given by multiplication with the matrix
 \end{equation*}
 
 Now let $A$ be any other ring (in all our applications, $A$ will be the ring
-of integers of $E$). Our next aim is to introduce formal $A$-module
+of integers of a local field $E$). Our next aim is to introduce formal $A$-module
 laws. Naively, we would like to define these objects as formal group laws $F$
 with $A$-module structure, i.e. a morphism of rings $[\cdot]_F\colon A \to
 \End_\FGLArbOver R(F)$. However, there is a subtlety: given a one-dimensional
@@ -197,7 +198,7 @@ where $\Fun$ denotes the functor category.
 Passing from discrete $R$-algebras to admissible $R$-algebras (cf. Definition
 \ref{def:admring}), this construction extends naturally to a functor 
 \begin{equation*}
-  \FMLOver AR \to \Fun (\Adm R, \Mod A), \quad F \mapsto \Spf (R\llbr \bT \rrbr),
+  \FGG \colon \FMLOver AR \to \Fun (\Adm R, \Mod A), \quad F \mapsto \Spf (R\llbr \bT \rrbr),
 \end{equation*}
 where we equip $\Spf(R) \llbr \bT \rrbr$ with the structure of an $A$-module object
 using the endomorphisms coming from $F$. 
@@ -384,7 +385,7 @@ applying the chain rule.
 \end{prop}
 \begin{xpl}
   The invariant differentials for $\Ghat_a$ are spanned by the form $\dc X$. 
-  The invariant differentials for $\Ghat_m$ are spanned by the form 
+  The invariant differentials for $\Ghat_{m, \Z_p}$ are spanned by the form 
   $\omega_1(X) = \frac 1{1+X} \dc X$.
 \end{xpl}
 By the proposition above and Equation \eqref{eq:coeffofcanonicaldiff}, we may
@@ -400,7 +401,7 @@ This pairing is independent of the parameterization of $\bF$. In particular, it
 descends to a pairing defined for formal modules $\cF \in \FMArbOver A R$, and
 we have a natural isomorphism $\omega(\cF) \cong \Hom_R(R, \Lie(\cF))$.
 
-Let $\Ghat_a$ be the additive formal ${\cO_E}$-module over $R$. There is a map
+Recall that $\Ghat_{a,R}$ is the additive formal ${\cO_E}$-module over $R$. There is a map
 \begin{equation} \label{eq:functorinvdifftohom}
   \dc_\bF \colon  \Hom_{\FMLOver {\cO_E}R} (\bF, \Ghat_{a,R}) \to \omega(\bF), \quad f \mapsto \dc f(\bX)
 \end{equation}
@@ -448,7 +449,7 @@ and satisfying
       \begin{equation*}
         \log_{\Ghat_m}(T) = - \sum_{i = 1}^\infty \frac{(-T)^{i}}i. 
       \end{equation*}
-    \item If $F$ is the formal $\FF_q\llbr \varpi \rrbr$-module with $F(X,Y) = X+Y$,
+    \item If $F$ is the formal $\FF_q\llbr \varpi \rrbr$-module law with $F(X,Y) = X+Y$,
       $[\zeta]_F(T) = \zeta T$ for $\zeta \in \FF_q$ and $[\varpi]_F(T) = T^q$, 
       the logarithm for $F$ needs to satisfy $\log_F(\zeta T) = \zeta \log_F(T)$.
       Furthermore, it satisfies the functional equation
@@ -804,7 +805,7 @@ We will need the following result.
 \label{sub:Hazewinkels FuncEq and the Standard Formal Module}
 Let $R$ be a flat $\cO_E$-algebra. By the results of \cref{sub:Logarithms}, the
 structure of a formal 
-$\cO_E$-module law $F$ over $R$ is uniquely determined by its logarithm $\log_F
+$\cO_E$-module law $F$ over $R$ is uniquely determined by its logarithm $\log_F(T)
 \in R [\tfrac 1\varpi] \llbr T \rrbr$. Indeed, we find
 \begin{equation*}
   F(X,Y) = \exp_F(\log_F(X)+\log_F(Y)), \quad [a]_F(X) = \exp_F(a \log_F(X)).
@@ -871,7 +872,7 @@ formal $\cO_E$-module laws, so called $\cO_E$-typical formal module laws.
   \begin{equation*}
     \log_F(T) = \sum_{i=0}^\infty b_i X^{q^i}
   \end{equation*}
-  for elements $b_0, b_1, \dots \in R \otimes_A E$.
+  for elements $b_0, b_1, \dots \in R \otimes_{\cO_E} E$.
 \end{defi}
 
 The family of $\cO_E$-typical formal module laws is quite exhaustive.
@@ -1544,8 +1545,8 @@ Functoriality of $\RigExt$ follows quickly from the following result.
 \begin{lem}\label{lem:LieAlgebrasOfPBandPFW}
   We have natural isomorpisms 
   \begin{equation*}
-    \Lie(f^* \cE) \cong \Lie(\cE) \times_{\Lie(\cF)} \Lie(\cG) \quad \text{and}
-    \quad \Lie(g_* \cE) \cong \Lie(\cG') \sqcup_{\Lie(\cF')} \Lie(\cE).
+    \Lie(f^* \cG) \cong \Lie(\cG) \times_{\Lie(\cF)} \Lie(\cH) \quad \text{and}
+    \quad \Lie(g_* \cG) \cong \Lie(\cH') \sqcup_{\Lie(\cF')} \Lie(\cG).
   \end{equation*}
 \begin{proof}
   This is true independently of the choice of coordinates.
@@ -1726,7 +1727,7 @@ $(\cG, \omega_\cG) \in \RigExt(\cF, \Ghat_a)$.
       \end{gathered}
       \right\}
   \end{equation}
-The map sends any quasi-logarithm $g(T) \in (R\otimes_A E)\llbr T \rrbr$
+  The map sends any quasi-logarithm $g(T) \in (R\otimes_{\cO_E} E)\llbr T \rrbr$
 to the pair $(G_{\delta g}, \dc (X + g(T)) \in \RigExt(F, \Ghat_a)$. Here
 $G_{\delta g} \in \Ext(F, \Ghat_a)$ is the extension corresponding to 
 $\delta g \in \SymCoc^2(F,\Ghat_a)$. 
@@ -1748,9 +1749,9 @@ This bijection is an isomorphism of $R$-modules.
   \SymCoc^2(F, \Ghat_a)$ be the symmetric 2-cochain corresponding to $G$.
   Following Proposition \ref{prop:loginvdiff}, the datum of 
   $\omega_G \in \omega(G)$ is equivalent to a morphism 
-  $$f_G \in \Hom_{\FMLOver A {R \otimes E}}(G \otimes_R (R \otimes_A E), \Ghat_a)
+  $$f_G \in \Hom_{\FMLOver A {R \otimes E}}(G \otimes_R (R \otimes_{\cO_E} E), \Ghat_a)
   \quad \text{satisfying} \quad f_G(X,T) = X + g(T)$$
-  for some $g(T) \in (R \otimes_A E)\llbr T \rrbr$. The fact that 
+  for some $g(T) \in (R \otimes_{\cO_E} E)\llbr T \rrbr$. The fact that 
   $f_G$ is a homomorphism implies that 
   \begin{multline*}
     X_1 + X_2 + \Delta(T_1, T_2) + g(F(T_1,T_2)) = f_G(G((X_1, T_1), (X_2, T_2))) = \\
@@ -2348,20 +2349,32 @@ $\lambda$.
 
 \subsection{Determinants of Formal modules} % (fold)
 \label{sub:Determinants of Formal modules}
-In \cite{hedayatzadeh2015det}, Hedayatzadeh constructs determinants of 
-$\varpi$-divisible formal $\cO_E$-modules over \red{properties} rings. 
-We cite the result of main importance for us.
+Determinants of formal $\cO_E$-modules will play a central role in the analysis
+of the Lubin--Tate tower. Let $R \in \cC$ and let $\cF$ be a formal $\cO_E$-module
+over $R$. Write $\cF_0 = \cF \otimes_R \Fqbar$ and let $\wedge^n \cF_0$ be the
+formal $\cO_E$-module with Diodonn\'e module isomorphic to $\wedge^n \Dio(\cF_0)$;
+it is the unique formal $\cO_E$-module of height $1$ over $\Fqbar$ and admits,
+by \ref{sub:Deformations of Formal Modules}, a unique deformation 
+$\wedge \cF$ to $R \in \cC$. 
+
 \begin{thm}[Determinants of Formal Modules]\label{thm:HedayatzadehsResult}
-  ABCDE
+  For every $m \geq 1$, there exists an alternating and multilinear map of
+  \begin{equation}\label{eq:determinantontorsionpoints}
+    \delta_m \colon  \cF[\varpi^m]^n \to \wedge^n \cF[\varpi^m]
+  \end{equation}
+  of formal schemes over $R$ with $\cO_E$-module structure. This map is universal
+  in the sense that any alternating multilinear map from $\cF[\varpi^m]^n$
+  into another $\cO_E$-module factors through $\delta_m$. 
 \begin{proof}
+  In the case of equal characteristic, this statement is due to Weinstein 
+  (cf. \cite{weinstein2010goodreduc}), whose construction uses an explicit description
+  of the universal deformation only available in characteristic $p$. The 
+  characteristic $0$ case is much more complicated; it was carried out in the 
+  PhD thesis of Hedayatzadeh. His construction makes use of the classification of 
+  $p$-divisible groups in terms of Zink's category of displays (cf.
+  \cite[Theorem 4.34]{hedayatzadeh2015det}).
 \end{proof}
 \end{thm}
-
-For $R\in\cC$ and $\cF \in \FMLOver {\cO_E}R$, we write
-$\delta_m$ for the induced universal multilinear and alternating morphisms
-\begin{equation}\label{eq:determinantontorsionpoints}
-  \delta_m \colon \cF[\varpi^m]^n \to \wedge^n\cF[\varpi^m].
-\end{equation}
 
 We will need the following result.
 
@@ -2384,21 +2397,20 @@ $\cO_E$-module $H$ over $\cO_\br E$. We turn our attention to the determinant of
 formal $\cO_E$-module in the following example.
 
 \begin{xpl*}\label{xpl:DeterminantOfH}
-  The determinant $\wedge^n H$ is the formal $\cO_E$-module law over 
+  The determinant $\wedge^n H$ is canonically isomorphic to the formal
+  $\cO_E$-module law over 
   $\cO_\br E$ with logarithm given by the power series
   \begin{equation*}
     f_\wedge(T) = \sum_{i=0}^\infty (-1)^{(n-1)i} \frac{T^{q^i}}{\varpi^i}.
   \end{equation*}
-  This is to be understood in the following way. If $\cH$ is a formal module
-  equipped with a coordinate $\cH \cong \FGG(H)$, then the same coordinate yields 
-  an isomorphism $\wedge^n \cH \cong \FGG(\wedge H)$. We do not prove this,
-  but we note that it can be witnessed on the
+  We do not prove this, but we note that it can be witnessed on the
   corresponding Dieuodonn\'e-modules: $\Dio(\wedge^n H)$ and 
   $\wedge^n \Dio(H)$ are naturally isomorphic. The module $\QLog(\wedge^n H)$
-  is
-  generated by $f_\wedge(T)$, and $\wedge^n \QLog(H)$ is generated by the element
+  is generated by $f_\wedge(T)$, and $\wedge^n \QLog(H)$ is generated by the
+  element
   \begin{equation*}
-    w(T) = \log_H(T) \wedge \frac 1\varpi \log_H(T^q) \wedge \dots \wedge \frac 1\varpi \log_H(T^{q^{n-1}}) \in \wedge^n \Dio(H).
+    w(T) = \log_H(T) \wedge \frac 1\varpi \log_H(T^q) \wedge \dots \wedge \frac
+    1\varpi \log_H(T^{q^{n-1}}) \in \wedge^n \Dio(H).
   \end{equation*}
   We have $f_\wedge(T^q) = (-1)^{n-1} \varpi f(T) - \varpi T$, which equals
   $(-1)^{n-1}\varpi f_\wedge(T)$ in $\QLog(\wedge^n H) \cong \Dio(\wedge^n
