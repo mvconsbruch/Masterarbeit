@@ -601,7 +601,7 @@ and that $G^1$ is naturally a co-compact and closed normal subgroup of $\bar G$
 
 \begin{lem}\label{lem:FirstCaseOfMainRes1}
   If $\theta$ is trivial on $\varpi^\Z$, the statements of 
-  \cref{thm:MainRes1} hold.
+  \cref{thm:MainRes1} hold.   
 \begin{proof}
   We show that $\hH_{\LT,\pi_\theta} = \pi_\theta \boxtimes \rho_\theta^\vee 
   \boxtimes \tau_\theta^{\vee}(\tfrac{1-n}2)$. 
@@ -637,20 +637,26 @@ and that $G^1$ is naturally a co-compact and closed normal subgroup of $\bar G$
   By the lemma above, all that is left to do is to check that the 
   assumption on $\theta$ to be trivial on $\varpi^\Z$ can be removed.   
   Let $\theta\colon E_n^\times \to \C^\times$ be an arbitrary regular
-  tame character. Let $\xi\colon E^\times \to \C^\times$ be unramified character 
-  (i.e., trivial on $\cO_E^\times$) with $\xi(\varpi)^n = \theta(\varpi)$, and
-  put $\theta_0 \coloneqq \theta \cdot (\xi \circ \Norm_{E_n/E})^{-1}$. Now
-  $\theta_0$ is tame and we have $\bar \theta_0 = \bar \theta$, so $\theta_0$
-  is regular as well. By construction, we have $\theta_0(\varpi) = 1$, so
-  $\theta_0$ is trivial on $\varpi^\Z$ and \cref{lem:FirstCaseOfMainRes1}
-  implies that $\JL(\pi_{\theta_0}) = \rho_{\theta_0}$ and
-  $\rec_E(\pi_{\theta_0}) = \tau_{\theta_0}$. 
-  One the other hand, one quickly verifies
+  tame character. Let $\xi\colon E^\times \to \C^\times$ be an unramified character 
+  (i.e., a character trivial on $\cO_E^\times$) with $\xi(\varpi)^n =
+  \theta(\varpi)$, and put $\theta_0 \coloneqq \theta \cdot (\xi \circ
+  \Norm_{E_n/E})^{-1}$. Now $\theta_0$ is tame and we have $\bar \theta_0 =
+  \bar \theta$, so $\theta_0$ is regular as well. By construction, we have
+  $\theta_0(\varpi) = 1$, so $\theta_0$ is trivial on $\varpi^\Z$ and
+  \cref{lem:FirstCaseOfMainRes1} implies that 
+  $$\JL(\pi_{\theta_0}) = \rho_{\theta_0} \quad \rec_E(\pi_{\theta_0}) =
+  \tau_{\theta_0}.$$
+  On the other hand, we have
   \begin{equation*}
-    \rho_{\theta} = \rho_{\theta_0} \otimes (\xi \circ \Nrd_{D/E}) 
+    \rho_{\theta} = \rho_{\theta_0} \otimes (\xi \circ \Nrd_{D/E}),
+      \quad 
+    \pi_{\theta} = \pi_{\theta_0} \otimes (\xi \circ \det)
       \quad \text{and} \quad
-    \pi_{\theta} = \pi_{\theta_0} \otimes (\xi \circ \det).
+    \tau_{\theta} = \tau_{\theta_0} \otimes (\xi \circ \Art_E^{-1});
   \end{equation*}
+  the first two statements follow quickly from definition and the third one
+  is a consequence of \cref{thm:ArtinMapFunc}.
+  
   As the Jacquet-Langlands and local Langlands correspondences are compatible
   with character twist, this gives
   \begin{equation*}
@@ -658,16 +664,7 @@ and that $G^1$ is naturally a co-compact and closed normal subgroup of $\bar G$
     \quad \text{and} \quad
     \rec_E(\pi_{\theta}) = \tau_{\theta_0} \otimes (\xi \circ \Art_E^{-1}).
   \end{equation*}
-
-  This shows the statement for the Jacquet--Langlands correspondence. For the
-  statement about local Langlands correspondence, recall that from 
-  \cref{thm:ArtinMapFunc}, we have the identity
-  $\Art_{E} \circ \Norm_{E_n/E} = \operatorname{res} \circ \Art_{E_n}$, where
-  $\mathrm{res} \colon \Weil_{E_n}^\ab \to \Weil_E^\ab$ denotes the natural
-  restrction morphism. 
-  From the definition of $\tau_\theta$, we may deduce that 
-  $\tau_{\theta} = \tau_{\theta_0} \otimes (\xi \circ \Art_E^{-1})$. 
-  Together with the identites laid out above, this completes the proof.
+  The desired statement follows from the identites laid out above.
 \end{proof}
 % subsection (end)
 

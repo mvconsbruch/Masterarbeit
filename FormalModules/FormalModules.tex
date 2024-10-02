@@ -318,8 +318,8 @@ the $R$-module $\Lie(\cF)$ is a free of rank $n$.
   Note that $\Lie(\Ghat_a \otimes M) = M$ by design. 
   \end{defi}
 \begin{rmk} 
-  If $R\to R'$ is a ring morphism that turns $R'$ into a (say) finite free
-$R$ -algebra, the above definition overloads the expression $\Ghat_a \otimes_R R'$.
+  If $R\to R'$ is a ring morphism that turns $R'$ into a finite free
+  $R$-algebra, the above definition overloads the expression $\Ghat_a \otimes_R R'$.
   In order to disambiguate, we usually denote the additive formal $A$-module
   over $R'$ by $\Ghat_{a, R'}$. 
 \end{rmk}
@@ -359,7 +359,7 @@ $$ f^*\colon \omega(G) \to \omega(F), \quad \sum_{1 \leq i \leq \dim(G)} g_i(\ma
 \dc T_i  \mapsto \sum_{1 \leq i \leq \dim(F)} g_i(f(\mathbf T)) \dc f_i(\mathbf T).$$
 
 It is possible to explicitly calculate a basis for the $R$-module
-$\omega(\bF)$, which we now explain. Let 
+$\omega(\bF)$. Let 
 $$A(\bX, \bY) \in \Mat_{n \times n} (R\llbr \bX, \bY \rrbr)$$ 
 denote the matrix $\left((\partial/\partial X_j)F_i (\bX,\bY)\right)_{i,j}$,
 the derivative of $\bF(\bX,\bY)$ with respect to $\bX$. Set 
@@ -666,10 +666,8 @@ $q$-th power frobenius on $\FF_{q^n}$.
 \end{proof}
 \end{prop}
 
-In particular, this lemma yields a 
-reduction map $\cO_D \to \FF_{q^h}$ by sending $a \in \cO_{E_h}$ to
-its residue modulo $\varpi$ and $\Pi$ to $0$, as well as a 
-map of multiplicative monoids
+In particular, reduction modulo $\Pi$ yields a map $\cO_D \to \FF_{q^h}$, as
+well as a map of multiplicative monoids
 $$\Nrd\colon D \to E, \quad \Pi \mapsto \varpi, \quad a \mapsto
 \Norm_{E_n/E}(a) \text{ for } a \in E_n.$$
 Both these maps are invariant under conjugation, and thus extend to maps
@@ -971,7 +969,7 @@ deformation functor
   \iota)$ of $\XX$ to $R$}\}/\sim.
 \end{equation*}
 We remark that, as all formal module laws of height $n$ over $\Fqbar$ are 
-isomorphic, this functor does not depend on the choice of $\XX$. 
+isomorphic, this functor does not depend on the choice of $\XX$.
 
 In the literature one encounters a variant of this functor, defined on the
 level of formal
@@ -1827,7 +1825,7 @@ In the case that $R$ is flat over $\cO_E$, and $\cF$ comes from a
 $\cO_E$-typical formal module, \cite[ 9]{hopkins1994equivariant} also
 gives an explicit description of a basis for the modules in question.
 If $\cF$ is isomorphic to the standard formal $\cO_E$-module $H$ of height $n$,
-which allows for an explicit
+this allows an explicit
 description of the exact sequence in \cref{prop:InterestingES}.  
 There is no non-trivial map $H \to \Ghat_a$, so the sequence becomes
 \begin{equation*}
@@ -2578,7 +2576,8 @@ We postpone the proof to state the following auxiliary result.
   \varpi^r \log_H(x_r^{q^{nr+i}}) - \frac 1\varpi \log_H\left(x_0^{q^i}\right) = 
   \frac 1\varpi \left(\log_H((\Pi^i x)_0)- \log_H(x_0^{q^i})\right).$$
   We need to calculate $\log_U(y)$, which calls for an explicit description of 
-  $\log_U \colon U \otimes (R \otimes_{\cO_E}E) \to (\Ghat_a \otimes(R \otimes_{\cO_E} E))^n$. 
+  $$\log_U \colon U \otimes (R \otimes_{\cO_E}E) \to (\Ghat_{a \otimes(R
+  \otimes_{\cO_E} E}))^n.$$ 
   Tracing through the procedure provided in Subsection \ref{sub:Logarithms},
   we find
   \begin{equation*}
