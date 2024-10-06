@@ -17,8 +17,8 @@ Lazard's work inspired Lubin to study formal groups, which ultimately led
 him, in joint work with Tate, to develope Lubin--Tate theory.\footnote{Lubin wrote
 about his experience of the developement of the theory in an online forum, cf.
 \cite{mathoverflowLUBIN}.}
-We are mostly interested in formal $\cO_E$-modules, which are formal groups
-admitting endomorphisms by $\cO_E$.
+We are mostly interested in formal $\cO_E$-modules, which are (roghly) formal groups
+whose endomorphism rings contain $\cO_E$.
 
 \subsection{Fundamentals} % (fold)
 \label{sub:Basic Notions}
@@ -29,22 +29,22 @@ For now, let $R$ be any ring, and let $n$ and $m$ be arbitrary integers.
   power series $F = (F_1, \dots, F_n)$ with $$F_i(X_1, \dots, X_n,Y_1,
   \dots, Y_n) \in R\llbr X_1, \dots,
   X_n, Y_1, \dots, Y_n\rrbr, \quad 1 \leq i \leq n$$
-  such that  the following equalities are satisfied:
+  such that the following identities hold.
   \begin{enumerate}
     \item $F(F (\mathbf X, \mathbf Y), \mathbf Z) = 
-      F(\mathbf X, F(\mathbf Y, \mathbf Z))$.
-    \item $F( \mathbf X, \mathbf 0) = \mathbf X$.
-    \item $F( \mathbf X, \mathbf Y) = F(\mathbf Y, \mathbf X).$
+      F(\mathbf X, F(\mathbf Y, \mathbf Z))$
+    \item $F( \mathbf X, \mathbf 0) = \mathbf X$
+    \item $F( \mathbf X, \mathbf Y) = F(\mathbf Y, \mathbf X)$
   \end{enumerate}
   Here, and in the sequel, we abbreviate $\mathbf X =
-  (X_1, \dots, X_n)$, et cetera. From axioms two and three, it follows that 
+  (X_1, \dots, X_n)$, et cetera. From points two and three, it follows that 
   $F_i(\bX, \bY) \equiv X_i + Y_i$ modulo terms of degree $\geq 2$.
   Given a formal group law $F$ of dimension $n$ and a formal group law
   $G$ of dimension $m$,
   a morphism $F \to G$ is an $m$-tuple $f = (f_1, \dots, f_m)$ 
   of power series $f_i \in R\llbr X_1, \dots, X_n \rrbr$ such that $\bff(0)=0$ and
   \begin{equation*}
-    G(f( \mathbf X), f( \mathbf Y) ) = f(F( \mathbf X, \mathbf Y)).
+    f(F( \mathbf X, \mathbf Y)) = G(f( \mathbf X), f( \mathbf Y) ).
   \end{equation*}
   Composition of morphisms is given by composition of tuples of power-series. 
   Consequently, the identity $\id_{F}$ is the tuple of power series with
@@ -240,10 +240,6 @@ formal modules.
 %   \end{equation*}
 %   will be referred to as a coordinate for $\cF$. 
 % \end{defi}
-Again, the reader shall be warned that this definition of formal 
-$A$-modules is not well-behaved if one chooses to work over non-local
-$A$-algebras $R$. Here, one should rather pass to the Zariski-stackification
-of the prestack $R' \mapsto \FMOver A{R'}$ described above.
 
 The functor
 \begin{equation*}
@@ -253,7 +249,18 @@ essentially forgets the choice of module law. Given a formal $A$-module
 $\cF$ over $R$, any isomorphism $\cF \cong \FGG(F)$, with $F$ a formal $A$-module
 law, will be referred to as a Coordinate for $\cF$.
 
+Just as in the case of formal 
+module laws, a morphism $R \to R'$ yields a functor 
+\begin{equation*} 
+  \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
+\end{equation*}
+Again, the reader shall be warned that our definition of formal 
+$A$-modules is not well-behaved if one chooses to work over non-local
+$A$-algebras $R$. Here, one should rather pass to the Zariski-stackification
+of the prestack $\spec(R') \mapsto \FMOver A{R'}$ described above.
 
+The Lie-functor extends to formal $A$-modules, for any $\cF \in \FMArbOver AR$,
+the $R$-module $\Lie(\cF)$ is a free of rank $n$.
 \begin{lem}\label{lem:IsosCheckOnLie}
   A map $\phi\colon  \cF \to \cG$ of formal $A$-modules (of arbitrary
   dimension) over $R$ is an isomorphism if and only if the induced morphism of
@@ -288,20 +295,14 @@ law, will be referred to as a Coordinate for $\cF$.
   $\Ghat_{m,\Z_p}$ the structure of a formal $\Z_p$-module law, with
   $[a]_{\Ghat_m}(T) = (1+T)^a -1$ for $a \in \Z_p$. 
   Lubin and Tate found analogues of this construction for the rings of integers 
-  over arbitrary non-Archimedia local fields $E$. We recall their construction in 
+  over arbitrary non-Archimedian local fields $E$. We recall their construction in 
   \cref{sub:Lubin--Tate Formal Module Laws}. In  \cref{sec:Local Class
   Field Theory} we explain applications of these formal modules to local class
   field theory.
 \end{xpl}
 
-Just as in the case of formal 
-module laws, a morphism $R \to R'$ yields a functor 
-\begin{equation*} 
-  \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
-\end{equation*}
 
-The Lie-functor extends to formal $A$-modules, for any $\cF \in \FMArbOver AR$,
-the $R$-module $\Lie(\cF)$ is a free of rank $n$.
+
 
 
 \begin{defi}[Formal Module associated to $R$-module]

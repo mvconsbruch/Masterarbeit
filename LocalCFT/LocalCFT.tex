@@ -88,7 +88,8 @@ automorphism of $E^\ab$. In this section, we work towards the following Theorem.
 \begin{thm}[Local Class Field Theory]\label{thm:LocalKroneckerWeber} \leavevmode
   \vspace{-0.5em}
   \begin{enumerate}
-    \item \textnormal{The Local Kronecker--Weber Theorem.} For any choice of uniformizer $\varpi \in E^\times$, there exists a 
+    \item \textnormal{The Local Kronecker--Weber Theorem.} For any choice of
+      uniformizer $\varpi \in E^\times$, there exists a 
       totally ramified field extensions $E_\varpi$ of $E$ such that 
       the maximal abelian subextension $E^\ab \subset \bar E$ of $E$
       decomposes as $E^\ab = E_\varpi E^\nr$.     
@@ -106,27 +107,22 @@ automorphism of $E^\ab$. In this section, we work towards the following Theorem.
           \sigma|_{E'}} \Gal(E'/E)$ is surjective and has kernel given by
           $\Norm_{E'/E}(E'^\times) \subset E^\times$. 
       \end{enumerate}
+    \item \textnormal{Functoriality of the Artin Map.}
+        Let $L/E$ be a finite extension of local fields. Then there is a
+        commutative diagram
+        \begin{equation*}
+        \begin{tikzcd}[ampersand replacement=\&]
+        	{L^\times} \& {\Weil_L^\ab} \\
+        	{E^\times} \& {\Weil_E^\ab}
+        	\arrow["{\Art_L}", from=1-1, to=1-2]
+        	\arrow["{\Norm_{L/E}}"', from=1-1, to=2-1]
+          \arrow[from=1-2, to=2-2]
+        	\arrow["{\Art_E}", from=2-1, to=2-2]
+        \end{tikzcd}
+        \end{equation*}
+        where $\Weil_L^\ab \to \Weil_E^\ab$ is the morphism induced by the
+        inclusion $\Weil_L \inj \Weil_E$.
   \end{enumerate}
-\end{thm}
-
-The construction of the Artin map is functorial in $E$, in the following sense.
-
-\begin{thm}[Functoriality of Artin Map]\label{thm:ArtinMapFunc}
-  Let $L/E$ be a finite extension of local fields. Then there is a
-  commutative diagram
-  \begin{equation*}
-  \begin{tikzcd}[ampersand replacement=\&]
-  	{L^\times} \& {\Weil_L^\ab} \\
-  	{E^\times} \& {\Weil_E^\ab}
-  	\arrow["{\Art_L}", from=1-1, to=1-2]
-  	\arrow["{\Norm_{L/E}}"', from=1-1, to=2-1]
-    \arrow["{\mathrm{res}}", from=1-2, to=2-2]
-  	\arrow["{\Art_E}", from=2-1, to=2-2]
-  \end{tikzcd}
-  \end{equation*}
-  where $\mathrm{res}$ denotes the morphism induced by the natural 
-  morphism $\Weil_L \inj \Weil_E$ (in light of \eqref{eq:WeilgroupInjectsIntoGalois}, 
-  we have $\res(\sigma) = \sigma|_{E^\ab}$).
 \end{thm}
 
 We follow the construction of $E_\varpi$ in \cite{LubinTateFormalMult}.
@@ -149,16 +145,18 @@ Once all of this is known, the isomorphism $\Art_E$ and property
 
 % subsection The Statements of Local Class Field Theory (end)
 
-\subsection{Construction of the Maximal Abelian Extension} % (fold)
+\subsection{The Lubin--Tate Approach to Local Class Field Theory} % (fold)
 \label{sub:Construction of the Maximal Abelian Extension}
-We now explain the interplay of Lubin--Tate formal module laws with 
+We now explain the interplay of Lubin--Tate formal module laws (as discussed
+in \cref{sub:Lubin--Tate Formal Module Laws}) with 
 local class field theory. The main focus will lay on the construction of the
 totally ramified abelian extension $E_\varpi$ from
 \cref{thm:LocalKroneckerWeber}. As announced, it 
 arises as an infinite union of finite extensions $E_{\varpi, m}$, which
-are constructed as follows. Let $f \in \cO_E\llbr T \rrbr$ be a power series
-in $\cF_{\varpi,1}$ (cf. \cref{sub:Lubin--Tate Formal Module Laws}), giving rise to a
-Lubin--Tate formal module law $F$. We define
+are constructed as follows. Let $f(T) \in \cO_E\llbr T \rrbr$ be a power series
+in $\cF_{\varpi,1}$ (cf. \cref{sub:Lubin--Tate Formal Module Laws}). 
+Now there is a unique Lubin--Tate formal module law $F$
+satisfying $[\varpi]_F(T) = f(T)$, and we define
 \begin{equation*}
   \Lambda_{f,m} \coloneqq \{x \in \fm_{\bar E} \mid [\varpi^m]_F(x) = 0\}.
 \end{equation*}
@@ -181,7 +179,7 @@ We now define
 \end{equation*}
 and call it the Lubin--Tate extension of degree $m$. 
 Omitting the choice of $f$ from notation is justified. Indeed, given 
-another choice $f' \in \cF_\varpi$, Theorem \ref{thm:LTModLaw} implies the 
+another choice $f' \in \cF_\varpi$, \cref{thm:LTModLaw} implies the 
 existence of a power series $[1]_{f,f'} \in \cO_E\llbr T \rrbr$ inducing an
 isomorphism $\Lambda_{f,m} \to \Lambda_{f',m}$. As any finite extension of $E$
 is complete, we obtain $E(\Lambda_{f,m}) = E(\Lambda_{f',m})$, showing the following.
@@ -208,8 +206,8 @@ implies the following.
   hence $\Lambda_{f,1} \cong \cO_E/\varpi\cO_E$.
 
   Now let $m$ be arbitrary. For any $\alpha \in \Lambda_{f,m}$, the roots of
-  $f(T) - \alpha$ have positive valuation, and it follows that $f$ (i.e. multiplication
-  by $\varpi$) yields a
+  $f(T) - \alpha$ must have positive $\varpi$-adic valuation, and it follows
+  that $f$ (i.e. multiplication by $\varpi$) yields a
   surjective morphism $\Lambda_{f,m} \to \Lambda_{f,m-1}$. Via induction this
   implies $\# \Lambda_{f,m} = q^m$.
   By further inductive reasoning, we may assume that 
@@ -262,12 +260,10 @@ We define the Lubin--Tate extension of $E$ as the union
   E_\varpi \coloneq \bigcup_{m \in \N} E_{\varpi, m} = E(\Lambda_f) \quad
   \text{with} \quad \Lambda_f \coloneqq \bigcup_{m \in \N} \Lambda_{f,m}.
 \end{equation*}
-This is the totally ramified field from Theorem \ref{thm:LocalKroneckerWeber}.
-\begin{thm}[Local Kronecker--Weber]\label{thm:LocalKW}
-  Inside $\bar E$, we have $E^\ab = E_\varpi E^\nr$.
-\end{thm}
-We postpone the proof in order to define the Artin map. Lemma
-\ref{lem:PropertiesOfFiniteLTExt} implies the existence of an isomorphism
+This is the totally ramified field from \cref{thm:LocalKroneckerWeber}.
+We could prove at this point that $E^\ab = E^\nr E_\varpi$, but we postpone the
+proof to the end of this section in order to define the Artin map. 
+\cref{lem:PropertiesOfFiniteLTExt} implies the existence of an isomorphism
 \begin{equation*}
   \cO_E^\times \cong \lim_{m \in \N} \cO_E^\times/(1 + \varpi^m \cO_E) \cong
   \lim_{m \in \N} \Gal(E_{\varpi,m}/E) = \Gal(E_\varpi/E),
@@ -288,7 +284,7 @@ with $E^\times$ via $(u, m) \mapsto u \varpi^m$. We obtain the Artin map
 \end{equation*}
 By definition, this isomorphism satisfies 
 $\Art_E(\varpi)|_{E^\nr} = \Phi$. This implies property (a) in 
-Theorem \ref{thm:KroneckerWeber}. 
+\cref{thm:KroneckerWeber}. 
 
 \begin{xpl}
   Let us consider the case $E = \Q_p$. As the polynomial 
@@ -326,9 +322,10 @@ of the Artin map.
   properties (a) and (b).
 \end{proof}
 
-Along the same lines, we can obtain a proof for \cref{thm:ArtinMapFunc}. 
+Along the same lines, we can obtain a proof for the functoriality statement 
+in \cref{thm:LocalKroneckerWeber}. 
 
-\begin{proof}[Proof of \cref{thm:ArtinMapFunc}]
+\begin{proof}[Proof of functoriality of the Artin Map]
 It suffices to prove the theorem for unramified and totally ramified extensions
 $L/E$ seperately, and then point-wise for each uniformizer $\varpi \in
 L^\times$. If $L/E$ is unramified, the statement just says that the Frobenius
@@ -346,12 +343,12 @@ $E_{\varpi''} \subseteq L_{\varpi}$, so that $\Norm_{L_{\varpi}/E}(L_\varpi^\tim
 \end{proof}
 
 The remainder of this section is devoted to the proof of the local Kronecker--Weber 
-Theorem \ref{thm:LocalKW}.
+Theorem in \cref{thm:LocalKroneckerWeber}.
 The proof makes heavy use of the upper numbering for the ramification filtration.
 We don't explain these here, instead we refer to \cite[Chapter
 IV]{serre2013local} for a survey of the theory. We
-do however note that in the case of Lubin--Tate extension, the 
-ramification filtration can be calculated explicitely (cf. \cite[Theorem
+do however note that in the case of Lubin--Tate extension, \cref{lem:PropertiesOfFiniteLTExt} allows us to calculate the 
+ramification filtration explicitely (cf. \cite[Theorem
 2]{gold1981local}): we have
 \begin{equation}\label{eq:CalculationOfUpperRamificationFiltration}
   \Gal(E_{\varpi, m}/E)^v \cong \begin{cases}
@@ -362,21 +359,8 @@ ramification filtration can be calculated explicitely (cf. \cite[Theorem
     \{0\} \quad &\text{if } m < v.
   \end{cases}
 \end{equation}
-In particular, this implies by Herbrand's theorem (cf. \cite[Ch. 4, Proposition
-14]{serre2013local}) that the upper numbering filtration of 
-$\Gal(E_\varpi/E)$ has jumps exactly at the non-negative integers, with
-\begin{equation*}
-  q-1 \leq [\Gal(E_\varpi/E)^{v} : \Gal(E_\varpi/E)^{v+1}].
-\end{equation*}
 
-By the Hasse--Arf theorem, the same phenomenon occurs for any abelian extension 
-(cf. \cite{arf1940untersuchungen}).
-\begin{thm}[Hasse--Arf]\label{thm:Hasse--Arf}
-  Suppose that $E'/E$ is an abelian extension. If $v \in \R$ is a jump in the 
-  filtration $\Gal(E'/E)^v$, then $v$ is an integer.
-\end{thm}
-
-We furthermore need the following variant of Herbrand's theorem (cf. \cite[Chapter IV,
+We need the following variant of Herbrand's theorem (cf. \cite[Chapter IV,
 Proposition 14]{serre2013local}).
 \begin{thm}[Herbrand's theorem]\label{prop:HerbrandsThm}
   Let $L$ be a finite Galois extension of $E$ and let $H \subseteq \Gal(L/K)$ be a
@@ -386,6 +370,19 @@ Proposition 14]{serre2013local}).
   \begin{equation*}
     \Gal(L/E)^v H / H \cong \Gal(L^H/K)^v = (\Gal(L/E)/H)^v.
   \end{equation*}
+\end{thm}
+
+Using Herbrand's Theorem, one quickly finds that the upper numbering filtration of 
+$\Gal(E_\varpi/E)$ has jumps exactly at the non-negative integers, with
+\begin{equation*}
+  q-1 \leq [\Gal(E_\varpi/E)^{v} : \Gal(E_\varpi/E)^{v+1}].
+\end{equation*}
+
+By the theorem of Hasse--Arf, the same phenomenon occurs for any abelian extension 
+(cf. \cite{arf1940untersuchungen}).
+\begin{thm}[Hasse--Arf]\label{thm:Hasse--Arf}
+  Suppose that $E'/E$ is an abelian extension. If $v \in \R$ is a jump in the 
+  filtration $\Gal(E'/E)^v$, then $v$ is an integer.
 \end{thm}
 
 These results suffice to show the following.

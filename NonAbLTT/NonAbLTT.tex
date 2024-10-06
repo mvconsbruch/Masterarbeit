@@ -89,7 +89,7 @@ In order to define the higher layers, we need the notion of Drinfeld level struc
 \end{defi}
 
 \begin{defi}[Lubin--Tate Deformation Space with Level Structure]\label{def:LTDefSpaceWithLevel}
-  Let $\cM_m: \cC \to \Set$ be the functor assigning to $R \in \cC$ the set 
+  Let $\cM_m\colon \cC \to \Set$ be the functor assigning to $R \in \cC$ the set 
   \begin{equation*}
     \cM_m(R) \coloneqq \{(\cF, \iota, \phi) \mid (\cF, \iota) \in \cM_0(R) \text{ and }\phi
     \text{ a Drinfeld level $\varpi^m$-structure on $\cF$}\}/\simeq.
@@ -279,7 +279,7 @@ n}(\cO_E)$ and $g \in \varpi^{-\delta} \Mat_{n \times n}(\cO_E)$ for some non-ne
 integer $\delta$. In this case, we construct for all integers $m \geq \delta$ a natural
 transformation
 \begin{equation*}
-  g_{m, m-\delta}: \cM_m \to \cM_{m-\delta}.
+  g_{m, m-\delta}\colon \cM_m \to \cM_{m-\delta}.
 \end{equation*}
 Note that $g \cO_E^n \subset \varpi^{-\delta} \cO_E^n$, and that multiplication with
 $g$ yields an injection
@@ -362,188 +362,130 @@ Galois with Galois group $K_{m'}/K$.
 
 \subsubsection{The Weil Descent Datum on the Deformation Space} % (fold)
 \label{ssub:The Weil Descent Datum}
-We now fix an algebraic closure
-$\bar E/E$ and a finite Galois extension $E'/\br E$, identified inside $\bar E$. 
-For integers $m \geq 0$, we consider the base change $\cM_{m, \cO_{{E'}}} = \cM
-\cotimes_{\cO_\br E} \cO_{{E'}}$. 
-We recall the notion of Weil descent data and make use of this notion to describe
-an action of the Weil group $\Weil_E$ on $\cM_{m, \cO_{{E'}}}$. In the 
-limit over all finite extensions of $E$, this yields an action of $\Weil_E$ on the
-formal scheme $\cM_{m, \cO_{{\Cp}}}$.
+The aim of this section is to define the right action of the Weil 
+group on the formal scheme 
+$\cM_m \times_{\spf(\cO_\br E)} \spf(\cO_\Cp)$, which will be induced
+from a certain Weil descent datum on $\cM_m$. 
+We recall the notion of Weil descent data and show how they induce 
+an action of the Weil group.
 
-Let $\Phi \in \Gal(E^\nr / E)$ be the automorphism corresponding to the
-$q$-th power Frobenius automorphism on the residue field $\Fqbar$ of $E^\nr$. Given
-an $\cO_\br E$-algebra $\cO_\br E \xto i R$, we write $\Phi^*R$ for the 
-$\cO_\br E$-algebra with structure morphism $\cO_\br E \xto \Phi \cO_\br E \xto i R$.
-The identity on $R$ yields a morphism $R \to \Phi^* R$, which preserves only the 
-$\cO_E$-algebra structure. Note that $\Phi^* R$ admits the following equivalent
-descriptions as $\cO_\br E$-algebra:
-\begin{equation}\label{eq:PhiRDescription}
-\begin{tikzcd}[ampersand replacement=\&]
-	{\Phi^*R} \& {R \cotimes_{\cO_{\br E, \Phi^{-1}}}\cO_{\br E} \ } \& {\ R \cotimes_{\cO_{\br E}, \id} \Phi^*\cO_{\br E}} \\
-	\& {\cO_{\br E}}
-	\arrow["{r \mapsto r \otimes 1}", draw=none, from=1-1, to=1-2]
-	\arrow["\sim"{description}, from=1-1, to=1-2]
-	\arrow["{(r,x) \mapsto r \otimes\Phi(x)}", draw=none, from=1-2, to=1-3]
-	\arrow["\sim"{description}, from=1-2, to=1-3]
-	\arrow["{i \circ \Phi}", from=2-2, to=1-1]
-	\arrow["{1 \otimes \id}"', from=2-2, to=1-2]
-	\arrow["{1 \otimes \Phi}"', from=2-2, to=1-3]
-\end{tikzcd}
-\end{equation}
+Let $\cG$ be a functor $\Adm {\cO_\br E} \to \Set$. As usual, we denote
+by $\Phi \in \Gal(E^\nr/E)$ the automorphism corresponding to the
+$q$-th power Frobenius on the residue field. We denote
+by $\Phi^\flat\colon \spf(\cO_\br E) \to \spf(\cO_\br E)$ the 
+corresponding morphism of formal schemes, and define
+\begin{equation*}
+  \Phi^* \cG \coloneqq \cG \times_{\spf(\cO_\br E), \Phi^\flat}
+  \spf(\cO_\br E).
+\end{equation*}
+Note for any admissible $\cO_\br E$-algebra $\cO_\br E \xto i R$, we have 
+$\Phi^* \cG(R) = \cG(\Phi_* R)$, where $\Phi_* R$ is the admissible
+$\cO_\br E$-algebra with structure morphism $\cO_\br E \xto{i \circ \Phi}
+R$. 
 
-More generally, given any functor $\cG \colon \FSchOver{\cO_\br E}^\opp \to
-\Set$, we denote by
-$\Phi^* \cG$ the fiber product $\cG \times_{\spf(\cO_\br E)} \spf(\Phi^*
-\cO_\br E)$, which is again a functor $\FSchOver{\cO_\br E}^\opp \to \Set$.
-In this situation, we have the notion of Weil descent data
-(cf. \cite[Definition 3.45]{rapoport1996period}).
-
-\begin{defi}[Weil Descent Datum]\label{def:WeilDescentDatum}
-  A Weil Descent Datum for $\cG$ is an isomorphism
+\begin{defi}[Weil Descent Datum]\label{def:WeilDD}
+  A \emph{Weil descent datum} is an isomorphism
   \begin{equation*}
-    \alpha \colon \cG \xto\sim \Phi^* \cG
+    \alpha\colon \cG \to \Phi^* \cG.
   \end{equation*}
-  of functors $\Adm{\cO_\br E} \to \Set$.
 \end{defi}
 
-To make this definition a bit more tangible, we give the following example.
-
-\begin{xpl}
-  % Suppose that $p \neq 2$ and let $\ell \neq p$ be a prime number. Write 
-  % $\zeta_\ell \in \cO_{\br \Q_p}$ for an $\ell$-th root of unity. Let
-  % $\cP_{\zeta_\ell}$ be the functor parametrizing
-  % square roots of $\zeta_\ell$. One readily sees that $\cP_{\zeta_\ell}$ is
-  % representable by \red{category}
-  % $\spf(R)$, where $R$ denotes the the $\cO_{\br \Q_p}$-algebra
-  % $R = \frac{\cO_{\br \Q_p}[X]}{(X^2 - \zeta_\ell)}$. 
-
-  % Now, $\Phi^*\cP_{\zeta_\ell}$ is the functor
-  % parametrizing square roots of $\Phi^{-1}(\zeta_\ell) = \zeta_\ell^{p^{-1}}$,
-  % where $p^{-1}$ denotes the inverse residue class of $p$ mod $\ell$. 
-  % Hence, a Weil descent datum for $\cP_{\zeta_\ell}$ is equvialent to a 
-  % $\cO_{\br \Q_p}$-linear isomorphism of rings
-  % \begin{equation*}
-  %   \alpha \colon \Phi^* R = \frac{\cO_{\br \Q_p}[X]}{(X^2 - \zeta_\ell^{p^{-1}})} \to
-  %   \frac{\cO_{\br \Q_p}[X]}{(X^2 - \zeta_\ell)} = R, 
-  % \end{equation*}
-  % One easily finds that any such isomorphism must send $X$ to $aX$, where $a$
-  % is a square root of $\zeta_\ell^{p^{-1}-1}$, and conversely any such square
-  % root yields a Weil descent datum.
-  If $\cG = R$ is representable by the formal spectrum of a ring of the form
-  \begin{equation*}
-    R = \frac{ \cO_{\br E}\llbr X_1, \dots, X_n \rrbr}{(f_1, \dots,
-    f_n)},
-  \end{equation*} a Weil descent datum 
-  for $\cG$ is an isomorphism of topological $R$-algebras
-  \begin{equation*}
-    \Phi^* R \cong \frac{ \cO_{\br E} \llbr X_1, \dots, X_n \rrbr}{(f_1^{\Phi^{-1}},
-    \dots, f_n^{\Phi^{-1}})}
-    \to 
-    \frac{ \cO_{\br E}\llbr X_1, \dots, X_n \rrbr}{(f_1, \dots,
-    f_n)} = R,
-  \end{equation*}
-  where $f_i^{\Phi^{-1}} \in \cO_\br E\llbr X_1, \dots, X_n\rrbr$ denotes the 
-  power series obtained by applying $\Phi^{-1}$ to the coefficients of $f_i$.
-  This follows quickly from the descriptions of $\Phi^*R$ in
-  \eqref{eq:PhiRDescription}. A similar statement is true for admissible algebras
-  formally of finite type over $\cO_\br E$.
-\end{xpl}
-
-An element $w \in \Weil_E$ with $w|_{\br E} = \Phi^m$ for $m \in \Z$ induces
-a morphism over $\Spf(\cO_E)$
+Now let $E'/E^\nr$ be a finite Galois field extension and let 
+$w \in \Gal(E'/E)$ be an element, so that $w|_\br E = \Phi^m$ for some
+$m \in \Z$. Now $w$ yields a morphism
 \begin{equation*}
-  \cG \times_{\spf({\cO_{\br E}})} \spf(\cO_{{E'}}) \xto{(1,w|_{E'})}
-  \Phi^{m, *}\cG \times_{\spf({\cO_{\br E}})} \spf(\cO_{{E'}}).
+  \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\hat E'}) \xto {(1, w^\flat)}
+  \Phi^{-m, *} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\hat E'}).
 \end{equation*}
-If $\cG$ admits a Weil descent datum, we obtain a commuatative square 
-of isomorphisms of functors $\FSchOver {\cO_E}^{\opp} \to \Set$ 
-\begin{equation}\label{eq:WeilDescentActionCommSquare}
+Write $\alpha^m$ for the morphism $\cG \to \Phi^{m,*} \cG$ 
+induced by iterating the Weil descent datum. We obtain a commutative diagram
+\begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
-	{\cG \cotimes_{\cO_\br E} \cO_{{E'}}} \& {\Phi^{-m, *}\cG \cotimes_{\cO_\br E} \cO_{E'}} \\
-	{\Phi^{m, *}\cG \cotimes_{\cO_\br E} \cO_{{E'}}} \& {\cG \cotimes_{\cO_\br E} \cO_{E'}}.
-	\arrow["{(\Phi^{-m, *} \alpha^{-m}, 1)}", from=1-1, to=1-2]
-	\arrow["{(1, \spf(w))}"', from=1-1, to=2-1]
-	\arrow["{(1,\spf(w))}", from=1-2, to=2-2]
-	\arrow["{(\alpha^{-m}, 1)}", from=2-1, to=2-2]
+	{\cG \times_{\spf(\cO_\br E)}\spf(\cO_{\hat E'})} \& {\Phi^{-m,*}\cG \times_{\spf(\cO_\br E)}\spf(\cO_{\hat E'})} \\
+	{\Phi^{m,*}\cG \times_{\spf(\cO_\br E)}\spf(\cO_{\hat E'})} \& {\cG \times_{\spf(\cO_\br E)}\spf(\cO_{\hat E'}).}
+	\arrow["{(\id, w^\flat)}", from=1-1, to=1-2]
+	\arrow["{(\alpha^m, \id)}"', from=1-1, to=2-1]
+	\arrow["{\delta_\alpha(w)}"{description}, from=1-1, to=2-2]
+	\arrow["{(\Phi^{-m,*}\alpha, \id)}", from=1-2, to=2-2]
+	\arrow["{(\id, w^\flat)}"', from=2-1, to=2-2]
 \end{tikzcd}
-\end{equation}
-Here, $\alpha^{m}$ denotes the isomorphism 
-$$\alpha^m: \cG \xto \alpha \Phi^{*} \cG \xto {\Phi^* \alpha} \Phi^{2, *}\cG
-\xto{\Phi^{2,*}\alpha} \dots \xto{\Phi^{m-1,*}\alpha} \Phi^{m,*}\cG$$ 
-obtained by iterating the isomorphism $\alpha$, and 
-$\alpha^{-m}$ denotes the inverse of $\alpha^{m}$. 
-We write $\delta_w$ for the automorphism of $\cG \cotimes_{\cO_\br E} \cO_{{E'}}$
-described in the square \eqref{eq:WeilDescentActionCommSquare}.
-For $w_1, w_2 \in \Weil_E$, we have $\delta_{w_1 \circ w_2} = \delta_{w_2}
-\circ \delta_{w_1}$,
-so the assignment $w \mapsto \delta_{w}$ defines a right-action of 
-$\Weil_E$ on $\cG \times_{\spf(\cO_{\br E})} \cO_{{E'}}$. 
+\end{equation*}
+With $\delta_\alpha(w)$ defined this way, one quickly verifies the following
+result.
 
-\begin{xpl}
-  Again, suppose that the functor 
-  $\cG$ is representable by the formal spectrum of some $\cO_{\br E}$-algebra $R$,
-  and assume for simplicity that $R$ admits a finite presentation
-  \begin{equation*}
-    R = \frac{\cO_\br E \llbr X_1, \dots, X_n\rrbr}{(f_1, \dots, f_n)}.
-  \end{equation*}
-  Furthermore, assume that $\cG$ admits a Weil descent datum $\alpha$. 
-  Then by the example above, the inverse of $\Phi^{-m, *} \alpha^{-m}$
-  yields an isomorphism of $\cO_{{E'}}$-algebras
-  \begin{equation*}
-    \rho^m: \frac{\cO_{{E'}} \llbr X_1, \dots, X_n\rrbr}{(f_1^{\Phi^m},
-    \dots, f_n^{\Phi^m})} \to 
-    \frac{\cO_{{E'}} \llbr X_1, \dots, X_n\rrbr}{(f_1, \dots, f_n)},
-  \end{equation*}
-  uniquely determined by the images $\rho(X_i)$. 
-  Let $w \in \Weil_E$ be an element satisfying $w|_{\br E} = \Phi^{m}$.
-  Then $\delta_w$ corresponds on the level of global sections to an isomorphism
-  \begin{equation*}
-    R \cotimes_{\cO_\br E} \cO_{{E'}} = 
-    \frac{\cO_{{E'}} \llbr X_1, \dots,
-    X_n\rrbr}{(f_1, \dots, f_n)} \xto w  \frac{\cO_{{E'}} \llbr X_1, \dots,
-        X_n\rrbr}{(f_1^{\Phi^m}, \dots, f_n^{\Phi^m})} \xto {\rho^m}
-        \frac{\cO_{{E'}} \llbr X_1, \dots, X_n\rrbr}{(f_1, \dots, f_n)} = R
-        \cotimes_{\cO_\br E} {\cO_{{E'}}}.
-  \end{equation*}
-  That is, $\delta_w(a) = w|_{E'}(a)$ for $a \in \cO_{{E'}}$ and $\delta_w(X_i) =
-  \rho^m(X_i)$ for $i= 1, \dots, n$.  
-  \end{xpl}
+\begin{lem}\label{lem:WeilDDIndAction}
+  The assignment $w \mapsto \delta_\alpha(w)$ defines a right action 
+  of $\Gal(E'/E)$ on $\cG \times_{\spf(\cO_\br E)}\spf(\cO_{\hat E'})$.
+\end{lem}
 
-One quickly verifies the following.
+Through the surjective morphsim $\Weil_E \to \Gal(E'/E)$, the Weil group acts
+on $\cG \times_{\spf(\cO_\br E)}\spf(\cO_{\hat E'})$.
 
 \begin{lem}\label{lem:WeilGroupActionIsFunctorialInE}
-  The action defined this way is functorial in $E'$. That is, if $E''/E$ is a
-  finite Galois extension containing $E'$, then the induced morphism 
-  of functors 
-  $\cG \times_{\spf(\cO_{\br \cO_E})} \spf(\cO_{E''}) \to 
-  \cG \times_{\spf(\cO_\br E)} \spf(\cO_{E'})$
+  The action defined this way is functorial in $E'$. That is, 
+  if $E^\nr \subset E' \subset E''$ is a
+  tower of finite extensions inside $\bar E$, then the induced morphism of
+  functors 
+  $\cG \times_{\spf(\cO_{\br \cO_E})} \spf(\cO_{\hat E''}) \to 
+  \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\hat E'})$
   is $\Weil_E$-equivariant. 
 \end{lem}
 As a direct consequence, we obtain an action of $\Weil_E$ on
-$$\lim_{E'/E \text{ finite}} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{E'}) = 
-\cG \times_{\spf(\cO_\br E)} \spf(\cO_{\Cp}).$$
+$$\lim_{E'/E \text{ finite Galois}} \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\hat
+E'}) = \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\Cp}).$$ Note that this action 
+only respects the $\cO_E$-structure.
 
-We now define a Weil descent datum $\alpha$ on $\cM_m$. As $\cM_m$ is representable
+\begin{xpl}
+  Assume that $\cG = \spf(R)$, where $R$ is an $\cO_\br E$-algebra of 
+  the form
+  \begin{equation*}
+    R = \frac{\cO_\br E \llbr X_1, \dots, X_k \rrbr}{(f_1, \dots, f_l)}.
+  \end{equation*}
+  Then $\Phi^*\cG = \spf(R \cotimes_{\cO_\br E, \Phi} \cO_\br E)$,
+  hence a Weil descent datum on $\cG$ is the same as an isomorphism
+  of $\cO_\br E$-algebras
+  \begin{equation*}
+    \alpha\colon 
+    \frac{\cO_\br E \llbr X_1, \dots, X_k \rrbr}{(f_1^\Phi, \dots, f_l^\Phi)}
+    \to 
+    \frac{\cO_\br E \llbr X_1, \dots, X_k \rrbr}{(f_1, \dots, f_l)}.
+  \end{equation*}
+  The action of $\Weil_E$ on $\cG \times_{\cO_\br E} \cO_\Cp$
+  is corresponds to a left action on $R \cotimes_{\cO_\br E}\cO_\Cp$.
+  Given $w \in \Weil_E$ with $w|_\br E = \Phi^m$, the corresponding
+  isomorphism takes the form
+  \begin{equation*}
+    \delta_\alpha(w)^\sharp \colon 
+    \frac{\cO_\Cp \llbr X_1, \dots, X_k \rrbr}{(f_1, \dots, f_l)} \to 
+    \frac{\cO_\Cp \llbr X_1, \dots, X_k \rrbr}{(f_1, \dots, f_l)};
+    \quad a \mapsto w(a), \quad X_i \mapsto \alpha^m(X_i).
+  \end{equation*}
+  This isomorphism only respects the $\cO_E$-structure on both sides.
+\end{xpl}
+
+We now define a Weil descent datum $\alpha$ on the deformation spaces with 
+Drinfeld $\varpi^m$ level structure $\cM_m$. As $\cM_m$ is representable
 in $\cC$, it suffices to construct the isomorphism
 $\cM_m \to \Phi^* \cM_m$ on objects $R \in \cC$. 
+
 Given $R\in \cC$ and $(\cF, \iota, \phi) \in \cM_m(R)$, we put
 \begin{equation*}
   \alpha(R) \left( \cF, \iota, \phi \right) = (\cF', \iota',\phi'),
 \end{equation*}
 where
 \begin{itemize}
-  \item the formal $\cO_E$-module $\cF'$ is given by $\cF' = \cF \otimes_{R, \id}
-    \Phi^* R = \Phi^* \cF$.
+  \item the formal $\cO_E$-module $\cF'$ is given by $\cF' = \cF \otimes_{R,
+    \id}
+    \Phi_* R = \Phi^* \cF$.
   \item the quasi-isogeny $\iota'$ is defined as
     \begin{equation*}
       \XX \overset{\Frob_q^{-1}}{\dashrightarrow} \XX^{(-q)} = \XX
       \otimes_{\bar \FF_q, \Frob^{-1}}
-      \Fqbar \dashrightarrow \cF \otimes_{R, \Phi^{-1}} (R/\fm_R) = (\Phi^*
+      \Fqbar \dashrightarrow \cF \otimes_{R, \id} (\Phi_* R/\fm_R) = (\Phi^*
       \cF) \otimes_R \Fqbar.
     \end{equation*}
     Here $\Frob_q^{-1}$ denotes the inverse quasi-isogeny of the relative
-    Frobenius morphism $\Frob_q: \cF^{(-q)} \to \cF$. In particular, 
+    Frobenius morphism $\Frob_q\colon \XX^{(-q)} \to \XX$. In particular, 
     $\height(\iota') = \height(\iota)-1$.
   \item the level structure $\phi'$ is
     \begin{equation*}
@@ -555,30 +497,28 @@ where
 As explained above, this yields a right action of $\Weil_E$ on $\cM_{m, \cO_{{E'}}}$.
 Given $w \in \Weil_E$ such that $w|_\br E = \Phi^m$ for $m \in \Z$, we find
 that $\delta_w$ restricts to an isomorphism $\cM_{m, \cO_{{E'}}}^{(j)} \to \cM_{m,
-\cO_{{E'}}}^{(j+m)}$. 
+\cO_{{E'}}}^{(j-m)}$. 
 
 \begin{xpl}
-  The action of $\Weil_E$ on 
-  $(\cM_{m}\cotimes_{\cO_\br E} \cO_{E'})({\cO_{E'}})$ admits a simple description.
-  Suppose we are given (an equivalence class of)
-  a triple $(\cF, \iota, \phi) \in \cM_m({\cO_{E'}})$ 
-  and an element $w \in \Weil_E$ such that 
-  $w|_{\br E} = \Phi^m$ for $m \in \Z$. We may choose a coordinate
-  $\cF = \FGG(F)$, where $F$ is some formal $\cO_E$-module law over $E'$. Now
-  $$\delta_w(\cF, \iota, \phi) = (\FGG(F^w), \iota^w, \phi^w),$$ 
-  where $F^w$ is the formal group law over $E'$ obtained by applying 
-  $w|_{E'}$ to $F$ coefficient-wise. The quasi-isogeny $\iota^w$ may be
-  described in these coordinates as the composite
-  $$ \XX \xto {\Frob_q^m} \XX^{(q^m)} \xto {\iota^{(q^m)}} (F \otimes
-  \Fqbar)^{(q^m)} = F^w \otimes \Fqbar,$$
-  while the level structure $\phi^w$ is obtained by post-composing $\phi$ with $w$:
-  $$\phi^w = w|_{\fm_{E'}} \circ \phi \colon (\varpi^{-m}\cO_E/\cO_E)^n 
-  \to \fm_{\cO_{E'}}.$$
+  The action of $\Weil_E$ on $(\cM_{m}\cotimes_{\cO_\br E}
+  \cO_{E'})({\cO_{E'}})$ admits a simple description. Suppose we are given (an
+  equivalence class of) a triple $(\cF, \iota, \phi) \in \cM_m({\cO_{E'}})$ and
+  an element $w \in \Weil_E$ such that $w|_{\br E} = \Phi^m$ for $m \in \Z$. We
+  may choose a coordinate $\cF = \FGG(F)$, where $F$ is some formal
+  $\cO_E$-module law over $E'$. 
+  Now $$\delta_\alpha(w)(\cF, \iota, \phi) = (\FGG(F^w), \iota^w, \phi^w),$$
+  where $F^w$ is the formal group law over $E'$ obtained by
+  applying $w^{-1}|_{E'}$ to $F$ coefficient-wise. The quasi-isogeny $\iota^w$ may
+  be described in these coordinates as the composite $$ \XX \xto {\Frob_q^{-m}}
+  \XX^{(q^{-m})} \xto {\iota^{(q^{-m})}} (F \otimes \Fqbar)^{(q^{-m})} = F^w \otimes
+  \Fqbar,$$ while the level structure $\phi^w$ is obtained by post-composing
+  $\phi$ with $w^{-1}$: $$\phi^w = w^{-1}|_{\fm_{E'}} \circ \phi \colon
+  (\varpi^{-m}\cO_E/\cO_E)^n \to \fm_{\cO_{E'}}.$$
 \end{xpl}
-% subsection The Lubin-Tate Tower (end)
-
 
 % (end)
+
+% subsection (end)
 
 \subsection{The \'Etale Cohomology of the Lubin--Tate Tower} % (fold)
 \label{sub:The Local Langlands Correspondence for the General Linear Group}
@@ -600,8 +540,8 @@ acts on the tower as a pro-object.
 This section is concerned with the representation-theoretic aspects of
 the compactly supported \'etale cohomology groups
 \begin{equation*}
-  \colim_K \hHc^{n-1} (M_{K} \times_{\spa({\br E,\cO_\br E})} \Spa(\Cp, \cO_\Cp),
-  \bar \Q_\ell).
+  \colim_K \hHc^{n-1} \left(M_{K} \times_{\spa({\br E,\cO_\br E})} \Spa(\Cp, \cO_\Cp),
+  \bar \Q_\ell\right).
 \end{equation*}
 The right-action of $G \coloneqq \GL_n(E) \times D^\times \times \Weil_E$ on the tower
 $\{\cM_{K, \cO_\Cp}\}_{K \subset \GL_n(\cO_E)}$ induces the structure of a
@@ -675,7 +615,11 @@ $M_{K, \varpi^\Z} \cong \coprod_{0 \leq j < n} M_{K}^{(j)}$. We now define
 \end{equation}
 where $K$ ranges over the compact open subgroups of $\GL_n(\cO_E)$. 
 For an irreducible representation $\pi$ of $\GL_n$, we denote by ${\HLT}_{,\pi}$ the 
-$\pi$-isotypical component of $\HLT$.
+$\pi$-isotypical component of $\HLT$, which is
+\begin{equation*}
+  \hH_{\LT, \pi} = \big\langle v \in \HLT : \langle (g,1,1).v \mid g \in \GL_n(E) \rangle 
+  \cong \pi \big\rangle \subseteq \HLT.
+\end{equation*}
 The precise statement of Non-Abelian Lubin--Tate Theory is the following.
 \begin{thm}[Non-Abelian Lubin--Tate Theory]\label{thm:NonAbLTT}
   Let $\pi$ be an irreducible supercuspidal representation of $\GL_n(E)$ whose central
@@ -705,7 +649,7 @@ Spaces}. Furthermore, it is a consequence of \cref{lem:WeinsteinDeterminantAndNo
 that the group 
 \begin{equation}\label{eq:DefGandG1}
   G^1 \coloneqq \{(g,d,\sigma) \in \GL_n(E) \times D^\times \times W_F \mid 
-  \det(g)^{-1} \Nrd(d) \Art_F^{-1}(\sigma) = 1\}
+  \det(g) \Nrd(d)^{-1} \Art_F^{-1}(\sigma) = 1\}
 \end{equation}
 acts on this tower.
 

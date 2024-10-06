@@ -65,7 +65,7 @@ exact categories, following \cite[Appendix A]{keller1990chain}.
 \end{defi}
 
 As above, suppose that $A$ is any ring and $S$ is an $A$-scheme. Let $\cF$, $\cE$ and $\cF'$ be formal $A$-modules
-over $S$. The category $\FMArbOver AS$ is additive by Lemma \ref{lem:FGLAdditive}.
+over $S$. The category $\FMArbOver AS$ is additive by \cref{lem:FGLAdditive}.
 
 \begin{defi}[Short Exact Sequence]
   A pair of composable morphisms $\cF' \to \cE \to \cF$ in 
@@ -197,8 +197,8 @@ appearing in the above Lemma. They satisfy certain conditions.
   As $\overline \psi$ is unique, we may work locally $S$ and assume that $S =
   \spec R$ is affine and 
   $\cF'$, $\cF$ and $\cG$ all come from formal $A$-module laws. We may
-  now assume that the short exact sequence is in the form of Lemma
-  \ref{lem:SESStandardForm}. Write $E$, $F$, $F'$, $G$ for the 
+  now assume that the short exact sequence is in the form of
+  \cref{lem:SESStandardForm}. Write $E$, $F$, $F'$, $G$ for the 
   formal $A$-module laws corresponding to $\cE$, $\cF$, $\cF'$ and 
   $\cG$. Write $\bY$ for the variables of $G$. Now, as 
   $\beta \circ \psi = 0$, the induced morphism of
@@ -234,7 +234,7 @@ Similar ideas lead to the following result.
 \begin{lem}
   The composition of two deflations of formal $A$-modules is a deflation.
 \begin{proof}
-  \red{Proof is simple application of Lemma \ref{lem:SESStandardForm} but no
+  \red{Proof is simple application of \cref{lem:SESStandardForm} but no
   time to write down} 
 \end{proof}
 \end{lem}
@@ -266,7 +266,7 @@ Similar ideas lead to the following result.
 \begin{proof}
   Assume first that $S = \spec R$ is affine and that $\cF$, $\cF'$ and $\cG$ 
   come from formal $A$-module laws over $R$. Then we assume to be in the
-  situation of Lemma \ref{lem:SESStandardForm}, with
+  situation of \cref{lem:SESStandardForm}, with
   $\cE$ coming from a formal $A$-module law $E$. Using the induced morphism 
   $f: G \to F$ of formal $A$-module laws, define the $A$-module law
   law $f^* E$ via
@@ -277,7 +277,7 @@ Similar ideas lead to the following result.
     [a]_{f^*E}(\bX, \bY) = ([a]_{F'}(\bX) +_{F'} \delta_a(f(\bY)), [a]_F(\bY)).
   \end{gather*}
   Here, $\Delta$ and $\delta_a$ are the power series coming from $E$ (cf.
-  Lemma \ref{lem:SESStandardForm}).
+  \cref{lem:SESStandardForm}).
   Now the top-row is exact with $\alpha'(\bX) = (\bX, 0)$ and 
   $\beta'(\bX, \bY) = \bY$. 
   The morphism of $A$-module laws $f^*E \to E$ is given by 
@@ -329,7 +329,7 @@ The dual statement is also true.
   We proceed as in the proof of the previous lemma and assume that 
   $S = \spec R$ and that $\cF'$, $\cF$ and $\cG$ come from formal $A$-module
   laws over $R$. Now $E$ is a formal $A$-module law over $R$ of the form 
-  described in Lemma \ref{lem:SESStandardForm}, and 
+  described in \cref{lem:SESStandardForm}, and 
   using the power series $\Delta$ and $\delta_a$ we define $g_* E$ via 
   \begin{gather*}
     g_*E((\bY_1, \bZ_1), (\bY_2, \bZ_2)) = (G'(\bY_1, \bY_2) +_{G'}
@@ -352,7 +352,7 @@ As a consequence of the previous lemmas, we obtain the following result.
 \begin{prop}\label{prop:FMArbIsExact}
   Let $S$ be an $A$-scheme. Then
   the category $\FMArbOver AS$, equipped with the notion of exact sequences
-  from Definition \ref{def:SESofFormalModules}, is an exact category. 
+  from \cref{def:SESofFormalModules}, is an exact category. 
 \end{prop}
 
 The following calculation is convenient.
@@ -403,7 +403,7 @@ Let $\cF$ and $\cF'$ be formal $A$-modules over an $A$-scheme $S$.
   commute. We denote the set of equivalence classes of extensions of $\cF$ by
   $\cF'$ as $\Ext(\cF, \cF')$. 
 \end{defi}
-Proposition \ref{prop:FMArbIsExact} turns $\Ext(-,-)$ into a functor.
+\cref{prop:FMArbIsExact} turns $\Ext(-,-)$ into a functor.
 In particular, $\Ext(\cF,\cF')$ carries the structure of a
 left-$\End(\cF')$-module,
 with zero-object given by the canonical extension $\cF \oplus \cF'$.
@@ -442,8 +442,8 @@ with zero-object given by the canonical extension $\cF \oplus \cF'$.
     s': \Lie(\cG) \to \Lie(f^*\cE) \cong \Lie(\cE) \times_{\Lie(\cF)} \Lie(\cG),
     \quad x \mapsto ((s \circ \Lie(f)) (x), x). 
   \end{equation*}
-  Here we used the description of $\Lie(f^*\cE)$ from Lemma
-  \ref{lem:LieAlgebrasOfPBandPFW}.
+  Here we used the description of $\Lie(f^*\cE)$ from 
+  \cref{lem:LieAlgebrasOfPBandPFW}.
   Similarly, given a morphism $g: \cF' \to \cG'$, the induced morphism 
   $\RigExt(\cF, \cF') \to \RigExt(\cF, \cG')$ sends $(\cE,s)$ to
   $(g_*\cE, \Lie(g') \circ s)$, where $g': \cE \to g_* \cE$ is the 
