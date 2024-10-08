@@ -9,22 +9,21 @@ We give a brief summary of the content of results in \cite{mieda2016geometric}.
 
 \subsection{The Specialization Map} % (fold)
 \label{sub:The Injectivity FinLevel}
-Let $\cY$ be a flat and topologically of finite type formal scheme over $\Spf(\cO_\Cp)$.
-Again, by \cite{raynaud1974geometrie} and \cite[§1.9]{huber2013etale},
-we 
+Let $\cY$ be an affine, flat and topologically of finite type formal scheme over $\Spf(\cO_\Cp)$.
+By \cite{raynaud1974geometrie} and \cite[§1.9]{huber2013etale},
+we
 have the corresponding rigid generic fiber $d(\cY)$, which we may
 consider as an analytic adic space over $\Spa(\Cp,\cO_\Cp)$. We denote by $\cY_s = \cY \times_{\Spf(\cO_\Cp)} \spec
-(\Fqbar)$ the special fiber of $\cY$, which is a scheme of finite type over $\spec(
-\Fqbar)$. By the disussion at the begining of \cite[§
-3.5]{huber2013etale}, we have a morphism of sites
+(\Fqbar)$ the special fiber of $\cY$, which is a finite-type scheme over $\spec(
+\Fqbar)$. By the discussion at the beginning of \cite[§3.5]{huber2013etale}, we have a morphism of sites
 \begin{equation*}
   \lambda_\cY \colon d(\cY)_\et \to (\cY_\reduc)_\et \cong \cY_{s, \et}.
 \end{equation*}
 For a positive integer $m$, let us fix the torsion ring $\Lambda = \Z/\ell^m
-\Z$ and write $\underline \Lambda_{d(\cY)}$ (respectively $\underline
+\Z$ and write $\underline \Lambda_{d(\cY)}$ (respectively, $\underline
 \Lambda_{\cY_{s}}$)
-for the corresponding constant sheaf on $d(\cY)_\et$ (respectively $\cY_{s,\et}$). Then 
-pushforward along $\lambda_\cY$ induces a left-exact functor of Grothendieck
+for the corresponding constant sheaf on $d(\cY)_\et$ (respectively, $\cY_{s,\et}$). Then 
+push-forward along $\lambda_\cY$ induces a left exact functor of Grothendieck
 Abelian categories
 \begin{equation*}
   \lambda_{\cY,*}\colon \Sh(d(\cY)_\et, {\underline \Lambda_{d(\cY)}}) \to
@@ -37,41 +36,38 @@ This allows for the following definitions.
   Map]\label{def:FormalNearbyCycleFunctor}
   We denote by
   \begin{equation*}
-    \derR \Psi_\cY\colon \derD (d(\cY)_\et, {\underline \Lambda_{d(\cY)}}) \to
-    \derD (\cY_{s, \et},{\underline \Lambda_{\cY_{s}}})
+    \derR \Psi_\cY\colon \derD^+ (d(\cY)_\et, {\underline \Lambda_{d(\cY)}}) \to
+    \derD ^+ (\cY_{s, \et},{\underline \Lambda_{\cY_{s}}})
   \end{equation*}
-  the right derived functor of $\lambda_{\cY,*}$, which we call the formal nearby
-  cycle functor. The unit of the adjunction $\lambda_{\cY}^* \ladj 
+  the right derived functor of $\lambda_{\cY,*}$, which we call the formal \emph{nearby
+  cycle functor}. The unit of the adjunction $\lambda_{\cY}^* \ladj 
   \derR \Psi_\cY$ induces, evaluated at $\underline \Lambda_{\cY_{s}}$, a morphism
   \begin{equation*}
     \specmap^* \colon \underline \Lambda_{\cY_{s}} \to 
     \derR \Psi_\cY( \lambda_{\cY}^* \underline \Lambda_{\cY_{s}}) = 
     \derR \Psi_\cY(\underline \Lambda_{d(\cY)}).
   \end{equation*}
-  which we shall call the specialization map.
+  which we shall call \emph{specialization map}.
 \end{defi}
 
-Our goal is to compare the compactly supported \'etale cohomology of $\cY_s$
-and $d(\cY)$.
-From classical results (cf. for example \cite[Corollary 0.7.9]{huber2013etale}, which
-essentially deals with the case where $\cY$ is algebraizable),
-we might hope that under mild assumptions, there is a canonical isomorphism
+By \cite[Theorem 5.7.6]{huber2013etale}, there is a canonical isomorphism
 \begin{equation}\label{eq:NearbyCycleIsomorphism}
   \derR\Gamma_c(\cY_s, \derR\Psi_\cY \underline \Lambda_{d(\cY)}) \xto\sim \derR\Gamma_c
-  (d(\cY), \underline \Lambda_{d(\cY)})
+  (d(\cY), \underline \Lambda_{d(\cY)}).
 \end{equation}
-inducing the morphism (which we also call specialization map)
+Upon choosing a compactification $j \colon \cY \inj \bar \cY$, 
+this morphism is essentially constructed by adjunction from the map
+\begin{equation*}
+    \lambda^*_{\sbar \cY} d(j)_! \derR \Psi_\cY
+    \to j_! \lambda_\cY^* \derR \Psi_\cY
+    \to j_!.
+\end{equation*}
+
+Thus, the formal nearby cycle functor provides sheaves on $\cY_s$ that allow us to calculate the cohomology of torsion sheaves on $d(\cY)$. We obtain the morphism (which we also call specialization map)
 \begin{equation*}
   \specmap^*\colon \derR\Gamma_c(\cY_s, \underline \Lambda_{\cY_s}) \to \derR
   \Gamma_c(d(\cY), \underline \Lambda_{d(\cY)}).
 \end{equation*}
-And indeed, in \cite[Corollary 4.29]{mieda2014variants}, Mieda constructs an
-isomorphism as in \eqref{eq:NearbyCycleIsomorphism}
-if $\cY$ is pseudo-compactifiable over $\Spf(A)$ in the sense of \cite[Definition
-4.24]{mieda2014variants}. We do not explain this notion here, but we remark that
-all affine formal schemes that are topologically of finite type are
-pseudo-compactifiable (cf. \cite[Example 4.25]{mieda2014variants}), which is
-the only important case for us.
 
 Let us assume that $d(\cY)$ is smooth over $\Spa(\Cp, \cO_\Cp)$. Then, by
 \cite[Theorem 7.3.4]{huber2013etale}, we have the trace map
@@ -79,7 +75,7 @@ Let us assume that $d(\cY)$ is smooth over $\Spa(\Cp, \cO_\Cp)$. Then, by
   \Tr_{d(\cY)} \colon \derR  \Gamma_c( d(\cY), \underline \Lambda_{d(\cY)} ) \to 
   \Lambda (-d)[-2d].
 \end{equation*}
-Let us write $f \colon \cY_s \to \spec(\Fqbar)$ for the structure morphism. Then by the 
+Let us write $f \colon \cY_s \to \spec(\Fqbar)$ for the structure morphism. Then by the
 adjunction $\derR f_! \ladj f^!$ and the isomorphism in \eqref{eq:NearbyCycleIsomorphism},
 we obtain a map
 \begin{equation*}
@@ -93,20 +89,19 @@ Together with the specialization map, we obtain a morphism
 \end{equation*}
 
 There is another natural map with the same source and target, namely the 
-Gysin map, which we define as the map obtained by adjunction from the trace map
+\emph{Gysin map}, which we define as the map obtained by adjunction from the trace map
 \begin{equation*}
   \Tr_f\colon \derR f_! \underline \Lambda_{\cY_s} \to \underline
   \Lambda_{\spec(\Fqbar)}(-d)[-2d].
 \end{equation*}
 As $f$ is not necessarily smooth, this is not
-simply the trace map from Poincar\'e duality. The trace map exists
-nonetheless (cf. \cite[XVIII, Théorème 2.9]{SGA4}), and we shortly 
+simply the trace map of Poincar'e duality. However, the trace map exists (cf. \cite[XVIII, Théorème 2.9]{SGA4}), and we briefly
 recall how to construct it from the usual trace map. We may assume that $\cY_s$
 is reduced. Then, by \cite[\href{https://stacks.math.columbia.edu/tag/056V}{Tag
 056V}]{stacks-project} 
 there exists a dense open subscheme $j \colon U \inj \cY_s$ that is smooth over 
 $\spec(\Fqbar)$, and we denote by $i$ the closed complement 
-$i \colon Z \inj \cY_s$. Any component of $Z$ has dimension $< d$, implying that
+$i \colon Z \inj \cY_s$. Any component of $Z$ has dimension $< d$, which implies that
 $\hH^{2d}_c(Z, \underline \Lambda_U) = 0$ by \cite[Theorem 7.4.5]{LeiFuEtale}.
 From the excision exact triangle (cf. \cite[Theorem 7.4.4 (iii)]{LeiFuEtale}),
 we obtain a natural isomorphism
@@ -124,11 +119,11 @@ constructed, for example, in \cite[§8.2]{LeiFuEtale}. By the isomorphism
 above, this gives a map $\derR^{2d} f_! \underline \Lambda_{\cY_s} \to \underline
 \Lambda_{\spec(\Fqbar)}(-d)$, and as $\derR f_! \underline \Lambda_{\cY_s}$ is
 (up to quasi-isomorphism) concentrated in degree $\leq 2d$, this suffices to
-construct the desired map. As the trace map commutes with basechange, this construction
+construct the desired map. As the trace map commutes with base change, this construction
 does not depend on the choice of $U$.
 
 With the trace map defined, we can formulate Mieda's main result about the
-specializazion map.
+specialization map.
 \begin{prop}[Mieda's Result about the Specialization Map]\label{prop:MiedaFirstStepSpecMap}
   The composite 
   \begin{equation*}
@@ -147,11 +142,13 @@ specializazion map.
   \end{proof}
 \end{prop}
 
-Now, let $X$ be a purely $d$-dimensional separated smooth scheme of finite type
-over $\spec(\Fqbar)$, with structure morphism denoted by $g$. Assume that there is a
-finite surjective morphism
+In practice, $\cY$ will serve as a “finite level version”
+of certain affinoids constructed inside the Lubin--Tate
+perfectoid space, which in our application admit surjections
+to certain smooth varieties over $\Fqbar$. Let $X$ be a purely $d$-dimensional separated smooth scheme of finite type
+over $\spec(\Fqbar)$, with structure morphism denoted by $g$. Assume that there is a finite surjective morphism
 \begin{equation*}
-  \pi: \cY_s \to X.
+  \pi\colon \cY_s \to X.
 \end{equation*}
 As a corollary to the theorem above, Mieda constructs a commutative diagram
 \begin{equation}\label{eq:MiedasCommutingDiagram}
@@ -182,7 +179,7 @@ As a corollary to the theorem above, Mieda constructs a commutative diagram
 cf. \cite[Corollary 2.7]{mieda2016geometric}.
 In this diagram, the maps $\pi_*$ and $\times \deg \pi$ are given as follows.
 \begin{itemize}
-  \item For the map $\pi_*$, note that, as $g$ is smooth, the Gysin map 
+  \item For the map $\pi_*$, note that, as the structure map $g\colon X \to \spec(\Fqbar)$ is smooth, the Gysin map 
     \begin{equation*}
     \Gys_g \colon \underline \Lambda_{X} \to g^! \underline
     \Lambda_{\spec(\Fqbar)}(-d)[-2d] 
@@ -209,9 +206,9 @@ In this diagram, the maps $\pi_*$ and $\times \deg \pi$ are given as follows.
     \end{equation*}
 \end{itemize}
 Commutativity of the square in the upper right hand side is the content of
-Theorem \ref{prop:MiedaFirstStepSpecMap}, and commutativity of the square in the
+\cref{prop:MiedaFirstStepSpecMap}, and commutativity of the square in the
 upper left is essentially a consequence of the naturality of the trace map. The
-lower two squares commute by definition. Furthermore, Mieda shows that the square
+lower two squares commute by definition. Furthermore, the square
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&]
 	{\hHc^i(\cY_s, \derR \Psi_\cY \underline \Lambda_{d(\cY)})} \& 
@@ -227,15 +224,12 @@ lower two squares commute by definition. Furthermore, Mieda shows that the squar
 is commutative. The following statement is a direct consequence.
 
 \begin{prop}\label{thm:SubspaceInjectionFiniteLevel}
-  Let $X$ and $\cY$ be as above, i.e., let $X$ be a purely $d$-dimensional
-  separated smooth scheme of finite type over $\Fqbar$, and let 
-  $\cY$ be a flat and topologically of finite type formal scheme over
-  $\Spf(\cO_\Cp)$ with generic fiber $d(\cY)$ smooth over $\spa(\Cp,\cO_\Cp)$.
+  Let $X$ and $\cY$ be as above, that is, let $X$ be a purely $d$-dimensional
+  separated smooth scheme of finite type over $\Fqbar$, and let $\cY$ be a flat and topologically finite-type formal scheme over $\Spf(\cO_\Cp)$ with generic fiber $d(\cY)$ smooth over $\spa(\Cp,\cO_\Cp)$.
   Let $\pi\colon \cY_s \to X$ be a finite surjective morphism.
   Furthermore, assume that there is an open immersion
   $d(\cY) \inj Z$, where
-  $Z$ is an adic space that is locally of finite type, separated and taut
-  over $\spa(\Cp, \cO_\Cp)$.
+  $Z$ is an adic space that is locally of finite type, separated, and taut over $\spa(\Cp, \cO_\Cp)$.
   Then, the map 
   \begin{equation*}
     \hHc^i(X, \underline \Lambda_X) \xto {\times \deg \pi} 
@@ -265,13 +259,11 @@ is commutative. The following statement is a direct consequence.
     	\arrow[from=2-2, to=2-1]
     \end{tikzcd}
   \end{equation*}
-  The claim now essentially follows from gluing together all the commutative
-  diagrams above. 
+  The claim now essentially follows from gluing together all the commutative diagrams above. 
 \end{proof}
 \end{prop}
 
-Passing from torsion cohomology to $\ell$-adic cohomology, we quickly arrive
-the following result.
+Passing from torsion cohomology to $\ell$-adic cohomology, we quickly arrive at the following result.
 
 \begin{thm}[Mieda's Injectivity Result at Finite
   Level]\label{thm:MiedaInjectivityAtFiniteLevel}
@@ -283,7 +275,7 @@ the following result.
     V \inj \hHc^i(X, \Qlbar) \xto {\specmap^* \circ \pi^*}
     \hHc^i(d(\cY), \Qlbar) \to \hHc^i(Z, \Qlbar)
   \end{equation*}
-  is injective as well.
+  is also injective.
   \begin{proof}[Sketch of Proof] 
   We have 
   \begin{equation*}
@@ -293,7 +285,7 @@ the following result.
   \end{equation*}
   by \cite[Corollary 9.3.3 and Proposition 10.1.15]{LeiFuEtale} and 
   \cite[Theorem 3.1]{huber1998comparison}. The corresponding statement for
-  $Z$ is wrong in general. In the limit over $m \in \N$,
+$Z$ is in general wrong. In the limit over $m \in \N$,
   \cref{thm:SubspaceInjectionFiniteLevel} thus yields that the map
   \begin{equation*}
     \hHc^i(X, \Qlbar) \xto{\times \deg \pi} \hHc^i(X, \Qlbar) \to \hH^i(X, \Qlbar)
@@ -320,7 +312,7 @@ the following result.
 
 We now explain how the results of the previous subsection apply to the 
 cohomology of the Lubin--Tate tower. In order to set the stage, recall the 
-definition of the Lubin--Tate perfectoid space $M'_{\infty, C}$ and its
+definition of the Lubin--Tate perfectoid space $M'_{\infty, \Cp}$ and its
 right action by the group $G^1$, as defined in the previous two sections.
 Assume that we are in the following situation.
 
@@ -338,7 +330,7 @@ Assume that we are in the following situation.
     \begin{equation}\label{eq:isoofreductionwithperfection}
       R^\perf \coloneq \colim_{x \mapsto x^p} R \cong Q \otimes \Fqbar,
     \end{equation}
-  \item a subgroup $J^1$ of $G^1$ whose action on $M'_{\infty, C}$ stabilizes
+  \item a subgroup $J^1$ of $G^1$ whose action on $M'_{\infty, \Cp}$ stabilizes
     $U$ and extends to $\cX \coloneq \spf(Q)$, 
   \item and a left action of $J^1$ on $R$ such that the isomorphism
     \eqref{eq:isoofreductionwithperfection} is compatible with respect to the
@@ -348,7 +340,7 @@ Assume that we are in the following situation.
 
 We want to use the ideas of \cref{sub:The Injectivity FinLevel} to compare the
 $J^1$-representations
-$\hHc^{n-1}(Y, \Qlbar)$ and $\colim_K \hHc^{n-1}(M'_{K,C}, \Qlbar) = \hH'_\LT$. 
+$\hHc^{n-1}(Y, \Qlbar)$ and $\colim_K \hHc^{n-1}(M'_{K,\Cp}, \Qlbar) = \hH'_\LT$. 
 We will need to construct finite level versions of the rational subset $U$. 
 For $m \in \N$, recall the definition of the $m$-th congruence subgroup $K_m$ from 
 \eqref{eq:defCongruenceSubgroup} and denote $K'_m \coloneq K_m \cap \SL_n(\cO_E)$. 
@@ -356,18 +348,18 @@ The following is part of \cite[Proposition 4.5]{mieda2016geometric}.
 
 \begin{prop}\label{prop:FiniteLevelU}
   There exists an integer $m \geq 0$ such that $K'_m \subset K_U$ and an open affinoid
-  $U_m$ in $M'_{m, C}$ such that the inverse image of $U_m$ under the projection
-  $M'_{\infty, C} \to M'_{m, C}$ is equal to $U$. 
+  $U_m$ in $M'_{m, \Cp}$ such that the inverse image of $U_m$ under the projection
+  $M'_{\infty, \Cp} \to M'_{m, \Cp}$ is equal to $U$. 
 \end{prop}
 With $m$ as in the proposition above, we write $K_0 = K'_m$ and $U_{K_0} = 
 U_m$. For an open normal subgroup $K \subseteq K_0$, we write $U_K = \spa(B_K,
-B^\circ_K) \subset M'_{K, C}$ for the preimage of $U_{K_0}$ under 
-$M_{K,C}' \to M'_{K_0, C}$. For any such $K$, we find
+B^\circ_K) \subset M'_{K, \Cp}$ for the preimage of $U_{K_0}$ under 
+$M_{K,\Cp}' \to M'_{K_0, \Cp}$. For any such $K$, we find
 that $B_K$ is a complete Huber $\Cp$-algebra, 
 topologically of finite type and endowed with an action of $K_0/K$. Furthermore,
 for $K' \subseteq K$ we have $K_0$-equivariant transition maps $B_{K} \to B_{K'}$,
 and $\{B_K\}_{K \subseteq K_0}$ becomes an inductive system (with $K$ running over 
-open normal subgroups). For each such $K$, we have $K_0$-equvariant morphisms
+open normal subgroups). For each such $K$, we have $K_0$-equivariant morphisms
 of Huber pairs $(B_K, B_K^\circ) \to (Q[\tfrac 1\varpi], \tilde Q)$.
 
 It can be shown that the morphism $B_K \to Q[\tfrac 1\varpi]$ is injective
@@ -460,13 +452,11 @@ $J^1$-action on both sides.
   induces a natural automorphism of the vector space $\colim_K \hHc^i(U_K, \Qlbar)$.
   \begin{proof}[Sketch of Proof] 
     This is \cite[Lemma 3.20]{mieda2016geometric}.  The crucial point 
-    is that for each open normal subgroup $K \subset K_0$, and any 
-    $(K, Q_0, \pi) \in \cD$, there is an open subgroup $K' \subset K$ fixing the 
-    finitely many topological generators of $Q_0$. Now it can be shown that 
+    is that for each open normal subgroup $K \subset K_0$, and any $(K, Q_0, \pi) \in \cD$, there is an open subgroup $K' \subset K$ fixing the 
+    finitely many topological generators of $Q_0$. Now, it can be shown that 
     $\sigma(B_K) \subset B_{K'}$, and that the resulting morphism
     $\sigma\colon B_K \to B_{K'}$ is finite. This induces finite morphisms
-    $U_{K'} \to U_K$, and we obtain the desired automorphism after taking 
-    compactly supported cohomology and colimit over $K$. 
+    $U_{K'} \to U_K$, and we obtain the desired automorphism after taking compactly supported cohomology and colimit over $K$. 
 \end{proof}
 \end{lem}
 By \cite[Proposition 3.21]{mieda2016geometric}, the specialization map respects
@@ -488,7 +478,7 @@ automorphisms of finite level.
   The group $J^1$ acts on $Q$ through automorphisms of finite level. 
   By \cref{lem:FinLevelAutoYIeldAutOfColim}, this endows $\colim_K \hHc^i(U_K, \Qlbar)$
   with the structure of a $J^1$-representation. The natural morphism $\colim_K
-  \hHc^i(U_K, \Qlbar) \to \colim_K \hHc^i(M'_{K,C}, \Qlbar)$ is equivariant
+  \hHc^i(U_K, \Qlbar) \to \colim_K \hHc^i(M'_{K,\Cp}, \Qlbar)$ is equivariant
   for the $J^1$-action on both sides.
 \begin{proof}
   This is \cite[Propsition 4.5]{mieda2016geometric}.
@@ -504,14 +494,13 @@ We are now in a position to apply \cref{thm:MiedaInjectivityAtFiniteLevel}.
   $V \inj \hHc^i(Y, \Qlbar) \to \hH^i(Y, \Qlbar)$ is injective. Then, the composition
   \begin{equation}\label{eq:MiedaInfLevelMap}
   V \inj \hHc^i(Y, \Qlbar) \xto{\specmap^*} \colim_K \hHc^{i}(U_K, \Qlbar)
-  \to \colim_K \hHc^i(M'_{K,C}, \Qlbar) = \HLT'
+  \to \colim_K \hHc^i(M'_{K,\Cp}, \Qlbar) = \HLT'
   \end{equation}
   is injective as well. If $V$ is $J^1$-stable, this injection is equivariant 
   for the action of $J^1$ on both sides.
 \begin{proof}
   Fix a triple $(K, Q_0, \pi) \in \cD$, let $K'$ be an open normal subgroup 
-  of $K_0$ contained in $K$. Then there is a triple 
-  $(K, Q_0, \pi) \leq (K', Q_0', \pi') \in \cD$. We write $\cY' = \Spf(Q_0')$,
+  of $K_0$ contained in $K$. Then there is a triple $(K, Q_0, \pi) \leq (K', Q_0', \pi') \in \cD$. We write $\cY' = \Spf(Q_0')$,
   which is flat and topologically of finite type over $\spf(\cO_\Cp)$. 
   Furthermore, it has generic fiber $U_{K'}$, which is smooth over 
   $\spa(\Cp, \cO_\Cp)$, and $\pi'\colon Y \to \cY_s$ is a finite surjective
@@ -519,22 +508,21 @@ We are now in a position to apply \cref{thm:MiedaInjectivityAtFiniteLevel}.
   Thereby, \cref{thm:MiedaInjectivityAtFiniteLevel} yields an injection
   \begin{equation*}
     V \inj \hHc^i(Y, \Qlbar) \xto{\specmap^* \circ \pi'^*} 
-    \hHc^i(d(\cY'), \Qlbar) = \hHc^i(U_{K'}, \Qlbar) \to \hHc^i(M'_{K', C}, \Qlbar).
+    \hHc^i(d(\cY'), \Qlbar) = \hHc^i(U_{K'}, \Qlbar) \to \hHc^i(M'_{K', \Cp}, \Qlbar).
   \end{equation*}
   Taking colimit over $K'$, we obtain a map
   \begin{equation*}
     V \inj \hHc^i(Y, \Qlbar) \xto{\specmap^*} \colim_K \hHc^{i}(U_K, \Qlbar)
-    \to \colim_K \hHc^i(M'_{K,C}, \Qlbar) = \HLT'
+    \to \colim_K \hHc^i(M'_{K,\Cp}, \Qlbar) = \HLT'
   \end{equation*}
   which is injective since filtered colimits are exact.
   Moreover, this map is the same as the one defined in
   \eqref{eq:MiedaInfLevelMap}.
 
-  The map $\colim_K \hHc^{i}(U_K, \Qlbar) \to \colim_K \hHc^i(M'_{K,C}, \Qlbar)$
+  The map $\colim_K \hHc^{i}(U_K, \Qlbar) \to \colim_K \hHc^i(M'_{K,\Cp}, \Qlbar)$
   is $J^1$-equivariant by \cref{prop:ActinOfJ1IsFinLevel}, and together with 
   \cref{prop:SpecMapIsEquivariantWithFinLev} it follows that
-  \eqref{eq:MiedaInfLevelMap} is $J^1$-equivariant if $V$ is $J^1$-stable. This
-  finishes the proof.
+  \eqref{eq:MiedaInfLevelMap} is $J^1$-equivariant if $V$ is $J^1$-stable. This finishes the proof.
 \end{proof}
 \end{thm}
 

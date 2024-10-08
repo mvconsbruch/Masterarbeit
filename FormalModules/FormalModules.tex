@@ -24,7 +24,7 @@ whose endomorphism rings contain $\cO_E$.
 \label{sub:Basic Notions}
 For now, let $R$ be any ring, and let $n$ and $m$ be arbitrary integers.
 \begin{defi}[Formal Group Laws of arbitrary dimension]
-  A (commutative) formal group law  of dimension
+  A (commutative) \emph{formal group law} of dimension
   $n$ over $R$ is a tuple of
   power series $F = (F_1, \dots, F_n)$ with $$F_i(X_1, \dots, X_n,Y_1,
   \dots, Y_n) \in R\llbr X_1, \dots,
@@ -119,8 +119,8 @@ yields an $A$-module structure on $R$, given by the composition
 This is a morphism of rings, and we obtain an $A$-algebra structure on $R$. 
 This motivates the following definition.
 \begin{defi}[Formal $A$-Module Law of arbitrary dimension]\label{def:formalmodulelaw}
-  Let $R$ be an $A$-algebra with structure morphism $j\colon  A \to R$. A formal
-  $A$-module law over $R$ of dimension $n$ is given by the data of 
+  Let $R$ be an $A$-algebra with structure morphism $j\colon  A \to R$. A \emph{formal
+  $A$-module law} over $R$ of dimension $n$ is given by the data of 
   a formal $n$-dimensional group law $F$ over $R$ and a morphism of rings
   \begin{equation*}
     A \to \End_{\FGLArbOver R} (F), \quad a \mapsto ([a]_{F,i}
@@ -203,16 +203,13 @@ Passing from discrete $R$-algebras to admissible $R$-algebras (cf. Definition
 where we equip $\Spf(R) \llbr \bT \rrbr$ with the structure of an $A$-module object
 using the endomorphisms coming from $F$. 
 
-Following this line of thought leads naturally to the definition of
+Following this line of thought naturally leads to the definition of
 formal modules. 
 
 \begin{defi}[Formal Groups and Formal Modules.]
-  A functor $\cF \colon \Adm R \to \Mod A$ is called a formal $A$-module if it
-  is isomorphic to a functor of the form $\FGG(F)$ for
-  any formal $A$-module law $F$ over $R$. Given two formal $A$-modules $\cF$
-  and $\cG$ over $R$, a
-  morphism $\cF \to \cG$ is a natural transformation that respects the 
-  $A$-module structure on components.
+  A functor $\cF \colon \Adm R \to \Mod A$ is called a \emph{formal $A$-module} if it  is isomorphic to a functor of the form $\FGG(F)$ for
+  any formal $A$-module law $F$ over $R$. Given two formal $A$-modules $\cF$ and $\cG$ over $R$, a
+  morphism $\cF \to \cG$ is a natural transformation that respects the $A$-module structure on components.
 \end{defi}
 
 % \begin{rmk} 
@@ -254,28 +251,23 @@ module laws, a morphism $R \to R'$ yields a functor
 \begin{equation*} 
   \FMOver AR \to \FMOver A{R'}, \quad \cF \mapsto \cF \otimes_R R'.
 \end{equation*}
-Again, the reader shall be warned that our definition of formal 
-$A$-modules is not well-behaved if one chooses to work over non-local
+Again, the reader shall be warned that our definition of formal $A$-modules is not well behaved if one chooses to work over non-local
 $A$-algebras $R$. Here, one should rather pass to the Zariski-stackification
 of the prestack $\spec(R') \mapsto \FMOver A{R'}$ described above.
 
 The Lie-functor extends to formal $A$-modules, for any $\cF \in \FMArbOver AR$,
-the $R$-module $\Lie(\cF)$ is a free of rank $n$.
+the $R$-module $\Lie(\cF)$ is free of rank $n$.
 \begin{lem}\label{lem:IsosCheckOnLie}
-  A map $\phi\colon  \cF \to \cG$ of formal $A$-modules (of arbitrary
-  dimension) over $R$ is an isomorphism if and only if the induced morphism of
-  Lie algebras $\Lie(\phi)\colon  \Lie(\cF) \to \Lie(\cG)$ is an isomorphism.
+  A map $\phi\colon  \cF \to \cG$ of formal $A$-modules (of arbitrary dimension) over $R$ is an isomorphism if and only if the induced morphism of Lie algebras $\Lie(\phi)\colon  \Lie(\cF) \to \Lie(\cG)$ is an isomorphism.
 \begin{proof}
   Choosing coordinates, we may assume that $\cF$ and $\cG$ come from formal $A$-module
-  laws $F$ and $G$. Now the claim follows from the formal implicit
-  function theorem.
+  laws $F$ and $G$. Now, the claim follows from the formal implicit function theorem.
 \end{proof}
 \end{lem}
 
 \begin{xpl}
   % For any scheme $X$, the additive group law $\Ghat_a$ 
-  Consider the formal group law $\Ghat_m$ over $\Z_p$. It 
-  admits the structure of a $\Z_p$-module law as follows. 
+  Consider the formal group law $\Ghat_m$ over $\Z_p$. It   admits the structure of a $\Z_p$-module law as follows. 
   As formal group, $\Ghat_m$ is isomorphic to the assignment
   \begin{equation*}
     \Adm {\Z_p} \to \Ab, \quad S \mapsto 1 + S^\cici \subset S^\times.
@@ -339,7 +331,7 @@ law over $R$. We abbreviate $\bX = (X_1, \dots, X_n)$, $\bY = (Y_1,
 \dots, Y_n)$, etc.
 
 \begin{defi}[Invariant Differentials]
-  The module $\omega(\bF)$ of invariant differentials is the submodule of the
+  The module $\omega(\bF)$ of \emph{invariant differentials} is the submodule of the
   $R$-module of differentials
   \begin{equation*}
     \Omega_{R\llbr T_1, \dots, T_n \rrbr/R} \cong \bigoplus_{i=1}^n R\llbr T_1,
@@ -389,8 +381,7 @@ applying the chain rule.
   The invariant differentials for $\Ghat_{m, \Z_p}$ are spanned by the form 
   $\omega_1(X) = \frac 1{1+X} \dc X$.
 \end{xpl}
-By the proposition above and Equation \eqref{eq:coeffofcanonicaldiff}, we may
-define a pairing
+By the proposition above and \eqref{eq:coeffofcanonicaldiff}, we maydefine a pairing
 \begin{equation*}
   \omega(\bF) \times \Lie(\bF) \to R, \quad \langle X_i, \omega_j \rangle =
   \begin{cases}
@@ -435,9 +426,9 @@ and satisfying
   \begin{equation*}
     f = (f_1, \dots, f_n) \colon  F \otimes (R \otimes_{\cO_E} E) \to \Ghat_a^n \otimes_R (R \cotimes E)
   \end{equation*}
-  is called the logarithm attached to $F$, we write 
+  is called the \emph{logarithm} attached to $F$, we write 
   $\log_F(\bX) \in ((R \otimes_{\cO_E} E)\llbr \bX \rrbr)^n$ for the corresponding collection
-  of power series. The inverse of $\log_F(\bX)$ is called the exponential 
+  of power series. The inverse of $\log_F(\bX)$ is called the \emph{exponential}
   attached to $F$, denoted $\exp_F(\bX)$. We have $\Lie(\log_F) = \Lie(\exp_F) = \id$,
   so $\log_F$ and $\exp_F$ are isomorphisms.
 \end{defi}
@@ -538,29 +529,36 @@ interesting invariants of formal $\cO_E$-modules over local $\cO_E$-algebras $R$
 This allows us to define the height of $f\colon F \to G$, denoted $\height(f)$,
 as follows.
 \begin{defi}[Height of morphisms of group laws]
-  If $f = 0$, we say that $f$ has infinite height. 
-  If $f \neq 0$, the height of $f$ is defined as the unique integer $h$ such that 
+  If $f \neq 0$, the \emph{height} of $f$ is defined as the unique integer $h$ such that 
   $f = g(T^{q^h})$ for some power series $g(T) = c_1 T + c_2 T^2 + \dots \in
   R\llbr T \rrbr$ with $c_1 \neq 0$. 
+  If $f = 0$, we say that $f$ has infinite height. 
 \end{defi}
 
 One readily checks that if $f\colon  \cF \to \cG$ is a morphism of formal
 $\cO_E$-module laws over a field extension $k$ of $\FF_q$, the height of $f$
-does not depend on the choices of coordinates on $\cF$ and $\cG$. 
+does not depend on the choices of coordinates on $\cF$ and $\cG$. The following result is easy to verify.
 
-It is not hard to see that the height function is additive, that is, we have
-\begin{equation*}
-  \height(f \circ g) = \height(f) + \height(g).
-\end{equation*}
+\begin{lem}
+    The height function is additive. That is, if 
+    $f\colon \cF \to \cG$ and $g\colon \cG \to \cH$
+    are two morphisms of formal $\cO_E$-modules, we have
+    \begin{equation*}
+        \height(f\circ g) = \height(f) + \height(g).
+    \end{equation*}
+\end{lem}
 
-\begin{defi}[Isogeny and Quasi-Isogeny]
+\begin{defi}[Isogeny]
   A morphism $f\colon  \cF \to \cG$ of formal groups over a field $k$ is called
-  an isogeny if $\ker(f)$ is a representable by a finite free $k$-scheme. 
+  an \emph{isogeny} if $\ker(f)$ is a representable by a finite free $k$-scheme. 
+\end{defi}
 
-  By \cref{prop:pHTcalc}, the set $\Hom_{\FMLOver {\cO_E}{k'}}(\cF, \cG)$ is an 
-  $\cO_E$-module. A quasi-isogeny is an element $\iota \in \Hom_{\FMLOver
+ By \cref{prop:pHTcalc}, the set $\Hom_{\FMLOver {\cO_E}{k'}}(\cF, \cG)$ is an   $\cO_E$-module. 
+\begin{defi}[Quasi-Isogeny]
+    A \emph{quasi-isogeny} is an element $\iota \in \Hom_{\FMLOver
   {\cO_E}{k'}}(\cF, \cG) \otimes_{\cO_E} E$ such that 
   $\varpi^n \cdot \iota$ is an isogeny for some $n \geq 1$. 
+
 \end{defi}
 
 It is not difficult to verify the following result. 
@@ -574,13 +572,14 @@ It is not difficult to verify the following result.
   image of $\varpi$.
   Then the residue field of $R$ is an extension of 
   $\FF_q$, and we say that a formal $\cO_E$-module $\cF$ over $R$ is
-  $\varpi$-divisible if 
-  $[\varpi]_{\cF \otimes R/\fm_R}$ is an isogeny. In this case, we define the
-  height of $\cF$
-  as the height of the isogeny $[\varpi]_{\cF \otimes R/\fm_R}$.
+  \emph{$\varpi$-divisible} if 
+  $[\varpi]_{\cF \otimes R/\fm_R}$ is an isogeny. 
 \end{defi}
 
-The additivity of the height function quickly implies the following.
+If $\cF$ is a $\varpi$-divisible formal $\cO_E$-module
+over $R$, we define the \emph{height of $\cF$}
+  as the height of the isogeny $[\varpi]_{\cF \otimes R/\fm_R}$.
+The additivity of height quickly implies the following.
 
 \begin{lem}\label{lem:NoNonzeroHomsBetweenDiffHeight}
   There are no non-zero homomorphisms between formal $\cO_E$-modules 
@@ -614,10 +613,8 @@ formal $\cO_E$-modules over an algebraic closure $\FF_q \inj \Fqbar$.
 \end{proof}
 \end{prop}
 
-
-
-We call a formal $\cO_E$-module law $\XX$ over $\Fqbar$ normalized of height
-$n$ if it is defined over $\FF_q$ and furthermore
+We call a formal $\cO_E$-module law $\XX$ of height
+$n$ over $\Fqbar$ \emph{normalized} if it is defined over $\FF_q$ and furthermore
 satisfies $[\varpi]_\XX(T) = T^{q^n}$ and $[\zeta]_\XX(T) = \bar \zeta T$
 for every $(q-1)$-th root of unity in $\cO_E$.
 Normalized formal modules of arbitrary height exist, for example as the
@@ -727,7 +724,7 @@ As a direct consequence, we obtain the following useful result.
 \begin{deflem}[Lubin--Tate Module Laws] 
   Let $f \in \cF_{\varpi, h}$. Then there is a unique formal ${\cO_E}$-module
   law $F_f$ over ${\cO_E}$ with $[\varpi]_F(T) = f(T)$. 
-  If $f \in \cF_{f, h}$, we refer to $F_f$ as a Lubin--Tate module law of height $h$.
+  If $f \in \cF_{f, h}$, we refer to $F_f$ as a \emph{Lubin--Tate module law} of height $h$.
 \begin{proof}
   In the above lemma, set $L(X,Y) = X+Y$ and $g=f$ to uniquely determine 
   the power series $F_f$. The same Lemma yields unique power series
@@ -867,7 +864,7 @@ formal $\cO_E$-module laws, so called $\cO_E$-typical formal module laws.
 
 \begin{defi}[$\cO_E$-typical Formal Module Law]\label{def:ATypicFormalModuleLaw}
   We say that a formal module law $F \in \FMLOver {\cO_E}{R}$ is 
-  $\cO_E$-typical, if its logarithm is of the form
+  \emph{$\cO_E$-typical}, if its logarithm is of the form
   \begin{equation*}
     \log_F(T) = \sum_{i=0}^\infty b_i X^{q^i}
   \end{equation*}
@@ -920,12 +917,11 @@ $[\varpi]_H(T) \equiv \varpi T$ mod $(T^2)$. Additionally, note that
 \end{equation*}
 Hence, the equivalence in \eqref{eq:funceqlemcongruence} implies that 
 $[\varpi]_H(T) \equiv T^{q^n}$ mod $\varpi$. So $H$ is a Lubin--Tate formal
-$\cO_E$-module law of height $n$, we call it the standard formal
-$\cO_E$-module law of height $n$. Although the coefficients of $H$ lie inside
+$\cO_E$-module law of height $n$. We call it the \emph{standard formal
+$\cO_E$-module law} of height $n$. Although the coefficients of $H$ lie inside
 $\cO_E$,
 we usually consider it as a formal $\cO_E$-module over $\cO_\br E$.
 
-We note the following. 
 \begin{lem}\label{lem:MultByROUForStandardModule}
   Let $\zeta \in \br E$ be a $(q^n-1)$-th root of unity. Then 
   $[\zeta]_H(T) = \zeta T$ is an automorphism of $H$. In particular,
@@ -957,7 +953,7 @@ $\Hom_{\cC}(R,S)$ if and only if $\phi(\fm_R) \subset \fm_S$.
 Let $\XX = H \otimes \Fqbar$ be the formal $\cO_E$-module law of height $n$
 over $\Fqbar$ obtained by reduction of the standard formal $\cO_E$-module $H$
 and let $R \in \cC$ be an $\cO_\br E$-algebra with maximal ideal $\fm_R$. A
-deformation
+\emph{deformation}
 of $\XX$ to $R$ is a pair $(\cF, \iota)$ consisting of a formal $\cO_\br
 E$-module $\cF$ over $R$ and an isomorphism $\iota\colon \FGG(\XX) \xto \sim
 \cF \otimes \Fqbar$. We say that two deformations $(\cF, \iota)$ and $(\cF',
@@ -1066,7 +1062,7 @@ $R$ obtained by applying $\tilde \alpha$ to the coefficients of $F_v$.
 By the Functional Equation Lemma (\cref{thm:HazewinkelIntegrality}), we find
 that $F_\alpha \otimes \Fqbar$ is equal to $\XX$. Hence 
 $F_\alpha \in \cM_{0, \text{FML}}^{(0)}(R)$, and the mapping $\alpha \mapsto F_\alpha$
-can be shown to be an isomorphism, cf. \cite[ 12]{hopkins1994equivariant}. 
+can be shown to be an isomorphism, cf. \cite[Section 12]{hopkins1994equivariant}. 
 
 % subsection Deformations of Formal Modules (end)
 
@@ -1257,7 +1253,7 @@ Let $\cF$, $\cG$ and $\cF'$ be formal $\cO_E$-modules over $R$.
 \begin{defi}[Short Exact Sequence]\label{def:SESofFormalModules}
   A pair of composable morphisms $\cF' \to \cG \to \cF$ in 
   $\FMArbOver {\cO_E} R$ is called 
-  a short exact sequence if the induced sequence 
+  a \emph{short exact sequence} if the induced sequence 
   \begin{equation*}
     0 \to \Lie(\cF') \to \Lie(\cG) \to \Lie(\cF) \to 0
   \end{equation*}
@@ -1301,10 +1297,8 @@ Let $\cF$, $\cG$ and $\cF'$ be formal $\cO_E$-modules over $R$.
   $\cF'$ as $\Ext(\cF, \cF')$. 
 \end{defi}
 
-A variant of this construction will also be of importance for us.
-
 \begin{defi}[Rigifidied Extension]
-  A rigidified extension of $\cF$ by $\cF'$ is a pair consisting of an extension
+  A \emph{rigidified extension} of $\cF$ by $\cF'$ is a pair consisting of an extension
   \begin{equation*}
     0 \to \cF' \to \cG \to \cF \to 0
   \end{equation*}
@@ -1419,7 +1413,7 @@ appearing in the Lemma \ref{lem:SESStandardForm}. They satisfy certain condition
       \delta_{a+b}(\bZ_1)$
     \item $[a]_{F'}\delta_b(\bZ_1) +_{F'} \delta_a([b]_F(\bZ_1)) = \delta_{ab}(\bZ_1)$.
   \end{itemize}
-  These objects are called symmetric $2$-cocycles. 
+  These objects are called \emph{symmetric $2$-cocycles}. 
 \end{defi}
 \begin{prop}\label{prop:ClassOfFGLitoSymCoc}
   There is a bijection 
@@ -1645,7 +1639,7 @@ Definition \ref{def:QuasiLogarithm}.
 
 Write $\bX$ for the variables of $F'$ and $\bZ$ for the variables of $F$.
 \begin{defi}[Symmetric $1$-Cochain] \label{def:SymCoc1}
-  A symmetric $1$-cochain for the pair $(F,F')$ is an $n$-tuple of power 
+  A \emph{symmetric $1$-cochain} for the pair $(F,F')$ is an $n$-tuple of power 
   series $\bgg = (g_1, \dots, g_m)$, such that $g_i(\bZ) \in R\llbr \bZ \rrbr$
   satisfying $g_i(0) = 0$ for all $i$. We write $\delta \bgg$ 
   for the coboundary of $\bgg$, that is, the pair $(\Delta \bgg, (\delta_a
@@ -1732,9 +1726,9 @@ $G_{\delta g} \in \Ext(F, \Ghat_a)$ is the extension corresponding to
 $\delta g \in \SymCoc^2(F,\Ghat_a)$. 
 
 Furthermore, given two rigidified extensions
-$(G, \omega_G), (D, \omega_{D})$ with associated quasi-logarithms
+$(G, \omega_G) and (D, \omega_{D})$ with associated quasi-logarithms
 $g(T)$ and $h(T)$, there is a (unique) isomorphism $(G, \omega_G) \to (D, \omega_{D})$
-if and only if $h(T)-g(T) =\colon  f(T)$ has coefficients in $R\llbr T \rrbr$. 
+if and only if $h(T)-g(T) \eqcolon  f(T)$ has coefficients in $R\llbr T \rrbr$. 
 In this case, the isomorphism $i_f(X,T) \in \Hom(G, D)$ is
 given by $i_f(X,T) = (X+f(T), T)$. In particular, there is a canonical bijection
 \begin{equation*}
@@ -1760,8 +1754,7 @@ This bijection is an isomorphism of $R$-modules.
   we find $\delta_a g = \delta_a \in R\llbr T \rrbr$. Hence, $g(T)$ is a
   quasi-logarithm with $\delta g = (\Delta, (\delta_a)_a)$. 
   This construction yields the desired inverse.
-  The remaining statements are verified directly, also cf. \cite[
-  8]{hopkins1994equivariant}.
+  The remaining statements are verified directly, also cf. \cite[Section 8]{hopkins1994equivariant}.
 \end{proof}
 \end{thm}
 
@@ -1813,7 +1806,7 @@ This bijection is an isomorphism of $R$-modules.
 \end{proof}
 \end{prop}
 
-We admit the following facts from  9 of \cite{hopkins1994equivariant}.
+We admit the following facts from Section 9 of \cite{hopkins1994equivariant}.
 \begin{prop}\label{prop:InterestingSequenceStdMod}
   Let $\cF$ be a formal ${\cO_E}$-module of height $h$ over $R \in \cC$. 
   Then $\Ext(\cF, \Ghat_a)$ is a free $R$-module of rank $n-1$, 
@@ -1876,26 +1869,29 @@ also functorial in $R$.
 \end{proof}
 \end{lem}
 
-\begin{defi}[The Dieudonn\'e module of a formal ${\cO_E}$-module]\label{def:DioModule}
-  Given $\cF \in \FMOver {\cO_E}R$, we define 
-  $$\Dio(\cF) \coloneqq \Hom_R(\RigExt(\cF, \Ghat_a), R).$$ 
-  We call $\Dio(\cF)$ the (covariant) Dieudonn\'e-module of $\cF$. 
-\end{defi}
+By results of \cite{de1995crystalline}, the assignment
+$\cF \mapsto \Dio(\cF)$ is crystalline, i.e., it only
+depends on the reduction of $\cF$ modulo $\varpi$. 
 
-% \begin{prop}[Crystalline Nature of $\Dio(-)$]\label{prop:DioCrystalline}
-%   The assignment $\cF \mapsto \Dio(\cF)$ yields a functor
-%   \begin{equation*}
-%     \FMOver {\cO_E}R \to \Mod R.
-%   \end{equation*}
-%   Given two formal ${\cO_E}$-modules $\cF, \cG \in \FMOver {\cO_E}R$ and two morphisms
-%   $\phi, \psi$ from $\cF$ to $\cG$ such that the induced morphisms of their reductions
-%   to $R/I$ agree, the induced morphisms $\Dio(\cF) \to \Dio(\cG)$ agree.
-% \end{prop}
+% \begin{defi}[The Dieudonn\'e module of a formal ${\cO_E}$-module]\label{def:DioModule}
+%   Given $\cF \in \FMOver {\cO_E}R$, we define 
+%   $$\Dio(\cF) \coloneqq \Hom_R(\RigExt(\cF, \Ghat_a), R).$$ 
+%   We call $\Dio(\cF)$ the (covariant) \emph{Dieudonn\'e-module} associated to $\cF$. 
+% \end{defi}
+%    The assignment $\cF \mapsto \Dio(\cF)$ yields a functor
+%    \begin{equation*}
+%      \FMOver {\cO_E}R \to \Mod R.
+%    \end{equation*}
+%  \begin{prop}[Crystalline Nature of $\Dio(-)$]\label{prop:DioCrystalline}
+%    Given two formal ${\cO_E}$-modules $\cF, \cG \in \FMOver {\cO_E}R$ and two morphisms
+%    $\phi, \psi$ from $\cF$ to $\cG$ such that the induced morphisms of their reductions
+%    modulo $\varpi$ agree, the induced morphisms $\Dio(\cF) \to \Dio(\cG)$ agree.
+%  \end{prop}
 % subsubsection Explicit Dieudonne Theory (end)
 
 \subsection{The Universal Additive Extension} % (fold)
 \label{sub:The Universal Additive Extension}
-We follow \cite[ 11]{hopkins1994equivariant}.
+We follow \cite[Section 11]{hopkins1994equivariant}.
 Let $R \in \cC$ be a local $\cO_E$-algebra.
 
 \begin{lem}
@@ -1951,7 +1947,7 @@ $i$ by an element in $\Hom(F, V) = 0$.
   \begin{equation*}
     0 \to \cV \to \cU \to \cF \to 0
   \end{equation*}
-  constructed above is called the universal additive extension of $\cF$.
+  constructed above is called the \emph{universal additive extension} of $\cF$.
 \end{defi}
 
 \begin{prop}
@@ -2034,7 +2030,8 @@ $i$ by an element in $\Hom(F, V) = 0$.
 Let $R \in \cC$ and let $\cF$ be a formal
 $\varpi$-divisible ${\cO_E}$-module over $R$ of height $n$. 
 \begin{defi}[The Universal Cover]
-  We denote by $\tilde \cF$ the functor
+  We denote by $\tilde \cF$ the \emph{universal cover} 
+  of $\cF$, which we define as the functor
   \begin{equation*}
     \Tilde \cF \colon \Adm R \to \Vec {E}, \quad
     S \mapsto \left\{(x_1, x_2, \dots) \in \prod_{\N} \cF(S) \mid \varpi (x_{i+1}) =
@@ -2463,7 +2460,7 @@ ${\cO_E}$-module $\cF$ over $R$, a map
 \begin{equation*}
   \qlog_\cF\colon \tilde \cF(S) \to \Dio(\cF) \otimes_R (S \otimes_{\cO_E} E),
 \end{equation*}
-called the quasi-logarithm map.
+which we call the \emph{quasi-logarithm map}.
 We give an explicit description of this map if $\cF = \FGG(H)$ is the standard
 $\cO_E$-module over $\cO_{\breve E}$. 
 

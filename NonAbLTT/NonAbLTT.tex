@@ -4,24 +4,35 @@
 \begin{document}
 \section{Non-Abelian Lubin-Tate Theory} % (fold)
 \label{sec:Non-Abelian Lubin-Tate Theory: An Overview}
-In the preceeding chapter we used formal $\cO_E$-modules to understand the 
+In the preceeding section, we used formal $\cO_E$-modules to understand the 
 maximial abelian extension of a local field $E$. The hope of non-Abelian Lubin-Tate
 theory is to gain insight about the structure of non-Abelian extensions of $E$
-by considering certain deformation spaces of formal $\cO_E$-modules.
+by studying certain deformation spaces of formal $\cO_E$-modules.
 More precisely, attached to a formal $\cO_E$-module $\XX$ over $\Fqbar$
 (determined
-up to isomorphism by its height $n$), we attach a system of rigid spaces 
-$\{M_K\}_{K \subset \GL_n(\cO_E)}$, the so called Lubin-Tate Tower. For $\ell \neq p$, 
-the system of $\ell$-adic compactly supported cohomology groups $\{\hHc^{i}(M_K,
-\bar \Q_\ell)\}_K$ admits commuting actions by $\GL_n(E)$, $\Weil_E$ and $D^\times$,
-where the latter denotes the units of the central divison algebra $D =
-\End_{\FMOver {\cO_E}{\Fqbar}}(\XX) \otimes \Q$. This yields a correspondence of 
-representations of the respective groups, and Harris--Taylor showed in
-\cite{HTShimura} that the middle-degree cohomology of the Lubin--Tate tower induces
-(parts of) the local Langlands correspondence and the Jacquet--Langlands correspondence
-for $\GL_n(E)$. 
-Our goal is an explicit description of a part of this correspondence, and we obtain such a
-description by understanding a part of the Lubin--Tate tower explicitely.
+up to isomorphism by its height $n$), we attach a system 
+$\{M_K\}_{K \subset \GL_n(\cO_E)}$ of rigid analytic spaces
+over $\br E$, the so-called Lubin-Tate Tower. Here, each
+space $M_K$ arises as the generic fiber of a certain
+formal scheme $\cM_K$ that parameterizes deformations of
+$\XX$ with Drinfeld level $K$ structure.
+Taking geometric fiber, each component of this system admits
+commuting right actions by the units of a division algebra $D$
+of invariant $1/n$ over $E$, and the Weil group
+$\Weil_E$. Furthermore, $\GL_n(E)$ acts on the tower
+as a pro-object.
+Hence, For $\ell \neq p$, 
+the colimit of compactly supported $\ell$-adic  cohomology groups 
+$$\HLT = \colim_K \hHc^{n-1}(M_K \otimes_{\br E} \Cp,
+\bar \Q_\ell)$$ admits an action by the group
+$$G = \GL_n(E) \times \Weil_E \times D^\times.$$
+By the results of non-Abelian Lubin--Tate Theory (cf. \cite{HTShimura}, \cite{mieda2010NonCusp} and \cite{boyer1999mauvaise}),
+the representation $\HLT$ encodes
+the local Langlands correspondence and the Jacquet--Langlands correspondence for $\GL_n(E)$. 
+The aim of this section
+is to give a precise statement of these results. Along
+the way, we introduce the important deformation functors
+and group actions. 
 
 \subsection{Lubin--Tate Deformation Spaces} % (fold)
 \label{sub:Lubin-Tate Deformation Spaces}
@@ -29,17 +40,14 @@ Let $\XX \in \FMLOver {\cO_E}\Fqbar$ be the reduction of the standard formal
 $\cO_E$-module law $H$ of height $n$ (cf. \cref{sub:Hazewinkels FuncEq and the
 Standard Formal Module}).
 The aim of this section is to constuct a certain moduli problem $\cM_{m}$,
-parametrizing deformations of $\XX$ with so-called Drinfeld level $\varpi^m$-structure.
+parameterizing deformations of $\XX$ with so-called Drinfeld level $\varpi^m$-structure.
 By results of \textsc{Vladimir Drinfeld} (cf. \cite{drinfel1974elliptic}),
 these moduli problems turn out to be representable inside the category $\cC$.
 
 \subsubsection{The Tower of Deformation Spaces} % (fold)
 \label{ssub:The Tower of Deformation Spaces}
 We mostly follow \cite[Chapter 2]{Strauch2008DefSp} in the following
-exposition. 
- We work with the following variant of the deformation 
-functor introduced in \cref{sub:Deformations of Formal Modules}.
-
+exposition. We introduce a variant of the deformation functor introduced in \cref{sub:Deformations of Formal Modules}. 
 Recall the notion of quasi-isogenies from \cref{sub:Formal DVR-Modules over Fields}.
 We define a functor $\cM_0\colon \cC \to \Set$ on components $R \in \cC$ via
 \begin{equation*}
@@ -49,14 +57,14 @@ We define a functor $\cM_0\colon \cC \to \Set$ on components $R \in \cC$ via
 where we say that two pairs $(\cF, \iota)$ and $(\cF', \iota')$ are isomorphic
 if and only if there is an isomorphism $\alpha \colon \cF \to \cF'$,
 such that $\iota' = \alpha_0 \circ \iota$, where $\alpha_0$ denotes the reduction
-of $\alpha$. Note that, as all formal $\cO_E$-module laws over $\Fqbar$ of the same height
+of $\alpha$. Note that, since all formal $\cO_E$-module laws over $\Fqbar$ of the same height
 are isomorphic, this functor only depends on the height $n$.
 
 We have a stratification
 \begin{equation*}
   \cM_0 = \coprod_{j \in \Z} \cM_0^{(j)},
 \end{equation*}
-where $\cM_0^{(j)}$ parametrizes deformations $(\cF, \iota)$ with $\height(\iota) = j$.
+where $\cM_0^{(j)}$ parameterizes deformations $(\cF, \iota)$ with $\height(\iota) = j$. 
 Any quasi-isogeny $\tau\colon \XX \dashrightarrow \XX$ yields an isomorphism, 
 functorial in $R$,
 \begin{equation*}
@@ -65,17 +73,16 @@ functorial in $R$,
 \end{equation*}
 In particular, for any two integers $j, j' \in \Z$, the two spaces
 $\cM_0^{(j)}$ and $\cM_0^{(j')}$ are isomorphic. Hence, by
-\cref{thm:RepresentabilityOfDefSpaceWOLevel}, $\cM_0^{(j)}$ is representable by 
-a local $\cO_\br E$-algebra $A^{(j)}_0 \in \cC$, non-canonically isomorphic 
+\cref{thm:RepresentabilityOfDefSpaceWOLevel}, $\cM_0^{(j)}$ is represented by
+a local $\cO_\br E$-algebra $A^{(j)}_0 \in \cC$, noncanonically isomorphic
 to $\cO_\br E \llbr u_1, \dots, u_{n-1} \rrbr$.
 
-The functor $\cM_0$ may be seen as the ‘$0$’-th layer of the Lubin--Tate tower. 
-In order to define the higher layers, we need the notion of Drinfeld level strucutres.
+The functor $\cM_0$ can be seen as the ‘$0$’-th layer of the Lubin--Tate tower. 
+In order to define the higher layers, we need the notion of Drinfeld level structures.
 
 \begin{defi}[Drinfeld level $\varpi^m$ structure]
   Let $\cF \in \FMOver {\cO_E}{R}$ be a $\varpi$-divisible formal $\cO_E$-module
-  of height $n>0$ and let $m$ be a non-negative 
-  integer. A Drinfeld level  $\varpi^m$ structure on $\cF$ is a morphism of
+  of height $n>0$ and let $m$ be a nonnegative integer. A \emph{Drinfeld level  $\varpi^m$ structure} on $\cF$ is a morphism of
   $\cO_E$-modules 
   \begin{equation*}
     \phi\colon {(\varpi^{-m}\cO_E/\cO_E)} \to \cF(R)
@@ -98,20 +105,18 @@ In order to define the higher layers, we need the notion of Drinfeld level struc
 
 Just as in the case without Drinfeld level, we have a stratification $\cM_m =
 \coprod_{j \in \Z} \cM_m^{(j)}$, and any two functors $\cM_m^{(j)}$ and
-$\cM_m^{(j')}$ (non-canonically) isomorphic.
-Furthermore, for non-negative integers $m' \leq m$, we have natural morphisms
+$\cM_m^{(j')}$ are (non-canonically)  isomorphic.
+Furthermore, for nonnegative integers $m' \leq m$, we have natural morphisms
 $\cM_m \to \cM_{m'}$ by restricting the level structure. 
 By results of Drinfeld, each functor $\cM_m^{(0)}$ is representable.
 
 \begin{thm}[Representability of the Lubin--Tate Deformation Space with Level Structure]\label{thm:RepresentabilityOfDefSpaceWithLevel}
-  The functor $\cM_m^{(0)}$ is representable by a regular local ring $A_m \in \cC$ of 
+  The functor $\cM_m^{(0)}$ is represented by a regular local ring $A_m \in \cC$ of 
   dimension $m-1$. Writing $(\cF^\univ, \iota^\univ, \phi_m^\univ) \in \cM_m(A_m)$ for
-  a universal triple, a system of local parameters is given by the images of the 
-  basis vectors under $\phi_m^\univ$. Furthermore, for any $m' < m$, the morphism 
+  a universal triple, a system of local parameters is given by the images of the basis vectors in $\phi_m^\univ$. Furthermore, for any $m' < m$, the morphism 
   $A_{m'} \to A_m$ is finite and flat, and it is \'etale after inverting $\varpi$. 
 \begin{proof}
-  This is \cite[Proposition 4.3]{drinfel1974elliptic}, also cf.
-  \cite[Proposition 2.2.5]{Strauch2008DefSp}.
+  This is \cite[Proposition 4.3]{drinfel1974elliptic}, also see \cite[Proposition 2.2.5]{Strauch2008DefSp}.
 \end{proof}
 \end{thm}
 
@@ -156,7 +161,7 @@ Hence, we find that
 where the choice of an isomorphism is equivalent to the choice of a level structure 
 on $F(\cO_{E_m^\LT})$ by \cref{lem:PropertiesOfFiniteLTExt}. 
 
-Now let $n \geq 1$ and let $\XX$ be the reduction of the standard formal 
+Now, let $n \geq 1$ and let $\XX$ be the reduction of the standard formal 
 $\cO_E$-module of height $n$. Let $\wedge \XX$ be the determinant of $\XX$,
 that is, the formal $\cO_E$-module with $\Dio(\wedge \XX) = \wedge^n \Dio(\XX)$
 (it arises as the reduction of the formal $\cO_E$-module constructed in
@@ -164,7 +169,7 @@ that is, the formal $\cO_E$-module with $\Dio(\wedge \XX) = \wedge^n \Dio(\XX)$
 Write $\cM_m^{(0)}$ for the deformation space of $\XX$ with Drinfeld $\varpi^m$
 level structure and $\cM_{m, \wedge}^{(0)}$ for the deformation space of $\wedge \XX$. 
 
-Let $R \in \cC$ be arbitrary and let $(\cF, \iota) \in \cM_0^{(0)}(R)$. 
+Let $R$ be an arbitrary object in $\cC$ and let $(\cF, \iota) \in \cM_0^{(0)}(R)$. 
 Recall the construction of determinants of formal $\cO_E$-modules
 from \cref{sub:Determinants of Formal modules}. We have the following result.
 
@@ -189,8 +194,8 @@ In particular, we obtain a natural map
   \mapsto (\wedge^n \cF, \wedge^n \iota, \wedge^n \phi).
 \end{equation*}
 In particular, as $\wedge \XX$ is of height $1$, we obtain a morphism $\cM_m^{(0)}
-\to \cO_{E^{\LT}_m}$ upon choosing a Drinfeld level
-$\varpi^m$ structure on $F(\cO_{E^\LT_m})$. 
+\to \cO_{E^{\LT}_m}$ upon choosing a Drinfeld $\varpi^m$ level
+structure on $F(\cO_{E^\LT_m})$. 
 % subsubsection The Case of Height One (end)
 
 \subsubsection{Group Actions on the Tower of Lubin--Tate Deformation Spaces} % (fold)
@@ -211,19 +216,17 @@ $d \in D^\times$, we put
   (\cF, \iota, \phi).d = (\cF, \iota \circ d, \phi).
 \end{equation*}
 
-The group $\GL_n(E)$ acts in a less simple matter. Akin to the action of
+The group $\GL_n(E)$ acts in a less simple matter. Similarly to the action of
 $D^\times$, we would like to define the action as
 $(\cF, \iota, \phi).g = (\cF, \iota, \phi \circ g)$, but this only makes sense
 if $g \in \GL_n(\cO_E)$. To extend this action to all of $\GL_n(E)$, we
-allow ourselves to also change the underlying formal group.
+allow ourselves to change the underlying formal group.
 We need the following constructions.
 
 \begin{defi}[Quotients with respect to Level Structure]\label{def:QuotientModule}
-  Let $R \in \cC$ and let $(\cF, \iota, \phi) \in \cM_m(R)$. Let
-  $P \subseteq (\varpi^{-m}\cO_E/\cO_E)^n$ be a submodule.
+  Let $R \in \cC$ and let $(\cF, \iota, \phi) \in \cM_m(R)$. Let $P \subseteq (\varpi^{-m}\cO_E/\cO_E)^n$ be a submodule.
   We define the quotient $(\cF/\phi(P))$ as follows. Let 
-  $(\cF^\univ, \iota^\univ, \phi^{\univ}) \in \cM_m(A_m)$ be the universal 
-  triple and let $\alpha\colon A_m \to R$ be the morphism giving rise to
+  $(\cF^\univ, \iota^\univ, \phi^{\univ}) \in \cM_m(A_m)$ be the universal triple, and let $\alpha\colon A_m \to R$ be the morphism giving rise to
   $(\cF, \iota, \phi)$. Then $\phi^\univ(P) \subset \cF^\univ(A_m)$ is a 
   finite subset. As $A_m$ satisfies all the conditions imposed in
   \cref{sub:Quotients of Formal Modules by Finite Submodules}, we may take the quotient
@@ -264,18 +267,15 @@ We need the following constructions.
   \end{enumerate}
 \end{lem}
 \begin{proof}
-  This is \cite[Proposition 4.4]{drinfel1974elliptic}. Again it suffices assume 
-  that $R = A_m$ and that $\cF$ is the universal formal module with level
+  This is \cite[Proposition 4.4]{drinfel1974elliptic}. Again, it suffices to assume that $R = A_m$ and that $\cF$ is the universal formal module with level
   $\varpi^m$ structure. We may choose a coordinate $\cF \cong \FGG(F)$. The first
   statement follows as over $A_m$, we have $f_{\phi(P)}(\phi(a)) = 0$ for $a
   \in P$, where $f_{\phi(P)}$ is the power series arising in the construction of 
-  $(F/\phi(P))$, cf. \cref{thm:Quotients}. The second claim follows as the 
-  morphism $(\varpi^{-m'} \cO_E^n/\cO_E^n) \to \fm_{A_m}$, induced by 
-  $\phi'$, is injective.
+  $(F/\phi(P))$, cf. \cref{thm:Quotients}. The second claim follows because the morphism $(\varpi^{-m'} \cO_E^n/\cO_E^n) \to \fm_{A_m}$, induced by $\phi'$, is injective.
 \end{proof}
 
 This allows us to construct the $\GL_n(E)$-action. Assume that $g \in \GL_n(E)$ is such that $g^{-1} \in \Mat_{n\times
-n}(\cO_E)$ and $g \in \varpi^{-\delta} \Mat_{n \times n}(\cO_E)$ for some non-negative
+n}(\cO_E)$ and $g \in \varpi^{-\delta} \Mat_{n \times n}(\cO_E)$ for some nonnegative
 integer $\delta$. In this case, we construct for all integers $m \geq \delta$ a natural
 transformation
 \begin{equation*}
@@ -311,8 +311,7 @@ transition functions $\cM_m \to \cM_{m'}$. Indeed, given integers $m \geq \delta
 commutes.
 
 If $g \in \GL_n(E)$ is an arbitrary element, we may choose an integer $r$ such
-that $(\varpi^{-r} g)^{-1} \in \Mat_{n \times n}(\cO_E)$. We now pick 
-$\delta > 0$ in a way that $\varpi^{-r}g \in \varpi^{-\delta}\Mat_{n \times n}(\cO_E)$. 
+that $(\varpi^{-r} g)^{-1} \in \Mat_{n \times n}(\cO_E)$. We now pick $\delta > 0$ such that $\varpi^{-r}g \in \varpi^{-\delta}\Mat_{n \times n}(\cO_E)$. 
 Now, for $m \geq \delta$, we obtain natural transformations
 \begin{equation*}
   g_{m,m-\delta}\colon \cM_{m} \to \cM_{m-\delta}, \quad (\cF, \iota, \phi).g = (\cF, \iota \circ \varpi^{-r}, \phi).(\varpi^{-r}g).
@@ -346,8 +345,8 @@ $m > m'$ such that $K_m \subseteq K \subseteq K_{m'}$. We define
   A_K^{(j)} \coloneq (A^{(j)}_m)^K, \quad \cM_K^{(j)} \coloneq \Spf(A_K^{(j)}), \quad
   \cM_K = \coprod_{j \in \Z} \cM_K^{(j)}.
 \end{equation*}
-By \cite[Proposition 2.2.5]{Strauch2008DefSp}, these constructions are well-defined
-and yield the refined tower of deformation spaces 
+By \cite[Proposition 2.2.5]{Strauch2008DefSp}, these constructions are well defined
+and yield the refined tower of deformation spaces
 $\{\cM_K\}_{K \subset \GL_n(\cO_E)}$, where $K$ ranges over 
 the compact open subgroups of $\GL_n(\cO_E)$. Any ring
 $A_K^{(j)}$ is local, noetherian, integrally closed and finite over
@@ -366,7 +365,7 @@ The aim of this section is to define the right action of the Weil
 group on the formal scheme 
 $\cM_m \times_{\spf(\cO_\br E)} \spf(\cO_\Cp)$, which will be induced
 from a certain Weil descent datum on $\cM_m$. 
-We recall the notion of Weil descent data and show how they induce 
+We recall the notion of Weil descent data and show how they induce
 an action of the Weil group.
 
 Let $\cG$ be a functor $\Adm {\cO_\br E} \to \Set$. As usual, we denote
@@ -378,20 +377,20 @@ corresponding morphism of formal schemes, and define
   \Phi^* \cG \coloneqq \cG \times_{\spf(\cO_\br E), \Phi^\flat}
   \spf(\cO_\br E).
 \end{equation*}
-Note for any admissible $\cO_\br E$-algebra $\cO_\br E \xto i R$, we have 
+Note that for any admissible $\cO_\br E$-algebra $\cO_\br E \xto i R$, we have
 $\Phi^* \cG(R) = \cG(\Phi_* R)$, where $\Phi_* R$ is the admissible
 $\cO_\br E$-algebra with structure morphism $\cO_\br E \xto{i \circ \Phi}
 R$. 
 
 \begin{defi}[Weil Descent Datum]\label{def:WeilDD}
-  A \emph{Weil descent datum} is an isomorphism
+  A \emph{Weil descent datum} is an isomorphism of functors
   \begin{equation*}
     \alpha\colon \cG \to \Phi^* \cG.
   \end{equation*}
 \end{defi}
 
 Now let $E'/E^\nr$ be a finite Galois field extension and let 
-$w \in \Gal(E'/E)$ be an element, so that $w|_\br E = \Phi^m$ for some
+$w \in \Gal(E'/E)$ be an element with $w|_\br E = \Phi^m$ for some
 $m \in \Z$. Now $w$ yields a morphism
 \begin{equation*}
   \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\hat E'}) \xto {(1, w^\flat)}
@@ -436,8 +435,7 @@ E'}) = \cG \times_{\spf(\cO_\br E)} \spf(\cO_{\Cp}).$$ Note that this action
 only respects the $\cO_E$-structure.
 
 \begin{xpl}
-  Assume that $\cG = \spf(R)$, where $R$ is an $\cO_\br E$-algebra of 
-  the form
+  Assume that $\cG = \spf(R)$, where $R$ is an $\cO_\br E$-algebra of the form
   \begin{equation*}
     R = \frac{\cO_\br E \llbr X_1, \dots, X_k \rrbr}{(f_1, \dots, f_l)}.
   \end{equation*}
@@ -484,8 +482,7 @@ where
       \Fqbar \dashrightarrow \cF \otimes_{R, \id} (\Phi_* R/\fm_R) = (\Phi^*
       \cF) \otimes_R \Fqbar.
     \end{equation*}
-    Here $\Frob_q^{-1}$ denotes the inverse quasi-isogeny of the relative
-    Frobenius morphism $\Frob_q\colon \XX^{(-q)} \to \XX$. In particular, 
+    Here $\Frob_q^{-1}$ denotes the inverse quasi-isogeny of the relative Frobenius morphism $\Frob_q\colon \XX^{(-q)} \to \XX$. In particular, 
     $\height(\iota') = \height(\iota)-1$.
   \item the level structure $\phi'$ is
     \begin{equation*}
@@ -501,7 +498,7 @@ that $\delta_w$ restricts to an isomorphism $\cM_{m, \cO_{{E'}}}^{(j)} \to \cM_{
 
 \begin{xpl}
   The action of $\Weil_E$ on $(\cM_{m}\cotimes_{\cO_\br E}
-  \cO_{E'})({\cO_{E'}})$ admits a simple description. Suppose we are given (an
+  \cO_{E'})({\cO_{E'}})$ admits a simple description. Suppose that we are given (an
   equivalence class of) a triple $(\cF, \iota, \phi) \in \cM_m({\cO_{E'}})$ and
   an element $w \in \Weil_E$ such that $w|_{\br E} = \Phi^m$ for $m \in \Z$. We
   may choose a coordinate $\cF = \FGG(F)$, where $F$ is some formal
@@ -522,7 +519,8 @@ that $\delta_w$ restricts to an isomorphism $\cM_{m, \cO_{{E'}}}^{(j)} \to \cM_{
 
 \subsection{The \'Etale Cohomology of the Lubin--Tate Tower} % (fold)
 \label{sub:The Local Langlands Correspondence for the General Linear Group}
-In the preceeding paragraphs, we explained that $\{\cM_{K}\}_{K \subset
+Let us fix an identification $\Qlbar \cong \C$.
+In the preceding paragraphs, we explained that $\{\cM_{K}\}_{K \subset
 \GL_n(\cO_E)}$ is a 
 tower of locally noetherian formal schemes with finite and generically \'etale 
 transition maps, equipped with an action by $\GL_n(E) \times D^\times$ and 
@@ -551,13 +549,13 @@ correspondence.
 
 \begin{defi}[Supercuspidal Representation]\label{def:SuperCusp}
   An admissible (cf. \cref{def:SmoothAndAdmRep}) representation $(\pi,V) \in
-  \Rep{\GL_n(E)}$ is called supercuspidal if all of its matrix coefficients are
+  \Rep{\GL_n(E)}$ is called \emph{supercuspidal} if all of its matrix coefficients are
   constant modulo the center $E^\times \subseteq \GL_n(E)$.
 \end{defi}
 
 Here, a matrix coefficient is a function of the form $m(g) = \langle \pi(g)
 \phi, \phi^\vee\rangle$, where $(\phi, \phi^\vee)$ ranges over the elements of
-$V \times V^\vee$ (where $\vee$ denotes the contragradient). For details, and
+$V \times V^\vee$ (where $\vee$ denotes the contragradient). For details and
 the important relation to the method of parabolic induction, we refer to
 \cite[Section 8]{getz2023introduction}.
 
@@ -570,11 +568,11 @@ The local Langlands correspondence gives a bijection
 \xto{1:1} \  \left\{\begin{gathered}\text{irreducible representations} \\
 \text{of $\Weil_E$} \end{gathered}\middle\}\right/\cong.
 \end{equation*}
-Of course not any such bijection is interesting, the local Langlands correspondence
+Of course, not any such bijection is interesting; the local Langlands correspondence
 predicts the existence of a unique bijection $\rec_E$ compatible with various
 structures on both sides. See \cite[Section 12.4]{getz2023introduction} for a
 detailed account of the axioms $\rec_E$ should satisfy.
-In particular, the case $n=1$ recovers local class field theory: 
+In particular, case $n=1$ recovers local class field theory: 
 $\rec_E(\pi) = \pi \circ \Art_E^{-1}$. 
 
 The local Jacquet--Langlands correspondence gives a bijection 
@@ -586,9 +584,9 @@ The local Jacquet--Langlands correspondence gives a bijection
 \text{of $D^\times$}. \end{gathered}\middle\}\right/\cong,
 \end{equation*}
 characterized by a natural character identity. This result is due to
-Deligne--Bernstein--Kazhdan--Vigneras cf. \cite{deligne1984representations} and 
+Deligne--Bernstein--Kazhdan--Vigneras cf. \cite{deligne1984representations} and
 Rogawski \cite{rogawski1983representations}. Here, neither the definition of discrete
-series representations or the precise statement is of major importance for us,
+series representations nor the precise statement is of major importance to us;
 we only need the fact that all supercuspidal representations of $\GL_n(E)$ are
 discrete series representations. 
 
@@ -596,15 +594,16 @@ Let $\pi$ be a supercuspidal representation of $\GL_n(E)$.
 By results of Boyer (cf. \cite{boyer1999mauvaise})
 in the equal characteristic case and Harris--Taylor (cf. \cite{HTShimura}) in the 
 mixed characteristic case, both $\rec_F(\pi)$ and $\JL(\pi)$ occur
-(up to duals and twists) in the $\pi$-isotypic component of the cohomology of 
+(up to duals and twists) in the $\pi$ isotypic component of the cohomology of 
 the tower $\{M_{K} \otimes_{\br E} \Cp\}_K$. 
-Moreover, Boyer proved that the corresondence takes place in the middle-degree
-cohomology if $E$ is a local function field, and the same result for 
-mixed characteristic is due to Mieda, cf. \cite{mieda2010NonCusp}.
+Moreover, Boyer proved that the correspondence takes place in the middle degree
+cohomology if $E$ is a local function field and the same result for 
+mixed characteristic is due to Mieda; cf. \cite{mieda2010NonCusp}.
 We state a precise version of this result below.
 
-For our purposes, it will be sufficient to consider supercuspidal representations
-whose central character is trivial on $\varpi^\Z$. For those representations,
+As the Jacquet--Langlands and local Langlands correspondences behave well with respect to character twist, it will be sufficient to consider supercuspidal representations
+whose central character is trivial on $\varpi^\Z$. 
+For these representations,
 the correspondence already takes place in the cohomology of the 
 quotients $M_{K, \varpi^\Z} \coloneqq M_K/\varpi^\Z$ by the action of the
 subgroup $\varpi^\Z \subseteq D^\times$. Recall that the action of 
@@ -620,10 +619,10 @@ $\pi$-isotypical component of $\HLT$, which is
   \hH_{\LT, \pi} = \big\langle v \in \HLT : \langle (g,1,1).v \mid g \in \GL_n(E) \rangle 
   \cong \pi \big\rangle \subseteq \HLT.
 \end{equation*}
+
 The precise statement of Non-Abelian Lubin--Tate Theory is the following.
 \begin{thm}[Non-Abelian Lubin--Tate Theory]\label{thm:NonAbLTT}
-  Let $\pi$ be an irreducible supercuspidal representation of $\GL_n(E)$ whose central
-  character is trivial on $\varpi^\Z$.   
+  Let $\pi$ be an irreducible supercuspidal representation of $\GL_n(E)$ whose central character is trivial on $\varpi^\Z$.
   Then we have 
   \begin{equation*}
     {\HLT}_{,\pi^\vee} = \pi^\vee \boxtimes \JL(\pi) \boxtimes \rec_F(\pi)(\tfrac{1-n}2)
@@ -636,14 +635,14 @@ Let $\wedge \XX$ denote the determinant of $\XX$ as defined in
 $\Fqbar$ of height $1$, thus unique up to isomorphism) 
 and denote by $\cM_{m, \wedge}^{(0)}$ the corresponding deformation functors of
 $\wedge \XX$. 
-By \cref{ssub:The Case of Height One}, we have a natural
+In \cref{ssub:The Case of Height One}, we constructed a natural
 determinant map $\cM_{m}^{(0)} \to \cM_{m ,\wedge}^{(0)}$, and we may choose compatible
 isomorphisms $\cM_{m, \wedge}^{(0)} \cong \cO_{E^\LT_m}$. 
 We define $\cM'_{m,\cO_\Cp} \coloneq \cM_{m}^{(0)} \cotimes_{\cO_{E^\LT_m}} \cO_\Cp$.
 As the determinant map is multilinear and alternating, we obtain an action of 
 $\SL_n(\cO_E)$ on each space $\cM'_{m,\cO_\Cp}$. This allows us to construct a tower
-$\{\cM'_{K, \cO_\Cp}\}_{K \subset \SL_n(\cO_E)}$, where $K$ ranges over the 
-open subgroups of $\SL_n(\cO_E)$, by the same method as sketched 
+$$\{\cM'_{K, \cO_\Cp}\}_{K \subset \SL_n(\cO_E)},$$ where $K$ ranges over the 
+open subgroups of $\SL_n(\cO_E)$, by the same method as sketched
 at the end of \cref{ssub:Group Actions on the Tower of Lubin--Tate Deformation
 Spaces}. Furthermore, it is a consequence of \cref{lem:WeinsteinDeterminantAndNorm}
 that the group 
