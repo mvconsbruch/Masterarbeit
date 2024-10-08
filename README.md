@@ -1,4 +1,7 @@
 # Master's thesis
+## FINAL VERSION
+[finalversion.pdf](./compiled_versions/finalversion.pdf) 
+
 ## 26th of September
 [09_26_version.pdf](./compiled_versions/09_26_version.pdf) 
 ### To Dos:
