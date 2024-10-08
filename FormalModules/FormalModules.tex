@@ -6,18 +6,18 @@
 \section{Formal Modules}
 \label{sec:FormalModules}
 This section will serve as an introduction to formal groups and 
-formal modules. Formal groups (or rather, formal group laws) were first
+formal modules. Formal groups (or, rather, formal group laws) were first
 introduced by \textsc{Salomon Bochner} in 1946 as a natural means of studying Lie
 Groups, cf. \cite{Bochner1946FGrps}. The study of formal groups later became
-interesting for its own right, with pioneering work of \textsc{Michel Lazard}. 
+interesting in its own right, with the pioneering work of \textsc{Michel Lazard}. 
 One of Lazard's most notable achievements is the observation that the universal
 (one-dimensional, commutative) formal group law lives over a ring with
 miraculously simple structure, cf. \cite{Lazard1955FGrps}. 
-Lazard's work inspired Lubin to study formal groups, which ultimately led 
-him, in joint work with Tate, to develope Lubin--Tate theory.\footnote{Lubin wrote
-about his experience of the developement of the theory in an online forum, cf.
+Lazard's work inspired Lubin to study formal groups, which ultimately led
+him, in joint work with Tate, to develop Lubin--Tate theory\footnote{Lubin wrote
+about his experience of the development of the theory in an online forum, cf.
 \cite{mathoverflowLUBIN}.}
-We are mostly interested in formal $\cO_E$-modules, which are (roghly) formal groups
+We are mostly interested in formal $\cO_E$-modules, which are (roughly) formal groups
 whose endomorphism rings contain $\cO_E$.
 
 \subsection{Fundamentals} % (fold)
@@ -37,7 +37,7 @@ For now, let $R$ be any ring, and let $n$ and $m$ be arbitrary integers.
     \item $F( \mathbf X, \mathbf Y) = F(\mathbf Y, \mathbf X)$
   \end{enumerate}
   Here, and in the sequel, we abbreviate $\mathbf X =
-  (X_1, \dots, X_n)$, et cetera. From points two and three, it follows that 
+  (X_1, \dots, X_n)$, etc. From points two and three, it follows that 
   $F_i(\bX, \bY) \equiv X_i + Y_i$ modulo terms of degree $\geq 2$.
   Given a formal group law $F$ of dimension $n$ and a formal group law
   $G$ of dimension $m$,
@@ -46,7 +46,7 @@ For now, let $R$ be any ring, and let $n$ and $m$ be arbitrary integers.
   \begin{equation*}
     f(F( \mathbf X, \mathbf Y)) = G(f( \mathbf X), f( \mathbf Y) ).
   \end{equation*}
-  Composition of morphisms is given by composition of tuples of power-series. 
+  Composition of morphisms is given by composition of tuples of power series. 
   Consequently, the identity $\id_{F}$ is the tuple of power series with
   components $\id_{F,i}( \mathbf X) = X_i$. 
   This yields the category of formal group laws of arbitrary dimension over $R$,
@@ -55,11 +55,9 @@ For now, let $R$ be any ring, and let $n$ and $m$ be arbitrary integers.
 \end{defi}
 
 \begin{lem}\label{lem:FGLAdditive}
-    Attached to any $F \in \FGLArbOver R$ of dimension $n$, there exists
-      a unique power series 
+    Attached to any $F \in \FGLArbOver R$ of dimension $n$, there exists a unique power series 
       $$[-1]_F(X_1, \dots, X_n) \in R\llbr X_1, \dots, X_n\rrbr$$
-      satisfying $F(\mathbf X, [-1]_F(\mathbf X)) = 0$. This is automatically
-      an endomorphism of $F$. 
+      satisfying $F(\mathbf X, [-1]_F(\mathbf X)) = 0$. This is automatically an endomorphism of $F$. 
 \end{lem}
 \begin{proof}
     This statement is an application of the formal implicit function theorem,
@@ -68,8 +66,7 @@ For now, let $R$ be any ring, and let $n$ and $m$ be arbitrary integers.
 
 \begin{xpl} Let us introduce the following two formal group laws.
   \begin{itemize}
-    \item \textit{The additive formal group law}. Over any ring $R$, we write 
-      $\Ghat_a$ for the formal group law with addition given by 
+    \item \textit{The additive formal group law}. Over any ring $R$, we write $\Ghat_a$ for the formal group law with addition given by 
       $\Ghat_a(X,Y) = X + Y$. 
     \item \textit{The multiplicative formal group law}. We write $\Ghat_m$ for
       the formal group law associated with the with $\Ghat_m(X,Y) = X + Y +
@@ -77,8 +74,7 @@ For now, let $R$ be any ring, and let $n$ and $m$ be arbitrary integers.
   \end{itemize}
 \end{xpl}
 
-Formal group laws may be thought of as infitesimal Lie groups; it should
-thereby come at no surprise that to
+Formal group laws may be thought of as infinitesimal Lie groups; thus,it should be of no surprise that to
 any $F \in \FGLArbOver R$, we may associate a Lie algebra. 
 
 \begin{defi}[Lie-algebra of formal group law]
@@ -104,7 +100,7 @@ given by multiplication with the matrix
   \left( \frac {\partial f_i}{\partial X_j} (0) \right)_{\substack{1 \leq i \leq m \\ 1 \leq j \leq n}}.
 \end{equation*}
 
-Now let $A$ be any other ring (in all our applications, $A$ will be the ring
+Now let $A$ be any other ring (in all our applications, $A$ be the ring
 of integers of a local field $E$). Our next aim is to introduce formal $A$-module
 laws. Naively, we would like to define these objects as formal group laws $F$
 with $A$-module structure, i.e. a morphism of rings $[\cdot]_F\colon A \to
@@ -130,12 +126,11 @@ This motivates the following definition.
   $\geq 2$. Morphisms between formal $A$-modules of arbitrary dimension are 
   morphisms of formal groups respecting the $A$-module structure. 
   The resulting category is denoted $\FMLArbOver A R$. The full
-  subcategory of one-dimensional formal $A$-module laws over $R$ is denoted 
-  by $\FMLOver A R$.
+  subcategory of one-dimensional formal $A$-module laws over $R$ is denoted by $\FMLOver A R$.
 \end{defi}
 
 Note that $\FGLOver R \cong \FMLOver \Z R$.
-At the slight cost of precision, we usually do not explicitely mention the
+At the slight cost of precision, we usually do not explicitly mention the
 $A$-structure when referring to formal module laws, simply writing $F \in
 \FMLOver AR$ for example. 
 The following facts are readily verified.
@@ -177,7 +172,7 @@ ensured Zariski-locally on $\spec(R)$. It may therefore be
 advisable to consider the sheafification $R \mapsto \FMLArbOver AR^+$ instead,
 but in our applications
 $R$ will almost always be a local $A$-algebra, so considerations
-of this type will not play a large role.
+of this type will not play an important role.
 
 Every $n$-dimensional formal module law $F \in \FMLArbOver A R$
 yields a functor
@@ -268,7 +263,7 @@ the $R$-module $\Lie(\cF)$ is free of rank $n$.
 \begin{xpl}
   % For any scheme $X$, the additive group law $\Ghat_a$ 
   Consider the formal group law $\Ghat_m$ over $\Z_p$. It   admits the structure of a $\Z_p$-module law as follows. 
-  As formal group, $\Ghat_m$ is isomorphic to the assignment
+  As a functor, $\Ghat_m$ is isomorphic to the assignment
   \begin{equation*}
     \Adm {\Z_p} \to \Ab, \quad S \mapsto 1 + S^\cici \subset S^\times.
   \end{equation*}
@@ -277,36 +272,30 @@ the $R$-module $\Lie(\cF)$ is free of rank $n$.
   \begin{equation*}
     (1+s)^{p^k} = 1 + p^ks + \binom{p^k}2 s^2 + \dots + s^{p^k},
   \end{equation*}
-  and given $s \in S^\cici$, this is of the form $1+ o(1)$ as $k$ gets large. 
+  and given $s \in S^\cici$, this is of the form $1+ o(1)$ as $k$ increases. 
   In particular, if $a = a_0 + a_1 p + a_2p^2 + \dots \in \Z_p$, expressions of  the form
   \begin{equation*}
     (1+s)^a = \prod_{i = 1}^\infty (1+s)^{a_k p^k}
   \end{equation*}
   make sense by Lemma \ref{lem:infiniteseriesandproducts}. 
-  Using the evident coordinate, we may equip
-  $\Ghat_{m,\Z_p}$ the structure of a formal $\Z_p$-module law, with
+  Using the evident coordinate, we may equip $\Ghat_{m,\Z_p}$ the structure of a formal $\Z_p$-module law, with
   $[a]_{\Ghat_m}(T) = (1+T)^a -1$ for $a \in \Z_p$. 
   Lubin and Tate found analogues of this construction for the rings of integers 
   over arbitrary non-Archimedian local fields $E$. We recall their construction in 
   \cref{sub:Lubin--Tate Formal Module Laws}. In  \cref{sec:Local Class
-  Field Theory} we explain applications of these formal modules to local class
+  Field Theory} we explain the applications of these formal modules to local class
   field theory.
 \end{xpl}
 
 
-
-
-
 \begin{defi}[Formal Module associated to $R$-module]
   \label{def:additiveformalmoduleassociatedtomodule}
-  Suppose that $M$ is a finite free $R$-module. Then we write
-  $\Ghat_a \otimes M$ for the additive formal $A$-module associated to $M$ over $R$.
+  Suppose that $M$ is a finite free $R$-module. Then we write $\Ghat_a \otimes M$ for the additive formal $A$-module associated to $M$ over $R$.
   As a formal scheme, this formal module is given by
   \begin{equation*}
     \Ghat_a \otimes M \cong \spf(R \llbr M^\vee \rrbr),
   \end{equation*}
-  where $R \llbr M^\vee \rrbr$ denotes the completion of $\Sym_R(M^\vee)$ with respect
-  to the ideal generated by $M^\vee$. The (formal) $A$-module structure is the
+  where $R \llbr M^\vee \rrbr$ denotes the completion of $\Sym_R(M^\vee)$ with respect to the ideal generated by $M^\vee$. The (formal) $A$-module structure is the
   canonical additive one. 
   Note that $\Lie(\Ghat_a \otimes M) = M$ by design. 
   \end{defi}
@@ -324,7 +313,7 @@ the $R$-module $\Lie(\cF)$ is free of rank $n$.
 We now let $A = {\cO_E}$. Let $R$ be a local ${\cO_E}$-algebra with structure
 map $i\colon  {\cO_E} \to R$.
 
-We review results from s
+We review the results of Sections
 2 and 3 of \cite{hopkins1994equivariant}. 
 Suppose that $\bF = (F_1, \dots, F_n)$ is an $n$-dimensional formal ${\cO_E}$-module
 law over $R$. We abbreviate $\bX = (X_1, \dots, X_n)$, $\bY = (Y_1,
@@ -697,7 +686,7 @@ $\tau\colon \FGG(\XX) \dashrightarrow \FGG(\XX)$ is equal to $\val_\varpi(\Nrd(\
 In this section we explain the construction
 of Lubin--Tate module laws. These $\cO_E$-module laws were introduced by 
 Lubin and Tate in \cite{LubinTateFormalMult} in order to
-construct the totally ramified abelian extensions of $E$. We come back to this
+construct the totally ramified Abelian extensions of $E$. We come back to this
 in \cref{sec:Local Class Field Theory}.
 
 We fix a positive integer $h$ and write $\cF_{\varpi,h}$ for the set of power series
@@ -848,7 +837,7 @@ that ensures that $f$ arises as the logarithm of some formal $\cO_E$-module law.
   \end{enumerate}
 \end{thm}
   \begin{proof}
-    A more general statement can be found in \cite[s 2 and
+    A more general statement can be found in \cite[Sections 2 and
     10]{hazewinkel1978formal}.
   \end{proof}
 
@@ -872,7 +861,7 @@ formal $\cO_E$-module laws, so called $\cO_E$-typical formal module laws.
 \end{defi}
 
 The family of $\cO_E$-typical formal module laws is quite exhaustive.
-The result following is \cite[21.5.6]{hazewinkel1978formal}.
+The following result is \cite[§21.5.6]{hazewinkel1978formal}.
 
 \begin{lem}\label{lem:AnyOModuleIsIsomorphicToAtypic}
   Any formal $\cO_E$-module law over $R \in \cC$ is isomorphic to an
@@ -1430,8 +1419,7 @@ appearing in the Lemma \ref{lem:SESStandardForm}. They satisfy certain condition
   The map sends a pair $\{\Delta, (\delta_a)_a\}$ to the $\cO_E$-module law with
   structure defined following \eqref{eq:SESStandardFormModuleLaw}. 
   \begin{proof}[Proof]
-    This is only a matter of calculation, cf. \cite[
-    6]{hopkins1994equivariant}.
+    This is only a matter of calculation, cf. \cite[Section 6]{hopkins1994equivariant}.
   \end{proof}
 \end{prop}
 
@@ -1816,7 +1804,7 @@ We admit the following facts from Section 9 of \cite{hopkins1994equivariant}.
 \end{prop}
 
 In the case that $R$ is flat over $\cO_E$, and $\cF$ comes from a 
-$\cO_E$-typical formal module, \cite[ 9]{hopkins1994equivariant} also
+$\cO_E$-typical formal module, \cite[Section 9]{hopkins1994equivariant} also
 gives an explicit description of a basis for the modules in question.
 If $\cF$ is isomorphic to the standard formal $\cO_E$-module $H$ of height $n$,
 this allows an explicit
@@ -1869,8 +1857,8 @@ also functorial in $R$.
 \end{proof}
 \end{lem}
 
-By results of \cite{de1995crystalline}, the assignment
-$\cF \mapsto \Dio(\cF)$ is crystalline, i.e., it only
+By the results of \cite{de1995crystalline}, the assignment
+$\cF \mapsto \Dio(\cF)$ is crystalline, that is, it only
 depends on the reduction of $\cF$ modulo $\varpi$. 
 
 % \begin{defi}[The Dieudonn\'e module of a formal ${\cO_E}$-module]\label{def:DioModule}

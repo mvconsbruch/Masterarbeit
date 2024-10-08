@@ -17,8 +17,8 @@ are odd prime numbers, we have the equality
 This unintuitive statement about the interplay of the multiplicative structures of
 $\FF_p$ and $\FF_\ell$ finds a deeper and more conceptual meaning when inspected through
 the lens of cyclotomic fields. This connection
-was first made by Gauß himself, when he provided a proof of quadratic
-reciprocity using so-called Gauß sums. Admitting theory of cyclotomic fields 
+was first made by Gauß himself when he provided a proof of quadratic
+reciprocity, using so-called Gauß sums. Admitting the theory of cyclotomic fields 
 (as developed in Chapter 1 of \cite{neukirch2006algebraische}), and denoting by
 $\Q(\zeta_\ell)$ the $\ell$-th cyclotomic extension,
 quadratic reciprocity is essentially equivalent to the following statement.
@@ -32,23 +32,23 @@ This foreshadows class field theory. Indeed, one major achievement
 of class field theory is the Artin reciprocity law, which in particular yields a 
 description of the decomposition behavior of unramified primes inside abelian extensions
 of number fields, cf. \cite[Theorem 7.3]{neukirch2006algebraische}. 
-The appearence of cyclotomic fields above is also no coincidence.
+The appearance of cyclotomic fields above is also no coincidence.
 
 \begin{thm*}[Kronecker--Weber\footnote{Despite the name, the first complete
-  proof of this theorem is (appearently) due to Hilbert, cf. \cite{hilbert1896neuer}.}] \label{thm:KroneckerWeber}
+  proof of this theorem is (apparently) due to Hilbert, cf. \cite{hilbert1896neuer}.}] \label{thm:KroneckerWeber}
   Every finite extension of $\Q$ embeds into $\Q(\zeta_m)$ for some $m \in \Z$.
-  That is, after choosing an algebraic closure $\Q \inj \bar \Q$, the maximal abelian
+  That is, after choosing an algebraic closure $\Q \inj \bar \Q$, the maximal Abelian
   subextension is given by 
   \begin{equation*}
     \Q^\ab = \bigcup_{m \in \N} \Q(\zeta_m) \subset \bar \Q.
   \end{equation*}
 \end{thm*}
 
-The problem of finding similar descriptions for the maximal abelian extension of
-general number fields seems to be very difficult. There is a similar description 
+The problem of finding similar descriptions for the maximal Abelian extension of
+general number fields seems to be very difficult. There is a similar description
 of Abelian extensions of imaginary quadratic fields (cf. \cite[Chapter II,
 §5]{silverman1994advanced}; these extensions arise by adjoining certain values attained
-by the so-called Weber function at the torion points of an elliptic curve with complex
+by the so-called Weber function at the torsion points of an elliptic curve with complex
 multiplication by the field in question), but in general this problem seems to be open.
 
 \subsection{The Statements of Local Class Field Theory} % (fold)
@@ -140,7 +140,7 @@ the proof makes essential use of the theory of higher ramification groups,
 in particular the theorem of Hasse--Arf. 
 Once all of this is known, the isomorphism $\Art_E$ and property
 (a) arise naturally. We do not prove that this isomorphism satisfies property
-(b), but we do shortly note how to see that an isomorphism satisfying properties
+(b), but we do note briefly how to see that an isomorphism satisfying properties
 (a) and (b) has to be unique. We also present a proof for the functoriality statement.
 
 % subsection The Statements of Local Class Field Theory (end)
@@ -149,9 +149,9 @@ Once all of this is known, the isomorphism $\Art_E$ and property
 \label{sub:Construction of the Maximal Abelian Extension}
 We now explain the interplay of Lubin--Tate formal module laws (as discussed
 in \cref{sub:Lubin--Tate Formal Module Laws}) with 
-local class field theory. The main focus will lay on the construction of the
+local class field theory. The main focus will be on the construction of the
 totally ramified abelian extension $E_\varpi$ from
-\cref{thm:LocalKroneckerWeber}. As announced, it 
+\cref{thm:LocalKroneckerWeber}. As announced, it
 arises as an infinite union of finite extensions $E_{\varpi, m}$, which
 are constructed as follows. Let $f(T) \in \cO_E\llbr T \rrbr$ be a power series
 in $\cF_{\varpi,1}$ (cf. \cref{sub:Lubin--Tate Formal Module Laws}). 
@@ -167,7 +167,7 @@ definition of $\Lambda_{f,m}$ makes sense.
 
 With the $\cO_E$-module structure from $F$, the set $\Lambda_{f,m}$ is an
 $\cO_E$-module. The absolute Galois group of $E$ acts $\cO_E$-linearly on
-$\Lambda_{f,m}$, as the power series constituting the $\cO_E$-structure all
+$\Lambda_{f,m}$, as the power series that make up the $\cO_E$-structure all
 have coefficients in $E$. This yields a homomorphism 
 \begin{equation} \label{eq:GaloisGroupToLambdaHom}
   \Gal(\bar E /E ) \to \Aut_{\Mod{\cO_E}}(\Lambda_{f,m}).
@@ -184,12 +184,12 @@ existence of a power series $[1]_{f,f'} \in \cO_E\llbr T \rrbr$ inducing an
 isomorphism $\Lambda_{f,m} \to \Lambda_{f',m}$. As any finite extension of $E$
 is complete, we obtain $E(\Lambda_{f,m}) = E(\Lambda_{f',m})$, showing the following.
 \begin{lem}\label{lem:FiniteLTExtensionIndepOfF}
-  The Lubin--Tate extension of degree $m$ does only depend on the choice of $\varpi$,
+  The Lubin--Tate extension of degree $m$ depends only on the choice of $\varpi$,
   not on the choice of power series $f \in \cF_\varpi$. 
 \end{lem}
 
 Hence, we shall henceforth choose $f(T) = \varpi T + T^q$. 
-The fact that the corresponding formal module law is $\varpi$-divisible quickly 
+The fact that the corresponding formal module law is $\varpi$-divisible quickly
 implies the following.
 \begin{lem}\label{lem:StructureOfLambdamf}
   For any positive integer $m$, there is an isomorphism of $\cO_E$-modules
@@ -248,9 +248,9 @@ implies the following.
   homomorphism in \eqref{eq:GaloisGroupToLambdaHom} is injective. 
   By \eqref{eq:LCFTInclOfFields}, the source of this morphism has cardinality
   $\geq (q-1)q^{m-1}$, while the target is a set with exactly $(q-1)q^{m-1}$
-  elements. Hence the homomorphism is bijective. For degree-reasons it follows that
+  elements. Hence, the homomorphism is bijective. For degree-reasons, it follows that
   \eqref{eq:LCFTInclOfFields}
-  is an isomorphism; in particular $E_{\varpi,m}$ is totally ramified of
+  is an isomorphism; in particular, $E_{\varpi,m}$ is totally ramified of
   the specified degree.
 \end{proof}
 \end{lem}
@@ -287,9 +287,8 @@ $\Art_E(\varpi)|_{E^\nr} = \Phi$. This implies property (a) in
 \cref{thm:KroneckerWeber}. 
 
 \begin{xpl}
-  Let us consider the case $E = \Q_p$. As the polynomial 
-  $f(T) = (1+T)^p - 1$ lies in $\cF_p$, we find that the extension $E_p$ is generated
-  by the $p$-power torsion points of the multiplicative formal $\Z_p$-module law
+  Consider the case $E = \Q_p$. As the polynomial $f(T) = (1+T)^p - 1$ lies in $\cF_p$, we find that the extension $E_p$ is generated
+  by the $p$ power torsion points of the multiplicative formal $\Z_p$-module law
   $\Ghat_m$ over $\cO_{\bar \Q_p}$.
   Hence, the maximal abelian extension of $\Q_p$ is given by 
   \begin{equation*}
@@ -299,14 +298,12 @@ $\Art_E(\varpi)|_{E^\nr} = \Phi$. This implies property (a) in
   with Galois group $\Gal(\Q_p^\ab /\Q_p) \cong \Z_p^\times \times \hat \Z$. 
 \end{xpl}
 
-The construction of the extensions $E_{\varpi, m}$ also allows us to show uniqueness 
-of the Artin map.
+The construction of the extensions $E_{\varpi, m}$ also allows us to show the uniqueness of the Artin map.
 
 \begin{proof}[Proof of uniqueness of the Artin Map]
   Let $\alpha\colon E^\times \to \Weil_E^\ab$ be
-  an isomorphism satisfying properties (a) and (b). Let ${\varpi'} \in E^\times$
-  be an arbitrary
-  uniformizer. We show that properties (a) and (b) determine $\alpha({\varpi'})$ uniquely.
+an isomorphism that satisfies properties (a) and (b). Let ${\varpi'} \in E^\times$
+  be an arbitrary uniformizer. We show that properties (a) and (b) determine $\alpha({\varpi'})$ uniquely.
   Let $E \subset E_{{\varpi'}, m} \subset E_{\varpi'}$ be the finite subextension 
   defined above. The field $E_{{\varpi'}, m}$ is the splitting field of the polynomial
   $\eta_m$ (as defined above, but with $\varpi'$ in place of $\varpi$), which
@@ -327,28 +324,28 @@ in \cref{thm:LocalKroneckerWeber}.
 
 \begin{proof}[Proof of functoriality of the Artin Map]
 It suffices to prove the theorem for unramified and totally ramified extensions
-$L/E$ seperately, and then point-wise for each uniformizer $\varpi \in
+$L/E$ separately, and then point-wise for each uniformizer $\varpi \in
 L^\times$. If $L/E$ is unramified, the statement just says that the Frobenius
 element of $L$ is the $[L:E]$-th power of the Forbenius element of $E$, which
-is true. If $L/E$ is totally ramified, we have to show that 
+is true. If $L/E$ is totally ramified, we have to show that
 if $\varpi \in L^\times$ is a uniformizer mapping
 to the uniformizer $\varpi' = \Norm_{L/E}(\varpi)$ of $E^\times$, then 
 $\Art_E(\varpi') = \Art_L(\varpi)|_{E^\ab} = \id$. As $L/E$ is totally ramified, we
 have $\Art_L(\varpi)|_{E^\nr} = \Phi$. Hence, we have 
 $\Art_L(\varpi)|_{E^\ab} = \Art_E(\varpi'')$ for some uniformizer $\varpi'' \in
-E^\times$. By definition of $\varpi'$, we have $(\varpi')^\Z =
-\Norm_{L_{\varpi}/E}(L_\varpi^\times)$. By definition of $\varpi''$ we have
+E^\times$. By the definition of $\varpi'$, we have $(\varpi')^\Z =
+\Norm_{L_{\varpi}/E}(L_\varpi^\times)$. By the definition of $\varpi''$ we have
 $E_{\varpi''} \subseteq L_{\varpi}$, so that $\Norm_{L_{\varpi}/E}(L_\varpi^\times) 
-= (\varpi'')^\Z$. This implies $\varpi'' = \varpi'$. The claim follows.
+= (\varpi'')^\Z$. This implies $\varpi'' = \varpi'$. This is what we wanted to show.
 \end{proof}
 
-The remainder of this section is devoted to the proof of the local Kronecker--Weber 
+The remainder of this section is devoted to the proof of the local Kronecker--Weber
 Theorem in \cref{thm:LocalKroneckerWeber}.
 The proof makes heavy use of the upper numbering for the ramification filtration.
-We don't explain these here, instead we refer to \cite[Chapter
+We don't explain these here; instead we refer to \cite[Chapter
 IV]{serre2013local} for a survey of the theory. We
 do however note that in the case of Lubin--Tate extension, \cref{lem:PropertiesOfFiniteLTExt} allows us to calculate the 
-ramification filtration explicitely (cf. \cite[Theorem
+ramification filtration explicitly (cf. \cite[Theorem
 2]{gold1981local}): we have
 \begin{equation}\label{eq:CalculationOfUpperRamificationFiltration}
   \Gal(E_{\varpi, m}/E)^v \cong \begin{cases}
@@ -364,8 +361,7 @@ We need the following variant of Herbrand's theorem (cf. \cite[Chapter IV,
 Proposition 14]{serre2013local}).
 \begin{thm}[Herbrand's theorem]\label{prop:HerbrandsThm}
   Let $L$ be a finite Galois extension of $E$ and let $H \subseteq \Gal(L/K)$ be a
-  normal subgroup
-  corresponding to the subextension $L^H \subseteq L$. Then, for any real number $v \geq -1$, 
+normal subgroup corresponding to the subextension $L^H \subseteq L$. Then, for any real number $v \geq -1$, 
   we have
   \begin{equation*}
     \Gal(L/E)^v H / H \cong \Gal(L^H/K)^v = (\Gal(L/E)/H)^v.
@@ -388,15 +384,14 @@ By the theorem of Hasse--Arf, the same phenomenon occurs for any abelian extensi
 These results suffice to show the following.
 
 \begin{lem}\label{lem:LocalKronWebAlmostDone}
-  Let $E'/E_\varpi$ be a totally ramified extension with $E'/E$ abelian.
+  Let $E'/E_\varpi$ be a totally ramified extension with $E'/E$ Abelian.
   Then $E' = E_\varpi$. 
 \begin{proof}[Sketch of Proof]
   We write $G = \Gal(E'/E)$ and $H = \Gal(E'/E_\varpi)$. We want to show that 
   $H$ is trivial. This will follow from the following two observations.
   \begin{enumerate}
     \item We have $\cap_{v \geq 0} G^v = \{0\}$. Indeed, for any open subgroup
-      $J \subset G$ we have $\cap_{v \geq 0} (G/J)^v = 0$, and by definition
-      $G^v = \lim_J (G/J)^v$. 
+      $J \subset G$ we have $\cap_{v \geq 0} (G/J)^v = 0$, and by definition $G^v = \lim_J (G/J)^v$. 
     \item Also by Herbrand's theorem, we have for integers $v \geq 0$ the equality
       \begin{equation}\label{eq:GoldEssentialEq}
         [G^v : G^{v+1}] = [(G/H)^v : (G/H)^{v+1}] [G^v \cap H : G^{v+1} \cap H].
@@ -404,7 +399,7 @@ These results suffice to show the following.
   \end{enumerate}
   The fact that $E'/E$ is totally ramified implies that $\inf_{\varepsilon > 0}
   [G^v: G^{v+\varepsilon}] \leq q$ for any $v \geq 0$. By the Theorem of 
-  Hasse--Arf, these numbers are non-zero only if $v$ is integral, so
+  Hasse--Arf, these numbers are nonzero only if $v$ is integral, so
   the left-hand side of the equation \eqref{eq:GoldEssentialEq} is bounded from
   above by $q$ (cf. \cite[Lemma 3]{gold1981local}).
   Meanwhile, by \eqref{eq:CalculationOfUpperRamificationFiltration}, the first factor
@@ -416,7 +411,7 @@ These results suffice to show the following.
 \end{lem}
 
 \begin{proof}[Proof of the local Kronecker--Weber theorem]
-  Let $E'/E$ be an abelian extension, identified inside the 
+  Let $E'/E$ be an Abelian extension, identified inside the 
   algebraic closure $\bar E$. We show that $E' \subset E_\varpi E^\nr$. 
   Consider the short exact sequence of Galois groups
   \begin{equation*}
@@ -425,11 +420,11 @@ These results suffice to show the following.
     \Gal(E_\varpi E^\nr/ E_\varpi) \to  \{1\}.
   \end{equation*}
   As the intersection of  $E_\varpi$ and $E^\nr$ is trivial, the group on the right
-  is isomorphic to $\Gal(E^\nr /E) \cong \hat \Z$. Hence the sequence admits 
+  is isomorphic to $\Gal(E^\nr /E)$, which is a free Abelian group. Hence the sequence admits 
   a splitting $\Gal(E_\varpi E^\nr/ E_\varpi) \to \Gal(E' E_\varpi E^\nr/
   E_\varpi)$. The fixed field of the image of this splitting is an extension
-  $L/E_\varpi$ with $L E^\nr E_\varpi = E' E^\nr E_\varpi$ and $L/E$ abelian.
-  By the Lemma above this implies $L = E_\varpi$, hence $E' \subset E^\nr E_\varpi$.
+  $L/E_\varpi$ with $L E^\nr E_\varpi = E' E^\nr E_\varpi$ and $L/E$ Abelian.
+  By the above lemma this implies $L = E_\varpi$, hence $E' \subset E^\nr E_\varpi$.
   This is what we wanted to show.
 \end{proof}
 

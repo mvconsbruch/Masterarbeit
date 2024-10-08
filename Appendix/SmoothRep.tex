@@ -4,31 +4,30 @@
 \subsection{Smooth Representations of Locally Profinite Groups}
 We review some aspects of the representation theory (over complex vector spaces)
 of locally profinite groups. 
-If $G$ is an arbitrary group, we denote the category of complex representations,
+If $G$ is an arbitrary group, we denote the category of complex representations
 (that is, morphisms $G \to \GL(V)$, where $V$ is a $\C$-vector space) as
 $\Rep G$. At the slight cost of precision, we also allow ourselves to refer to
 an element of $\pi\colon G \to \GL(V) \in \Rep G$ by the underlying vector space
 $V$, or the pair $(\pi, V)$. 
 
 \begin{defi}[Locally Profinite Group]
-  A locally profinite group is a topologically group $G$ such that
-  every open neighbourhood of the identity in $G$ contains a compact open
+  A \emph{locally profinite group} is a topological group $G$ such that every open neighborhood of the identity in $G$ contains a compact open
   subgroup of $G$.
 \end{defi}
 For example, any discrete group is locally profinite and $\GL_n(E)$ is locally 
-profinite for any non-archimedian local field $E$. Quotients and closed
+profinite for any non-Archimedian local field $E$. Quotients and closed
 subgroups of locally profinite groups are again locally profinite.
 
 Throughout this section, if not stated otherwise, $G$ is a locally profinite
 group and $H \subset G$ is a closed subgroup of $G$.
 
 \begin{defi}[Smooth and Admissible Representations]\label{def:SmoothAndAdmRep}
-  A representation $\pi\colon G \to \GL(V) \in \Rep G$ is called smooth
+  A representation $\pi\colon G \to \GL(V) \in \Rep G$ is called \emph{smooth}
   if for any $v \in V$, the stabilizer $G_v$ of $v$ is an open subgroup
   of $G$. We define $\RepSm G$, the category of smooth $G$-representations, as
   the full subcategory of $\Rep G$ with objects given by smooth $G$-representations.
 
-  A smooth representation $(\pi, V)$ is called admissible if it is smooth and for every
+  A smooth representation $(\pi, V)$ is \emph{admissible} if it is smooth and for every
   open compact subgroup $H \subseteq G$, the space $V^H$ of $H$-invariants 
   is finite-dimensional.
 \end{defi}
@@ -48,8 +47,8 @@ smooth parts.
 \end{defi}
 
 \begin{defi}[Algebraic Induction]
-  Let $G$ be any group and let $H$ be a subgroup of $G$. We define the Algebraic
-  Induction Functor $\algInd_H^G\colon \Rep H \to \Rep G$ as follows. Given an
+  Let $G$ be any group and let $H$ be a subgroup of $G$. We define the \emph{algebraic
+  induction functor} $\algInd_H^G\colon \Rep H \to \Rep G$ as follows. Given an
   $H$-representation $(\pi, V)\in \Rep H$, consider the vector space
   \begin{equation*}
     \algInd_H^G(V) = \{\phi\colon G \to V \mid \phi(hg) = \pi(h) g\}.
@@ -62,8 +61,7 @@ smooth parts.
 \begin{rmk} 
   We have $\algInd_H^G(V) = \Hom_{\Mod{\C[H]}}(\C[G], V)$. As
   $\C[G]$ has a natural $(\C[H], \C[G])$-bimodule structure, we obtain a natural
-  left-$G$-action on $\algInd_H^G(V)$. This action is precisely the one
-  described above.
+  left-$G$-action on $\algInd_H^G(V)$. This action is precisely the one described above.
 \end{rmk}
 
 \begin{defi}[Restriction Functor]\label{def:RestrictionFunctor}
@@ -108,7 +106,7 @@ smooth parts.
 \end{lem}
 
 \begin{defi}[Smooth Induction]\label{def:SmoothInduction}
-  We define the smooth indction functor 
+  We define the \emph{smooth induction functor} 
   $$\Ind_H^G\colon \RepSm H \to \RepSm G$$ 
   as the smooth part of the algebraic induction functor. That is, for any smooth
   representation $\pi\colon G \to \GL(V)$, we set
@@ -118,9 +116,7 @@ smooth parts.
   \end{defi}
 
 \begin{defi}[Compact Induction]\label{def:CompactInduction}
-  Let $\pi\colon H \to \GL(V)$ be a smooth representation
-  of $H$. Then we define $\cInd_H^G(\pi)$, the compactly induced representation
-  of $\pi$, as the subrepresentation of $\Ind_H^G(\pi)$ with underlying vector
+  Let $\pi\colon H \to \GL(V)$ be a smooth representation of $H$. Then we define $\cInd_H^G(\pi)$, the \emph{compactly induced} representation of $\pi$, as the subrepresentation of $\Ind_H^G(\pi)$ with underlying vector
   space
   \begin{equation*}
     \{\phi \in \Ind_H^G(\pi) \mid \supp(\phi) \subseteq G \text{ is compact in }
@@ -128,11 +124,11 @@ smooth parts.
   \end{equation*}
   This construction yields a functor $\cInd_H^G\colon \RepSm H \to \RepSm G$. 
 \end{defi}
-Note that if $H$ is co-compact in $G$, we have $\cInd_H^G = \Ind_H^G$. 
+Note that if $H$ is cocompact in $G$, we have $\cInd_H^G = \Ind_H^G$. 
 
 \begin{rmk} 
   If $H$ is an open subgroup of $G$, the quotient $H \backslash G$ is 
-  discrete. Now given $(\pi, V) \in \RepSm H$, an element $\phi \in \Ind_H^G(\pi)$
+  discrete. Now, given $(\pi, V) \in \RepSm H$, an element $\phi \in \Ind_H^G(\pi)$
   lies in $\cInd_H^G(\pi)$ if and only if 
   the image of $\supp(\phi)$ is finite in $H \backslash G$. 
   In this case there is an isomorphism
@@ -157,8 +153,6 @@ Note that if $H$ is co-compact in $G$, we have $\cInd_H^G = \Ind_H^G$.
   \end{proof}
 \end{prop}
 
-
-
 \begin{thm}[Smooth Frobenius Reciprocity]\label{thm:SmFrobRec}
   Let $G$ be a locally profinite group and let $H \subseteq G$ be a closed subgroup.
   Then there is an adjunction
@@ -177,8 +171,7 @@ Note that if $H$ is co-compact in $G$, we have $\cInd_H^G = \Ind_H^G$.
     \Hom_{\RepSm H}(\Res_H^G V, W) \cong \Hom_{\Rep G}(V, \algInd_H^G(W)) = 
     \Hom_{\RepSm G}(V, \Ind_H^G(W)).
   \end{equation*}
-  Here the first isomorphism is by Tensor-Hom-adjunction, the second 
-  equality uses that $V$ is a smooth representation of $G$.
+  Here the first isomorphism is by Tensor-Hom-adjunction. The second equality uses that $V$ is a smooth representation of $G$.
 \end{proof}
 \end{thm}
 

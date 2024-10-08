@@ -10,13 +10,12 @@ paper \textit{Formal Complex Multiplication in Local Fields} in 1965 (cf.
 in Class Field Theory. Perhaps inpsired by the theory of complex multiplication
 of elliptic curves, they show that formal group laws, which can be seen as local
 analogues of algebraic groups, can be used to construct abelian extensions of
-arbitrary non-Archimedian local fields $E$. This approach, colloqually
-reguarded to as Lubin--Tate Theory, provides a strikingly simple solution to a
+arbitrary non-Archimedian local fields $E$. This approach, commonly known as Lubin--Tate theory, provides a strikingly simple solution to a
 complicated problem: that of finding generators for the maximal abelian
 extension of $E$ and describing how the Galois group acts on them. 
 
-Two years later, in 1967, \textsc{Robert Langlands} wrote his famous letter 
-to \textsc{André Weil}, introducing the web of conjectures that 
+Two years later, in 1967, \textsc{Robert Langlands} wrote his famous letter
+to \textsc{André Weil}, introducing the web of conjectures that
 is now known as the Langlands Program. The ‘‘local part’’ of these conjectures 
 predicts, in vague terms, a correspondence between smooth representations
 of $\GL_n(E)$ and representations of the absolute Galois group of $E$, thus
@@ -48,7 +47,7 @@ decomposes (up to duals and twists) as
 where $\JL(\pi)$ and $\rec_E(\pi)$ denote the representations 
 of $D^\times$ and $\Weil_E$ corresponding to $\pi$ under the Jacquet--Langlands and 
 local Langlands correspondences. The study of the representation
-$\HLT$ is colloqually regarded to as Non-Abelian Lubin--Tate Theory.
+$\HLT$ is colloquially regarded to as Non-Abelian Lubin--Tate Theory.
 
 Roughly a decade later, this approach was used by \textsc{Michael Harris} and
 \textsc{Richard Taylor} to define the local Langlands correspondence for
@@ -58,7 +57,7 @@ Around the same time, \textsc{Pierre Boyer}
 proved Carayol's conjectures for local function fields (cf.
 \cite{boyer1999mauvaise}). 
 
-Although these results are milestone accomplishments, they leave a few questions
+Although these results are milestone achievements, they leave a few questions
 unanswered, two of which we aim to address in the present text. 
 First, the results of Harris--Taylor offer no insight into the question of
 providing an explicit description of the correspondence.
@@ -81,15 +80,15 @@ Building on this work, \textsc{Jared Weinstein} initiated a program
 to obtain similar results in 2010. 
 
 Around the same time, \textsc{Peter Scholze} developed the theory of perfectoid spaces,
-providing a framework that allows to analyze the geometry of the projective limit 
+providing a framework that allows one to analyze the geometry of the projective limit
 of the spaces in the Lubin--Tate tower. 
 Although no longer a locally finite-type analytic space, the resulting
-Lubin--Tate perfectoid space $M_\infty$ turns out to be easier to work with than 
+Lubin--Tate perfectoid space $M_\infty$ turns out to be easier to work with than
 the individual layers of the Lubin--Tate tower. For example, it admits a
 coordinate that is not available at finite level.
 Recent results along the lines of Weinstein's program
 (cf., for example, \cite{weinstein2016semistable},
-\cite{BoyarchenkoWeinstein2011MaxVar}, \cite{imaitsushima2020affinoids} and 
+\cite{BoyarchenkoWeinstein2011MaxVar}, \cite{imaitsushima2020affinoids} and
 \cite{tokimoto2020affinoids}) make use of this development to construct
 certain formal models of rational subsets of the Lubin--Tate perfectoid space
 $M_{\infty}$ and observe parts of the local Langlands correspondence
@@ -105,21 +104,18 @@ Lubin--Tate theory, this allows, together with the zoo of formal models
 constructed in the works referenced above, for an explicit description of
 certain parts of the local Langlands correspondence.
 
-The aim of this thesis is to give a (mostly) self-contained proof of
+The aim of this thesis is to provide a (mostly) self-contained proof of
 the following results, which appear in \cite[Section 5]{mieda2016geometric}. 
 \begin{thm*}[Main Results of this Thesis]
   \leavevmode \begin{enumerate}
-    \item There exists an affinoid $U \subset M_\infty$ inside the Lubin--Tate perfectoid
-      space admitting a formal model $\cX$ whose reduction is isomorphic to the
+    \item There exists an affinoid $U \subset M_\infty$ inside the Lubin--Tate perfectoid space that admits a formal model $\cX$ whose reduction is isomorphic to the
       perfection of a Deligne--Lusztig variety for $\GL_n(\FF_q)$. Furthermore,
       this isomorphism is compatible for certain group actions on both sides.
-    \item For certain (so-called depth zero supercuspidal) representations
-      $\pi$ of $\GL_n(E)$, one can calculate $\rec_E(\pi)$ and $\JL(\pi)$
-      explicitly, using only the geometry of the Lubin--Tate tower, and the
-      fact that these representations appear inside its $\ell$-adic cohomology.
+    \item For certain (so-called depth zero supercuspidal) representations $\pi$ of $\GL_n(E)$, one can calculate $\rec_E(\pi)$ and $\JL(\pi)$
+      explicitly, using only the geometry of the Lubin--Tate tower and the fact that these representations appear inside its $\ell$-adic cohomology.
   \end{enumerate}
 \end{thm*}
-The first part is an infinite level analogue of the construction by Yoshida.
+The first part is an infinite-level analogue of the construction by Yoshida.
 With this result at hand, the second part is an application of Mieda's ideas.
 For precise statements, see \cref{prop:SpecialFiberOfAffinoidIsLusztig},
 \cref{prop:J1ActionOnAffinoid} and \cref{thm:MainRes1} below. 
@@ -127,8 +123,8 @@ For precise statements, see \cref{prop:SpecialFiberOfAffinoidIsLusztig},
 The structure of the thesis is as follows.
 
 \textbf{\cref{sec:FormalModules}} reviews the theory of formal $\cO_E$-modules, which
-will play a large role in the analysis of the Lubin--Tate tower. It encompasses
-all results we need in later parts of the text.
+will play a significant role in the analysis of the Lubin--Tate tower. It encompasses
+all the results that we need in later parts of the text.
 
 In \textbf{Sections \ref{sec:Local Class Field Theory}  and \ref{sec:Non-Abelian Lubin-Tate Theory: An Overview}}, we review classical Lubin--Tate theory as in
 \cite{LubinTateFormalMult}, and the theorems of non-Abelian Lubin--Tate theory
@@ -138,7 +134,7 @@ relevant group actions.
 
 \textbf{\cref{sec:The Lubin--Tate Space at Infinite Level}} introduces the
 Lubin--Tate space at infinite level. 
-We follow ideas of Weinstein to define a certain coordinate on $\cM_\infty = 
+We follow the ideas of Weinstein to define a certain coordinate on $\cM_\infty = 
 \lim_{m \in \N} \cM_m$. The main result of this section is a description of
 the group actions on $\cM_\infty$ in terms of this coordinate. 
 
@@ -157,7 +153,7 @@ special cases of the varieties considered by
 are stated as facts and applied to our situation.
 
 Finally, in \textbf{\cref{sec:Explicit Non-Abelian Lubin-Tate Theory for Depth
-Zero Supercuspidal Representations}}, we collect the results of the 
+Zero Supercuspidal Representations}}, we collect the results of the
 previous sections to prove the results announced above. 
 
 \subsection*{Notation and Conventions} % (fold)
@@ -166,7 +162,7 @@ previous sections to prove the results announced above.
 \textbf{Fields.} Throughout the text, the letter $E$ usually denotes
 a non-Archimedian local field, for which we make a choice of uniformizer
 $\varpi \in E$. We then denote by $\FF_q$ the residue
-field of $E$, whose characteristic we denote by $p \in \N$, and we furthermore fix
+field of $E$, whose characteristic we denote by $p \in \N$, and we further fix
 an algebraic closure $\bar E$ of $E$. The $\varpi$-adic absolute value $\abs
 -_\varpi$ on $E$ (normalized with $\abs \varpi_\varpi = 1/q$) extends uniquely
 to $\bar E$, and we denote the completion of $\bar E$ with respect to $\abs
@@ -182,10 +178,10 @@ introduce the field extensions $E_{\varpi, m}$ and $E^\LT_m$ of $E$.
 
 \textbf{Categories.} 
 We denote the category of sets by $\Set$ and the category of (unital,
-commututative) rings by $\Ring$. If $A$ is a ring, we write $\Alg A$ for the
-category of $A$-algebras, and $\Mod A$ for the category of $A$-modules.
+commutative) rings by $\Ring$. If $A$ is a ring, we write $\Alg A$ for the
+category of $A$-algebras and $\Mod A$ for the category of $A$-modules.
 In \cref{def:admring} we introduce the categories $\Adm A$ and $\Adic A$ of 
-admissible and adic $A$-algebras, and in \cref{sub:Basic Notions} we introduce 
+admissible and adic $A$-algebras, and in \cref{sub:Basic Notions} we introduce
 for $A$-algebras $R$ the categories $\FMLOver AR$ of formal $A$-modules over $R$
 (with various alterations). We follow this style of notation for almost all categories
 that occur, and their meaning should be clear from the context, with one exception:
@@ -253,8 +249,7 @@ $f^{-1}(T)$ a formal inverse to $f$.
 
 \subsection*{Acknowledgements} % (fold)
 \addcontentsline{toc}{subsection}{Acknowledgements}
-
-First and foremost, I would like to express my deepest gratitude to my advisor, \textit{Hiroki Kato}, for his invaluable guidance and support throughout this past year. I am especially grateful for his patient encouragement, insightful feedback during our weekly meetings, and his insistence on understanding even the smallest details. Our mathematical discussions—both related to my thesis and beyond—have profoundly impacted my work and personal growth, and I feel incredibly fortunate to have had the opportunity to learn from him.
+First and foremost, I would like to express my deepest gratitude to my advisor, \textit{Hiroki Kato}, for his invaluable guidance and support throughout this past year. I am grateful for his countless explanations, his insistence on understanding even the smallest details, and his constant patience and encouragement. Our mathematical discussions—both related to my thesis and beyond—have profoundly shaped this thesis and my development as a mathematician, and I feel incredibly fortunate to have learned from him.
 
 Secondly, I would like to thank \textit{Peter Scholze} for serving as a formal supervisor and for being involved with this thesis. 
 
